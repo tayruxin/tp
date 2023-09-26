@@ -20,7 +20,10 @@ checkstyle {
     toolVersion = '10.2'
 }
 
+apply plugin : 'java'
+
 test {
+    testLogging.showStandardStreams = true
     useJUnitPlatform()
     finalizedBy jacocoTestReport
 }
