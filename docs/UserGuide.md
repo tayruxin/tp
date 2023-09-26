@@ -78,15 +78,15 @@ Order of input **does not** matter.
 | R      | REJECTED               |
 
 **Format**:</br>
-`add c/COMPANY_NAME n/RECRUITER_NAME r/ROLE 
+`add c/COMPANY_NAME n/RECRUITER_NAME r/ROLE
 a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]`
 
 [//]: # (<div markdown="span" class="alert alert-primary">:bulb: **Tip:**)
 [//]: # (A person can have any number of tags &#40;including 0&#41;)
 [//]: # (</div>)
 
-**Examples**: 
-* `add c/Tiktok n/John Tan r/Software Engineer a/PA d/11-11-2023 e/johntan@example.com p/987654321`   
+**Examples**:
+* `add c/Tiktok n/John Tan r/Software Engineer a/PA d/11-11-2023 e/johntan@example.com p/987654321`
 * `add c/Google n/Mary r/Data Analyst a/R d/11-11-2023`
 * `add c/Google r/Data Scientist a/PI n/Mary d/11-11-2023  e/mary@example.com`
 
@@ -99,18 +99,18 @@ Example: `c/Google n/Mary r/Data Analyst a/R d/11-11-2023 f/`</br> Explanation: 
 **Expected output when command succeeds**: </br>
 `{COMPANY_NAME} contact added to the list!`
 
-**GUI Changes:** </br> 
+**GUI Changes:** </br>
 The company should be added to the existing list of companies on the right.
 
 **Expected output when command fails:** </br>
 
 * If the COMPANY_NAME field is missing:
-`Invalid command format! Missing COMPANY_NAME. Format is add c/COMPANY_NAME 
+`Invalid command format! Missing COMPANY_NAME. Format is add c/COMPANY_NAME
 n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
 </br>
 </br>
 * If the RECRUITER_NAME field is missing:
-`Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME n/RECRUITER_NAME 
+`Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME n/RECRUITER_NAME
 r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
 </br>
 </br>
