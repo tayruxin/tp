@@ -60,7 +60,7 @@ public class AddressBookTest {
     }
 
     @Test
-    public void hasCompany_CompanyNotInAddressBook_returnsFalse() {
+    public void hasCompany_companyNotInAddressBook_returnsFalse() {
         assertFalse(addressBook.hasCompany(ALICE));
     }
 

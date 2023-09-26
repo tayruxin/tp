@@ -11,9 +11,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.company.Address;
+import seedu.address.model.company.Company;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
-import seedu.address.model.company.Company;
 import seedu.address.model.company.Phone;
 import seedu.address.model.tag.Tag;
 
@@ -65,9 +65,9 @@ class JsonAdaptedCompany {
      * @throws IllegalValueException if there were any data constraints violated in the adapted company.
      */
     public Company toModelType() throws IllegalValueException {
-        final List<Tag> CompanyTags = new ArrayList<>();
+        final List<Tag> companyTags = new ArrayList<>();
         for (JsonAdaptedTag tag : tags) {
-            CompanyTags.add(tag.toModelType());
+            companyTags.add(tag.toModelType());
         }
 
         if (name == null) {
@@ -102,7 +102,7 @@ class JsonAdaptedCompany {
         }
         final Address modelAddress = new Address(address);
 
-        final Set<Tag> modelTags = new HashSet<>(CompanyTags);
+        final Set<Tag> modelTags = new HashSet<>(companyTags);
         return new Company(modelName, modelPhone, modelEmail, modelAddress, modelTags);
     }
 

@@ -133,7 +133,8 @@ public class EditCommandParserTest {
         // name
         Index targetIndex = INDEX_THIRD_COMPANY;
         String userInput = targetIndex.getOneBased() + NAME_DESC_AMY;
-        EditCommand.EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder().withName(VALID_NAME_AMY).build();
+        EditCommand.EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder()
+                .withName(VALID_NAME_AMY).build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
