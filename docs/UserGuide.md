@@ -10,7 +10,7 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Quick start
+## Quick start ##
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
@@ -20,7 +20,8 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar addressbook.jar` command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
+   
+![img.png](img.png)
 
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
@@ -39,7 +40,7 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Features
+## Current Features ##
 
 <div markdown="block" class="alert alert-info">
 
@@ -63,34 +64,186 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
-### Viewing help : `help`
+### Adding a company: `add` ###
+
+Adds a company to the address book. The company must have the required fields: 
+CompanyName, ApplyingRole, ApplicationStatus, RecruiterName, Deadline(DD-MM-YYYY). 
+Order of input **does not** matter.
+
+| Prefix | Application Status     |
+|--------|------------------------|
+| PA     | PENDING APPLICATION    |
+| PI     | PENDING INTERVIEW      |
+| PO     | PENDING OUTCOME        |
+| A      | ACCEPTED               |
+| R      | REJECTED               |
+
+**Format**:</br>
+`add c/COMPANY_NAME n/RECRUITER_NAME r/ROLE 
+a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]`
+
+[//]: # (<div markdown="span" class="alert alert-primary">:bulb: **Tip:**)
+
+[//]: # (A person can have any number of tags &#40;including 0&#41;)
+
+[//]: # (</div>)
+
+**Examples**: 
+* `add c/Tiktok n/John Tan r/Software Engineer a/PA d/11-11-2023 e/johntan@example.com p/987654321`   
+* `add c/Google n/Mary r/Data Analyst a/R d/11-11-2023`
+* `add c/Google r/Data Scientist a/PI n/Mary d/11-11-2023  e/mary@example.com`
+
+**Acceptable values for each parameter:**<br>
+No other string separators other than c/, n/, r/, a/, d/, e/, p/ . 
+Otherwise, the **entire** command will be considered invalid and all data inputted will be discarded.
+
+Example: `c/Google n/Mary r/Data Analyst a/R d/11-11-2023 f/`</br>
+Explanation: Invalid f/ string separator.
+
+**Expected output when command succeeds**: </br>
+`{COMPANY_NAME} contact added to the list!`
+
+**GUI Changes:** </br> 
+The company should be added to the existing list of companies on the right.
+
+**Expected output when command fails:** </br>
+
+* If the COMPANY_NAME field is missing:
+`Invalid command format! Missing COMPANY_NAME. Format is add c/COMPANY_NAME 
+n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
+</br>
+</br>
+* If the RECRUITER_NAME field is missing:
+`Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME n/RECRUITER_NAME 
+r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
+</br>
+</br>
+* If the APPLICATION_STATUS field is missing:
+`Invalid command format! Missing RECRUITER_NAME. Format is add 
+c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
+</br>
+</br>
+* If the ROLE field is missing:
+`Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME 
+n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
+
+**Expected UI** 
+
+![img_1.png](img_1.png)
+
+### Listing all contacts : `list`
+
+Lists all the contacts in the application at present.
+
+**Format:** `list`
+
+**Examples:** `list`
+
+**Expected UI**:
+
+![img_3.png](img_3.png)
+
+The list of companies should be listed in the following format below:
+```
+{COMPANY_NAME 1} {ROLE}
+
+{COMPANY_NAME 2} {ROLE}
+
+{COMPANY_NAME 3} {ROLE}
+```
+### Deleting a company : `delete` ###
+
+Deletes a company from the address book.
+
+**Format:`delete INDEX`**
+
+* Deletes the contact at the specific INDEX
+* The index refers to the index number shown in the displayed contact list
+* The index must be a positive integer
+
+**Examples:**
+* `list` followed by `delete 1` deletes the first contact in the full list
+* `find` Tiktok followed by `delete 1` deletes the first contact in the results of find Tiktok
+
+**Acceptable values for each parameter:**
+* INDEX must be a number. If not the entire command will be considered invalid input.
+* INDEX must not be out of bounds. If not the entire command will be considered invalid input.
+* INDEX must be more than zero. If not the entire command will be considered invalid input.
+
+**Expected output when command succeeds:**
+```
+“{COMPANY_NAME} application record has been deleted!
+You have __ contacts in the list.”
+```
+
+**GUI Changes:** </br>
+Company at specified index removed and list of companies updated
+
+**Expected output when command fails:** 
+</br>
+If INDEX is out of bounds: 
+</br>
+`Index exceeds the number of contacts!`
+
+If INDEX is zero or negative:
+</br>
+`Index must be positive!`
+
+**Expected UI**
+
+![img_2.png](img_2.png)
+
+
+### View full company information: view ###
+View the full company information of a particular company on the side.
+
+**Format:** `view INDEX`
+
+**Examples:**
+* `view 1` displays application details to the first company in the full list
+* `view 2` displays application details to the second company in the full list
+
+**Acceptable values for each parameter:**
+* INDEX must be a number. If not the entire command will be considered invalid input.
+* INDEX must not be out of bounds. If not the entire command will be considered invalid input.
+* INDEX must be more than zero. If not the entire command will be considered invalid input.
+
+**Expected output when command succeeds:**</br>
+`{COMPANY_NAME} information has been displayed successfully.`
+
+**GUI Changes:** </br>
+The company’s information should be listed on the left, which includes the following fields:
+
+1. COMPANY_NAME 1
+1. APPLICATION_STATUS
+1. ROLE
+1. DEADLINE
+1. RECRUITER_NAME
+1. EMAIL (if any)
+1. PHONE (if any)
+
+**Expected output when command fails:** </br>
+
+* If INDEX is out of bounds: </br>
+`Index exceeds the number of contacts!`
+* If INDEX is zero or negative: </br>
+`Index must be positive!`
+* If INDEX is not a number: </br>
+`Index must be a number!`
+
+**Expected UI**
+
+![img_4.png](img_4.png)
+
+## Upcoming Features ##
+
+### Viewing help : `help` ###
 
 Shows a message explaning how to access the help page.
 
 ![help message](images/helpMessage.png)
 
 Format: `help`
-
-
-### Adding a person: `add`
-
-Adds a person to the address book.
-
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL [t/TAG]…​`
-
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have any number of tags (including 0)
-</div>
-
-Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
-
-### Listing all persons : `list`
-
-Shows a list of all persons in the address book.
-
-Format: `list`
 
 ### Editing a person : `edit`
 
@@ -103,7 +256,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [t/TAG]…​`
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
 * You can remove all the person’s tags by typing `t/` without
-    specifying any tags after it.
+  specifying any tags after it.
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
@@ -126,20 +279,6 @@ Examples:
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
-
-### Deleting a person : `delete`
-
-Deletes the specified person from the address book.
-
-Format: `delete INDEX`
-
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
-
-Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
 ### Clearing all entries : `clear`
 
@@ -186,12 +325,13 @@ _Details coming soon ..._
 
 ## Command summary
 
-| Action     | Format, Examples                                                                                                                                           |
-|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
-| **Clear**  | `clear`                                                                                                                                                    |
-| **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                                        |
-| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                 |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                 |
-| **List**   | `list`                                                                                                                                                     |
-| **Help**   | `help`                                                                                                                                                     |
+| Action     | Format, Examples                                                                                                                                                                                                         |
+|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**    | `add c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]` <br><br> e.g., `add c/Tiktok n/John Tan r/Software Engineer a/PA d/11-11-2023 e/johntan@example.com p/987654321` |
+| **Clear**  | `clear`                                                                                                                                                                                                                  |
+| **Delete** | `delete INDEX`<br><br> e.g., `delete 3`                                                                                                                                                                                  |
+| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG]…​`<br><br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                                                          |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br><br> e.g., `find James Jake`                                                                                                                                                               |
+| **Help**   | `help`                                                                                                                                                                                                                   |
+| **List**   | `list`                                                                                                                                                                                                                   |
+| **View**   | `view`                                                                                                                                                                                                                   |
