@@ -19,9 +19,7 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 1. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
 
 1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar addressbook.jar` command to run the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   
-![img.png](img.png)
+   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>![img.png](img.png)
 
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
@@ -66,8 +64,9 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 ### Adding a company: `add` ###
 
-Adds a company to the address book. The company must have the required fields: 
-CompanyName, ApplyingRole, ApplicationStatus, RecruiterName, Deadline(DD-MM-YYYY). 
+Adds a company to the address book.
+The company must have the required fields:
+CompanyName, ApplyingRole, ApplicationStatus, RecruiterName, Deadline(DD-MM-YYYY).
 Order of input **does not** matter.
 
 | Prefix | Application Status     |
@@ -83,9 +82,7 @@ Order of input **does not** matter.
 a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]`
 
 [//]: # (<div markdown="span" class="alert alert-primary">:bulb: **Tip:**)
-
 [//]: # (A person can have any number of tags &#40;including 0&#41;)
-
 [//]: # (</div>)
 
 **Examples**: 
@@ -94,11 +91,10 @@ a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]`
 * `add c/Google r/Data Scientist a/PI n/Mary d/11-11-2023  e/mary@example.com`
 
 **Acceptable values for each parameter:**<br>
-No other string separators other than c/, n/, r/, a/, d/, e/, p/ . 
+No other string separators other than c/, n/, r/, a/, d/, e/, p/.
 Otherwise, the **entire** command will be considered invalid and all data inputted will be discarded.
 
-Example: `c/Google n/Mary r/Data Analyst a/R d/11-11-2023 f/`</br>
-Explanation: Invalid f/ string separator.
+Example: `c/Google n/Mary r/Data Analyst a/R d/11-11-2023 f/`</br> Explanation: Invalid f/ string separator.
 
 **Expected output when command succeeds**: </br>
 `{COMPANY_NAME} contact added to the list!`
@@ -119,15 +115,15 @@ r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
 </br>
 </br>
 * If the APPLICATION_STATUS field is missing:
-`Invalid command format! Missing RECRUITER_NAME. Format is add 
+`Invalid command format! Missing RECRUITER_NAME. Format is add
 c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
 </br>
 </br>
 * If the ROLE field is missing:
-`Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME 
+`Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME
 n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
 
-**Expected UI** 
+**Expected UI**
 
 ![img_1.png](img_1.png)
 
@@ -179,9 +175,9 @@ You have __ contacts in the list.”
 **GUI Changes:** </br>
 Company at specified index removed and list of companies updated
 
-**Expected output when command fails:** 
+**Expected output when command fails:**
 </br>
-If INDEX is out of bounds: 
+If INDEX is out of bounds:
 </br>
 `Index exceeds the number of contacts!`
 
@@ -330,8 +326,8 @@ _Details coming soon ..._
 | **Add**    | `add c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]` <br><br> e.g., `add c/Tiktok n/John Tan r/Software Engineer a/PA d/11-11-2023 e/johntan@example.com p/987654321` |
 | **Clear**  | `clear`                                                                                                                                                                                                                  |
 | **Delete** | `delete INDEX`<br><br> e.g., `delete 3`                                                                                                                                                                                  |
-| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG]…​`<br><br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                                                          |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br><br> e.g., `find James Jake`                                                                                                                                                               |
+| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG]…​`<br><br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                                                      |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br><br> e.g., `find James Jake`                                                                                                                                                           |
 | **Help**   | `help`                                                                                                                                                                                                                   |
 | **List**   | `list`                                                                                                                                                                                                                   |
 | **View**   | `view`                                                                                                                                                                                                                   |
