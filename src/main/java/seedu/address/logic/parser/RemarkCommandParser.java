@@ -9,8 +9,8 @@ import seedu.address.model.person.Remark;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
-public class RemarkCommandParser implements Parser {
-    private static final Prefix PREFIX_REMARK = new Prefix("r/");
+public class RemarkCommandParser implements Parser<RemarkCommand> {
+    static final Prefix PREFIX_REMARK = new Prefix("r/");
 
     public RemarkCommand parse(String args) throws ParseException {
         requireNonNull(args);
