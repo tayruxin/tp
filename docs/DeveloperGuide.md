@@ -8,9 +8,21 @@ title: Developer Guide
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Acknowledgements**
+### Adapted code and documentation ###
+This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
 
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
-
+### Third party libraries ###
+* [Checkstyle](https://checkstyle.sourceforge.io/) - Checkstyle is a development tool to help programmers write Java code that adheres to a coding standard.
+* [Codecov](https://codecov.io/) - Codecov is a code coverage tool.
+* [Gradle](https://gradle.org/) - Gradle is an open-source build automation tool that is designed to be flexible enough to build almost any type of software.
+* [Jackson](https://github.com/FasterXML/jackson) - Jackson is a multipurpose Java library for processing JSON data format.
+* [Jacoco](https://docs.gradle.org/current/userguide/jacoco_plugin.html) - JaCoCo is a free code coverage library for Java, which has been created by the EclEmma team based on the lessons learned from using and integration existing libraries for many years.
+* [JavaFX](https://openjfx.io/) - JavaFX is a software platform for creating and delivering desktop applications, as well as rich Internet applications (RIAs) that can run across a wide variety of devices.
+* [JavaFX CSS](https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html) - JavaFX CSS is a simple CSS parser.
+* [JavaFX FXML](https://docs.oracle.com/javafx/2/fxml_get_started/jfxpub-fxml_get_started.htm) - JavaFX FXML is an XML-based language that provides the structure for building a user interface separate from the application logic of your code.
+* [JavaFX Scene Builder](https://gluonhq.com/products/scene-builder/) - JavaFX Scene Builder is a visual layout tool that lets users quickly design JavaFX application user interfaces, without coding.
+* [JUnit](https://junit.org/junit5/) - JUnit is a unit testing framework for the Java programming language.
+* [PlantUML](https://plantuml.com/) - PlantUML is an open-source tool allowing users to create UML diagrams from a plain text language.
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Setting up, getting started**
