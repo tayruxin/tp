@@ -80,10 +80,6 @@ public class CompanyTest {
         editedAlice = new CompanyBuilder(ALICE).withEmail(VALID_EMAIL_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
-        // different address -> returns false
-        editedAlice = new CompanyBuilder(ALICE).build();
-        assertFalse(ALICE.equals(editedAlice));
-
         // different tags -> returns false
         editedAlice = new CompanyBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
         assertFalse(ALICE.equals(editedAlice));

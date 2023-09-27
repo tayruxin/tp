@@ -20,7 +20,6 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.company.Address;
 import seedu.address.model.company.Company;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
@@ -207,11 +206,11 @@ public class EditCommand extends Command {
                 return false;
             }
 
-            EditPersonDescriptor otherEditPersonDescriptor = (EditPersonDescriptor) other;
-            return Objects.equals(name, otherEditPersonDescriptor.name)
-                    && Objects.equals(phone, otherEditPersonDescriptor.phone)
-                    && Objects.equals(email, otherEditPersonDescriptor.email)
-                    && Objects.equals(tags, otherEditPersonDescriptor.tags);
+            EditCompanyDescriptor otherCompanyDescriptor = (EditCompanyDescriptor) other;
+            return Objects.equals(name, otherCompanyDescriptor.name)
+                    && Objects.equals(phone, otherCompanyDescriptor.phone)
+                    && Objects.equals(email, otherCompanyDescriptor.email)
+                    && Objects.equals(tags, otherCompanyDescriptor.tags);
         }
 
         @Override
