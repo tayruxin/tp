@@ -50,7 +50,7 @@ According to the sequence diagram you saw earlier (and repeated above for refere
 
 A quick look at the `seedu.address.logic.Logic` (an extract given below) confirms that this indeed might be what we’re looking for.
 
-```java
+```
 public interface Logic {
     /**
      * Executes the command and returns the result.
@@ -60,7 +60,6 @@ public interface Logic {
      * @throws ParseException If an error occurs during parsing.
      */
     CommandResult execute(String commandText) throws CommandException, ParseException;
-...
 }
 ```
 
@@ -85,7 +84,7 @@ Now let’s set the breakpoint. First, double-click the item to reach the corres
 
 ## Tracing the execution path
 
-Recall from the User Guide that the `edit` command has the format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​` For this tutorial we will be issuing the command `edit 1 n/Alice Yeoh`.
+Recall from the User Guide that the `edit` command has the format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [t/TAG]…​` For this tutorial we will be issuing the command `edit 1 n/Alice Yeoh`.
 
 <div markdown="span" class="alert alert-primary">
 
