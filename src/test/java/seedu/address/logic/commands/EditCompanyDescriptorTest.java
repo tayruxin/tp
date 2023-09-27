@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
@@ -49,10 +48,6 @@ public class EditCompanyDescriptorTest {
         editedAmy = new EditCompanyDescriptorBuilder(DESC_AMY).withEmail(VALID_EMAIL_BOB).build();
         assertFalse(DESC_AMY.equals(editedAmy));
 
-        // different address -> returns false
-        editedAmy = new EditCompanyDescriptorBuilder(DESC_AMY).withAddress(VALID_ADDRESS_BOB).build();
-        assertFalse(DESC_AMY.equals(editedAmy));
-
         // different tags -> returns false
         editedAmy = new EditCompanyDescriptorBuilder(DESC_AMY).withTags(VALID_TAG_HUSBAND).build();
         assertFalse(DESC_AMY.equals(editedAmy));
@@ -64,8 +59,7 @@ public class EditCompanyDescriptorTest {
         String expected = EditCommand.EditCompanyDescriptor.class.getCanonicalName() + "{name="
                 + editCompanyDescriptor.getName().orElse(null) + ", phone="
                 + editCompanyDescriptor.getPhone().orElse(null) + ", email="
-                + editCompanyDescriptor.getEmail().orElse(null) + ", address="
-                + editCompanyDescriptor.getAddress().orElse(null) + ", tags="
+                + editCompanyDescriptor.getEmail().orElse(null) + ", tags="
                 + editCompanyDescriptor.getTags().orElse(null) + "}";
         assertEquals(expected, editCompanyDescriptor.toString());
     }
