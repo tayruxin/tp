@@ -4,37 +4,37 @@
     "name" : "Alice Pauline",
     "phone" : "94351253",
     "email" : "alice@example.com",
-    "role" : "Data Analyst",
+    "role" : "Software Engineer",
     "tags" : [ "friends" ]
   }, {
     "name" : "Benson Meier",
     "phone" : "98765432",
     "email" : "johnd@example.com",
-    "role" : "Data Analyst",
+    "role" : "Software Engineer",
     "tags" : [ "owesMoney", "friends" ]
   }, {
     "name" : "Carl Kurz",
     "phone" : "95352563",
     "email" : "heinz@example.com",
-    "role" : "Software Engineer",
+    "role" : "Data Engineer",
     "tags" : [ ]
   }, {
     "name" : "Daniel Meier",
     "phone" : "87652533",
     "email" : "cornelia@example.com",
-    "role" : "Software Engineer",
+    "role" : "Data Engineer",
     "tags" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
     "phone" : "9482224",
     "email" : "werner@example.com",
-    "role" : "Data Scientist",
+    "role" : "UX Designer",
     "tags" : [ ]
   }, {
     "name" : "Fiona Kunz",
     "phone" : "9482427",
     "email" : "lydia@example.com",
-    "role" : "Data Scientist",
+    "role" : "UI Designer",
     "tags" : [ ]
   }, {
     "name" : "George Best",
@@ -42,5 +42,5 @@
     "email" : "anna@example.com",
     "role" : "Web Developer",
     "tags" : [ ]
-  } ]
+  }]
 }
