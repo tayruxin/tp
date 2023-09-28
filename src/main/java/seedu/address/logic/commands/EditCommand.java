@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_COMPANIES;
 
@@ -24,6 +25,7 @@ import seedu.address.model.company.Company;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
+import seedu.address.model.company.Role;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -95,9 +97,10 @@ public class EditCommand extends Command {
         Name updatedName = editCompanyDescriptor.getName().orElse(companyToEdit.getName());
         Phone updatedPhone = editCompanyDescriptor.getPhone().orElse(companyToEdit.getPhone());
         Email updatedEmail = editCompanyDescriptor.getEmail().orElse(companyToEdit.getEmail());
+        Role updatedRole = companyToEdit.getRole();
         Set<Tag> updatedTags = editCompanyDescriptor.getTags().orElse(companyToEdit.getTags());
 
-        return new Company(updatedName, updatedPhone, updatedEmail, updatedTags);
+        return new Company(updatedName, updatedPhone, updatedEmail, updatedRole, updatedTags);
     }
 
     @Override

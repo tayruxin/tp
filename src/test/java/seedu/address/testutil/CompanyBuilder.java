@@ -7,6 +7,7 @@ import seedu.address.model.company.Company;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
+import seedu.address.model.company.Role;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -18,10 +19,12 @@ public class CompanyBuilder {
     public static final String DEFAULT_NAME = "Amy Bee";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
+    public static final String DEFAULT_ROLE = "Software Engineer";
 
     private Name name;
     private Phone phone;
     private Email email;
+    private Role role;
     private Set<Tag> tags;
 
     /**
@@ -31,6 +34,7 @@ public class CompanyBuilder {
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
+        role = new Role(DEFAULT_ROLE);
         tags = new HashSet<>();
     }
 
@@ -41,6 +45,7 @@ public class CompanyBuilder {
         name = companyToCopy.getName();
         phone = companyToCopy.getPhone();
         email = companyToCopy.getEmail();
+        role = companyToCopy.getRole();
         tags = new HashSet<>(companyToCopy.getTags());
     }
 
@@ -83,8 +88,16 @@ public class CompanyBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Role} of the {@code Company} that we are building.
+     */
+    public CompanyBuilder withRole(String role) {
+        this.role = new Role(role);
+        return this;
+    }
+
     public Company build() {
-        return new Company(name, phone, email, tags);
+        return new Company(name, phone, email, role, tags);
     }
 
 }
