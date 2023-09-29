@@ -6,6 +6,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 
@@ -22,35 +24,34 @@ import seedu.address.model.company.Company;
 public class TypicalCompanies {
 
     public static final Company ALICE = new CompanyBuilder().withName("Alice Pauline")
-            .withEmail("alice@example.com")
-            .withPhone("94351253")
-            .withTags("friends").build();
+            .withEmail("alice@example.com").withPhone("94351253")
+            .withRole("Software Engineer").withTags("friends").build();
     public static final Company BENSON = new CompanyBuilder().withName("Benson Meier")
             .withEmail("johnd@example.com").withPhone("98765432")
-            .withTags("owesMoney", "friends").build();
+            .withRole("Software Engineer").withTags("owesMoney", "friends").build();
     public static final Company CARL = new CompanyBuilder().withName("Carl Kurz").withPhone("95352563")
-            .withEmail("heinz@example.com").build();
+            .withRole("Data Engineer").withEmail("heinz@example.com").build();
     public static final Company DANIEL = new CompanyBuilder().withName("Daniel Meier").withPhone("87652533")
-            .withEmail("cornelia@example.com").withTags("friends").build();
+            .withRole("Data Engineer").withEmail("cornelia@example.com").withTags("friends").build();
     public static final Company ELLE = new CompanyBuilder().withName("Elle Meyer").withPhone("9482224")
-            .withEmail("werner@example.com").build();
+            .withRole("UX Designer").withEmail("werner@example.com").build();
     public static final Company FIONA = new CompanyBuilder().withName("Fiona Kunz").withPhone("9482427")
-            .withEmail("lydia@example.com").build();
+            .withRole("UI Designer").withEmail("lydia@example.com").build();
     public static final Company GEORGE = new CompanyBuilder().withName("George Best").withPhone("9482442")
-            .withEmail("anna@example.com").build();
+            .withRole("Web Developer").withEmail("anna@example.com").build();
 
     // Manually added
     public static final Company HOON = new CompanyBuilder().withName("Hoon Meier").withPhone("8482424")
-            .withEmail("stefan@example.com").build();
+            .withRole("Mobile App Developer").withEmail("stefan@example.com").build();
     public static final Company IDA = new CompanyBuilder().withName("Ida Mueller").withPhone("8482131")
-            .withEmail("hans@example.com").build();
+            .withRole("Software Engineer").withEmail("hans@example.com").build();
 
     // Manually added - Company's details found in {@code CommandTestUtil}
     public static final Company AMY = new CompanyBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
-            .withEmail(VALID_EMAIL_AMY).withTags(VALID_TAG_FRIEND).build();
+            .withEmail(VALID_EMAIL_AMY).withRole(VALID_ROLE_AMY).withTags(VALID_TAG_FRIEND).build();
     public static final Company BOB = new CompanyBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
-            .withEmail(VALID_EMAIL_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
-            .build();
+            .withEmail(VALID_EMAIL_BOB).withRole(VALID_ROLE_BOB)
+            .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
 
     private TypicalCompanies() {} // prevents instantiation
 
