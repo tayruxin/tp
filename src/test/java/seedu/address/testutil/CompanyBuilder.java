@@ -3,6 +3,7 @@ package seedu.address.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
+import seedu.address.model.company.ApplicationStatus;
 import seedu.address.model.company.Company;
 import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
@@ -22,12 +23,14 @@ public class CompanyBuilder {
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ROLE = "Software Engineer";
     public static final String DEFAULT_DEADLINE = "2023-10-10";
+    public static final String DEFAULT_STATUS = "PA";
 
     private Name name;
     private Phone phone;
     private Email email;
     private Role role;
     private Deadline deadline;
+    private ApplicationStatus status;
     private Set<Tag> tags;
 
     /**
@@ -39,6 +42,7 @@ public class CompanyBuilder {
         email = new Email(DEFAULT_EMAIL);
         role = new Role(DEFAULT_ROLE);
         deadline = new Deadline(DEFAULT_DEADLINE);
+        status = new ApplicationStatus(DEFAULT_STATUS);
         tags = new HashSet<>();
     }
 
@@ -51,6 +55,7 @@ public class CompanyBuilder {
         email = companyToCopy.getEmail();
         role = companyToCopy.getRole();
         deadline = companyToCopy.getDeadline();
+        status = companyToCopy.getStatus();
         tags = new HashSet<>(companyToCopy.getTags());
     }
 
@@ -109,8 +114,16 @@ public class CompanyBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code ApplicationStatus} of the {@code Company} that we are building.
+     */
+    public CompanyBuilder withStatus(String status) {
+        this.status = new ApplicationStatus(status);
+        return this;
+    }
+
     public Company build() {
-        return new Company(name, phone, email, role, deadline, tags);
+        return new Company(name, phone, email, role, deadline, status, tags);
     }
 
 }

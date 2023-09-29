@@ -42,9 +42,11 @@ public class Messages {
                 .append("; Email: ")
                 .append(company.getEmail())
                 .append("; Role: ")
+                .append(company.getRole())
                 .append("; Deadline: ")
                 .append(company.getDeadline())
-                .append(company.getRole())
+                .append("; Status: ")
+                .append(company.getStatus())
                 .append("; Tags: ");
         company.getTags().forEach(builder::append);
         return builder.toString();

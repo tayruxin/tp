@@ -9,6 +9,7 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.company.ApplicationStatus;
 import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
@@ -109,6 +110,21 @@ public class ParserUtil {
             throw new ParseException(Deadline.MESSAGE_CONSTRAINTS);
         }
         return new Deadline(trimmedDeadline);
+    }
+
+    /**
+     * Parses a {@code String status} into an {@code ApplicationStatus}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException
+     */
+    public static ApplicationStatus parseStatus(String status) throws ParseException {
+        requireNonNull(status);
+        String trimmedStatus = status.trim();
+        if (!ApplicationStatus.isValidApplicationStatus(trimmedStatus)) {
+            throw new ParseException(ApplicationStatus.MESSAGE_CONSTRAINTS);
+        }
+        return new ApplicationStatus(trimmedStatus);
     }
 
     /**

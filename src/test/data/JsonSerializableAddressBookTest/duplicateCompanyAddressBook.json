@@ -5,12 +5,15 @@
     "email": "alice@example.com",
     "role": "Software Engineer",
     "deadline": "2023-10-10",
+    "status": "PA",
     "tags": [ "friends" ]
   }, {
     "name": "Alice Pauline",
     "phone": "94351253",
     "email": "pauline@example.com",
+    "role": "Data Scientist",
     "deadline": "2023-10-10",
-    "role": "Data Scientist"
+    "status": "PA",
+    "tags": [ "friends" ]
   } ]
 }
