@@ -320,7 +320,87 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-*{More to be added}*
+**Use case: Find a Company**
+
+**MSS**
+
+1.  User requests to find a company by name
+2. AddressBook shows a list of companies whose names contain the given keywords
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+* 2b. The given keywords do not match any company name.
+  * 2b1. AddressBook shows an empty list.
+
+    Use case ends.
+* 2c. The given keywords match multiple company names.
+  * 2c1. AddressBook shows a list of companies whose names contain the given keywords
+
+    Use case ends.
+
+**Use case: Add a company**
+
+**MSS**
+
+1.  User requests to add a company
+2. User key in required field and information
+3. AddressBook adds the company
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. User key in invalid information.
+  * 2a1. AddressBook shows an error message.
+
+    Use case resumes at step 2.
+
+
+**Use case: List company**
+
+**MSS**
+
+1.  User requests to list companies
+2. AddressBook shows a list of companies
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+**Use case: View full company information**
+
+**MSS**
+
+1. User requests to list companies
+2. AddressBook shows a list of companies
+3. User requests to view a specific company in the list
+4. AddressBook shows the full information of the company
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+
+
 
 ### Non-Functional Requirements
 
