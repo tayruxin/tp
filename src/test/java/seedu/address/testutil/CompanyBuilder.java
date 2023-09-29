@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.model.company.Company;
+import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
@@ -20,11 +21,13 @@ public class CompanyBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ROLE = "Software Engineer";
+    public static final String DEFAULT_DEADLINE = "2023-10-10";
 
     private Name name;
     private Phone phone;
     private Email email;
     private Role role;
+    private Deadline deadline;
     private Set<Tag> tags;
 
     /**
@@ -35,6 +38,7 @@ public class CompanyBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         role = new Role(DEFAULT_ROLE);
+        deadline = new Deadline(DEFAULT_DEADLINE);
         tags = new HashSet<>();
     }
 
@@ -46,6 +50,7 @@ public class CompanyBuilder {
         phone = companyToCopy.getPhone();
         email = companyToCopy.getEmail();
         role = companyToCopy.getRole();
+        deadline = companyToCopy.getDeadline();
         tags = new HashSet<>(companyToCopy.getTags());
     }
 
@@ -96,8 +101,16 @@ public class CompanyBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Deadline} of the {@code Company} that we are building.
+     */
+    public CompanyBuilder withDeadline(String deadline) {
+        this.deadline = new Deadline(deadline);
+        return this;
+    }
+
     public Company build() {
-        return new Company(name, phone, email, role, tags);
+        return new Company(name, phone, email, role, deadline, tags);
     }
 
 }
