@@ -16,6 +16,7 @@ import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
+import seedu.address.model.company.RecruiterName;
 import seedu.address.model.company.Role;
 import seedu.address.model.tag.Tag;
 
@@ -32,6 +33,7 @@ class JsonAdaptedCompany {
     private final String role;
     private final String deadline;
     private final String status;
+    private final String recruiterName;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
@@ -40,8 +42,8 @@ class JsonAdaptedCompany {
     @JsonCreator
     public JsonAdaptedCompany(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
                               @JsonProperty("email") String email, @JsonProperty("role") String role,
-                              @JsonProperty("deadline") String deadline,
-                              @JsonProperty("status") String status,
+                              @JsonProperty("deadline") String deadline, @JsonProperty("status") String status,
+                              @JsonProperty("recruiterName") String recruiterName,
                               @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
         this.phone = phone;
@@ -49,6 +51,7 @@ class JsonAdaptedCompany {
         this.role = role;
         this.deadline = deadline;
         this.status = status;
+        this.recruiterName = recruiterName;
 
         if (tags != null) {
             this.tags.addAll(tags);
@@ -65,6 +68,7 @@ class JsonAdaptedCompany {
         role = source.getRole().jobRole;
         deadline = source.getDeadline().value;
         status = source.getStatus().toString();
+        recruiterName = source.getRecruiterName().fullName;
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -111,11 +115,16 @@ class JsonAdaptedCompany {
         if (!Role.isValidRole(role)) {
             throw new IllegalValueException(Role.MESSAGE_CONSTRAINTS);
         }
+        final Role modelRole = new Role(role);
 
         if (deadline == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     Deadline.class.getSimpleName()));
         }
+        if (!Deadline.isValidDeadline(deadline)) {
+            throw new IllegalValueException(Deadline.MESSAGE_CONSTRAINTS);
+        }
+        final Deadline modelDeadline = new Deadline(deadline);
 
         if (status == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
@@ -124,18 +133,21 @@ class JsonAdaptedCompany {
         if (!ApplicationStatus.isValidApplicationStatus(status)) {
             throw new IllegalValueException(ApplicationStatus.MESSAGE_CONSTRAINTS);
         }
-        if (!Deadline.isValidDeadline(deadline)) {
-            throw new IllegalValueException(Deadline.MESSAGE_CONSTRAINTS);
-        }
-        final Role modelRole = new Role(role);
-
-        final Deadline modelDeadline = new Deadline(deadline);
-
         final ApplicationStatus modelStatus = new ApplicationStatus(status);
+
+        if (recruiterName == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    RecruiterName.class.getSimpleName()));
+        }
+        if (!RecruiterName.isValidName(recruiterName)) {
+            throw new IllegalValueException(RecruiterName.MESSAGE_CONSTRAINTS);
+        }
+        final RecruiterName modelRecruiterName = new RecruiterName(recruiterName);
 
         final Set<Tag> modelTags = new HashSet<>(companyTags);
 
-        return new Company(modelName, modelPhone, modelEmail, modelRole, modelDeadline, modelStatus, modelTags);
+        return new Company(modelName, modelPhone, modelEmail, modelRole, modelDeadline, modelStatus,
+                modelRecruiterName, modelTags);
     }
 
 }

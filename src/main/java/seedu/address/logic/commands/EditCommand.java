@@ -26,6 +26,7 @@ import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
+import seedu.address.model.company.RecruiterName;
 import seedu.address.model.company.Role;
 import seedu.address.model.tag.Tag;
 
@@ -101,10 +102,11 @@ public class EditCommand extends Command {
         Role updatedRole = companyToEdit.getRole();
         Deadline updatedDeadline = companyToEdit.getDeadline();
         ApplicationStatus updatedStatus = companyToEdit.getStatus();
+        RecruiterName updatedRecruiterName = companyToEdit.getRecruiterName();
         Set<Tag> updatedTags = editCompanyDescriptor.getTags().orElse(companyToEdit.getTags());
 
         return new Company(updatedName, updatedPhone, updatedEmail, updatedRole, updatedDeadline,
-                updatedStatus, updatedTags);
+                updatedStatus, updatedRecruiterName, updatedTags);
     }
 
     @Override

@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
@@ -40,6 +41,8 @@ public class CommandTestUtil {
     public static final String VALID_DEADLINE_BOB = "2023-11-11";
     public static final String VALID_STATUS_AMY = "PA";
     public static final String VALID_STATUS_BOB = "PI";
+    public static final String VALID_RECRUITER_NAME_AMY = "John Doe";
+    public static final String VALID_RECRUITER_NAME_BOB = "Timmy Tan";
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
 
@@ -55,6 +58,8 @@ public class CommandTestUtil {
     public static final String DEADLINE_DESC_BOB = " " + PREFIX_DEADLINE + VALID_DEADLINE_BOB;
     public static final String STATUS_DESC_AMY = " " + PREFIX_STATUS + VALID_STATUS_AMY;
     public static final String STATUS_DESC_BOB = " " + PREFIX_STATUS + VALID_STATUS_BOB;
+    public static final String RECRUITER_NAME_DESC_AMY = " " + PREFIX_RECRUITER_NAME + VALID_RECRUITER_NAME_AMY;
+    public static final String RECRUITER_NAME_DESC_BOB = " " + PREFIX_RECRUITER_NAME + VALID_RECRUITER_NAME_BOB;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
 
@@ -64,6 +69,8 @@ public class CommandTestUtil {
     public static final String INVALID_ROLE_DESC = " " + PREFIX_ROLE + "Software*"; // '*' not allowed in roles
     public static final String INVALID_DEADLINE_DESC = " " + PREFIX_DEADLINE + "20233-10-10"; // yyyy format
     public static final String INVALID_STATUS_DESC = " " + PREFIX_STATUS + "L"; // invalid status
+    public static final String INVALID_RECRUITER_NAME_DESC =
+            " " + PREFIX_RECRUITER_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";

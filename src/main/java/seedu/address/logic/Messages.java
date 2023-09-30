@@ -47,6 +47,8 @@ public class Messages {
                 .append(company.getDeadline())
                 .append("; Status: ")
                 .append(company.getStatus())
+                .append("; Recruiter Name: ")
+                .append(company.getRecruiterName())
                 .append("; Tags: ");
         company.getTags().forEach(builder::append);
         return builder.toString();
