@@ -12,6 +12,7 @@ import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
+import seedu.address.model.company.RecruiterName;
 import seedu.address.model.company.Role;
 import seedu.address.model.tag.Tag;
 
@@ -23,22 +24,22 @@ public class SampleDataUtil {
         return new Company[] {
             new Company(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
                     new Role("Software Engineer"), new Deadline("2021-10-10"),
-                    new ApplicationStatus("PA"), getTagSet("friends")),
+                    new ApplicationStatus("PA"), new RecruiterName("Francis Tan"), getTagSet("friends")),
             new Company(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
                     new Role("Software Engineer"), new Deadline("2021-10-10"),
-                    new ApplicationStatus("PA"), getTagSet("colleagues", "friends")),
+                    new ApplicationStatus("PA"), new RecruiterName("Alice Tan"), getTagSet("colleagues", "friends")),
             new Company(new Name("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
                     new Role("Software Engineer"), new Deadline("2021-10-10"),
-                    new ApplicationStatus("PA"), getTagSet("neighbours")),
+                    new ApplicationStatus("PA"), new RecruiterName("Eve Lim"), getTagSet("neighbours")),
             new Company(new Name("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
                     new Role("Data Analyst"), new Deadline("2021-10-10"),
-                    new ApplicationStatus("PA"), getTagSet("family")),
+                    new ApplicationStatus("PA"), new RecruiterName("Jovie Tan"), getTagSet("family")),
             new Company(new Name("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
                     new Role("Data Analyst"), new Deadline("2021-10-10"),
-                    new ApplicationStatus("PA"), getTagSet("classmates")),
+                    new ApplicationStatus("PA"), new RecruiterName("Poppins Lam"), getTagSet("classmates")),
             new Company(new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
                     new Role("Web Developer"), new Deadline("2021-10-10"),
-                    new ApplicationStatus("PA"), getTagSet("colleagues"))
+                    new ApplicationStatus("PA"), new RecruiterName("Jarvis Koh"), getTagSet("colleagues"))
         };
     }
 

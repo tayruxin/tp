@@ -23,6 +23,7 @@ public class Company {
     private final Role role;
     private final Deadline deadline;
     private final ApplicationStatus status;
+    private final RecruiterName recruiterName;
 
     // Data fields
     private final Set<Tag> tags = new HashSet<>();
@@ -31,7 +32,7 @@ public class Company {
      * Every field must be present and not null.
      */
     public Company(Name name, Phone phone, Email email, Role role, Deadline deadline, ApplicationStatus status,
-                   Set<Tag> tags) {
+                   RecruiterName recruiterName, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, role, deadline, status, tags);
         this.name = name;
         this.phone = phone;
@@ -39,6 +40,7 @@ public class Company {
         this.role = role;
         this.deadline = deadline;
         this.status = status;
+        this.recruiterName = recruiterName;
         this.tags.addAll(tags);
     }
 
@@ -64,6 +66,10 @@ public class Company {
 
     public ApplicationStatus getStatus() {
         return status;
+    }
+
+    public RecruiterName getRecruiterName() {
+        return recruiterName;
     }
 
     /**
@@ -109,13 +115,14 @@ public class Company {
                 && role.equals(otherCompany.role)
                 && deadline.equals(otherCompany.deadline)
                 && status.equals(otherCompany.status)
+                && recruiterName.equals(otherCompany.recruiterName)
                 && tags.equals(otherCompany.tags);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, role, deadline, status, tags);
+        return Objects.hash(name, phone, email, role, deadline, status, recruiterName, tags);
     }
 
     @Override
@@ -127,6 +134,7 @@ public class Company {
                 .add("role", role)
                 .add("deadline", deadline)
                 .add("status", status)
+                .add("recruiterName", recruiterName)
                 .add("tags", tags)
                 .toString();
     }

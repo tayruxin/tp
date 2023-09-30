@@ -6,6 +6,7 @@
     "role": "Software Engineer",
     "deadline": "2023-10-10",
     "status": "PA",
+    "recruiterName": "John Doe",
     "tags": [ "friends" ]
   }, {
     "name": "Alice Pauline",
@@ -14,6 +15,7 @@
     "role": "Data Scientist",
     "deadline": "2023-10-10",
     "status": "PA",
+    "recruiterName": "John Doe",
     "tags": [ "friends" ]
   } ]
 }

@@ -9,6 +9,7 @@ import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
+import seedu.address.model.company.RecruiterName;
 import seedu.address.model.company.Role;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
@@ -24,6 +25,7 @@ public class CompanyBuilder {
     public static final String DEFAULT_ROLE = "Software Engineer";
     public static final String DEFAULT_DEADLINE = "2023-10-10";
     public static final String DEFAULT_STATUS = "PA";
+    public static final String DEFAULT_RECRUITER_NAME = "John Doe";
 
     private Name name;
     private Phone phone;
@@ -31,6 +33,7 @@ public class CompanyBuilder {
     private Role role;
     private Deadline deadline;
     private ApplicationStatus status;
+    private RecruiterName recruiterName;
     private Set<Tag> tags;
 
     /**
@@ -43,6 +46,7 @@ public class CompanyBuilder {
         role = new Role(DEFAULT_ROLE);
         deadline = new Deadline(DEFAULT_DEADLINE);
         status = new ApplicationStatus(DEFAULT_STATUS);
+        recruiterName = new RecruiterName(DEFAULT_RECRUITER_NAME);
         tags = new HashSet<>();
     }
 
@@ -56,6 +60,7 @@ public class CompanyBuilder {
         role = companyToCopy.getRole();
         deadline = companyToCopy.getDeadline();
         status = companyToCopy.getStatus();
+        recruiterName = companyToCopy.getRecruiterName();
         tags = new HashSet<>(companyToCopy.getTags());
     }
 
@@ -122,8 +127,16 @@ public class CompanyBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code RecruiterName} of the {@code Company} that we are building.
+     */
+    public CompanyBuilder withRecruiterName(String recruiterName) {
+        this.recruiterName = new RecruiterName(recruiterName);
+        return this;
+    }
+
     public Company build() {
-        return new Company(name, phone, email, role, deadline, status, tags);
+        return new Company(name, phone, email, role, deadline, status, recruiterName, tags);
     }
 
 }

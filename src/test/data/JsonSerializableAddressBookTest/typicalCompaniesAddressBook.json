@@ -7,6 +7,7 @@
     "role" : "Software Engineer",
     "deadline": "2023-10-10",
     "status": "PA",
+    "recruiterName": "John Doe",
     "tags" : [ "friends" ]
   }, {
     "name" : "Benson Meier",
@@ -15,6 +16,7 @@
     "role" : "Software Engineer",
     "deadline": "2023-10-10",
     "status": "PA",
+    "recruiterName": "Jane Doe",
     "tags" : [ "owesMoney", "friends" ]
   }, {
     "name" : "Carl Kurz",
@@ -23,6 +25,7 @@
     "deadline": "2023-12-11",
     "role" : "Data Engineer",
     "status": "PA",
+    "recruiterName": "Jim Doe",
     "tags" : [ ]
   }, {
     "name" : "Daniel Meier",
@@ -31,6 +34,7 @@
     "role" : "Data Engineer",
     "deadline": "2023-03-12",
     "status": "PA",
+    "recruiterName": "Tim Doe",
     "tags" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
@@ -39,6 +43,7 @@
     "role" : "UX Designer",
     "deadline": "2023-09-10",
     "status": "PA",
+    "recruiterName": "Tom Doe",
     "tags" : [ ]
   }, {
     "name" : "Fiona Kunz",
@@ -47,6 +52,7 @@
     "role" : "UI Designer",
     "deadline": "2023-08-10",
     "status": "PA",
+    "recruiterName": "Mary Doe",
     "tags" : [ ]
   }, {
     "name" : "George Best",
@@ -55,6 +61,7 @@
     "role" : "Web Developer",
     "deadline": "2023-05-10",
     "status": "PA",
+    "recruiterName": "Timmy Doe",
     "tags" : [ ]
   }]
 }

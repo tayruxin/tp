@@ -110,7 +110,7 @@ public class CompanyTest {
         String expected = Company.class.getCanonicalName() + "{name=" + ALICE.getName() + ", phone=" + ALICE.getPhone()
                 + ", email=" + ALICE.getEmail() + ", role=" + ALICE.getRole()
                 + ", deadline=" + ALICE.getDeadline() + ", status=" + ALICE.getStatus()
-                + ", tags=" + ALICE.getTags() + "}";
+                + ", recruiterName=" + ALICE.getRecruiterName() + ", tags=" + ALICE.getTags() + "}";
         assertEquals(expected, ALICE.toString());
     }
 }

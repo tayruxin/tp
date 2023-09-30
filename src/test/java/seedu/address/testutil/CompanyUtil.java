@@ -4,6 +4,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
@@ -38,6 +39,7 @@ public class CompanyUtil {
         sb.append(PREFIX_ROLE + company.getRole().jobRole + " ");
         sb.append(PREFIX_DEADLINE + company.getDeadline().value + " ");
         sb.append(PREFIX_STATUS + company.getStatus().toString() + " ");
+        sb.append(PREFIX_RECRUITER_NAME + company.getRecruiterName().fullName + " ");
         company.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );
