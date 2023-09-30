@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.company.Company;
+import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
@@ -28,6 +29,7 @@ class JsonAdaptedCompany {
     private final String phone;
     private final String email;
     private final String role;
+    private final String deadline;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
@@ -36,11 +38,14 @@ class JsonAdaptedCompany {
     @JsonCreator
     public JsonAdaptedCompany(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
                               @JsonProperty("email") String email, @JsonProperty("role") String role,
+                              @JsonProperty("deadline") String deadline,
                               @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.role = role;
+        this.deadline = deadline;
+
         if (tags != null) {
             this.tags.addAll(tags);
         }
@@ -54,6 +59,7 @@ class JsonAdaptedCompany {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         role = source.getRole().jobRole;
+        deadline = source.getDeadline().value;
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -100,11 +106,21 @@ class JsonAdaptedCompany {
         if (!Role.isValidRole(role)) {
             throw new IllegalValueException(Role.MESSAGE_CONSTRAINTS);
         }
+
+        if (deadline == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Deadline.class.getSimpleName()));
+        }
+        if (!Deadline.isValidDeadline(deadline)) {
+            throw new IllegalValueException(Deadline.MESSAGE_CONSTRAINTS);
+        }
         final Role modelRole = new Role(role);
+
+        final Deadline modelDeadline = new Deadline(deadline);
 
         final Set<Tag> modelTags = new HashSet<>(companyTags);
 
-        return new Company(modelName, modelPhone, modelEmail, modelRole, modelTags);
+        return new Company(modelName, modelPhone, modelEmail, modelRole, modelDeadline, modelTags);
     }
 
 }

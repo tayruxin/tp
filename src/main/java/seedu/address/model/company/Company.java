@@ -21,6 +21,7 @@ public class Company {
     private final Phone phone;
     private final Email email;
     private final Role role;
+    private final Deadline deadline;
 
     // Data fields
     private final Set<Tag> tags = new HashSet<>();
@@ -28,12 +29,13 @@ public class Company {
     /**
      * Every field must be present and not null.
      */
-    public Company(Name name, Phone phone, Email email, Role role, Set<Tag> tags) {
+    public Company(Name name, Phone phone, Email email, Role role, Deadline deadline , Set<Tag> tags) {
         requireAllNonNull(name, phone, email, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.role = role;
+        this.deadline = deadline;
         this.tags.addAll(tags);
     }
 
@@ -51,6 +53,10 @@ public class Company {
 
     public Role getRole() {
         return role;
+    }
+
+    public Deadline getDeadline() {
+        return deadline;
     }
 
     /**
@@ -94,13 +100,14 @@ public class Company {
                 && phone.equals(otherCompany.phone)
                 && email.equals(otherCompany.email)
                 && role.equals(otherCompany.role)
+                && deadline.equals(otherCompany.deadline)
                 && tags.equals(otherCompany.tags);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, role, tags);
+        return Objects.hash(name, phone, email, role, deadline, tags);
     }
 
     @Override
@@ -110,6 +117,7 @@ public class Company {
                 .add("phone", phone)
                 .add("email", email)
                 .add("role", role)
+                .add("deadline", deadline)
                 .add("tags", tags)
                 .toString();
     }
