@@ -27,13 +27,14 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Glenda Chong Rui Ting
 
-<img src="images/GlendaChong.jpeg" width="200px">
+<img src="images/glendachong.png" width="200px">
 
 [[Github](http://github.com/glendachong)]
 [[LinkedIn](https://www.linkedin.com/in/glenda-chong-149367237)]
 
 
-* Role: Developer
+* Role: Deliverables and deadlines
+* Responsibilities: Ensure project deliverables are done on time and in the right format
 
 ### Jean Doe
 
