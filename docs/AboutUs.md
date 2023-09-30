@@ -13,7 +13,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/alagappanra.png" width="200px">
 
-[[github](https://github.com/AlagappanRa)]
+[[Github](https://github.com/AlagappanRa)]
 
 * Role: Developer
 
@@ -21,24 +21,25 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/tayruxin.png" width="200px">
 
-[[github](http://github.com/tayruxin)]
+[[Github](http://github.com/tayruxin)]
 
 * Role: Developer
 
-### Johnny Doe
+### Glenda Chong Rui Ting
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/GlendaChong.jpeg" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+[[Github](http://github.com/glendachong)]
+[[LinkedIn](https://www.linkedin.com/in/glenda-chong-149367237)]
+
 
 * Role: Developer
-* Responsibilities: Data
 
 ### Jean Doe
 
 <img src="images/johndoe.png" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[Github](http://github.com/johndoe)]
 [[portfolio](team/johndoe.md)]
 
 * Role: Developer
@@ -48,7 +49,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/johndoe.png" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[Github](http://github.com/johndoe)]
 [[portfolio](team/johndoe.md)]
 
 * Role: Developer
