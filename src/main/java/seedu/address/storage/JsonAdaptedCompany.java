@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.company.ApplicationStatus;
 import seedu.address.model.company.Company;
 import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
@@ -30,6 +31,7 @@ class JsonAdaptedCompany {
     private final String email;
     private final String role;
     private final String deadline;
+    private final String status;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
@@ -39,12 +41,14 @@ class JsonAdaptedCompany {
     public JsonAdaptedCompany(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
                               @JsonProperty("email") String email, @JsonProperty("role") String role,
                               @JsonProperty("deadline") String deadline,
+                              @JsonProperty("status") String status,
                               @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.role = role;
         this.deadline = deadline;
+        this.status = status;
 
         if (tags != null) {
             this.tags.addAll(tags);
@@ -60,6 +64,7 @@ class JsonAdaptedCompany {
         email = source.getEmail().value;
         role = source.getRole().jobRole;
         deadline = source.getDeadline().value;
+        status = source.getStatus().toString();
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -111,6 +116,14 @@ class JsonAdaptedCompany {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     Deadline.class.getSimpleName()));
         }
+
+        if (status == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    ApplicationStatus.class.getSimpleName()));
+        }
+        if (!ApplicationStatus.isValidApplicationStatus(status)) {
+            throw new IllegalValueException(ApplicationStatus.MESSAGE_CONSTRAINTS);
+        }
         if (!Deadline.isValidDeadline(deadline)) {
             throw new IllegalValueException(Deadline.MESSAGE_CONSTRAINTS);
         }
@@ -118,9 +131,11 @@ class JsonAdaptedCompany {
 
         final Deadline modelDeadline = new Deadline(deadline);
 
+        final ApplicationStatus modelStatus = new ApplicationStatus(status);
+
         final Set<Tag> modelTags = new HashSet<>(companyTags);
 
-        return new Company(modelName, modelPhone, modelEmail, modelRole, modelDeadline, modelTags);
+        return new Company(modelName, modelPhone, modelEmail, modelRole, modelDeadline, modelStatus, modelTags);
     }
 
 }

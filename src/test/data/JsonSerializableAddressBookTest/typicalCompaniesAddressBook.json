@@ -6,6 +6,7 @@
     "email" : "alice@example.com",
     "role" : "Software Engineer",
     "deadline": "2023-10-10",
+    "status": "PA",
     "tags" : [ "friends" ]
   }, {
     "name" : "Benson Meier",
@@ -13,6 +14,7 @@
     "email" : "johnd@example.com",
     "role" : "Software Engineer",
     "deadline": "2023-10-10",
+    "status": "PA",
     "tags" : [ "owesMoney", "friends" ]
   }, {
     "name" : "Carl Kurz",
@@ -20,6 +22,7 @@
     "email" : "heinz@example.com",
     "deadline": "2023-12-11",
     "role" : "Data Engineer",
+    "status": "PA",
     "tags" : [ ]
   }, {
     "name" : "Daniel Meier",
@@ -27,6 +30,7 @@
     "email" : "cornelia@example.com",
     "role" : "Data Engineer",
     "deadline": "2023-03-12",
+    "status": "PA",
     "tags" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
@@ -34,6 +38,7 @@
     "email" : "werner@example.com",
     "role" : "UX Designer",
     "deadline": "2023-09-10",
+    "status": "PA",
     "tags" : [ ]
   }, {
     "name" : "Fiona Kunz",
@@ -41,6 +46,7 @@
     "email" : "lydia@example.com",
     "role" : "UI Designer",
     "deadline": "2023-08-10",
+    "status": "PA",
     "tags" : [ ]
   }, {
     "name" : "George Best",
@@ -48,6 +54,7 @@
     "email" : "anna@example.com",
     "role" : "Web Developer",
     "deadline": "2023-05-10",
+    "status": "PA",
     "tags" : [ ]
   }]
 }

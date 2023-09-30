@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.company.ApplicationStatus;
 import seedu.address.model.company.Company;
 import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
@@ -21,17 +22,23 @@ public class SampleDataUtil {
     public static Company[] getSampleCompanies() {
         return new Company[] {
             new Company(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
-                    new Role("Software Engineer"), new Deadline("2021-10-10"), getTagSet("friends")),
+                    new Role("Software Engineer"), new Deadline("2021-10-10"),
+                    new ApplicationStatus("PA"), getTagSet("friends")),
             new Company(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
-                    new Role("Software Engineer"), new Deadline("2021-10-10"), getTagSet("colleagues", "friends")),
+                    new Role("Software Engineer"), new Deadline("2021-10-10"),
+                    new ApplicationStatus("PA"), getTagSet("colleagues", "friends")),
             new Company(new Name("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
-                    new Role("Software Engineer"), new Deadline("2021-10-10"), getTagSet("neighbours")),
+                    new Role("Software Engineer"), new Deadline("2021-10-10"),
+                    new ApplicationStatus("PA"), getTagSet("neighbours")),
             new Company(new Name("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
-                    new Role("Data Analyst"), new Deadline("2021-10-10"), getTagSet("family")),
+                    new Role("Data Analyst"), new Deadline("2021-10-10"),
+                    new ApplicationStatus("PA"), getTagSet("family")),
             new Company(new Name("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
-                    new Role("Data Analyst"), new Deadline("2021-10-10"), getTagSet("classmates")),
+                    new Role("Data Analyst"), new Deadline("2021-10-10"),
+                    new ApplicationStatus("PA"), getTagSet("classmates")),
             new Company(new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
-                    new Role("Web Developer"), new Deadline("2021-10-10"), getTagSet("colleagues"))
+                    new Role("Web Developer"), new Deadline("2021-10-10"),
+                    new ApplicationStatus("PA"), getTagSet("colleagues"))
         };
     }
 
