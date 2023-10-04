@@ -269,13 +269,15 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* Computer Science students preparing for an internship or job application
 * prefer desktop apps over other types
-* can type fast
+* can type quickly
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: CS students often struggle to manage a multitude of internship contacts and track their application progress.
+A CLI address book not only efficiently stores these connections but also offers a valuable tool for monitoring and organizing the entire 
+application process, simplifying the pursuit of career opportunities.
 
 
 ### User stories
