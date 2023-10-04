@@ -14,7 +14,7 @@ Never miss an internships interview with LinkMeIn! Keep track of all your deadli
 
 1. Product only runs on Java 11
 
-1. Refer to the [Features](#features) below for details of each command.
+2. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -119,7 +119,7 @@ Deletes a company from the address book.
 
 **Examples:**
 * `list` followed by `delete 1` deletes the first contact in the full list
-* `find` Tiktok followed by `delete 1` deletes the first contact in the results of find Tiktok
+* `find` TikTok followed by `delete 1` deletes the first contact in the results of find TikTok
 
 **Acceptable values for each parameter:**
 * INDEX must be a number. If not the entire command will be considered invalid input.
@@ -150,7 +150,7 @@ If INDEX is zero or negative:
 ![img_2.png](img_2.png)
 
 
-### View full company information: view ###
+### View full company information: `view` ###
 View the full company information of a particular company on the side.
 
 **Format:** `view INDEX`
@@ -171,12 +171,12 @@ View the full company information of a particular company on the side.
 The company’s information should be listed on the left, which includes the following fields:
 
 1. COMPANY_NAME 1
-1. APPLICATION_STATUS
-1. ROLE
-1. DEADLINE
-1. RECRUITER_NAME
-1. EMAIL (if any)
-1. PHONE (if any)
+2. APPLICATION_STATUS
+3. ROLE
+4. DEADLINE
+5. RECRUITER_NAME
+6. EMAIL (if any)
+7. PHONE (if any)
 
 **Expected output when command fails:** </br>
 

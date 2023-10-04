@@ -269,13 +269,15 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* Computer Science students preparing for an internship or job application
 * prefer desktop apps over other types
-* can type fast
+* can type quickly
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: CS students often struggle to manage a multitude of internship contacts and track their application progress.
+A CLI address book not only efficiently stores these connections but also offers a valuable tool for monitoring and organizing the entire 
+application process, simplifying the pursuit of career opportunities.
 
 
 ### User stories
@@ -324,7 +326,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to find a company by name
+1. User requests to find a company by name
 2. AddressBook shows a list of companies whose names contain the given keywords
 
     Use case ends.
@@ -404,11 +406,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 companies without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-
-*{More to be added}*
+1. The system should be available for download on our GitHub release page in the form of a JAR file.
+2. The system should work on any _mainstream OS_ as long as it has Java `11` or above installed.
+3. The system should be able to hold up to 200 applications to companies without a noticeable sluggishness in performance for typical usage.
+4. The response to any user input should become visible within 2 seconds.
+5. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+6. Most of the commands should be easy to remember so that a new user can learn to use the system quickly.
+7. Data should be stored locally in the device (ie. user can access the file through the system or directly from the device).
+8. The code should meet the coding standard of CS2103T for maintainability.
 
 ### Glossary
 
