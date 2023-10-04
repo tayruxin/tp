@@ -36,15 +36,15 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Deliverables and deadlines
 * Responsibilities: Ensure project deliverables are done on time and in the right format
 
-### Jean Doe
+### Lim En Tian
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/alientian.png" width="200px">
 
-[[Github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[Github](http://github.com/alientian)]
+
 
 * Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Responsibilities: UI
 
 ### James Doe
 
