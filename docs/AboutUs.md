@@ -51,5 +51,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/papataco14.png" width="200px">
 
 [[Github](http://github.com/papataco14)]
+[[LinkedIn](https://www.linkedin.com/in/rithikvijay/)]
 
 * Role: Developer
+* * Responsibilities: Deciphering requirements
