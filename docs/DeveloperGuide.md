@@ -324,7 +324,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to find a company by name
+1. User requests to find a company by name
 2. AddressBook shows a list of companies whose names contain the given keywords
 
     Use case ends.
