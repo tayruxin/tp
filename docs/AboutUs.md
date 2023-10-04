@@ -38,7 +38,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Lim En Tian
 
-<img src="images/entian.png" width="200px">
+<img src="images/alientian.png" width="200px">
 
 [[Github](http://github.com/alientian)]
 
