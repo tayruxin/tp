@@ -10,11 +10,11 @@ import javafx.scene.layout.Region;
 import seedu.address.model.company.Company;
 
 /**
- * An UI component that displays information of a {@code Company}.
+ * An UI component that displays detailed information of a {@code Company}.
  */
-public class CompanyCard extends UiPart<Region> {
+public class CompanyDetailCard extends UiPart<Region> {
 
-    private static final String FXML = "CompanyListCard.fxml";
+    private static final String FXML = "CompanyDetailCard.fxml";
 
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
@@ -30,8 +30,6 @@ public class CompanyCard extends UiPart<Region> {
     private HBox cardPane;
     @FXML
     private Label name;
-    @FXML
-    private Label id;
     @FXML
     private Label phone;
     @FXML
@@ -50,17 +48,20 @@ public class CompanyCard extends UiPart<Region> {
     /**
      * Creates a {@code CompanyCode} with the given {@code Company} and index to display.
      */
-    public CompanyCard(Company company, int displayedIndex) {
+    public CompanyDetailCard(Company company) {
         super(FXML);
         this.company = company;
-        id.setText(displayedIndex + ". ");
         name.setText(company.getName().fullName);
-        role.setText(company.getRole().jobRole);
-        deadline.setText(company.getDeadline().value);
-        status.setText(company.getStatus().getDescription());
+        phone.setText("Phone: " + company.getPhone().value);
+        email.setText("Email: " + company.getEmail().value);
+        role.setText("Role: " + company.getRole().jobRole);
+        deadline.setText("Deadline: " + company.getDeadline().value);
+        status.setText("Application status: " + company.getStatus().getDescription());
+        recruiterName.setText("Name: " + company.getRecruiterName().fullName);
 
         company.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
     }
 }
+
