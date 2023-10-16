@@ -157,6 +157,23 @@ public class AddCommandTest {
         public void updateFilteredCompanyList(Predicate<Company> predicate) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public void setCurrentViewedCompany(Company company) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<Company> getCurrentViewedCompany() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+
+        @Override
+        public void updateCurrentViewedCompany(Predicate<Company> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
     }
 
     /**

@@ -3,14 +3,11 @@ package seedu.address.ui;
 import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import seedu.address.commons.core.GuiSettings;
@@ -19,7 +16,6 @@ import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.company.Company;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -37,9 +33,12 @@ public class MainWindow extends UiPart<Stage> {
     // Independent Ui parts residing in this Ui container
     private CompanyListPanel companyListPanel;
     private CompanyDetailCard companyDetailCard;
+    private CompanyDetailPanel companyDetailPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
 
+    @FXML
+    private StackPane companyDetailPanelPlaceholder;
     @FXML
     private StackPane commandBoxPlaceholder;
 
@@ -120,19 +119,11 @@ public class MainWindow extends UiPart<Stage> {
         companyListPanel = new CompanyListPanel(logic.getFilteredCompanyList());
         companyListPanelPlaceholder.getChildren().add(companyListPanel.getRoot());
 
+        companyDetailPanel = new CompanyDetailPanel(logic.getCurrentViewedCompany());
+        companyDetailPanelPlaceholder.getChildren().add(companyDetailPanel.getRoot());
+
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
-
-        // Show internship application details on click
-        ListView<Company> companyListView = companyListPanel.getCompanyListView();
-        companyListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                Company company = companyListView.getSelectionModel().getSelectedItem();
-                companyDetailCard = new CompanyDetailCard(company);
-                companyDetailCardPlaceholder.getChildren().add(companyDetailCard.getRoot());
-            }
-        });
 
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());

@@ -102,6 +102,11 @@ public class AddressBookTest {
         public ObservableList<Company> getCompanyList() {
             return companies;
         }
+
+        @Override
+        public ObservableList<Company> getCurrentViewedCompany() {
+            return companies;
+        }
     }
 
 }

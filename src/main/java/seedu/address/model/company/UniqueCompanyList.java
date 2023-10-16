@@ -48,6 +48,10 @@ public class UniqueCompanyList implements Iterable<Company> {
         internalList.add(toAdd);
     }
 
+    public void clear() {
+        internalList.clear();
+    }
+
     /**
      * Replaces the company {@code target} in the list with {@code editedCompany}.
      * {@code target} must exist in the list.

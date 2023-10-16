@@ -85,4 +85,14 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredCompanyList(Predicate<Company> predicate);
+
+    /**
+     * Returns an unmodifiable view of the current viewed company list
+     */
+
+    void setCurrentViewedCompany(Company company);
+
+    public ObservableList<Company> getCurrentViewedCompany();
+
+    public void updateCurrentViewedCompany(Predicate<Company> predicate);
 }
