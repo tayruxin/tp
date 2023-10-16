@@ -48,6 +48,9 @@ public class UniqueCompanyList implements Iterable<Company> {
         internalList.add(toAdd);
     }
 
+    /**
+     * Clears the list.
+     */
     public void clear() {
         internalList.clear();
     }

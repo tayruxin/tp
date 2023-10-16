@@ -13,7 +13,7 @@ import seedu.address.model.Model;
 import seedu.address.model.company.Company;
 
 /**
- * Deletes a company identified using it's displayed index from the address book.
+ * Views a company identified using it's displayed index from the address book.
  */
 public class ViewCommand extends Command {
 
@@ -29,7 +29,8 @@ public class ViewCommand extends Command {
     private final Index targetIndex;
 
     /**
-     * Creates an ViewCommand to view the specified {@code Company}
+     * Creates an ViewCommand to view the specified {@code Company}.
+     *
      * @param targetIndex index of the company in the filtered company list to view
      */
     public ViewCommand(Index targetIndex) {
@@ -49,7 +50,7 @@ public class ViewCommand extends Command {
         model.setCurrentViewedCompany(companyToView);
         model.updateCurrentViewedCompany(PREDICATE_SHOW_ALL_COMPANIES);
 
-        //name of the company to view
+        // name of the company to view
         String companyDetailsToDisplayString = companyToView.getName().toString();
         return new CommandResult(String.format(MESSAGE_VIEW_COMPANY_SUCCESS, companyDetailsToDisplayString));
     }
@@ -60,7 +61,6 @@ public class ViewCommand extends Command {
             return true;
         }
 
-        // instanceof handles nulls
         if (!(other instanceof ViewCommand)) {
             return false;
         }

@@ -48,6 +48,9 @@ public interface Logic {
      */
     void setGuiSettings(GuiSettings guiSettings);
 
+    /**
+     * Returns the current viewed company.
+     */
     public ObservableList<Company> getCurrentViewedCompany();
 
 }

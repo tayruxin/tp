@@ -22,7 +22,6 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Company> filteredCompanies;
-
     private final FilteredList<Company> currentViewedCompany;
 
     /**
@@ -127,11 +126,6 @@ public class ModelManager implements Model {
         }
     }
 
-    @Override
-    public ObservableList<Company> getCurrentViewedCompany() {
-        return currentViewedCompany;
-    }
-
     //=========== Filtered Company List Accessors =============================================================
 
     /**
@@ -153,6 +147,11 @@ public class ModelManager implements Model {
     public void updateCurrentViewedCompany(Predicate<Company> predicate) {
         requireNonNull(predicate);
         currentViewedCompany.setPredicate(predicate);
+    }
+
+    @Override
+    public ObservableList<Company> getCurrentViewedCompany() {
+        return currentViewedCompany;
     }
 
     @Override
