@@ -118,7 +118,13 @@ public class ModelManager implements Model {
     public void setCurrentViewedCompany(Company company) {
         requireNonNull(company);
         addressBook.setCurrentViewedCompany(company);
+    }
 
+    @Override
+    public void checkDelete(Company company) {
+        if (currentViewedCompany != null && currentViewedCompany.contains(company)) {
+            addressBook.clearDetailPanel();
+        }
     }
 
     @Override

@@ -95,4 +95,6 @@ public interface Model {
     public ObservableList<Company> getCurrentViewedCompany();
 
     public void updateCurrentViewedCompany(Predicate<Company> predicate);
+
+    public void checkDelete(Company company);
 }

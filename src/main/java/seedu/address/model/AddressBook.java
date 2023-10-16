@@ -106,6 +106,10 @@ public class AddressBook implements ReadOnlyAddressBook {
         companies.remove(key);
     }
 
+    public void clearDetailPanel() {
+        currentViewedCompany.clear();
+    }
+
     //// util methods
 
     @Override
