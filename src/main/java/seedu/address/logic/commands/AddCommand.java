@@ -3,7 +3,7 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
@@ -25,24 +25,23 @@ public class AddCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a company to the address book. "
             + "Parameters: "
-            + PREFIX_NAME + "NAME "
+            + PREFIX_COMPANY_NAME + "COMPANY_NAME "
+            + PREFIX_ROLE + "ROLE "
+            + PREFIX_STATUS + "STATUS "
+            + PREFIX_DEADLINE + "DEADLINE "
+            + PREFIX_RECRUITER_NAME + "RECRUITER_NAME "
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
-            + PREFIX_ROLE + "ROLE "
-            + PREFIX_DEADLINE + "DEADLINE "
-            + PREFIX_STATUS + "STATUS "
-            + PREFIX_RECRUITER_NAME + "RECRUITER NAME "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
-            + PREFIX_NAME + "John Doe "
+            + PREFIX_COMPANY_NAME + "Google "
+            + PREFIX_ROLE + "Software Engineer "
+            + PREFIX_STATUS + "PA "
+            + PREFIX_DEADLINE + "2021-10-10 "
+            + PREFIX_RECRUITER_NAME + "Francis Tan "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
-            + PREFIX_ROLE + "Software Engineer "
-            + PREFIX_DEADLINE + "2021-10-10 "
-            + PREFIX_STATUS + "PA "
-            + PREFIX_RECRUITER_NAME + "Francis Tan "
-            + PREFIX_TAG + "friends "
-            + PREFIX_TAG + "owesMoney";
+            + PREFIX_TAG + "high ";
 
     public static final String MESSAGE_SUCCESS = "New company added: %1$s";
     public static final String MESSAGE_DUPLICATE_COMPANY = "This company already exists in the address book";

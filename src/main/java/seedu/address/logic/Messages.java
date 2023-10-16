@@ -37,18 +37,18 @@ public class Messages {
     public static String format(Company company) {
         final StringBuilder builder = new StringBuilder();
         builder.append(company.getName())
+                .append("; Role: ")
+                .append(company.getRole())
+                .append("; Status: ")
+                .append(company.getStatus())
+                .append("; Deadline: ")
+                .append(company.getDeadline())
+                .append("; Recruiter Name: ")
+                .append(company.getRecruiterName())
                 .append("; Phone: ")
                 .append(company.getPhone())
                 .append("; Email: ")
                 .append(company.getEmail())
-                .append("; Role: ")
-                .append(company.getRole())
-                .append("; Deadline: ")
-                .append(company.getDeadline())
-                .append("; Status: ")
-                .append(company.getStatus())
-                .append("; Recruiter Name: ")
-                .append(company.getRecruiterName())
                 .append("; Tags: ");
         company.getTags().forEach(builder::append);
         return builder.toString();
