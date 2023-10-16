@@ -1,21 +1,21 @@
 package seedu.address.testutil;
 
-import static seedu.address.logic.commands.CommandTestUtil.VALID_DEADLINE_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_DEADLINE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_RECRUITER_NAME_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_RECRUITER_NAME_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_STATUS_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_STATUS_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DEADLINE_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DEADLINE_TIKTOK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_TIKTOK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_TIKTOK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_TIKTOK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_RECRUITER_NAME_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_RECRUITER_NAME_TIKTOK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_TIKTOK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_STATUS_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_STATUS_TIKTOK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HIGH;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_LOW;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,47 +29,47 @@ import seedu.address.model.company.Company;
  */
 public class TypicalCompanies {
 
-    public static final Company ALICE = new CompanyBuilder().withName("Alice Pauline")
+    public static final Company META = new CompanyBuilder().withName("Meta")
             .withEmail("alice@example.com").withPhone("94351253")
-            .withRole("Software Engineer").withDeadline("2023-10-10").withStatus("PA")
-            .withRecruiterName("John Doe").withTags("friends").build();
-    public static final Company BENSON = new CompanyBuilder().withName("Benson Meier")
-            .withEmail("johnd@example.com").withPhone("98765432")
-            .withRole("Software Engineer").withDeadline("2023-10-10").withStatus("PA")
-            .withRecruiterName("Jane Doe").withTags("owesMoney", "friends").build();
-    public static final Company CARL = new CompanyBuilder().withName("Carl Kurz").withEmail("heinz@example.com")
-            .withPhone("95352563").withRole("Data Engineer").withDeadline("2023-12-11").withStatus("PA")
+            .withRole("Software Engineer").withDeadline("10-10-2023").withStatus("PA")
+            .withRecruiterName("John Doe").withTags("low").build();
+    public static final Company AMAZON = new CompanyBuilder().withName("Amazon")
+            .withEmail("janed@example.com").withPhone("98765432")
+            .withRole("Software Engineer").withDeadline("11-11-2023").withStatus("PA")
+            .withRecruiterName("Jane Doe").withTags("high").build();
+    public static final Company MICROSOFT = new CompanyBuilder().withName("Microsoft").withEmail("heinz@example.com")
+            .withPhone("95352563").withRole("Data Engineer").withDeadline("11-12-2023").withStatus("PA")
             .withRecruiterName("Jim Doe").build();
-    public static final Company DANIEL = new CompanyBuilder().withName("Daniel Meier").withEmail("cornelia@example.com")
-            .withPhone("87652533").withRole("Data Engineer").withDeadline("2023-03-12").withStatus("PA")
-            .withRecruiterName("Tim Doe").withTags("friends").build();
-    public static final Company ELLE = new CompanyBuilder().withName("Elle Meyer").withEmail("werner@example.com")
-            .withPhone("9482224").withRole("UX Designer").withDeadline("2023-09-10").withStatus("PA")
+    public static final Company DSTA = new CompanyBuilder().withName("DSTA").withEmail("cornelia@example.com")
+            .withPhone("87652533").withRole("Data Engineer").withDeadline("03-12-2023").withStatus("PA")
+            .withRecruiterName("Tim Doe").withTags("low").build();
+    public static final Company APPLE = new CompanyBuilder().withName("Apple").withEmail("werner@example.com")
+            .withPhone("9482224").withRole("UX Designer").withDeadline("09-11-2023").withStatus("PA")
             .withRecruiterName("Tom Doe").build();
-    public static final Company FIONA = new CompanyBuilder().withName("Fiona Kunz").withEmail("lydia@example.com")
-            .withPhone("9482427").withRole("UI Designer").withDeadline("2023-08-10").withStatus("PA")
+    public static final Company ACCENTURE = new CompanyBuilder().withName("Accenture").withEmail("lydia@example.com")
+            .withPhone("9482427").withRole("UI Designer").withDeadline("08-11-2023").withStatus("PA")
             .withRecruiterName("Mary Doe").build();
-    public static final Company GEORGE = new CompanyBuilder().withName("George Best").withEmail("anna@example.com")
-            .withPhone("9482442").withRole("Web Developer").withDeadline("2023-05-10").withStatus("PA")
+    public static final Company NETFLIX = new CompanyBuilder().withName("Netflix").withEmail("anna@example.com")
+            .withPhone("9482442").withRole("Web Developer").withDeadline("05-12-2023").withStatus("PA")
             .withRecruiterName("Timmy Doe").build();
 
     // Manually added
-    public static final Company HOON = new CompanyBuilder().withName("Hoon Meier").withEmail("stefan@example.com")
-            .withPhone("8482424").withRole("Mobile App Developer").withDeadline("2023-11-11").withStatus("PA")
+    public static final Company TESLA = new CompanyBuilder().withName("Tesla").withEmail("stefan@example.com")
+            .withPhone("8482424").withRole("Mobile App Developer").withDeadline("11-11-2023").withStatus("PA")
             .withRecruiterName("Harry Styles").build();
-    public static final Company IDA = new CompanyBuilder().withName("Ida Mueller").withEmail("hans@example.com")
-            .withPhone("8482131").withRole("Software Engineer").withDeadline("2023-12-12").withStatus("PA")
+    public static final Company NVIDIA = new CompanyBuilder().withName("Nvidia").withEmail("hans@example.com")
+            .withPhone("8482131").withRole("Software Engineer").withDeadline("12-12-2023").withStatus("PA")
             .withRecruiterName("Inez Lim").build();
 
     // Manually added - Company's details found in {@code CommandTestUtil}
-    public static final Company AMY = new CompanyBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
-            .withEmail(VALID_EMAIL_AMY).withRole(VALID_ROLE_AMY).withDeadline(VALID_DEADLINE_AMY)
-            .withStatus(VALID_STATUS_AMY).withRecruiterName(VALID_RECRUITER_NAME_AMY)
-            .withTags(VALID_TAG_FRIEND).build();
-    public static final Company BOB = new CompanyBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
-            .withEmail(VALID_EMAIL_BOB).withRole(VALID_ROLE_BOB).withDeadline(VALID_DEADLINE_BOB)
-            .withStatus(VALID_STATUS_BOB).withRecruiterName(VALID_RECRUITER_NAME_BOB)
-            .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+    public static final Company GOOGLE = new CompanyBuilder().withName(VALID_NAME_GOOGLE).withPhone(VALID_PHONE_GOOGLE)
+            .withEmail(VALID_EMAIL_GOOGLE).withRole(VALID_ROLE_GOOGLE).withDeadline(VALID_DEADLINE_GOOGLE)
+            .withStatus(VALID_STATUS_GOOGLE).withRecruiterName(VALID_RECRUITER_NAME_GOOGLE)
+            .withTags(VALID_TAG_LOW).build();
+    public static final Company TIKTOK = new CompanyBuilder().withName(VALID_NAME_TIKTOK).withPhone(VALID_PHONE_TIKTOK)
+            .withEmail(VALID_EMAIL_TIKTOK).withRole(VALID_ROLE_TIKTOK).withDeadline(VALID_DEADLINE_TIKTOK)
+            .withStatus(VALID_STATUS_TIKTOK).withRecruiterName(VALID_RECRUITER_NAME_TIKTOK)
+            .withTags(VALID_TAG_HIGH, VALID_TAG_LOW).build();
 
     private TypicalCompanies() {} // prevents instantiation
 
@@ -85,6 +85,6 @@ public class TypicalCompanies {
     }
 
     public static List<Company> getTypicalCompanies() {
-        return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE));
+        return new ArrayList<>(Arrays.asList(META, AMAZON, MICROSOFT, DSTA, APPLE, ACCENTURE, NETFLIX));
     }
 }
