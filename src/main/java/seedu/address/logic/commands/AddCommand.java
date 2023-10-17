@@ -65,8 +65,8 @@ public class AddCommand extends Command {
         }
 
         model.addCompany(toAdd);
-
         model.setCurrentViewedCompany(toAdd);
+
         return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.getCompanyName(toAdd)));
     }
 

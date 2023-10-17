@@ -59,6 +59,6 @@ public class Messages {
      * with the left UI panel for viewing the company details.
      */
     public static String getCompanyName(Company company) {
-       return company.getName().toString();
+        return company.getName().toString();
     }
 }
