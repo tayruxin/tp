@@ -2,8 +2,8 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
@@ -69,7 +69,8 @@ public class EditCommandParser implements Parser<EditCommand> {
             editCompanyDescriptor.setStatus(ParserUtil.parseStatus(argMultimap.getValue(PREFIX_STATUS).get()));
         }
         if (argMultimap.getValue(PREFIX_RECRUITER_NAME).isPresent()) {
-            editCompanyDescriptor.setRecruiterName(ParserUtil.parseRecruiterName(argMultimap.getValue(PREFIX_RECRUITER_NAME).get()));
+            editCompanyDescriptor.setRecruiterName(
+                    ParserUtil.parseRecruiterName(argMultimap.getValue(PREFIX_RECRUITER_NAME).get()));
         }
 
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editCompanyDescriptor::setTags);

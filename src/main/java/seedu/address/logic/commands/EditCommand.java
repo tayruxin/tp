@@ -1,8 +1,8 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
@@ -207,21 +207,37 @@ public class EditCommand extends Command {
             return Optional.ofNullable(email);
         }
 
-        public void setRole(Role role) { this.role = role; }
+        public void setRole(Role role) {
+            this.role = role;
+        }
 
-        public Optional<Role> getRole() { return Optional.ofNullable(role); }
+        public Optional<Role> getRole() {
+            return Optional.ofNullable(role);
+        }
 
-        public void setDeadline(Deadline deadline) { this.deadline = deadline; }
+        public void setDeadline(Deadline deadline) {
+            this.deadline = deadline;
+        }
 
-        public Optional<Deadline> getDeadline() { return Optional.ofNullable(deadline); }
+        public Optional<Deadline> getDeadline() {
+            return Optional.ofNullable(deadline);
+        }
 
-        public void setStatus(ApplicationStatus status) { this.status = status; }
+        public void setStatus(ApplicationStatus status) {
+            this.status = status;
+        }
 
-        public Optional<ApplicationStatus> getStatus() { return Optional.ofNullable(status); }
+        public Optional<ApplicationStatus> getStatus() {
+            return Optional.ofNullable(status);
+        }
 
-        public void setRecruiterName(RecruiterName recruiterName) { this.recruiterName = recruiterName; }
+        public void setRecruiterName(RecruiterName recruiterName) {
+            this.recruiterName = recruiterName;
+        }
 
-        public Optional<RecruiterName> getRecruiterName() { return Optional.ofNullable(recruiterName); }
+        public Optional<RecruiterName> getRecruiterName() {
+            return Optional.ofNullable(recruiterName);
+        }
 
         /**
          * Sets {@code tags} to this object's {@code tags}.
