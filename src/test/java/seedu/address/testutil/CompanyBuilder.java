@@ -19,11 +19,11 @@ import seedu.address.model.util.SampleDataUtil;
  */
 public class CompanyBuilder {
 
-    public static final String DEFAULT_NAME = "Amy Bee";
+    public static final String DEFAULT_NAME = "Twitter";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ROLE = "Software Engineer";
-    public static final String DEFAULT_DEADLINE = "2023-10-10";
+    public static final String DEFAULT_DEADLINE = "10-10-2023";
     public static final String DEFAULT_STATUS = "PA";
     public static final String DEFAULT_RECRUITER_NAME = "John Doe";
 

@@ -10,11 +10,9 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Deadline {
 
-
     public static final String MESSAGE_CONSTRAINTS =
-            "Please enter a valid deadline in the format YYYY-MM-DD";
-    public static final String VALIDATION_REGEX = "^(?:20[2-9][0-9]|2[1-9][0-9]{2}|19[0-9]{2})"
-            + "-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$";
+            "Please enter a valid deadline in the format DD-MM-YYYY";
+    public static final String VALIDATION_REGEX = "^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19[0-9]{2}|2[0-9]{3})$";
 
     public final String value;
 
