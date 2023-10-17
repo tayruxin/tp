@@ -4,11 +4,9 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
-import java.util.Comparator;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
@@ -133,18 +131,6 @@ public class ModelManager implements Model {
         addressBook.sortCompaniesByDeadline();
         updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
     }
-
-//    @Override
-//    public void sortCompaniesByDeadline() {
-//        Comparator<Company> deadlineComparator = Comparator.comparing(company -> company.getDeadline().value);
-//
-//        // Creating a sorted list
-//        ObservableList<Company> sortedCompanies = FXCollections.observableArrayList(filteredCompanies.sorted(deadlineComparator));
-//
-//        // Updating the predicate
-//        Predicate<Company> sortedPredicate = sortedCompanies::contains;
-//        updateFilteredCompanyList(sortedPredicate);
-//    }
 
 
 
