@@ -49,6 +49,13 @@ public class UniqueCompanyList implements Iterable<Company> {
     }
 
     /**
+     * Clears the list.
+     */
+    public void clear() {
+        internalList.clear();
+    }
+
+    /**
      * Replaces the company {@code target} in the list with {@code editedCompany}.
      * {@code target} must exist in the list.
      * The company identity of {@code editedCompany} must not be the same as another existing company in the list.

@@ -17,6 +17,8 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     private final UniqueCompanyList companies;
 
+    private final UniqueCompanyList currentViewedCompany;
+
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
      * between constructors. See https://docs.oracle.com/javase/tutorial/java/javaOO/initial.html
@@ -26,6 +28,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     {
         companies = new UniqueCompanyList();
+        currentViewedCompany = new UniqueCompanyList();
     }
 
     public AddressBook() {}
@@ -39,6 +42,14 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     //// list overwrite operations
+
+    /**
+     * Sets the current viewed company to the company {@code company}.
+     */
+    public void setCurrentViewedCompany(Company company) {
+        currentViewedCompany.clear();
+        currentViewedCompany.add(company);
+    }
 
     /**
      * Replaces the contents of the company list with {@code companies}.
@@ -95,6 +106,10 @@ public class AddressBook implements ReadOnlyAddressBook {
         companies.remove(key);
     }
 
+    public void clearDetailPanel() {
+        currentViewedCompany.clear();
+    }
+
     //// util methods
 
     @Override
@@ -107,6 +122,11 @@ public class AddressBook implements ReadOnlyAddressBook {
     @Override
     public ObservableList<Company> getCompanyList() {
         return companies.asUnmodifiableObservableList();
+    }
+
+    @Override
+    public ObservableList<Company> getCurrentViewedCompany() {
+        return currentViewedCompany.asUnmodifiableObservableList();
     }
 
     @Override

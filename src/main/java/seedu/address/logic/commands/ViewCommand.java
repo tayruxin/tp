@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_COMPANIES;
 
 import java.util.List;
 
@@ -12,22 +13,27 @@ import seedu.address.model.Model;
 import seedu.address.model.company.Company;
 
 /**
- * Deletes a company identified using it's displayed index from the address book.
+ * Views a company identified using it's displayed index from the address book.
  */
-public class DeleteCommand extends Command {
+public class ViewCommand extends Command {
 
-    public static final String COMMAND_WORD = "delete";
+    public static final String COMMAND_WORD = "view";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Deletes the company identified by the index number used in the displayed company list.\n"
+            + ": Views the company identified by the index number used in the displayed company list.\n"
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_DELETE_COMPANY_SUCCESS = "Deleted Company: %1$s";
+    public static final String MESSAGE_VIEW_COMPANY_SUCCESS = "Viewing Company: %1$s";
 
     private final Index targetIndex;
 
-    public DeleteCommand(Index targetIndex) {
+    /**
+     * Creates an ViewCommand to view the specified {@code Company}.
+     *
+     * @param targetIndex index of the company in the filtered company list to view
+     */
+    public ViewCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
     }
 
@@ -39,12 +45,14 @@ public class DeleteCommand extends Command {
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_COMPANY_DISPLAYED_INDEX);
         }
+        Company companyToView = lastShownList.get(targetIndex.getZeroBased());
 
-        Company companyToDelete = lastShownList.get(targetIndex.getZeroBased());
-        model.deleteCompany(companyToDelete);
-        model.checkDelete(companyToDelete);
+        model.setCurrentViewedCompany(companyToView);
+        model.updateCurrentViewedCompany(PREDICATE_SHOW_ALL_COMPANIES);
 
-        return new CommandResult(String.format(MESSAGE_DELETE_COMPANY_SUCCESS, Messages.format(companyToDelete)));
+        // name of the company to view
+        String companyDetailsToDisplayString = companyToView.getName().toString();
+        return new CommandResult(String.format(MESSAGE_VIEW_COMPANY_SUCCESS, companyDetailsToDisplayString));
     }
 
     @Override
@@ -53,13 +61,12 @@ public class DeleteCommand extends Command {
             return true;
         }
 
-        // instanceof handles nulls
-        if (!(other instanceof DeleteCommand)) {
+        if (!(other instanceof ViewCommand)) {
             return false;
         }
 
-        DeleteCommand otherDeleteCommand = (DeleteCommand) other;
-        return targetIndex.equals(otherDeleteCommand.targetIndex);
+        ViewCommand otherViewCommand = (ViewCommand) other;
+        return targetIndex.equals(otherViewCommand.targetIndex);
     }
 
     @Override

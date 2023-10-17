@@ -2,8 +2,8 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
@@ -47,7 +47,7 @@ public class EditCommand extends Command {
             + "by the index number used in the displayed company list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "[" + PREFIX_NAME + "COMPANY_NAME] "
+            + "[" + PREFIX_COMPANY_NAME + "COMPANY_NAME] "
             + "[" + PREFIX_RECRUITER_NAME + "RECRUITER_NAME] "
             + "[" + PREFIX_ROLE + "ROLE] "
             + "[" + PREFIX_STATUS + "APPLICATION_STATUS] "
@@ -96,6 +96,7 @@ public class EditCommand extends Command {
 
         model.setCompany(companyToEdit, editedCompany);
         model.updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
+        model.setCurrentViewedCompany(editedCompany);
         return new CommandResult(String.format(MESSAGE_EDIT_COMPANY_SUCCESS, Messages.format(editedCompany)));
     }
 

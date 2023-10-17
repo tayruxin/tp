@@ -1,21 +1,21 @@
 {
   "companies": [ {
-    "name": "Alice Pauline",
+    "name": "Meta",
     "phone": "94351253",
     "email": "alice@example.com",
     "role": "Software Engineer",
-    "deadline": "2023-10-10",
+    "deadline": "10-10-2023",
     "status": "PA",
-    "recruiterName": "John Doe",
-    "tags": [ "friends" ]
+    "recruiterName": "Alice Pauline",
+    "tags": [ "high" ]
   }, {
-    "name": "Alice Pauline",
+    "name": "Meta",
     "phone": "94351253",
     "email": "pauline@example.com",
     "role": "Data Scientist",
-    "deadline": "2023-10-10",
+    "deadline": "10-10-2023",
     "status": "PA",
-    "recruiterName": "John Doe",
-    "tags": [ "friends" ]
+    "recruiterName": "Alice Pauline",
+    "tags": [ "high" ]
   } ]
 }

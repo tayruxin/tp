@@ -22,6 +22,7 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Company> filteredCompanies;
+    private final FilteredList<Company> currentViewedCompany;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -34,6 +35,7 @@ public class ModelManager implements Model {
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredCompanies = new FilteredList<>(this.addressBook.getCompanyList());
+        currentViewedCompany = new FilteredList<>(this.addressBook.getCurrentViewedCompany());
     }
 
     public ModelManager() {
@@ -111,6 +113,19 @@ public class ModelManager implements Model {
         addressBook.setCompany(target, editedCompany);
     }
 
+    @Override
+    public void setCurrentViewedCompany(Company company) {
+        requireNonNull(company);
+        addressBook.setCurrentViewedCompany(company);
+    }
+
+    @Override
+    public void checkDelete(Company company) {
+        if (currentViewedCompany != null && currentViewedCompany.contains(company)) {
+            addressBook.clearDetailPanel();
+        }
+    }
+
     //=========== Filtered Company List Accessors =============================================================
 
     /**
@@ -129,6 +144,17 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void updateCurrentViewedCompany(Predicate<Company> predicate) {
+        requireNonNull(predicate);
+        currentViewedCompany.setPredicate(predicate);
+    }
+
+    @Override
+    public ObservableList<Company> getCurrentViewedCompany() {
+        return currentViewedCompany;
+    }
+
+    @Override
     public boolean equals(Object other) {
         if (other == this) {
             return true;
@@ -144,5 +170,4 @@ public class ModelManager implements Model {
                 && userPrefs.equals(otherModelManager.userPrefs)
                 && filteredCompanies.equals(otherModelManager.filteredCompanies);
     }
-
 }
