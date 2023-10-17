@@ -3,10 +3,10 @@ package seedu.address.model.company;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HIGH;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalCompanies.META;
-import static seedu.address.testutil.TypicalCompanies.TIKTOK;
+import static seedu.address.testutil.TypicalCompanies.ALICE;
+import static seedu.address.testutil.TypicalCompanies.BOB;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -29,21 +29,21 @@ public class UniqueCompanyListTest {
 
     @Test
     public void contains_companyNotInList_returnsFalse() {
-        assertFalse(uniqueCompanyList.contains(META));
+        assertFalse(uniqueCompanyList.contains(ALICE));
     }
 
     @Test
     public void contains_companyInList_returnsTrue() {
-        uniqueCompanyList.add(META);
-        assertTrue(uniqueCompanyList.contains(META));
+        uniqueCompanyList.add(ALICE);
+        assertTrue(uniqueCompanyList.contains(ALICE));
     }
 
     @Test
     public void contains_companyWithSameIdentityFieldsInList_returnsTrue() {
-        uniqueCompanyList.add(META);
-        Company editedMeta = new CompanyBuilder(META).withTags(VALID_TAG_HIGH)
+        uniqueCompanyList.add(ALICE);
+        Company editedAlice = new CompanyBuilder(ALICE).withTags(VALID_TAG_HUSBAND)
                 .build();
-        assertTrue(uniqueCompanyList.contains(editedMeta));
+        assertTrue(uniqueCompanyList.contains(editedAlice));
     }
 
     @Test
@@ -53,59 +53,59 @@ public class UniqueCompanyListTest {
 
     @Test
     public void add_duplicateCompany_throwsDuplicateCompanyException() {
-        uniqueCompanyList.add(META);
-        assertThrows(DuplicateCompanyException.class, () -> uniqueCompanyList.add(META));
+        uniqueCompanyList.add(ALICE);
+        assertThrows(DuplicateCompanyException.class, () -> uniqueCompanyList.add(ALICE));
     }
 
     @Test
     public void setCompany_nullTargetCompany_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> uniqueCompanyList.setCompany(null, META));
+        assertThrows(NullPointerException.class, () -> uniqueCompanyList.setCompany(null, ALICE));
     }
 
     @Test
     public void setCompany_nullEditedCompany_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> uniqueCompanyList.setCompany(META, null));
+        assertThrows(NullPointerException.class, () -> uniqueCompanyList.setCompany(ALICE, null));
     }
 
     @Test
     public void setCompany_targetCompanyNotInList_throwsCompanyNotFoundException() {
-        assertThrows(CompanyNotFoundException.class, () -> uniqueCompanyList.setCompany(META, META));
+        assertThrows(CompanyNotFoundException.class, () -> uniqueCompanyList.setCompany(ALICE, ALICE));
     }
 
     @Test
     public void setCompany_editedCompanyIsSameCompany_success() {
-        uniqueCompanyList.add(META);
-        uniqueCompanyList.setCompany(META, META);
+        uniqueCompanyList.add(ALICE);
+        uniqueCompanyList.setCompany(ALICE, ALICE);
         UniqueCompanyList expectedUniqueCompanyList = new UniqueCompanyList();
-        expectedUniqueCompanyList.add(META);
+        expectedUniqueCompanyList.add(ALICE);
         assertEquals(expectedUniqueCompanyList, uniqueCompanyList);
     }
 
     @Test
     public void setCompany_editedCompanyHasSameIdentity_success() {
-        uniqueCompanyList.add(META);
-        Company editedMeta = new CompanyBuilder(META).withTags(VALID_TAG_HIGH)
+        uniqueCompanyList.add(ALICE);
+        Company editedAlice = new CompanyBuilder(ALICE).withTags(VALID_TAG_HUSBAND)
                 .build();
-        uniqueCompanyList.setCompany(META, editedMeta);
+        uniqueCompanyList.setCompany(ALICE, editedAlice);
         UniqueCompanyList expectedUniqueCompanyList = new UniqueCompanyList();
-        expectedUniqueCompanyList.add(editedMeta);
+        expectedUniqueCompanyList.add(editedAlice);
         assertEquals(expectedUniqueCompanyList, uniqueCompanyList);
     }
 
     @Test
     public void setCompany_editedCompanyHasDifferentIdentity_success() {
-        uniqueCompanyList.add(META);
-        uniqueCompanyList.setCompany(META, TIKTOK);
+        uniqueCompanyList.add(ALICE);
+        uniqueCompanyList.setCompany(ALICE, BOB);
         UniqueCompanyList expectedUniqueCompanyList = new UniqueCompanyList();
-        expectedUniqueCompanyList.add(TIKTOK);
+        expectedUniqueCompanyList.add(BOB);
         assertEquals(expectedUniqueCompanyList, uniqueCompanyList);
     }
 
     @Test
     public void setCompany_editedCompanyHasNonUniqueIdentity_throwsDuplicateCompanyException() {
-        uniqueCompanyList.add(META);
-        uniqueCompanyList.add(TIKTOK);
-        assertThrows(DuplicateCompanyException.class, () -> uniqueCompanyList.setCompany(META, TIKTOK));
+        uniqueCompanyList.add(ALICE);
+        uniqueCompanyList.add(BOB);
+        assertThrows(DuplicateCompanyException.class, () -> uniqueCompanyList.setCompany(ALICE, BOB));
     }
 
     @Test
@@ -115,13 +115,13 @@ public class UniqueCompanyListTest {
 
     @Test
     public void remove_companyDoesNotExist_throwsCompanyNotFoundException() {
-        assertThrows(CompanyNotFoundException.class, () -> uniqueCompanyList.remove(META));
+        assertThrows(CompanyNotFoundException.class, () -> uniqueCompanyList.remove(ALICE));
     }
 
     @Test
     public void remove_existingCompany_removesCompany() {
-        uniqueCompanyList.add(META);
-        uniqueCompanyList.remove(META);
+        uniqueCompanyList.add(ALICE);
+        uniqueCompanyList.remove(ALICE);
         UniqueCompanyList expectedUniqueCompanyList = new UniqueCompanyList();
         assertEquals(expectedUniqueCompanyList, uniqueCompanyList);
     }
@@ -133,9 +133,9 @@ public class UniqueCompanyListTest {
 
     @Test
     public void setCompanies_uniqueCompanyList_replacesOwnListWithProvidedUniqueCompanyList() {
-        uniqueCompanyList.add(META);
+        uniqueCompanyList.add(ALICE);
         UniqueCompanyList expectedUniqueCompanyList = new UniqueCompanyList();
-        expectedUniqueCompanyList.add(TIKTOK);
+        expectedUniqueCompanyList.add(BOB);
         uniqueCompanyList.setCompanies(expectedUniqueCompanyList);
         assertEquals(expectedUniqueCompanyList, uniqueCompanyList);
     }
@@ -147,17 +147,17 @@ public class UniqueCompanyListTest {
 
     @Test
     public void setCompanies_list_replacesOwnListWithProvidedList() {
-        uniqueCompanyList.add(META);
-        List<Company> companyList = Collections.singletonList(TIKTOK);
+        uniqueCompanyList.add(ALICE);
+        List<Company> companyList = Collections.singletonList(BOB);
         uniqueCompanyList.setCompanies(companyList);
         UniqueCompanyList expectedUniqueCompanyList = new UniqueCompanyList();
-        expectedUniqueCompanyList.add(TIKTOK);
+        expectedUniqueCompanyList.add(BOB);
         assertEquals(expectedUniqueCompanyList, uniqueCompanyList);
     }
 
     @Test
     public void setCompanies_listWithDuplicateCompanies_throwsDuplicateCompanyException() {
-        List<Company> listWithDuplicateCompanies = Arrays.asList(META, META);
+        List<Company> listWithDuplicateCompanies = Arrays.asList(ALICE, ALICE);
         assertThrows(DuplicateCompanyException.class, () -> uniqueCompanyList.setCompanies(listWithDuplicateCompanies));
     }
 

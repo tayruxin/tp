@@ -129,12 +129,12 @@ public class Company {
     public String toString() {
         return new ToStringBuilder(this)
                 .add("name", name)
-                .add("role", role)
-                .add("status", status)
-                .add("deadline", deadline)
-                .add("recruiterName", recruiterName)
                 .add("phone", phone)
                 .add("email", email)
+                .add("role", role)
+                .add("deadline", deadline)
+                .add("status", status)
+                .add("recruiterName", recruiterName)
                 .add("tags", tags)
                 .toString();
     }

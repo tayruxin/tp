@@ -22,24 +22,24 @@ import seedu.address.model.tag.Tag;
 public class SampleDataUtil {
     public static Company[] getSampleCompanies() {
         return new Company[] {
-            new Company(new Name("Google"), new Phone("87438807"), new Email("alexyeoh@example.com"),
-                    new Role("Software Engineer"), new Deadline("10-11-2023"),
-                    new ApplicationStatus("PA"), new RecruiterName("Francis Tan"), getTagSet("high")),
-            new Company(new Name("Tiktok"), new Phone("99272758"), new Email("berniceyu@example.com"),
-                    new Role("Software Engineer"), new Deadline("20-12-2023"),
-                    new ApplicationStatus("PA"), new RecruiterName("Alice Tan"), getTagSet("low")),
-            new Company(new Name("DSTA"), new Phone("93210283"), new Email("charlotte@example.com"),
-                    new Role("Software Engineer"), new Deadline("01-12-2023"),
-                    new ApplicationStatus("PA"), new RecruiterName("Eve Lim"), getTagSet("low")),
-            new Company(new Name("Microsoft"), new Phone("91031282"), new Email("lidavid@example.com"),
-                    new Role("Data Analyst"), new Deadline("18-11-2023"),
-                    new ApplicationStatus("PA"), new RecruiterName("Jovie Tan"), getTagSet("high")),
-            new Company(new Name("Meta"), new Phone("92492021"), new Email("irfan@example.com"),
-                    new Role("Data Analyst"), new Deadline("19-11-2023"),
-                    new ApplicationStatus("PA"), new RecruiterName("Poppins Lam"), getTagSet("medium")),
-            new Company(new Name("Amazon"), new Phone("92624417"), new Email("royb@example.com"),
-                    new Role("Web Developer"), new Deadline("20-11-2023"),
-                    new ApplicationStatus("PA"), new RecruiterName("Jarvis Koh"), getTagSet("medium"))
+            new Company(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
+                    new Role("Software Engineer"), new Deadline("2021-10-10"),
+                    new ApplicationStatus("PA"), new RecruiterName("Francis Tan"), getTagSet("friends")),
+            new Company(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
+                    new Role("Software Engineer"), new Deadline("2021-10-10"),
+                    new ApplicationStatus("PA"), new RecruiterName("Alice Tan"), getTagSet("colleagues", "friends")),
+            new Company(new Name("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
+                    new Role("Software Engineer"), new Deadline("2021-10-10"),
+                    new ApplicationStatus("PA"), new RecruiterName("Eve Lim"), getTagSet("neighbours")),
+            new Company(new Name("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
+                    new Role("Data Analyst"), new Deadline("2021-10-10"),
+                    new ApplicationStatus("PA"), new RecruiterName("Jovie Tan"), getTagSet("family")),
+            new Company(new Name("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
+                    new Role("Data Analyst"), new Deadline("2021-10-10"),
+                    new ApplicationStatus("PA"), new RecruiterName("Poppins Lam"), getTagSet("classmates")),
+            new Company(new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
+                    new Role("Web Developer"), new Deadline("2021-10-10"),
+                    new ApplicationStatus("PA"), new RecruiterName("Jarvis Koh"), getTagSet("colleagues"))
         };
     }
 

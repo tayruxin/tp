@@ -3,16 +3,16 @@ package seedu.address.model.company;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_DEADLINE_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_STATUS_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HIGH;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DEADLINE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_STATUS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalCompanies.META;
-import static seedu.address.testutil.TypicalCompanies.TIKTOK;
+import static seedu.address.testutil.TypicalCompanies.ALICE;
+import static seedu.address.testutil.TypicalCompanies.BOB;
 
 import org.junit.jupiter.api.Test;
 
@@ -29,88 +29,88 @@ public class CompanyTest {
     @Test
     public void isSameCompany() {
         // same object -> returns true
-        assertTrue(META.isSameCompany(META));
+        assertTrue(ALICE.isSameCompany(ALICE));
 
         // null -> returns false
-        assertFalse(META.isSameCompany(null));
+        assertFalse(ALICE.isSameCompany(null));
 
         // same name, all other attributes different -> returns true
-        Company editedMeta = new CompanyBuilder(META).withPhone(VALID_PHONE_TIKTOK).withEmail(VALID_EMAIL_TIKTOK)
-                .withRole(VALID_ROLE_TIKTOK).withDeadline(VALID_DEADLINE_TIKTOK).withStatus(VALID_STATUS_TIKTOK)
-                .withTags(VALID_TAG_HIGH).build();
-        assertTrue(META.isSameCompany(editedMeta));
+        Company editedAlice = new CompanyBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
+                .withRole(VALID_ROLE_BOB).withDeadline(VALID_DEADLINE_BOB).withStatus(VALID_STATUS_BOB)
+                .withTags(VALID_TAG_HUSBAND).build();
+        assertTrue(ALICE.isSameCompany(editedAlice));
 
         // different name, all other attributes same -> returns false
-        editedMeta = new CompanyBuilder(META).withName(VALID_NAME_TIKTOK).withRole(VALID_ROLE_TIKTOK)
-                .withDeadline(VALID_DEADLINE_TIKTOK).withStatus(VALID_STATUS_TIKTOK).build();
-        assertFalse(META.isSameCompany(editedMeta));
+        editedAlice = new CompanyBuilder(ALICE).withName(VALID_NAME_BOB).withRole(VALID_ROLE_BOB)
+                .withDeadline(VALID_DEADLINE_BOB).withStatus(VALID_STATUS_BOB).build();
+        assertFalse(ALICE.isSameCompany(editedAlice));
 
         // name differs in case, all other attributes same -> returns false
-        Company editedTikTok = new CompanyBuilder(TIKTOK).withName(VALID_NAME_TIKTOK.toLowerCase())
-                .withRole(VALID_ROLE_TIKTOK).withDeadline(VALID_DEADLINE_TIKTOK)
-                .withStatus(VALID_STATUS_TIKTOK).build();
-        assertFalse(TIKTOK.isSameCompany(editedTikTok));
+        Company editedBob = new CompanyBuilder(BOB).withName(VALID_NAME_BOB.toLowerCase())
+                .withRole(VALID_ROLE_BOB).withDeadline(VALID_DEADLINE_BOB)
+                .withStatus(VALID_STATUS_BOB).build();
+        assertFalse(BOB.isSameCompany(editedBob));
 
         // name has trailing spaces, all other attributes same -> returns false
-        String nameWithTrailingSpaces = VALID_NAME_TIKTOK + " ";
-        editedTikTok = new CompanyBuilder(TIKTOK).withName(nameWithTrailingSpaces).withRole(VALID_ROLE_TIKTOK)
-                .withDeadline(VALID_DEADLINE_TIKTOK).withStatus(VALID_STATUS_TIKTOK).build();
-        assertFalse(TIKTOK.isSameCompany(editedTikTok));
+        String nameWithTrailingSpaces = VALID_NAME_BOB + " ";
+        editedBob = new CompanyBuilder(BOB).withName(nameWithTrailingSpaces).withRole(VALID_ROLE_BOB)
+                .withDeadline(VALID_DEADLINE_BOB).withStatus(VALID_STATUS_BOB).build();
+        assertFalse(BOB.isSameCompany(editedBob));
     }
 
     @Test
     public void equals() {
         // same values -> returns true
-        Company metaCopy = new CompanyBuilder(META).build();
-        assertTrue(META.equals(metaCopy));
+        Company aliceCopy = new CompanyBuilder(ALICE).build();
+        assertTrue(ALICE.equals(aliceCopy));
 
         // same object -> returns true
-        assertTrue(META.equals(META));
+        assertTrue(ALICE.equals(ALICE));
 
         // null -> returns false
-        assertFalse(META.equals(null));
+        assertFalse(ALICE.equals(null));
 
         // different type -> returns false
-        assertFalse(META.equals(5));
+        assertFalse(ALICE.equals(5));
 
         // different company -> returns false
-        assertFalse(META.equals(TIKTOK));
+        assertFalse(ALICE.equals(BOB));
 
         // different name -> returns false
-        Company editedMeta = new CompanyBuilder(META).withName(VALID_NAME_TIKTOK).build();
-        assertFalse(META.equals(editedMeta));
+        Company editedAlice = new CompanyBuilder(ALICE).withName(VALID_NAME_BOB).build();
+        assertFalse(ALICE.equals(editedAlice));
 
         // different phone -> returns false
-        editedMeta = new CompanyBuilder(META).withPhone(VALID_PHONE_TIKTOK).build();
-        assertFalse(META.equals(editedMeta));
+        editedAlice = new CompanyBuilder(ALICE).withPhone(VALID_PHONE_BOB).build();
+        assertFalse(ALICE.equals(editedAlice));
 
         // different role -> returns false
-        editedMeta = new CompanyBuilder(META).withRole(VALID_ROLE_TIKTOK).build();
-        assertFalse(META.equals(editedMeta));
+        editedAlice = new CompanyBuilder(ALICE).withRole(VALID_ROLE_BOB).build();
+        assertFalse(ALICE.equals(editedAlice));
 
         //different deadline -> returns false
-        editedMeta = new CompanyBuilder(META).withDeadline(VALID_DEADLINE_TIKTOK).build();
-        assertFalse(META.equals(editedMeta));
+        editedAlice = new CompanyBuilder(ALICE).withDeadline(VALID_DEADLINE_BOB).build();
+        assertFalse(ALICE.equals(editedAlice));
 
         //different status -> returns false
-        editedMeta = new CompanyBuilder(META).withStatus(VALID_STATUS_TIKTOK).build();
-        assertFalse(META.equals(editedMeta));
+        editedAlice = new CompanyBuilder(ALICE).withStatus(VALID_STATUS_BOB).build();
+        assertFalse(ALICE.equals(editedAlice));
 
         // different email -> returns false
-        editedMeta = new CompanyBuilder(META).withEmail(VALID_EMAIL_TIKTOK).build();
-        assertFalse(META.equals(editedMeta));
+        editedAlice = new CompanyBuilder(ALICE).withEmail(VALID_EMAIL_BOB).build();
+        assertFalse(ALICE.equals(editedAlice));
 
         // different tags -> returns false
-        editedMeta = new CompanyBuilder(META).withTags(VALID_TAG_HIGH).build();
-        assertFalse(META.equals(editedMeta));
+        editedAlice = new CompanyBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
+        assertFalse(ALICE.equals(editedAlice));
     }
 
     @Test
     public void toStringMethod() {
-        String expected = Company.class.getCanonicalName() + "{name=" + META.getName() + ", role=" + META.getRole()
-                + ", status=" + META.getStatus() + ", deadline=" + META.getDeadline()
-                + ", recruiterName=" + META.getRecruiterName() + ", phone=" + META.getPhone()
-                + ", email=" + META.getEmail() + ", tags=" + META.getTags() + "}";
-        assertEquals(expected, META.toString());
+        String expected = Company.class.getCanonicalName() + "{name=" + ALICE.getName() + ", phone=" + ALICE.getPhone()
+                + ", email=" + ALICE.getEmail() + ", role=" + ALICE.getRole()
+                + ", deadline=" + ALICE.getDeadline() + ", status=" + ALICE.getStatus()
+                + ", recruiterName=" + ALICE.getRecruiterName() + ", tags=" + ALICE.getTags() + "}";
+        assertEquals(expected, ALICE.toString());
     }
 }

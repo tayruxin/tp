@@ -3,11 +3,11 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.DESC_GOOGLE;
-import static seedu.address.logic.commands.CommandTestUtil.DESC_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HIGH;
+import static seedu.address.logic.commands.CommandTestUtil.DESC_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.DESC_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showCompanyAtIndex;
@@ -56,11 +56,11 @@ public class EditCommandTest {
         Company lastCompany = model.getFilteredCompanyList().get(indexLastCompany.getZeroBased());
 
         CompanyBuilder companyInList = new CompanyBuilder(lastCompany);
-        Company editedCompany = companyInList.withName(VALID_NAME_TIKTOK).withPhone(VALID_PHONE_TIKTOK)
-                .withTags(VALID_TAG_HIGH).build();
+        Company editedCompany = companyInList.withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
+                .withTags(VALID_TAG_HUSBAND).build();
 
-        EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder().withName(VALID_NAME_TIKTOK)
-                .withPhone(VALID_PHONE_TIKTOK).withTags(VALID_TAG_HIGH).build();
+        EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder().withName(VALID_NAME_BOB)
+                .withPhone(VALID_PHONE_BOB).withTags(VALID_TAG_HUSBAND).build();
         EditCommand editCommand = new EditCommand(indexLastCompany, descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_COMPANY_SUCCESS,
@@ -90,9 +90,9 @@ public class EditCommandTest {
         showCompanyAtIndex(model, INDEX_FIRST_COMPANY);
 
         Company companyInFilteredList = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
-        Company editedCompany = new CompanyBuilder(companyInFilteredList).withName(VALID_NAME_TIKTOK).build();
+        Company editedCompany = new CompanyBuilder(companyInFilteredList).withName(VALID_NAME_BOB).build();
         EditCommand editCommand = new EditCommand(INDEX_FIRST_COMPANY,
-                new EditCompanyDescriptorBuilder().withName(VALID_NAME_TIKTOK).build());
+                new EditCompanyDescriptorBuilder().withName(VALID_NAME_BOB).build());
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_COMPANY_SUCCESS,
                 Messages.format(editedCompany));
@@ -127,7 +127,7 @@ public class EditCommandTest {
     @Test
     public void execute_invalidCompanyIndexUnfilteredList_failure() {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredCompanyList().size() + 1);
-        EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder().withName(VALID_NAME_TIKTOK).build();
+        EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder().withName(VALID_NAME_BOB).build();
         EditCommand editCommand = new EditCommand(outOfBoundIndex, descriptor);
 
         assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_COMPANY_DISPLAYED_INDEX);
@@ -145,17 +145,17 @@ public class EditCommandTest {
         assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getCompanyList().size());
 
         EditCommand editCommand = new EditCommand(outOfBoundIndex,
-                new EditCompanyDescriptorBuilder().withName(VALID_NAME_TIKTOK).build());
+                new EditCompanyDescriptorBuilder().withName(VALID_NAME_BOB).build());
 
         assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_COMPANY_DISPLAYED_INDEX);
     }
 
     @Test
     public void equals() {
-        final EditCommand standardCommand = new EditCommand(INDEX_FIRST_COMPANY, DESC_GOOGLE);
+        final EditCommand standardCommand = new EditCommand(INDEX_FIRST_COMPANY, DESC_AMY);
 
         // same values -> returns true
-        EditCompanyDescriptor copyDescriptor = new EditCompanyDescriptor(DESC_GOOGLE);
+        EditCompanyDescriptor copyDescriptor = new EditCompanyDescriptor(DESC_AMY);
         EditCommand commandWithSameValues = new EditCommand(INDEX_FIRST_COMPANY, copyDescriptor);
         assertTrue(standardCommand.equals(commandWithSameValues));
 
@@ -169,10 +169,10 @@ public class EditCommandTest {
         assertFalse(standardCommand.equals(new ClearCommand()));
 
         // different index -> returns false
-        assertFalse(standardCommand.equals(new EditCommand(INDEX_SECOND_COMPANY, DESC_GOOGLE)));
+        assertFalse(standardCommand.equals(new EditCommand(INDEX_SECOND_COMPANY, DESC_AMY)));
 
         // different descriptor -> returns false
-        assertFalse(standardCommand.equals(new EditCommand(INDEX_FIRST_COMPANY, DESC_TIKTOK)));
+        assertFalse(standardCommand.equals(new EditCommand(INDEX_FIRST_COMPANY, DESC_BOB)));
     }
 
     @Test

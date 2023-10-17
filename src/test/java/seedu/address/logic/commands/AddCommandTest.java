@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalCompanies.META;
+import static seedu.address.testutil.TypicalCompanies.ALICE;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -55,37 +55,37 @@ public class AddCommandTest {
 
     @Test
     public void equals() {
-        Company meta = new CompanyBuilder().withName("Meta").build();
-        Company tiktok = new CompanyBuilder().withName("Tiktok").build();
-        AddCommand addMetaCommand = new AddCommand(meta);
-        AddCommand addTiktokCommand = new AddCommand(tiktok);
+        Company alice = new CompanyBuilder().withName("Alice").build();
+        Company bob = new CompanyBuilder().withName("Bob").build();
+        AddCommand addAliceCommand = new AddCommand(alice);
+        AddCommand addBobCommand = new AddCommand(bob);
 
         // same object -> returns true
-        assertTrue(addMetaCommand.equals(addMetaCommand));
+        assertTrue(addAliceCommand.equals(addAliceCommand));
 
         // same values -> returns true
-        AddCommand addMetaCommandCopy = new AddCommand(meta);
-        assertTrue(addMetaCommand.equals(addMetaCommandCopy));
+        AddCommand addAliceCommandCopy = new AddCommand(alice);
+        assertTrue(addAliceCommand.equals(addAliceCommandCopy));
 
         // different types -> returns false
-        assertFalse(addMetaCommand.equals(1));
+        assertFalse(addAliceCommand.equals(1));
 
         // null -> returns false
-        assertFalse(addMetaCommand.equals(null));
+        assertFalse(addAliceCommand.equals(null));
 
         // different company -> returns false
-        assertFalse(addMetaCommand.equals(addTiktokCommand));
+        assertFalse(addAliceCommand.equals(addBobCommand));
     }
 
     @Test
     public void toStringMethod() {
-        AddCommand addCommand = new AddCommand(META);
-        String expected = AddCommand.class.getCanonicalName() + "{toAdd=" + META + "}";
+        AddCommand addCommand = new AddCommand(ALICE);
+        String expected = AddCommand.class.getCanonicalName() + "{toAdd=" + ALICE + "}";
         assertEquals(expected, addCommand.toString());
     }
 
     /**
-     * A default model stub that have all the methods failing.
+     * A default model stub that have all of the methods failing.
      */
     private class ModelStub implements Model {
         @Override

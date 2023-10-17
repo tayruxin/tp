@@ -3,9 +3,9 @@ package seedu.address.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HIGH;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalCompanies.META;
+import static seedu.address.testutil.TypicalCompanies.ALICE;
 import static seedu.address.testutil.TypicalCompanies.getTypicalAddressBook;
 
 import java.util.Arrays;
@@ -45,9 +45,9 @@ public class AddressBookTest {
     @Test
     public void resetData_withDuplicateCompanies_throwsDuplicateCompanyException() {
         // Two companies with the same identity fields
-        Company editedMeta = new CompanyBuilder(META).withTags(VALID_TAG_HIGH)
+        Company editedAlice = new CompanyBuilder(ALICE).withTags(VALID_TAG_HUSBAND)
                 .build();
-        List<Company> newCompanies = Arrays.asList(META, editedMeta);
+        List<Company> newCompanies = Arrays.asList(ALICE, editedAlice);
         AddressBookStub newData = new AddressBookStub(newCompanies);
 
         assertThrows(DuplicateCompanyException.class, () -> addressBook.resetData(newData));
@@ -60,21 +60,21 @@ public class AddressBookTest {
 
     @Test
     public void hasCompany_companyNotInAddressBook_returnsFalse() {
-        assertFalse(addressBook.hasCompany(META));
+        assertFalse(addressBook.hasCompany(ALICE));
     }
 
     @Test
     public void hasCompany_companyInAddressBook_returnsTrue() {
-        addressBook.addCompany(META);
-        assertTrue(addressBook.hasCompany(META));
+        addressBook.addCompany(ALICE);
+        assertTrue(addressBook.hasCompany(ALICE));
     }
 
     @Test
     public void hasCompany_companyWithSameIdentityFieldsInAddressBook_returnsTrue() {
-        addressBook.addCompany(META);
-        Company editedMeta = new CompanyBuilder(META).withTags(VALID_TAG_HIGH)
+        addressBook.addCompany(ALICE);
+        Company editedAlice = new CompanyBuilder(ALICE).withTags(VALID_TAG_HUSBAND)
                 .build();
-        assertTrue(addressBook.hasCompany(editedMeta));
+        assertTrue(addressBook.hasCompany(editedAlice));
     }
 
     @Test
