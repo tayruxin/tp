@@ -3,12 +3,12 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.DESC_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.DESC_TIKTOK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_TIKTOK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_TIKTOK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_TIKTOK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HIGH;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,37 +20,37 @@ public class EditCompanyDescriptorTest {
     @Test
     public void equals() {
         // same values -> returns true
-        EditCompanyDescriptor descriptorWithSameValues = new EditCompanyDescriptor(DESC_AMY);
-        assertTrue(DESC_AMY.equals(descriptorWithSameValues));
+        EditCompanyDescriptor descriptorWithSameValues = new EditCompanyDescriptor(DESC_GOOGLE);
+        assertTrue(DESC_GOOGLE.equals(descriptorWithSameValues));
 
         // same object -> returns true
-        assertTrue(DESC_AMY.equals(DESC_AMY));
+        assertTrue(DESC_GOOGLE.equals(DESC_GOOGLE));
 
         // null -> returns false
-        assertFalse(DESC_AMY.equals(null));
+        assertFalse(DESC_GOOGLE.equals(null));
 
         // different types -> returns false
-        assertFalse(DESC_AMY.equals(5));
+        assertFalse(DESC_GOOGLE.equals(5));
 
         // different values -> returns false
-        assertFalse(DESC_AMY.equals(DESC_BOB));
+        assertFalse(DESC_GOOGLE.equals(DESC_TIKTOK));
 
         // different name -> returns false
-        EditCommand.EditCompanyDescriptor editedAmy = new EditCompanyDescriptorBuilder(DESC_AMY)
-                .withName(VALID_NAME_BOB).build();
-        assertFalse(DESC_AMY.equals(editedAmy));
+        EditCommand.EditCompanyDescriptor editedAmy = new EditCompanyDescriptorBuilder(DESC_GOOGLE)
+                .withName(VALID_NAME_TIKTOK).build();
+        assertFalse(DESC_GOOGLE.equals(editedAmy));
 
         // different phone -> returns false
-        editedAmy = new EditCompanyDescriptorBuilder(DESC_AMY).withPhone(VALID_PHONE_BOB).build();
-        assertFalse(DESC_AMY.equals(editedAmy));
+        editedAmy = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withPhone(VALID_PHONE_TIKTOK).build();
+        assertFalse(DESC_GOOGLE.equals(editedAmy));
 
         // different email -> returns false
-        editedAmy = new EditCompanyDescriptorBuilder(DESC_AMY).withEmail(VALID_EMAIL_BOB).build();
-        assertFalse(DESC_AMY.equals(editedAmy));
+        editedAmy = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withEmail(VALID_EMAIL_TIKTOK).build();
+        assertFalse(DESC_GOOGLE.equals(editedAmy));
 
         // different tags -> returns false
-        editedAmy = new EditCompanyDescriptorBuilder(DESC_AMY).withTags(VALID_TAG_HUSBAND).build();
-        assertFalse(DESC_AMY.equals(editedAmy));
+        editedAmy = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withTags(VALID_TAG_HIGH).build();
+        assertFalse(DESC_GOOGLE.equals(editedAmy));
     }
 
     @Test
