@@ -118,4 +118,9 @@ public interface Model {
      * @param company the company to be deleted.
      */
     public void checkDelete(Company company);
+
+    /**
+     * Sorts the companies in the address book by their deadlines.
+     */
+    void sortCompaniesByDeadline();
 }

@@ -11,7 +11,7 @@ import java.time.format.DateTimeParseException;
  * Represents a Company's deadline in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidDeadline(String)}
  */
-public class Deadline {
+public class Deadline implements Comparable<Deadline> {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Please enter a valid deadline in the format DD-MM-YYYY";
@@ -75,5 +75,12 @@ public class Deadline {
         return value.hashCode();
     }
 
+    @Override
+    public int compareTo(Deadline other) {
+        if (other == null) {
+            return 1; // or -1 depending on how you want to handle nulls
+        }
+        return this.value.compareTo(other.value);
+    }
 }
 

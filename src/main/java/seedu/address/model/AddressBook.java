@@ -110,6 +110,13 @@ public class AddressBook implements ReadOnlyAddressBook {
         currentViewedCompany.clear();
     }
 
+    /**
+     * Sorts the companies in the address book by their deadlines.
+     */
+    public void sortCompaniesByDeadline() {
+        companies.sortCompaniesByDeadline();
+    }
+
     //// util methods
 
     @Override
