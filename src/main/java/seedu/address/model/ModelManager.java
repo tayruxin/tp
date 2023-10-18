@@ -132,9 +132,6 @@ public class ModelManager implements Model {
         updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
     }
 
-
-
-
     //=========== Filtered Company List Accessors =============================================================
 
     /**
