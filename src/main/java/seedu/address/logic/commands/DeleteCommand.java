@@ -44,7 +44,8 @@ public class DeleteCommand extends Command {
         model.deleteCompany(companyToDelete);
         model.checkDelete(companyToDelete);
 
-        return new CommandResult(String.format(MESSAGE_DELETE_COMPANY_SUCCESS, Messages.format(companyToDelete)));
+        return new CommandResult(String.format(MESSAGE_DELETE_COMPANY_SUCCESS,
+                Messages.getCompanyName(companyToDelete)));
     }
 
     @Override
