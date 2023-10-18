@@ -1,46 +1,67 @@
 {
   "_comment": "AddressBook save file which contains the same Company values as in TypicalCompanies#getTypicalAddressBook()",
   "companies" : [ {
-    "name" : "Alice Pauline",
+    "name" : "Meta",
     "phone" : "94351253",
     "email" : "alice@example.com",
-    "address" : "123, Jurong West Ave 6, #08-111",
-    "tags" : [ "friends" ]
+    "role" : "Software Engineer",
+    "deadline": "10-10-2023",
+    "status": "PA",
+    "recruiterName": "John Doe",
+    "tags" : [ "low" ]
   }, {
-    "name" : "Benson Meier",
+    "name" : "Amazon",
     "phone" : "98765432",
-    "email" : "johnd@example.com",
-    "address" : "311, Clementi Ave 2, #02-25",
-    "tags" : [ "owesMoney", "friends" ]
+    "email" : "janed@example.com",
+    "role" : "Software Engineer",
+    "deadline": "11-11-2023",
+    "status": "PA",
+    "recruiterName": "Jane Doe",
+    "tags" : [ "high" ]
   }, {
-    "name" : "Carl Kurz",
+    "name" : "Microsoft",
     "phone" : "95352563",
     "email" : "heinz@example.com",
-    "address" : "wall street",
+    "deadline": "11-12-2023",
+    "role" : "Data Engineer",
+    "status": "PA",
+    "recruiterName": "Jim Doe",
     "tags" : [ ]
   }, {
-    "name" : "Daniel Meier",
+    "name" : "DSTA",
     "phone" : "87652533",
     "email" : "cornelia@example.com",
-    "address" : "10th street",
-    "tags" : [ "friends" ]
+    "role" : "Data Engineer",
+    "deadline": "03-12-2023",
+    "status": "PA",
+    "recruiterName": "Tim Doe",
+    "tags" : [ "low" ]
   }, {
-    "name" : "Elle Meyer",
+    "name" : "Apple",
     "phone" : "9482224",
     "email" : "werner@example.com",
-    "address" : "michegan ave",
+    "role" : "UX Designer",
+    "deadline": "09-11-2023",
+    "status": "PA",
+    "recruiterName": "Tom Doe",
     "tags" : [ ]
   }, {
-    "name" : "Fiona Kunz",
+    "name" : "Accenture",
     "phone" : "9482427",
     "email" : "lydia@example.com",
-    "address" : "little tokyo",
+    "role" : "UI Designer",
+    "deadline": "08-11-2023",
+    "status": "PA",
+    "recruiterName": "Mary Doe",
     "tags" : [ ]
   }, {
-    "name" : "George Best",
+    "name" : "Netflix",
     "phone" : "9482442",
     "email" : "anna@example.com",
-    "address" : "4th street",
+    "role" : "Web Developer",
+    "deadline": "05-12-2023",
+    "status": "PA",
+    "recruiterName": "Timmy Doe",
     "tags" : [ ]
-  } ]
+  }]
 }

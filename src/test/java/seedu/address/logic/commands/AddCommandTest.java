@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalCompanies.ALICE;
+import static seedu.address.testutil.TypicalCompanies.META;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class AddCommandTest {
 
         CommandResult commandResult = new AddCommand(validCompany).execute(modelStub);
 
-        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, Messages.format(validCompany)),
+        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, Messages.getCompanyName(validCompany)),
                 commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(validCompany), modelStub.companiesAdded);
     }
@@ -55,37 +55,37 @@ public class AddCommandTest {
 
     @Test
     public void equals() {
-        Company alice = new CompanyBuilder().withName("Alice").build();
-        Company bob = new CompanyBuilder().withName("Bob").build();
-        AddCommand addAliceCommand = new AddCommand(alice);
-        AddCommand addBobCommand = new AddCommand(bob);
+        Company meta = new CompanyBuilder().withName("Meta").build();
+        Company tiktok = new CompanyBuilder().withName("Tiktok").build();
+        AddCommand addMetaCommand = new AddCommand(meta);
+        AddCommand addTiktokCommand = new AddCommand(tiktok);
 
         // same object -> returns true
-        assertTrue(addAliceCommand.equals(addAliceCommand));
+        assertTrue(addMetaCommand.equals(addMetaCommand));
 
         // same values -> returns true
-        AddCommand addAliceCommandCopy = new AddCommand(alice);
-        assertTrue(addAliceCommand.equals(addAliceCommandCopy));
+        AddCommand addMetaCommandCopy = new AddCommand(meta);
+        assertTrue(addMetaCommand.equals(addMetaCommandCopy));
 
         // different types -> returns false
-        assertFalse(addAliceCommand.equals(1));
+        assertFalse(addMetaCommand.equals(1));
 
         // null -> returns false
-        assertFalse(addAliceCommand.equals(null));
+        assertFalse(addMetaCommand.equals(null));
 
         // different company -> returns false
-        assertFalse(addAliceCommand.equals(addBobCommand));
+        assertFalse(addMetaCommand.equals(addTiktokCommand));
     }
 
     @Test
     public void toStringMethod() {
-        AddCommand addCommand = new AddCommand(ALICE);
-        String expected = AddCommand.class.getCanonicalName() + "{toAdd=" + ALICE + "}";
+        AddCommand addCommand = new AddCommand(META);
+        String expected = AddCommand.class.getCanonicalName() + "{toAdd=" + META + "}";
         assertEquals(expected, addCommand.toString());
     }
 
     /**
-     * A default model stub that have all of the methods failing.
+     * A default model stub that have all the methods failing.
      */
     private class ModelStub implements Model {
         @Override
@@ -157,6 +157,28 @@ public class AddCommandTest {
         public void updateFilteredCompanyList(Predicate<Company> predicate) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public void setCurrentViewedCompany(Company company) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<Company> getCurrentViewedCompany() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+
+        @Override
+        public void updateCurrentViewedCompany(Predicate<Company> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void checkDelete(Company company) {
+            throw new AssertionError("This method should not be called.");
+        }
+
     }
 
     /**
@@ -182,6 +204,8 @@ public class AddCommandTest {
      */
     private class ModelStubAcceptingCompanyAdded extends ModelStub {
         final ArrayList<Company> companiesAdded = new ArrayList<>();
+        final ArrayList<Company> companiesToView = new ArrayList<>();
+
 
         @Override
         public boolean hasCompany(Company company) {
@@ -193,6 +217,12 @@ public class AddCommandTest {
         public void addCompany(Company company) {
             requireNonNull(company);
             companiesAdded.add(company);
+        }
+
+        @Override
+        public void setCurrentViewedCompany(Company company) {
+            requireNonNull(company);
+            companiesToView.add(company);
         }
 
         @Override

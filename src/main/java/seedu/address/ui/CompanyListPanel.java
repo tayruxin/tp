@@ -29,6 +29,10 @@ public class CompanyListPanel extends UiPart<Region> {
         companyListView.setCellFactory(listView -> new CompanyListViewCell());
     }
 
+    public ListView<Company> getCompanyListView() {
+        return companyListView;
+    }
+
     /**
      * Custom {@code ListCell} that displays the graphics of a {@code Company} using a {@code CompanyCard}.
      */

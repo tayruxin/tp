@@ -3,9 +3,9 @@ package seedu.address.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HIGH;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalCompanies.ALICE;
+import static seedu.address.testutil.TypicalCompanies.META;
 import static seedu.address.testutil.TypicalCompanies.getTypicalAddressBook;
 
 import java.util.Arrays;
@@ -45,9 +45,9 @@ public class AddressBookTest {
     @Test
     public void resetData_withDuplicateCompanies_throwsDuplicateCompanyException() {
         // Two companies with the same identity fields
-        Company editedAlice = new CompanyBuilder(ALICE).withTags(VALID_TAG_HUSBAND)
+        Company editedMeta = new CompanyBuilder(META).withTags(VALID_TAG_HIGH)
                 .build();
-        List<Company> newCompanies = Arrays.asList(ALICE, editedAlice);
+        List<Company> newCompanies = Arrays.asList(META, editedMeta);
         AddressBookStub newData = new AddressBookStub(newCompanies);
 
         assertThrows(DuplicateCompanyException.class, () -> addressBook.resetData(newData));
@@ -60,21 +60,21 @@ public class AddressBookTest {
 
     @Test
     public void hasCompany_companyNotInAddressBook_returnsFalse() {
-        assertFalse(addressBook.hasCompany(ALICE));
+        assertFalse(addressBook.hasCompany(META));
     }
 
     @Test
     public void hasCompany_companyInAddressBook_returnsTrue() {
-        addressBook.addCompany(ALICE);
-        assertTrue(addressBook.hasCompany(ALICE));
+        addressBook.addCompany(META);
+        assertTrue(addressBook.hasCompany(META));
     }
 
     @Test
     public void hasCompany_companyWithSameIdentityFieldsInAddressBook_returnsTrue() {
-        addressBook.addCompany(ALICE);
-        Company editedAlice = new CompanyBuilder(ALICE).withTags(VALID_TAG_HUSBAND)
+        addressBook.addCompany(META);
+        Company editedMeta = new CompanyBuilder(META).withTags(VALID_TAG_HIGH)
                 .build();
-        assertTrue(addressBook.hasCompany(editedAlice));
+        assertTrue(addressBook.hasCompany(editedMeta));
     }
 
     @Test
@@ -100,6 +100,11 @@ public class AddressBookTest {
 
         @Override
         public ObservableList<Company> getCompanyList() {
+            return companies;
+        }
+
+        @Override
+        public ObservableList<Company> getCurrentViewedCompany() {
             return companies;
         }
     }

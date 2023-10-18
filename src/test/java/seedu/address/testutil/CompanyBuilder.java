@@ -3,10 +3,14 @@ package seedu.address.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
+import seedu.address.model.company.ApplicationStatus;
 import seedu.address.model.company.Company;
+import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
+import seedu.address.model.company.RecruiterName;
+import seedu.address.model.company.Role;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -15,13 +19,21 @@ import seedu.address.model.util.SampleDataUtil;
  */
 public class CompanyBuilder {
 
-    public static final String DEFAULT_NAME = "Amy Bee";
+    public static final String DEFAULT_NAME = "Twitter";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
+    public static final String DEFAULT_ROLE = "Software Engineer";
+    public static final String DEFAULT_DEADLINE = "10-10-2023";
+    public static final String DEFAULT_STATUS = "PA";
+    public static final String DEFAULT_RECRUITER_NAME = "John Doe";
 
     private Name name;
     private Phone phone;
     private Email email;
+    private Role role;
+    private Deadline deadline;
+    private ApplicationStatus status;
+    private RecruiterName recruiterName;
     private Set<Tag> tags;
 
     /**
@@ -31,6 +43,10 @@ public class CompanyBuilder {
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
+        role = new Role(DEFAULT_ROLE);
+        deadline = new Deadline(DEFAULT_DEADLINE);
+        status = new ApplicationStatus(DEFAULT_STATUS);
+        recruiterName = new RecruiterName(DEFAULT_RECRUITER_NAME);
         tags = new HashSet<>();
     }
 
@@ -41,6 +57,10 @@ public class CompanyBuilder {
         name = companyToCopy.getName();
         phone = companyToCopy.getPhone();
         email = companyToCopy.getEmail();
+        role = companyToCopy.getRole();
+        deadline = companyToCopy.getDeadline();
+        status = companyToCopy.getStatus();
+        recruiterName = companyToCopy.getRecruiterName();
         tags = new HashSet<>(companyToCopy.getTags());
     }
 
@@ -83,8 +103,40 @@ public class CompanyBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Role} of the {@code Company} that we are building.
+     */
+    public CompanyBuilder withRole(String role) {
+        this.role = new Role(role);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Deadline} of the {@code Company} that we are building.
+     */
+    public CompanyBuilder withDeadline(String deadline) {
+        this.deadline = new Deadline(deadline);
+        return this;
+    }
+
+    /**
+     * Sets the {@code ApplicationStatus} of the {@code Company} that we are building.
+     */
+    public CompanyBuilder withStatus(String status) {
+        this.status = new ApplicationStatus(status);
+        return this;
+    }
+
+    /**
+     * Sets the {@code RecruiterName} of the {@code Company} that we are building.
+     */
+    public CompanyBuilder withRecruiterName(String recruiterName) {
+        this.recruiterName = new RecruiterName(recruiterName);
+        return this;
+    }
+
     public Company build() {
-        return new Company(name, phone, email, tags);
+        return new Company(name, phone, email, role, deadline, status, recruiterName, tags);
     }
 
 }

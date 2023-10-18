@@ -14,4 +14,9 @@ public interface ReadOnlyAddressBook {
      */
     ObservableList<Company> getCompanyList();
 
+    /**
+     * Returns an unmodifiable view of the current viewed company.
+     */
+    ObservableList<Company> getCurrentViewedCompany();
+
 }

@@ -13,45 +13,45 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/alagappanra.png" width="200px">
 
-[[github](https://github.com/AlagappanRa)]
+[[Github](https://github.com/AlagappanRa)]
 
 * Role: Developer
 
-### Jane Doe
+### Tay Ru Xin
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/tayruxin.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Team Lead
-* Responsibilities: UI
-
-### Johnny Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+[[Github](http://github.com/tayruxin)]
 
 * Role: Developer
-* Responsibilities: Data
 
-### Jean Doe
+### Glenda Chong Rui Ting
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/glendachong.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[Github](http://github.com/glendachong)]
+[[LinkedIn](https://www.linkedin.com/in/glenda-chong-149367237)]
 
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
 
-### James Doe
+* Role: Deliverables and deadlines
+* Responsibilities: Ensure project deliverables are done on time and in the right format
 
-<img src="images/johndoe.png" width="200px">
+### Lim En Tian
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+<img src="images/alientian.png" width="200px">
+
+[[Github](http://github.com/alientian)]
+
 
 * Role: Developer
 * Responsibilities: UI
+
+### Ramu Rithik Vijay
+
+<img src="images/papataco14.png" width="200px">
+
+[[Github](http://github.com/papataco14)]
+[[LinkedIn](https://www.linkedin.com/in/rithikvijay/)]
+
+* Role: Developer
+* * Responsibilities: Deciphering requirements

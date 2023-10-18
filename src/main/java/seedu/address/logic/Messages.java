@@ -37,6 +37,14 @@ public class Messages {
     public static String format(Company company) {
         final StringBuilder builder = new StringBuilder();
         builder.append(company.getName())
+                .append("; Role: ")
+                .append(company.getRole())
+                .append("; Status: ")
+                .append(company.getStatus())
+                .append("; Deadline: ")
+                .append(company.getDeadline())
+                .append("; Recruiter Name: ")
+                .append(company.getRecruiterName())
                 .append("; Phone: ")
                 .append(company.getPhone())
                 .append("; Email: ")
@@ -44,5 +52,13 @@ public class Messages {
                 .append("; Tags: ");
         company.getTags().forEach(builder::append);
         return builder.toString();
+    }
+
+    /**
+     * Formats the {@code company} to only display the company's name to the user
+     * with the left UI panel for viewing the company details.
+     */
+    public static String getCompanyName(Company company) {
+        return company.getName().toString();
     }
 }

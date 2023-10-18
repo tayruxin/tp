@@ -34,7 +34,7 @@ public class AddCommandIntegrationTest {
         expectedModel.addCompany(validCompany);
 
         assertCommandSuccess(new AddCommand(validCompany), model,
-                String.format(AddCommand.MESSAGE_SUCCESS, Messages.format(validCompany)),
+                String.format(AddCommand.MESSAGE_SUCCESS, Messages.getCompanyName(validCompany)),
                 expectedModel);
     }
 

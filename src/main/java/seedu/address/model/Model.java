@@ -77,12 +77,46 @@ public interface Model {
      */
     void setCompany(Company target, Company editedCompany);
 
-    /** Returns an unmodifiable view of the filtered company list */
+    /**
+     * Returns an unmodifiable view of the filtered company list.
+     *
+     * @return the filtered company list.
+     */
     ObservableList<Company> getFilteredCompanyList();
 
     /**
      * Updates the filter of the filtered company list to filter by the given {@code predicate}.
+     *
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredCompanyList(Predicate<Company> predicate);
+
+    /**
+     * Sets the current viewed company to the company {@code company}.
+     *
+     * @param company the company to be set as the current viewed company.
+     */
+    void setCurrentViewedCompany(Company company);
+
+    /**
+     * Returns the current viewed company.
+     *
+     * @return the current viewed company.
+     */
+    public ObservableList<Company> getCurrentViewedCompany();
+
+    /**
+     * Updates the current viewed company to the company {@code company}.
+     *
+     * @param predicate the predicate to be used to update the current viewed company.
+     */
+    public void updateCurrentViewedCompany(Predicate<Company> predicate);
+
+    /**
+     * Checks if the company to be deleted is the current viewed company.
+     * If it is, the detail panel will be cleared.
+     *
+     * @param company the company to be deleted.
+     */
+    public void checkDelete(Company company);
 }

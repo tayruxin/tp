@@ -20,6 +20,10 @@ public class Company {
     private final Name name;
     private final Phone phone;
     private final Email email;
+    private final Role role;
+    private final Deadline deadline;
+    private final ApplicationStatus status;
+    private final RecruiterName recruiterName;
 
     // Data fields
     private final Set<Tag> tags = new HashSet<>();
@@ -27,11 +31,16 @@ public class Company {
     /**
      * Every field must be present and not null.
      */
-    public Company(Name name, Phone phone, Email email, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, tags);
+    public Company(Name name, Phone phone, Email email, Role role, Deadline deadline, ApplicationStatus status,
+                   RecruiterName recruiterName, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, role, deadline, status, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
+        this.role = role;
+        this.deadline = deadline;
+        this.status = status;
+        this.recruiterName = recruiterName;
         this.tags.addAll(tags);
     }
 
@@ -45,6 +54,22 @@ public class Company {
 
     public Email getEmail() {
         return email;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public Deadline getDeadline() {
+        return deadline;
+    }
+
+    public ApplicationStatus getStatus() {
+        return status;
+    }
+
+    public RecruiterName getRecruiterName() {
+        return recruiterName;
     }
 
     /**
@@ -87,19 +112,27 @@ public class Company {
         return name.equals(otherCompany.name)
                 && phone.equals(otherCompany.phone)
                 && email.equals(otherCompany.email)
+                && role.equals(otherCompany.role)
+                && deadline.equals(otherCompany.deadline)
+                && status.equals(otherCompany.status)
+                && recruiterName.equals(otherCompany.recruiterName)
                 && tags.equals(otherCompany.tags);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, tags);
+        return Objects.hash(name, phone, email, role, deadline, status, recruiterName, tags);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
                 .add("name", name)
+                .add("role", role)
+                .add("status", status)
+                .add("deadline", deadline)
+                .add("recruiterName", recruiterName)
                 .add("phone", phone)
                 .add("email", email)
                 .add("tags", tags)

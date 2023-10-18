@@ -269,13 +269,15 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* Computer Science students preparing for an internship or job application
 * prefer desktop apps over other types
-* can type fast
+* can type quickly
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: CS students often struggle to manage a multitude of internship contacts and track their application progress.
+A CLI address book not only efficiently stores these connections but also offers a valuable tool for monitoring and organizing the entire 
+application process, simplifying the pursuit of career opportunities.
 
 
 ### User stories
@@ -320,20 +322,104 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-*{More to be added}*
+**Use case: Find a Company**
+
+**MSS**
+
+1. User requests to find a company by name
+2. AddressBook shows a list of companies whose names contain the given keywords
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+* 2b. The given keywords do not match any company name.
+  * 2b1. AddressBook shows an empty list.
+
+    Use case ends.
+* 2c. The given keywords match multiple company names.
+  * 2c1. AddressBook shows a list of companies whose names contain the given keywords
+
+    Use case ends.
+
+**Use case: Add a company**
+
+**MSS**
+
+1.  User requests to add a company
+2. User key in required field and information
+3. AddressBook adds the company
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. User key in invalid information.
+  * 2a1. AddressBook shows an error message.
+
+    Use case resumes at step 2.
+
+
+**Use case: List company**
+
+**MSS**
+
+1.  User requests to list companies
+2. AddressBook shows a list of companies
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+**Use case: View full company information**
+
+**MSS**
+
+1. User requests to list companies
+2. AddressBook shows a list of companies
+3. User requests to view a specific company in the list
+4. AddressBook shows the full information of the company
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+
+
 
 ### Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 companies without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-
-*{More to be added}*
+1. The system should be available for download on our GitHub release page in the form of a JAR file.
+2. The system should work on any _mainstream OS_ as long as it has Java `11` or above installed.
+3. The system should be able to hold up to 200 applications to companies without a noticeable sluggishness in performance for typical usage.
+4. The response to any user input should become visible within 2 seconds.
+5. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+6. Most of the commands should be easy to remember so that a new user can learn to use the system quickly.
+7. Data should be stored locally in the device (ie. user can access the file through the system or directly from the device).
+8. The code should meet the coding standard of CS2103T for maintainability.
 
 ### Glossary
 
+* **Company**: A company that is offering an internship position
+* **Internship application**: An application made by the user to a company offering an internship position
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -352,16 +438,16 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   2. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
-1. Saving window preferences
+2. Saving window preferences
 
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-   1. Re-launch the app by double-clicking the jar file.<br>
+   2. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
+3. _{ more test cases …​ }_
 
 ### Deleting a company
 
@@ -369,16 +455,16 @@ testers are expected to do more *exploratory* testing.
 
    1. Prerequisites: List all companies using the `list` command. Multiple companies in the list.
 
-   1. Test case: `delete 1`<br>
+   2. Test case: `delete 1`<br>
       Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
 
-   1. Test case: `delete 0`<br>
+   3. Test case: `delete 0`<br>
       Expected: No company is deleted. Error details shown in the status message. Status bar remains the same.
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+   4. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+2. _{ more test cases …​ }_
 
 ### Saving data
 
@@ -386,4 +472,4 @@ testers are expected to do more *exploratory* testing.
 
    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
-1. _{ more test cases …​ }_
+2. _{ more test cases …​ }_
