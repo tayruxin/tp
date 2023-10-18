@@ -56,7 +56,7 @@ public class CompanyCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         name.setText(company.getName().fullName);
         role.setText(company.getRole().jobRole);
-        deadline.setText(company.getDeadline().value);
+        deadline.setText(company.getDeadline().toString());
         status.setText(company.getStatus().getDescription());
 
         company.getTags().stream()
