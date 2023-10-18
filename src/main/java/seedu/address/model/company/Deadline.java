@@ -3,12 +3,15 @@ package seedu.address.model.company;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 /**
  * Represents a Company's deadline in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidDeadline(String)}
  */
-public class Deadline {
+public class Deadline implements Comparable<Deadline> {
 
 
     public static final String MESSAGE_CONSTRAINTS =
@@ -16,7 +19,9 @@ public class Deadline {
     public static final String VALIDATION_REGEX = "^(?:20[2-9][0-9]|2[1-9][0-9]{2}|19[0-9]{2})"
             + "-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$";
 
-    public final String value;
+    public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+    public final LocalDate value;
 
 
     /**
@@ -27,19 +32,29 @@ public class Deadline {
     public Deadline(String deadline) {
         requireNonNull(deadline);
         checkArgument(isValidDeadline(deadline), MESSAGE_CONSTRAINTS);
-        value = deadline;
+        this.value = LocalDate.parse(deadline, FORMATTER);
     }
 
     /**
      * Returns true if a given string is a valid deadline.
      */
     public static boolean isValidDeadline(String test) {
-        return test.matches(VALIDATION_REGEX);
+        if (!test.matches(VALIDATION_REGEX)) {
+            return false;
+        }
+
+        try {
+            LocalDate.parse(test, FORMATTER);
+            return true;
+        } catch (DateTimeParseException e) {
+            return false;
+        }
     }
+
 
     @Override
     public String toString() {
-        return value;
+        return value.format(FORMATTER);
     }
 
     @Override
@@ -62,5 +77,12 @@ public class Deadline {
         return value.hashCode();
     }
 
+    @Override
+    public int compareTo(Deadline other) {
+        if (other == null) {
+            return 1; // or -1 depending on how you want to handle nulls
+        }
+        return this.value.compareTo(other.value);
+    }
 }
 

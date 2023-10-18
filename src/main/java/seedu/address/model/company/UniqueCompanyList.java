@@ -3,6 +3,7 @@ package seedu.address.model.company;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -102,6 +103,13 @@ public class UniqueCompanyList implements Iterable<Company> {
         }
 
         internalList.setAll(companies);
+    }
+
+    /**
+     * Sorts the companies by their deadlines.
+     */
+    public void sortCompaniesByDeadline() {
+        internalList.sort(Comparator.comparing(Company::getDeadline));
     }
 
     /**

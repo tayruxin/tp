@@ -37,7 +37,7 @@ public class CompanyUtil {
         sb.append(PREFIX_PHONE + company.getPhone().value + " ");
         sb.append(PREFIX_EMAIL + company.getEmail().value + " ");
         sb.append(PREFIX_ROLE + company.getRole().jobRole + " ");
-        sb.append(PREFIX_DEADLINE + company.getDeadline().value + " ");
+        sb.append(PREFIX_DEADLINE + company.getDeadline().toString() + " ");
         sb.append(PREFIX_STATUS + company.getStatus().toString() + " ");
         sb.append(PREFIX_RECRUITER_NAME + company.getRecruiterName().fullName + " ");
         company.getTags().stream().forEach(
