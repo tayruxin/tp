@@ -139,11 +139,18 @@ Company at specified index removed and list of companies updated
 </br>
 If INDEX is out of bounds:
 </br>
-`Index exceeds the number of contacts!`
+`The company index provided is invalid`
 
 If INDEX is zero or negative:
 </br>
-`Index must be positive!`
+`Invalid command format`
+`delete: Deletes the company identified by the index number used in the displayed company list.`
+`Parameters: INDEX (must be a positive integer)`
+
+If INDEX is not a number: </br>
+`Invalid command format`
+`delete: Deletes the company identified by the index number used in the displayed company list.`
+`Parameters: INDEX (must be a positive integer)`
 
 **Expected UI**
 
@@ -151,13 +158,13 @@ If INDEX is zero or negative:
 
 
 ### View full company information: `view` ###
-View the full company information of a particular company on the side.
+View the full company information of a particular company on the left panel.
 
 **Format:** `view INDEX`
 
 **Examples:**
-* `view 1` displays application details to the first company in the full list
-* `view 2` displays application details to the second company in the full list
+* `view 1` displays application details of the first company in the full list
+* `view 2` displays application details of the second company in the full list
 
 **Acceptable values for each parameter:**
 * INDEX must be a number. If not the entire command will be considered invalid input.
@@ -165,31 +172,36 @@ View the full company information of a particular company on the side.
 * INDEX must be more than zero. If not the entire command will be considered invalid input.
 
 **Expected output when command succeeds:**</br>
-`{COMPANY_NAME} information has been displayed successfully.`
+`Viewing Company: {COMPANY_NAME}`
 
 **GUI Changes:** </br>
-The company’s information should be listed on the left, which includes the following fields:
+The company’s information should be listed on the left panel, which includes the following fields:
 
-1. COMPANY_NAME 1
+1. COMPANY_NAME 
 2. APPLICATION_STATUS
 3. ROLE
 4. DEADLINE
 5. RECRUITER_NAME
-6. EMAIL (if any)
-7. PHONE (if any)
+6. EMAIL 
+7. PHONE
+8. PRIORITY
 
 **Expected output when command fails:** </br>
 
 * If INDEX is out of bounds: </br>
-`Index exceeds the number of contacts!`
+`The company index provided is invalid`
 * If INDEX is zero or negative: </br>
-`Index must be positive!`
+  `Invalid command format`
+  `view: Views the company identified by the index number used in the displayed company list.`
+  `Parameters: INDEX (must be a positive integer)`
 * If INDEX is not a number: </br>
-`Index must be a number!`
+  `Invalid command format`
+  `view: Views the company identified by the index number used in the displayed company list.`
+  `Parameters: INDEX (must be a positive integer)`
 
 **Expected UI**
 
-![img_4.png](img_4.png)
+![ViewUI.png](ViewUI.png)
 
 ## Upcoming Features ##
 
@@ -214,4 +226,4 @@ TBD.
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**    | `add c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]` <br><br> e.g., `add c/Tiktok n/John Tan r/Software Engineer a/PA d/11-11-2023 e/johntan@example.com p/987654321` |
 | **Delete** | `delete INDEX`<br><br> e.g., `delete 3`                                                                                                                                                                                  |
-| **View**   | `view`                                                                                                                                                                                                                   |
+| **View**   | `view INDEX`<br><br> e.g., `view 3`                                                                                                                                                                                      |
