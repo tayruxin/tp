@@ -86,6 +86,7 @@ public interface Model {
 
     /**
      * Updates the filter of the filtered company list to filter by the given {@code predicate}.
+     *
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredCompanyList(Predicate<Company> predicate);
@@ -107,7 +108,7 @@ public interface Model {
     /**
      * Updates the current viewed company to the company {@code company}.
      *
-     * @param predicate the predicate to be used to update the current viewed company
+     * @param predicate the predicate to be used to update the current viewed company.
      */
     public void updateCurrentViewedCompany(Predicate<Company> predicate);
 
