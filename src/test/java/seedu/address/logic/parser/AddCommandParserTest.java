@@ -120,7 +120,8 @@ public class AddCommandParserTest {
 
         // multiple fields repeated
         assertParseFailure(parser, NAME_DESC_GOOGLE + PHONE_DESC_GOOGLE + EMAIL_DESC_GOOGLE + ROLE_DESC_GOOGLE
-                + DEADLINE_DESC_GOOGLE + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK + validExpectedCompanyString,
+                        + DEADLINE_DESC_GOOGLE + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
+                        + validExpectedCompanyString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_COMPANY_NAME, PREFIX_PHONE, PREFIX_EMAIL,
                         PREFIX_ROLE, PREFIX_DEADLINE, PREFIX_STATUS, PREFIX_RECRUITER_NAME));
 
@@ -280,7 +281,7 @@ public class AddCommandParserTest {
 
         // non-empty preamble
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
-                + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK + TAG_DESC_HIGH,
+                        + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK + TAG_DESC_HIGH,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
     }
 }
