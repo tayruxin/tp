@@ -2,8 +2,12 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_COMPANIES;
 
@@ -37,19 +41,25 @@ public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
+    //c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]
+
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the company identified "
             + "by the index number used in the displayed company list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "[" + PREFIX_COMPANY_NAME + "NAME] "
-            + "[" + PREFIX_PHONE + "PHONE] "
+            + "[" + PREFIX_COMPANY_NAME + "COMPANY_NAME] "
+            + "[" + PREFIX_RECRUITER_NAME + "RECRUITER_NAME] "
+            + "[" + PREFIX_ROLE + "ROLE] "
+            + "[" + PREFIX_STATUS + "APPLICATION_STATUS] "
+            + "[" + PREFIX_DEADLINE + "DEADLINE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
+            + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
 
-    public static final String MESSAGE_EDIT_COMPANY_SUCCESS = "Edited Company: %1$s";
+    public static final String MESSAGE_EDIT_COMPANY_SUCCESS = "%1$s company edited.";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_COMPANY = "This company already exists in the address book.";
 
@@ -86,7 +96,6 @@ public class EditCommand extends Command {
 
         model.setCompany(companyToEdit, editedCompany);
         model.updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
-
         model.setCurrentViewedCompany(editedCompany);
         return new CommandResult(String.format(MESSAGE_EDIT_COMPANY_SUCCESS, Messages.getCompanyName(editedCompany)));
     }
@@ -101,10 +110,11 @@ public class EditCommand extends Command {
         Name updatedName = editCompanyDescriptor.getName().orElse(companyToEdit.getName());
         Phone updatedPhone = editCompanyDescriptor.getPhone().orElse(companyToEdit.getPhone());
         Email updatedEmail = editCompanyDescriptor.getEmail().orElse(companyToEdit.getEmail());
-        Role updatedRole = companyToEdit.getRole();
-        Deadline updatedDeadline = companyToEdit.getDeadline();
-        ApplicationStatus updatedStatus = companyToEdit.getStatus();
-        RecruiterName updatedRecruiterName = companyToEdit.getRecruiterName();
+        Role updatedRole = editCompanyDescriptor.getRole().orElse(companyToEdit.getRole());
+        Deadline updatedDeadline = editCompanyDescriptor.getDeadline().orElse(companyToEdit.getDeadline());
+        ApplicationStatus updatedStatus = editCompanyDescriptor.getStatus().orElse(companyToEdit.getStatus());
+        RecruiterName updatedRecruiterName = editCompanyDescriptor.getRecruiterName()
+                .orElse(companyToEdit.getRecruiterName());
         Set<Tag> updatedTags = editCompanyDescriptor.getTags().orElse(companyToEdit.getTags());
 
         return new Company(updatedName, updatedPhone, updatedEmail, updatedRole, updatedDeadline,
@@ -143,6 +153,10 @@ public class EditCommand extends Command {
         private Name name;
         private Phone phone;
         private Email email;
+        private Role role;
+        private Deadline deadline;
+        private ApplicationStatus status;
+        private RecruiterName recruiterName;
         private Set<Tag> tags;
 
         public EditCompanyDescriptor() {}
@@ -155,6 +169,10 @@ public class EditCommand extends Command {
             setName(toCopy.name);
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
+            setRole(toCopy.role);
+            setDeadline(toCopy.deadline);
+            setStatus(toCopy.status);
+            setRecruiterName(toCopy.recruiterName);
             setTags(toCopy.tags);
         }
 
@@ -162,7 +180,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, role, deadline, status, recruiterName, tags);
         }
 
         public void setName(Name name) {
@@ -187,6 +205,38 @@ public class EditCommand extends Command {
 
         public Optional<Email> getEmail() {
             return Optional.ofNullable(email);
+        }
+
+        public void setRole(Role role) {
+            this.role = role;
+        }
+
+        public Optional<Role> getRole() {
+            return Optional.ofNullable(role);
+        }
+
+        public void setDeadline(Deadline deadline) {
+            this.deadline = deadline;
+        }
+
+        public Optional<Deadline> getDeadline() {
+            return Optional.ofNullable(deadline);
+        }
+
+        public void setStatus(ApplicationStatus status) {
+            this.status = status;
+        }
+
+        public Optional<ApplicationStatus> getStatus() {
+            return Optional.ofNullable(status);
+        }
+
+        public void setRecruiterName(RecruiterName recruiterName) {
+            this.recruiterName = recruiterName;
+        }
+
+        public Optional<RecruiterName> getRecruiterName() {
+            return Optional.ofNullable(recruiterName);
         }
 
         /**
@@ -221,6 +271,10 @@ public class EditCommand extends Command {
             return Objects.equals(name, otherCompanyDescriptor.name)
                     && Objects.equals(phone, otherCompanyDescriptor.phone)
                     && Objects.equals(email, otherCompanyDescriptor.email)
+                    && Objects.equals(role, otherCompanyDescriptor.role)
+                    && Objects.equals(deadline, otherCompanyDescriptor.deadline)
+                    && Objects.equals(status, otherCompanyDescriptor.status)
+                    && Objects.equals(recruiterName, otherCompanyDescriptor.recruiterName)
                     && Objects.equals(tags, otherCompanyDescriptor.tags);
         }
 
@@ -228,6 +282,10 @@ public class EditCommand extends Command {
         public String toString() {
             return new ToStringBuilder(this)
                     .add("name", name)
+                    .add("role", role)
+                    .add("deadline", deadline)
+                    .add("status", status)
+                    .add("recruiter name", recruiterName)
                     .add("phone", phone)
                     .add("email", email)
                     .add("tags", tags)
