@@ -57,7 +57,11 @@ public class EditCompanyDescriptorTest {
     public void toStringMethod() {
         EditCommand.EditCompanyDescriptor editCompanyDescriptor = new EditCommand.EditCompanyDescriptor();
         String expected = EditCommand.EditCompanyDescriptor.class.getCanonicalName() + "{name="
-                + editCompanyDescriptor.getName().orElse(null) + ", phone="
+                + editCompanyDescriptor.getName().orElse(null) + ", role="
+                + editCompanyDescriptor.getRole().orElse(null) + ", deadline="
+                + editCompanyDescriptor.getDeadline().orElse(null) + ", status="
+                + editCompanyDescriptor.getStatus().orElse(null) + ", recruiter name="
+                + editCompanyDescriptor.getRecruiterName().orElse(null) + ", phone="
                 + editCompanyDescriptor.getPhone().orElse(null) + ", email="
                 + editCompanyDescriptor.getEmail().orElse(null) + ", tags="
                 + editCompanyDescriptor.getTags().orElse(null) + "}";
