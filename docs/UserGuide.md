@@ -20,17 +20,11 @@ Never miss an internships interview with LinkMeIn! Keep track of all your deadli
 
 ## Current Features ##
 
-<div markdown="block" class="alert alert-info">
-
-**:information_source: Notes about the command format:**<br>
-    Yet to be updated.
-
-</div>
-### Adding a company: `add` ###
+### Adding a company : `add` ###
 
 Adds a company to the address book.
 The company must have the required fields:
-CompanyName, ApplyingRole, ApplicationStatus, RecruiterName, Deadline(DD-MM-YYYY).
+CompanyName, ApplyingRole, ApplicationStatus, Deadline (dd-MM-yyyy), RecruiterName, Email and PhoneNumber.
 Order of input **does not** matter.
 
 | Prefix | Application Status     |
@@ -42,31 +36,36 @@ Order of input **does not** matter.
 | R      | REJECTED               |
 
 **Format**:</br>
-`add c/COMPANY_NAME n/RECRUITER_NAME r/ROLE
-a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]`
+`add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [t/tags]`
 
 **Examples**:
-* `add c/Tiktok n/John Tan r/Software Engineer a/PA d/11-11-2023 e/johntan@example.com p/987654321`
-* `add c/Google n/Mary r/Data Analyst a/R d/11-11-2023`
-* `add c/Google r/Data Scientist a/PI n/Mary d/11-11-2023  e/mary@example.com`
+* `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com p/987654321`
+* `add c/Google n/Mary r/Data Analyst s/R d/11-11-2023 e/johntan@example.com p/987654321 t/high`
+* `add c/Meta r/Data Scientist s/PI n/Mary d/12-12-2023 e/mary@example.com p/91234567`
 
 **Acceptable values for each parameter:**<br>
-No other string separators other than c/, n/, r/, a/, d/, e/, p/.
+No other string separators other than c/, n/, r/, s/, d/, e/, p/, t/.
 Otherwise, the **entire** command will be considered invalid and all data inputted will be discarded.
 
-Example: `c/Google n/Mary r/Data Analyst a/R d/11-11-2023 f/`</br> Explanation: Invalid f/ string separator.
+Example of invalid input: `c/Google n/Mary r/Data Analyst a/R d/11-11-2023 f/`</br> 
+Explanation: Invalid f/ string separator.
 
 **Expected output when command succeeds**: </br>
-`{COMPANY_NAME} contact added to the list!`
+`New company added: {COMPANY_NAME}`
 
 **GUI Changes:** </br>
-The company should be added to the existing list of companies on the right.
+The company should be added to the existing list of companies on the right.</br>
+The company’s information should also be listed on the left panel, which displays all the added fields information. 
 
 **Expected output when command fails:** </br>
+`Invalid command format!`</br>
+`add: Adds a company to the address book. Parameters: c/COMPANY_NAME r/ROLE s/STATUS d/DEADLINE n/RECRUITER_NAME p/PHONE e/EMAIL [t/TAG]...`</br>
+`Example: add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan p/98765432 e/johnd@example.com t/high`
 
+***To be further updated in V1.3***
 * If the COMPANY_NAME field is missing:
 `Invalid command format! Missing COMPANY_NAME. Format is add c/COMPANY_NAME
-n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
+n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS e/EMAIL p/PHONE_NUMBER`
 </br>
 </br>
 * If the RECRUITER_NAME field is missing:
@@ -83,9 +82,9 @@ c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_N
 `Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME
 n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
 
-**Expected UI**
+**Expected UI:**
 
-![img_1.png](img_1.png)
+![AddCommand.png](AddCommand.png)
 
 ### Listing all contacts : `list`
 
@@ -97,15 +96,15 @@ Lists all the contacts in the application at present.
 
 **Expected UI**:
 
-![img_3.png](img_3.png)
+![ListCommand.png](ListCommand.png)
 
 The list of companies should be listed in the following format below:
 ```
-{COMPANY_NAME 1} {ROLE}
+{COMPANY_NAME 1} {ROLE} {APPLICATION_STATUS} {DEADLINE}
 
-{COMPANY_NAME 2} {ROLE}
+{COMPANY_NAME 2} {ROLE} {APPLICATION_STATUS} {DEADLINE}
 
-{COMPANY_NAME 3} {ROLE}
+{COMPANY_NAME 3} {ROLE} {APPLICATION_STATUS} {DEADLINE}
 ```
 ### Deleting a company : `delete` ###
 
@@ -154,7 +153,7 @@ If INDEX is not a number: </br>
 
 **Expected UI**
 
-![img_2.png](img_2.png)
+![img_2.png](DeleteCommand.png)
 
 
 ### View full company information: `view` ###
@@ -222,8 +221,8 @@ TBD.
 
 ## Command summary ##
 
-| Action     | Format, Examples                                                                                                                                                                                                         |
-|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**    | `add c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]` <br><br> e.g., `add c/Tiktok n/John Tan r/Software Engineer a/PA d/11-11-2023 e/johntan@example.com p/987654321` |
-| **Delete** | `delete INDEX`<br><br> e.g., `delete 3`                                                                                                                                                                                  |
-| **View**   | `view INDEX`<br><br> e.g., `view 3`                                                                                                                                                                                      |
+| Action     | Format, Examples                                                                                                                                                                                                              |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**    | `add c/COMPANY_NAME r/ROLE d/DEADLINE s/APPLICATION_STATUS n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [t/tags]` <br><br> e.g., `add c/Tiktok r/Software Engineer s/PA d/11-11-2023 n/John Tan e/johntan@example.com p/987654321` |
+| **Delete** | `delete INDEX`<br><br> e.g., `delete 3`                                                                                                                                                                                       |
+| **View**   | `view INDEX`<br><br> e.g., `view 3`                                                                                                                                                                                           |
