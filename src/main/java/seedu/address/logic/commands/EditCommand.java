@@ -97,7 +97,7 @@ public class EditCommand extends Command {
         model.setCompany(companyToEdit, editedCompany);
         model.updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
         model.setCurrentViewedCompany(editedCompany);
-        return new CommandResult(String.format(MESSAGE_EDIT_COMPANY_SUCCESS, editedCompany.getName().toString()));
+        return new CommandResult(String.format(MESSAGE_EDIT_COMPANY_SUCCESS, Messages.getCompanyName(editedCompany)));
     }
 
     /**
