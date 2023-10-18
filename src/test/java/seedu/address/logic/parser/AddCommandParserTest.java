@@ -120,7 +120,8 @@ public class AddCommandParserTest {
 
         // multiple fields repeated
         assertParseFailure(parser, NAME_DESC_GOOGLE + PHONE_DESC_GOOGLE + EMAIL_DESC_GOOGLE + ROLE_DESC_GOOGLE
-                        + DEADLINE_DESC_GOOGLE + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK + validExpectedCompanyString,
+                        + DEADLINE_DESC_GOOGLE + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
+                        + validExpectedCompanyString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_COMPANY_NAME, PREFIX_PHONE, PREFIX_EMAIL,
                         PREFIX_ROLE, PREFIX_DEADLINE, PREFIX_STATUS, PREFIX_RECRUITER_NAME));
 
