@@ -142,15 +142,15 @@ public class AddCommandParserTest {
         assertParseFailure(parser, INVALID_ROLE_DESC + validExpectedCompanyString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_ROLE));
 
-        //invalid deadline
+        // invalid deadline
         assertParseFailure(parser, INVALID_DEADLINE_DESC + validExpectedCompanyString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_DEADLINE));
 
-        //invalid status
+        // invalid status
         assertParseFailure(parser, INVALID_STATUS_DESC + validExpectedCompanyString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_STATUS));
 
-        //invalid recruiter name
+        // invalid recruiter name
         assertParseFailure(parser, INVALID_RECRUITER_NAME_DESC + validExpectedCompanyString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_RECRUITER_NAME));
 
@@ -172,15 +172,15 @@ public class AddCommandParserTest {
         assertParseFailure(parser, validExpectedCompanyString + INVALID_ROLE_DESC,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_ROLE));
 
-        //invalid deadline
+        // invalid deadline
         assertParseFailure(parser, validExpectedCompanyString + INVALID_DEADLINE_DESC,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_DEADLINE));
 
-        //invalid status
+        // invalid status
         assertParseFailure(parser, validExpectedCompanyString + INVALID_STATUS_DESC,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_STATUS));
 
-        //invalid recruiter name
+        // invalid recruiter name
         assertParseFailure(parser, validExpectedCompanyString + INVALID_RECRUITER_NAME_DESC,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_RECRUITER_NAME));
     }
