@@ -42,7 +42,7 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(INDEX_FIRST_COMPANY, descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_COMPANY_SUCCESS,
-                Messages.format(editedCompany));
+                Messages.getCompanyName(editedCompany));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setCompany(model.getFilteredCompanyList().get(0), editedCompany);
@@ -64,7 +64,7 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(indexLastCompany, descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_COMPANY_SUCCESS,
-                Messages.format(editedCompany));
+                Messages.getCompanyName(editedCompany));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setCompany(lastCompany, editedCompany);
@@ -78,7 +78,7 @@ public class EditCommandTest {
         Company editedCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_COMPANY_SUCCESS,
-                Messages.format(editedCompany));
+                Messages.getCompanyName(editedCompany));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
 
@@ -95,7 +95,7 @@ public class EditCommandTest {
                 new EditCompanyDescriptorBuilder().withName(VALID_NAME_BOB).build());
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_COMPANY_SUCCESS,
-                Messages.format(editedCompany));
+                Messages.getCompanyName(editedCompany));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setCompany(model.getFilteredCompanyList().get(0), editedCompany);
