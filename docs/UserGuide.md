@@ -203,6 +203,43 @@ The company’s information should be listed on the left panel, which includes t
 
 ![ViewUI.png](ViewUI.png)
 
+### Edit a company's information: `edit` ###
+Edits the information of a particular company.
+
+**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [t/TAG]…`
+
+* Edits the company at the specified INDEX. The index refers to the index number shown in the displayed company list. The index must be a positive integer 1, 2, 3, ...
+* At least one of the optional fields must be provided.
+* Existing values will be updated to the input values.
+* When editing tags, the existing tags of the company will be removed i.e adding of tags is not cumulative.
+* You can remove all the company’s tags by typing t/ without specifying any tags after it.
+
+**Examples:**
+* `edit 2 s/Pending Application r/frontend developer` edits the status and role of the 2nd person to be Pending Application and frontend developer respectively.
+* `edit 3 e/example@abc.com t/` edits the email of the 3rd person to be example@abc.com and clears all existing tags.
+
+**Acceptable values for each parameter:**
+* INDEX must be a number. If not the entire command will be considered invalid input.
+* INDEX must not be out of bounds. If not the entire command will be considered invalid input.
+* INDEX must be more than zero. If not the entire command will be considered invalid input.
+* No other string separators other than c/, n/, r/, s/, d/, e/, p/. Otherwise, the entire command will be considered invalid and all data inputted will be discarded.
+
+**Expected output when command succeeds:**</br>
+`{COMPANY_NAME} company edited.`
+
+**Expected output when command fails:** </br>
+* If INDEX is out of bounds: </br>
+  `The company index provided is invalid`
+* If invalid string separator: </br>
+  `Invalid command format! edit: Edits the details of the company identified by the index number used in the displayed company list. Existing values will be overwritten by the input values.
+  Parameters: INDEX (must be a positive integer) [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE] [t/TAG]...
+  Example: edit 1 p/91234567 e/johndoe@example.com`
+* If empty input after string separator: </br>
+  `Please enter a valid {field}`
+
+**Expected UI** <br/>
+![EditUI.png](EditUI.png)
+
 ## Upcoming Features ##
 
 TBD
@@ -226,4 +263,5 @@ TBD.
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**    | `add c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]` <br><br> e.g., `add c/Tiktok n/John Tan r/Software Engineer a/PA d/11-11-2023 e/johntan@example.com p/987654321` |
 | **Delete** | `delete INDEX`<br><br> e.g., `delete 3`                                                                                                                                                                                  |
-| **View**   | `view INDEX`<br><br> e.g., `view 3`                                                                                                                                                                                      |
+| **View**   | `view`                                                                                                                                                                                                                   |
+| **Edit**   | `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [a/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [t/TAG]…` <br/><br/> e.g., `edit 2 s/Pending Application r/frontend developer`                   |
