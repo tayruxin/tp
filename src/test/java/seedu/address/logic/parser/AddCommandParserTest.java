@@ -142,15 +142,15 @@ public class AddCommandParserTest {
         assertParseFailure(parser, INVALID_ROLE_DESC + validExpectedCompanyString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_ROLE));
 
-        //invalid deadline
+        // invalid deadline
         assertParseFailure(parser, INVALID_DEADLINE_DESC + validExpectedCompanyString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_DEADLINE));
 
-        //invalid status
+        // invalid status
         assertParseFailure(parser, INVALID_STATUS_DESC + validExpectedCompanyString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_STATUS));
 
-        //invalid recruiter name
+        // invalid recruiter name
         assertParseFailure(parser, INVALID_RECRUITER_NAME_DESC + validExpectedCompanyString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_RECRUITER_NAME));
 
@@ -172,15 +172,15 @@ public class AddCommandParserTest {
         assertParseFailure(parser, validExpectedCompanyString + INVALID_ROLE_DESC,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_ROLE));
 
-        //invalid deadline
+        // invalid deadline
         assertParseFailure(parser, validExpectedCompanyString + INVALID_DEADLINE_DESC,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_DEADLINE));
 
-        //invalid status
+        // invalid status
         assertParseFailure(parser, validExpectedCompanyString + INVALID_STATUS_DESC,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_STATUS));
 
-        //invalid recruiter name
+        // invalid recruiter name
         assertParseFailure(parser, validExpectedCompanyString + INVALID_RECRUITER_NAME_DESC,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_RECRUITER_NAME));
     }
@@ -234,6 +234,7 @@ public class AddCommandParserTest {
     @Test
     public void parse_invalidValue_failure() {
         // invalid name
+<<<<<<< HEAD
         assertParseFailure(parser, INVALID_NAME_DESC + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ROLE_DESC_BOB + DEADLINE_DESC_BOB + STATUS_DESC_BOB + RECRUITER_NAME_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Name.MESSAGE_CONSTRAINTS);
@@ -257,6 +258,31 @@ public class AddCommandParserTest {
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ROLE_DESC_BOB + INVALID_DEADLINE_DESC + STATUS_DESC_BOB + RECRUITER_NAME_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Deadline.MESSAGE_CONSTRAINTS);
+=======
+        assertParseFailure(parser, INVALID_NAME_DESC + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
+                + ROLE_DESC_TIKTOK + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
+                + TAG_DESC_HIGH, Name.MESSAGE_CONSTRAINTS);
+
+        // invalid phone
+        assertParseFailure(parser, NAME_DESC_TIKTOK + INVALID_PHONE_DESC + EMAIL_DESC_TIKTOK
+                + ROLE_DESC_TIKTOK + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
+                + TAG_DESC_HIGH, Phone.MESSAGE_CONSTRAINTS);
+
+        // invalid email
+        assertParseFailure(parser, NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + INVALID_EMAIL_DESC
+                + ROLE_DESC_TIKTOK + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
+                + TAG_DESC_HIGH, Email.MESSAGE_CONSTRAINTS);
+
+        // invalid role
+        assertParseFailure(parser, NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
+                + INVALID_ROLE_DESC + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
+                + TAG_DESC_HIGH, Role.MESSAGE_CONSTRAINTS);
+
+        // invalid deadline
+        assertParseFailure(parser, NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
+                + ROLE_DESC_TIKTOK + INVALID_DEADLINE_DESC + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
+                + TAG_DESC_HIGH, Deadline.MESSAGE_CONSTRAINTS);
+>>>>>>> 6e54c9685acd38c0462684509a461cd258f4d105
 
         // invalid status
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
@@ -264,9 +290,15 @@ public class AddCommandParserTest {
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, ApplicationStatus.MESSAGE_CONSTRAINTS);
 
         // invalid recruiter name
+<<<<<<< HEAD
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ROLE_DESC_BOB + DEADLINE_DESC_BOB + STATUS_DESC_BOB + INVALID_RECRUITER_NAME_DESC
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, RecruiterName.MESSAGE_CONSTRAINTS);
+=======
+        assertParseFailure(parser, NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
+                + ROLE_DESC_TIKTOK + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + INVALID_RECRUITER_NAME_DESC
+                + TAG_DESC_HIGH, RecruiterName.MESSAGE_CONSTRAINTS);
+>>>>>>> 6e54c9685acd38c0462684509a461cd258f4d105
 
         // invalid tag
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ROLE_DESC_BOB
@@ -279,8 +311,13 @@ public class AddCommandParserTest {
                 + RECRUITER_NAME_DESC_BOB, Name.MESSAGE_CONSTRAINTS);
 
         // non-empty preamble
+<<<<<<< HEAD
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + STATUS_DESC_BOB + RECRUITER_NAME_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
+=======
+        assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
+                + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK + TAG_DESC_HIGH,
+>>>>>>> 6e54c9685acd38c0462684509a461cd258f4d105
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
     }
 }

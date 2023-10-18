@@ -39,7 +39,7 @@ public class AddCommandTest {
 
         CommandResult commandResult = new AddCommand(validCompany).execute(modelStub);
 
-        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, Messages.format(validCompany)),
+        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, Messages.getCompanyName(validCompany)),
                 commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(validCompany), modelStub.companiesAdded);
     }
@@ -204,6 +204,8 @@ public class AddCommandTest {
      */
     private class ModelStubAcceptingCompanyAdded extends ModelStub {
         final ArrayList<Company> companiesAdded = new ArrayList<>();
+        final ArrayList<Company> companiesToView = new ArrayList<>();
+
 
         @Override
         public boolean hasCompany(Company company) {
@@ -215,6 +217,12 @@ public class AddCommandTest {
         public void addCompany(Company company) {
             requireNonNull(company);
             companiesAdded.add(company);
+        }
+
+        @Override
+        public void setCurrentViewedCompany(Company company) {
+            requireNonNull(company);
+            companiesToView.add(company);
         }
 
         @Override
