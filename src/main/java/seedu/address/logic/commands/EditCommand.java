@@ -59,7 +59,7 @@ public class EditCommand extends Command {
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
 
-    public static final String MESSAGE_EDIT_COMPANY_SUCCESS = "Edited Company: %1$s";
+    public static final String MESSAGE_EDIT_COMPANY_SUCCESS = "%1$s company edited.";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_COMPANY = "This company already exists in the address book.";
 
@@ -97,7 +97,7 @@ public class EditCommand extends Command {
         model.setCompany(companyToEdit, editedCompany);
         model.updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
         model.setCurrentViewedCompany(editedCompany);
-        return new CommandResult(String.format(MESSAGE_EDIT_COMPANY_SUCCESS, Messages.format(editedCompany)));
+        return new CommandResult(String.format(MESSAGE_EDIT_COMPANY_SUCCESS, editedCompany.getName().toString()));
     }
 
     /**
