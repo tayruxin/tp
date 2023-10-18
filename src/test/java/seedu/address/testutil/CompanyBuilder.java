@@ -1,5 +1,7 @@
 package seedu.address.testutil;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,7 +25,7 @@ public class CompanyBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ROLE = "Software Engineer";
-    public static final String DEFAULT_DEADLINE = "10-10-2023";
+    public static final LocalDate DEFAULT_DEADLINE = LocalDate.of(2023, 10, 10);
     public static final String DEFAULT_STATUS = "PA";
     public static final String DEFAULT_RECRUITER_NAME = "John Doe";
 
@@ -44,7 +46,7 @@ public class CompanyBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         role = new Role(DEFAULT_ROLE);
-        deadline = new Deadline(DEFAULT_DEADLINE);
+        deadline = new Deadline(DEFAULT_DEADLINE.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
         status = new ApplicationStatus(DEFAULT_STATUS);
         recruiterName = new RecruiterName(DEFAULT_RECRUITER_NAME);
         tags = new HashSet<>();

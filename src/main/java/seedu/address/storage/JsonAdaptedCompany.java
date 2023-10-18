@@ -66,7 +66,7 @@ class JsonAdaptedCompany {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         role = source.getRole().jobRole;
-        deadline = source.getDeadline().value;
+        deadline = source.getDeadline().toString();
         status = source.getStatus().toString();
         recruiterName = source.getRecruiterName().fullName;
         tags.addAll(source.getTags().stream()

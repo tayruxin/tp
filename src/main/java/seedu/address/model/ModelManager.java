@@ -126,6 +126,12 @@ public class ModelManager implements Model {
         }
     }
 
+    @Override
+    public void sortCompaniesByDeadline() {
+        addressBook.sortCompaniesByDeadline();
+        updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
+    }
+
     //=========== Filtered Company List Accessors =============================================================
 
     /**
@@ -153,7 +159,6 @@ public class ModelManager implements Model {
     public ObservableList<Company> getCurrentViewedCompany() {
         return currentViewedCompany;
     }
-
     @Override
     public boolean equals(Object other) {
         if (other == this) {

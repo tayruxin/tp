@@ -55,7 +55,7 @@ public class CompanyDetailCard extends UiPart<Region> {
         phone.setText("Phone: " + company.getPhone().value);
         email.setText("Email: " + company.getEmail().value);
         role.setText("Role: " + company.getRole().jobRole);
-        deadline.setText("Deadline: " + company.getDeadline().value);
+        deadline.setText("Deadline: " + company.getDeadline().toString());
         status.setText("Application status: " + company.getStatus().getDescription());
         recruiterName.setText("Name: " + company.getRecruiterName().fullName);
 
