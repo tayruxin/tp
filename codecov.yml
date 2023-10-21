@@ -6,4 +6,3 @@ coverage:
     patch:
       default:
         informational: true  # Patch status checks will be informational
-        
