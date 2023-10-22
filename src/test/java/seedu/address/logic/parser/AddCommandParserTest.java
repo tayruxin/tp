@@ -288,4 +288,16 @@ public class AddCommandParserTest {
                         + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK + PRIORITY_DESC_TIKTOK,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
     }
+
+    @Test
+    public void parsePrefixPriority_notPresent_returnsPriorityNoneObject() {
+        String userInput = NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
+                + ROLE_DESC_TIKTOK + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK;
+        assertParseSuccess(parser, userInput, new AddCommand(
+                new CompanyBuilder(TIKTOK)
+                        .withPriority("NONE")
+                        .build()
+        ));
+    }
+
 }
