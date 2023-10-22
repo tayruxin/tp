@@ -14,7 +14,7 @@
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
         </columnConstraints>
-        <VBox alignment="CENTER_LEFT" spacing="10" minHeight="20" GridPane.columnIndex="0" GridPane.rowIndex="0" >
+        <VBox alignment="CENTER_LEFT" spacing="10" minHeight="20" GridPane.columnIndex="0" GridPane.rowIndex="0">
             <padding>
                 <Insets top="15" right="5" bottom="5" left="15" />
             </padding>
@@ -26,18 +26,29 @@
             </Label>
             <FlowPane fx:id="priority" />
         </VBox>
-        <VBox alignment="CENTER_LEFT" spacing="10" minHeight="105" GridPane.columnIndex="0" GridPane.rowIndex="1"
-              styleClass="card-with-border">
-                <Label fx:id="status" styleClass="card_small_label" text="\$status" />
-                <Label fx:id="role" styleClass="card_small_label" text="\$role" />
-                <Label fx:id="deadline" styleClass="card_small_label" text="\$deadline" />
-
+        <VBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <padding>
+                <Insets top="10" left="15" bottom="-10"/>
+            </padding>
+            <Label text="Company's Information" styleClass="card_medium_label" />
         </VBox>
         <VBox alignment="CENTER_LEFT" spacing="10" minHeight="105" GridPane.columnIndex="0" GridPane.rowIndex="2"
               styleClass="card-with-border">
-                <Label fx:id="recruiterName" styleClass="card_small_label" text="\$recruiterName" />
-                <Label fx:id="email" styleClass="card_small_label" text="\$email" />
-                <Label fx:id="phone" styleClass="card_small_label" text="\$phone" />
+            <Label fx:id="role" styleClass="card_small_label" text="\$role" />
+            <Label fx:id="deadline" styleClass="card_small_label" text="\$deadline" />
+            <Label fx:id="status" styleClass="card_small_label" text="\$status" />
+        </VBox>
+        <VBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="3">
+            <padding>
+                <Insets top="10" left="15" bottom="-10"/>
+            </padding>
+            <Label text="Recruiter's Information" styleClass="card_medium_label" />
+        </VBox>
+        <VBox alignment="CENTER_LEFT" spacing="10" minHeight="105" GridPane.columnIndex="0" GridPane.rowIndex="4"
+              styleClass="card-with-border">
+            <Label fx:id="recruiterName" styleClass="card_small_label" text="\$recruiterName" />
+            <Label fx:id="email" styleClass="card_small_label" text="\$email" />
+            <Label fx:id="phone" styleClass="card_small_label" text="\$phone" />
         </VBox>
     </GridPane>
 </HBox>

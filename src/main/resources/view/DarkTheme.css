@@ -176,27 +176,33 @@
 
 .grid-pane {
     -fx-background-color: derive(#1d1d1d, 30%);
-    -fx-border-color: derive(#1d1d1d, 30%);
+    -fx-background-color: #3c3e3f;
     -fx-border-width: 1px;
 }
 
 .grid-pane .stack-pane {
     -fx-padding: 0;
     -fx-background-color: derive(#1d1d1d, 30%);
-    -fx-border-width: 2
+    -fx-border-width: 2px;
 }
 
 .card-with-border {
-     -fx-background-color: derive(#1d1d1d, 20%);
-     -fx-border-color: derive(#1d1d1d, 10%);
-     -fx-padding: 15;
-     -fx-border-insets:15;
+     -fx-background-color: #515658;
+     -fx-border-color: derive(#1d1d1d, 25%);
+     -fx-padding: 13;
+     -fx-border-insets: 15;
      -fx-background-insets: 15;
 }
 
 .card_big_label {
     -fx-font-family: "Segoe UI Semibold";
     -fx-font-size: 20px;
+    -fx-text-fill: #ffffff;
+}
+
+.card_medium_label {
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size: 16px;
     -fx-text-fill: #ffffff;
 }
 
