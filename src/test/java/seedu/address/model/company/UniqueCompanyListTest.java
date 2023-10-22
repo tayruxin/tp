@@ -3,7 +3,6 @@ package seedu.address.model.company;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HIGH;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalCompanies.META;
 import static seedu.address.testutil.TypicalCompanies.TIKTOK;
@@ -41,7 +40,7 @@ public class UniqueCompanyListTest {
     @Test
     public void contains_companyWithSameIdentityFieldsInList_returnsTrue() {
         uniqueCompanyList.add(META);
-        Company editedMeta = new CompanyBuilder(META).withTags(VALID_TAG_HIGH)
+        Company editedMeta = new CompanyBuilder(META)
                 .build();
         assertTrue(uniqueCompanyList.contains(editedMeta));
     }
@@ -84,7 +83,7 @@ public class UniqueCompanyListTest {
     @Test
     public void setCompany_editedCompanyHasSameIdentity_success() {
         uniqueCompanyList.add(META);
-        Company editedMeta = new CompanyBuilder(META).withTags(VALID_TAG_HIGH)
+        Company editedMeta = new CompanyBuilder(META)
                 .build();
         uniqueCompanyList.setCompany(META, editedMeta);
         UniqueCompanyList expectedUniqueCompanyList = new UniqueCompanyList();

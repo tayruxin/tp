@@ -9,8 +9,6 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ROLE_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STATUS_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HIGH;
-import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalCompanies.META;
 import static seedu.address.testutil.TypicalCompanies.TIKTOK;
 
@@ -19,13 +17,6 @@ import org.junit.jupiter.api.Test;
 import seedu.address.testutil.CompanyBuilder;
 
 public class CompanyTest {
-
-    @Test
-    public void asObservableList_modifyList_throwsUnsupportedOperationException() {
-        Company company = new CompanyBuilder().build();
-        assertThrows(UnsupportedOperationException.class, () -> company.getTags().remove(0));
-    }
-
     @Test
     public void isSameCompany() {
         // same object -> returns true
@@ -37,7 +28,7 @@ public class CompanyTest {
         // same name, all other attributes different -> returns true
         Company editedMeta = new CompanyBuilder(META).withPhone(VALID_PHONE_TIKTOK).withEmail(VALID_EMAIL_TIKTOK)
                 .withRole(VALID_ROLE_TIKTOK).withDeadline(VALID_DEADLINE_TIKTOK).withStatus(VALID_STATUS_TIKTOK)
-                .withTags(VALID_TAG_HIGH).build();
+                .build();
         assertTrue(META.isSameCompany(editedMeta));
 
         // different name, all other attributes same -> returns false
@@ -99,10 +90,6 @@ public class CompanyTest {
         // different email -> returns false
         editedMeta = new CompanyBuilder(META).withEmail(VALID_EMAIL_TIKTOK).build();
         assertFalse(META.equals(editedMeta));
-
-        // different tags -> returns false
-        editedMeta = new CompanyBuilder(META).withTags(VALID_TAG_HIGH).build();
-        assertFalse(META.equals(editedMeta));
     }
 
     @Test
@@ -110,7 +97,9 @@ public class CompanyTest {
         String expected = Company.class.getCanonicalName() + "{name=" + META.getName() + ", role=" + META.getRole()
                 + ", status=" + META.getStatus() + ", deadline=" + META.getDeadline()
                 + ", recruiterName=" + META.getRecruiterName() + ", phone=" + META.getPhone()
-                + ", email=" + META.getEmail() + ", tags=" + META.getTags() + "}";
+                + ", email=" + META.getEmail()
+                + ", priority=" + META.getPriority()
+                + "}";
         assertEquals(expected, META.toString());
     }
 }

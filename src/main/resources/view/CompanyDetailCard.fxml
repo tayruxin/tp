@@ -24,7 +24,7 @@
                     <Region fx:constant="USE_PREF_SIZE" />
                 </minWidth>
             </Label>
-            <FlowPane fx:id="tags" />
+            <FlowPane fx:id="priority" />
         </VBox>
         <VBox alignment="CENTER_LEFT" spacing="10" minHeight="105" GridPane.columnIndex="0" GridPane.rowIndex="1"
               styleClass="card-with-border">
