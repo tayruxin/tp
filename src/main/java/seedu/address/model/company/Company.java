@@ -2,13 +2,9 @@ package seedu.address.model.company;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.model.tag.Tag;
 
 /**
  * Represents a Company in the address book.
@@ -24,16 +20,15 @@ public class Company {
     private final Deadline deadline;
     private final ApplicationStatus status;
     private final RecruiterName recruiterName;
+    private final Priority priority;
 
-    // Data fields
-    private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
     public Company(Name name, Phone phone, Email email, Role role, Deadline deadline, ApplicationStatus status,
-                   RecruiterName recruiterName, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, role, deadline, status, tags);
+                   RecruiterName recruiterName, Priority priority) {
+        requireAllNonNull(name, phone, email, role, deadline, status, priority);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -41,7 +36,7 @@ public class Company {
         this.deadline = deadline;
         this.status = status;
         this.recruiterName = recruiterName;
-        this.tags.addAll(tags);
+        this.priority = priority;
     }
 
     public Name getName() {
@@ -72,12 +67,8 @@ public class Company {
         return recruiterName;
     }
 
-    /**
-     * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
-     * if modification is attempted.
-     */
-    public Set<Tag> getTags() {
-        return Collections.unmodifiableSet(tags);
+    public Priority getPriority() {
+        return priority;
     }
 
     /**
@@ -116,13 +107,13 @@ public class Company {
                 && deadline.equals(otherCompany.deadline)
                 && status.equals(otherCompany.status)
                 && recruiterName.equals(otherCompany.recruiterName)
-                && tags.equals(otherCompany.tags);
+                && priority.equals(otherCompany.priority);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, role, deadline, status, recruiterName, tags);
+        return Objects.hash(name, phone, email, role, deadline, status, recruiterName, priority);
     }
 
     @Override
@@ -135,7 +126,7 @@ public class Company {
                 .add("recruiterName", recruiterName)
                 .add("phone", phone)
                 .add("email", email)
-                .add("tags", tags)
+                .add("priority", priority)
                 .toString();
     }
 

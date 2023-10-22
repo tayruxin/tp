@@ -1,7 +1,5 @@
 package seedu.address.ui;
 
-import java.util.Comparator;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
@@ -45,7 +43,7 @@ public class CompanyCard extends UiPart<Region> {
     @FXML
     private Label recruiterName;
     @FXML
-    private FlowPane tags;
+    private FlowPane priority;
 
     /**
      * Creates a {@code CompanyCode} with the given {@code Company} and index to display.
@@ -59,8 +57,24 @@ public class CompanyCard extends UiPart<Region> {
         deadline.setText(company.getDeadline().toString());
         status.setText(company.getStatus().getDescription());
 
-        company.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        if (!company.getPriority().priority.equals("NONE")) {
+            FlowPane priorityPane = new FlowPane();
+
+            Label priorityValue = new Label(company.getPriority().priority);
+
+            if ("HIGH".equals(company.getPriority().priority)) {
+                priorityValue.setStyle("-fx-background-color: #990000;"); // Dark red
+            } else if ("MEDIUM".equals(company.getPriority().priority)) {
+                priorityValue.setStyle("-fx-background-color: #FF8000;"); // Dark orange
+            } else if ("LOW".equals(company.getPriority().priority)) {
+                priorityValue.setStyle("-fx-background-color: #006400;"); // Dark green
+            } else {
+                priorityValue.setStyle("-fx-background-color: #444444;"); // Dark gray (default)
+            }
+
+            priorityPane.getChildren().addAll(priorityValue);
+            priority.getChildren().add(priorityPane);
+        }
+
     }
 }

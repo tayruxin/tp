@@ -1,11 +1,5 @@
 package seedu.address.storage;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -16,9 +10,9 @@ import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
+import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
 import seedu.address.model.company.Role;
-import seedu.address.model.tag.Tag;
 
 /**
  * Jackson-friendly version of {@link Company}.
@@ -34,7 +28,7 @@ class JsonAdaptedCompany {
     private final String deadline;
     private final String status;
     private final String recruiterName;
-    private final List<JsonAdaptedTag> tags = new ArrayList<>();
+    private final String priority;
 
     /**
      * Constructs a {@code JsonAdaptedCompany} with the given company details.
@@ -44,18 +38,15 @@ class JsonAdaptedCompany {
                               @JsonProperty("email") String email, @JsonProperty("role") String role,
                               @JsonProperty("deadline") String deadline, @JsonProperty("status") String status,
                               @JsonProperty("recruiterName") String recruiterName,
-                              @JsonProperty("tags") List<JsonAdaptedTag> tags) {
+                              @JsonProperty("priority") String priority) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.role = role;
         this.deadline = deadline;
         this.status = status;
+        this.priority = priority;
         this.recruiterName = recruiterName;
-
-        if (tags != null) {
-            this.tags.addAll(tags);
-        }
     }
 
     /**
@@ -69,9 +60,7 @@ class JsonAdaptedCompany {
         deadline = source.getDeadline().toString();
         status = source.getStatus().toString();
         recruiterName = source.getRecruiterName().fullName;
-        tags.addAll(source.getTags().stream()
-                .map(JsonAdaptedTag::new)
-                .collect(Collectors.toList()));
+        priority = source.getPriority().priority;
     }
 
     /**
@@ -80,10 +69,6 @@ class JsonAdaptedCompany {
      * @throws IllegalValueException if there were any data constraints violated in the adapted company.
      */
     public Company toModelType() throws IllegalValueException {
-        final List<Tag> companyTags = new ArrayList<>();
-        for (JsonAdaptedTag tag : tags) {
-            companyTags.add(tag.toModelType());
-        }
 
         if (name == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
@@ -144,10 +129,20 @@ class JsonAdaptedCompany {
         }
         final RecruiterName modelRecruiterName = new RecruiterName(recruiterName);
 
-        final Set<Tag> modelTags = new HashSet<>(companyTags);
+        if (priority == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Priority.class.getSimpleName()));
+        }
+
+        if (!Priority.isValidPriority(priority)) {
+            throw new IllegalValueException(Priority.MESSAGE_CONSTRAINTS);
+        }
+
+        final Priority modelPriority = new Priority(priority);
+
 
         return new Company(modelName, modelPhone, modelEmail, modelRole, modelDeadline, modelStatus,
-                modelRecruiterName, modelTags);
+                modelRecruiterName, modelPriority);
     }
 
 }

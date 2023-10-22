@@ -48,8 +48,8 @@ public class Messages {
                 .append(company.getPhone())
                 .append("; Email: ")
                 .append(company.getEmail())
-                .append("; Tags: ");
-        company.getTags().forEach(builder::append);
+                .append("; Priority: ")
+                .append(company.getPriority());
         return builder.toString();
     }
 

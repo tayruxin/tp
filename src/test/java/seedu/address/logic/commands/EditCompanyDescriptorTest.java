@@ -8,7 +8,6 @@ import static seedu.address.logic.commands.CommandTestUtil.DESC_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HIGH;
 
 import org.junit.jupiter.api.Test;
 
@@ -48,8 +47,8 @@ public class EditCompanyDescriptorTest {
         editedAmy = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withEmail(VALID_EMAIL_TIKTOK).build();
         assertFalse(DESC_GOOGLE.equals(editedAmy));
 
-        // different tags -> returns false
-        editedAmy = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withTags(VALID_TAG_HIGH).build();
+        // different priority -> returns false
+        editedAmy = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withPriority("MEDIUM").build();
         assertFalse(DESC_GOOGLE.equals(editedAmy));
     }
 
@@ -63,8 +62,9 @@ public class EditCompanyDescriptorTest {
                 + editCompanyDescriptor.getStatus().orElse(null) + ", recruiter name="
                 + editCompanyDescriptor.getRecruiterName().orElse(null) + ", phone="
                 + editCompanyDescriptor.getPhone().orElse(null) + ", email="
-                + editCompanyDescriptor.getEmail().orElse(null) + ", tags="
-                + editCompanyDescriptor.getTags().orElse(null) + "}";
+                + editCompanyDescriptor.getEmail().orElse(null) + ", priority="
+                + editCompanyDescriptor.getPriority().orElse(null)
+                + "}";
         assertEquals(expected, editCompanyDescriptor.toString());
     }
 }

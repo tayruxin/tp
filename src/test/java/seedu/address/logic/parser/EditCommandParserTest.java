@@ -6,21 +6,19 @@ import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HIGH;
-import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_LOW;
+import static seedu.address.logic.commands.CommandTestUtil.PRIORITY_DESC_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.PRIORITY_DESC_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HIGH;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_LOW;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PRIORITY_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PRIORITY_TIKTOK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_COMPANY;
@@ -35,12 +33,9 @@ import seedu.address.logic.commands.EditCommand;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
-import seedu.address.model.tag.Tag;
 import seedu.address.testutil.EditCompanyDescriptorBuilder;
 
 public class EditCommandParserTest {
-
-    private static final String TAG_EMPTY = " " + PREFIX_TAG;
 
     private static final String MESSAGE_INVALID_FORMAT =
             String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE);
@@ -79,16 +74,9 @@ public class EditCommandParserTest {
         assertParseFailure(parser, "1" + INVALID_NAME_DESC, Name.MESSAGE_CONSTRAINTS); // invalid name
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC, Phone.MESSAGE_CONSTRAINTS); // invalid phone
         assertParseFailure(parser, "1" + INVALID_EMAIL_DESC, Email.MESSAGE_CONSTRAINTS); // invalid email
-        assertParseFailure(parser, "1" + INVALID_TAG_DESC, Tag.MESSAGE_CONSTRAINTS); // invalid tag
 
         // invalid phone followed by valid email
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC + EMAIL_DESC_GOOGLE, Phone.MESSAGE_CONSTRAINTS);
-
-        // while parsing {@code PREFIX_TAG} alone will reset the tags of the {@code Company} being edited,
-        // parsing it together with a valid tag results in error
-        assertParseFailure(parser, "1" + TAG_DESC_LOW + TAG_DESC_HIGH + TAG_EMPTY, Tag.MESSAGE_CONSTRAINTS);
-        assertParseFailure(parser, "1" + TAG_DESC_LOW + TAG_EMPTY + TAG_DESC_HIGH, Tag.MESSAGE_CONSTRAINTS);
-        assertParseFailure(parser, "1" + TAG_EMPTY + TAG_DESC_LOW + TAG_DESC_HIGH, Tag.MESSAGE_CONSTRAINTS);
 
         // multiple invalid values, but only the first invalid value is captured
         assertParseFailure(parser, "1" + INVALID_NAME_DESC + INVALID_EMAIL_DESC + VALID_PHONE_GOOGLE,
@@ -98,12 +86,12 @@ public class EditCommandParserTest {
     @Test
     public void parse_allFieldsSpecified_success() {
         Index targetIndex = INDEX_SECOND_COMPANY;
-        String userInput = targetIndex.getOneBased() + PHONE_DESC_TIKTOK + TAG_DESC_HIGH
-                + EMAIL_DESC_GOOGLE + NAME_DESC_GOOGLE + TAG_DESC_LOW;
+        String userInput = targetIndex.getOneBased() + PHONE_DESC_TIKTOK
+                + EMAIL_DESC_GOOGLE + NAME_DESC_GOOGLE + PRIORITY_DESC_TIKTOK;
 
         EditCommand.EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder().withName(VALID_NAME_GOOGLE)
-                .withPhone(VALID_PHONE_TIKTOK).withEmail(VALID_EMAIL_GOOGLE)
-                .withTags(VALID_TAG_HIGH, VALID_TAG_LOW).build();
+                .withPhone(VALID_PHONE_TIKTOK).withEmail(VALID_EMAIL_GOOGLE).withPriority(VALID_PRIORITY_TIKTOK)
+                .build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);
@@ -143,9 +131,9 @@ public class EditCommandParserTest {
         expectedCommand = new EditCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
-        // tags
-        userInput = targetIndex.getOneBased() + TAG_DESC_LOW;
-        descriptor = new EditCompanyDescriptorBuilder().withTags(VALID_TAG_LOW).build();
+        // priority
+        userInput = targetIndex.getOneBased() + PRIORITY_DESC_GOOGLE;
+        descriptor = new EditCompanyDescriptorBuilder().withPriority(VALID_PRIORITY_GOOGLE).build();
         expectedCommand = new EditCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
     }
@@ -168,8 +156,8 @@ public class EditCommandParserTest {
 
         // mulltiple valid fields repeated
         userInput = targetIndex.getOneBased() + PHONE_DESC_GOOGLE + EMAIL_DESC_GOOGLE
-                + TAG_DESC_LOW + PHONE_DESC_GOOGLE + EMAIL_DESC_GOOGLE + TAG_DESC_LOW
-                + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK + TAG_DESC_HIGH;
+                + PHONE_DESC_GOOGLE + EMAIL_DESC_GOOGLE
+                + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK;
 
         assertParseFailure(parser, userInput,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_PHONE, PREFIX_EMAIL));
@@ -180,16 +168,5 @@ public class EditCommandParserTest {
 
         assertParseFailure(parser, userInput,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_PHONE, PREFIX_EMAIL));
-    }
-
-    @Test
-    public void parse_resetTags_success() {
-        Index targetIndex = INDEX_THIRD_COMPANY;
-        String userInput = targetIndex.getOneBased() + TAG_EMPTY;
-
-        EditCommand.EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder().withTags().build();
-        EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
-
-        assertParseSuccess(parser, userInput, expectedCommand);
     }
 }

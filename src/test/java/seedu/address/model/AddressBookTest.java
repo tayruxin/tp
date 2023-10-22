@@ -3,7 +3,6 @@ package seedu.address.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HIGH;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalCompanies.META;
 import static seedu.address.testutil.TypicalCompanies.getTypicalAddressBook;
@@ -45,7 +44,7 @@ public class AddressBookTest {
     @Test
     public void resetData_withDuplicateCompanies_throwsDuplicateCompanyException() {
         // Two companies with the same identity fields
-        Company editedMeta = new CompanyBuilder(META).withTags(VALID_TAG_HIGH)
+        Company editedMeta = new CompanyBuilder(META)
                 .build();
         List<Company> newCompanies = Arrays.asList(META, editedMeta);
         AddressBookStub newData = new AddressBookStub(newCompanies);
@@ -72,7 +71,7 @@ public class AddressBookTest {
     @Test
     public void hasCompany_companyWithSameIdentityFieldsInAddressBook_returnsTrue() {
         addressBook.addCompany(META);
-        Company editedMeta = new CompanyBuilder(META).withTags(VALID_TAG_HIGH)
+        Company editedMeta = new CompanyBuilder(META)
                 .build();
         assertTrue(addressBook.hasCompany(editedMeta));
     }

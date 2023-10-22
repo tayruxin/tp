@@ -7,7 +7,7 @@ import static seedu.address.logic.commands.CommandTestUtil.DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HIGH;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PRIORITY_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showCompanyAtIndex;
@@ -57,10 +57,13 @@ public class EditCommandTest {
 
         CompanyBuilder companyInList = new CompanyBuilder(lastCompany);
         Company editedCompany = companyInList.withName(VALID_NAME_TIKTOK).withPhone(VALID_PHONE_TIKTOK)
-                .withTags(VALID_TAG_HIGH).build();
+                .withPriority(VALID_PRIORITY_TIKTOK)
+                .build();
 
         EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder().withName(VALID_NAME_TIKTOK)
-                .withPhone(VALID_PHONE_TIKTOK).withTags(VALID_TAG_HIGH).build();
+                .withPhone(VALID_PHONE_TIKTOK)
+                .withPriority(VALID_PRIORITY_TIKTOK)
+                .build();
         EditCommand editCommand = new EditCommand(indexLastCompany, descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_COMPANY_SUCCESS,
