@@ -46,15 +46,14 @@
           </padding>
         </StackPane>
 
-        <SplitPane orientation="HORIZONTAL" VBox.vgrow="ALWAYS"
-                   fx:id="listAndDetailsSplitPanePlaceholder">
-          <VBox fx:id="companyDetail" styleClass="pane-with-border" minWidth="340" prefWidth="340" VBox.vgrow="ALWAYS">
+        <SplitPane VBox.vgrow="ALWAYS" fx:id="listAndDetailsSplitPanePlaceholder">
+          <VBox fx:id="companyDetail" styleClass="pane-with-border" minWidth="400" prefWidth="400" VBox.vgrow="ALWAYS">
             <padding>
               <Insets top="10" right="10" bottom="10" left="10" />
             </padding>
             <StackPane fx:id="companyDetailPanelPlaceholder" VBox.vgrow="ALWAYS"/>
           </VBox>
-          <VBox fx:id="companyList" styleClass="pane-with-border" minWidth="340" prefWidth="340" VBox.vgrow="ALWAYS">
+          <VBox fx:id="companyList" styleClass="pane-with-border" minWidth="400" prefWidth="400" VBox.vgrow="ALWAYS">
             <padding>
               <Insets top="10" right="10" bottom="10" left="10" />
             </padding>
