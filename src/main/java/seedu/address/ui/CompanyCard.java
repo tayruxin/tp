@@ -56,25 +56,37 @@ public class CompanyCard extends UiPart<Region> {
         role.setText(company.getRole().jobRole);
         deadline.setText(company.getDeadline().toString());
         status.setText(company.getStatus().getDescription());
+        priorityFlowPane(company);
+    }
 
+    private void priorityFlowPane(Company company) {
         if (!company.getPriority().priority.equals("NONE")) {
             FlowPane priorityPane = new FlowPane();
 
             Label priorityValue = new Label(company.getPriority().priority);
 
-            if ("HIGH".equals(company.getPriority().priority)) {
-                priorityValue.setStyle("-fx-background-color: #990000;"); // Dark red
-            } else if ("MEDIUM".equals(company.getPriority().priority)) {
-                priorityValue.setStyle("-fx-background-color: #FF8000;"); // Dark orange
-            } else if ("LOW".equals(company.getPriority().priority)) {
-                priorityValue.setStyle("-fx-background-color: #006400;"); // Dark green
-            } else {
-                priorityValue.setStyle("-fx-background-color: #444444;"); // Dark gray (default)
+            String backgroundColor;
+
+            switch (company.getPriority().priority) {
+            case "HIGH":
+                backgroundColor = "#990000"; // Dark red
+                break;
+            case "MEDIUM":
+                backgroundColor = "#FF8000"; // Dark orange
+                break;
+            case "LOW":
+                backgroundColor = "#006400"; // Dark green
+                break;
+            default:
+                backgroundColor = "#444444"; // Dark gray (default)
+                break;
             }
+
+            priorityValue.setStyle("-fx-background-color: " + backgroundColor);
 
             priorityPane.getChildren().addAll(priorityValue);
             priority.getChildren().add(priorityPane);
         }
-
     }
+
 }

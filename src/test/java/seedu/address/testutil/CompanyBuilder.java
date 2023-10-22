@@ -18,7 +18,7 @@ import seedu.address.model.company.Role;
  */
 public class CompanyBuilder {
 
-    public static final String DEFAULT_NAME = "TWITTER";
+    public static final String DEFAULT_NAME = "Twitter";
     public static final String DEFAULT_PHONE = "98782423";
     public static final String DEFAULT_EMAIL = "john@gmail.com";
     public static final String DEFAULT_ROLE = "Software Engineer";
