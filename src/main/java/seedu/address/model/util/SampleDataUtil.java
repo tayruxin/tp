@@ -33,15 +33,15 @@ public class SampleDataUtil {
             new Company(new Name("Microsoft"), new Phone("91031282"), new Email("lidavid@example.com"),
                     new Role("Data Analyst"), new Deadline("18-11-2023"),
                     new ApplicationStatus("PA"), new RecruiterName("Jovie Tan"),
-                    new Priority("LOW")),
+                    new Priority("NONE")),
             new Company(new Name("Meta"), new Phone("92492021"), new Email("irfan@example.com"),
                     new Role("Data Analyst"), new Deadline("19-11-2023"),
                     new ApplicationStatus("PA"), new RecruiterName("Poppins Lam"),
-                    new Priority("MEDIUM")),
+                    new Priority("LOW")),
             new Company(new Name("Amazon"), new Phone("92624417"), new Email("royb@example.com"),
                     new Role("Web Developer"), new Deadline("20-11-2023"),
                     new ApplicationStatus("PA"), new RecruiterName("Jarvis Koh"),
-                    new Priority("HIGH"))
+                    new Priority("NONE"))
         };
     }
 

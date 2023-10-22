@@ -35,21 +35,21 @@ public class EditCompanyDescriptorTest {
         assertFalse(DESC_GOOGLE.equals(DESC_TIKTOK));
 
         // different name -> returns false
-        EditCommand.EditCompanyDescriptor editedAmy = new EditCompanyDescriptorBuilder(DESC_GOOGLE)
+        EditCommand.EditCompanyDescriptor editedGoogle = new EditCompanyDescriptorBuilder(DESC_GOOGLE)
                 .withName(VALID_NAME_TIKTOK).build();
-        assertFalse(DESC_GOOGLE.equals(editedAmy));
+        assertFalse(DESC_GOOGLE.equals(editedGoogle));
 
         // different phone -> returns false
-        editedAmy = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withPhone(VALID_PHONE_TIKTOK).build();
-        assertFalse(DESC_GOOGLE.equals(editedAmy));
+        editedGoogle = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withPhone(VALID_PHONE_TIKTOK).build();
+        assertFalse(DESC_GOOGLE.equals(editedGoogle));
 
         // different email -> returns false
-        editedAmy = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withEmail(VALID_EMAIL_TIKTOK).build();
-        assertFalse(DESC_GOOGLE.equals(editedAmy));
+        editedGoogle = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withEmail(VALID_EMAIL_TIKTOK).build();
+        assertFalse(DESC_GOOGLE.equals(editedGoogle));
 
         // different priority -> returns false
-        editedAmy = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withPriority("MEDIUM").build();
-        assertFalse(DESC_GOOGLE.equals(editedAmy));
+        editedGoogle = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withPriority("MEDIUM").build();
+        assertFalse(DESC_GOOGLE.equals(editedGoogle));
     }
 
     @Test
