@@ -134,8 +134,8 @@ How the parsing works:
 The `Model` component,
 
 * stores the address book data i.e., all `Company` objects (which are contained in a `UniqueCompanyList` object).
-* stores the currently 'selected' `Company` objects (e.g., results of a search query) as a separate _filtered_ list 
-  which is exposed to outsiders as an unmodifiable `ObservableList<Company>` that can be 'observed' e.g. the UI can be 
+* stores the currently 'selected' `Company` objects (e.g., results of a search query) as a separate _filtered_ list
+  which is exposed to outsiders as an unmodifiable `ObservableList<Company>` that can be 'observed' e.g. the UI can be
   bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
@@ -170,31 +170,31 @@ This section describes some noteworthy details on how certain features are imple
 
 ### 4.1 Company detail panel (UI component)
 
-The `CompanyDetailPanel` allows user to view the company details of the selected company in the company list. 
+The `CompanyDetailPanel` allows user to view the company details of the selected company in the company list.
 The user can use the `view` command to select the company to view.
 
 #### Implementation
-The company detail panel UI component is achieved by creating a new `UniqueCompanyList` in `AddressBook` to 
-store the selected company which the user wishes to view. Additionally, the following operations are implemented in 
-`AddressBook` to support the `view` and other commands: 
+The company detail panel UI component is achieved by creating a new `UniqueCompanyList` in `AddressBook` to
+store the selected company which the user wishes to view. Additionally, the following operations are implemented in
+`AddressBook` to support the `view` and other commands:
 - `setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed.
 - `clearDetailPanel()` - Clears the `UniqueCompanyList` to remove the selected company from the company detail panel.
 
-These operations are exposed in the `Model` interface as `Model#setCurrentViewedCompany(Company company)` and 
+These operations are exposed in the `Model` interface as `Model#setCurrentViewedCompany(Company company)` and
 `Model#checkDelete()` respectively.
 
 The `view` function is implemented in the `ViewCommand` class which calls `Model#setCurrentViewedCopany(Company company)`
-to insert the selected company into the `UniqueCompanyList`. 
+to insert the selected company into the `UniqueCompanyList`.
 The follow sequence diagram depicts how the `view` command is executed.
 
 <img src="images/ViewSequenceDiagram.png" />
 
 Since only the detail of one company will be displayed anytime, `Model#setCurrentViewedCopany(Company company)` will
 clear the `UniqueCompanyList` before inserting the selected company.
-Since `UniqueCompanyList` is an observable list, the `CompanyDetailPanel` will be updated automatically 
+Since `UniqueCompanyList` is an observable list, the `CompanyDetailPanel` will be updated automatically
 when there is any changes made to the `UniqueCompanyList`
 
-When the `edit`, `add`, `view` or `delete` command is executed, the `CompanyDetailPanel` will be updated respectively as 
+When the `edit`, `add`, `view` or `delete` command is executed, the `CompanyDetailPanel` will be updated respectively as
 shown in the activity diagram below.
 
 <img src="images/CompanyDetailPanelActivityDiagram.png" width="400"/>
@@ -220,8 +220,8 @@ shown in the activity diagram below.
 
 * **Alternative 2:** Create a new `Company` object in `AddressBook` to store the selected company which the user wishes to view.
   * Pros: It is intuitive to create a new `Company` object to store the selected company which the user wishes to view.
-  * Cons: The `CompanyDetailPanel` will not be updated automatically when there is any changes made to the `Company` 
-   object. There is a need to create additional methods to update the `CompanyDetailPanel` when there is any changes 
+  * Cons: The `CompanyDetailPanel` will not be updated automatically when there is any changes made to the `Company`
+   object. There is a need to create additional methods to update the `CompanyDetailPanel` when there is any changes
     made to the `Company` object.
 
 
@@ -336,7 +336,7 @@ _{Explain here how the data archiving feature will be implemented}_
 * is reasonably comfortable using CLI apps
 
 **Value proposition**: CS students often struggle to manage a multitude of internship contacts and track their application progress.
-A CLI address book not only efficiently stores these connections but also offers a valuable tool for monitoring and organizing the entire 
+A CLI address book not only efficiently stores these connections but also offers a valuable tool for monitoring and organizing the entire
 application process, simplifying the pursuit of career opportunities.
 
 
@@ -385,7 +385,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 3b. User is viewing the details of the company to be deleted.
 
   * 3b1. AddressBook clears the company details panel.
-  
+
     Use case resumes at step 4.
 
 

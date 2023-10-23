@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-Never miss an internships interview with LinkMeIn! Keep track of all your deadlines in an organised fashion. 
+Never miss an internships interview with LinkMeIn! Keep track of all your deadlines in an organised fashion.
 
 * Table of Contents for the User Guide
 {:toc}
@@ -47,7 +47,7 @@ Order of input **does not** matter.
 No other string separators other than c/, n/, r/, s/, d/, e/, p/, t/.
 Otherwise, the **entire** command will be considered invalid and all data inputted will be discarded.
 
-Example of invalid input: `c/Google n/Mary r/Data Analyst a/R d/11-11-2023 f/`</br> 
+Example of invalid input: `c/Google n/Mary r/Data Analyst a/R d/11-11-2023 f/`</br>
 Explanation: Invalid f/ string separator.
 
 **Expected output when command succeeds**: </br>
@@ -55,7 +55,7 @@ Explanation: Invalid f/ string separator.
 
 **GUI Changes:** </br>
 The company should be added to the existing list of companies on the right.</br>
-The company’s information should also be listed on the left panel, which displays all the added fields information. 
+The company’s information should also be listed on the left panel, which displays all the added fields information.
 
 **Expected output when command fails:** </br>
 `Invalid command format!`</br>
@@ -176,12 +176,12 @@ View the full company information of a particular company on the left panel.
 **GUI Changes:** </br>
 The company’s information should be listed on the left panel, which includes the following fields:
 
-1. COMPANY_NAME 
+1. COMPANY_NAME
 2. APPLICATION_STATUS
 3. ROLE
 4. DEADLINE
 5. RECRUITER_NAME
-6. EMAIL 
+6. EMAIL
 7. PHONE
 8. PRIORITY
 
