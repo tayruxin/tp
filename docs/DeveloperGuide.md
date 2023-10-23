@@ -7,7 +7,7 @@ title: Developer Guide
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Acknowledgements**
+## 1. **Acknowledgements**
 ### Adapted code and documentation ###
 This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
 
@@ -25,20 +25,20 @@ This project is based on the AddressBook-Level3 project created by the [SE-EDU i
 * [PlantUML](https://plantuml.com/) - PlantUML is an open-source tool allowing users to create UML diagrams from a plain text language.
 --------------------------------------------------------------------------------------------------------------------
 
-## **Setting up, getting started**
+## 2. **Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Design**
+## 3. **Design**
 
 <div markdown="span" class="alert alert-primary">
 
 :bulb: **Tip:** The `.puml` files used to create diagrams in this document `docs/diagrams` folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 </div>
 
-### Architecture
+### 3.1 Architecture
 
 <img src="images/ArchitectureDiagram.png" width="280" />
 
@@ -78,13 +78,13 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 
 The sections below give more details of each component.
 
-### UI component
+### 3.2 UI component
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `CompanyListPanel`, `CompanyDetailPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
 The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
 
@@ -95,7 +95,7 @@ The `UI` component,
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
 
-### Logic component
+### 3.3 Logic component
 
 **API** : [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
 
@@ -125,7 +125,7 @@ How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
-### Model component
+### 3.4 Model component
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
 
 <img src="images/ModelClassDiagram.png" width="450" />
@@ -133,8 +133,10 @@ How the parsing works:
 
 The `Model` component,
 
-* stores the address book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
-* stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* stores the address book data i.e., all `Company` objects (which are contained in a `UniqueCompanyList` object).
+* stores the currently 'selected' `Company` objects (e.g., results of a search query) as a separate _filtered_ list 
+  which is exposed to outsiders as an unmodifiable `ObservableList<Company>` that can be 'observed' e.g. the UI can be 
+  bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
@@ -145,7 +147,7 @@ The `Model` component,
 </div>
 
 
-### Storage component
+### 3.5 Storage component
 
 **API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
 
@@ -156,15 +158,73 @@ The `Storage` component,
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
-### Common classes
+### 3.6 Common classes
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Implementation**
+## 4. **Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
+
+### 4.1 Company detail panel (UI component)
+
+The `CompanyDetailPanel` allows user to view the company details of the selected company in the company list. 
+The user can use the `view` command to select the company to view.
+
+#### Implementation
+The company detail panel UI component is achieved by creating a new `UniqueCompanyList` in `AddressBook` to 
+store the selected company which the user wishes to view. Additionally, the following operations are implemented in 
+`AddressBook` to support the `view` and other commands: 
+- `setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed.
+- `clearDetailPanel()` - Clears the `UniqueCompanyList` to remove the selected company from the company detail panel.
+
+These operations are exposed in the `Model` interface as `Model#setCurrentViewedCompany(Company company)` and 
+`Model#checkDelete()` respectively.
+
+The `view` function is implemented in the `ViewCommand` class which calls `Model#setCurrentViewedCopany(Company company)`
+to insert the selected company into the `UniqueCompanyList`. 
+The follow sequence diagram depicts how the `view` command is executed.
+
+<img src="images/ViewSequenceDiagram.png" />
+
+Since only the detail of one company will be displayed anytime, `Model#setCurrentViewedCopany(Company company)` will
+clear the `UniqueCompanyList` before inserting the selected company.
+Since `UniqueCompanyList` is an observable list, the `CompanyDetailPanel` will be updated automatically 
+when there is any changes made to the `UniqueCompanyList`
+
+When the `edit`, `add`, `view` or `delete` command is executed, the `CompanyDetailPanel` will be updated respectively as 
+shown in the activity diagram below.
+
+<img src="images/CompanyDetailPanelActivityDiagram.png" width="400"/>
+
+
+#### Design Considerations
+**Aspect: How details of the company is displayed**
+
+* **Alternative 1 (current choice):** Display the details of the company in a separate panel.
+  * Pros: The information is well compartmentalized. This improves the user viewing experience.
+  * Cons: More commands are needed to view the details of the company.
+
+* **Alternative 2:** Display the details of the company in the same panel as the company list.
+  * Pros: User does not need to key in additional commands to view the details of the company.
+  * Cons: The company list panel will be too cluttered with too much information displayed in a company card.
+
+
+**Aspect: How the company to be viewed is stored in the `AddressBook`**
+
+* **Alternative 1 (current choice):** Create a new `UniqueCompanyList` in `AddressBook` to store the selected company which the user wishes to view.
+  * Pros: Since the `UniqueCompanyList` is an observable list, the `CompanyDetailPanel` will be updated automatically when there is any changes made to the `UniqueCompanyList`.
+  * Cons: There is a need to clear the list before adding the selected company to the `UniqueCompanyList` to ensure that only one company is displayed in the `CompanyDetailPanel` at any time.
+
+* **Alternative 2:** Create a new `Company` object in `AddressBook` to store the selected company which the user wishes to view.
+  * Pros: It is intuitive to create a new `Company` object to store the selected company which the user wishes to view.
+  * Cons: The `CompanyDetailPanel` will not be updated automatically when there is any changes made to the `Company` 
+   object. There is a need to create additional methods to update the `CompanyDetailPanel` when there is any changes 
+    made to the `Company` object.
+
+
 
 ### \[Proposed\] Undo/redo feature
 
@@ -322,12 +382,19 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
+* 3b. User is viewing the details of the company to be deleted.
+
+  * 3b1. AddressBook clears the company details panel.
+  
+    Use case resumes at step 4.
+
+
 **Use case: Find a Company**
 
 **MSS**
 
-1. User requests to find a company by name
-2. AddressBook shows a list of companies whose names contain the given keywords
+1. User requests to find a company by name.
+2. AddressBook shows a list of companies whose names contain the given keywords.
 
     Use case ends.
 
@@ -341,7 +408,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     Use case ends.
 * 2c. The given keywords match multiple company names.
-  * 2c1. AddressBook shows a list of companies whose names contain the given keywords
+  * 2c1. AddressBook shows a list of companies whose names contain the given keywords.
 
     Use case ends.
 
@@ -349,9 +416,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to add a company
-2. User key in required field and information
-3. AddressBook adds the company
+1. User requests to add a company.
+2. User key in required field and information.
+3. AddressBook adds the company.
+4. AddressBook shows the company detail of the added company in the company detail panel.
 
     Use case ends.
 
@@ -367,8 +435,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to list companies
-2. AddressBook shows a list of companies
+1. User requests to list companies.
+2. AddressBook shows a list of companies.
 
     Use case ends.
 
@@ -382,10 +450,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User requests to list companies
-2. AddressBook shows a list of companies
-3. User requests to view a specific company in the list
-4. AddressBook shows the full information of the company
+1. User requests to list companies.
+2. AddressBook shows a list of companies.
+3. User requests to view a specific company in the list.
+4. AddressBook shows the full information of the company in the company detail panel.
 
     Use case ends.
 
