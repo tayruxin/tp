@@ -66,4 +66,5 @@ public class FilterCommand extends Command {
                 .add("predicate", predicate)
                 .toString();
     }
+
 }
