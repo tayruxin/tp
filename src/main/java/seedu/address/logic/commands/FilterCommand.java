@@ -39,7 +39,7 @@ public class FilterCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        model.updateFilteredCompanyList(predicate);
+        model.filterCompaniesByStatus(predicate);
         return new CommandResult(String.format(MESSAGE_SUCCESS, status));
     }
 
@@ -66,5 +66,4 @@ public class FilterCommand extends Command {
                 .add("predicate", predicate)
                 .toString();
     }
-
 }
