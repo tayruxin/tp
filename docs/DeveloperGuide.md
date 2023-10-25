@@ -166,6 +166,54 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### Find command
+
+#### Current Implementation
+
+The `find` command allows users to search for companies using one or more keywords. Companies matching any of the keywords in their names will be returned. This search is case-insensitive, and partial matches are valid. The critical change in the implementation centers around the modification of the `NameContainsKeywordsPredicate` class.
+
+##### How `NameContainsKeywordsPredicate` Works:
+
+Previously, `NameContainsKeywordsPredicate` was designed to match a company name against a whole keyword. However, the modified implementation allows it to test a company's name against substrings and return true if the comapany's name contains the substring .
+
+When `find` is executed, it uses the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method, passing in the modified `NameContainsKeywordsPredicate` to filter the list of companies.
+
+
+The sequence diagram below illustrates the processing of a `find` command, such as `find Micr`:
+
+<img src="images/FindCompanySequenceDiagram.png"/>
+
+> :information_source: **Note:** The above sequence diagram simplifies the interaction by focusing on the primary components involved in processing the `find` command.
+
+#### Design considerations:
+
+**Aspect: Approach to matching keywords**
+
+-   **Alternative 1 (current choice):** Match company names that contain the keyword **anywhere** within them.
+
+    -   Pros: Flexible search, allows partial keyword matching.
+    -   Cons: Might produce more results than expected.
+
+-   **Alternative 2:** Match company names that **start** with the given keyword.
+
+    -   Pros: Precise results.
+    -   Cons: Might omit some relevant results if user does not remember the exact start of the company's name.
+
+
+**Aspect: Case-sensitivity**
+
+-   **Alternative 1 (current choice):** Case-insensitive matching.
+
+    -   Pros: User-friendly; users don’t need to remember exact case.
+    -   Cons: Might produce a broader range of results.
+-   **Alternative 2:** Case-sensitive matching.
+
+    -   Pros: More exact matches.
+    -   Cons: Less user-friendly, especially if users do not recall the exact case of company names.
+
+With the design considerations, we've chosen the alternatives that provide a balance between user-friendliness and precision.
+
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
