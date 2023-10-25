@@ -22,10 +22,27 @@ Never miss an internships interview with LinkMeIn! Keep track of all your deadli
 
 ### Adding a company : `add` ###
 
-Adds a company to the address book.
-The company must have the required fields:
-CompanyName, ApplyingRole, ApplicationStatus, Deadline (dd-MM-yyyy), RecruiterName, Email and PhoneNumber.
-Order of input **does not** matter.
+You scroll through your LinkedIn feed and see a company that you are interested in. 
+You want to start on the application later, but you are afraid that you will forget about it. 
+Add the company to LinkMeIn to keep track of the application process using the `add` command!
+
+**Format**:
+`add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/priority]`
+
+**Examples**:
+* `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com p/987654321` adds a Company with 
+the information provided into LinkMeIn. 
+* `add c/Google n/Mary r/Data Analyst s/R d/11-11-2023 e/johntan@example.com p/987654321 pr/high`adds a Company with
+  the information provided into LinkMeIn.
+
+**Note**: 
+* Compulsory fields include COMPANY_NAME, RECRUITER_NAME, ROLE, APPLICATION_STATUS, EMAIL and PHONE_NUMBER.
+* PRIORITY is optional. If not specified, the default priority is `none`.
+* Order of input **does not** matter.
+* DEADLINE should be in DD-MM-YYYY format. 
+* PRIORITY should be one of the following: `high`, `medium`, `low`, `none`.
+* APPLICATION_STATUS should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. 
+The table below shows the meaning of each status.
 
 | Prefix | Application Status     |
 |--------|------------------------|
@@ -35,77 +52,34 @@ Order of input **does not** matter.
 | A      | ACCEPTED               |
 | R      | REJECTED               |
 
-**Format**:</br>
-`add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [t/tags]`
+**What you will see when `add` command succeeds:**
 
-**Examples**:
-* `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com p/987654321`
-* `add c/Google n/Mary r/Data Analyst s/R d/11-11-2023 e/johntan@example.com p/987654321 t/high`
-* `add c/Meta r/Data Scientist s/PI n/Mary d/12-12-2023 e/mary@example.com p/91234567`
-
-**Acceptable values for each parameter:**<br>
-No other string separators other than c/, n/, r/, s/, d/, e/, p/, t/.
-Otherwise, the **entire** command will be considered invalid and all data inputted will be discarded.
-
-Example of invalid input: `c/Google n/Mary r/Data Analyst a/R d/11-11-2023 f/`</br> 
-Explanation: Invalid f/ string separator.
-
-**Expected output when command succeeds**: </br>
-`New company added: {COMPANY_NAME}`
-
-**GUI Changes:** </br>
-The company should be added to the existing list of companies on the right.</br>
-The company’s information should also be listed on the left panel, which displays all the added fields information. 
-
-**Expected output when command fails:** </br>
-`Invalid command format!`</br>
-`add: Adds a company to the address book. Parameters: c/COMPANY_NAME r/ROLE s/STATUS d/DEADLINE n/RECRUITER_NAME p/PHONE e/EMAIL [t/TAG]...`</br>
-`Example: add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan p/98765432 e/johnd@example.com t/high`
-
-***To be further updated in V1.3***
-* If the COMPANY_NAME field is missing:
-`Invalid command format! Missing COMPANY_NAME. Format is add c/COMPANY_NAME
-n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS e/EMAIL p/PHONE_NUMBER`
-</br>
-</br>
-* If the RECRUITER_NAME field is missing:
-`Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME n/RECRUITER_NAME
-r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
-</br>
-</br>
-* If the APPLICATION_STATUS field is missing:
-`Invalid command format! Missing RECRUITER_NAME. Format is add
-c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
-</br>
-</br>
-* If the ROLE field is missing:
-`Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME
-n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
-
-**Expected UI:**
-
-![AddCommand.png](AddCommand.png)
+| Before                                                     | After                                              |
+|------------------------------------------------------------|----------------------------------------------------|
+| ![AddCommand.png](images/add-command/BeforeAddCommand.png) | ![img.png](images/add-command/AfterAddCommand.png) |
 
 ### Listing all contacts : `list`
 
-Lists all the contacts in the application at present.
+Want to see all of your applications in one list? You can do so with the `list` command!
 
 **Format:** `list`
 
-**Examples:** `list`
+**Examples:** 
+- `filter s/PI` followed by `list` changes from showing only applications with status "Pending Interview".
+to all companies added in LinkMeIn.
 
-**Expected UI**:
+**Note:**
+- Whenever LinkMeIn is started, the list of companies on the right is what you will see after the `list` command is executed.
+- Typical use case for `list` command is to change the current list of companies that is being viewed back to the 
+full list of companies added in LinkMeIn.
 
-![ListCommand.png](ListCommand.png)
+**What you will see when `list` command succeeds:**
 
-The list of companies should be listed in the following format below:
-```
-{COMPANY_NAME 1} {ROLE} {APPLICATION_STATUS} {DEADLINE}
+| Before                                                   | After                                           |
+|----------------------------------------------------------|-------------------------------------------------|
+| ![ListCommand.png](images/filter-command/FilterByPI.png) | ![img.png](images/list-command/ListCommand.png) |
 
-{COMPANY_NAME 2} {ROLE} {APPLICATION_STATUS} {DEADLINE}
 
-{COMPANY_NAME 3} {ROLE} {APPLICATION_STATUS} {DEADLINE}
-```
 ### Deleting a company : `delete` ###
 
 Deletes a company from the address book.
@@ -239,6 +213,25 @@ Edits the information of a particular company.
 **Expected UI** <br/>
 ![EditUI.png](EditUI.png)
 
+### Filter companies by application status: `filter` ###
+Can't remember which applications you haven't submitted or want to prepare for the companies that have offered you an interview? 
+Filter the list of companies by their application status using the `filter` command!
+
+**Format:** `filter s/APPLICATION_STATUS`
+
+**Examples:**
+* `list` followed by`filter s/PI` filters the list of companies to show only companies with status "Pending Interview".
+
+**Note:**
+- APPLICATION_STATUS should be one of the following: `PA`, `PI`, `PO`, `A`, `R`.
+
+**What you will see when `filter` command succeeds:**
+
+| Before                                                  | After                                            |
+|---------------------------------------------------------|--------------------------------------------------|
+| ![ListCommand.png](images/list-command/ListCommand.png) | ![img.png](images/filter-command/FilterByPI.png) |
+
+
 ## Upcoming Features ##
 
 TBD
@@ -264,3 +257,6 @@ TBD.
 | **Delete** | `delete INDEX`<br><br> e.g., `delete 3`                                                                                                                                                                                       |
 | **View**   | `view INDEX`<br><br> e.g., `view 3`                                                                                                                                                                                           |                                                                                                                                                                                     |
 | **Edit**   | `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [a/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [t/TAG]…` <br/><br/> e.g., `edit 2 s/Pending Application r/frontend developer`                        |
+| **Filter** | `filter s/APPLICATION_STATUS` <br/><br/> e.g., `filter s/PA`                                                                                                                                                                  |
+| **List**   | `list`                                                                                                                                                                                                                        |
+
