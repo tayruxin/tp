@@ -108,74 +108,56 @@ The list of companies should be listed in the following format below:
 ```
 ### Deleting a company : `delete` ###
 
-Deletes a company from the address book.
-
 **Format:`delete INDEX`**
 
-* Deletes the contact at the specific INDEX
-* The index refers to the index number shown in the displayed contact list
+You add an entry by mistake or you no longer want to track a particular company, 
+you can delete it using the delete command. Which deletes the company at the specified INDEX.
+
+* The index refers to the index number shown in the displayed company list
 * The index must be a positive integer
+* The index must not be out of bounds.
+* You can only delete one company at a time.
 
 **Examples:**
 * `list` followed by `delete 1` deletes the first contact in the full list
 * `find` TikTok followed by `delete 1` deletes the first contact in the results of find TikTok
 
-**Acceptable values for each parameter:**
-* INDEX must be a number. If not the entire command will be considered invalid input.
-* INDEX must not be out of bounds. If not the entire command will be considered invalid input.
-* INDEX must be more than zero. If not the entire command will be considered invalid input.
+**What you will see when command succeeds:**
 
-**Expected output when command succeeds:**
-```
-“{COMPANY_NAME} application record has been deleted!
-You have __ contacts in the list.”
-```
-
-**GUI Changes:** </br>
 Company at specified index removed and list of companies updated
 
-**Expected output when command fails:**
-</br>
-If INDEX is out of bounds:
-</br>
-`The company index provided is invalid`
+| Before | After                              |
+|--------|------------------------------------|
+| ![img.png](BeforeDeleteCommand.png) | ![img.png](AfterDeleteCommand.png) |
 
-If INDEX is zero or negative:
-</br>
-`Invalid command format`
-`delete: Deletes the company identified by the index number used in the displayed company list.`
-`Parameters: INDEX (must be a positive integer)`
-
-If INDEX is not a number: </br>
-`Invalid command format`
-`delete: Deletes the company identified by the index number used in the displayed company list.`
-`Parameters: INDEX (must be a positive integer)`
-
-**Expected UI**
-
-![img_2.png](DeleteCommand.png)
+> 
+> Note: If you are viewing the details of the company that you are deleting, the details panel will be cleared too.
 
 
 ### View full company information: `view` ###
-View the full company information of a particular company on the left panel.
 
 **Format:** `view INDEX`
 
-**Examples:**
+You look at the list of companies and you see a company that has not been getting back to you. You can use the view 
+command to view the company's recruiter's contact details to follow up with them. The view command allows you to view
+the company detail of the company at the specified INDEX.
+
+* The index refers to the index number shown in the displayed company list
+* The index must be a positive integer
+* The index must not be out of bounds.
+* You can only view one company at a time.
+
+**Example:**
 * `view 1` displays application details of the first company in the full list
-* `view 2` displays application details of the second company in the full list
 
-**Acceptable values for each parameter:**
-* INDEX must be a number. If not the entire command will be considered invalid input.
-* INDEX must not be out of bounds. If not the entire command will be considered invalid input.
-* INDEX must be more than zero. If not the entire command will be considered invalid input.
+**What you will see when command succeeds:**
 
-**Expected output when command succeeds:**</br>
-`Viewing Company: {COMPANY_NAME}`
+| Before                            | After                            |
+|-----------------------------------|----------------------------------|
+| ![img.png](BeforeViewCommand.png) | ![img.png](AfterViewCommand.png) |
 
-**GUI Changes:** </br>
-The company’s information should be listed on the left panel, which includes the following fields:
 
+The company’s information should be listed on the left panel and you will see the following fields:
 1. COMPANY_NAME 
 2. APPLICATION_STATUS
 3. ROLE
@@ -185,22 +167,29 @@ The company’s information should be listed on the left panel, which includes t
 7. PHONE
 8. PRIORITY
 
-**Expected output when command fails:** </br>
+### Find a company: `find` ###
 
-* If INDEX is out of bounds: </br>
-`The company index provided is invalid`
-* If INDEX is zero or negative: </br>
-  `Invalid command format`
-  `view: Views the company identified by the index number used in the displayed company list.`
-  `Parameters: INDEX (must be a positive integer)`
-* If INDEX is not a number: </br>
-  `Invalid command format`
-  `view: Views the company identified by the index number used in the displayed company list.`
-  `Parameters: INDEX (must be a positive integer)`
+**Format:** `find KEYWORD [MORE_KEYWORDS]...`
 
-**Expected UI**
+You wish to find a specific company in the list of companies. You can use the find command to find the 
+company that you are looking for. The find command allows you to find the company whose name contain any of the 
+given keywords.
 
-![ViewUI.png](ViewUI.png)
+- The search is case-insensitive. e.g `tiktok` will match `TikTok`
+- The order of the keywords does not matter. e.g. `tiktok google` will match `Google TikTok`
+- Only the company name is searched.
+- Only full words will be matched e.g. `tik` will not match `tiktok`
+- Only companies with names that contain all the keywords will be returned e.g. `tiktok google` will match `Google TikTok` but not `TikTok`
+
+**Examples:**
+* `find TikTok` returns `TikTok`
+* `find TikTok Google` returns `TikTok Google`
+
+**What you will see when command succeeds:**
+
+![img.png](FindCommand.png)
+
+
 
 ### Edit a company's information: `edit` ###
 Edits the information of a particular company.
