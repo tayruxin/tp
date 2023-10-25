@@ -124,4 +124,11 @@ public interface Model {
      * Sorts the companies in the address book by their deadlines.
      */
     void sortCompaniesByDeadline();
+
+    /**
+     * Filters the companies in the address book by their application status.
+     *
+     * @param predicate the predicate to be used to filter the companies.
+     */
+    void filterCompaniesByStatus(Predicate<Company> predicate);
 }
