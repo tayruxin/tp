@@ -5,12 +5,11 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
-import java.util.Set;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddCommand;
@@ -21,9 +20,9 @@ import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
+import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
 import seedu.address.model.company.Role;
-import seedu.address.model.tag.Tag;
 
 /**
  * Parses input arguments and creates a new AddCommand object
@@ -38,7 +37,7 @@ public class AddCommandParser implements Parser<AddCommand> {
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_COMPANY_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ROLE,
-                        PREFIX_DEADLINE, PREFIX_STATUS, PREFIX_RECRUITER_NAME, PREFIX_TAG);
+                        PREFIX_DEADLINE, PREFIX_STATUS, PREFIX_RECRUITER_NAME, PREFIX_PRIORITY);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_COMPANY_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ROLE,
                 PREFIX_DEADLINE, PREFIX_STATUS, PREFIX_RECRUITER_NAME)
@@ -47,7 +46,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         }
 
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_COMPANY_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ROLE,
-                PREFIX_DEADLINE, PREFIX_STATUS, PREFIX_RECRUITER_NAME);
+                PREFIX_DEADLINE, PREFIX_STATUS, PREFIX_RECRUITER_NAME, PREFIX_PRIORITY);
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_COMPANY_NAME).get());
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
@@ -55,9 +54,11 @@ public class AddCommandParser implements Parser<AddCommand> {
         Deadline deadline = ParserUtil.parseDeadline(argMultimap.getValue(PREFIX_DEADLINE).get());
         ApplicationStatus status = ParserUtil.parseStatus(argMultimap.getValue(PREFIX_STATUS).get());
         RecruiterName recruiterName = ParserUtil.parseRecruiterName(argMultimap.getValue(PREFIX_RECRUITER_NAME).get());
-        Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
+        Priority priority = argMultimap.getValue(PREFIX_PRIORITY).isPresent()
+                ? ParserUtil.parsePriority(argMultimap.getValue(PREFIX_PRIORITY).get())
+                : new Priority("NONE");
 
-        Company company = new Company(name, phone, email, role, deadline, status, recruiterName, tagList);
+        Company company = new Company(name, phone, email, role, deadline, status, recruiterName, priority);
 
         return new AddCommand(company);
     }

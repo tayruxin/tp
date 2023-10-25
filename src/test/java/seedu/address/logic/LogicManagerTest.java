@@ -7,6 +7,7 @@ import static seedu.address.logic.commands.CommandTestUtil.DEADLINE_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.PRIORITY_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.RECRUITER_NAME_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.STATUS_DESC_GOOGLE;
@@ -169,8 +170,9 @@ public class LogicManagerTest {
 
         // Triggers the saveAddressBook method by executing an add command
         String addCommand = AddCommand.COMMAND_WORD + NAME_DESC_GOOGLE + PHONE_DESC_GOOGLE + EMAIL_DESC_GOOGLE
-                + ROLE_DESC_GOOGLE + DEADLINE_DESC_GOOGLE + STATUS_DESC_GOOGLE + RECRUITER_NAME_DESC_GOOGLE;
-        Company expectedCompany = new CompanyBuilder(GOOGLE).withTags().build();
+                + ROLE_DESC_GOOGLE + DEADLINE_DESC_GOOGLE + STATUS_DESC_GOOGLE
+                + RECRUITER_NAME_DESC_GOOGLE + PRIORITY_DESC_GOOGLE;
+        Company expectedCompany = new CompanyBuilder(GOOGLE).build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addCompany(expectedCompany);
         assertCommandFailure(addCommand, CommandException.class, expectedMessage, expectedModel);

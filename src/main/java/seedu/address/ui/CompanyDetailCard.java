@@ -1,7 +1,5 @@
 package seedu.address.ui;
 
-import java.util.Comparator;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
@@ -43,7 +41,7 @@ public class CompanyDetailCard extends UiPart<Region> {
     @FXML
     private Label recruiterName;
     @FXML
-    private FlowPane tags;
+    private FlowPane priority;
 
     /**
      * Creates a {@code CompanyCode} with the given {@code Company} and index to display.
@@ -58,10 +56,39 @@ public class CompanyDetailCard extends UiPart<Region> {
         deadline.setText("Deadline: " + company.getDeadline().toString());
         status.setText("Application status: " + company.getStatus().getDescription());
         recruiterName.setText("Name: " + company.getRecruiterName().fullName);
+        priorityFlowPane(company);
 
-        company.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
     }
+
+    private void priorityFlowPane(Company company) {
+        if (!company.getPriority().priority.equals("NONE")) {
+            FlowPane priorityPane = new FlowPane();
+
+            Label priorityLabel = new Label("Priority: ");
+            Label priorityValue = new Label(company.getPriority().priority);
+
+            String backgroundColor = "#444444"; // Dark gray (default)
+
+            switch (company.getPriority().priority) {
+            case "HIGH":
+                backgroundColor = "#990000"; // Dark red
+                break;
+            case "MEDIUM":
+                backgroundColor = "#FF8000"; // Dark orange
+                break;
+            case "LOW":
+                backgroundColor = "#006400"; // Dark green
+                break;
+            default:
+                break;
+            }
+
+            priorityValue.setStyle("-fx-background-color: " + backgroundColor);
+
+            priorityPane.getChildren().addAll(priorityLabel, priorityValue);
+            priority.getChildren().add(priorityPane);
+        }
+    }
+
 }
 

@@ -2,17 +2,18 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_COMPANIES;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
@@ -26,9 +27,9 @@ import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
+import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
 import seedu.address.model.company.Role;
-import seedu.address.model.tag.Tag;
 
 /**
  * Edits the details of an existing company in the address book.
@@ -37,19 +38,25 @@ public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
+    //c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]
+
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the company identified "
             + "by the index number used in the displayed company list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "[" + PREFIX_COMPANY_NAME + "NAME] "
-            + "[" + PREFIX_PHONE + "PHONE] "
+            + "[" + PREFIX_COMPANY_NAME + "COMPANY_NAME] "
+            + "[" + PREFIX_RECRUITER_NAME + "RECRUITER_NAME] "
+            + "[" + PREFIX_ROLE + "ROLE] "
+            + "[" + PREFIX_STATUS + "APPLICATION_STATUS] "
+            + "[" + PREFIX_DEADLINE + "DEADLINE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
-            + "[" + PREFIX_TAG + "TAG]...\n"
+            + "[" + PREFIX_PHONE + "PHONE] "
+            + "[" + PREFIX_PRIORITY + "PRIORITY] "
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
 
-    public static final String MESSAGE_EDIT_COMPANY_SUCCESS = "Edited Company: %1$s";
+    public static final String MESSAGE_EDIT_COMPANY_SUCCESS = "%1$s company edited.";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_COMPANY = "This company already exists in the address book.";
 
@@ -86,7 +93,6 @@ public class EditCommand extends Command {
 
         model.setCompany(companyToEdit, editedCompany);
         model.updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
-
         model.setCurrentViewedCompany(editedCompany);
         return new CommandResult(String.format(MESSAGE_EDIT_COMPANY_SUCCESS, Messages.getCompanyName(editedCompany)));
     }
@@ -101,14 +107,15 @@ public class EditCommand extends Command {
         Name updatedName = editCompanyDescriptor.getName().orElse(companyToEdit.getName());
         Phone updatedPhone = editCompanyDescriptor.getPhone().orElse(companyToEdit.getPhone());
         Email updatedEmail = editCompanyDescriptor.getEmail().orElse(companyToEdit.getEmail());
-        Role updatedRole = companyToEdit.getRole();
-        Deadline updatedDeadline = companyToEdit.getDeadline();
-        ApplicationStatus updatedStatus = companyToEdit.getStatus();
-        RecruiterName updatedRecruiterName = companyToEdit.getRecruiterName();
-        Set<Tag> updatedTags = editCompanyDescriptor.getTags().orElse(companyToEdit.getTags());
+        Role updatedRole = editCompanyDescriptor.getRole().orElse(companyToEdit.getRole());
+        Deadline updatedDeadline = editCompanyDescriptor.getDeadline().orElse(companyToEdit.getDeadline());
+        ApplicationStatus updatedStatus = editCompanyDescriptor.getStatus().orElse(companyToEdit.getStatus());
+        RecruiterName updatedRecruiterName = editCompanyDescriptor.getRecruiterName()
+                .orElse(companyToEdit.getRecruiterName());
+        Priority updatedPriority = editCompanyDescriptor.getPriority().orElse(companyToEdit.getPriority());
 
         return new Company(updatedName, updatedPhone, updatedEmail, updatedRole, updatedDeadline,
-                updatedStatus, updatedRecruiterName, updatedTags);
+                updatedStatus, updatedRecruiterName, updatedPriority);
     }
 
     @Override
@@ -143,7 +150,11 @@ public class EditCommand extends Command {
         private Name name;
         private Phone phone;
         private Email email;
-        private Set<Tag> tags;
+        private Role role;
+        private Deadline deadline;
+        private ApplicationStatus status;
+        private RecruiterName recruiterName;
+        private Priority priority;
 
         public EditCompanyDescriptor() {}
 
@@ -155,14 +166,19 @@ public class EditCommand extends Command {
             setName(toCopy.name);
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
-            setTags(toCopy.tags);
+            setRole(toCopy.role);
+            setDeadline(toCopy.deadline);
+            setStatus(toCopy.status);
+            setRecruiterName(toCopy.recruiterName);
+            setPriority(toCopy.priority);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, role, deadline, status,
+                    recruiterName, priority);
         }
 
         public void setName(Name name) {
@@ -189,22 +205,46 @@ public class EditCommand extends Command {
             return Optional.ofNullable(email);
         }
 
-        /**
-         * Sets {@code tags} to this object's {@code tags}.
-         * A defensive copy of {@code tags} is used internally.
-         */
-        public void setTags(Set<Tag> tags) {
-            this.tags = (tags != null) ? new HashSet<>(tags) : null;
+        public void setRole(Role role) {
+            this.role = role;
         }
 
-        /**
-         * Returns an unmodifiable tag set, which throws {@code UnsupportedOperationException}
-         * if modification is attempted.
-         * Returns {@code Optional#empty()} if {@code tags} is null.
-         */
-        public Optional<Set<Tag>> getTags() {
-            return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
+        public Optional<Role> getRole() {
+            return Optional.ofNullable(role);
         }
+
+        public void setDeadline(Deadline deadline) {
+            this.deadline = deadline;
+        }
+
+        public Optional<Deadline> getDeadline() {
+            return Optional.ofNullable(deadline);
+        }
+
+        public void setStatus(ApplicationStatus status) {
+            this.status = status;
+        }
+
+        public Optional<ApplicationStatus> getStatus() {
+            return Optional.ofNullable(status);
+        }
+
+        public void setRecruiterName(RecruiterName recruiterName) {
+            this.recruiterName = recruiterName;
+        }
+
+        public Optional<RecruiterName> getRecruiterName() {
+            return Optional.ofNullable(recruiterName);
+        }
+
+        public void setPriority(Priority priority) {
+            this.priority = priority;
+        }
+
+        public Optional<Priority> getPriority() {
+            return Optional.ofNullable(priority);
+        }
+
 
         @Override
         public boolean equals(Object other) {
@@ -221,16 +261,24 @@ public class EditCommand extends Command {
             return Objects.equals(name, otherCompanyDescriptor.name)
                     && Objects.equals(phone, otherCompanyDescriptor.phone)
                     && Objects.equals(email, otherCompanyDescriptor.email)
-                    && Objects.equals(tags, otherCompanyDescriptor.tags);
+                    && Objects.equals(role, otherCompanyDescriptor.role)
+                    && Objects.equals(deadline, otherCompanyDescriptor.deadline)
+                    && Objects.equals(status, otherCompanyDescriptor.status)
+                    && Objects.equals(recruiterName, otherCompanyDescriptor.recruiterName)
+                    && Objects.equals(priority, otherCompanyDescriptor.priority);
         }
 
         @Override
         public String toString() {
             return new ToStringBuilder(this)
                     .add("name", name)
+                    .add("role", role)
+                    .add("deadline", deadline)
+                    .add("status", status)
+                    .add("recruiter name", recruiterName)
                     .add("phone", phone)
                     .add("email", email)
-                    .add("tags", tags)
+                    .add("priority", priority)
                     .toString();
         }
     }

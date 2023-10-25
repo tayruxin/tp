@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-Never miss an internships interview with LinkMeIn! Keep track of all your deadlines in an organised fashion. 
+Never miss an internships interview with LinkMeIn! Keep track of all your deadlines in an organised fashion.
 
 * Table of Contents for the User Guide
 {:toc}
@@ -20,17 +20,11 @@ Never miss an internships interview with LinkMeIn! Keep track of all your deadli
 
 ## Current Features ##
 
-<div markdown="block" class="alert alert-info">
-
-**:information_source: Notes about the command format:**<br>
-    Yet to be updated.
-
-</div>
-### Adding a company: `add` ###
+### Adding a company : `add` ###
 
 Adds a company to the address book.
 The company must have the required fields:
-CompanyName, ApplyingRole, ApplicationStatus, RecruiterName, Deadline(DD-MM-YYYY).
+CompanyName, ApplyingRole, ApplicationStatus, Deadline (dd-MM-yyyy), RecruiterName, Email and PhoneNumber.
 Order of input **does not** matter.
 
 | Prefix | Application Status     |
@@ -42,31 +36,36 @@ Order of input **does not** matter.
 | R      | REJECTED               |
 
 **Format**:</br>
-`add c/COMPANY_NAME n/RECRUITER_NAME r/ROLE
-a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]`
+`add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [t/tags]`
 
 **Examples**:
-* `add c/Tiktok n/John Tan r/Software Engineer a/PA d/11-11-2023 e/johntan@example.com p/987654321`
-* `add c/Google n/Mary r/Data Analyst a/R d/11-11-2023`
-* `add c/Google r/Data Scientist a/PI n/Mary d/11-11-2023  e/mary@example.com`
+* `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com p/987654321`
+* `add c/Google n/Mary r/Data Analyst s/R d/11-11-2023 e/johntan@example.com p/987654321 t/high`
+* `add c/Meta r/Data Scientist s/PI n/Mary d/12-12-2023 e/mary@example.com p/91234567`
 
 **Acceptable values for each parameter:**<br>
-No other string separators other than c/, n/, r/, a/, d/, e/, p/.
+No other string separators other than c/, n/, r/, s/, d/, e/, p/, t/.
 Otherwise, the **entire** command will be considered invalid and all data inputted will be discarded.
 
-Example: `c/Google n/Mary r/Data Analyst a/R d/11-11-2023 f/`</br> Explanation: Invalid f/ string separator.
+Example of invalid input: `c/Google n/Mary r/Data Analyst a/R d/11-11-2023 f/`</br>
+Explanation: Invalid f/ string separator.
 
 **Expected output when command succeeds**: </br>
-`{COMPANY_NAME} contact added to the list!`
+`New company added: {COMPANY_NAME}`
 
 **GUI Changes:** </br>
-The company should be added to the existing list of companies on the right.
+The company should be added to the existing list of companies on the right.</br>
+The company’s information should also be listed on the left panel, which displays all the added fields information.
 
 **Expected output when command fails:** </br>
+`Invalid command format!`</br>
+`add: Adds a company to the address book. Parameters: c/COMPANY_NAME r/ROLE s/STATUS d/DEADLINE n/RECRUITER_NAME p/PHONE e/EMAIL [t/TAG]...`</br>
+`Example: add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan p/98765432 e/johnd@example.com t/high`
 
+***To be further updated in V1.3***
 * If the COMPANY_NAME field is missing:
 `Invalid command format! Missing COMPANY_NAME. Format is add c/COMPANY_NAME
-n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
+n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS e/EMAIL p/PHONE_NUMBER`
 </br>
 </br>
 * If the RECRUITER_NAME field is missing:
@@ -83,9 +82,9 @@ c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_N
 `Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME
 n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
 
-**Expected UI**
+**Expected UI:**
 
-![img_1.png](img_1.png)
+![AddCommand.png](AddCommand.png)
 
 ### Listing all contacts : `list`
 
@@ -97,15 +96,15 @@ Lists all the contacts in the application at present.
 
 **Expected UI**:
 
-![img_3.png](img_3.png)
+![ListCommand.png](ListCommand.png)
 
 The list of companies should be listed in the following format below:
 ```
-{COMPANY_NAME 1} {ROLE}
+{COMPANY_NAME 1} {ROLE} {APPLICATION_STATUS} {DEADLINE}
 
-{COMPANY_NAME 2} {ROLE}
+{COMPANY_NAME 2} {ROLE} {APPLICATION_STATUS} {DEADLINE}
 
-{COMPANY_NAME 3} {ROLE}
+{COMPANY_NAME 3} {ROLE} {APPLICATION_STATUS} {DEADLINE}
 ```
 ### Deleting a company : `delete` ###
 
@@ -139,25 +138,32 @@ Company at specified index removed and list of companies updated
 </br>
 If INDEX is out of bounds:
 </br>
-`Index exceeds the number of contacts!`
+`The company index provided is invalid`
 
 If INDEX is zero or negative:
 </br>
-`Index must be positive!`
+`Invalid command format`
+`delete: Deletes the company identified by the index number used in the displayed company list.`
+`Parameters: INDEX (must be a positive integer)`
+
+If INDEX is not a number: </br>
+`Invalid command format`
+`delete: Deletes the company identified by the index number used in the displayed company list.`
+`Parameters: INDEX (must be a positive integer)`
 
 **Expected UI**
 
-![img_2.png](img_2.png)
+![img_2.png](DeleteCommand.png)
 
 
 ### View full company information: `view` ###
-View the full company information of a particular company on the side.
+View the full company information of a particular company on the left panel.
 
 **Format:** `view INDEX`
 
 **Examples:**
-* `view 1` displays application details to the first company in the full list
-* `view 2` displays application details to the second company in the full list
+* `view 1` displays application details of the first company in the full list
+* `view 2` displays application details of the second company in the full list
 
 **Acceptable values for each parameter:**
 * INDEX must be a number. If not the entire command will be considered invalid input.
@@ -165,31 +171,73 @@ View the full company information of a particular company on the side.
 * INDEX must be more than zero. If not the entire command will be considered invalid input.
 
 **Expected output when command succeeds:**</br>
-`{COMPANY_NAME} information has been displayed successfully.`
+`Viewing Company: {COMPANY_NAME}`
 
 **GUI Changes:** </br>
-The company’s information should be listed on the left, which includes the following fields:
+The company’s information should be listed on the left panel, which includes the following fields:
 
-1. COMPANY_NAME 1
+1. COMPANY_NAME
 2. APPLICATION_STATUS
 3. ROLE
 4. DEADLINE
 5. RECRUITER_NAME
-6. EMAIL (if any)
-7. PHONE (if any)
+6. EMAIL
+7. PHONE
+8. PRIORITY
 
 **Expected output when command fails:** </br>
 
 * If INDEX is out of bounds: </br>
-`Index exceeds the number of contacts!`
+`The company index provided is invalid`
 * If INDEX is zero or negative: </br>
-`Index must be positive!`
+  `Invalid command format`
+  `view: Views the company identified by the index number used in the displayed company list.`
+  `Parameters: INDEX (must be a positive integer)`
 * If INDEX is not a number: </br>
-`Index must be a number!`
+  `Invalid command format`
+  `view: Views the company identified by the index number used in the displayed company list.`
+  `Parameters: INDEX (must be a positive integer)`
 
 **Expected UI**
 
-![img_4.png](img_4.png)
+![ViewUI.png](ViewUI.png)
+
+### Edit a company's information: `edit` ###
+Edits the information of a particular company.
+
+**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [t/TAG]…`
+
+* Edits the company at the specified INDEX. The index refers to the index number shown in the displayed company list. The index must be a positive integer 1, 2, 3, ...
+* At least one of the optional fields must be provided.
+* Existing values will be updated to the input values.
+* When editing tags, the existing tags of the company will be removed i.e adding of tags is not cumulative.
+* You can remove all the company’s tags by typing t/ without specifying any tags after it.
+
+**Examples:**
+* `edit 2 s/Pending Application r/frontend developer` edits the status and role of the 2nd person to be Pending Application and frontend developer respectively.
+* `edit 3 e/example@abc.com t/` edits the email of the 3rd person to be example@abc.com and clears all existing tags.
+
+**Acceptable values for each parameter:**
+* INDEX must be a number. If not the entire command will be considered invalid input.
+* INDEX must not be out of bounds. If not the entire command will be considered invalid input.
+* INDEX must be more than zero. If not the entire command will be considered invalid input.
+* No other string separators other than c/, n/, r/, s/, d/, e/, p/. Otherwise, the entire command will be considered invalid and all data inputted will be discarded.
+
+**Expected output when command succeeds:**</br>
+`{COMPANY_NAME} company edited.`
+
+**Expected output when command fails:** </br>
+* If INDEX is out of bounds: </br>
+  `The company index provided is invalid`
+* If invalid string separator: </br>
+  `Invalid command format! edit: Edits the details of the company identified by the index number used in the displayed company list. Existing values will be overwritten by the input values.
+  Parameters: INDEX (must be a positive integer) [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE] [t/TAG]...
+  Example: edit 1 p/91234567 e/johndoe@example.com`
+* If empty input after string separator: </br>
+  `Please enter a valid {field}`
+
+**Expected UI** <br/>
+![EditUI.png](EditUI.png)
 
 ## Upcoming Features ##
 
@@ -210,8 +258,9 @@ TBD.
 
 ## Command summary ##
 
-| Action     | Format, Examples                                                                                                                                                                                                         |
-|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**    | `add c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]` <br><br> e.g., `add c/Tiktok n/John Tan r/Software Engineer a/PA d/11-11-2023 e/johntan@example.com p/987654321` |
-| **Delete** | `delete INDEX`<br><br> e.g., `delete 3`                                                                                                                                                                                  |
-| **View**   | `view`                                                                                                                                                                                                                   |
+| Action     | Format, Examples                                                                                                                                                                                                              |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**    | `add c/COMPANY_NAME r/ROLE d/DEADLINE s/APPLICATION_STATUS n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [t/tags]` <br><br> e.g., `add c/Tiktok r/Software Engineer s/PA d/11-11-2023 n/John Tan e/johntan@example.com p/987654321` |
+| **Delete** | `delete INDEX`<br><br> e.g., `delete 3`                                                                                                                                                                                       |
+| **View**   | `view INDEX`<br><br> e.g., `view 3`                                                                                                                                                                                           |                                                                                                                                                                                     |
+| **Edit**   | `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [a/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [t/TAG]…` <br/><br/> e.g., `edit 2 s/Pending Application r/frontend developer`                        |

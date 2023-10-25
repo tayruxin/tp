@@ -6,10 +6,10 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -43,8 +43,8 @@ public class CommandTestUtil {
     public static final String VALID_STATUS_TIKTOK = "PI";
     public static final String VALID_RECRUITER_NAME_GOOGLE = "John Doe";
     public static final String VALID_RECRUITER_NAME_TIKTOK = "Timmy Tan";
-    public static final String VALID_TAG_HIGH = "high";
-    public static final String VALID_TAG_LOW = "low";
+    public static final String VALID_PRIORITY_GOOGLE = "HIGH";
+    public static final String VALID_PRIORITY_TIKTOK = "LOW";
 
     public static final String NAME_DESC_GOOGLE = " " + PREFIX_COMPANY_NAME + VALID_NAME_GOOGLE;
     public static final String NAME_DESC_TIKTOK = " " + PREFIX_COMPANY_NAME + VALID_NAME_TIKTOK;
@@ -60,9 +60,8 @@ public class CommandTestUtil {
     public static final String STATUS_DESC_TIKTOK = " " + PREFIX_STATUS + VALID_STATUS_TIKTOK;
     public static final String RECRUITER_NAME_DESC_GOOGLE = " " + PREFIX_RECRUITER_NAME + VALID_RECRUITER_NAME_GOOGLE;
     public static final String RECRUITER_NAME_DESC_TIKTOK = " " + PREFIX_RECRUITER_NAME + VALID_RECRUITER_NAME_TIKTOK;
-    public static final String TAG_DESC_LOW = " " + PREFIX_TAG + VALID_TAG_LOW;
-    public static final String TAG_DESC_HIGH = " " + PREFIX_TAG + VALID_TAG_HIGH;
-
+    public static final String PRIORITY_DESC_GOOGLE = " " + PREFIX_PRIORITY + VALID_PRIORITY_GOOGLE;
+    public static final String PRIORITY_DESC_TIKTOK = " " + PREFIX_PRIORITY + VALID_PRIORITY_TIKTOK;
     public static final String INVALID_NAME_DESC = " " + PREFIX_COMPANY_NAME + "Google&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
@@ -71,7 +70,8 @@ public class CommandTestUtil {
     public static final String INVALID_STATUS_DESC = " " + PREFIX_STATUS + "L"; // invalid status
     public static final String INVALID_RECRUITER_NAME_DESC =
             " " + PREFIX_RECRUITER_NAME + "Google&"; // '&' not allowed in names
-    public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "low*"; // '*' not allowed in tags
+
+    public static final String INVALID_PRIORITY_DESC = " " + PREFIX_PRIORITY + "HIGHH"; // invalid priority
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
@@ -81,11 +81,11 @@ public class CommandTestUtil {
 
     static {
         DESC_GOOGLE = new EditCompanyDescriptorBuilder().withName(VALID_NAME_GOOGLE)
-                .withPhone(VALID_PHONE_GOOGLE).withEmail(VALID_EMAIL_GOOGLE)
-                .withTags(VALID_TAG_LOW).build();
+                .withPhone(VALID_PHONE_GOOGLE).withEmail(VALID_EMAIL_GOOGLE).withPriority(VALID_PRIORITY_GOOGLE)
+                .build();
         DESC_TIKTOK = new EditCompanyDescriptorBuilder().withName(VALID_NAME_TIKTOK)
-                .withPhone(VALID_PHONE_TIKTOK).withEmail(VALID_EMAIL_TIKTOK)
-                .withTags(VALID_TAG_HIGH).build();
+                .withPhone(VALID_PHONE_TIKTOK).withEmail(VALID_EMAIL_TIKTOK).withPriority(VALID_PRIORITY_TIKTOK)
+                .build();
     }
 
     /**

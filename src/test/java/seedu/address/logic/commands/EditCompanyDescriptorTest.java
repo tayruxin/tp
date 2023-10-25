@@ -8,7 +8,6 @@ import static seedu.address.logic.commands.CommandTestUtil.DESC_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HIGH;
 
 import org.junit.jupiter.api.Test;
 
@@ -36,31 +35,36 @@ public class EditCompanyDescriptorTest {
         assertFalse(DESC_GOOGLE.equals(DESC_TIKTOK));
 
         // different name -> returns false
-        EditCommand.EditCompanyDescriptor editedAmy = new EditCompanyDescriptorBuilder(DESC_GOOGLE)
+        EditCommand.EditCompanyDescriptor editedGoogle = new EditCompanyDescriptorBuilder(DESC_GOOGLE)
                 .withName(VALID_NAME_TIKTOK).build();
-        assertFalse(DESC_GOOGLE.equals(editedAmy));
+        assertFalse(DESC_GOOGLE.equals(editedGoogle));
 
         // different phone -> returns false
-        editedAmy = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withPhone(VALID_PHONE_TIKTOK).build();
-        assertFalse(DESC_GOOGLE.equals(editedAmy));
+        editedGoogle = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withPhone(VALID_PHONE_TIKTOK).build();
+        assertFalse(DESC_GOOGLE.equals(editedGoogle));
 
         // different email -> returns false
-        editedAmy = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withEmail(VALID_EMAIL_TIKTOK).build();
-        assertFalse(DESC_GOOGLE.equals(editedAmy));
+        editedGoogle = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withEmail(VALID_EMAIL_TIKTOK).build();
+        assertFalse(DESC_GOOGLE.equals(editedGoogle));
 
-        // different tags -> returns false
-        editedAmy = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withTags(VALID_TAG_HIGH).build();
-        assertFalse(DESC_GOOGLE.equals(editedAmy));
+        // different priority -> returns false
+        editedGoogle = new EditCompanyDescriptorBuilder(DESC_GOOGLE).withPriority("MEDIUM").build();
+        assertFalse(DESC_GOOGLE.equals(editedGoogle));
     }
 
     @Test
     public void toStringMethod() {
         EditCommand.EditCompanyDescriptor editCompanyDescriptor = new EditCommand.EditCompanyDescriptor();
         String expected = EditCommand.EditCompanyDescriptor.class.getCanonicalName() + "{name="
-                + editCompanyDescriptor.getName().orElse(null) + ", phone="
+                + editCompanyDescriptor.getName().orElse(null) + ", role="
+                + editCompanyDescriptor.getRole().orElse(null) + ", deadline="
+                + editCompanyDescriptor.getDeadline().orElse(null) + ", status="
+                + editCompanyDescriptor.getStatus().orElse(null) + ", recruiter name="
+                + editCompanyDescriptor.getRecruiterName().orElse(null) + ", phone="
                 + editCompanyDescriptor.getPhone().orElse(null) + ", email="
-                + editCompanyDescriptor.getEmail().orElse(null) + ", tags="
-                + editCompanyDescriptor.getTags().orElse(null) + "}";
+                + editCompanyDescriptor.getEmail().orElse(null) + ", priority="
+                + editCompanyDescriptor.getPriority().orElse(null)
+                + "}";
         assertEquals(expected, editCompanyDescriptor.toString());
     }
 }

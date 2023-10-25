@@ -2,8 +2,6 @@ package seedu.address.testutil;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.HashSet;
-import java.util.Set;
 
 import seedu.address.model.company.ApplicationStatus;
 import seedu.address.model.company.Company;
@@ -11,10 +9,9 @@ import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
+import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
 import seedu.address.model.company.Role;
-import seedu.address.model.tag.Tag;
-import seedu.address.model.util.SampleDataUtil;
 
 /**
  * A utility class to help with building Company objects.
@@ -22,12 +19,13 @@ import seedu.address.model.util.SampleDataUtil;
 public class CompanyBuilder {
 
     public static final String DEFAULT_NAME = "Twitter";
-    public static final String DEFAULT_PHONE = "85355255";
-    public static final String DEFAULT_EMAIL = "amy@gmail.com";
+    public static final String DEFAULT_PHONE = "98782423";
+    public static final String DEFAULT_EMAIL = "john@gmail.com";
     public static final String DEFAULT_ROLE = "Software Engineer";
     public static final LocalDate DEFAULT_DEADLINE = LocalDate.of(2023, 10, 10);
     public static final String DEFAULT_STATUS = "PA";
     public static final String DEFAULT_RECRUITER_NAME = "John Doe";
+    public static final String DEFAULT_PRIORITY = "LOW";
 
     private Name name;
     private Phone phone;
@@ -36,7 +34,7 @@ public class CompanyBuilder {
     private Deadline deadline;
     private ApplicationStatus status;
     private RecruiterName recruiterName;
-    private Set<Tag> tags;
+    private Priority priority;
 
     /**
      * Creates a {@code CompanyBuilder} with the default details.
@@ -49,7 +47,7 @@ public class CompanyBuilder {
         deadline = new Deadline(DEFAULT_DEADLINE.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
         status = new ApplicationStatus(DEFAULT_STATUS);
         recruiterName = new RecruiterName(DEFAULT_RECRUITER_NAME);
-        tags = new HashSet<>();
+        priority = new Priority(DEFAULT_PRIORITY);
     }
 
     /**
@@ -63,7 +61,7 @@ public class CompanyBuilder {
         deadline = companyToCopy.getDeadline();
         status = companyToCopy.getStatus();
         recruiterName = companyToCopy.getRecruiterName();
-        tags = new HashSet<>(companyToCopy.getTags());
+        priority = companyToCopy.getPriority();
     }
 
     /**
@@ -71,21 +69,6 @@ public class CompanyBuilder {
      */
     public CompanyBuilder withName(String name) {
         this.name = new Name(name);
-        return this;
-    }
-
-    /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Company} that we are building.
-     */
-    public CompanyBuilder withTags(String ... tags) {
-        this.tags = SampleDataUtil.getTagSet(tags);
-        return this;
-    }
-
-    /**
-     * Sets the {@code Address} of the {@code Company} that we are building.
-     */
-    public CompanyBuilder withAddress(String address) {
         return this;
     }
 
@@ -137,8 +120,16 @@ public class CompanyBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Priority} of the {@code Company} that we are building.
+     */
+    public CompanyBuilder withPriority(String priority) {
+        this.priority = new Priority(priority);
+        return this;
+    }
+
     public Company build() {
-        return new Company(name, phone, email, role, deadline, status, recruiterName, tags);
+        return new Company(name, phone, email, role, deadline, status, recruiterName, priority);
     }
 
 }

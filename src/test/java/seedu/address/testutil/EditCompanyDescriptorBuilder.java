@@ -1,8 +1,5 @@
 package seedu.address.testutil;
 
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditCompanyDescriptor;
@@ -10,7 +7,7 @@ import seedu.address.model.company.Company;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.company.Priority;
 
 /**
  * A utility class to help with building EditCompanyDescriptor objects.
@@ -35,7 +32,6 @@ public class EditCompanyDescriptorBuilder {
         descriptor.setName(company.getName());
         descriptor.setPhone(company.getPhone());
         descriptor.setEmail(company.getEmail());
-        descriptor.setTags(company.getTags());
     }
 
     /**
@@ -63,12 +59,10 @@ public class EditCompanyDescriptorBuilder {
     }
 
     /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code EditCompanyDescriptor}
-     * that we are building.
+     * Sets the {@code Priority} of the {@code EditCompanyDescriptor} that we are building.
      */
-    public EditCompanyDescriptorBuilder withTags(String... tags) {
-        Set<Tag> tagSet = Stream.of(tags).map(Tag::new).collect(Collectors.toSet());
-        descriptor.setTags(tagSet);
+    public EditCompanyDescriptorBuilder withPriority(String priority) {
+        descriptor.setPriority(new Priority(priority));
         return this;
     }
 
