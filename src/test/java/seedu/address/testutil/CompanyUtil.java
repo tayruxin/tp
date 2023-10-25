@@ -3,6 +3,7 @@ package seedu.address.testutil;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NOTE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
@@ -38,6 +39,7 @@ public class CompanyUtil {
         sb.append(PREFIX_STATUS + company.getStatus().toString() + " ");
         sb.append(PREFIX_RECRUITER_NAME + company.getRecruiterName().fullName + " ");
         sb.append(PREFIX_PRIORITY + company.getPriority().priority + " ");
+        sb.append(PREFIX_NOTE + company.getNote().note + " ");
         return sb.toString();
     }
 
@@ -49,6 +51,14 @@ public class CompanyUtil {
         descriptor.getName().ifPresent(name -> sb.append(PREFIX_COMPANY_NAME).append(name.fullName).append(" "));
         descriptor.getPhone().ifPresent(phone -> sb.append(PREFIX_PHONE).append(phone.value).append(" "));
         descriptor.getEmail().ifPresent(email -> sb.append(PREFIX_EMAIL).append(email.value).append(" "));
+        descriptor.getRole().ifPresent(role -> sb.append(PREFIX_ROLE).append(role.jobRole).append(" "));
+        descriptor.getDeadline().ifPresent(deadline -> sb.append(PREFIX_DEADLINE).append(deadline.toString()).append(" "));
+        descriptor.getStatus().ifPresent(status -> sb.append(PREFIX_STATUS).append(status.status).append(" "));
+        descriptor.getRecruiterName().ifPresent(recruiterName -> sb.append(PREFIX_RECRUITER_NAME)
+                .append(recruiterName.fullName).append(" "));
+        descriptor.getPriority().ifPresent(priority -> sb.append(PREFIX_PRIORITY)
+                .append(priority.priority).append(" "));
+        descriptor.getNote().ifPresent(note -> sb.append(PREFIX_NOTE).append(note.note).append(" "));
         return sb.toString();
     }
 }

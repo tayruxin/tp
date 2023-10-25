@@ -8,6 +8,7 @@ import seedu.address.model.company.Company;
 import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
+import seedu.address.model.company.Note;
 import seedu.address.model.company.Phone;
 import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
@@ -26,6 +27,7 @@ public class CompanyBuilder {
     public static final String DEFAULT_STATUS = "PA";
     public static final String DEFAULT_RECRUITER_NAME = "John Doe";
     public static final String DEFAULT_PRIORITY = "LOW";
+    public static final String DEFAULT_NOTE = "No notes";
 
     private Name name;
     private Phone phone;
@@ -35,6 +37,7 @@ public class CompanyBuilder {
     private ApplicationStatus status;
     private RecruiterName recruiterName;
     private Priority priority;
+    private Note note;
 
     /**
      * Creates a {@code CompanyBuilder} with the default details.
@@ -48,6 +51,7 @@ public class CompanyBuilder {
         status = new ApplicationStatus(DEFAULT_STATUS);
         recruiterName = new RecruiterName(DEFAULT_RECRUITER_NAME);
         priority = new Priority(DEFAULT_PRIORITY);
+        note = new Note(DEFAULT_NOTE);
     }
 
     /**
@@ -62,6 +66,7 @@ public class CompanyBuilder {
         status = companyToCopy.getStatus();
         recruiterName = companyToCopy.getRecruiterName();
         priority = companyToCopy.getPriority();
+        note = companyToCopy.getNote();
     }
 
     /**
@@ -128,8 +133,15 @@ public class CompanyBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Name} of the {@code Company} that we are building.
+     */
+    public CompanyBuilder withNote(String note) {
+        this.note = new Note(note);
+        return this;
+    }
     public Company build() {
-        return new Company(name, phone, email, role, deadline, status, recruiterName, priority);
+        return new Company(name, phone, email, role, deadline, status, recruiterName, priority, note);
     }
 
 }

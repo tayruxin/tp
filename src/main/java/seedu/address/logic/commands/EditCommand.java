@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NOTE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
@@ -26,6 +27,7 @@ import seedu.address.model.company.Company;
 import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
+import seedu.address.model.company.Note;
 import seedu.address.model.company.Phone;
 import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
@@ -52,6 +54,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_PRIORITY + "PRIORITY] "
+            + "[" + PREFIX_NOTE + "NOTE] "
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
@@ -113,9 +116,10 @@ public class EditCommand extends Command {
         RecruiterName updatedRecruiterName = editCompanyDescriptor.getRecruiterName()
                 .orElse(companyToEdit.getRecruiterName());
         Priority updatedPriority = editCompanyDescriptor.getPriority().orElse(companyToEdit.getPriority());
+        Note updatedNote = editCompanyDescriptor.getNote().orElse(companyToEdit.getNote());
 
         return new Company(updatedName, updatedPhone, updatedEmail, updatedRole, updatedDeadline,
-                updatedStatus, updatedRecruiterName, updatedPriority);
+                updatedStatus, updatedRecruiterName, updatedPriority, updatedNote);
     }
 
     @Override
@@ -155,6 +159,7 @@ public class EditCommand extends Command {
         private ApplicationStatus status;
         private RecruiterName recruiterName;
         private Priority priority;
+        private Note note;
 
         public EditCompanyDescriptor() {}
 
@@ -171,6 +176,7 @@ public class EditCommand extends Command {
             setStatus(toCopy.status);
             setRecruiterName(toCopy.recruiterName);
             setPriority(toCopy.priority);
+            setNote(toCopy.note);
         }
 
         /**
@@ -178,7 +184,7 @@ public class EditCommand extends Command {
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, role, deadline, status,
-                    recruiterName, priority);
+                    recruiterName, priority, note);
         }
 
         public void setName(Name name) {
@@ -245,6 +251,10 @@ public class EditCommand extends Command {
             return Optional.ofNullable(priority);
         }
 
+        public void setNote(Note note) { this.note = note; }
+
+        public Optional<Note> getNote() { return Optional.ofNullable(note); }
+
 
         @Override
         public boolean equals(Object other) {
@@ -265,7 +275,8 @@ public class EditCommand extends Command {
                     && Objects.equals(deadline, otherCompanyDescriptor.deadline)
                     && Objects.equals(status, otherCompanyDescriptor.status)
                     && Objects.equals(recruiterName, otherCompanyDescriptor.recruiterName)
-                    && Objects.equals(priority, otherCompanyDescriptor.priority);
+                    && Objects.equals(priority, otherCompanyDescriptor.priority)
+                    && Objects.equals(note, otherCompanyDescriptor.note);
         }
 
         @Override
@@ -279,6 +290,7 @@ public class EditCommand extends Command {
                     .add("phone", phone)
                     .add("email", email)
                     .add("priority", priority)
+                    .add("note", note)
                     .toString();
         }
     }

@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NOTE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
@@ -32,7 +33,8 @@ public class AddCommand extends Command {
             + PREFIX_RECRUITER_NAME + "RECRUITER_NAME "
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
-            + PREFIX_PRIORITY + "PRIORITY \n"
+            + PREFIX_PRIORITY + "PRIORITY "
+            + PREFIX_NOTE + "NOTE \n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_COMPANY_NAME + "Google "
             + PREFIX_ROLE + "Software Engineer "
@@ -41,7 +43,8 @@ public class AddCommand extends Command {
             + PREFIX_RECRUITER_NAME + "Francis Tan "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
-            + PREFIX_PRIORITY + "HIGH ";
+            + PREFIX_PRIORITY + "HIGH "
+            + PREFIX_NOTE + "NOTE ";
 
     public static final String MESSAGE_SUCCESS = "New company added: %1$s";
     public static final String MESSAGE_DUPLICATE_COMPANY = "This company already exists in the address book";

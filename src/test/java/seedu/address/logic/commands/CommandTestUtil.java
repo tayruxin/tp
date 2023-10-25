@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NOTE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
@@ -18,6 +19,7 @@ import java.util.List;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.ParserUtil;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.company.Company;
@@ -45,6 +47,8 @@ public class CommandTestUtil {
     public static final String VALID_RECRUITER_NAME_TIKTOK = "Timmy Tan";
     public static final String VALID_PRIORITY_GOOGLE = "HIGH";
     public static final String VALID_PRIORITY_TIKTOK = "LOW";
+    public static final String VALID_NOTE_GOOGLE = "Java/Python";
+    public static final String VALID_NOTE_TIKTOK = "NO NOTES";
 
     public static final String NAME_DESC_GOOGLE = " " + PREFIX_COMPANY_NAME + VALID_NAME_GOOGLE;
     public static final String NAME_DESC_TIKTOK = " " + PREFIX_COMPANY_NAME + VALID_NAME_TIKTOK;
@@ -62,6 +66,8 @@ public class CommandTestUtil {
     public static final String RECRUITER_NAME_DESC_TIKTOK = " " + PREFIX_RECRUITER_NAME + VALID_RECRUITER_NAME_TIKTOK;
     public static final String PRIORITY_DESC_GOOGLE = " " + PREFIX_PRIORITY + VALID_PRIORITY_GOOGLE;
     public static final String PRIORITY_DESC_TIKTOK = " " + PREFIX_PRIORITY + VALID_PRIORITY_TIKTOK;
+    public static final String NOTE_DESC_GOOGLE = " " + PREFIX_NOTE + VALID_NOTE_GOOGLE;
+    public static final String NOTE_DESC_TIKTOK = " " + PREFIX_NOTE + VALID_NOTE_TIKTOK;
     public static final String INVALID_NAME_DESC = " " + PREFIX_COMPANY_NAME + "Google&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
@@ -72,6 +78,7 @@ public class CommandTestUtil {
             " " + PREFIX_RECRUITER_NAME + "Google&"; // '&' not allowed in names
 
     public static final String INVALID_PRIORITY_DESC = " " + PREFIX_PRIORITY + "HIGHH"; // invalid priority
+    public static final String INVALID_NOTE_DESC = " " + PREFIX_NOTE+ " "; // invalid note
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
@@ -82,10 +89,10 @@ public class CommandTestUtil {
     static {
         DESC_GOOGLE = new EditCompanyDescriptorBuilder().withName(VALID_NAME_GOOGLE)
                 .withPhone(VALID_PHONE_GOOGLE).withEmail(VALID_EMAIL_GOOGLE).withPriority(VALID_PRIORITY_GOOGLE)
-                .build();
+                .withNote(VALID_NOTE_GOOGLE).build();
         DESC_TIKTOK = new EditCompanyDescriptorBuilder().withName(VALID_NAME_TIKTOK)
                 .withPhone(VALID_PHONE_TIKTOK).withEmail(VALID_EMAIL_TIKTOK).withPriority(VALID_PRIORITY_TIKTOK)
-                .build();
+                .withNote(VALID_NOTE_TIKTOK).build();
     }
 
     /**

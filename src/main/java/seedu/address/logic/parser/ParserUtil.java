@@ -9,6 +9,7 @@ import seedu.address.model.company.ApplicationStatus;
 import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
+import seedu.address.model.company.Note;
 import seedu.address.model.company.Phone;
 import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
@@ -152,5 +153,20 @@ public class ParserUtil {
             throw new ParseException(Priority.MESSAGE_CONSTRAINTS);
         }
         return new Priority(trimmedPriority);
+    }
+
+    /**
+     * Parses a {@code String note} into a {@code Note}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code note} is invalid.
+     */
+    public static Note parseNote(String note) throws ParseException {
+        requireNonNull(note);
+        String trimmedNote = note.trim();
+        if (!Note.isValidNote(trimmedNote)) {
+            throw new ParseException(Name.MESSAGE_CONSTRAINTS);
+        }
+        return new Note(trimmedNote);
     }
 }

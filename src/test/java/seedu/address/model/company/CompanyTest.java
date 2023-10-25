@@ -99,6 +99,7 @@ public class CompanyTest {
                 + ", recruiterName=" + META.getRecruiterName() + ", phone=" + META.getPhone()
                 + ", email=" + META.getEmail()
                 + ", priority=" + META.getPriority()
+                + ", note=" + META.getNote()
                 + "}";
         assertEquals(expected, META.toString());
     }

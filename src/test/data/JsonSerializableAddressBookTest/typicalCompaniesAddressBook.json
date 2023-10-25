@@ -8,7 +8,8 @@
     "deadline": "10-10-2023",
     "status": "PA",
     "recruiterName": "John Doe",
-    "priority": "LOW"
+    "priority": "LOW",
+    "note" : "No notes"
   }, {
     "name" : "Amazon",
     "phone" : "98765432",
@@ -17,7 +18,8 @@
     "deadline": "11-11-2023",
     "status": "PA",
     "recruiterName": "Jane Doe",
-    "priority": "MEDIUM"
+    "priority": "MEDIUM",
+    "note" : "JavaScript&CSS"
   }, {
     "name" : "Microsoft",
     "phone" : "95352563",
@@ -26,7 +28,8 @@
     "role" : "Data Engineer",
     "status": "PA",
     "recruiterName": "Jim Doe",
-    "priority": "HIGH"
+    "priority": "HIGH",
+    "note" : "www.bing.com"
   }, {
     "name" : "DSTA",
     "phone" : "87652533",
@@ -35,7 +38,8 @@
     "deadline": "03-12-2023",
     "status": "PA",
     "recruiterName": "Tim Doe",
-    "priority": "LOW"
+    "priority": "LOW",
+    "note" : "Java"
   }, {
     "name" : "Apple",
     "phone" : "9482224",
@@ -44,7 +48,8 @@
     "deadline": "09-11-2023",
     "status": "PA",
     "recruiterName": "Tom Doe",
-    "priority": "MEDIUM"
+    "priority": "MEDIUM",
+    "note" : "Python"
   }, {
     "name" : "Accenture",
     "phone" : "9482427",
@@ -53,7 +58,8 @@
     "deadline": "08-11-2023",
     "status": "PA",
     "recruiterName": "Mary Doe",
-    "priority": "HIGH"
+    "priority": "HIGH",
+    "note" : "No notes"
   }, {
     "name" : "Netflix",
     "phone" : "9482442",
@@ -62,6 +68,7 @@
     "deadline": "05-12-2023",
     "status": "PA",
     "recruiterName": "Timmy Doe",
-    "priority": "HIGH"
+    "priority": "HIGH",
+    "note" : "No notes"
   }]
 }

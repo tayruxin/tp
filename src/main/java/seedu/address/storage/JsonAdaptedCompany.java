@@ -9,6 +9,7 @@ import seedu.address.model.company.Company;
 import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
+import seedu.address.model.company.Note;
 import seedu.address.model.company.Phone;
 import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
@@ -29,6 +30,7 @@ class JsonAdaptedCompany {
     private final String status;
     private final String recruiterName;
     private final String priority;
+    private final String note;
 
     /**
      * Constructs a {@code JsonAdaptedCompany} with the given company details.
@@ -38,7 +40,7 @@ class JsonAdaptedCompany {
                               @JsonProperty("email") String email, @JsonProperty("role") String role,
                               @JsonProperty("deadline") String deadline, @JsonProperty("status") String status,
                               @JsonProperty("recruiterName") String recruiterName,
-                              @JsonProperty("priority") String priority) {
+                              @JsonProperty("priority") String priority, @JsonProperty("note") String note) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -47,6 +49,7 @@ class JsonAdaptedCompany {
         this.status = status;
         this.priority = priority;
         this.recruiterName = recruiterName;
+        this.note = note;
     }
 
     /**
@@ -61,6 +64,7 @@ class JsonAdaptedCompany {
         status = source.getStatus().toString();
         recruiterName = source.getRecruiterName().fullName;
         priority = source.getPriority().priority;
+        note = source.getNote().note;
     }
 
     /**
@@ -140,9 +144,14 @@ class JsonAdaptedCompany {
 
         final Priority modelPriority = new Priority(priority);
 
+        if (note == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Note.class.getSimpleName()));
+        }
+
+        final Note modelNote = new Note(note);
 
         return new Company(modelName, modelPhone, modelEmail, modelRole, modelDeadline, modelStatus,
-                modelRecruiterName, modelPriority);
+                modelRecruiterName, modelPriority, modelNote);
     }
 
 }
