@@ -46,7 +46,8 @@ public class ApplicationStatus {
 
     /**
      * Constructs a {@code ApplicationStatus}.
-     * @param status
+     *
+     * @param status A valid application status.
      */
     public ApplicationStatus(String status) throws IllegalArgumentException {
         requireNonNull(status);
