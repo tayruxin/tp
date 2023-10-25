@@ -10,16 +10,16 @@ start
 
 if () then ([view, edit or add command])
     :setCurrentViewedCompany(Company company);
-    :clear UniqueCompanyList
-    and add the company to
+    :Clear UniqueCompanyList;
+    :Add the company to
     UniqueCompanyList;
-    :company detail panel displays company;
+    :Company detail panel displays company;
 else ([delete command])
     :checkDelete(Company company);
     if () then ([viewing the company to be deleted])
-        :clear UniqueCompanyList;
-        :company detail panel cleared;
-    else ([not viewing the company to be deleted])
+        :Clear UniqueCompanyList;
+        :Company detail panel cleared;
+    else ([else])
     endif
 
 endif
