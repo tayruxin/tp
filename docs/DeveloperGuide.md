@@ -65,12 +65,12 @@ The bulk of the app's work is done by the following four components:
 
 The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
 
-<img src="images/ArchitectureSequenceDiagram.png" width="574" />
+<img src="images/ArchitectureSequenceDiagram.png" width="584" />
 
 Each of the four main components (also shown in the diagram above),
 
 * defines its *API* in an `interface` with the same name as the Component.
-* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
+* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point).
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
@@ -113,9 +113,9 @@ The sequence diagram below illustrates the interactions within the `Logic` compo
 How the `Logic` component works:
 
 1. When `Logic` is called upon to execute a command, it is passed to an `AddressBookParser` object which in turn creates a parser that matches the command (e.g., `DeleteCommandParser`) and uses it to parse the command.
-1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `DeleteCommand`) which is executed by the `LogicManager`.
-1. The command can communicate with the `Model` when it is executed (e.g. to delete a company).
-1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+2. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `DeleteCommand`) which is executed by the `LogicManager`.
+3. The command can communicate with the `Model` when it is executed (e.g. to delete a company).
+4. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
 
 Here are the other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command:
 
@@ -142,7 +142,7 @@ The `Model` component,
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
 
-<img src="images/BetterModelClassDiagram.png" width="450" />
+<img src="images/BetterModelClassDiagram.png" width="472" />
 
 </div>
 
@@ -151,7 +151,7 @@ The `Model` component,
 
 **API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
 
-<img src="images/StorageClassDiagram.png" width="550" />
+<img src="images/StorageClassDiagram.png" width="627" />
 
 The `Storage` component,
 * can save both address book data and user preference data in JSON format, and read them back into corresponding objects.
@@ -224,6 +224,35 @@ shown in the activity diagram below.
    object. There is a need to create additional methods to update the `CompanyDetailPanel` when there is any changes
     made to the `Company` object.
 
+### 4.2 Filter Command
+
+The `filter` command allows user to filter the company list by the application status. The following sequence diagram 
+will illustrate the process of performing the `filter` command.
+
+<img src="images/FilterSequenceDiagram.png"/>
+
+#### 4.2.1 Implementation
+
+The `filter` function is implemented in the `FilterCommand` class and uses the `FilterCommandParser` class to parse the
+arguments. The predicate class implementing `Predicate<Company>` is `ApplicationStatusPredicate`. 
+- `ApplicationStatusPredicate` - Predicate to check if the company's application status is the same as the application
+status specified in the command. 
+
+#### 4.2.2 Design Considerations
+
+**Aspect: UI of the filter command**
+
+* **Alternative 1 (current choice):** The company details panel will be cleared whenever the filter command is executed.
+    * Pros: Users can focus on viewing details of company belonging to the filtered list only, reducing distractions and confusions. 
+    * Cons: Users might have to execute the `view` command again to access details of the company that is selected even 
+      if that company is in the filtered list, potentially leading to additional steps. 
+
+* **Alternative 2:** The company details panel will still display the details of the company that was selected before the
+filter command is executed.
+  * Pros: Users can still view the details of the company in the company details panel alongside the filtered list of companies. 
+  * Cons: Users may be confused as the currently viewed company in the company details panel may not be in the
+filtered list of companies.
+
 
 
 ### \[Proposed\] Undo/redo feature
@@ -289,7 +318,7 @@ Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Sinc
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
-<img src="images/CommitActivityDiagram.png" width="250" />
+<img src="images/CommitActivityDiagram.png" width="308" />
 
 #### Design considerations:
 
@@ -344,14 +373,14 @@ application process, simplifying the pursuit of career opportunities.
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new company               |                                                                        |
-| `* * *`  | user                                       | delete a company                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a company by name          | locate details of companies without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many companies in the address book | sort companies by name           | locate a company easily                                                 |
+| Priority | As a …​                                      | I want to …​                 | So that I can…​                                                          |
+|----------|----------------------------------------------|------------------------------|--------------------------------------------------------------------------|
+| `* * *`  | new user                                     | see usage instructions       | refer to instructions when I forget how to use the App                   |
+| `* * *`  | user                                         | add a new company            |                                                                          |
+| `* * *`  | user                                         | delete a company             | remove entries that I no longer need                                     |
+| `* * *`  | user                                         | find a company by name       | locate details of companies without having to go through the entire list |
+| `* *`    | user                                         | hide private contact details | minimize chance of someone else seeing them by accident                  |
+| `*`      | user with many companies in the address book | sort companies by name       | locate a company easily                                                  |
 
 *{More to be added}*
 
@@ -480,7 +509,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 4. The response to any user input should become visible within 2 seconds.
 5. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 6. Most of the commands should be easy to remember so that a new user can learn to use the system quickly.
-7. Data should be stored locally in the device (ie. user can access the file through the system or directly from the device).
+7. Data should be stored locally in the device (i.e. user can access the file through the system or directly from the device).
 8. The code should meet the coding standard of CS2103T for maintainability.
 
 ### Glossary
