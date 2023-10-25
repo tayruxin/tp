@@ -247,7 +247,12 @@ TBD
 
 ## FAQ ##
 
-TBD.
+Q: How do I load data from another computer?
+
+A: Delete the `addressbook.json` file (stored at `[JAR file location]/data/addressbook.json` )
+from the computer that you wish to use LinkMeIn on. Then, copy over the `addressbook.json` file
+from the computer which you no longer wish to use LinkMeIn on. After which, boot up LinkMeIn
+to check whether your doctor information is properly loaded into the new computer.
 
 --------------------------------------------------------------------------------------------------------------------
 
