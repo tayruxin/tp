@@ -6,7 +6,39 @@
   "minima/skins/{{ site.minima.skin | default: 'classic' }}",
   "minima/initialize";
 
-.icon {
-    height: 21px;
-    width: 21px
+/* Typography Boxes */
+.typography-box {
+  border: 1px solid #d3d3d3;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
+
+.typography-box > blockquote {
+  border-left: none;
+  padding-left: 15px;
+}
+
+.typography-box.warning {
+  border-color: red;
+  background-color: #ffe6e6;
+}
+
+.typography-box.tip {
+  border-color: #f9eb9e;
+  background-color: #ffffe0;
+}
+
+.typography-box.note {
+  border-color: #c8e1ff;
+  background-color: #e8f4ff;
+}
+
+.typography-box.code {
+  border-color: #d3d3d3;
+  background-color: #f5f5f5;
+}
+
+
+
+

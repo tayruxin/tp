@@ -7,46 +7,68 @@ title: User Guide
 _Master Your Internship Journey: Every Deadline, Every Detail._
 
 LinkMeIn is a **desktop application** built for [NUS School Of Computing (SOC) students](https://www.comp.nus.edu.sg/) to
-track their internship applications.
+track their internship applications. It is recommended that you read this manual before using the application.
 
 Here is a **quick** overview of your internship journey with LinkMeIn:
 <br>
-* An exciting internship listing has caught your attention. Don't let it slip through the cracks! **Add** your internship to your list of applications
-* Did you get a response from the recruiter with an interview date? Congratulations! Navigate to LinkMeIn and **Edit** the application details to add this crucial information
-* Remember that application you sent out months ago? Need to touch base with that recruiter? With LinkMeIn, you can **List** all your applications by their added dates.
-  No more fumbling through emails or notes; reconnect with ease!
-* Curiosity piqued about a particular application's details? **View** its comprehensive breakdown on the left panel, making sure you're always in the loop
-* If at any point you're feeling a tad overwhelmed or unsure about how to proceed, worry not! **Help** is just a click away on LinkMeIn.
-* You've got the offer! It's time to celebrate and de-clutter. You can **Delete** that application from your list. Here's to new beginnings!
-* But wait, before you move forward, how about helping the ones following in your footsteps? **Find** that company you applied to within LinkMeIn and share the recruiter's
-  details with your juniors, ensuring their path is a little smoother, thanks to you.
+* **Effortless** Tracking: Seamlessly store internship listings, adjust details with changing circumstances, and swiftly recall past applications by date.
+  <br>
+  </br>
+* Stay Empowered and **Informed**: Dive into specific application details when needed and access guidance with a click, ensuring you're always confident in your next step.
+  <br>
+  </br>
+* Share and **Simplify**: After landing that internship, de-clutter your list and easily locate company details to guide your peers in their own searches.
   </br>
 
-LinkMeIn combines the rapid **efficiency** of CLI with the visual clarity of GUI,
-offering a tailored experience for internship management that outpaces the generic
-spreadsheets of Excel. Dive into precision with commands and visualize your progress seamlessly.
+
+Additionally, LinkMeIn combines the rapid **efficiency** of CLI with the visual clarity of GUI,
+offering a **tailored** experience for internship management that outpaces the generic
+spreadsheets of Excel.
+
+## Navigating the user guide
+
+### Typographic conventions
+
+<div class="typography-box warning">
+
+> :warning: **Warning** - Alerts users to potential pitfalls or things to be cautious of when using your application.
+
+</div>
+
+<div class="typography-box tip">
+
+> :bulb: **Tip** - Provides users with additional insights or more efficient ways to use your application.
+
+</div>
+
+<div class="typography-box note">
+
+> :information_source: **Note** - Highlights supplementary information that users should be aware of, but isn't necessarily mission-critical.
+
+</div>
+
+<div class="typography-box code">
+
+> :black_nib: **Code** - Indicates commands or programming-related content that can be typed or referred to.
+
+</div>
 
 
-## Information on icons used in this document
-
-|                                                   Icon                                                   |                                                  Meaning                                                  |
-|:--------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------:|
-| <div style="border:1px solid red;padding:10px;background-color:#ffe6e6;">⚠️ <strong>Warning</strong></div> | Alerts users to potential pitfalls or things to be cautious of when using your application.                |
-| <div style="border:1px solid #f9eb9e;padding:10px;background-color:#ffffe0;">💡 <strong>Tip</strong></div>  | Provides users with additional insights or more efficient ways to use your application.                   |
-| <div style="border:1px solid #c8e1ff;padding:10px;background-color:#e8f4ff;">ℹ️ <strong>Note</strong></div> | Highlights supplementary information that users should be aware of, but isn't necessarily mission-critical. |
-| <div style="border:1px solid #d3d3d3;padding:10px;background-color:#f5f5f5;"> </> <strong>Code</strong></div> | Indicates commands or programming-related content that can be typed or referred to.                        |
-
+### Non-typographic conventions
+For the feature section, each page follows a predictable syntax and style.
+<br>
+</br>
+Proceed to explain ... [TODO]
 
 ## Table of Contents
 
---------------------------------------------------------------------------------------------------------------------
 
 ## Quick start
 
 1. Make sure that you have **Java 11 or above** installed in your Computer.
 
   - [How to check if you have Java installed?](#faq-1)
-  - [How to check if you have Java 11 or above?](#faq-2))
+  - [How to check if you have Java 11 or above?](#faq-2)
 
 2. Download the latest jar file from [here]()
 
@@ -71,9 +93,12 @@ spreadsheets of Excel. Dive into precision with commands and visualize your prog
     - Navigate to the folder where you have placed the jar file with the `cd` command
     - For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter
 
-<div style="border:1px solid red;padding:10px;background-color:#ffe6e6;">
-<strong>Warning:</strong> **Do not** move or delete the `data` folder as it contains the data of your applications.
+<div class="typography-box warning">
+
+> :warning: **Warning:** Do not move or delete the `data` folder as it contains the data of your applications.
+
 </div>
+
 
 You should notice the GUI of the application pop up.
 1. Learn more about navigating the GUI [here]().
@@ -352,7 +377,7 @@ java version "
 OpenJDK Runtime Environment (build
 OpenJDK 64-Bit Server VM (build
 ```
-![img_1.png](img_1.png)
+
 * If you do not have Java installed, you can download it [here](https://www.oracle.com/sg/java/technologies/javase-downloads.html).
 * If you are using Windows, you can refer to this [guide](https://www.java.com/en/download/help/windows_manual_download.html) to install Java.
 * If you are using Mac, you can refer to this [guide](https://www.java.com/en/download/help/mac_install.html) to install Java.
@@ -360,21 +385,29 @@ OpenJDK 64-Bit Server VM (build
 * If you are using Ubuntu, you can refer to this [guide](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-20-04) to install Java.
 
 ### 2. How do I check if I have Java 11 or above? ###
-* Open up your terminal and type `java -version`. If you have Java 11 or above installed, you should see something like this:
+Open up your terminal and type `java -version`. If you have Java 11 or above installed, you should see something like this:
 ``` 
 openjdk version "
 OpenJDK Runtime Environment (build
 OpenJDK 64-Bit Server VM (build
 ```
-=======
-**Q:** How do I load data from another computer?  
-**A:** Delete the `addressbook.json` file (stored at `[JAR file location]/data/addressbook.json`) from the computer that you wish to use LinkMeIn on. Then, copy over the `addressbook.json` file from the computer which you no longer wish to use LinkMeIn on. After which, boot up LinkMeIn to check whether your doctor information is properly loaded into the new computer.
+### 3. How do I load data from another computer? ###
+Delete the `addressbook.json` file (stored at `[JAR file location]/data/addressbook.json`) from the computer that you wish to use LinkMeIn on. Then, copy over the `addressbook.json` file from the computer which you no longer wish to use LinkMeIn on. After which, boot up LinkMeIn to check whether your doctor information is properly loaded into the new computer.
 
-**Q:** Why am I unable to run LinkMeIn?  
-**A:** Make sure you have Java 11 installed on your machine as the product only runs on Java 11.
+### 4. Why am I unable to run LinkMeIn?  ###
+Make sure you have Java 11 installed on your machine as the product only runs on Java 11.
 
-**Q:** How can I add priority to my internship application details?  
-**A:** When adding a new company, use the `pr/` prefix followed by the priority value. For instance, `pr/high` to set the priority to high.
+### 5. How can I add priority to my internship application details? ### 
+When adding a new company, use the `pr/` prefix followed by the priority value. For instance, `pr/high` to set the priority to high.
+
+### 6. How do I load data from another computer? ### 
+Delete the `addressbook.json` file (stored at `[JAR file location]/data/addressbook.json`) from the computer that you wish to use LinkMeIn on. Then, copy over the `addressbook.json` file from the computer which you no longer wish to use LinkMeIn on. After which, boot up LinkMeIn to check whether your doctor information is properly loaded into the new computer.
+
+### 7. Why am I unable to run LinkMeIn? ### 
+Make sure you have Java 11 installed on your machine as the product only runs on Java 11.
+
+### 8. How can I add priority to my internship application details? ### 
+When adding a new company, use the `pr/` prefix followed by the priority value. For instance, `pr/high` to set the priority to high.
 
 --------------------------------------------------------------------------------------------------------------------
 
