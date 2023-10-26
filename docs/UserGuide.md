@@ -3,19 +3,72 @@ layout: page
 title: User Guide
 ---
 
-Never miss an internships interview with LinkMeIn! Keep track of all your deadlines in an organised fashion.
+## Welcome to LinkMeIn!
 
-* Table of Contents for the User Guide
-{:toc}
+_Master Your Internship Journey: Every Deadline, Every Detail._
+
+LinkMeIn is a **desktop application** built for [NUS School Of Computing (SOC) students](https://www.comp.nus.edu.sg/) to
+track their internship applications.
+
+Here is a **quick** overview of your internship journey with LinkMeIn:
+<br>
+* An exciting internship listing has caught your attention. Don't let it slip through the cracks! **Add** your internship to your list of applications
+* Did you get a response from the recruiter with an interview date? Congratulations! Navigate to LinkMeIn and **Edit** the application details to add this crucial information
+* Remember that application you sent out months ago? Need to touch base with that recruiter? With LinkMeIn, you can **List** all your applications by their added dates.
+  No more fumbling through emails or notes; reconnect with ease!
+* Curiosity piqued about a particular application's details? **View** its comprehensive breakdown on the left panel, making sure you're always in the loop
+* If at any point you're feeling a tad overwhelmed or unsure about how to proceed, worry not! **Help** is just a click away on LinkMeIn.
+* You've got the offer! It's time to celebrate and de-clutter. You can **Delete** that application from your list. Here's to new beginnings!
+* But wait, before you move forward, how about helping the ones following in your footsteps? **Find** that company you applied to within LinkMeIn and share the recruiter's
+  details with your juniors, ensuring their path is a little smoother, thanks to you.
+  </br>
+
+LinkMeIn combines the rapid **efficiency** of CLI with the visual clarity of GUI,
+offering a tailored experience for internship management that outpaces the generic
+spreadsheets of Excel. Dive into precision with commands and visualize your progress seamlessly.
+
+## Table of Contents
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Quick start ##
+## Quick start
 
-1. Product only runs on Java 11
+1. Make sure that you have **Java 11 or above** installed in your Computer.
 
-2. Refer to the [Features](#features) below for details of each command.
+  - [How to check if you have Java installed?](#faq-1)
+  - [How to check if you have Java 11 or above?](#faq-2))
 
+2. Download the latest jar file from [here]()
+
+3. Copy the file to the folder you want to use as the home folder for your LinkMeIn.
+
+  - Create a new folder (you can name it LinkMeIn) where you would like to house the application
+    (e.g., Desktop, Documents, etc.)
+  - Move the downloaded jar file as shown:
+
+    - For Windows users
+    - For Mac users
+
+4. Launch LinkMeIn
+
+  - For Windows users
+
+    - Double-click on the `LinkMeIn.jar` file to launch the application
+
+  - For Mac users
+
+    - Open up your terminal (Command +Space > type Terminal > Enter)
+    - Navigate to the folder where you have placed the jar file with the `cd` command
+    - For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter
+
+<div style="border:1px solid red;padding:10px;background-color:#ffe6e6;">
+<strong>Warning:</strong> **Do not** move or delete the `data` folder as it contains the data of your applications.
+</div>
+
+You should notice the GUI of the application pop up.
+1. Learn more about navigating the GUI [here]().
+2. For new users, learn to use LinkMeIn [here]().
+3. For advanced users, view all feature details [here]().
 --------------------------------------------------------------------------------------------------------------------
 
 ## Current Features ##
@@ -64,23 +117,23 @@ The company’s information should also be listed on the left panel, which displ
 
 ***To be further updated in V1.3***
 * If the COMPANY_NAME field is missing:
-`Invalid command format! Missing COMPANY_NAME. Format is add c/COMPANY_NAME
-n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS e/EMAIL p/PHONE_NUMBER`
-</br>
-</br>
+  `Invalid command format! Missing COMPANY_NAME. Format is add c/COMPANY_NAME
+  n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS e/EMAIL p/PHONE_NUMBER`
+  </br>
+  </br>
 * If the RECRUITER_NAME field is missing:
-`Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME n/RECRUITER_NAME
-r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
-</br>
-</br>
+  `Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME n/RECRUITER_NAME
+  r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
+  </br>
+  </br>
 * If the APPLICATION_STATUS field is missing:
-`Invalid command format! Missing RECRUITER_NAME. Format is add
-c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
-</br>
-</br>
+  `Invalid command format! Missing RECRUITER_NAME. Format is add
+  c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
+  </br>
+  </br>
 * If the ROLE field is missing:
-`Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME
-n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
+  `Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME
+  n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
 
 **Expected UI:**
 
@@ -188,7 +241,7 @@ The company’s information should be listed on the left panel, which includes t
 **Expected output when command fails:** </br>
 
 * If INDEX is out of bounds: </br>
-`The company index provided is invalid`
+  `The company index provided is invalid`
 * If INDEX is zero or negative: </br>
   `Invalid command format`
   `view: Views the company identified by the index number used in the displayed company list.`
@@ -247,8 +300,28 @@ TBD
 
 ## FAQ ##
 
-TBD.
+### 1. How do I check if I have Java installed? ###
 
+* Open up your terminal and type `java -version`. If you have Java installed, you should see something like this:
+```
+java version "
+OpenJDK Runtime Environment (build
+OpenJDK 64-Bit Server VM (build
+```
+![img_1.png](img_1.png)
+* If you do not have Java installed, you can download it [here](https://www.oracle.com/sg/java/technologies/javase-downloads.html).
+* If you are using Windows, you can refer to this [guide](https://www.java.com/en/download/help/windows_manual_download.html) to install Java.
+* If you are using Mac, you can refer to this [guide](https://www.java.com/en/download/help/mac_install.html) to install Java.
+* If you are using Linux, you can refer to this [guide](https://www.java.com/en/download/help/linux_x64_install.html) to install Java.
+* If you are using Ubuntu, you can refer to this [guide](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-20-04) to install Java.
+
+### 2. How do I check if I have Java 11 or above? ###
+* Open up your terminal and type `java -version`. If you have Java 11 or above installed, you should see something like this:
+``` 
+openjdk version "
+OpenJDK Runtime Environment (build
+OpenJDK 64-Bit Server VM (build
+```
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues ##
