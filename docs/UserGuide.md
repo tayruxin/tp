@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-Never miss an internships interview with LinkMeIn! Keep track of all your deadlines in an organised fashion. 
+Never miss an internships interview with LinkMeIn! Keep track of all your deadlines in an organised fashion.
 
 * Table of Contents for the User Guide
 {:toc}
@@ -40,8 +40,8 @@ the information provided into LinkMeIn.
 * PRIORITY is optional. If not specified, the default priority is `none`.
 * Order of input **does not** matter.
 * DEADLINE should be in DD-MM-YYYY format. 
-* PRIORITY should be one of the following: `high`, `medium`, `low`, `none`.
-* APPLICATION_STATUS should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. 
+* PRIORITY should be one of the following: `high`, `medium`, `low`, `none`. PRIORITY is case-insensitive. 
+* APPLICATION_STATUS should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. APPLICATION_STATUS is case-insensitive. 
 The table below shows the meaning of each status.
 
 | Prefix | Application Status     |
@@ -53,7 +53,6 @@ The table below shows the meaning of each status.
 | R      | REJECTED               |
 
 **What you will see when `add` command succeeds:**
-
 | Before                                                     | After                                              |
 |------------------------------------------------------------|----------------------------------------------------|
 | ![AddCommand.png](images/add-command/BeforeAddCommand.png) | ![img.png](images/add-command/AfterAddCommand.png) |
@@ -80,138 +79,123 @@ full list of companies added in LinkMeIn.
 | ![ListCommand.png](images/filter-command/FilterByPI.png) | ![img.png](images/list-command/ListCommand.png) |
 
 
-### Deleting a company : `delete` ###
+### Find a company: `find` ###
 
-Deletes a company from the address book.
+**Format:** `find KEYWORD [MORE_KEYWORDS]...`
 
-**Format:`delete INDEX`**
+You wish to find a specific company in the list of companies. You can use the find command to find the
+company that you are looking for. The find command allows you to find the company whose name contain any of the
+given keywords.
 
-* Deletes the contact at the specific INDEX
-* The index refers to the index number shown in the displayed contact list
-* The index must be a positive integer
+- The search is case-insensitive. e.g `tiktok` will match `TikTok`.
+- The order of the keywords does not matter. e.g. `tiktok google` will match `Google TikTok`.
+- Only the company name is searched.
+- Only full words will be matched e.g. `tik` will not match `tiktok`.
+- Only companies with names that contain all the keywords will be returned e.g. `tiktok google` will match `Google TikTok` but not `TikTok`.
 
 **Examples:**
-* `list` followed by `delete 1` deletes the first contact in the full list
-* `find` TikTok followed by `delete 1` deletes the first contact in the results of find TikTok
+* `find TikTok` returns `TikTok`
+* `find TikTok Google` returns `TikTok Google`
 
-**Acceptable values for each parameter:**
-* INDEX must be a number. If not the entire command will be considered invalid input.
-* INDEX must not be out of bounds. If not the entire command will be considered invalid input.
-* INDEX must be more than zero. If not the entire command will be considered invalid input.
+**What you will see when command succeeds:**
 
-**Expected output when command succeeds:**
-```
-“{COMPANY_NAME} application record has been deleted!
-You have __ contacts in the list.”
-```
-
-**GUI Changes:** </br>
-Company at specified index removed and list of companies updated
-
-**Expected output when command fails:**
-</br>
-If INDEX is out of bounds:
-</br>
-`The company index provided is invalid`
-
-If INDEX is zero or negative:
-</br>
-`Invalid command format`
-`delete: Deletes the company identified by the index number used in the displayed company list.`
-`Parameters: INDEX (must be a positive integer)`
-
-If INDEX is not a number: </br>
-`Invalid command format`
-`delete: Deletes the company identified by the index number used in the displayed company list.`
-`Parameters: INDEX (must be a positive integer)`
-
-**Expected UI**
-
-![img_2.png](DeleteCommand.png)
+![img.png](FindCommand.png)
 
 
 ### View full company information: `view` ###
-View the full company information of a particular company on the left panel.
+
+You look at the list of companies and you see a company that has not been getting back to you. You can use the view 
+command to view the company's recruiter's contact details to follow up with them. The view command allows you to view
+the company detail of any company from the list of companies that you have added.
 
 **Format:** `view INDEX`
 
-**Examples:**
+* The index refers to the index number shown in the displayed company list.
+* The index must be a positive integer.
+* The index must not be out of bounds.
+* You can only view one company at a time.
+
+**Example:**
 * `view 1` displays application details of the first company in the full list
-* `view 2` displays application details of the second company in the full list
 
-**Acceptable values for each parameter:**
-* INDEX must be a number. If not the entire command will be considered invalid input.
-* INDEX must not be out of bounds. If not the entire command will be considered invalid input.
-* INDEX must be more than zero. If not the entire command will be considered invalid input.
+**What you will see when command succeeds:**
 
-**Expected output when command succeeds:**</br>
-`Viewing Company: {COMPANY_NAME}`
+| Before                            | After                            |
+|-----------------------------------|----------------------------------|
+| ![img.png](BeforeViewCommand.png) | ![img.png](AfterViewCommand.png) |
 
-**GUI Changes:** </br>
-The company’s information should be listed on the left panel, which includes the following fields:
 
+The company’s information should be listed on the left panel and you will see the following fields:
 1. COMPANY_NAME 
-2. APPLICATION_STATUS
+2. PRIORITY
 3. ROLE
 4. DEADLINE
-5. RECRUITER_NAME
-6. EMAIL 
-7. PHONE
-8. PRIORITY
+5. APPLICATION_STATUS
+6. RECRUITER_NAME
+7. EMAIL 
+8. PHONE
 
-**Expected output when command fails:** </br>
 
-* If INDEX is out of bounds: </br>
-`The company index provided is invalid`
-* If INDEX is zero or negative: </br>
-  `Invalid command format`
-  `view: Views the company identified by the index number used in the displayed company list.`
-  `Parameters: INDEX (must be a positive integer)`
-* If INDEX is not a number: </br>
-  `Invalid command format`
-  `view: Views the company identified by the index number used in the displayed company list.`
-  `Parameters: INDEX (must be a positive integer)`
+### Deleting a company : `delete` ###
 
-**Expected UI**
+Whether you accidentally added a company or no longer want to track it, don't worry LinkMeIn got you covered.
+You can use the delete command to delete the company from the list of companies that you have added.
 
-![ViewUI.png](ViewUI.png)
+**Format:`delete INDEX`**
 
-### Edit a company's information: `edit` ###
-Edits the information of a particular company.
-
-**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [t/TAG]…`
-
-* Edits the company at the specified INDEX. The index refers to the index number shown in the displayed company list. The index must be a positive integer 1, 2, 3, ...
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* When editing tags, the existing tags of the company will be removed i.e adding of tags is not cumulative.
-* You can remove all the company’s tags by typing t/ without specifying any tags after it.
+* The index refers to the index number shown in the displayed company list.
+* The index must be a positive integer.
+* The index must not be out of bounds.
+* You can only delete one company at a time.
 
 **Examples:**
-* `edit 2 s/Pending Application r/frontend developer` edits the status and role of the 2nd person to be Pending Application and frontend developer respectively.
-* `edit 3 e/example@abc.com t/` edits the email of the 3rd person to be example@abc.com and clears all existing tags.
+* `list` followed by `delete 1` deletes the first contact in the full list of companies. 
+* `find` TikTok followed by `delete 1` deletes the first contact in the results of find TikTok
 
-**Acceptable values for each parameter:**
-* INDEX must be a number. If not the entire command will be considered invalid input.
-* INDEX must not be out of bounds. If not the entire command will be considered invalid input.
-* INDEX must be more than zero. If not the entire command will be considered invalid input.
-* No other string separators other than c/, n/, r/, s/, d/, e/, p/. Otherwise, the entire command will be considered invalid and all data inputted will be discarded.
+**What you will see when command succeeds:**
 
-**Expected output when command succeeds:**</br>
-`{COMPANY_NAME} company edited.`
+Company at specified index removed and list of companies updated
 
-**Expected output when command fails:** </br>
-* If INDEX is out of bounds: </br>
-  `The company index provided is invalid`
-* If invalid string separator: </br>
-  `Invalid command format! edit: Edits the details of the company identified by the index number used in the displayed company list. Existing values will be overwritten by the input values.
-  Parameters: INDEX (must be a positive integer) [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE] [t/TAG]...
-  Example: edit 1 p/91234567 e/johndoe@example.com`
-* If empty input after string separator: </br>
-  `Please enter a valid {field}`
+| Before | After                              |
+|--------|------------------------------------|
+| ![img.png](BeforeDeleteCommand.png) | ![img.png](AfterDeleteCommand.png) |
 
-**Expected UI** <br/>
-![EditUI.png](EditUI.png)
+>
+> Note: If you are viewing the details of the company that you are deleting, the details panel will be cleared too.
+
+
+### Edit a company's information: `edit` ###
+If you made a typo or need to update the progress of application,
+use the `edit` command to input the accurate details.
+
+**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [nt/NOTE]`
+
+* `INDEX`: Edits the company at INDEX number shown in the displayed company list.
+* `[c/COMPANY_NAME]` etc. : type prefix `c/` followed by new company name to edit company name.
+* At least one of the optional fields must be provided.
+
+:warning: When editing the note, the existing note of the company will be removed i.e adding of note is not cumulative.
+
+**Examples:** </br>
+1.Type `edit 2 s/PI r/Frontend Developer` 
+![EditDemo1.png](images/EditDemo1.png)
+2.The 2nd company's the status and role is edited to be Pending Interview and Frontend Developer respectively.
+![EditDemo2.png](images/EditDemo2.png)
+
+
+
+### Clear all entries: `clear` ###
+Clears all entries of internship application.
+
+**Format:** `clear`
+
+:warning: Entries cannot be recovered after clearing.
+
+### Exit LinkMeIn: `exit` ###
+Exits the program and closes the window.
+
+**Format:** `exit`
+
 
 ### Filter companies by application status: `filter` ###
 Can't remember which applications you haven't submitted or want to prepare for the companies that have offered you an interview? 
@@ -223,7 +207,7 @@ Filter the list of companies by their application status using the `filter` comm
 * `list` followed by`filter s/PI` filters the list of companies to show only companies with status "Pending Interview".
 
 **Note:**
-- APPLICATION_STATUS should be one of the following: `PA`, `PI`, `PO`, `A`, `R`.
+- APPLICATION_STATUS should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. APPLICATION_STATUS is case-insensitive.
 
 **What you will see when `filter` command succeeds:**
 
