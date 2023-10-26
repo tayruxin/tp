@@ -4,7 +4,9 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_COMPANIES;
 
 import java.util.List;
+import java.util.logging.Logger;
 
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
@@ -25,6 +27,8 @@ public class ViewCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1";
 
     public static final String MESSAGE_VIEW_COMPANY_SUCCESS = "Viewing Company: %1$s";
+
+    private static final Logger logger = LogsCenter.getLogger(FindCommand.class);
 
     private final Index targetIndex;
 
@@ -49,6 +53,7 @@ public class ViewCommand extends Command {
 
         model.setCurrentViewedCompany(companyToView);
         model.updateCurrentViewedCompany(PREDICATE_SHOW_ALL_COMPANIES);
+        logger.info("Executing view command: " + companyToView.toString());
 
         // name of the company to view
         String companyDetailsToDisplayString = companyToView.getName().toString();
