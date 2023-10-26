@@ -52,10 +52,14 @@ The table below shows the meaning of each status.
 | A      | ACCEPTED               |
 | R      | REJECTED               |
 
-**What you will see when `add` command succeeds:**
-| Before                                                     | After                                              |
-|------------------------------------------------------------|----------------------------------------------------|
-| ![AddCommand.png](images/add-command/BeforeAddCommand.png) | ![img.png](images/add-command/AfterAddCommand.png) |
+**What you will see before `add` command succeeds:**
+
+![AddCommand.png](images/add-command/BeforeAddCommand.png)
+
+**What you will see after `add` command succeeds:**
+
+![AddCommand.png](images/add-command/AfterAddCommand.png)
+
 
 ### Listing all contacts : `list`
 
@@ -67,16 +71,18 @@ Want to see all of your applications in one list? You can do so with the `list` 
 - `filter s/PI` followed by `list` changes from showing only applications with status "Pending Interview".
 to all companies added in LinkMeIn.
 
-**Note:**
-- Whenever LinkMeIn is started, the list of companies on the right is what you will see after the `list` command is executed.
-- Typical use case for `list` command is to change the current list of companies that is being viewed back to the 
+**What you will see before `list` command succeeds:**
+
+![ListCommand.png](images/filter-command/FilterByPI.png)
+
+**What you will see after `list` command succeeds:**
+
+![img.png](images/list-command/ListCommand.png) 
+
+> Note: 
+> - Whenever LinkMeIn is started, the list of companies on the right is what you will see after the `list` command is executed. 
+> - Typical use case for `list` command is to change the current list of companies that is being viewed back to the 
 full list of companies added in LinkMeIn.
-
-**What you will see when `list` command succeeds:**
-
-| Before                                                   | After                                           |
-|----------------------------------------------------------|-------------------------------------------------|
-| ![ListCommand.png](images/filter-command/FilterByPI.png) | ![img.png](images/list-command/ListCommand.png) |
 
 
 ### Find a company: `find` ###
@@ -118,12 +124,13 @@ the company detail of any company from the list of companies that you have added
 **Example:**
 * `view 1` displays application details of the first company in the full list
 
-**What you will see when command succeeds:**
+**What you will see before `view` command succeeds:**
 
-| Before                            | After                            |
-|-----------------------------------|----------------------------------|
-| ![img.png](BeforeViewCommand.png) | ![img.png](AfterViewCommand.png) |
+![img.png](BeforeViewCommand.png)
 
+**What you will see after `view` command succeeds:**
+
+![img.png](AfterViewCommand.png)
 
 The company’s information should be listed on the left panel and you will see the following fields:
 1. COMPANY_NAME 
@@ -152,15 +159,14 @@ You can use the delete command to delete the company from the list of companies 
 * `list` followed by `delete 1` deletes the first contact in the full list of companies. 
 * `find` TikTok followed by `delete 1` deletes the first contact in the results of find TikTok
 
-**What you will see when command succeeds:**
+**What you will see before `delete` command succeeds:**
 
-Company at specified index removed and list of companies updated
+![img.png](BeforeDeleteCommand.png)
 
-| Before | After                              |
-|--------|------------------------------------|
-| ![img.png](BeforeDeleteCommand.png) | ![img.png](AfterDeleteCommand.png) |
+**What you will see after `delete` command succeeds:**
 
->
+![img.png](AfterDeleteCommand.png)
+
 > Note: If you are viewing the details of the company that you are deleting, the details panel will be cleared too.
 
 
@@ -168,7 +174,8 @@ Company at specified index removed and list of companies updated
 If you made a typo or need to update the progress of application,
 use the `edit` command to input the accurate details.
 
-**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [nt/NOTE]`
+**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] 
+[p/PHONE_NUMBER] [pr/PRIORITY] [nt/NOTE]`
 
 * `INDEX`: Edits the company at INDEX number shown in the displayed company list.
 * `[c/COMPANY_NAME]` etc. : type prefix `c/` followed by new company name to edit company name.
@@ -178,8 +185,10 @@ use the `edit` command to input the accurate details.
 
 **Examples:** </br>
 1.Type `edit 2 s/PI r/Frontend Developer` 
+
 ![EditDemo1.png](images/EditDemo1.png)
 2.The 2nd company's the status and role is edited to be Pending Interview and Frontend Developer respectively.
+
 ![EditDemo2.png](images/EditDemo2.png)
 
 
@@ -206,14 +215,15 @@ Filter the list of companies by their application status using the `filter` comm
 **Examples:**
 * `list` followed by`filter s/PI` filters the list of companies to show only companies with status "Pending Interview".
 
-**Note:**
-- APPLICATION_STATUS should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. APPLICATION_STATUS is case-insensitive.
+> Note: APPLICATION_STATUS should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. APPLICATION_STATUS is case-insensitive.
 
-**What you will see when `filter` command succeeds:**
+**What you will see before `filter` command succeeds:**
 
-| Before                                                  | After                                            |
-|---------------------------------------------------------|--------------------------------------------------|
-| ![ListCommand.png](images/list-command/ListCommand.png) | ![img.png](images/filter-command/FilterByPI.png) |
+![ListCommand.png](images/list-command/ListCommand.png)
+
+**What you will see after `filter` command succeeds:**
+
+![img.png](images/filter-command/FilterByPI.png)
 
 
 ## Upcoming Features ##
