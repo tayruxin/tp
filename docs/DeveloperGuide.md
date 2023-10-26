@@ -224,21 +224,21 @@ shown in the activity diagram below.
    object. There is a need to create additional methods to update the `CompanyDetailPanel` when there is any changes
     made to the `Company` object.
 
-### 4.2 Filter Command
+### 4.3 Filter Command
 
 The `filter` command allows user to filter the company list by the application status. The following sequence diagram 
 will illustrate the process of performing the `filter` command.
 
 <img src="images/FilterSequenceDiagram.png"/>
 
-#### 4.2.1 Implementation
+#### 4.3.1 Implementation
 
 The `filter` function is implemented in the `FilterCommand` class and uses the `FilterCommandParser` class to parse the
 arguments. The predicate class implementing `Predicate<Company>` is `ApplicationStatusPredicate`. 
 - `ApplicationStatusPredicate` - Predicate to check if the company's application status is the same as the application
 status specified in the command. 
 
-#### 4.2.2 Design Considerations
+#### 4.3.2 Design Considerations
 
 **Aspect: UI of the filter command**
 
