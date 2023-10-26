@@ -2,7 +2,6 @@
 layout: page
 title: User Guide
 ---
-
 ## Welcome to LinkMeIn!
 
 _Master Your Internship Journey: Every Deadline, Every Detail._
@@ -26,6 +25,17 @@ Here is a **quick** overview of your internship journey with LinkMeIn:
 LinkMeIn combines the rapid **efficiency** of CLI with the visual clarity of GUI,
 offering a tailored experience for internship management that outpaces the generic
 spreadsheets of Excel. Dive into precision with commands and visualize your progress seamlessly.
+
+
+## Information on icons used in this document
+
+|                                                   Icon                                                   |                                                  Meaning                                                  |
+|:--------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------:|
+| <div style="border:1px solid red;padding:10px;background-color:#ffe6e6;">⚠️ <strong>Warning</strong></div> | Alerts users to potential pitfalls or things to be cautious of when using your application.                |
+| <div style="border:1px solid #f9eb9e;padding:10px;background-color:#ffffe0;">💡 <strong>Tip</strong></div>  | Provides users with additional insights or more efficient ways to use your application.                   |
+| <div style="border:1px solid #c8e1ff;padding:10px;background-color:#e8f4ff;">ℹ️ <strong>Note</strong></div> | Highlights supplementary information that users should be aware of, but isn't necessarily mission-critical. |
+| <div style="border:1px solid #d3d3d3;padding:10px;background-color:#f5f5f5;"> </> <strong>Code</strong></div> | Indicates commands or programming-related content that can be typed or referred to.                        |
+
 
 ## Table of Contents
 
