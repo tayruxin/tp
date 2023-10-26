@@ -53,7 +53,6 @@ Given below are my contributions to the project.
     * **Forum Enthusiast**
         * Resolved other classmate's code related issues (examples:
           [1]())
-    
 
 [//]: # (    * Reported bugs and suggestions for other teams in the class &#40;examples: [1]&#40;&#41;, [2]&#40;&#41;, [3]&#40;&#41;&#41;)
 
