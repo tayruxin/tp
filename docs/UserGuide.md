@@ -110,26 +110,26 @@ You should notice the GUI of the application pop up.
 
 ### Adding a company : `add` ###
 
-You scroll through your LinkedIn feed and see a company that you are interested in. 
-You want to start on the application later, but you are afraid that you will forget about it. 
+You scroll through your LinkedIn feed and see a company that you are interested in.
+You want to start on the application later, but you are afraid that you will forget about it.
 Add the company to LinkMeIn to keep track of the application process using the `add` command!
 
 **Format**:
 `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/priority]`
 
 **Examples**:
-* `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com p/987654321` adds a Company with 
-the information provided into LinkMeIn. 
+* `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com p/987654321` adds a Company with
+the information provided into LinkMeIn.
 * `add c/Google n/Mary r/Data Analyst s/R d/11-11-2023 e/johntan@example.com p/987654321 pr/high`adds a Company with
   the information provided into LinkMeIn.
 
-**Note**: 
+**Note**:
 * Compulsory fields include COMPANY_NAME, RECRUITER_NAME, ROLE, APPLICATION_STATUS, EMAIL and PHONE_NUMBER.
 * PRIORITY is optional. If not specified, the default priority is `none`.
 * Order of input **does not** matter.
-* DEADLINE should be in DD-MM-YYYY format. 
-* PRIORITY should be one of the following: `high`, `medium`, `low`, `none`. PRIORITY is case-insensitive. 
-* APPLICATION_STATUS should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. APPLICATION_STATUS is case-insensitive. 
+* DEADLINE should be in DD-MM-YYYY format.
+* PRIORITY should be one of the following: `high`, `medium`, `low`, `none`. PRIORITY is case-insensitive.
+* APPLICATION_STATUS should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. APPLICATION_STATUS is case-insensitive.
 The table below shows the meaning of each status.
 
 | Prefix | Application Status     |
@@ -140,56 +140,14 @@ The table below shows the meaning of each status.
 | A      | ACCEPTED               |
 | R      | REJECTED               |
 
-**Format**:</br>
-`add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [t/tags]`
+**What you will see before `add` command succeeds:**
 
-**Examples**:
-* `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com p/987654321`
-* `add c/Google n/Mary r/Data Analyst s/R d/11-11-2023 e/johntan@example.com p/987654321 t/high`
-* `add c/Meta r/Data Scientist s/PI n/Mary d/12-12-2023 e/mary@example.com p/91234567`
+![AddCommand.png](images/add-command/BeforeAddCommand.png)
 
-**Acceptable values for each parameter:**<br>
-No other string separators other than c/, n/, r/, s/, d/, e/, p/, t/.
-Otherwise, the **entire** command will be considered invalid and all data inputted will be discarded.
+**What you will see after `add` command succeeds:**
 
-Example of invalid input: `c/Google n/Mary r/Data Analyst a/R d/11-11-2023 f/`</br>
-Explanation: Invalid f/ string separator.
+![AddCommand.png](images/add-command/AfterAddCommand.png)
 
-**Expected output when command succeeds**: </br>
-`New company added: {COMPANY_NAME}`
-
-**GUI Changes:** </br>
-The company should be added to the existing list of companies on the right.</br>
-The company’s information should also be listed on the left panel, which displays all the added fields information.
-
-**Expected output when command fails:** </br>
-`Invalid command format!`</br>
-`add: Adds a company to the address book. Parameters: c/COMPANY_NAME r/ROLE s/STATUS d/DEADLINE n/RECRUITER_NAME p/PHONE e/EMAIL [t/TAG]...`</br>
-`Example: add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan p/98765432 e/johnd@example.com t/high`
-
-***To be further updated in V1.3***
-* If the COMPANY_NAME field is missing:
-  `Invalid command format! Missing COMPANY_NAME. Format is add c/COMPANY_NAME
-  n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS e/EMAIL p/PHONE_NUMBER`
-  </br>
-  </br>
-* If the RECRUITER_NAME field is missing:
-  `Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME n/RECRUITER_NAME
-  r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
-  </br>
-  </br>
-* If the APPLICATION_STATUS field is missing:
-  `Invalid command format! Missing RECRUITER_NAME. Format is add
-  c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
-  </br>
-  </br>
-* If the ROLE field is missing:
-  `Invalid command format! Missing RECRUITER_NAME. Format is add c/COMPANY_NAME
-  n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS [e/EMAIL] [p/PHONE_NUMBER]`
-
-**Expected UI:**
-
-![AddCommand.png](AddCommand.png)
 
 ### Listing all contacts : `list`
 
@@ -197,7 +155,7 @@ Want to see all of your applications in one list? You can do so with the `list` 
 
 **Format:** `list`
 
-**Examples:** 
+**Examples:**
 - `filter s/PI` followed by `list` changes from showing only applications with status "Pending Interview".
 to all companies added in LinkMeIn.
 
@@ -207,11 +165,11 @@ to all companies added in LinkMeIn.
 
 **What you will see after `list` command succeeds:**
 
-![img.png](images/list-command/ListCommand.png) 
+![img.png](images/list-command/ListCommand.png)
 
-> Note: 
-> - Whenever LinkMeIn is started, the list of companies on the right is what you will see after the `list` command is executed. 
-> - Typical use case for `list` command is to change the current list of companies that is being viewed back to the 
+> Note:
+> - Whenever LinkMeIn is started, the list of companies on the right is what you will see after the `list` command is executed.
+> - Typical use case for `list` command is to change the current list of companies that is being viewed back to the
 full list of companies added in LinkMeIn.
 
 
@@ -240,7 +198,7 @@ given keywords.
 
 ### View full company information: `view` ###
 
-You look at the list of companies and you see a company that has not been getting back to you. You can use the view 
+You look at the list of companies and you see a company that has not been getting back to you. You can use the view
 command to view the company's recruiter's contact details to follow up with them. The view command allows you to view
 the company detail of any company from the list of companies that you have added.
 
@@ -263,13 +221,13 @@ the company detail of any company from the list of companies that you have added
 ![img.png](AfterViewCommand.png)
 
 The company’s information should be listed on the left panel and you will see the following fields:
-1. COMPANY_NAME 
+1. COMPANY_NAME
 2. PRIORITY
 3. ROLE
 4. DEADLINE
 5. APPLICATION_STATUS
 6. RECRUITER_NAME
-7. EMAIL 
+7. EMAIL
 8. PHONE
 
 
@@ -285,7 +243,18 @@ You can use the delete command to delete the company from the list of companies 
 * The index must not be out of bounds.
 * You can only delete one company at a time.
 
->
+**Examples:**
+* `list` followed by `delete 1` deletes the first contact in the full list of companies.
+* `find` TikTok followed by `delete 1` deletes the first contact in the results of find TikTok
+
+**What you will see before `delete` command succeeds:**
+
+![img.png](BeforeDeleteCommand.png)
+
+**What you will see after `delete` command succeeds:**
+
+![img.png](AfterDeleteCommand.png)
+
 > Note: If you are viewing the details of the company that you are deleting, the details panel will be cleared too.
 
 
@@ -293,8 +262,7 @@ You can use the delete command to delete the company from the list of companies 
 If you made a typo or need to update the progress of application,
 use the `edit` command to input the accurate details.
 
-**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] 
-[p/PHONE_NUMBER] [pr/PRIORITY] [nt/NOTE]`
+**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [nt/NOTE]`
 
 * `INDEX`: Edits the company at INDEX number shown in the displayed company list.
 * `[c/COMPANY_NAME]` etc. : type prefix `c/` followed by new company name to edit company name.
@@ -303,7 +271,7 @@ use the `edit` command to input the accurate details.
 :warning: When editing the note, the existing note of the company will be removed i.e adding of note is not cumulative.
 
 **Examples:** </br>
-1.Type `edit 2 s/PI r/Frontend Developer` 
+1.Type `edit 2 s/PI r/Frontend Developer`
 
 ![EditDemo1.png](images/EditDemo1.png)
 2.The 2nd company's the status and role is edited to be Pending Interview and Frontend Developer respectively.
@@ -326,7 +294,7 @@ Exits the program and closes the window.
 
 
 ### Filter companies by application status: `filter` ###
-Can't remember which applications you haven't submitted or want to prepare for the companies that have offered you an interview? 
+Can't remember which applications you haven't submitted or want to prepare for the companies that have offered you an interview?
 Filter the list of companies by their application status using the `filter` command!
 
 **Format:** `filter s/APPLICATION_STATUS`
@@ -363,11 +331,7 @@ TBD
 | **A**      | Accepted. This status means that the application has been approved and the candidate has been offered the internship position.                                                                                                |
 | **R**      | Rejected. Unfortunately, this means that the application wasn't successful and the candidate won't be proceeding further in the internship process.                                                                            |
 
-
-
-
 --------------------------------------------------------------------------------------------------------------------
-
 ## FAQ ##
 ### 1. How do I check if I have Java installed? ###
 
@@ -408,7 +372,6 @@ Make sure you have Java 11 installed on your machine as the product only runs on
 
 ### 8. How can I add priority to my internship application details? ### 
 When adding a new company, use the `pr/` prefix followed by the priority value. For instance, `pr/high` to set the priority to high.
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues ##
