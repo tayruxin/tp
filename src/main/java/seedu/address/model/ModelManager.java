@@ -132,6 +132,12 @@ public class ModelManager implements Model {
         updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
     }
 
+    @Override
+    public void filterCompaniesByStatus(Predicate<Company> predicate) {
+        addressBook.clearDetailPanel();
+        updateFilteredCompanyList(predicate);
+    }
+
     //=========== Filtered Company List Accessors =============================================================
 
     /**
