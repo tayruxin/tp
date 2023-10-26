@@ -282,7 +282,7 @@ With the design considerations, we've chosen the alternatives that provide a bal
 
 ### 4.3 Filter Command
 
-The `filter` command allows user to filter the company list by the application status. The following sequence diagram 
+The `filter` command allows user to filter the company list by the application status. The following sequence diagram
 will illustrate the process of performing the `filter` command.
 
 <img src="images/FilterSequenceDiagram.png"/>
@@ -290,22 +290,22 @@ will illustrate the process of performing the `filter` command.
 #### 4.3.1 Implementation
 
 The `filter` function is implemented in the `FilterCommand` class and uses the `FilterCommandParser` class to parse the
-arguments. The predicate class implementing `Predicate<Company>` is `ApplicationStatusPredicate`. 
+arguments. The predicate class implementing `Predicate<Company>` is `ApplicationStatusPredicate`.
 - `ApplicationStatusPredicate` - Predicate to check if the company's application status is the same as the application
-status specified in the command. 
+status specified in the command.
 
 #### 4.3.2 Design Considerations
 
 **Aspect: UI of the filter command**
 
 - **Alternative 1 (current choice):** The company details panel will be cleared whenever the filter command is executed.
-    - Pros: Users can focus on viewing details of company belonging to the filtered list only, reducing distractions and confusions. 
-    - Cons: Users might have to execute the `view` command again to access details of the company that is selected even 
-      if that company is in the filtered list, potentially leading to additional steps. 
+    - Pros: Users can focus on viewing details of company belonging to the filtered list only, reducing distractions and confusions.
+    - Cons: Users might have to execute the `view` command again to access details of the company that is selected even
+      if that company is in the filtered list, potentially leading to additional steps.
 
 - **Alternative 2:** The company details panel will still display the details of the company that was selected before the
 filter command is executed.
-  - Pros: Users can still view the details of the company in the company details panel alongside the filtered list of companies. 
+  - Pros: Users can still view the details of the company in the company details panel alongside the filtered list of companies.
   - Cons: Users may be confused as the currently viewed company in the company details panel may not be in the
 filtered list of companies.
 
@@ -319,11 +319,11 @@ Additionally, `EditCommand` implements the following operations:
 
 These operations are exposed in the `Model` interface as `Model#setCompany(Company target, Company editedCompany)`.
 
-Given below is the sequence diagram shows how the edit operation works. 
+Given below is the sequence diagram shows how the edit operation works.
 <img src="images/EditSequenceDiagram.png"/>
 
 After the `EditCommandParser` initializes an `EditCompanyDescriptor` object, it sets the attributes of `EditCompanyDescriptor` that needs to be edited to the values input by the user.
-When `EditCommand#execute()` is called, a `Company` object, `c`, with edited attributes is initialized since `Company` is immutable. 
+When `EditCommand#execute()` is called, a `Company` object, `c`, with edited attributes is initialized since `Company` is immutable.
 When `Model#setCompany(Company company)` is called, the original `Company` object in the `AddressBook` is replaced with the edited Company `c`.
 
 #### 4.4.2 Design considerations:
