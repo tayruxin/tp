@@ -48,6 +48,7 @@ public class CompanyDetailCard extends UiPart<Region> {
      */
     public CompanyDetailCard(Company company) {
         super(FXML);
+        assert company != null;
         this.company = company;
         name.setText(company.getName().fullName);
         phone.setText("Phone: " + company.getPhone().value);
@@ -61,6 +62,7 @@ public class CompanyDetailCard extends UiPart<Region> {
     }
 
     private void priorityFlowPane(Company company) {
+        assert company != null;
         if (!company.getPriority().priority.equals("NONE")) {
             FlowPane priorityPane = new FlowPane();
 
