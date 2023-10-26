@@ -166,6 +166,36 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### 4.4 Edit feature
+
+#### Implementation
+The edit mechanism is facilitated by `EditCompanyDescriptor`. It is a nested class of `EditCommand` that stores the edited fields of a company and unedited fields to be `null`.
+Additionally, `EditCommand` implements the following operations:
+
+* `EditCommand#execute(Model model)` — Edits all the attributes indicated in user input.
+
+These operations are exposed in the `Model` interface as `Model#setCompany(Company target, Company editedCompany)`.
+
+Given below is the sequence diagram shows how the edit operation works. 
+<img src="images/EditSequenceDiagram.png"/>
+
+After the `EditCommandParser` initializes an `EditCompanyDescriptor` object, it sets the attributes of `EditCompanyDescriptor` that needs to be edited to the values input by the user.
+When `EditCommand#execute()` is called, a `Company` object, `c`, with edited attributes is initialized since `Company` is immutable. 
+When `Model#setCompany(Company company)` is called, the original `Company` object in the `AddressBook` is replaced with the edited Company `c`.
+
+#### Design considerations:
+
+**Aspect: How to edit different attributes of a company**
+
+* **Alternative 1 (current choice):** Edits all attributes using one command.
+    * Pros: Easy to implement.
+    * Cons: More prone to errors and bugs/ require more test cases for code coverage.
+
+* **Alternative 2:** Have a command to edit each attribute.
+    * Pros: Command line is shorter which reduces users' error such as duplicates or invalid command. This improves user experience.
+    * Cons: We must ensure that the implementation of each individual command are correct. This may also require more memory usage, a Company object is initialized for every modified attribute.
+
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
