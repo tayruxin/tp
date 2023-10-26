@@ -3,11 +3,11 @@ package seedu.address.model.company;
 import java.util.List;
 import java.util.function.Predicate;
 
-import seedu.address.commons.util.StringUtil;
 import seedu.address.commons.util.ToStringBuilder;
 
 /**
- * Tests that a {@code Company}'s {@code Name} matches any of the keywords given.
+ * Represents a predicate to test if a {@code Company}'s {@code Name} contains
+ * any of the specified keywords. The matching is case-insensitive.
  */
 public class NameContainsKeywordsPredicate implements Predicate<Company> {
     private final List<String> keywords;
@@ -16,10 +16,19 @@ public class NameContainsKeywordsPredicate implements Predicate<Company> {
         this.keywords = keywords;
     }
 
+    /**
+     * Tests if the {@code Company}'s name contains any of the keywords as substrings.
+     *
+     * <p>For instance, if the keyword is "tech", then companies with names "Tech Corp",
+     * "Biotech Industries", and "Infotech Solutions" would all be matched.</p>
+     *
+     * @param company The company to be tested against the keywords.
+     * @return True if the company's name contains any keyword as a substring, false otherwise.
+     */
     @Override
     public boolean test(Company company) {
         return keywords.stream()
-                .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(company.getName().fullName, keyword));
+                .anyMatch(keyword -> company.getName().toString().toLowerCase().contains(keyword.toLowerCase()));
     }
 
     @Override

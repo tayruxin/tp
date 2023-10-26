@@ -31,4 +31,18 @@ public class FindCommandParserTest {
         assertParseSuccess(parser, " \n Alice \n \t Bob  \t", expectedFindCommand);
     }
 
+    @Test
+    public void parse_singleKeyword_returnsFindCommand() {
+        FindCommand expectedFindCommand =
+                new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList("Te")));
+        assertParseSuccess(parser, "Te", expectedFindCommand);
+    }
+
+    @Test
+    public void parse_multipleKeywordsWithDuplicate_returnsFindCommand() {
+        // When duplicates are entered, they are still considered distinct keywords
+        FindCommand expectedFindCommand =
+                new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList("Tech", "Tech", "Corp")));
+        assertParseSuccess(parser, "Tech Tech Corp", expectedFindCommand);
+    }
 }
