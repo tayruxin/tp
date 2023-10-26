@@ -222,9 +222,33 @@ TBD
 
 --------------------------------------------------------------------------------------------------------------------
 
+## Glossary ##
+
+| Term       | Definition                                                                                                                                                                                                                    |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **CLI**    | Command-Line Interface. A method to interact with the software using textual commands. It's a text-based interface where users input commands directly to control the software.                                               |
+| **GUI**    | Graphical User Interface. A visual method to interact with software using icons, buttons, and windows. Provides a user-friendly way to interact with software using graphical elements rather than text-based commands.        |
+| **PA**     | Pending Application. Refers to an application that has been submitted but hasn't received any feedback or update yet. It's in the initial stage of the internship application process.                                       |
+| **PI**     | Pending Interview. Indicates that the application has been reviewed, and the candidate is awaiting an interview. It signifies the next step after the initial application.                                                   |
+| **PO**     | Pending Outcome. After the interview, the application is in this state. It means that the interview has been conducted, but the final decision or outcome (whether accepted or rejected) hasn't been communicated yet.        |
+| **A**      | Accepted. This status means that the application has been approved and the candidate has been offered the internship position.                                                                                                |
+| **R**      | Rejected. Unfortunately, this means that the application wasn't successful and the candidate won't be proceeding further in the internship process.                                                                            |
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------
+
 ## FAQ ##
 
-TBD.
+**Q:** How do I load data from another computer?  
+**A:** Delete the `addressbook.json` file (stored at `[JAR file location]/data/addressbook.json`) from the computer that you wish to use LinkMeIn on. Then, copy over the `addressbook.json` file from the computer which you no longer wish to use LinkMeIn on. After which, boot up LinkMeIn to check whether your doctor information is properly loaded into the new computer.
+
+**Q:** Why am I unable to run LinkMeIn?  
+**A:** Make sure you have Java 11 installed on your machine as the product only runs on Java 11.
+
+**Q:** How can I add priority to my internship application details?  
+**A:** When adding a new company, use the `pr/` prefix followed by the priority value. For instance, `pr/high` to set the priority to high.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -233,14 +257,14 @@ TBD.
 TBD.
 --------------------------------------------------------------------------------------------------------------------
 
-## Command summary ##
+## Command Summary ##
 
-| Action     | Format, Examples                                                                                                                                                                                                              |
-|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**    | `add c/COMPANY_NAME r/ROLE d/DEADLINE s/APPLICATION_STATUS n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [t/tags]` <br><br> e.g., `add c/Tiktok r/Software Engineer s/PA d/11-11-2023 n/John Tan e/johntan@example.com p/987654321` |
-| **Delete** | `delete INDEX`<br><br> e.g., `delete 3`                                                                                                                                                                                       |
-| **View**   | `view INDEX`<br><br> e.g., `view 3`                                                                                                                                                                                           |                                                                                                                                                                                     |
-| **Edit**   | `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [a/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [t/TAG]…` <br/><br/> e.g., `edit 2 s/Pending Application r/frontend developer`                        |
-| **Filter** | `filter s/APPLICATION_STATUS` <br/><br/> e.g., `filter s/PA`                                                                                                                                                                  |
-| **List**   | `list`                                                                                                                                                                                                                        |
+| Command     | Format                                                                           | Example                                                                                                          |
+|-------------|----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `add`       | `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/priority]` | `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com p/987654321`              |
+| `list`      | `list`                                                                           | `list`                                                                                                           |
+| `find`      | `find KEYWORD [MORE_KEYWORDS]...`                                                 | `find TikTok`                                                                                                   |
+| `view`      | `view INDEX`                                                                     | `view 1`                                                                                                        |
+| `delete`    | `delete INDEX`                                                                   | `delete 1`                                                                                                      |
+| `edit`      | `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [nt/NOTE]` | `edit 2 s/PI r/Frontend Developer`                                                |
 
