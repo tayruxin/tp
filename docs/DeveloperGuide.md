@@ -292,11 +292,7 @@ will illustrate the process of performing the `filter` command.
 The `filter` function is implemented in the `FilterCommand` class and uses the `FilterCommandParser` class to parse the
 arguments. The predicate class implementing `Predicate<Company>` is `ApplicationStatusPredicate`.
 - `ApplicationStatusPredicate` - Predicate to check if the company's application status is the same as the application
-<<<<<<< Updated upstream
-status specified in the command.
-=======
   status specified in the command.
->>>>>>> Stashed changes
 
 #### 4.3.2 Design Considerations
 
@@ -308,11 +304,10 @@ status specified in the command.
       if that company is in the filtered list, potentially leading to additional steps.
 
 - **Alternative 2:** The company details panel will still display the details of the company that was selected before the
-<<<<<<< Updated upstream
-filter command is executed.
-  - Pros: Users can still view the details of the company in the company details panel alongside the filtered list of companies.
-  - Cons: Users may be confused as the currently viewed company in the company details panel may not be in the
-filtered list of companies.
+  filter command is executed.
+    - Pros: Users can still view the details of the company in the company details panel alongside the filtered list of companies.
+    - Cons: Users may be confused as the currently viewed company in the company details panel may not be in the
+      filtered list of companies.
 
 ### 4.4 Edit feature
 
@@ -342,11 +337,6 @@ When `Model#setCompany(Company company)` is called, the original `Company` objec
 * **Alternative 2:** Have a command to edit each attribute.
     * Pros: Command line is shorter which reduces users' error such as duplicates or invalid command. This improves user experience.
     * Cons: We must ensure that the implementation of each individual command are correct. This may also require more memory usage, a Company object is initialized for every modified attribute.
-=======
-  filter command is executed.
-    - Pros: Users can still view the details of the company in the company details panel alongside the filtered list of companies.
-    - Cons: Users may be confused as the currently viewed company in the company details panel may not be in the
-      filtered list of companies.
 
 ### 4.5 Delete Command
 
@@ -373,7 +363,6 @@ indexing to the supplied Index, get the company associated with the index and re
   to be deleted.
     - Pros: The user does not need to remember the index of the company to be deleted.
     - Cons: The user may enter the wrong company name to be deleted.
->>>>>>> Stashed changes
 
 ### \[Proposed\] Undo/redo feature
 
