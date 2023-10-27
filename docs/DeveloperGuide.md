@@ -292,7 +292,7 @@ will illustrate the process of performing the `filter` command.
 The `filter` function is implemented in the `FilterCommand` class and uses the `FilterCommandParser` class to parse the
 arguments. The predicate class implementing `Predicate<Company>` is `ApplicationStatusPredicate`.
 - `ApplicationStatusPredicate` - Predicate to check if the company's application status is the same as the application
-status specified in the command.
+  status specified in the command.
 
 #### 4.3.2 Design Considerations
 
@@ -304,10 +304,10 @@ status specified in the command.
       if that company is in the filtered list, potentially leading to additional steps.
 
 - **Alternative 2:** The company details panel will still display the details of the company that was selected before the
-filter command is executed.
-  - Pros: Users can still view the details of the company in the company details panel alongside the filtered list of companies.
-  - Cons: Users may be confused as the currently viewed company in the company details panel may not be in the
-filtered list of companies.
+  filter command is executed.
+    - Pros: Users can still view the details of the company in the company details panel alongside the filtered list of companies.
+    - Cons: Users may be confused as the currently viewed company in the company details panel may not be in the
+      filtered list of companies.
 
 ### 4.4 Edit feature
 
@@ -337,6 +337,32 @@ When `Model#setCompany(Company company)` is called, the original `Company` objec
 * **Alternative 2:** Have a command to edit each attribute.
     * Pros: Command line is shorter which reduces users' error such as duplicates or invalid command. This improves user experience.
     * Cons: We must ensure that the implementation of each individual command are correct. This may also require more memory usage, a Company object is initialized for every modified attribute.
+
+### 4.5 Delete Command
+
+The `delete` command allows user to delete a company using the observed index (one-based index) of the company.
+The following sequence diagram will illustrate the process of performing the `delete` command.
+
+<img src="images/DeleteCompanySequenceDiagram.png"/>
+
+#### 4.5.1 Implementation
+
+The `delete` function is implemented in the `DeleteCommand` class and uses the `DeleteCommandParser` class to parse the
+arguments. The LogicManger#execute() method will retrieve the filtered company list from the model, perform zero-based
+indexing to the supplied Index, get the company associated with the index and requests model to `delete` the company.
+
+#### 4.5.2 Design Considerations
+**Aspect: Coupling between `DeleteCommand` and `FilterCommand`**
+- **Alternative:** The delete function can be performed by the `DeleteCommand` class without having to
+  retrieve the filtered company list from the model.
+    - Pros: The `DeleteCommand` class will be simpler and easier to understand.
+    - Cons: The `DeleteCommand` class will be tightly coupled with the `FilterCommand` class.
+
+**Aspect: Type of company deletion input from the user**
+- **Alternative:** Instead of one-based index input from the user, require the user to enter the company name
+  to be deleted.
+    - Pros: The user does not need to remember the index of the company to be deleted.
+    - Cons: The user may enter the wrong company name to be deleted.
 
 ### \[Proposed\] Undo/redo feature
 
