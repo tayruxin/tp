@@ -6,19 +6,26 @@
   "minima/skins/{{ site.minima.skin | default: 'classic' }}",
   "minima/initialize";
 
-/* Typography Boxes */
+/* General Typography Box Styling */
 .typography-box {
   border: 1px solid #d3d3d3;
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 5px;
+  display: flex; /* To layout icon and text side by side */
+  align-items: start; /* Align items to the top */
 }
 
-.typography-box > blockquote {
-  border-left: none;
-  padding-left: 15px;
+.typography-box > .icon {
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 24px; /* Adjust icon size if necessary */
 }
 
+.typography-box > .content {
+  flex: 1; /* Allows content to take the remaining width */
+}
+
+/* Specific Styles for each Typography Box Type */
 .typography-box.warning {
   border-color: red;
   background-color: #ffe6e6;
@@ -29,6 +36,15 @@
   background-color: #ffffe0;
 }
 
+.typography-box.note {
+  border-color: #a8d1ff;
+  background-color: #e5f3ff;
+}
+
+.typography-box.code {
+  border-color: #b0b0b0;
+  background-color: #f5f5f5;
+}
 .typography-box.note {
   border-color: #c8e1ff;
   background-color: #e8f4ff;
