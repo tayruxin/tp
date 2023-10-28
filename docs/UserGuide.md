@@ -2,20 +2,108 @@
 layout: page
 title: User Guide
 ---
+## Welcome to LinkMeIn!
 
-Never miss an internships interview with LinkMeIn! Keep track of all your deadlines in an organised fashion.
+_Master Your Internship Journey: Every Deadline, Every Detail._
 
-* Table of Contents for the User Guide
-{:toc}
+LinkMeIn is a **desktop application** built for [NUS School Of Computing (SOC) students](https://www.comp.nus.edu.sg/) to
+track their internship applications. It is recommended that you read this manual before using the application.
 
---------------------------------------------------------------------------------------------------------------------
+Here is a **quick** overview of your internship journey with LinkMeIn:
+<br>
+* **Effortless** Tracking: Seamlessly store internship listings, adjust details with changing circumstances, and swiftly recall past applications by date.
+  <br>
+  </br>
+* Stay Empowered and **Informed**: Dive into specific application details when needed and access guidance with a click, ensuring you're always confident in your next step.
+  <br>
+  </br>
+* Share and **Simplify**: After landing that internship, de-clutter your list and easily locate company details to guide your peers in their own searches.
+  </br>
 
-## Quick start ##
 
-1. Product only runs on Java 11
+Additionally, LinkMeIn combines the rapid **efficiency** of CLI with the visual clarity of GUI,
+offering a **tailored** experience for internship management that outpaces the generic
+spreadsheets of Excel.
 
-2. Refer to the [Features](#features) below for details of each command.
+## Navigating the user guide
 
+### Typographic conventions
+
+<div class="typography-box warning">
+
+> :warning: **Warning** - Alerts users to potential pitfalls or things to be cautious of when using your application.
+
+</div>
+
+<div class="typography-box tip">
+
+> :bulb: **Tip** - Provides users with additional insights or more efficient ways to use your application.
+
+</div>
+
+<div class="typography-box note">
+
+> :information_source: **Note** - Highlights supplementary information that users should be aware of, but isn't necessarily mission-critical.
+
+</div>
+
+<div class="typography-box code">
+
+> :black_nib: **Code** - Indicates commands or programming-related content that can be typed or referred to.
+
+</div>
+
+
+### Non-typographic conventions
+For the feature section, each page follows a predictable syntax and style.
+<br>
+</br>
+Proceed to explain ... [TODO]
+
+## Table of Contents
+
+
+## Quick start
+
+1. Make sure that you have **Java 11 or above** installed in your Computer.
+
+  - [How to check if you have Java installed?](#faq-1)
+  - [How to check if you have Java 11 or above?](#faq-2)
+
+2. Download the latest jar file from [here]()
+
+3. Copy the file to the folder you want to use as the home folder for your LinkMeIn.
+
+  - Create a new folder (you can name it LinkMeIn) where you would like to house the application
+    (e.g., Desktop, Documents, etc.)
+  - Move the downloaded jar file as shown:
+
+    - For Windows users
+    - For Mac users
+
+4. Launch LinkMeIn
+
+  - For Windows users
+
+    - Double-click on the `LinkMeIn.jar` file to launch the application
+
+  - For Mac users
+
+    - Open up your terminal (Command +Space > type Terminal > Enter)
+    - Navigate to the folder where you have placed the jar file with the `cd` command
+    - For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter
+
+<div class="typography-box warning">
+
+> :warning: **Warning:** Do not move or delete the `data` folder as it contains the data of your applications.
+
+</div>
+
+
+You should notice the GUI of the application pop up.
+1. Learn more about navigating the GUI [here]().
+2. For new users, learn to use LinkMeIn [here]().
+3. For advanced users, view all feature details [here]().
 --------------------------------------------------------------------------------------------------------------------
 
 ## Current Features ##
@@ -243,22 +331,47 @@ TBD
 | **A**      | Accepted. This status means that the application has been approved and the candidate has been offered the internship position.                                                                                                |
 | **R**      | Rejected. Unfortunately, this means that the application wasn't successful and the candidate won't be proceeding further in the internship process.                                                                            |
 
-
-
-
 --------------------------------------------------------------------------------------------------------------------
-
 ## FAQ ##
+### 1. How do I check if I have Java installed? ###
 
-**Q:** How do I load data from another computer?
-**A:** Delete the `addressbook.json` file (stored at `[JAR file location]/data/addressbook.json`) from the computer that you wish to use LinkMeIn on. Then, copy over the `addressbook.json` file from the computer which you no longer wish to use LinkMeIn on. After which, boot up LinkMeIn to check whether your doctor information is properly loaded into the new computer.
+* Open up your terminal and type `java -version`. If you have Java installed, you should see something like this:
+```
+java version "
+OpenJDK Runtime Environment (build
+OpenJDK 64-Bit Server VM (build
+```
 
-**Q:** Why am I unable to run LinkMeIn?
-**A:** Make sure you have Java 11 installed on your machine as the product only runs on Java 11.
+* If you do not have Java installed, you can download it [here](https://www.oracle.com/sg/java/technologies/javase-downloads.html).
+* If you are using Windows, you can refer to this [guide](https://www.java.com/en/download/help/windows_manual_download.html) to install Java.
+* If you are using Mac, you can refer to this [guide](https://www.java.com/en/download/help/mac_install.html) to install Java.
+* If you are using Linux, you can refer to this [guide](https://www.java.com/en/download/help/linux_x64_install.html) to install Java.
+* If you are using Ubuntu, you can refer to this [guide](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-20-04) to install Java.
 
-**Q:** How can I add priority to my internship application details?
-**A:** When adding a new company, use the `pr/` prefix followed by the priority value. For instance, `pr/high` to set the priority to high.
+### 2. How do I check if I have Java 11 or above? ###
+Open up your terminal and type `java -version`. If you have Java 11 or above installed, you should see something like this:
+``` 
+openjdk version "
+OpenJDK Runtime Environment (build
+OpenJDK 64-Bit Server VM (build
+```
+### 3. How do I load data from another computer? ###
+Delete the `addressbook.json` file (stored at `[JAR file location]/data/addressbook.json`) from the computer that you wish to use LinkMeIn on. Then, copy over the `addressbook.json` file from the computer which you no longer wish to use LinkMeIn on. After which, boot up LinkMeIn to check whether your doctor information is properly loaded into the new computer.
 
+### 4. Why am I unable to run LinkMeIn?  ###
+Make sure you have Java 11 installed on your machine as the product only runs on Java 11.
+
+### 5. How can I add priority to my internship application details? ### 
+When adding a new company, use the `pr/` prefix followed by the priority value. For instance, `pr/high` to set the priority to high.
+
+### 6. How do I load data from another computer? ### 
+Delete the `addressbook.json` file (stored at `[JAR file location]/data/addressbook.json`) from the computer that you wish to use LinkMeIn on. Then, copy over the `addressbook.json` file from the computer which you no longer wish to use LinkMeIn on. After which, boot up LinkMeIn to check whether your doctor information is properly loaded into the new computer.
+
+### 7. Why am I unable to run LinkMeIn? ### 
+Make sure you have Java 11 installed on your machine as the product only runs on Java 11.
+
+### 8. How can I add priority to my internship application details? ### 
+When adding a new company, use the `pr/` prefix followed by the priority value. For instance, `pr/high` to set the priority to high.
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues ##
