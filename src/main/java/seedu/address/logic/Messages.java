@@ -13,10 +13,21 @@ import seedu.address.model.company.Company;
 public class Messages {
     public static final String MESSAGE_UNKNOWN_COMMAND = "Unknown command";
     public static final String MESSAGE_INVALID_COMMAND_FORMAT = "Invalid command format! \n%1$s";
-    public static final String MESSAGE_INVALID_COMPANY_DISPLAYED_INDEX = "The company index provided is invalid";
+    public static final String MESSAGE_INVALID_COMPANY_DISPLAYED_INDEX =
+        "Oops! It seems you have entered an index that is greater than the number of companies that you have. "
+                + "Please try again!";
     public static final String MESSAGE_COMPANIES_LISTED_OVERVIEW = "%1$d companies listed!";
     public static final String MESSAGE_DUPLICATE_FIELDS =
                 "Multiple values specified for the following single-valued field(s): ";
+
+    public static final String MESSAGE_NON_INTEGER_INDEX = "Oops! The index you have given is not an integer."
+            + " Please try again with an integer!";
+
+    public static final String MESSAGE_NON_POSITIVE_INTEGER_INDEX = "Oops! The index you have given is not a "
+            + "positive integer greater than 0. Please try again with a positive integer!";
+
+    public static final String MESSAGE_EMPTY_INDEX = "Oops! The index you have given is empty. "
+            + "Remember to key in an index!";
 
     /**
      * Returns an error message indicating the duplicate prefixes.
@@ -59,5 +70,11 @@ public class Messages {
      */
     public static String getCompanyName(Company company) {
         return company.getName().toString();
+    }
+
+    public static String getCompanyInfo(Company company) {
+        return company.getName().toString() + " ( " + "Role: " + company.getRole().toString()
+                + ", " + "Deadline: " + company.getDeadline().toString() + ")";
+
     }
 }
