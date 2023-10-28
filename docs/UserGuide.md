@@ -30,29 +30,32 @@ spreadsheets of Excel.
 ### Typographic conventions
 
 <div class="typography-box warning">
-
-> :warning: **Warning** - Alerts users to potential pitfalls or things to be cautious of when using your application.
-
+  <span class="icon">⚠️</span>
+  <span class="content">
+    <strong>Warning :</strong> Alerts users to potential pitfalls or things to be cautious of when using your application.
+  </span>
 </div>
 
 <div class="typography-box tip">
-
-> :bulb: **Tip** - Provides users with additional insights or more efficient ways to use your application.
-
+  <span class="icon">💡</span>
+  <span class="content">
+    <strong>Tip :</strong> Provides users with additional insights or more efficient ways to use your application.
+  </span>
 </div>
 
 <div class="typography-box note">
-
-> :information_source: **Note** - Highlights supplementary information that users should be aware of, but isn't necessarily mission-critical.
-
+  <span class="icon">ℹ️</span>
+  <span class="content">
+    <strong>Note :</strong> Highlights supplementary information that users should be aware of, but isn't necessarily mission-critical.
+  </span>
 </div>
 
 <div class="typography-box code">
-
-> :black_nib: **Code** - Indicates commands or programming-related content that can be typed or referred to.
-
+  <span class="icon">🖋</span>
+  <span class="content">
+    <strong>Code :</strong> Indicates commands or programming-related content that can be typed or referred to.
+  </span>
 </div>
-
 
 ### Non-typographic conventions
 For the feature section, each page follows a predictable syntax and style.
@@ -62,6 +65,8 @@ Proceed to explain ... [TODO]
 
 ## Table of Contents
 
+* TOC 
+{:toc}
 
 ## Quick start
 
@@ -94,16 +99,17 @@ Proceed to explain ... [TODO]
     - For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter
 
 <div class="typography-box warning">
-
-> :warning: **Warning:** Do not move or delete the `data` folder as it contains the data of your applications.
-
+  <span class="icon">⚠️</span>
+  <span class="content">
+    <strong>Warning :</strong> Do not move or delete the `data` folder as it contains the data of your applications.
+  </span>
 </div>
-
 
 You should notice the GUI of the application pop up.
 1. Learn more about navigating the GUI [here]().
 2. For new users, learn to use LinkMeIn [here]().
 3. For advanced users, view all feature details [here]().
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Current Features ##
