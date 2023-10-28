@@ -24,7 +24,7 @@ public class Messages {
             + " Please try again with an integer!";
 
     public static final String MESSAGE_NON_POSITIVE_INTEGER_INDEX = "Oops! The index you have given is not a "
-            + "positive integer greater than 0. Please try again with a positive integer!";
+            + "positive integer. Please try again with a positive integer!";
 
     public static final String MESSAGE_EMPTY_INDEX = "Oops! The index you have given is empty. "
             + "Remember to key in an index!";
