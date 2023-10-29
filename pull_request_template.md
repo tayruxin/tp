@@ -1,6 +1,6 @@
 ## Summary
 
-Brief description of the key changes proposed in this pull request. 
+Brief description of the key changes proposed in this pull request.
 
 ## Description
 
@@ -28,13 +28,3 @@ Describe the tests that were performed to validate the changes and ensure qualit
 - [ ] I have updated the documentation accordingly
 - [ ] I have added tests to cover my changes
 - [ ] All new and existing tests passed
-
-## Screenshots (if appropriate)
-
-Attach screenshots or visuals representing the changes made.
-
-## Reviewer(s)
-
-- @reviewer1
-- @reviewer2
-
