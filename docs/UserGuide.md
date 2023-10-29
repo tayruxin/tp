@@ -10,16 +10,10 @@ LinkMeIn is a **desktop application** built for [NUS School Of Computing (SOC) s
 track their internship applications. It is recommended that you read this manual before using the application.
 
 Here is a **quick** overview of your internship journey with LinkMeIn:
-<br>
-* **Effortless** Tracking: Seamlessly store internship listings, adjust details with changing circumstances, and swiftly recall past applications by date.
-  <br>
-  </br>
-* Stay Empowered and **Informed**: Dive into specific application details when needed and access guidance with a click, ensuring you're always confident in your next step.
-  <br>
-  </br>
-* Share and **Simplify**: After landing that internship, de-clutter your list and easily locate company details to guide your peers in their own searches.
-  </br>
 
+* **Effortless** Tracking: Seamlessly store internship listings, adjust details with changing circumstances, and swiftly recall past applications by date.
+* Stay Empowered and **Informed**: Dive into specific application details when needed and access guidance with a click, ensuring you're always confident in your next step.
+* Share and **Simplify**: After landing that internship, de-clutter your list and easily locate company details to guide your peers in their own searches.
 
 Additionally, LinkMeIn combines the rapid **efficiency** of CLI with the visual clarity of GUI,
 offering a **tailored** experience for internship management that outpaces the generic

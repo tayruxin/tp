@@ -8,7 +8,7 @@
 
 /* General Typography Box Styling */
 .typography-box {
-  border: 1px solid #d3d3d3;
+  border-left: 4px solid #d3d3d3; /* Typical blockquote left border */
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 5px;
@@ -27,27 +27,31 @@
   margin-left: 10px; /* spacing after the icon */
 }
 
+.typography-box > span .icon {
+  font-size: 1rem; /* Adjust this value as needed. 1rem will ensure the icon is the same size as the base font size of your text. */
+}
+
 /* Specific Styles for each Typography Box Type */
 .typography-box.warning {
-  border-color: red;
+  border-left-color: red;
   background-color: #ffe6e6;
   color: black; /* ensures that text is black, but won't affect the emoji colors */
 }
 
 .typography-box.tip {
-  border-color: #f9eb9e;
+  border-left-color: #f9eb9e;
   background-color: #ffffe0;
   color: black;
 }
 
 .typography-box.note {
-  border-color: #a8d1ff;
+  border-left-color: #a8d1ff;
   background-color: #e5f3ff;
   color: black;
 }
 
 .typography-box.code {
-  border-color: #b0b0b0;
+  border-left-color: #b0b0b0;
   background-color: #f5f5f5;
   color: black;
 }
