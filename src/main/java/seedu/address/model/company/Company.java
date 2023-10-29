@@ -21,14 +21,14 @@ public class Company {
     private final ApplicationStatus status;
     private final RecruiterName recruiterName;
     private final Priority priority;
-    private final Note note;
+    private final Remark remark;
 
 
     /**
      * Every field must be present and not null.
      */
     public Company(Name name, Phone phone, Email email, Role role, Deadline deadline, ApplicationStatus status,
-                   RecruiterName recruiterName, Priority priority, Note note) {
+                   RecruiterName recruiterName, Priority priority, Remark note) {
         requireAllNonNull(name, phone, email, role, deadline, status, priority, note);
         this.name = name;
         this.phone = phone;
@@ -38,7 +38,7 @@ public class Company {
         this.status = status;
         this.recruiterName = recruiterName;
         this.priority = priority;
-        this.note = note;
+        this.remark = note;
     }
 
     public Name getName() {
@@ -73,7 +73,7 @@ public class Company {
         return priority;
     }
 
-    public Note getNote() { return note; }
+    public Remark getRemark() { return remark; }
 
     /**
      * Returns true if both companies have the same name.
@@ -112,13 +112,13 @@ public class Company {
                 && status.equals(otherCompany.status)
                 && recruiterName.equals(otherCompany.recruiterName)
                 && priority.equals(otherCompany.priority)
-                && note.equals(otherCompany.note);
+                && remark.equals(otherCompany.remark);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, role, deadline, status, recruiterName, priority, note);
+        return Objects.hash(name, phone, email, role, deadline, status, recruiterName, priority, remark);
     }
 
     @Override
@@ -132,7 +132,7 @@ public class Company {
                 .add("phone", phone)
                 .add("email", email)
                 .add("priority", priority)
-                .add("note", note)
+                .add("remark", remark)
                 .toString();
     }
 

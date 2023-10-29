@@ -9,7 +9,7 @@ import seedu.address.model.company.ApplicationStatus;
 import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
-import seedu.address.model.company.Note;
+import seedu.address.model.company.Remark;
 import seedu.address.model.company.Phone;
 import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
@@ -161,12 +161,12 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code note} is invalid.
      */
-    public static Note parseNote(String note) throws ParseException {
-        requireNonNull(note);
-        String trimmedNote = note.trim();
-        if (!Note.isValidNote(trimmedNote)) {
-            throw new ParseException(Name.MESSAGE_CONSTRAINTS);
+    public static Remark parseRemark(String remark) throws ParseException {
+        requireNonNull(remark);
+        String trimmedRemark = remark.trim();
+        if (!Remark.isValidRemark(trimmedRemark)) {
+            throw new ParseException(Remark.MESSAGE_CONSTRAINTS);
         }
-        return new Note(trimmedNote);
+        return new Remark(trimmedRemark);
     }
 }

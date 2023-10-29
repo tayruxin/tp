@@ -54,11 +54,11 @@
             <padding>
                 <Insets top="10" left="15" bottom="-10"/>
             </padding>
-            <Label text="Notes" styleClass="card_medium_label" />
+            <Label text="Remarks" styleClass="card_medium_label" />
         </VBox>
-        <VBox alignment="TOP_LEFT" spacing="10" minHeight="105" GridPane.columnIndex="0" GridPane.rowIndex="6"
+        <VBox spacing="10" minHeight="105" GridPane.columnIndex="0" GridPane.rowIndex="6"
               styleClass="card-with-border">
-            <Label fx:id="note" styleClass="card_small_label" text="\$note" />
+            <Label fx:id="remark" styleClass="card_small_label" text="\$remark" />
         </VBox>
     </GridPane>
 </HBox>

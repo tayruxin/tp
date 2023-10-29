@@ -12,7 +12,7 @@ import seedu.address.model.company.ApplicationStatus;
 import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
-import seedu.address.model.company.Note;
+import seedu.address.model.company.Remark;
 import seedu.address.model.company.Phone;
 import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
@@ -146,7 +146,7 @@ public class JsonAdaptedCompanyTest {
     public void toModelType_nullNote_throwsIllegalValueException() {
         JsonAdaptedCompany company = new JsonAdaptedCompany(VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL, VALID_ROLE,
                 VALID_DEADLINE, VALID_STATUS, VALID_RECRUITER_NAME, VALID_PRIORITY, null);
-        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Note.class.getSimpleName());
+        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Remark.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, company::toModelType);
     }
 

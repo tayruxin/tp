@@ -8,7 +8,7 @@ import seedu.address.model.company.Company;
 import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
-import seedu.address.model.company.Note;
+import seedu.address.model.company.Remark;
 import seedu.address.model.company.Phone;
 import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
@@ -113,7 +113,7 @@ public class EditCompanyDescriptorBuilder {
      * Sets the {@code Name} of the {@code EditCompanyDescriptor} that we are building.
      */
     public EditCompanyDescriptorBuilder withNote(String note) {
-        descriptor.setNote(new Note(note));
+        descriptor.setNote(new Remark(note));
         return this;
     }
 

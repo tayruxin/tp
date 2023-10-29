@@ -4,10 +4,10 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NOTE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_COMPANIES;
@@ -27,7 +27,7 @@ import seedu.address.model.company.Company;
 import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
-import seedu.address.model.company.Note;
+import seedu.address.model.company.Remark;
 import seedu.address.model.company.Phone;
 import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
@@ -39,8 +39,6 @@ import seedu.address.model.company.Role;
 public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
-
-    //c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the company identified "
             + "by the index number used in the displayed company list. "
@@ -54,7 +52,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_PRIORITY + "PRIORITY] "
-            + "[" + PREFIX_NOTE + "NOTE] "
+            + "[" + PREFIX_REMARK + "REMARK] "
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
@@ -116,10 +114,10 @@ public class EditCommand extends Command {
         RecruiterName updatedRecruiterName = editCompanyDescriptor.getRecruiterName()
                 .orElse(companyToEdit.getRecruiterName());
         Priority updatedPriority = editCompanyDescriptor.getPriority().orElse(companyToEdit.getPriority());
-        Note updatedNote = editCompanyDescriptor.getNote().orElse(companyToEdit.getNote());
+        Remark updatedRemark = editCompanyDescriptor.getRemark().orElse(companyToEdit.getRemark());
 
         return new Company(updatedName, updatedPhone, updatedEmail, updatedRole, updatedDeadline,
-                updatedStatus, updatedRecruiterName, updatedPriority, updatedNote);
+                updatedStatus, updatedRecruiterName, updatedPriority, updatedRemark);
     }
 
     @Override
@@ -159,7 +157,7 @@ public class EditCommand extends Command {
         private ApplicationStatus status;
         private RecruiterName recruiterName;
         private Priority priority;
-        private Note note;
+        private Remark remark;
 
         public EditCompanyDescriptor() {}
 
@@ -176,7 +174,7 @@ public class EditCommand extends Command {
             setStatus(toCopy.status);
             setRecruiterName(toCopy.recruiterName);
             setPriority(toCopy.priority);
-            setNote(toCopy.note);
+            setRemark(toCopy.remark);
         }
 
         /**
@@ -184,7 +182,7 @@ public class EditCommand extends Command {
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, role, deadline, status,
-                    recruiterName, priority, note);
+                    recruiterName, priority, remark);
         }
 
         public void setName(Name name) {
@@ -251,9 +249,9 @@ public class EditCommand extends Command {
             return Optional.ofNullable(priority);
         }
 
-        public void setNote(Note note) { this.note = note; }
+        public void setRemark(Remark remark) { this.remark = remark; }
 
-        public Optional<Note> getNote() { return Optional.ofNullable(note); }
+        public Optional<Remark> getRemark() { return Optional.ofNullable(remark); }
 
 
         @Override
@@ -276,7 +274,7 @@ public class EditCommand extends Command {
                     && Objects.equals(status, otherCompanyDescriptor.status)
                     && Objects.equals(recruiterName, otherCompanyDescriptor.recruiterName)
                     && Objects.equals(priority, otherCompanyDescriptor.priority)
-                    && Objects.equals(note, otherCompanyDescriptor.note);
+                    && Objects.equals(remark, otherCompanyDescriptor.remark);
         }
 
         @Override
@@ -290,7 +288,7 @@ public class EditCommand extends Command {
                     .add("phone", phone)
                     .add("email", email)
                     .add("priority", priority)
-                    .add("note", note)
+                    .add("remark", remark)
                     .toString();
         }
     }

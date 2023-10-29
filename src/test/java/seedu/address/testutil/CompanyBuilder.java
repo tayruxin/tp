@@ -8,7 +8,7 @@ import seedu.address.model.company.Company;
 import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
-import seedu.address.model.company.Note;
+import seedu.address.model.company.Remark;
 import seedu.address.model.company.Phone;
 import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
@@ -37,7 +37,7 @@ public class CompanyBuilder {
     private ApplicationStatus status;
     private RecruiterName recruiterName;
     private Priority priority;
-    private Note note;
+    private Remark note;
 
     /**
      * Creates a {@code CompanyBuilder} with the default details.
@@ -51,7 +51,7 @@ public class CompanyBuilder {
         status = new ApplicationStatus(DEFAULT_STATUS);
         recruiterName = new RecruiterName(DEFAULT_RECRUITER_NAME);
         priority = new Priority(DEFAULT_PRIORITY);
-        note = new Note(DEFAULT_NOTE);
+        note = new Remark(DEFAULT_NOTE);
     }
 
     /**
@@ -137,7 +137,7 @@ public class CompanyBuilder {
      * Sets the {@code Name} of the {@code Company} that we are building.
      */
     public CompanyBuilder withNote(String note) {
-        this.note = new Note(note);
+        this.note = new Remark(note);
         return this;
     }
     public Company build() {

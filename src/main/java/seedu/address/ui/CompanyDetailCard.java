@@ -43,7 +43,7 @@ public class CompanyDetailCard extends UiPart<Region> {
     @FXML
     private FlowPane priority;
     @FXML
-    private Label note;
+    private Label remark;
 
     /**
      * Creates a {@code CompanyCode} with the given {@code Company} and index to display.
@@ -59,7 +59,7 @@ public class CompanyDetailCard extends UiPart<Region> {
         status.setText("Application status: " + company.getStatus().getDescription());
         recruiterName.setText("Name: " + company.getRecruiterName().fullName);
         priorityFlowPane(company);
-        note.setText(company.getNote().note);
+        remark.setText(company.getRemark().value);
 
     }
 
