@@ -1,6 +1,5 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.logic.Messages.MESSAGE_EMPTY_PREFIX;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
@@ -40,18 +39,11 @@ public class AddCommandParser implements Parser<AddCommand> {
                 ArgumentTokenizer.tokenize(args, PREFIX_COMPANY_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ROLE,
                         PREFIX_DEADLINE, PREFIX_STATUS, PREFIX_RECRUITER_NAME, PREFIX_PRIORITY);
 
-        // Checks for empty text after add word
-        if (args.isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_EMPTY_PREFIX, AddCommand.MESSAGE_USAGE));
-        }
-
-        // Checks for missing prefixes after add word
-        if (!argMultimap.getPreamble().isEmpty()
-                || !arePrefixesPresent(argMultimap, PREFIX_COMPANY_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ROLE,
-                PREFIX_DEADLINE, PREFIX_STATUS, PREFIX_RECRUITER_NAME)) {
+        if (!arePrefixesPresent(argMultimap, PREFIX_COMPANY_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ROLE,
+                PREFIX_DEADLINE, PREFIX_STATUS, PREFIX_RECRUITER_NAME)
+                || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
-
 
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_COMPANY_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ROLE,
                 PREFIX_DEADLINE, PREFIX_STATUS, PREFIX_RECRUITER_NAME, PREFIX_PRIORITY);
