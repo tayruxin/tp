@@ -52,8 +52,11 @@ public class ParserUtil {
     public static Name parseName(String name) throws ParseException {
         requireNonNull(name);
         String trimmedName = name.trim();
+        if (trimmedName.isEmpty()) {
+            throw new ParseException(Name.MESSAGE_CONSTRAINTS_NON_EMPTY);
+        }
         if (!Name.isValidName(trimmedName)) {
-            throw new ParseException(Name.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Name.MESSAGE_CONSTRAINTS_INVALID_REGEX);
         }
         return new Name(trimmedName);
     }
@@ -67,8 +70,11 @@ public class ParserUtil {
     public static Phone parsePhone(String phone) throws ParseException {
         requireNonNull(phone);
         String trimmedPhone = phone.trim();
+        if (trimmedPhone.isEmpty()) {
+            throw new ParseException(Phone.MESSAGE_CONSTRAINTS_NON_EMPTY);
+        }
         if (!Phone.isValidPhone(trimmedPhone)) {
-            throw new ParseException(Phone.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Phone.MESSAGE_CONSTRAINTS_VALID_REGEX);
         }
         return new Phone(trimmedPhone);
     }
@@ -97,8 +103,11 @@ public class ParserUtil {
     public static Role parseRole(String role) throws ParseException {
         requireNonNull(role);
         String trimmedRole = role.trim();
+        if (trimmedRole.isEmpty()) {
+            throw new ParseException(Role.MESSAGE_CONSTRAINTS_NON_EMPTY);
+        }
         if (!Role.isValidRole(trimmedRole)) {
-            throw new ParseException(Role.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Role.MESSAGE_CONSTRAINTS_INVALID_REGEX);
         }
         return new Role(trimmedRole);
     }
@@ -112,8 +121,11 @@ public class ParserUtil {
     public static Deadline parseDeadline(String deadline) throws ParseException {
         requireNonNull(deadline);
         String trimmedDeadline = deadline.trim();
+        if (trimmedDeadline.isEmpty()) {
+            throw new ParseException(Deadline.MESSAGE_CONSTRAINTS_NON_EMPTY);
+        }
         if (!Deadline.isValidDeadline(trimmedDeadline)) {
-            throw new ParseException(Deadline.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Deadline.MESSAGE_CONSTRAINTS_VALID_REGEX);
         }
         return new Deadline(trimmedDeadline);
     }
@@ -127,8 +139,11 @@ public class ParserUtil {
     public static ApplicationStatus parseStatus(String status) throws ParseException {
         requireNonNull(status);
         String trimmedStatus = status.trim();
+        if (trimmedStatus.isEmpty()) {
+            throw new ParseException(ApplicationStatus.MESSAGE_CONSTRAINTS_NON_EMPTY);
+        }
         if (!ApplicationStatus.isValidApplicationStatus(trimmedStatus)) {
-            throw new ParseException(ApplicationStatus.MESSAGE_CONSTRAINTS);
+            throw new ParseException(ApplicationStatus.MESSAGE_CONSTRAINTS_VALID_STATUS);
         }
         return new ApplicationStatus(trimmedStatus);
     }
@@ -142,8 +157,11 @@ public class ParserUtil {
     public static RecruiterName parseRecruiterName(String recruiterName) throws ParseException {
         requireNonNull(recruiterName);
         String trimmedRecruiterName = recruiterName.trim();
+        if (trimmedRecruiterName.isEmpty()) {
+            throw new ParseException(RecruiterName.MESSAGE_CONSTRAINTS_NON_EMPTY);
+        }
         if (!RecruiterName.isValidName(trimmedRecruiterName)) {
-            throw new ParseException(RecruiterName.MESSAGE_CONSTRAINTS);
+            throw new ParseException(RecruiterName.MESSAGE_CONSTRAINTS_INVALID_REGEX);
         }
         return new RecruiterName(trimmedRecruiterName);
     }
@@ -157,8 +175,11 @@ public class ParserUtil {
     public static Priority parsePriority(String priority) throws ParseException {
         requireNonNull(priority);
         String trimmedPriority = priority.trim().toUpperCase();
+        if (trimmedPriority.isEmpty()) {
+            throw new ParseException(Priority.MESSAGE_CONSTRAINTS_NON_EMPTY);
+        }
         if (!Priority.isValidPriority(trimmedPriority)) {
-            throw new ParseException(Priority.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Priority.MESSAGE_CONSTRAINTS_VALID_REGEX);
         }
         return new Priority(trimmedPriority);
     }

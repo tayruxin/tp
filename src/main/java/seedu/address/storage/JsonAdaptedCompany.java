@@ -74,7 +74,7 @@ class JsonAdaptedCompany {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
         }
         if (!Name.isValidName(name)) {
-            throw new IllegalValueException(Name.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(Name.MESSAGE_CONSTRAINTS_INVALID_REGEX);
         }
         final Name modelName = new Name(name);
 
@@ -82,7 +82,7 @@ class JsonAdaptedCompany {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName()));
         }
         if (!Phone.isValidPhone(phone)) {
-            throw new IllegalValueException(Phone.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(Phone.MESSAGE_CONSTRAINTS_VALID_REGEX);
         }
         final Phone modelPhone = new Phone(phone);
 
@@ -98,7 +98,7 @@ class JsonAdaptedCompany {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Role.class.getSimpleName()));
         }
         if (!Role.isValidRole(role)) {
-            throw new IllegalValueException(Role.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(Role.MESSAGE_CONSTRAINTS_INVALID_REGEX);
         }
         final Role modelRole = new Role(role);
 
@@ -107,7 +107,7 @@ class JsonAdaptedCompany {
                     Deadline.class.getSimpleName()));
         }
         if (!Deadline.isValidDeadline(deadline)) {
-            throw new IllegalValueException(Deadline.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(Deadline.MESSAGE_CONSTRAINTS_VALID_REGEX);
         }
         final Deadline modelDeadline = new Deadline(deadline);
 
@@ -116,7 +116,7 @@ class JsonAdaptedCompany {
                     ApplicationStatus.class.getSimpleName()));
         }
         if (!ApplicationStatus.isValidApplicationStatus(status)) {
-            throw new IllegalValueException(ApplicationStatus.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(ApplicationStatus.MESSAGE_CONSTRAINTS_VALID_STATUS);
         }
         final ApplicationStatus modelStatus = new ApplicationStatus(status);
 
@@ -125,7 +125,7 @@ class JsonAdaptedCompany {
                     RecruiterName.class.getSimpleName()));
         }
         if (!RecruiterName.isValidName(recruiterName)) {
-            throw new IllegalValueException(RecruiterName.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(RecruiterName.MESSAGE_CONSTRAINTS_INVALID_REGEX);
         }
         final RecruiterName modelRecruiterName = new RecruiterName(recruiterName);
 
@@ -135,7 +135,7 @@ class JsonAdaptedCompany {
         }
 
         if (!Priority.isValidPriority(priority)) {
-            throw new IllegalValueException(Priority.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(Priority.MESSAGE_CONSTRAINTS_VALID_REGEX);
         }
 
         final Priority modelPriority = new Priority(priority);

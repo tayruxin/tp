@@ -9,10 +9,13 @@ import static java.util.Objects.requireNonNull;
  */
 public class ApplicationStatus {
 
-    public static final String MESSAGE_CONSTRAINTS =
-            "Please enter a valid application status. Valid statuses are: "
-                    + "PA (PENDING APPLICATION), PI (PENDING INTERVIEW), PO (PENDING OUTCOME), "
-                    + "A (ACCEPTED), R (REJECTED)";
+    public static final String MESSAGE_CONSTRAINTS_NON_EMPTY = "Oops! Application status should not be empty! "
+            + "Please try again with a valid application status.";
+    public static final String MESSAGE_CONSTRAINTS_VALID_STATUS =
+            "Oops! You have entered an invalid application status! \n"
+                    + "Valid statuses: PA (Pending Application), PI (Pending Interview), PO (Pending Outcome), "
+                    + "A (Accepted), R (Rejected). \n"
+                    + "Please try again with a valid applications status.";
 
     /**
      * The application status of a company.
@@ -69,7 +72,7 @@ public class ApplicationStatus {
             this.status = ApplicationStatusEnum.R;
             break;
         default:
-            throw new IllegalArgumentException(MESSAGE_CONSTRAINTS);
+            throw new IllegalArgumentException(MESSAGE_CONSTRAINTS_VALID_STATUS);
         }
     }
 
