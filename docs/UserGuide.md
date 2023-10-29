@@ -174,31 +174,75 @@ Add the company to LinkMeIn to keep track of the application process using the `
 
 ![AddCommand.png](images/add-command/AfterAddCommand.png)
 
+### View full company information: `view` ###
+
+_You look at the list of companies and you see a company that has not been getting back to you. You can use the view
+command to view the company's recruiter's contact details to follow up with them. The view command allows you to view
+the detail of any company from the list of companies that you have added._
+
+**Format:** `view INDEX`
+> INDEX must be a positive integer number e.g 1,2,3... and must not be greater than the number of company in the list.
+
+<div class="typography-box note">
+  <span class="icon">ℹ️</span>
+  <span class="content">
+    <strong>Note :</strong> INDEX refers to the index number shown in the displayed company list.
+  </span>
+</div>
+
+**Example:**
+1. After scrolling through your list of companies, you wish to view the details of the company _Twitter_. 
+Simply type `view 6` to view _Twitter's_ details.
+
+![img.png](BeforeViewCommand.png)
+
+2. The detail panel will be updated to show the details of _Twitter_.
+
+![img.png](AfterViewCommand.png)
+
+**Possible Error:**
+If you enter an [**invalid index**](#8-what-is-an-invalid-index), you will see an error message in the command box. 
+Don’t worry, just edit your index accordingly and try the command again!
+An example of an error message is shown below.
+
+![img.png](ViewCommandError.png)
+
+
 ### Deleting a company : `delete` ###
 
-Whether you accidentally added a company or no longer want to track it, don't worry LinkMeIn got you covered.
-You can use the delete command to delete the company from the list of companies that you have added.
+_Whether you accidentally added a company or no longer want to track it, don't worry LinkMeIn got you covered.
+You can use the delete command to delete the company from the list of companies that you have added._
 
 **Format:`delete INDEX`**
 
-* The index refers to the index number shown in the displayed company list.
-* The index must be a positive integer.
-* The index must not be out of bounds.
-* You can only delete one company at a time.
+> INDEX must be a positive integer number e.g 1,2,3... and must not be greater than the number of company in the list.
 
-**Examples:**
-* `list` followed by `delete 1` deletes the first contact in the full list of companies.
-* `find` TikTok followed by `delete 1` deletes the first contact in the results of find TikTok
+<div class="typography-box note">
+  <span class="icon">ℹ️</span>
+  <span class="content">
+    <strong>Note :</strong> INDEX refers to the index number shown in the displayed company list. 
+You can only delete one company at a time. 
+  </span>
+</div>
 
-**What you will see before `delete` command succeeds:**
+**Example:**
+1. Let's say after viewing the company _Twitter_, you decide that you no longer want to track it. 
+Simply type `delete 6` to delete _Twitter_.
 
 ![img.png](BeforeDeleteCommand.png)
 
-**What you will see after `delete` command succeeds:**
+2. Twitter will be removed from the list of companies. The detail panel will be cleared too.
 
 ![img.png](AfterDeleteCommand.png)
 
-> Note: If you are viewing the details of the company that you are deleting, the details panel will be cleared too.
+**Possible Error:**
+
+If you enter an [**invalid index**](#8-what-is-an-invalid-index), 
+you will see an error message in the command box. Don’t worry, just edit your index accordingly and 
+try the command again!
+An example of an error message is shown below.
+
+![img.png](DeleteCommandError.png)
 
 ### Edit a company's information: `edit` ###
 If you made a typo or need to update the progress of application,
@@ -219,40 +263,6 @@ use the `edit` command to input the accurate details.
 2.The 2nd company's the status and role is edited to be Pending Interview and Frontend Developer respectively.
 
 ![EditDemo2.png](images/EditDemo2.png)
-
-### View full company information: `view` ###
-
-You look at the list of companies and you see a company that has not been getting back to you. You can use the view
-command to view the company's recruiter's contact details to follow up with them. The view command allows you to view
-the company detail of any company from the list of companies that you have added.
-
-**Format:** `view INDEX`
-
-* The index refers to the index number shown in the displayed company list.
-* The index must be a positive integer.
-* The index must not be out of bounds.
-* You can only view one company at a time.
-
-**Example:**
-* `view 1` displays application details of the first company in the full list
-
-**What you will see before `view` command succeeds:**
-
-![img.png](BeforeViewCommand.png)
-
-**What you will see after `view` command succeeds:**
-
-![img.png](AfterViewCommand.png)
-
-The company’s information should be listed on the left panel and you will see the following fields:
-1. COMPANY_NAME
-2. PRIORITY
-3. ROLE
-4. DEADLINE
-5. APPLICATION_STATUS
-6. RECRUITER_NAME
-7. EMAIL
-8. PHONE
 
 
 ## Company List Features ##
@@ -371,11 +381,10 @@ When adding a new company, use the `pr/` prefix followed by the priority value. 
 ### 6. How do I load data from another computer? ### 
 Delete the `addressbook.json` file (stored at `[JAR file location]/data/addressbook.json`) from the computer that you wish to use LinkMeIn on. Then, copy over the `addressbook.json` file from the computer which you no longer wish to use LinkMeIn on. After which, boot up LinkMeIn to check whether your doctor information is properly loaded into the new computer.
 
-### 7. Why am I unable to run LinkMeIn? ### 
-Make sure you have Java 11 installed on your machine as the product only runs on Java 11.
+### 7. What is an invalid index? ###
+An invalid index is a non-positive integer or an index greater than the number of companies you have. 
+e.g -1, 0, a, *, 1  0 (Only one index is allowed at a time). 
 
-### 8. How can I add priority to my internship application details? ### 
-When adding a new company, use the `pr/` prefix followed by the priority value. For instance, `pr/high` to set the priority to high.
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues ##
