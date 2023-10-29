@@ -13,7 +13,7 @@ public class Remark {
     public static final String MESSAGE_CONSTRAINTS = "Remark should not be blank";
 
     /*
-     * The note must not consist of whitespace only,
+     * The remark must not consist of whitespace only,
      * otherwise " " (a blank string) becomes a valid input.
      */
     public static final String VALIDATION_REGEX = "^(?!\\s+$).+";
@@ -32,7 +32,7 @@ public class Remark {
     }
 
     /**
-     * Returns true if a given string is a valid note.
+     * Returns true if a given string is a valid remark.
      */
     public static boolean isValidRemark(String test) {
         return test.matches(VALIDATION_REGEX);
@@ -55,8 +55,8 @@ public class Remark {
             return false;
         }
 
-        Remark otherNote = (Remark) other;
-        return value.equals(otherNote.value);
+        Remark otherremark = (Remark) other;
+        return value.equals(otherremark.value);
     }
 
     @Override

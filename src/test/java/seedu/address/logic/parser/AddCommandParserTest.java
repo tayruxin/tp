@@ -8,16 +8,14 @@ import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_DEADLINE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_NOTE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PRIORITY_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_RECRUITER_NAME_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_REMARK_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_ROLE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_STATUS_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_TIKTOK;
-import static seedu.address.logic.commands.CommandTestUtil.NOTE_DESC_GOOGLE;
-import static seedu.address.logic.commands.CommandTestUtil.NOTE_DESC_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_NON_EMPTY;
@@ -26,6 +24,8 @@ import static seedu.address.logic.commands.CommandTestUtil.PRIORITY_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.PRIORITY_DESC_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.RECRUITER_NAME_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.RECRUITER_NAME_DESC_TIKTOK;
+import static seedu.address.logic.commands.CommandTestUtil.REMARK_DESC_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.REMARK_DESC_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.STATUS_DESC_GOOGLE;
@@ -40,10 +40,10 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_STATUS_TIKTOK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NOTE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
@@ -76,7 +76,7 @@ public class AddCommandParserTest {
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
                 + ROLE_DESC_TIKTOK + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
-                + PRIORITY_DESC_TIKTOK + NOTE_DESC_TIKTOK, new AddCommand(expectedCompany));
+                + PRIORITY_DESC_TIKTOK + REMARK_DESC_TIKTOK, new AddCommand(expectedCompany));
 
 
     }
@@ -85,7 +85,7 @@ public class AddCommandParserTest {
     public void parse_repeatedNonTagValue_failure() {
         String validExpectedCompanyString = NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK + ROLE_DESC_TIKTOK
                 + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK + PRIORITY_DESC_TIKTOK
-                + NOTE_DESC_TIKTOK;
+                + REMARK_DESC_TIKTOK;
 
         // multiple names
         assertParseFailure(parser, NAME_DESC_GOOGLE + validExpectedCompanyString,
@@ -119,9 +119,9 @@ public class AddCommandParserTest {
         assertParseFailure(parser, PRIORITY_DESC_GOOGLE + validExpectedCompanyString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_PRIORITY));
 
-        // multiple notes
-        assertParseFailure(parser, NOTE_DESC_GOOGLE + validExpectedCompanyString,
-                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_NOTE));
+        // multiple remarks
+        assertParseFailure(parser, REMARK_DESC_GOOGLE + validExpectedCompanyString,
+                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_REMARK));
 
         // multiple fields repeated
         assertParseFailure(parser, NAME_DESC_GOOGLE + PHONE_DESC_GOOGLE + EMAIL_DESC_GOOGLE + ROLE_DESC_GOOGLE
@@ -164,9 +164,9 @@ public class AddCommandParserTest {
         assertParseFailure(parser, INVALID_PRIORITY_DESC + validExpectedCompanyString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_PRIORITY));
 
-        // invalid note
-        assertParseFailure(parser, INVALID_NOTE_DESC + validExpectedCompanyString,
-                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_NOTE));
+        // invalid remark
+        assertParseFailure(parser, INVALID_REMARK_DESC + validExpectedCompanyString,
+                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_REMARK));
 
         // valid value followed by invalid value
 
@@ -202,14 +202,14 @@ public class AddCommandParserTest {
         assertParseFailure(parser, validExpectedCompanyString + INVALID_PRIORITY_DESC,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_PRIORITY));
 
-        // invalid priority
-        assertParseFailure(parser, validExpectedCompanyString + INVALID_NOTE_DESC,
-                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_NOTE));
+        // invalid remark
+        assertParseFailure(parser, validExpectedCompanyString + INVALID_REMARK_DESC,
+                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_REMARK));
     }
 
     @Test
-    public void parse_optionalNoteMissing_success() {
-        Company expectedCompany = new CompanyBuilder(GOOGLE).withNote("No notes").build();
+    public void parse_optionalremarkMissing_success() {
+        Company expectedCompany = new CompanyBuilder(GOOGLE).withRemark("No remarks").build();
         assertParseSuccess(parser, NAME_DESC_GOOGLE + PHONE_DESC_GOOGLE + EMAIL_DESC_GOOGLE + ROLE_DESC_GOOGLE
                         + DEADLINE_DESC_GOOGLE + STATUS_DESC_GOOGLE + RECRUITER_NAME_DESC_GOOGLE + PRIORITY_DESC_GOOGLE,
                 new AddCommand(expectedCompany));
@@ -257,51 +257,51 @@ public class AddCommandParserTest {
         // invalid name
         assertParseFailure(parser, INVALID_NAME_DESC + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
                 + ROLE_DESC_TIKTOK + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
-                + PRIORITY_DESC_TIKTOK + NOTE_DESC_GOOGLE, Name.MESSAGE_CONSTRAINTS);
+                + PRIORITY_DESC_TIKTOK + REMARK_DESC_GOOGLE, Name.MESSAGE_CONSTRAINTS);
 
         // invalid phone
         assertParseFailure(parser, NAME_DESC_TIKTOK + INVALID_PHONE_DESC + EMAIL_DESC_TIKTOK
                 + ROLE_DESC_TIKTOK + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
-                + PRIORITY_DESC_TIKTOK + NOTE_DESC_GOOGLE, Phone.MESSAGE_CONSTRAINTS);
+                + PRIORITY_DESC_TIKTOK + REMARK_DESC_GOOGLE, Phone.MESSAGE_CONSTRAINTS);
 
         // invalid email
         assertParseFailure(parser, NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + INVALID_EMAIL_DESC
                 + ROLE_DESC_TIKTOK + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
-                + PRIORITY_DESC_TIKTOK + NOTE_DESC_GOOGLE, Email.MESSAGE_CONSTRAINTS);
+                + PRIORITY_DESC_TIKTOK + REMARK_DESC_GOOGLE, Email.MESSAGE_CONSTRAINTS);
 
         // invalid role
         assertParseFailure(parser, NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
                 + INVALID_ROLE_DESC + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
-                + PRIORITY_DESC_TIKTOK + NOTE_DESC_GOOGLE, Role.MESSAGE_CONSTRAINTS);
+                + PRIORITY_DESC_TIKTOK + REMARK_DESC_GOOGLE, Role.MESSAGE_CONSTRAINTS);
 
         // invalid deadline
         assertParseFailure(parser, NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
                 + ROLE_DESC_TIKTOK + INVALID_DEADLINE_DESC + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
-                + PRIORITY_DESC_TIKTOK + NOTE_DESC_GOOGLE, Deadline.MESSAGE_CONSTRAINTS);
+                + PRIORITY_DESC_TIKTOK + REMARK_DESC_GOOGLE, Deadline.MESSAGE_CONSTRAINTS);
 
         // invalid status
         assertParseFailure(parser, NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
                 + ROLE_DESC_TIKTOK + DEADLINE_DESC_TIKTOK + INVALID_STATUS_DESC + RECRUITER_NAME_DESC_TIKTOK
-                + PRIORITY_DESC_TIKTOK + NOTE_DESC_GOOGLE, ApplicationStatus.MESSAGE_CONSTRAINTS);
+                + PRIORITY_DESC_TIKTOK + REMARK_DESC_GOOGLE, ApplicationStatus.MESSAGE_CONSTRAINTS);
 
         // invalid recruiter name
         assertParseFailure(parser, NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
                 + ROLE_DESC_TIKTOK + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + INVALID_RECRUITER_NAME_DESC
-                + PRIORITY_DESC_TIKTOK + NOTE_DESC_GOOGLE, RecruiterName.MESSAGE_CONSTRAINTS);
+                + PRIORITY_DESC_TIKTOK + REMARK_DESC_GOOGLE, RecruiterName.MESSAGE_CONSTRAINTS);
 
         // invalid priority
         assertParseFailure(parser, NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
                 + ROLE_DESC_TIKTOK + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
-                + INVALID_PRIORITY_DESC + NOTE_DESC_GOOGLE, Priority.MESSAGE_CONSTRAINTS);
+                + INVALID_PRIORITY_DESC + REMARK_DESC_GOOGLE, Priority.MESSAGE_CONSTRAINTS);
 
         // two invalid values, only first invalid value reported
         assertParseFailure(parser, INVALID_NAME_DESC + INVALID_PHONE_DESC + EMAIL_DESC_TIKTOK
                 + ROLE_DESC_TIKTOK + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK
-                + RECRUITER_NAME_DESC_TIKTOK + PRIORITY_DESC_TIKTOK + NOTE_DESC_GOOGLE, Name.MESSAGE_CONSTRAINTS);
+                + RECRUITER_NAME_DESC_TIKTOK + PRIORITY_DESC_TIKTOK + REMARK_DESC_GOOGLE, Name.MESSAGE_CONSTRAINTS);
 
         // non-empty preamble
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
-                        + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK + PRIORITY_DESC_TIKTOK + NOTE_DESC_GOOGLE,
+                        + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK + PRIORITY_DESC_TIKTOK + REMARK_DESC_GOOGLE,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
     }
 
@@ -309,7 +309,7 @@ public class AddCommandParserTest {
     public void parsePrefixPriority_notPresent_returnsPriorityNoneObject() {
         String userInput = NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
                 + ROLE_DESC_TIKTOK + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
-                + NOTE_DESC_TIKTOK;
+                + REMARK_DESC_TIKTOK;
         assertParseSuccess(parser, userInput, new AddCommand(
                 new CompanyBuilder(TIKTOK)
                         .withPriority("NONE")

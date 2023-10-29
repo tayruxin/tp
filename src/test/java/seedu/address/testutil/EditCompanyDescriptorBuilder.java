@@ -42,7 +42,7 @@ public class EditCompanyDescriptorBuilder {
         descriptor.setRole(company.getRole());
         descriptor.setDeadline(company.getDeadline());
         descriptor.setPriority(company.getPriority());
-        descriptor.setNote(company.getNote());
+        descriptor.setRemark(company.getRemark());
     }
 
     /**
@@ -112,8 +112,8 @@ public class EditCompanyDescriptorBuilder {
     /**
      * Sets the {@code Name} of the {@code EditCompanyDescriptor} that we are building.
      */
-    public EditCompanyDescriptorBuilder withNote(String note) {
-        descriptor.setNote(new Remark(note));
+    public EditCompanyDescriptorBuilder withRemark(String remark) {
+        descriptor.setRemark(new Remark(remark));
         return this;
     }
 

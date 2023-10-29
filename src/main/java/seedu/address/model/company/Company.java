@@ -28,8 +28,8 @@ public class Company {
      * Every field must be present and not null.
      */
     public Company(Name name, Phone phone, Email email, Role role, Deadline deadline, ApplicationStatus status,
-                   RecruiterName recruiterName, Priority priority, Remark note) {
-        requireAllNonNull(name, phone, email, role, deadline, status, priority, note);
+                   RecruiterName recruiterName, Priority priority, Remark remark) {
+        requireAllNonNull(name, phone, email, role, deadline, status, priority, remark);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -38,7 +38,7 @@ public class Company {
         this.status = status;
         this.recruiterName = recruiterName;
         this.priority = priority;
-        this.remark = note;
+        this.remark = remark;
     }
 
     public Name getName() {

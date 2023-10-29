@@ -156,10 +156,10 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String note} into a {@code Note}.
+     * Parses a {@code String remark} into a {@code remark}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code note} is invalid.
+     * @throws ParseException if the given {@code remark} is invalid.
      */
     public static Remark parseRemark(String remark) throws ParseException {
         requireNonNull(remark);

@@ -3,10 +3,10 @@ package seedu.address.testutil;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NOTE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 
@@ -39,7 +39,7 @@ public class CompanyUtil {
         sb.append(PREFIX_STATUS + company.getStatus().toString() + " ");
         sb.append(PREFIX_RECRUITER_NAME + company.getRecruiterName().fullName + " ");
         sb.append(PREFIX_PRIORITY + company.getPriority().priority + " ");
-        sb.append(PREFIX_NOTE + company.getNote().note + " ");
+        sb.append(PREFIX_REMARK + company.getRemark().value + " ");
         return sb.toString();
     }
 
@@ -58,7 +58,7 @@ public class CompanyUtil {
                 .append(recruiterName.fullName).append(" "));
         descriptor.getPriority().ifPresent(priority -> sb.append(PREFIX_PRIORITY)
                 .append(priority.priority).append(" "));
-        descriptor.getNote().ifPresent(note -> sb.append(PREFIX_NOTE).append(note.note).append(" "));
+        descriptor.getRemark().ifPresent(remark -> sb.append(PREFIX_REMARK).append(remark.value).append(" "));
         return sb.toString();
     }
 }

@@ -9,7 +9,7 @@
     "status": "PA",
     "recruiterName": "John Doe",
     "priority": "LOW",
-    "note" : "No notes"
+    "remark" : "No remarks"
   }, {
     "name" : "Amazon",
     "phone" : "98765432",
@@ -19,7 +19,7 @@
     "status": "PA",
     "recruiterName": "Jane Doe",
     "priority": "MEDIUM",
-    "note" : "JavaScript&CSS"
+    "remark" : "JavaScript&CSS"
   }, {
     "name" : "Microsoft",
     "phone" : "95352563",
@@ -29,7 +29,7 @@
     "status": "PA",
     "recruiterName": "Jim Doe",
     "priority": "HIGH",
-    "note" : "www.bing.com"
+    "remark" : "www.bing.com"
   }, {
     "name" : "DSTA",
     "phone" : "87652533",
@@ -39,7 +39,7 @@
     "status": "PA",
     "recruiterName": "Tim Doe",
     "priority": "LOW",
-    "note" : "Java"
+    "remark" : "Java"
   }, {
     "name" : "Apple",
     "phone" : "9482224",
@@ -49,7 +49,7 @@
     "status": "PA",
     "recruiterName": "Tom Doe",
     "priority": "MEDIUM",
-    "note" : "Python"
+    "remark" : "Python"
   }, {
     "name" : "Accenture",
     "phone" : "9482427",
@@ -59,7 +59,7 @@
     "status": "PA",
     "recruiterName": "Mary Doe",
     "priority": "HIGH",
-    "note" : "No notes"
+    "remark" : "No remarks"
   }, {
     "name" : "Netflix",
     "phone" : "9482442",
@@ -69,6 +69,6 @@
     "status": "PA",
     "recruiterName": "Timmy Doe",
     "priority": "HIGH",
-    "note" : "No notes"
+    "remark" : "No remarks"
   }]
 }

@@ -8,7 +8,7 @@
     "status": "PA",
     "recruiterName": "Alice Pauline",
     "priority": "HIGH",
-    "note" : "No notes"
+    "remark" : "No remarks"
   }, {
     "name": "Meta",
     "phone": "94351253",
@@ -18,6 +18,6 @@
     "status": "PA",
     "recruiterName": "Alice Pauline",
     "priority": "HIGH",
-    "note" : "No notes"
+    "remark" : "No remarks"
   } ]
 }
