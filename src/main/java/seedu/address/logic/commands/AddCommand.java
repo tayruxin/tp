@@ -23,8 +23,8 @@ public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a company to the address book. "
-            + "Parameters: "
+    public static final String MESSAGE_USAGE =
+            "Parameters: "
             + PREFIX_COMPANY_NAME + "COMPANY_NAME "
             + PREFIX_ROLE + "ROLE "
             + PREFIX_STATUS + "STATUS "
@@ -32,7 +32,7 @@ public class AddCommand extends Command {
             + PREFIX_RECRUITER_NAME + "RECRUITER_NAME "
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
-            + PREFIX_PRIORITY + "PRIORITY \n"
+            + "[" + PREFIX_PRIORITY + "PRIORITY] \n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_COMPANY_NAME + "Google "
             + PREFIX_ROLE + "Software Engineer "
@@ -44,7 +44,8 @@ public class AddCommand extends Command {
             + PREFIX_PRIORITY + "HIGH ";
 
     public static final String MESSAGE_SUCCESS = "New company added: %1$s";
-    public static final String MESSAGE_DUPLICATE_COMPANY = "This company already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_COMPANY = "This company's information already exists in "
+            + "LinkMeIn! Please add a new entry with different information.";
 
     private final Company toAdd;
 
