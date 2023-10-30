@@ -87,7 +87,7 @@ public class JsonAdaptedCompanyTest {
         JsonAdaptedCompany company =
                 new JsonAdaptedCompany(VALID_COMPANY_NAME, VALID_PHONE, INVALID_EMAIL, VALID_ROLE,
                         VALID_DEADLINE, VALID_STATUS, VALID_RECRUITER_NAME, VALID_PRIORITY);
-        String expectedMessage = Email.MESSAGE_CONSTRAINTS;
+        String expectedMessage = Email.MESSAGE_CONSTRAINTS_VALID_REGEX;
         assertThrows(IllegalValueException.class, expectedMessage, company::toModelType);
     }
 

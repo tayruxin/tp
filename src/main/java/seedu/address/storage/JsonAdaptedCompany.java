@@ -90,7 +90,7 @@ class JsonAdaptedCompany {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName()));
         }
         if (!Email.isValidEmail(email)) {
-            throw new IllegalValueException(Email.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(Email.MESSAGE_CONSTRAINTS_VALID_REGEX);
         }
         final Email modelEmail = new Email(email);
 
@@ -133,11 +133,9 @@ class JsonAdaptedCompany {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     Priority.class.getSimpleName()));
         }
-
         if (!Priority.isValidPriority(priority)) {
             throw new IllegalValueException(Priority.MESSAGE_CONSTRAINTS_VALID_REGEX);
         }
-
         final Priority modelPriority = new Priority(priority);
 
 

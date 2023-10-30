@@ -88,8 +88,11 @@ public class ParserUtil {
     public static Email parseEmail(String email) throws ParseException {
         requireNonNull(email);
         String trimmedEmail = email.trim();
+        if (trimmedEmail.isEmpty()) {
+            throw new ParseException(Email.MESSAGE_CONSTRAINTS_NON_EMPTY);
+        }
         if (!Email.isValidEmail(trimmedEmail)) {
-            throw new ParseException(Email.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Email.MESSAGE_CONSTRAINTS_VALID_REGEX);
         }
         return new Email(trimmedEmail);
     }

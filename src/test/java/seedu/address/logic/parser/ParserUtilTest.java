@@ -58,6 +58,11 @@ public class ParserUtilTest {
     }
 
     @Test
+    public void parseName_emptyValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseName(""));
+    }
+
+    @Test
     public void parseName_validValueWithoutWhitespace_returnsName() throws Exception {
         Name expectedName = new Name(VALID_COMPANY_NAME);
         assertEquals(expectedName, ParserUtil.parseName(VALID_COMPANY_NAME));
@@ -78,6 +83,11 @@ public class ParserUtilTest {
     @Test
     public void parsePhone_invalidValue_throwsParseException() {
         assertThrows(ParseException.class, () -> ParserUtil.parsePhone(INVALID_PHONE));
+    }
+
+    @Test
+    public void parsePhone_emptyValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parsePhone(""));
     }
 
     @Test
@@ -104,6 +114,11 @@ public class ParserUtilTest {
     }
 
     @Test
+    public void parseEmail_emptyValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseEmail(""));
+    }
+
+    @Test
     public void parseEmail_validValueWithoutWhitespace_returnsEmail() throws Exception {
         Email expectedEmail = new Email(VALID_EMAIL);
         assertEquals(expectedEmail, ParserUtil.parseEmail(VALID_EMAIL));
@@ -124,6 +139,11 @@ public class ParserUtilTest {
     @Test
     public void parsePriority_invalidValue_throwsParseException() {
         assertThrows(ParseException.class, () -> ParserUtil.parsePriority(INVALID_PRIORITY));
+    }
+
+    @Test
+    public void parsePriority_emptyValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parsePriority(""));
     }
 
     @Test

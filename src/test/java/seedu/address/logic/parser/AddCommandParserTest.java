@@ -251,7 +251,7 @@ public class AddCommandParserTest {
         // invalid email
         assertParseFailure(parser, NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + INVALID_EMAIL_DESC
                 + ROLE_DESC_TIKTOK + DEADLINE_DESC_TIKTOK + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
-                + PRIORITY_DESC_TIKTOK, Email.MESSAGE_CONSTRAINTS);
+                + PRIORITY_DESC_TIKTOK, Email.MESSAGE_CONSTRAINTS_VALID_REGEX);
 
         // invalid role
         assertParseFailure(parser, NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
