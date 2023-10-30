@@ -19,7 +19,6 @@ import java.util.List;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.logic.parser.ParserUtil;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.company.Company;
@@ -48,7 +47,7 @@ public class CommandTestUtil {
     public static final String VALID_PRIORITY_GOOGLE = "HIGH";
     public static final String VALID_PRIORITY_TIKTOK = "LOW";
     public static final String VALID_REMARK_GOOGLE = "Java/Python";
-    public static final String VALID_REMARK_TIKTOK = "NO NOTES";
+    public static final String VALID_REMARK_TIKTOK = "NO REMARKS";
 
     public static final String NAME_DESC_GOOGLE = " " + PREFIX_COMPANY_NAME + VALID_NAME_GOOGLE;
     public static final String NAME_DESC_TIKTOK = " " + PREFIX_COMPANY_NAME + VALID_NAME_TIKTOK;
@@ -78,7 +77,7 @@ public class CommandTestUtil {
             " " + PREFIX_RECRUITER_NAME + "Google&"; // '&' not allowed in names
 
     public static final String INVALID_PRIORITY_DESC = " " + PREFIX_PRIORITY + "HIGHH"; // invalid priority
-    public static final String INVALID_REMARK_DESC = " " + PREFIX_REMARK+ " "; // invalid note
+    public static final String INVALID_REMARK_DESC = " " + PREFIX_REMARK + " "; // invalid remark
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";

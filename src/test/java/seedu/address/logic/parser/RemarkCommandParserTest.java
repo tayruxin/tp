@@ -42,7 +42,7 @@ public class RemarkCommandParserTest {
         assertParseFailure(parser, userInput, expectedMessage);
 
         // no prefix and remark
-        expectedMessage= RemarkCommand.MESSAGE_NO_REMARK;
+        expectedMessage = RemarkCommand.MESSAGE_NO_REMARK;
         userInput = targetIndex.getOneBased() + "";
         assertParseFailure(parser, userInput, expectedMessage);
 

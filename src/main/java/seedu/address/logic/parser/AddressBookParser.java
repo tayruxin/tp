@@ -91,7 +91,7 @@ public class AddressBookParser {
 
         case RemarkCommand.REMOVE_COMMAND_WORD:
             return new UnremarkCommandParser().parse(arguments);
-            
+
         case FilterCommand.COMMAND_WORD:
             return new FilterCommandParser().parse(arguments);
 

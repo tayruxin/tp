@@ -12,6 +12,10 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.company.Company;
 import seedu.address.model.company.Remark;
+
+/**
+ * Adds a remark to an existing company in the address book.
+ */
 public class RemarkCommand extends Command {
 
     public static final String COMMAND_WORD = "remark";
@@ -36,7 +40,7 @@ public class RemarkCommand extends Command {
     private final Remark remark;
 
     /**
-     * @param index of the company in the filtered person list to edit the remark
+     * @param index of the company in the filtered company list to edit the remark
      * @param remark of the company to be updated to
      */
     public RemarkCommand(Index index, Remark remark) {
@@ -70,7 +74,7 @@ public class RemarkCommand extends Command {
 
     /**
      * Generates a command execution success message based on whether the remark is added to or removed from
-     * {@code personToEdit}.
+     * {@code companyToEdit}.
      */
     private String generateSuccessMessage(Company companyToEdit) {
         String message = !remark.value.isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;

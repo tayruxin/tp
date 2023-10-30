@@ -1,8 +1,6 @@
 package seedu.address.model.company;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
-import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents user's remark for a Company in the address book.
@@ -27,7 +25,6 @@ public class Remark {
      */
     public Remark(String remark) {
         requireNonNull(remark);
-//        checkArgument(isValidRemark(remark), MESSAGE_CONSTRAINTS);
         this.value = remark;
     }
 

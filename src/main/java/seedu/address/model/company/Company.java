@@ -73,7 +73,9 @@ public class Company {
         return priority;
     }
 
-    public Remark getRemark() { return remark; }
+    public Remark getRemark() {
+        return remark;
+    }
 
     /**
      * Returns true if both companies have the same name.

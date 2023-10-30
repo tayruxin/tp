@@ -27,7 +27,7 @@ public class RemarkTest {
         assertTrue(Remark.isValidRemark("Google")); // alphabets only
         assertTrue(Remark.isValidRemark("12345")); // numbers only
         assertTrue(Remark.isValidRemark("3M@#$%^&{}")); // other characters
-        assertTrue(Remark.isValidRemark("Interview@idk-where(11/12/23 1500), Java & python")); // long note
+        assertTrue(Remark.isValidRemark("Interview@idk-where(11/12/23 1500), Java & python")); // long remark
     }
 
     @Test
