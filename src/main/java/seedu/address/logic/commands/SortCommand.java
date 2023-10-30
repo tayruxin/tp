@@ -37,4 +37,23 @@ public class SortCommand extends Command {
         return new CommandResult(sortOrder == SortOrder.ASCENDING ? MESSAGE_SUCCESS_ASCENDING
                 : MESSAGE_SUCCESS_DESCENDING);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+
+        if (!(other instanceof SortCommand)) {
+            return false;
+        }
+
+        SortCommand otherSortCommand = (SortCommand) other;
+        return sortOrder == otherSortCommand.sortOrder;
+    }
+
+    @Override
+    public String toString() {
+        return COMMAND_WORD + " " + sortOrder.toString();
+    }
 }
