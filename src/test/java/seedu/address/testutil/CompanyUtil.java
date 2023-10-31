@@ -39,7 +39,6 @@ public class CompanyUtil {
         sb.append(PREFIX_STATUS + company.getStatus().toString() + " ");
         sb.append(PREFIX_RECRUITER_NAME + company.getRecruiterName().fullName + " ");
         sb.append(PREFIX_PRIORITY + company.getPriority().priority + " ");
-        sb.append(PREFIX_REMARK + company.getRemark().value + " ");
         return sb.toString();
     }
 

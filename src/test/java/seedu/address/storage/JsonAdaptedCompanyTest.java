@@ -143,15 +143,6 @@ public class JsonAdaptedCompanyTest {
     }
 
     @Test
-    public void toModelType_invalidRemark_throwsIllegalValueException() {
-        JsonAdaptedCompany company =
-                new JsonAdaptedCompany(VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL, VALID_ROLE, VALID_DEADLINE,
-                        VALID_STATUS, VALID_RECRUITER_NAME, VALID_PRIORITY, INVALID_REMARK);
-        String expectedMessage = Remark.MESSAGE_CONSTRAINTS;
-        assertThrows(IllegalValueException.class, expectedMessage, company::toModelType);
-    }
-
-    @Test
     public void toModelType_nullRemark_throwsIllegalValueException() {
         JsonAdaptedCompany company = new JsonAdaptedCompany(VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL, VALID_ROLE,
                 VALID_DEADLINE, VALID_STATUS, VALID_RECRUITER_NAME, VALID_PRIORITY, null);
