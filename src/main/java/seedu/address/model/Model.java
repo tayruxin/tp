@@ -57,6 +57,8 @@ public interface Model {
      */
     boolean hasCompany(Company company);
 
+    Company getDuplicateCompany(Company company);
+
     /**
      * Deletes the given company.
      * The company must exist in the address book.

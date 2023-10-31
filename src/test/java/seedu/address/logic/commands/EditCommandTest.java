@@ -11,6 +11,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_PRIORITY_TIKTOK
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showCompanyAtIndex;
+import static seedu.address.logic.commands.EditCommand.MESSAGE_EDIT_COMPANY_SUCCESS;
 import static seedu.address.testutil.TypicalCompanies.getTypicalAddressBook;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_COMPANY;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_COMPANY;
@@ -20,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.EditCommand.EditCompanyDescriptor;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
@@ -41,7 +43,7 @@ public class EditCommandTest {
         EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder(editedCompany).build();
         EditCommand editCommand = new EditCommand(INDEX_FIRST_COMPANY, descriptor);
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_COMPANY_SUCCESS,
+        String expectedMessage = String.format(MESSAGE_EDIT_COMPANY_SUCCESS,
                 Messages.getCompanyName(editedCompany));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
@@ -66,7 +68,7 @@ public class EditCommandTest {
                 .build();
         EditCommand editCommand = new EditCommand(indexLastCompany, descriptor);
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_COMPANY_SUCCESS,
+        String expectedMessage = String.format(MESSAGE_EDIT_COMPANY_SUCCESS,
                 Messages.getCompanyName(editedCompany));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
@@ -80,7 +82,7 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(INDEX_FIRST_COMPANY, new EditCompanyDescriptor());
         Company editedCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_COMPANY_SUCCESS,
+        String expectedMessage = String.format(MESSAGE_EDIT_COMPANY_SUCCESS,
                 Messages.getCompanyName(editedCompany));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
@@ -97,7 +99,7 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(INDEX_FIRST_COMPANY,
                 new EditCompanyDescriptorBuilder().withName(VALID_NAME_TIKTOK).build());
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_COMPANY_SUCCESS,
+        String expectedMessage = String.format(MESSAGE_EDIT_COMPANY_SUCCESS,
                 Messages.getCompanyName(editedCompany));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
@@ -106,13 +108,75 @@ public class EditCommandTest {
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
 
+    //Duplicate checks
     @Test
-    public void execute_duplicateCompanyUnfilteredList_failure() {
+    public void execute_fullDuplicateCompanyUnfilteredList_failure() {
         Company firstCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
         EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder(firstCompany).build();
         EditCommand editCommand = new EditCommand(INDEX_SECOND_COMPANY, descriptor);
 
-        assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_COMPANY);
+        assertCommandFailure(editCommand,
+                model,
+                new CommandException.DuplicateCompanyException(firstCompany).getMessage());
+    }
+
+    @Test
+    public void execute_duplicatedNameAndRoleUnfilteredList_failure() {
+        Company firstCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
+        EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder(firstCompany)
+                .withEmail("gy@gmail.com")
+                .withPhone("91234567")
+                .withPriority("LOW")
+                .withStatus("PA")
+                .withDeadline("10-10-2021")
+                .withRecruiterName("Gerald Yeo")
+                .build();
+        EditCommand editCommand = new EditCommand(INDEX_SECOND_COMPANY, descriptor);
+
+        assertCommandFailure(editCommand,
+                model,
+                new CommandException.DuplicateCompanyException(firstCompany).getMessage());
+    }
+
+    @Test
+    public void execute_duplicatedRoleOnlyUnfilteredList_success() {
+        Company firstCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
+        EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder(firstCompany)
+                .withEmail("gy@gmail.com")
+                .withPhone("91234567")
+                .withPriority("LOW")
+                .withStatus("PA")
+                .withDeadline("10-10-2021")
+                .withRecruiterName("Gerald Yeo")
+                .withName("Tiktok")
+                .build();
+        EditCommand editCommand = new EditCommand(INDEX_SECOND_COMPANY, descriptor);
+
+        assert descriptor.getName().isPresent();
+        assertCommandSuccess(editCommand,
+                model,
+                String.format(MESSAGE_EDIT_COMPANY_SUCCESS, descriptor.getName().get()), model);
+    }
+
+    @Test
+    public void execute_duplicatedNameOnlyUnfilteredList_success() {
+        Company firstCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
+        EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder(firstCompany)
+                .withEmail("gy@gmail.com")
+                .withPhone("91234567")
+                .withPriority("LOW")
+                .withStatus("PA")
+                .withDeadline("10-10-2021")
+                .withRecruiterName("Gerald Yeo")
+                .withRole("UI UX Designer")
+                .build();
+        EditCommand editCommand = new EditCommand(INDEX_SECOND_COMPANY, descriptor);
+
+        assert descriptor.getName().isPresent();
+        assertCommandSuccess(editCommand,
+                model,
+                String.format(MESSAGE_EDIT_COMPANY_SUCCESS, descriptor.getName().get()),
+                model);
     }
 
     @Test
@@ -124,7 +188,9 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(INDEX_FIRST_COMPANY,
                 new EditCompanyDescriptorBuilder(companyInList).build());
 
-        assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_COMPANY);
+        assertCommandFailure(editCommand,
+                model,
+                new CommandException.DuplicateCompanyException(companyInList).getMessage());
     }
 
     @Test
