@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.Messages;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -25,7 +26,6 @@ public class AddCommandIntegrationTest {
     public void setUp() {
         model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
     }
-
     @Test
     public void execute_newCompany_success() {
         Company validCompany = new CompanyBuilder().build();
@@ -42,7 +42,7 @@ public class AddCommandIntegrationTest {
     public void execute_duplicateCompany_throwsCommandException() {
         Company companyInList = model.getAddressBook().getCompanyList().get(0);
         assertCommandFailure(new AddCommand(companyInList), model,
-                AddCommand.MESSAGE_DUPLICATE_COMPANY);
+                new CommandException.DuplicateCompanyException(companyInList).getMessage());
     }
 
 }

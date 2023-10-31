@@ -6,20 +6,17 @@ title: User Guide
 
 _Master Your Internship Journey: Every Deadline, Every Detail._
 
-LinkMeIn is a **desktop application** built for [NUS School Of Computing (SOC) students](https://www.comp.nus.edu.sg/) to
-track their internship applications. It is recommended that you read this manual before using the application.
+LinkMeIn is a **desktop application** built for [NUS School Of Computing's (NUS) Computer Science students](https://www.comp.nus.edu.sg/programmes/ug/cs/) 
+to track their internship applications. It is recommended that you read this manual before using the application.
 
 Here is a **quick** overview of your internship journey with LinkMeIn:
-<br>
-* **Effortless** Tracking: Seamlessly store internship listings, adjust details with changing circumstances, and swiftly recall past applications by date.
-  <br>
-  </br>
-* Stay Empowered and **Informed**: Dive into specific application details when needed and access guidance with a click, ensuring you're always confident in your next step.
-  <br>
-  </br>
-* Share and **Simplify**: After landing that internship, de-clutter your list and easily locate company details to guide your peers in their own searches.
-  </br>
 
+* Dynamic Data Management: Easily **add**, **edit**, and **filter** companies for targeted internship tracking.
+* Smart Organization: **Sort** applications by deadline and quickly pinpoint key opportunities.
+* Interactive Cards: Type **view** to expand internship details, a sleeker approach than Excel sheets. 
+
+LinkMeIn is more than just an application—it's your **personalized** partner, offering a 
+seamless experience that outclasses conventional tracking methods.
 
 Additionally, LinkMeIn combines the rapid **efficiency** of CLI with the visual clarity of GUI,
 offering a **tailored** experience for internship management that outpaces the generic
@@ -330,6 +327,44 @@ Filter the list of companies by their application status using the `filter` comm
 **What you will see after `filter` command succeeds:**
 
 ![img.png](images/filter-command/FilterByPI.png)
+
+### Sort companies by their deadlines: `sort` ###
+
+Want to see which application deadlines are coming up soon or which ones are far off? Use the `sort` command to arrange your list of companies based on their deadlines.
+
+**Format:** `sort SORT_ORDER`
+
+Where `SORT_ORDER` can be:
+
+-   `ascending` or its short forms `a` or `asc`: to sort in increasing order of deadlines.
+
+-   `descending` or its short forms `d` or `desc`: to sort in decreasing order of deadlines.
+
+-   If no order is specified, it will default to `ascending`.
+
+-   The sort is case-insensitive. e.g. `ASCENDING` and `ascending` are treated the same.
+
+
+**Example:**
+1. Here is the list of companies before sorting.
+
+![typecommand.png](images/sort-command/BeforeSorting.png)
+
+2. Type `sort ascending`
+
+![typecommand.png](images/sort-command/TypeCommand.png)
+
+3. The list of companies is now sorted. 
+
+![img.png](images/sort-command/AfterSorting.png)
+
+**Possible Error**
+
+Suppose you misspelled the `SORT-ORDER` keyword, you will see an error message informing you of the invalid command, 
+and suggest the correct keyword to use: 
+
+![img.png](images/sort-command/SortError.png)
+
 
 --------------------------------------------------------------------------------------------------------------------
 

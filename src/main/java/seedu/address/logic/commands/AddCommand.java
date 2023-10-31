@@ -44,8 +44,6 @@ public class AddCommand extends Command {
             + PREFIX_PRIORITY + "HIGH ";
 
     public static final String MESSAGE_SUCCESS = "New company added: %1$s";
-    public static final String MESSAGE_DUPLICATE_COMPANY = "This company's information already exists in LinkMeIn! "
-            + "Please add a new entry with different information.";
 
     private final Company toAdd;
 
@@ -62,7 +60,8 @@ public class AddCommand extends Command {
         requireNonNull(model);
 
         if (model.hasCompany(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_COMPANY);
+            Company duplicateCompany = model.getDuplicateCompany(toAdd);
+            throw new CommandException.DuplicateCompanyException(duplicateCompany);
         }
 
         model.addCompany(toAdd);
@@ -71,6 +70,10 @@ public class AddCommand extends Command {
         return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.getCompanyName(toAdd)));
     }
 
+    /**
+     * Returns true if both companies have the same identity and data fields.
+     * This defines a stronger notion of equality between two companies.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {
