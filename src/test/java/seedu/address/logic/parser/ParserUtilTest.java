@@ -1,7 +1,7 @@
 package seedu.address.logic.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.address.logic.parser.ParserUtil.MESSAGE_INVALID_INDEX;
+import static seedu.address.logic.Messages.MESSAGE_NON_POSITIVE_INTEGER_INDEX;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_COMPANY;
 
@@ -34,7 +34,7 @@ public class ParserUtilTest {
 
     @Test
     public void parseIndex_outOfRangeInput_throwsParseException() {
-        assertThrows(ParseException.class, MESSAGE_INVALID_INDEX, ()
+        assertThrows(ParseException.class, MESSAGE_NON_POSITIVE_INTEGER_INDEX, ()
             -> ParserUtil.parseIndex(Long.toString(Integer.MAX_VALUE + 1)));
     }
 
@@ -55,6 +55,11 @@ public class ParserUtilTest {
     @Test
     public void parseName_invalidValue_throwsParseException() {
         assertThrows(ParseException.class, () -> ParserUtil.parseName(INVALID_COMPANY_NAME));
+    }
+
+    @Test
+    public void parseName_emptyValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseName(""));
     }
 
     @Test
@@ -81,6 +86,11 @@ public class ParserUtilTest {
     }
 
     @Test
+    public void parsePhone_emptyValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parsePhone(""));
+    }
+
+    @Test
     public void parsePhone_validValueWithoutWhitespace_returnsPhone() throws Exception {
         Phone expectedPhone = new Phone(VALID_PHONE);
         assertEquals(expectedPhone, ParserUtil.parsePhone(VALID_PHONE));
@@ -104,6 +114,11 @@ public class ParserUtilTest {
     }
 
     @Test
+    public void parseEmail_emptyValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseEmail(""));
+    }
+
+    @Test
     public void parseEmail_validValueWithoutWhitespace_returnsEmail() throws Exception {
         Email expectedEmail = new Email(VALID_EMAIL);
         assertEquals(expectedEmail, ParserUtil.parseEmail(VALID_EMAIL));
@@ -124,6 +139,11 @@ public class ParserUtilTest {
     @Test
     public void parsePriority_invalidValue_throwsParseException() {
         assertThrows(ParseException.class, () -> ParserUtil.parsePriority(INVALID_PRIORITY));
+    }
+
+    @Test
+    public void parsePriority_emptyValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parsePriority(""));
     }
 
     @Test

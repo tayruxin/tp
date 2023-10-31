@@ -9,8 +9,12 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Role {
 
-    public static final String MESSAGE_CONSTRAINTS =
-            "Role should only contain alphanumeric characters and spaces, and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS_NON_EMPTY =
+            "Oops! Role should not be blank! Please try again with a valid role.";
+
+    public static final String MESSAGE_CONSTRAINTS_INVALID_REGEX =
+            "Oops! Role should only contain alphanumeric characters and spaces! Please try again with"
+                    + " a valid role.";
 
     public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
 
@@ -23,7 +27,8 @@ public class Role {
      */
     public Role(String role) {
         requireNonNull(role);
-        checkArgument(isValidRole(role), MESSAGE_CONSTRAINTS);
+        checkArgument(!role.isBlank(), MESSAGE_CONSTRAINTS_NON_EMPTY);
+        checkArgument(isValidRole(role), MESSAGE_CONSTRAINTS_INVALID_REGEX);
         jobRole = role;
     }
 

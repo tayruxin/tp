@@ -8,8 +8,13 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Guarantees: immutable; is valid as declared in {@link #isValidPriority(String)}
  */
 public class Priority {
-    public static final String MESSAGE_CONSTRAINTS =
-            "Priority should only be high, medium, low or none(to clear priority) and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS_NON_EMPTY =
+            "Oops! Priority description should not be blank! Please either try again with a valid priority, "
+                    + "or remove the priority prefix. ";
+    public static final String MESSAGE_CONSTRAINTS_VALID_REGEX =
+            "Oops! You have entered an invalid priority! Priority should only be high, medium, "
+                    + "low or none (to remove priority). \n"
+                    + "Please try again.";
 
     public static final String VALIDATION_REGEX = "(HIGH|MEDIUM|LOW|NONE)";
 
@@ -22,7 +27,8 @@ public class Priority {
      */
     public Priority(String priority) {
         requireNonNull(priority);
-        checkArgument(isValidPriority(priority), MESSAGE_CONSTRAINTS);
+        checkArgument(!priority.isBlank(), MESSAGE_CONSTRAINTS_NON_EMPTY);
+        checkArgument(isValidPriority(priority), MESSAGE_CONSTRAINTS_VALID_REGEX);
         this.priority = priority;
     }
 
