@@ -79,7 +79,8 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
-     * Returns true if a company with the same identity as {@code company} exists in the address book.
+     * Returns Company that is duplicated with the same identity as {@code company}.
+     * Only executed if {@code hasCompany} returns true.
      */
     public Company getDuplicateCompany(Company company) {
         requireNonNull(company);

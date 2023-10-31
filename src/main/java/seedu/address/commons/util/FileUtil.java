@@ -18,9 +18,9 @@ public class FileUtil {
     }
 
     /**
-     * Returns true if the given string is a valid path.
-     * @param path
-     * @return true if the given string is a valid path.
+     * Returns true if {@code path} can be converted into a {@code Path} via {@link Paths#get(String)},
+     * otherwise returns false.
+     * @param path A string representing the file path. Cannot be null.
      */
     public static boolean isValidPath(String path) {
         try {
