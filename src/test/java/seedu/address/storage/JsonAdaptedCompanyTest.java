@@ -46,7 +46,7 @@ public class JsonAdaptedCompanyTest {
         JsonAdaptedCompany company =
                 new JsonAdaptedCompany(INVALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL, VALID_ROLE, VALID_DEADLINE,
                         VALID_STATUS, VALID_RECRUITER_NAME, VALID_PRIORITY, VALID_REMARK);
-        String expectedMessage = Name.MESSAGE_CONSTRAINTS;
+        String expectedMessage = Name.MESSAGE_CONSTRAINTS_INVALID_REGEX;
         assertThrows(IllegalValueException.class, expectedMessage, company::toModelType);
     }
 
@@ -63,7 +63,7 @@ public class JsonAdaptedCompanyTest {
         JsonAdaptedCompany company =
                 new JsonAdaptedCompany(VALID_COMPANY_NAME, INVALID_PHONE, VALID_EMAIL, VALID_ROLE,
                         VALID_DEADLINE, VALID_STATUS, VALID_RECRUITER_NAME, VALID_PRIORITY, VALID_REMARK);
-        String expectedMessage = Phone.MESSAGE_CONSTRAINTS;
+        String expectedMessage = Phone.MESSAGE_CONSTRAINTS_VALID_REGEX;
         assertThrows(IllegalValueException.class, expectedMessage, company::toModelType);
     }
 
@@ -72,7 +72,7 @@ public class JsonAdaptedCompanyTest {
         JsonAdaptedCompany company =
                 new JsonAdaptedCompany(VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL, VALID_ROLE,
                         VALID_DEADLINE, VALID_STATUS, VALID_RECRUITER_NAME, INVALID_PRIORITY, VALID_REMARK);
-        String expectedMessage = Priority.MESSAGE_CONSTRAINTS;
+        String expectedMessage = Priority.MESSAGE_CONSTRAINTS_VALID_REGEX;
         assertThrows(IllegalValueException.class, expectedMessage, company::toModelType);
     }
 
@@ -89,7 +89,7 @@ public class JsonAdaptedCompanyTest {
         JsonAdaptedCompany company =
                 new JsonAdaptedCompany(VALID_COMPANY_NAME, VALID_PHONE, INVALID_EMAIL, VALID_ROLE,
                         VALID_DEADLINE, VALID_STATUS, VALID_RECRUITER_NAME, VALID_PRIORITY, VALID_REMARK);
-        String expectedMessage = Email.MESSAGE_CONSTRAINTS;
+        String expectedMessage = Email.MESSAGE_CONSTRAINTS_VALID_REGEX;
         assertThrows(IllegalValueException.class, expectedMessage, company::toModelType);
     }
 
