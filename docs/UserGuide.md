@@ -111,8 +111,83 @@ You should notice the GUI of the application pop up.
 3. For advanced users, view all feature details [here]().
 
 --------------------------------------------------------------------------------------------------------------------
+# Introducing LinkMeIn: A Quick Tour #
+_If you are new to LinkMeIn, welcome aboard! We know that navigating the world of internship applications can be 
+daunting, especially when you have multiple opportunities in sight. But worry not, because with LinkMeIn, 
+you have a reliable companion to guide you through this exciting journey._
 
-# Current Features #
+This tour aims to help you get started with LinkMeIn by introducing you to its essential features that you will be 
+using quite often. In this tour, you will be learning how to [add a company](), 
+[view its details](), 
+[edit]() and [delete]() it.
+
+Before we embark on this tour remember to download LinkMeIn and have your computer set up correctly. If you have not 
+done so, do check out the [Quick Start Guide](#quick-start) for more information.
+Now, let us follow along this tour and explore the 
+features of LinkMeIn that will transform you into a master of your internship application.
+
+## 1. Adding your first company ##
+Adding a company is the first step to tracking your internship applications. Let us start off by adding your 
+first company to LinkMeIn. 
+
+1.Type the following `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com 
+p/987654321 pr/high` in the command box and press Enter.
+
+2.You should see a new entry successfully added into LinkMeIn as shown below.
+
+![AddCommand.png](images/add-command/AfterAddCommand.png)
+
+Congratulations! You have successfully added your first company to LinkMeIn. If you wish to read up more on the add 
+command, you can do so [here](#adding-a-company--add-). Go ahead and try adding a few more companies on your own! 
+Now, let us learn how to view the details of these new companies that you have added. 
+
+## 2. Viewing company details ##
+After adding a few companies, you may want to view the details of a specific company. 
+
+1.To view the details of Twitter, type `view 6` in the command box and press Enter.
+
+![ViewCommand.png](BeforeViewCommand.png)
+
+2.You should see the details of Twitter as shown below.
+![ViewCommand.png](AfterViewCommand.png)
+
+Congratulations! You have successfully viewed the details of Twitter. If you wish to read up more on the view 
+command, you can do so [here](#view-full-company-information-view-). Go ahead and try viewing the details of a few
+more companies on your own! Now, let us learn how to edit the details of a company.
+
+## 3. Editing company details ##
+After viewing the details of a company, you may want to edit the details of the company.
+
+1.To edit the application status and role of Twitter, type `edit 6 s/PI r/Frontend Developer` in the command box 
+and press Enter.
+
+2.You should see the details of Twitter updated.
+
+Now that you have learnt how to edit the details of a company, you can go ahead and try editing the details of a few 
+more companies on your own! If you wish to read up more on the edit command, you can do so
+[here](#edit-a-companys-information-edit-). Having learnt how to add, view and edit a company in LinkMeIn, you are left
+with one last step to master LinkMeIn. Let us learn how to delete a company.
+
+## 4. Deleting a company ##
+After adding a few companies, you may not want to track some of them anymore. In such cases, you can delete the 
+companies that you no longer want to track.
+
+1.To delete Twitter, type `delete 6` in the command box and press Enter.
+
+2.You should see the details of Twitter removed from LinkMeIn.
+
+Go ahead and try deleting the other companies too. If you wish to read up more on the delete command, you can do so
+[here](#deleting-a-company--delete-). 
+
+_Congratulations! You have completed the quick tour of LinkMeIn. You are now ready to use LinkMeIn to track your
+internship applications. LinkMeIn offers more than just the features that you have learnt in this tour.
+If you wish to learn more about the other features of LinkMeIn, you can do so
+[here](#current-features-)._ 
+
+[[Back to top]](#table-of-contents)
+
+--------------------------------------------------------------------------------------------------------------------
+# Current Features 
 
 ## General Features ##
 ### Clear all entries: `clear` ###
