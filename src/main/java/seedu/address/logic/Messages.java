@@ -12,11 +12,16 @@ import seedu.address.model.company.Company;
  */
 public class Messages {
     public static final String MESSAGE_UNKNOWN_COMMAND = "Unknown command";
-    public static final String MESSAGE_INVALID_COMMAND_FORMAT = "Invalid command format! \n%1$s";
+    public static final String MESSAGE_INVALID_COMMAND_FORMAT =
+            "Oops! You have entered an invalid command format. "
+                    + "Please follow the command format below and try again! \n%1$s";
+
     public static final String MESSAGE_INVALID_COMPANY_DISPLAYED_INDEX =
         "Oops! You have entered an index that is greater than the number of companies that you have. "
                 + "Please try again!";
+
     public static final String MESSAGE_COMPANIES_LISTED_OVERVIEW = "%1$d companies listed!";
+
     public static final String MESSAGE_DUPLICATE_FIELDS =
                 "Multiple values specified for the following single-valued field(s): ";
 
@@ -28,6 +33,9 @@ public class Messages {
 
     public static final String MESSAGE_EMPTY_INDEX = "Oops! The index you have given is empty. "
             + "Remember to key in an index!";
+
+    public static final String MESSAGE_EMPTY_PREFIX = "Oops! You have not entered any information. "
+            + "Remember to follow the command format below! \n%1$s";
 
     /**
      * Returns an error message indicating the duplicate prefixes.
