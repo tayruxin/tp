@@ -117,12 +117,24 @@ Clears all entries of internship application.
 
 **Format:** `clear`
 
-:warning: Entries cannot be recovered after clearing.
+<div class="typography-box warning">
+  <span class="icon">⚠️</span>
+  <span class="content">
+    <strong>Warning :</strong> Entries cannot be recovered after clearing.
+  </span>
+</div>
 
 ### Exit LinkMeIn: `exit` ###
 Exits the program and closes the window.
 
 **Format:** `exit`
+
+<div class="typography-box note">
+  <span class="icon">ℹ️</span>
+  <span class="content">
+    <strong>Note :</strong> Entries will be saved automatically.
+  </span>
+</div>
 
 ### Help: `help` ###
 Exits the program and closes the window.
@@ -241,25 +253,104 @@ An example of an error message is shown below.
 
 ![img.png](DeleteCommandError.png)
 
+### Add remark to a company: `remark` ###
+If you have information not within the fields,
+use the `remark` command to input the additional details.
+
+**Format:** `remark INDEX re/REMARK`
+
+>`INDEX`: Adds remark of the company at INDEX number shown in the displayed company list. </br>
+>`[re/REMARK]` : type prefix `re/` followed by the remark you want to add </br>
+
+
+<div class="typography-box note">
+  <span class="icon">ℹ️</span>
+  <span class="content">
+    <strong>Note :</strong> Remark cannot be empty. Use the unremark command to delete instead.
+  </span>
+</div>
+
+<div class="typography-box warning">
+  <span class="icon">⚠️</span>
+  <span class="content">
+    <strong>Warning :</strong> When adding a remark, the existing remark of the company will be removed i.e adding of remark is not cumulative.
+  </span>
+</div>
+
+**Examples:** </br>
+1. Internship at Google requires knowledge on Java.
+To note down this, type `remark 1 re/need Java`
+
+2. You can view the remark the 1st company as shown below.
+
+**Possible Error:**
+
+If you enter an **empty remark**,
+you will see an error message in the command box. Don’t worry, just add in your remark and
+try the command again!
+An example of an error message is shown below.
+
+### Delete the remark of a company: `unremark` ###
+If the information under remarks is incorrrect or outdated,
+use the `unremark` command to delete it.
+
+**Format:** `unremark INDEX`
+
+>`INDEX`: Deletes remark of the company at INDEX number shown in the displayed company list.
+
+<div class="typography-box tip">
+  <span class="icon">💡</span>
+  <span class="content">
+    <strong>Tip :</strong> To update the remark, you do NOT need to delete using unremark first.
+Directly use the remark command and it overwrites the old remark!
+  </span>
+</div>
+
+**Examples:** </br>
+1. If you wish to delete the remark of Google, type `unremark 1`
+
+2. You can view the remark the 1st company as shown below.
+
+**Possible Error:**
+
+If you enter an [**invalid index**](#8-what-is-an-invalid-index),
+you will see an error message in the command box. Don’t worry, just edit your index accordingly and
+try the command again!
+An example of an error message is shown below.
+
+
 ### Edit a company's information: `edit` ###
 If you made a typo or need to update the progress of application,
 use the `edit` command to input the accurate details.
 
-**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [nt/NOTE]`
+**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [re/REMARK]`
 
-* `INDEX`: Edits the company at INDEX number shown in the displayed company list.
-* `[c/COMPANY_NAME]` etc. : type prefix `c/` followed by new company name to edit company name.
-* At least one of the optional fields must be provided.
+>`INDEX`: Edits the company at INDEX number shown in the displayed company list. </br>
+>`[c/COMPANY_NAME]` etc. : type prefix `c/` followed by new company name to edit company name. </br>
+> At least one of the optional fields must be provided.
 
-:warning: When editing the note, the existing note of the company will be removed i.e adding of note is not cumulative.
+<div class="typography-box warning">
+  <span class="icon">⚠️</span>
+  <span class="content">
+    <strong>Warning :</strong> When editing the note, the existing note of the company will be removed i.e adding of note is not cumulative.
+  </span>
+</div>
 
 **Examples:** </br>
-1.Type `edit 2 s/PI r/Frontend Developer`
+1.You received a email from Microsoft to interview for a Frontend Developer role which is different from the role you applied for.
+To edit, type `edit 2 s/PI r/Frontend Developer`
 
 ![EditDemo1.png](images/EditDemo1.png)
-2.The 2nd company's the status and role is edited to be Pending Interview and Frontend Developer respectively.
+2.The status and role of the 2nd company in the list is edited to be Pending Interview and Frontend Developer respectively.
 
 ![EditDemo2.png](images/EditDemo2.png)
+
+**Possible Error:**
+
+If you enter an **invalid prefix**,
+you will see an error message in the command box. Don’t worry, just edit your prefixes accordingly and
+try the command again!
+An example of an error message is shown below.
 
 
 ## Company List Features ##
