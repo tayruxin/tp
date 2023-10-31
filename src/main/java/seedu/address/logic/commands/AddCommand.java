@@ -71,6 +71,10 @@ public class AddCommand extends Command {
         return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.getCompanyName(toAdd)));
     }
 
+    /**
+     * Returns true if both companies have the same identity and data fields.
+     * This defines a stronger notion of equality between two companies.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {
