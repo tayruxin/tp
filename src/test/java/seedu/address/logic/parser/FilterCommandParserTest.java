@@ -1,5 +1,6 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.logic.Messages.MESSAGE_EMPTY_PREFIX;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
@@ -16,17 +17,17 @@ public class FilterCommandParserTest {
     private FilterCommandParser parser = new FilterCommandParser();
 
     @Test
-    public void parse_emptyArg_throwsParseException() {
-        assertParseFailure(parser, "     ", String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
-    }
-
-    @Test
     public void parse_validArgs_success() {
         ApplicationStatus status = new ApplicationStatus("pa");
         String userInput = " " + PREFIX_STATUS + "pa";
         ApplicationStatusPredicate predicate = new ApplicationStatusPredicate(status);
         FilterCommand expectedFilterCommand = new FilterCommand(status, predicate);
         assertParseSuccess(parser, userInput, expectedFilterCommand);
+    }
+
+    @Test
+    public void parse_emptyArg_failure() {
+        assertParseFailure(parser, "", String.format(MESSAGE_EMPTY_PREFIX, FilterCommand.MESSAGE_USAGE));
     }
 
     @Test
