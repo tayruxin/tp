@@ -9,6 +9,7 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import seedu.address.logic.SortOrder;
 import seedu.address.model.company.exceptions.CompanyNotFoundException;
 import seedu.address.model.company.exceptions.DuplicateCompanyException;
 
@@ -108,8 +109,13 @@ public class UniqueCompanyList implements Iterable<Company> {
     /**
      * Sorts the companies by their deadlines.
      */
-    public void sortCompaniesByDeadline() {
-        internalList.sort(Comparator.comparing(Company::getDeadline));
+    public void sortCompaniesByDeadline(SortOrder sortOrder) {
+        requireNonNull(sortOrder);
+        if (sortOrder == SortOrder.ASCENDING) {
+            internalList.sort(Comparator.comparing(Company::getDeadline));
+        } else {
+            internalList.sort(Comparator.comparing(Company::getDeadline).reversed());
+        }
     }
 
     /**

@@ -80,7 +80,7 @@ public class AddressBookParser {
             return new HelpCommand();
 
         case SortCommand.COMMAND_WORD:
-            return new SortCommand();
+            return new SortCommandParser().parse(arguments);
 
         case ViewCommand.COMMAND_WORD:
             return new ViewCommandParser().parse(arguments);

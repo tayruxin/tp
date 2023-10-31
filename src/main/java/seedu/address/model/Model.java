@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.logic.SortOrder;
 import seedu.address.model.company.Company;
 
 /**
@@ -123,7 +124,7 @@ public interface Model {
     /**
      * Sorts the companies in the address book by their deadlines.
      */
-    void sortCompaniesByDeadline();
+    void sortCompaniesByDeadline(SortOrder sortOrder);
 
     /**
      * Filters the companies in the address book by their application status.

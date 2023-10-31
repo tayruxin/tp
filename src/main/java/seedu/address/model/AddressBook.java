@@ -6,6 +6,7 @@ import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.logic.SortOrder;
 import seedu.address.model.company.Company;
 import seedu.address.model.company.UniqueCompanyList;
 
@@ -113,8 +114,8 @@ public class AddressBook implements ReadOnlyAddressBook {
     /**
      * Sorts the companies in the address book by their deadlines.
      */
-    public void sortCompaniesByDeadline() {
-        companies.sortCompaniesByDeadline();
+    public void sortCompaniesByDeadline(SortOrder sortOrder) {
+        companies.sortCompaniesByDeadline(sortOrder);
     }
 
     //// util methods

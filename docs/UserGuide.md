@@ -328,6 +328,44 @@ Filter the list of companies by their application status using the `filter` comm
 
 ![img.png](images/filter-command/FilterByPI.png)
 
+### Sort companies by their deadlines: `sort` ###
+
+Want to see which application deadlines are coming up soon or which ones are far off? Use the `sort` command to arrange your list of companies based on their deadlines.
+
+**Format:** `sort SORT_ORDER`
+
+Where `SORT_ORDER` can be:
+
+-   `ascending` or its short forms `a` or `asc`: to sort in increasing order of deadlines.
+
+-   `descending` or its short forms `d` or `desc`: to sort in decreasing order of deadlines.
+
+-   If no order is specified, it will default to `ascending`.
+
+-   The sort is case-insensitive. e.g. `ASCENDING` and `ascending` are treated the same.
+
+
+**Example:**
+1. Here is the list of companies before sorting.
+
+![typecommand.png](images/sort-command/BeforeSorting.png)
+
+2. Type `sort ascending`
+
+![typecommand.png](images/sort-command/TypeCommand.png)
+
+3. The list of companies is now sorted. 
+
+![img.png](images/sort-command/AfterSorting.png)
+
+**Possible Error**
+
+Suppose you misspelled the `SORT-ORDER` keyword, you will see an error message informing you of the invalid command, 
+and suggest the correct keyword to use: 
+
+![img.png](images/sort-command/SortError.png)
+
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Glossary ##

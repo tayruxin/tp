@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.logic.SortOrder;
 import seedu.address.model.company.Company;
 
 /**
@@ -127,8 +128,8 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void sortCompaniesByDeadline() {
-        addressBook.sortCompaniesByDeadline();
+    public void sortCompaniesByDeadline(SortOrder sortOrder) {
+        addressBook.sortCompaniesByDeadline(sortOrder);
         updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
     }
 
