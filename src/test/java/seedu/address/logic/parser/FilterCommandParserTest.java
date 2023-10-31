@@ -4,6 +4,7 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
+import static seedu.address.model.company.ApplicationStatus.MESSAGE_CONSTRAINTS_VALID_STATUS;
 
 import org.junit.jupiter.api.Test;
 
@@ -37,8 +38,7 @@ public class FilterCommandParserTest {
     public void parse_invalidPreamble_failure() {
         // invalid status
         String userInput = " " + PREFIX_STATUS + "pp";
-        assertParseFailure(parser, userInput,
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, userInput, MESSAGE_CONSTRAINTS_VALID_STATUS);
 
         // invalid prefix
         userInput = " " + "ss/ " + "pp";
