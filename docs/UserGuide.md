@@ -280,8 +280,10 @@ use the `remark` command to input the additional details.
 **Examples:** </br>
 1. Internship at Google requires knowledge on Java.
 To note down this, type `remark 1 re/need Java`
+![RemarkDemo1.png](images/RemarkDemo1.png)
 
 2. You can view the remark the 1st company as shown below.
+![RemarkDemo2.png](images/RemarkDemo2.png)
 
 **Possible Error:**
 
@@ -289,6 +291,7 @@ If you enter an **empty remark**,
 you will see an error message in the command box. Don’t worry, just add in your remark and
 try the command again!
 An example of an error message is shown below.
+![RemarkErrorMsg.png](images/RemarkErrorMsg.png)
 
 ### Delete the remark of a company: `unremark` ###
 If the information under remarks is incorrrect or outdated,
@@ -308,8 +311,10 @@ Directly use the remark command and it overwrites the old remark!
 
 **Examples:** </br>
 1. If you wish to delete the remark of Google, type `unremark 1`
+![UnremarkDemo1.png](images/UnremarkDemo1.png)
 
 2. You can view the remark the 1st company as shown below.
+![UnremarkDemo2.png](images/UnremarkDemo2.png)
 
 **Possible Error:**
 
@@ -317,7 +322,7 @@ If you enter an [**invalid index**](#8-what-is-an-invalid-index),
 you will see an error message in the command box. Don’t worry, just edit your index accordingly and
 try the command again!
 An example of an error message is shown below.
-
+![UnremarkErrorMsg.png](images/UnremarkErrorMsg.png)
 
 ### Edit a company's information: `edit` ###
 If you made a typo or need to update the progress of application,
@@ -336,6 +341,13 @@ use the `edit` command to input the accurate details.
   </span>
 </div>
 
+<div class="typography-box tip">
+  <span class="icon">💡</span>
+  <span class="content">
+    <strong>Tip :</strong> You can edit remarks through the edit or remark command!
+  </span>
+</div>
+
 **Examples:** </br>
 1.You received a email from Microsoft to interview for a Frontend Developer role which is different from the role you applied for.
 To edit, type `edit 2 s/PI r/Frontend Developer`
@@ -351,7 +363,7 @@ If you enter an **invalid prefix**,
 you will see an error message in the command box. Don’t worry, just edit your prefixes accordingly and
 try the command again!
 An example of an error message is shown below.
-
+![EditErrorMsg1.png](images/EditErrorMsg.png)
 
 ## Company List Features ##
 ### Find a company: `find` ###
