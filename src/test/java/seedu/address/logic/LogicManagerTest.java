@@ -9,7 +9,6 @@ import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.PRIORITY_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.RECRUITER_NAME_DESC_GOOGLE;
-import static seedu.address.logic.commands.CommandTestUtil.REMARK_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.STATUS_DESC_GOOGLE;
 import static seedu.address.testutil.Assert.assertThrows;
