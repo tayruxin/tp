@@ -72,16 +72,22 @@ public class Company {
     }
 
     /**
-     * Returns true if both companies have the same name.
-     * This defines a weaker notion of equality between two companies.
+     * Returns true if both entries have the same company name and the
+     * role is the same.
      */
     public boolean isSameCompany(Company otherCompany) {
         if (otherCompany == this) {
             return true;
         }
 
-        return otherCompany != null
-                && otherCompany.getName().equals(getName());
+        if (otherCompany == null) {
+            return false;
+        }
+
+        return otherCompany.getName() != null
+                && otherCompany.getName().equals(getName())
+                && otherCompany.getRole() != null
+                && otherCompany.getRole().equals(getRole());
     }
 
     /**
@@ -109,7 +115,6 @@ public class Company {
                 && recruiterName.equals(otherCompany.recruiterName)
                 && priority.equals(otherCompany.priority);
     }
-
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
@@ -130,4 +135,11 @@ public class Company {
                 .toString();
     }
 
+    /**
+     * Returns a string representation of the company in the form of a list of attributes.
+     * Used to display the entire string representation in one line
+     */
+    public String duplicatedCompanyFlagOutput() {
+        return "Name = " + name + "," + " Role = " + role;
+    }
 }

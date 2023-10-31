@@ -97,6 +97,12 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public Company getDuplicateCompany(Company company) {
+        requireNonNull(company);
+        return addressBook.getDuplicateCompany(company);
+    }
+
+    @Override
     public void deleteCompany(Company target) {
         addressBook.removeCompany(target);
     }

@@ -58,7 +58,6 @@ public class EditCommand extends Command {
 
     public static final String MESSAGE_EDIT_COMPANY_SUCCESS = "%1$s company edited.";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_COMPANY = "This company already exists in the address book.";
 
     private final Index index;
     private final EditCompanyDescriptor editCompanyDescriptor;
@@ -88,7 +87,8 @@ public class EditCommand extends Command {
         Company editedCompany = createEditedCompany(companyToEdit, editCompanyDescriptor);
 
         if (!companyToEdit.isSameCompany(editedCompany) && model.hasCompany(editedCompany)) {
-            throw new CommandException(MESSAGE_DUPLICATE_COMPANY);
+            Company duplicateCompany = model.getDuplicateCompany(editedCompany);
+            throw new CommandException.DuplicateCompanyException(duplicateCompany);
         }
 
         model.setCompany(companyToEdit, editedCompany);

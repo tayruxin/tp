@@ -39,6 +39,17 @@ public class UniqueCompanyList implements Iterable<Company> {
     }
 
     /**
+     * Returns Company if the list contains an equivalent company as the given argument.
+     * Implements findFirst to act as protection against multiple companies with the same name.
+     */
+    public Company getDuplicateCompany(Company toCheck) {
+        requireNonNull(toCheck);
+        assert(contains(toCheck));
+        Company duplicateCompany = internalList.stream().filter(toCheck::isSameCompany).findFirst().get();
+        return duplicateCompany;
+    }
+
+    /**
      * Adds a company to the list.
      * The company must not already exist in the list.
      */

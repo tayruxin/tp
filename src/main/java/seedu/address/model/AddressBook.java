@@ -80,6 +80,15 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
+     * Returns Company that is duplicated with the same identity as {@code company}.
+     * Only executed if {@code hasCompany} returns true.
+     */
+    public Company getDuplicateCompany(Company company) {
+        requireNonNull(company);
+        return companies.getDuplicateCompany(company);
+    }
+
+    /**
      * Adds a company to the address book.
      * The company must not already exist in the address book.
      */
