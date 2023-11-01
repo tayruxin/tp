@@ -25,9 +25,9 @@ public class CompanyTest {
         // null -> returns false
         assertFalse(META.isSameCompany(null));
 
-        // same name, all other attributes different -> returns true
+        // same name and same role all other attributes different -> returns true
         Company editedMeta = new CompanyBuilder(META).withPhone(VALID_PHONE_TIKTOK).withEmail(VALID_EMAIL_TIKTOK)
-                .withRole(VALID_ROLE_TIKTOK).withDeadline(VALID_DEADLINE_TIKTOK).withStatus(VALID_STATUS_TIKTOK)
+                .withDeadline(VALID_DEADLINE_TIKTOK).withStatus(VALID_STATUS_TIKTOK)
                 .build();
         assertTrue(META.isSameCompany(editedMeta));
 
@@ -99,6 +99,7 @@ public class CompanyTest {
                 + ", recruiterName=" + META.getRecruiterName() + ", phone=" + META.getPhone()
                 + ", email=" + META.getEmail()
                 + ", priority=" + META.getPriority()
+                + ", remark=" + META.getRemark()
                 + "}";
         assertEquals(expected, META.toString());
     }

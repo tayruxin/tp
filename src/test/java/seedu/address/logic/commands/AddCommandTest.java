@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -24,6 +25,8 @@ import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.company.Company;
+import seedu.address.model.company.Name;
+import seedu.address.model.company.Role;
 import seedu.address.testutil.CompanyBuilder;
 
 public class AddCommandTest {
@@ -45,13 +48,100 @@ public class AddCommandTest {
         assertEquals(Arrays.asList(validCompany), modelStub.companiesAdded);
     }
 
+    //Duplicate tests, considered duplicate if same company name and same role
     @Test
-    public void execute_duplicateCompany_throwsCommandException() {
+    public void execute_fullyDuplicatedCompany_throwsCommandException() {
         Company validCompany = new CompanyBuilder().build();
         AddCommand addCommand = new AddCommand(validCompany);
         ModelStub modelStub = new ModelStubWithCompany(validCompany);
 
-        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_COMPANY, () -> addCommand.execute(modelStub));
+        assertThrows(CommandException.DuplicateCompanyException.class,
+                new CommandException.DuplicateCompanyException(validCompany).getMessage(), (
+                ) -> addCommand.execute(modelStub));
+    }
+
+    @Test
+    public void execute_onlyDifferentCompanyName_doesNotThrowCommandException() {
+        CompanyBuilder companyBuilder = new CompanyBuilder();
+        Company validCompany = companyBuilder.build();
+        Company duplicateCompany = companyBuilder.withName("Google").build();
+        AddCommand addCommand = new AddCommand(duplicateCompany);
+        ModelStubWithCompany modelStub = new ModelStubWithCompany(validCompany);
+
+        assertDoesNotThrow(() -> addCommand.execute(modelStub),
+                new CommandException.DuplicateCompanyException(validCompany).getMessage());
+    }
+
+    @Test
+    public void execute_failureOnlyDifferentRoles_doesNotThrowCommandException() {
+        CompanyBuilder companyBuilder = new CompanyBuilder();
+        Company validCompany = companyBuilder.build();
+        Company duplicateCompany = companyBuilder.withRole("UI UX Designer").build();
+        AddCommand addCommand = new AddCommand(duplicateCompany);
+        ModelStub modelStub = new ModelStubWithCompany(validCompany);
+
+        assertDoesNotThrow(() -> addCommand.execute(modelStub),
+                new CommandException.DuplicateCompanyException(validCompany).getMessage());
+    }
+
+    @Test
+    public void execute_successOnlySameCompanyAndSameRole_throwsCommandException() {
+        CompanyBuilder companyBuilder = new CompanyBuilder();
+        Company validCompany = companyBuilder.build();
+        Company duplicateCompany = companyBuilder
+                .withEmail("hello@gmail.com")
+                .withPhone("89004789")
+                .withDeadline("12-10-2015")
+                .withPriority("LOW")
+                .withRecruiterName("Cameron")
+                .withStatus("PA")
+                .build();
+        AddCommand addCommand = new AddCommand(duplicateCompany);
+        ModelStub modelStub = new ModelStubWithCompany(validCompany);
+
+        assertThrows(CommandException.DuplicateCompanyException.class,
+                new CommandException.DuplicateCompanyException(validCompany).getMessage(), (
+                ) -> addCommand.execute(modelStub));
+    }
+
+    @Test
+    public void execute_failureOnlySameRole_doesNotThrowsCommandException() {
+        CompanyBuilder companyBuilder = new CompanyBuilder();
+        Company validCompany = companyBuilder.build();
+        Company duplicateCompany = companyBuilder
+                .withEmail("hello@gmail.com")
+                .withPhone("89004789")
+                .withDeadline("12-10-2015")
+                .withPriority("LOW")
+                .withRecruiterName("Cameron")
+                .withStatus("PA")
+                .withName("Google")
+                .build();
+        AddCommand addCommand = new AddCommand(duplicateCompany);
+        ModelStub modelStub = new ModelStubWithCompany(validCompany);
+
+        assertDoesNotThrow(() -> addCommand.execute(modelStub),
+                new CommandException.DuplicateCompanyException(validCompany).getMessage());
+    }
+
+    @Test
+    public void execute_failureOnlySameCompany_doesNotThrowsCommandException() {
+        CompanyBuilder companyBuilder = new CompanyBuilder();
+        Company validCompany = companyBuilder.build();
+        Company duplicateCompany = companyBuilder
+                .withEmail("hello@gmail.com")
+                .withPhone("89004789")
+                .withDeadline("12-10-2015")
+                .withPriority("LOW")
+                .withRecruiterName("Cameron")
+                .withStatus("PA")
+                .withRole("UI UX Designer")
+                .build();
+        AddCommand addCommand = new AddCommand(duplicateCompany);
+        ModelStub modelStub = new ModelStubWithCompany(validCompany);
+
+        assertDoesNotThrow(() -> addCommand.execute(modelStub),
+                new CommandException.DuplicateCompanyException(validCompany).getMessage());
     }
 
     @Test
@@ -176,6 +266,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public void clearCompanyDetailPanel() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void checkDelete(Company company) {
             throw new AssertionError("This method should not be called.");
         }
@@ -187,6 +282,11 @@ public class AddCommandTest {
 
         @Override
         public void filterCompaniesByStatus(Predicate<Company> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public Company getDuplicateCompany(Company company) {
             throw new AssertionError("This method should not be called.");
         }
     }
@@ -206,6 +306,35 @@ public class AddCommandTest {
         public boolean hasCompany(Company company) {
             requireNonNull(company);
             return this.company.isSameCompany(company);
+        }
+
+        @Override
+        public Company getDuplicateCompany(Company otherCompany) {
+            requireNonNull(company);
+            //Defensive Programming
+            Name otherName = otherCompany.getName();
+            Role otherRole = otherCompany.getRole();
+
+            assert(otherName != null);
+            assert(otherRole != null);
+
+            boolean condition = otherCompany != null
+                    && otherCompany.getName() != null
+                    && otherCompany.getName().equals(company.getName())
+                    && otherCompany.getRole() != null
+                    && otherCompany.getRole().equals(company.getRole());
+
+            return condition ? company : null;
+        }
+
+        @Override
+        public void addCompany(Company company) {
+
+        }
+
+        @Override
+        public void setCurrentViewedCompany(Company company) {
+
         }
     }
 

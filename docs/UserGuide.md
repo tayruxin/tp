@@ -27,7 +27,7 @@ spreadsheets of Excel.
 ## Typographic conventions
 
 <div class="typography-box warning">
-  <span class="icon">⚠️</span>
+  <span class="icon">❗</span>
   <span class="content">
     <strong>Warning :</strong> Alerts users to potential pitfalls or things to be cautious of when using your application.
   </span>
@@ -68,7 +68,6 @@ Proceed to explain ... [TODO]
 # Quick start
 
 1. Make sure that you have **Java 11 or above** installed in your Computer.
-
   - [How to check if you have Java installed?](#faq-1)
   - [How to check if you have Java 11 or above?](#faq-2)
 
@@ -96,7 +95,7 @@ Proceed to explain ... [TODO]
     - For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter
 
 <div class="typography-box warning">
-  <span class="icon">⚠️</span>
+  <span class="icon">❗️</span>
   <span class="content">
     <strong>Warning :</strong> Do not move or delete the `data` folder as it contains the data of your applications.
   </span>
@@ -108,6 +107,101 @@ You should notice the GUI of the application pop up.
 3. For advanced users, view all feature details [here]().
 
 --------------------------------------------------------------------------------------------------------------------
+
+# Introducing LinkMeIn: A Quick Tour #
+_If you are new to LinkMeIn, welcome aboard! We know that navigating the world of internship applications can be
+daunting, especially when you have multiple opportunities in sight. But fret not, because with LinkMeIn,
+you have a reliable companion to guide you through this exciting journey._
+
+This tour aims to help you get started with LinkMeIn by introducing you to its essential features that you will be
+using quite often. In this tour, you will be learning how and when to:
+- [add a company](#1-adding-your-first-company-),
+- [view its details](#2-viewing-company-details-),
+- [edit its details](#3-editing-company-details-)
+- [delete it](#4-deleting-a-company-).
+
+Before we embark on this tour remember to download LinkMeIn and have your computer set up correctly. If you have not
+done so, do check out the [Quick Start Guide](#quick-start) for more information.
+Now, follow us along this tour and transform yourself into a master of your internship application!
+
+## 1. Adding your first company ##
+Adding a company is the first step to tracking your internship applications. Let us start off by adding your
+first company to LinkMeIn.
+
+1.Whether you are scrolling through your LinkedIn feed or browsing through a job portal, if you come across a
+company that you are interested in, you can add it to LinkMeIn. Let's say you are interested in a Software Engineering
+role at TikTok.
+
+2.Type the following `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com
+p/987654321 pr/high` in the command box and press Enter.
+
+<div class="typography-box note">
+  <span class="icon">ℹ️</span>
+  <span class="content">
+    <strong>Note: If you wish to know more about what each parameter means and how to use the add command, you can do so <a href="#adding-a-company--add-">here</a>.</strong>
+  </span>
+</div>
+
+
+3.You should see a new entry successfully added into LinkMeIn as shown below.
+
+![AddCommand.png](images/add-command/AfterAddCommand.png)
+
+Congratulations! You have successfully added your first company to LinkMeIn. Go ahead and try adding a few more companies on your own!
+
+## 2. Viewing company details ##
+After adding a few companies, you may want to view the details of a specific company.
+
+1.To view the details of Twitter, type `view 6` in the command box and press Enter.
+
+![ViewCommand.png](images/view-command/BeforeViewCommand.png)
+
+2.You should see the details of Twitter as shown below.
+![ViewCommand.png](images/view-command/AfterViewCommand.png)
+
+Congratulations! You have successfully viewed the details of Twitter. If you wish to read up more on the view
+command, you can do so [here](#view-full-company-information-view-). Go ahead and try viewing the details of a few
+more companies on your own!
+
+## 3. Editing company details ##
+After viewing the details of a company, you may realise that you have a typo in the role of a company, and you wish to
+edit the details of the company.
+
+1.To edit the application status and role of Twitter, type `edit 6 s/PI r/Frontend Developer` in the command box
+and press Enter.
+
+<div class="typography-box note">
+  <span class="icon">ℹ️</span>
+  <span class="content">
+    <strong>Note: If you wish to learn more about the edit command, you can do so <a href="#edit-a-company's-information--">here</a>.</strong>
+  </span>
+</div>
+
+2.You should see the details of Twitter updated.
+
+Now that you have learnt how to edit the details of a company, you can go ahead and try editing the details of a few
+more companies on your own! Having learnt how to add, view and edit a company in LinkMeIn, you are left
+with one last step to master LinkMeIn.
+
+## 4. Deleting a company ##
+After adding a few companies, you were unfortunately rejected from some of the companies and you no longer need to track
+them in LinkMeIn. You can delete the companies that you no longer need to track in LinkMeIn.
+
+1.To delete Twitter, type `delete 6` in the command box and press Enter.
+
+2.You should see the details of Twitter removed from LinkMeIn.
+
+Go ahead and try deleting the other companies too. If you wish to read up more on the delete command, you can do so
+[here](#deleting-a-company--delete-).
+
+_Congratulations! You have completed the quick tour of LinkMeIn. You are now ready to use LinkMeIn to track your
+internship applications. LinkMeIn offers more than just the features that you have learnt in this tour.
+If you wish to learn more about the other features of LinkMeIn, you can do so
+[here](#current-features-). You can also visit the [FAQ](#faq-) to view the frequently asked questions if you need
+more help!_
+
+[&uarr; Back to Table of Contents](#table-of-contents)
+
 
 # Current Features #
 
@@ -145,43 +239,42 @@ Exits the program and closes the window.
 
 ### Adding a company : `add` ###
 
-You scroll through your LinkedIn feed and see a company that you are interested in.
-You want to start on the application later, but you are afraid that you will forget about it.
-Add the company to LinkMeIn to keep track of the application process using the `add` command!
+_You scroll through your LinkedIn feed and see a company that you are interested in.
+You wish to start on the application later, but you are afraid that you will forget about it.
+Add the company to LinkMeIn now to keep track of the application process using the `add` command!_
 
 **Format**:
-`add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/priority]`
+`add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/PRIORITY]`
 
-**Examples**:
-* `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com p/987654321` adds a Company with
-  the information provided into LinkMeIn.
-* `add c/Google n/Mary r/Data Analyst s/R d/11-11-2023 e/johntan@example.com p/987654321 pr/high`adds a Company with
-  the information provided into LinkMeIn.
+> All [**parameters**](#parameters-description-) specified in the format are compulsory except for PRIORITY.
 
-**Note**:
-* Compulsory fields include COMPANY_NAME, RECRUITER_NAME, ROLE, APPLICATION_STATUS, EMAIL and PHONE_NUMBER.
-* PRIORITY is optional. If not specified, the default priority is `none`.
-* Order of input **does not** matter.
-* DEADLINE should be in DD-MM-YYYY format.
-* PRIORITY should be one of the following: `high`, `medium`, `low`, `none`. PRIORITY is case-insensitive.
-* APPLICATION_STATUS should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. APPLICATION_STATUS is case-insensitive.
-  The table below shows the meaning of each status.
 
-| Prefix | Application Status     |
-|--------|------------------------|
-| PA     | PENDING APPLICATION    |
-| PI     | PENDING INTERVIEW      |
-| PO     | PENDING OUTCOME        |
-| A      | ACCEPTED               |
-| R      | REJECTED               |
+<div class="typography-box note">
+  <span class="icon">ℹ️</span>
+  <span class="content">
+    <strong>Note :</strong> Order of input **does not** matter. 
+  </span>
+</div>
 
-**What you will see before `add` command succeeds:**
 
-![AddCommand.png](images/add-command/BeforeAddCommand.png)
+**Example:**</br>
+1. You came across the _Software Engineer_ role from _Apple_ which you are interested to apply for after touching up your resume. The deadline for this application is _10 October 2023_. The recruiter's name is _John Tan_, and you noted down his email address _johnd@example.com_ and his phone number _98765432_, so that you can contact him in the future. The priority of this application is _medium_ as you have other applications that you want to focus on first.
 
-**What you will see after `add` command succeeds:**
+2. With the information above, you can add the company's application into LinkMeIn using the `add` command. Simply type `add c/Apple r/Software Engineer s/PA n/John Tan d/12-12-2023 e/johntan@example.com p/987654321 pr/medium` into the command box and press Enter.
 
-![AddCommand.png](images/add-command/AfterAddCommand.png)
+    ![img.png](images/add-command/BeforeAddCommand.png) 
+
+3. The detail panel will be updated to show the details of the newly added company's application, and the company will be added to the list of companies. 
+![img.png](images/add-command/AfterAddCommand.png)
+
+2. You can proceed to add more companies by repeating the steps above!
+
+**Possible Error:**</br>
+If you enter an invalid input for any of the prefixes, you will see an error message in the command box. Check the [**parameter constraints**](#parameters-description-) for the respective prefix and try the command again! An example of an error message is shown below. 
+
+![img.png](images/add-command/AddCommandError.png)
+
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 ### View full company information: `view` ###
 
@@ -202,24 +295,23 @@ the detail of any company from the list of companies that you have added._
 **Example:**
 1. After scrolling through your list of companies, you wish to view the details of the company _Twitter_. 
 Simply type `view 6` to view _Twitter's_ details.
-
-![img.png](BeforeViewCommand.png)
+![img.png](images/view-command/BeforeViewCommand.png)
 
 2. The detail panel will be updated to show the details of _Twitter_.
+![img.png](images/view-command/AfterViewCommand.png)
 
-![img.png](AfterViewCommand.png)
-
-**Possible Error:**
-If you enter an [**invalid index**](#8-what-is-an-invalid-index), you will see an error message in the command box. 
+**Possible Error:**</br>
+If you enter an [**invalid index**](#7-what-is-an-invalid-index-), you will see an error message in the command box. 
 Don’t worry, just edit your index accordingly and try the command again!
 An example of an error message is shown below.
 
-![img.png](ViewCommandError.png)
+![img.png](images/view-command/ViewCommandError.png)
 
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 ### Deleting a company : `delete` ###
 
-_Whether you accidentally added a company or no longer want to track it, don't worry LinkMeIn got you covered.
+_Whether you accidentally added a company or no longer want to track it, don't worry! LinkMeIn got you covered!
 You can use the delete command to delete the company from the list of companies that you have added._
 
 **Format:`delete INDEX`**
@@ -237,21 +329,21 @@ You can only delete one company at a time.
 **Example:**
 1. Let's say after viewing the company _Twitter_, you decide that you no longer want to track it. 
 Simply type `delete 6` to delete _Twitter_.
-
-![img.png](BeforeDeleteCommand.png)
+![img.png](images/delete-command/BeforeDeleteCommand.png)
 
 2. Twitter will be removed from the list of companies. The detail panel will be cleared too.
-
-![img.png](AfterDeleteCommand.png)
+![img.png](images/delete-command/AfterDeleteCommand.png)
 
 **Possible Error:**
 
-If you enter an [**invalid index**](#8-what-is-an-invalid-index), 
+If you enter an [**invalid index**](#7-what-is-an-invalid-index-), 
 you will see an error message in the command box. Don’t worry, just edit your index accordingly and 
 try the command again!
 An example of an error message is shown below.
 
-![img.png](DeleteCommandError.png)
+![img.png](images/delete-command/DeleteCommandError.png)
+
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 ### Add remark to a company: `remark` ###
 _After adding a company, if you wish to note down more information such as job description,
@@ -367,6 +459,8 @@ try the command again!
 An example of an error message is shown below.
 ![EditErrMsg.png](images/edit-command/EditErrMsg.png)
 
+[&uarr; Back to Table of Contents](#table-of-contents)
+
 ## Company List Features ##
 ### Find a company: `find` ###
 
@@ -390,48 +484,47 @@ given keywords.
 
 ![img.png](FindCommand.png)
 
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 ### Listing all contacts : `list`
 
-Want to see all of your applications in one list? You can do so with the `list` command!
+_You've found the specific company you wanted using the find command earlier, and now you want to see all of your applications in one list again. You can do so easily with the `list` command!_
 
 **Format:** `list`
 
-**Examples:**
-- `filter s/PI` followed by `list` changes from showing only applications with status "Pending Interview".
-to all companies added in LinkMeIn.
-
-**What you will see before `list` command succeeds:**
-
-![ListCommand.png](images/filter-command/FilterByPI.png)
-
-**What you will see after `list` command succeeds:**
-
+**Example:**
+1. You have used the `find` command to find the company _TikTok_ earlier. Now, you want to see all of your applications in one list again. Simply type `list` to view the full list of your applications again!
 ![img.png](images/list-command/ListCommand.png)
 
-> Note:
-> - Whenever LinkMeIn is started, the list of companies on the right is what you will see after the `list` command is executed.
-> - Typical use case for `list` command is to change the current list of companies that is being viewed back to the
-full list of companies added in LinkMeIn.
+<div class="typography-box note">
+  <span class="icon">ℹ️</span>
+  <span class="content">
+    <strong>Note:</strong> Whenever LinkMeIn is started, you will see the full list of companies displayed by default (i.e. `list` command is executed automatically).
+  </span>
+</div>
+
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 ### Filter companies by application status: `filter` ###
 Can't remember which applications you haven't submitted or want to prepare for the companies that have offered you an interview?
 Filter the list of companies by their application status using the `filter` command!
 
 **Format:** `filter s/APPLICATION_STATUS`
+> [**APPLICATION_STATUS**](#application-status-description-) should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. 
 
-**Examples:**
-* `list` followed by`filter s/PI` filters the list of companies to show only companies with status "Pending Interview".
+**Example:**
+1. You want to prepare for the upcoming interviews you received. 
+2. Simply type `filter s/PI` to filter the list of companies to show only companies with status "Pending Interview".
+   ![img.png](images/filter-command/FilterByPI.png)
+3. You can then view the details of the companies that you have interviews for from the company list.
+   ![img.png](images/filter-command/AfterFilterCommand.png)
 
-> Note: APPLICATION_STATUS should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. APPLICATION_STATUS is case-insensitive.
+**Possible Error:**</br>
 
-**What you will see before `filter` command succeeds:**
+If you enter an invalid application status, you will see an error message in the command box. Don’t worry, try the command again with a [**valid application statuses**](#application-status-description-).
+An example of an error message is shown below.
 
-![ListCommand.png](images/list-command/ListCommand.png)
-
-**What you will see after `filter` command succeeds:**
-
-![img.png](images/filter-command/FilterByPI.png)
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 ### Sort companies by their deadlines: `sort` ###
 
@@ -475,15 +568,37 @@ and suggest the correct keyword to use:
 
 ## Glossary ##
 
-| Term       | Definition                                                                                                                                                                                                                    |
-|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **CLI**    | Command-Line Interface. A method to interact with the software using textual commands. It's a text-based interface where users input commands directly to control the software.                                               |
-| **GUI**    | Graphical User Interface. A visual method to interact with software using icons, buttons, and windows. Provides a user-friendly way to interact with software using graphical elements rather than text-based commands.        |
-| **PA**     | Pending Application. Refers to an application that has been submitted but hasn't received any feedback or update yet. It's in the initial stage of the internship application process.                                       |
-| **PI**     | Pending Interview. Indicates that the application has been reviewed, and the candidate is awaiting an interview. It signifies the next step after the initial application.                                                   |
-| **PO**     | Pending Outcome. After the interview, the application is in this state. It means that the interview has been conducted, but the final decision or outcome (whether accepted or rejected) hasn't been communicated yet.        |
-| **A**      | Accepted. This status means that the application has been approved and the candidate has been offered the internship position.                                                                                                |
-| **R**      | Rejected. Unfortunately, this means that the application wasn't successful and the candidate won't be proceeding further in the internship process.                                                                            |
+### Definitions of Key Terms ###
+Encountered an unfamiliar term when using LinkMeIn? Read the respective descriptions to better understand the term!
+
+| Term          | Definition                                                                                                                                                                                                                          |
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **CLI**       | Command-Line Interface (CLI) is a text-based user interface where users interact with the application by typing commands.                                                                                                           |
+| **GUI**       | Graphical User Interface (GUI) is a visual method to interact with software using icons, buttons, and windows. GUI provides a user-friendly way to interact with software using graphical elements rather than text-based commands. |
+| **Command**   | A command is an instruction given by a user to LinkMeIn to perform a specific action. For example,`add` command is a command to add the company's application into LinkMeIn.                                                        |
+| **Parameter** | Parameter is similar to a field in a form you have to fill up. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/COMPANY_NAME` and `e/EMAIL` are parameters in the command.                                           |
+| **Prefix**    | Prefix is a keyword that is used to identify the parameter. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/` and `e/` are prefixes.                                                                                |
+### Parameters Description ###
+| Parameter            | Description                                   | Constraints                                                                           |
+|----------------------|-----------------------------------------------|---------------------------------------------------------------------------------------|
+| c/Company Name       | Name of the company that you are applying to. | Only contain alphanumeric characters and spaces, and should not be blank.             |
+| r/Role               | Role of the internship that you are applying. | Only contain alphanumeric characters and spaces, and should not be blank.             |
+| s/Application Status | Status of the application.                    | Case-insensitive and should be one of the following: `PA`, `PI`, `PO`, `A`, `R`.      |
+| d/Deadline           | Deadline of the application.                  | Should be in DD-MM-YYYY format.                                                       |
+| n/Recruiter Name     | Name of the recruiter.                        | Only contain alphanumeric characters and spaces, and should not be blank.             |
+| e/Email              | Email of the recruiter.                       | Should be in the format of `local-part@domain` and should not be blank.               |
+| p/Phone Number       | Phone number of the recruiter.                | Only contain numbers, and should be at least 3 digits long. Should not be blank.      |
+| pr/Priority          | Priority of the application.                  | Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`. |
+
+### Application Status Description ###
+| Application Status | Description                                                                                                                                                          |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| PA                 | Pending Application. This means that you have not submitted the application, but are currently working on it.                                                        |
+| PI                 | Pending Interview. This means that you have submitted the application, and are either waiting for an interview offer, or waiting to go for the interview.            |
+| PO                 | Pending Outcome. This means that you have went through the interview, but the final decision or outcome (whether accepted or rejected) hasn't been communicated yet. |
+| A                  | Accepted. This means you have been offered the internship position. Congratulations!                                                                                 |
+| R                  | Rejected. Unfortunately, this means that the application wasn't successful and you were not offered the internship. Don't worry, try again next time!                |
+
 
 --------------------------------------------------------------------------------------------------------------------
 ## FAQ ##
@@ -529,7 +644,6 @@ e.g -1, 0, a, *, 1  0 (Only one index is allowed at a time).
 
 ## Known issues ##
 
-TBD.
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command Summary ##

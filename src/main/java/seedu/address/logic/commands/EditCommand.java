@@ -7,6 +7,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_COMPANIES;
@@ -29,6 +30,7 @@ import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
 import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
+import seedu.address.model.company.Remark;
 import seedu.address.model.company.Role;
 
 /**
@@ -37,8 +39,6 @@ import seedu.address.model.company.Role;
 public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
-
-    //c/COMPANY_NAME n/RECRUITER_NAME r/ROLE a/APPLICATION_STATUS d/DEADLINE [e/EMAIL] [p/PHONE_NUMBER]
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the company identified "
             + "by the index number used in the displayed company list. "
@@ -52,13 +52,13 @@ public class EditCommand extends Command {
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_PRIORITY + "PRIORITY] "
+            + "[" + PREFIX_REMARK + "REMARK]\n "
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
 
     public static final String MESSAGE_EDIT_COMPANY_SUCCESS = "%1$s company edited.";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_COMPANY = "This company already exists in the address book.";
 
     private final Index index;
     private final EditCompanyDescriptor editCompanyDescriptor;
@@ -88,7 +88,8 @@ public class EditCommand extends Command {
         Company editedCompany = createEditedCompany(companyToEdit, editCompanyDescriptor);
 
         if (!companyToEdit.isSameCompany(editedCompany) && model.hasCompany(editedCompany)) {
-            throw new CommandException(MESSAGE_DUPLICATE_COMPANY);
+            Company duplicateCompany = model.getDuplicateCompany(editedCompany);
+            throw new CommandException.DuplicateCompanyException(duplicateCompany);
         }
 
         model.setCompany(companyToEdit, editedCompany);
@@ -113,9 +114,10 @@ public class EditCommand extends Command {
         RecruiterName updatedRecruiterName = editCompanyDescriptor.getRecruiterName()
                 .orElse(companyToEdit.getRecruiterName());
         Priority updatedPriority = editCompanyDescriptor.getPriority().orElse(companyToEdit.getPriority());
+        Remark updatedRemark = editCompanyDescriptor.getRemark().orElse(companyToEdit.getRemark());
 
         return new Company(updatedName, updatedPhone, updatedEmail, updatedRole, updatedDeadline,
-                updatedStatus, updatedRecruiterName, updatedPriority);
+                updatedStatus, updatedRecruiterName, updatedPriority, updatedRemark);
     }
 
     @Override
@@ -155,6 +157,7 @@ public class EditCommand extends Command {
         private ApplicationStatus status;
         private RecruiterName recruiterName;
         private Priority priority;
+        private Remark remark;
 
         public EditCompanyDescriptor() {}
 
@@ -171,6 +174,7 @@ public class EditCommand extends Command {
             setStatus(toCopy.status);
             setRecruiterName(toCopy.recruiterName);
             setPriority(toCopy.priority);
+            setRemark(toCopy.remark);
         }
 
         /**
@@ -178,7 +182,7 @@ public class EditCommand extends Command {
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, role, deadline, status,
-                    recruiterName, priority);
+                    recruiterName, priority, remark);
         }
 
         public void setName(Name name) {
@@ -245,6 +249,14 @@ public class EditCommand extends Command {
             return Optional.ofNullable(priority);
         }
 
+        public void setRemark(Remark remark) {
+            this.remark = remark;
+        }
+
+        public Optional<Remark> getRemark() {
+            return Optional.ofNullable(remark);
+        }
+
 
         @Override
         public boolean equals(Object other) {
@@ -265,7 +277,8 @@ public class EditCommand extends Command {
                     && Objects.equals(deadline, otherCompanyDescriptor.deadline)
                     && Objects.equals(status, otherCompanyDescriptor.status)
                     && Objects.equals(recruiterName, otherCompanyDescriptor.recruiterName)
-                    && Objects.equals(priority, otherCompanyDescriptor.priority);
+                    && Objects.equals(priority, otherCompanyDescriptor.priority)
+                    && Objects.equals(remark, otherCompanyDescriptor.remark);
         }
 
         @Override
@@ -279,6 +292,7 @@ public class EditCommand extends Command {
                     .add("phone", phone)
                     .add("email", email)
                     .add("priority", priority)
+                    .add("remark", remark)
                     .toString();
         }
     }

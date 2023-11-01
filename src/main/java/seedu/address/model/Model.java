@@ -58,6 +58,8 @@ public interface Model {
      */
     boolean hasCompany(Company company);
 
+    Company getDuplicateCompany(Company company);
+
     /**
      * Deletes the given company.
      * The company must exist in the address book.
@@ -120,6 +122,12 @@ public interface Model {
      * @param company the company to be deleted.
      */
     public void checkDelete(Company company);
+
+
+    /**
+     * Clears the company detail panel.
+     */
+    public void clearCompanyDetailPanel();
 
     /**
      * Sorts the companies in the address book by their deadlines.
