@@ -23,6 +23,7 @@ import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
 import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
+import seedu.address.model.company.Remark;
 import seedu.address.model.company.Role;
 
 /**
@@ -61,11 +62,10 @@ public class AddCommandParser implements Parser<AddCommand> {
         Deadline deadline = ParserUtil.parseDeadline(argMultimap.getValue(PREFIX_DEADLINE).get());
         ApplicationStatus status = ParserUtil.parseStatus(argMultimap.getValue(PREFIX_STATUS).get());
         RecruiterName recruiterName = ParserUtil.parseRecruiterName(argMultimap.getValue(PREFIX_RECRUITER_NAME).get());
-        Priority priority = argMultimap.getValue(PREFIX_PRIORITY).isPresent()
-                ? ParserUtil.parsePriority(argMultimap.getValue(PREFIX_PRIORITY).get())
-                : new Priority("NONE");
+        Priority priority = ParserUtil.parsePriority(argMultimap.getValue(PREFIX_PRIORITY).orElse("NONE"));
+        Remark remark = ParserUtil.parseRemark("No remarks");
 
-        Company company = new Company(name, phone, email, role, deadline, status, recruiterName, priority);
+        Company company = new Company(name, phone, email, role, deadline, status, recruiterName, priority, remark);
 
         return new AddCommand(company);
     }

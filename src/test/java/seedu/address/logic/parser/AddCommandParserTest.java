@@ -67,7 +67,7 @@ public class AddCommandParserTest {
 
     @Test
     public void parse_allFieldsPresent_success() {
-        Company expectedCompany = new CompanyBuilder(TIKTOK).build();
+        Company expectedCompany = new CompanyBuilder(TIKTOK).withRemark("No remarks").build();
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
@@ -191,9 +191,8 @@ public class AddCommandParserTest {
     }
 
     @Test
-    public void parse_optionalFieldsMissing_success() {
-        // zero tags
-        Company expectedCompany = new CompanyBuilder(GOOGLE).build();
+    public void parse_optionalremarkMissing_success() {
+        Company expectedCompany = new CompanyBuilder(GOOGLE).withRemark("No remarks").build();
         assertParseSuccess(parser, NAME_DESC_GOOGLE + PHONE_DESC_GOOGLE + EMAIL_DESC_GOOGLE + ROLE_DESC_GOOGLE
                         + DEADLINE_DESC_GOOGLE + STATUS_DESC_GOOGLE + RECRUITER_NAME_DESC_GOOGLE + PRIORITY_DESC_GOOGLE,
                 new AddCommand(expectedCompany));
@@ -296,6 +295,7 @@ public class AddCommandParserTest {
         assertParseSuccess(parser, userInput, new AddCommand(
                 new CompanyBuilder(TIKTOK)
                         .withPriority("NONE")
+                        .withRemark("No remarks")
                         .build()
         ));
     }
