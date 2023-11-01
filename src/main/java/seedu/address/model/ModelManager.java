@@ -134,6 +134,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void clearCompanyDetailPanel() {
+        addressBook.clearDetailPanel();
+    }
+
+    @Override
     public void sortCompaniesByDeadline(SortOrder sortOrder) {
         addressBook.sortCompaniesByDeadline(sortOrder);
         updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
