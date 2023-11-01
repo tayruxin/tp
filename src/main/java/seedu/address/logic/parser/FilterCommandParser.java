@@ -34,6 +34,9 @@ public class FilterCommandParser implements Parser<FilterCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
         }
 
+        // check for duplicate status prefixes
+        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_STATUS);
+
         ApplicationStatus applicationStatus;
         ApplicationStatusPredicate predicate;
 

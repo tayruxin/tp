@@ -12,8 +12,8 @@ public class Phone {
     public static final String MESSAGE_CONSTRAINTS_NON_EMPTY =
             "Oops! Phone number should not be blank! Please try again with a valid phone number.";
     public static final String MESSAGE_CONSTRAINTS_VALID_REGEX =
-            "Oops! Phone number should only contain numbers, and it should be at least 3 digits long! \n"
-                    + "Please try again with a valid phone number. ";
+            "Oops! Phone number should only contain numbers, and it should be at least 3 digits long, "
+                    + "without any spaces!\n Please try again with a valid phone number. ";
     public static final String VALIDATION_REGEX = "\\d{3,}";
     public final String value;
 
