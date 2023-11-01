@@ -254,13 +254,13 @@ An example of an error message is shown below.
 ![img.png](DeleteCommandError.png)
 
 ### Add remark to a company: `remark` ###
-If you have information not within the fields,
-use the `remark` command to input the additional details.
+_After adding a company, if you wish to note down more information such as job description,
+use the `remark` command to input these additional details._
 
 **Format:** `remark INDEX re/REMARK`
 
 >`INDEX`: Adds remark of the company at INDEX number shown in the displayed company list. </br>
->`[re/REMARK]` : type prefix `re/` followed by the remark you want to add </br>
+>`re/REMARK` : type prefix `re/` followed by the remark you want to add </br>
 
 
 <div class="typography-box note">
@@ -278,11 +278,13 @@ use the `remark` command to input the additional details.
 </div>
 
 **Examples:** </br>
-1. Internship at Google requires knowledge on Java.
-To note down this, type `remark 1 re/need Java`
+1. After adding the internship for Microsoft into LinkMeIn, 
+you also want to note down that this internship requires experience in Java.
+
+2. To note this down, type `remark 1 re/need Java`
 ![RemarkDemo1.png](images/RemarkDemo1.png)
 
-2. You can view the remark the 1st company as shown below.
+3. You can view the remark the 1st company as shown below.
 ![RemarkDemo2.png](images/RemarkDemo2.png)
 
 **Possible Error:**
@@ -294,8 +296,8 @@ An example of an error message is shown below.
 ![RemarkErrorMsg.png](images/RemarkErrorMsg.png)
 
 ### Delete the remark of a company: `unremark` ###
-If the information under remarks is incorrrect or outdated,
-use the `unremark` command to delete it.
+_If you input some remarks to the wrong company or the remark has become outdated,
+use the `unremark` command to delete it._
 
 **Format:** `unremark INDEX`
 
@@ -310,7 +312,7 @@ Directly use the remark command and it overwrites the old remark!
 </div>
 
 **Examples:** </br>
-1. If you wish to delete the remark of Google, type `unremark 1`
+1. If you wish to delete the remark of Google, type `unremark 4`
 ![UnremarkDemo1.png](images/UnremarkDemo1.png)
 
 2. You can view the remark the 1st company as shown below.
@@ -325,8 +327,8 @@ An example of an error message is shown below.
 ![UnremarkErrorMsg.png](images/UnremarkErrorMsg.png)
 
 ### Edit a company's information: `edit` ###
-If you made a typo or need to update the progress of application,
-use the `edit` command to input the accurate details.
+_If you made a typo or need to update the progress of application,
+use the `edit` command to input the accurate details._
 
 **Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [re/REMARK]`
 
@@ -349,8 +351,8 @@ use the `edit` command to input the accurate details.
 </div>
 
 **Examples:** </br>
-1.You received a email from Microsoft to interview for a Frontend Developer role which is different from the role you applied for.
-To edit, type `edit 2 s/PI r/Frontend Developer`
+1.received an email from Microsoft to interview for a Frontend Developer role instead, which is different from the Software Engineer role you applied for.
+To edit the company's information, type `edit 2 s/PI r/Frontend Developer`
 
 ![EditDemo1.png](images/EditDemo1.png)
 2.The status and role of the 2nd company in the list is edited to be Pending Interview and Frontend Developer respectively.
