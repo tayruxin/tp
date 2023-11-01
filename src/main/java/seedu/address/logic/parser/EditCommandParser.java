@@ -1,8 +1,7 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.Messages.MESSAGE_EMPTY_PREFIX;
-import static seedu.address.logic.Messages.MESSAGE_INVALID_PREFIX;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
@@ -12,8 +11,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
-
-import java.util.stream.Stream;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
@@ -39,21 +36,17 @@ public class EditCommandParser implements Parser<EditCommand> {
 
         // Checks for invalid prefixes parsed as the preamble
         if (!argMultimap.isValidPreamble()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_PREFIX, EditCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         }
 
+        //Checks for valid index
         try {
             index = ParserUtil.parseIndex(argMultimap.getPreamble());
         } catch (ParseException pe) {
             throw new ParseException(pe.getMessage(), pe);
         }
 
-        // Checks for no prefixes after the index
-        if (anyPrefixesPresent(argMultimap, PREFIX_COMPANY_NAME, PREFIX_RECRUITER_NAME, PREFIX_ROLE, PREFIX_STATUS,
-                PREFIX_DEADLINE, PREFIX_EMAIL, PREFIX_PHONE, PREFIX_PRIORITY, PREFIX_REMARK)) {
-            throw new ParseException(String.format(MESSAGE_EMPTY_PREFIX, EditCommand.MESSAGE_USAGE));
-        }
-
+        // Checks for duplicate prefix
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_COMPANY_NAME, PREFIX_RECRUITER_NAME, PREFIX_ROLE, PREFIX_STATUS,
                 PREFIX_DEADLINE, PREFIX_EMAIL, PREFIX_PHONE, PREFIX_PRIORITY, PREFIX_REMARK);
 
@@ -94,13 +87,5 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
 
         return new EditCommand(index, editCompanyDescriptor);
-    }
-
-    /**
-     * Returns true if one of the prefixes contains {@code Optional} values in the given
-     * {@code ArgumentMultimap}.
-     */
-    private static boolean anyPrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
-        return Stream.of(prefixes).anyMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
     }
 }

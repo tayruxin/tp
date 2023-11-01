@@ -37,9 +37,6 @@ public class Messages {
     public static final String MESSAGE_EMPTY_PREFIX = "Oops! You have not entered any parameters. "
             + "Remember to follow the command format below! \n%1$s";
 
-    public static final String MESSAGE_INVALID_PREFIX = "Oops! You have entered an invalid prefix. "
-            + "Remember to follow the command format below! \n%1$s";
-
     /**
      * Returns an error message indicating the duplicate prefixes.
      */
