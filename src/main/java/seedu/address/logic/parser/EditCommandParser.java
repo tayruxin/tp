@@ -8,6 +8,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 
@@ -29,18 +30,25 @@ public class EditCommandParser implements Parser<EditCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_COMPANY_NAME, PREFIX_RECRUITER_NAME, PREFIX_ROLE, PREFIX_STATUS,
-                        PREFIX_DEADLINE, PREFIX_EMAIL, PREFIX_PHONE, PREFIX_PRIORITY);
+                        PREFIX_DEADLINE, PREFIX_EMAIL, PREFIX_PHONE, PREFIX_PRIORITY, PREFIX_REMARK);
 
         Index index;
 
+        // Checks for invalid prefixes parsed as the preamble
+        if (!argMultimap.isValidPreamble()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
+        }
+
+        //Checks for valid index
         try {
             index = ParserUtil.parseIndex(argMultimap.getPreamble());
         } catch (ParseException pe) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE), pe);
+            throw new ParseException(pe.getMessage(), pe);
         }
 
+        // Checks for duplicate prefix
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_COMPANY_NAME, PREFIX_RECRUITER_NAME, PREFIX_ROLE, PREFIX_STATUS,
-                PREFIX_DEADLINE, PREFIX_EMAIL, PREFIX_PHONE, PREFIX_PRIORITY);
+                PREFIX_DEADLINE, PREFIX_EMAIL, PREFIX_PHONE, PREFIX_PRIORITY, PREFIX_REMARK);
 
         EditCommand.EditCompanyDescriptor editCompanyDescriptor = new EditCommand.EditCompanyDescriptor();
 
@@ -70,11 +78,14 @@ public class EditCommandParser implements Parser<EditCommand> {
             editCompanyDescriptor.setPriority(ParserUtil.parsePriority(argMultimap.getValue(PREFIX_PRIORITY).get()));
         }
 
+        if (argMultimap.getValue(PREFIX_REMARK).isPresent()) {
+            editCompanyDescriptor.setRemark(ParserUtil.parseRemark(argMultimap.getValue(PREFIX_REMARK).get()));
+        }
+
         if (!editCompanyDescriptor.isAnyFieldEdited()) {
             throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
         }
 
         return new EditCommand(index, editCompanyDescriptor);
     }
-
 }
