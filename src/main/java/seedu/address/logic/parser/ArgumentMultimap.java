@@ -8,7 +8,10 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 import seedu.address.logic.Messages;
+import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 /**
  * Stores mapping of prefixes to their respective arguments.
@@ -18,6 +21,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
  * can be inserted multiple times for the same prefix.
  */
 public class ArgumentMultimap {
+    public static final String PREAMBLE_VALIDATION_REGEX = "^(?:-?\\d+(\\.\\d*)?|\\.\\d+)?$";
 
     /** Prefixes mapped to their respective arguments**/
     private final Map<Prefix, List<String>> argMultimap = new HashMap<>();
@@ -53,6 +57,14 @@ public class ArgumentMultimap {
             return new ArrayList<>();
         }
         return new ArrayList<>(argMultimap.get(prefix));
+    }
+
+    /**
+     * Returns true if the preamble of argument parsed is valid.
+     *
+     */
+    public Boolean isValidPreamble() {
+        return getPreamble().matches(PREAMBLE_VALIDATION_REGEX);
     }
 
     /**
