@@ -77,9 +77,10 @@ public class RemarkCommand extends Command {
      * {@code companyToEdit}.
      */
     private String generateSuccessMessage(Company companyToEdit) {
-        String message = !remark.value.isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;
+        String message = remark.getIsDeleted() ? MESSAGE_DELETE_REMARK_SUCCESS : MESSAGE_ADD_REMARK_SUCCESS;
         return String.format(message, Messages.getCompanyName(companyToEdit));
     }
+
 
     @Override
     public boolean equals(Object other) {

@@ -50,14 +50,14 @@ public class RemarkCommandTest {
     }
 
     @Test
-    public void execute_deleteRemarkUnfilteredList_success() {
+    public void execute_no_remarks_RemarkUnfilteredList_success() {
         Company firstCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
-        Company editedCompany = new CompanyBuilder(firstCompany).withRemark("").build();
+        Company editedCompany = new CompanyBuilder(firstCompany).withRemark("No remarks").build();
 
         RemarkCommand remarkCommand = new RemarkCommand(INDEX_FIRST_COMPANY,
                 new Remark(editedCompany.getRemark().toString()));
 
-        String expectedMessage = String.format(RemarkCommand.MESSAGE_DELETE_REMARK_SUCCESS,
+        String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS,
                 editedCompany.getName().fullName);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());

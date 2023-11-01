@@ -18,6 +18,8 @@ public class Remark {
 
     public final String value;
 
+    private boolean isDeleted = false;
+
     /**
      * Constructs a {@code Remark}.
      *
@@ -33,6 +35,14 @@ public class Remark {
      */
     public static boolean isValidRemark(String test) {
         return test.matches(VALIDATION_REGEX);
+    }
+
+    public void deleteRemark() {
+        this.isDeleted = true;
+    }
+
+    public boolean getIsDeleted() {
+        return this.isDeleted;
     }
 
 
