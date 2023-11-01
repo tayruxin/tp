@@ -50,7 +50,7 @@ public class RemarkCommandTest {
     }
 
     @Test
-    public void execute_no_remarks_RemarkUnfilteredList_success() {
+    public void execute_noRemarksRemarkUnfilteredList_success() {
         Company firstCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
         Company editedCompany = new CompanyBuilder(firstCompany).withRemark("No remarks").build();
 
