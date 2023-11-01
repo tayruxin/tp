@@ -9,8 +9,8 @@ import static java.util.Objects.requireNonNull;
  */
 public class ApplicationStatus {
 
-    public static final String MESSAGE_CONSTRAINTS_NON_EMPTY = "Oops! Application status should not be empty! "
-            + "Please try again with a valid application status.";
+    public static final String MESSAGE_CONSTRAINTS_NON_EMPTY =
+            "Oops! Application status should not be blank! Please try again with a valid application status.";
     public static final String MESSAGE_CONSTRAINTS_VALID_STATUS =
             "Oops! You have entered an invalid application status! \n"
                     + "Valid statuses: PA (Pending Application), PI (Pending Interview), PO (Pending Outcome), "
