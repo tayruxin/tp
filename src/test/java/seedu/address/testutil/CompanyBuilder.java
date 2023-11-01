@@ -134,7 +134,7 @@ public class CompanyBuilder {
     }
 
     /**
-     * Sets the {@code Name} of the {@code Company} that we are building.
+     * Sets the {@code Remark} of the {@code Company} that we are building.
      */
     public CompanyBuilder withRemark(String remark) {
         this.remark = new Remark(remark);

@@ -40,8 +40,8 @@ public class RemarkCommand extends Command {
     private final Remark remark;
 
     /**
-     * @param index of the company in the filtered company list to edit the remark
-     * @param remark of the company to be updated to
+     * @param index of the company in the filtered company list to edit the remark.
+     * @param remark of the company to be updated to.
      */
     public RemarkCommand(Index index, Remark remark) {
         requireAllNonNull(index, remark);

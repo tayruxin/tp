@@ -8,7 +8,7 @@ import static java.util.Objects.requireNonNull;
  */
 public class Remark {
 
-    public static final String MESSAGE_CONSTRAINTS = "Remark should not be blank";
+    public static final String MESSAGE_CONSTRAINTS = "Oops! Remark should not be empty. Please try again!";
 
     /*
      * The remark must not consist of whitespace only,
@@ -19,9 +19,9 @@ public class Remark {
     public final String value;
 
     /**
-     * Constructs a {@code Name}.
+     * Constructs a {@code Remark}.
      *
-     * @param remark A valid name.
+     * @param remark A valid remark.
      */
     public Remark(String remark) {
         requireNonNull(remark);

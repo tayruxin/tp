@@ -110,7 +110,7 @@ public class EditCompanyDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Name} of the {@code EditCompanyDescriptor} that we are building.
+     * Sets the {@code Remark} of the {@code EditCompanyDescriptor} that we are building.
      */
     public EditCompanyDescriptorBuilder withRemark(String remark) {
         descriptor.setRemark(new Remark(remark));
