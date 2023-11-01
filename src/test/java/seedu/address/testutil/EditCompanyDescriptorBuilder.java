@@ -37,11 +37,11 @@ public class EditCompanyDescriptorBuilder {
         descriptor.setName(company.getName());
         descriptor.setPhone(company.getPhone());
         descriptor.setEmail(company.getEmail());
-        descriptor.setStatus(company.getStatus());
-        descriptor.setRecruiterName(company.getRecruiterName());
-        descriptor.setRole(company.getRole());
-        descriptor.setDeadline(company.getDeadline());
         descriptor.setPriority(company.getPriority());
+        descriptor.setDeadline(company.getDeadline());
+        descriptor.setRole(company.getRole());
+        descriptor.setRecruiterName(company.getRecruiterName());
+        descriptor.setStatus(company.getStatus());
         descriptor.setRemark(company.getRemark());
     }
 
@@ -70,24 +70,9 @@ public class EditCompanyDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code ApplicationStatus} of the {@code EditCompanyDescriptor} that we are building.
-     */
-    public EditCompanyDescriptorBuilder withStatus(String status) {
-        descriptor.setStatus(new ApplicationStatus(status));
-        return this;
-    }
-
-    /**
-     * Sets the {@code RecruiterName} of the {@code EditCompanyDescriptor} that we are building.
-     */
-    public EditCompanyDescriptorBuilder withRecruiterName(String name) {
-        descriptor.setRecruiterName(new RecruiterName(name));
-        return this;
-    }
-
-    /**
      * Sets the {@code Role} of the {@code EditCompanyDescriptor} that we are building.
      */
+
     public EditCompanyDescriptorBuilder withRole(String role) {
         descriptor.setRole(new Role(role));
         return this;
@@ -96,8 +81,30 @@ public class EditCompanyDescriptorBuilder {
     /**
      * Sets the {@code Deadline} of the {@code EditCompanyDescriptor} that we are building.
      */
+
     public EditCompanyDescriptorBuilder withDeadline(String deadline) {
         descriptor.setDeadline(new Deadline(deadline));
+        return this;
+    }
+
+    /**
+     * Sets the {@code ApplicationStatus} of the {@code EditCompanyDescriptor} that we are building.
+     * @param status
+     * @return
+     */
+
+    public EditCompanyDescriptorBuilder withStatus(String status) {
+        descriptor.setStatus(new ApplicationStatus(status));
+        return this;
+    }
+
+    /**
+     * Sets the {@code RecruiterName} of the {@code EditCompanyDescriptor} that we are building.
+     * @param recruiterName
+     * @return
+     */
+    public EditCompanyDescriptorBuilder withRecruiterName(String recruiterName) {
+        descriptor.setRecruiterName(new RecruiterName(recruiterName));
         return this;
     }
 

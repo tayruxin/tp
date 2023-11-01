@@ -6,6 +6,7 @@ import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.logic.SortOrder;
 import seedu.address.model.company.Company;
 import seedu.address.model.company.UniqueCompanyList;
 
@@ -79,6 +80,15 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
+     * Returns Company that is duplicated with the same identity as {@code company}.
+     * Only executed if {@code hasCompany} returns true.
+     */
+    public Company getDuplicateCompany(Company company) {
+        requireNonNull(company);
+        return companies.getDuplicateCompany(company);
+    }
+
+    /**
      * Adds a company to the address book.
      * The company must not already exist in the address book.
      */
@@ -113,8 +123,8 @@ public class AddressBook implements ReadOnlyAddressBook {
     /**
      * Sorts the companies in the address book by their deadlines.
      */
-    public void sortCompaniesByDeadline() {
-        companies.sortCompaniesByDeadline();
+    public void sortCompaniesByDeadline(SortOrder sortOrder) {
+        companies.sortCompaniesByDeadline(sortOrder);
     }
 
     //// util methods
