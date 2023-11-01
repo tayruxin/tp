@@ -104,8 +104,11 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public void setCompany(Company target, Company editedCompany) {
         requireNonNull(editedCompany);
-
         companies.setCompany(target, editedCompany);
+    }
+
+    public int getDuplicateIndex(Company company) {
+        return companies.getDuplicateIndex(company);
     }
 
     /**

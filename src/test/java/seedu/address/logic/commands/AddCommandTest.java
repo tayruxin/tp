@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.Predicate;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
@@ -27,6 +28,7 @@ import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.company.Company;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Role;
+import seedu.address.testutil.Assert;
 import seedu.address.testutil.CompanyBuilder;
 
 public class AddCommandTest {
@@ -48,7 +50,7 @@ public class AddCommandTest {
         assertEquals(Arrays.asList(validCompany), modelStub.companiesAdded);
     }
 
-    //Duplicate tests, considered duplicate if same company name and same role
+    //Duplicate tests, considered duplicate if same company name and same role and deadline
     @Test
     public void execute_fullyDuplicatedCompany_throwsCommandException() {
         Company validCompany = new CompanyBuilder().build();
@@ -56,7 +58,10 @@ public class AddCommandTest {
         ModelStub modelStub = new ModelStubWithCompany(validCompany);
 
         assertThrows(CommandException.DuplicateCompanyException.class,
-                new CommandException.DuplicateCompanyException(validCompany).getMessage(), (
+                new CommandException.DuplicateCompanyException(validCompany,
+                        modelStub.getDuplicateIndex(validCompany),
+                        validCompany.listAllChangedFields(
+                                modelStub.getDuplicateCompany(validCompany))).getMessage(), (
                 ) -> addCommand.execute(modelStub));
     }
 
@@ -69,7 +74,11 @@ public class AddCommandTest {
         ModelStubWithCompany modelStub = new ModelStubWithCompany(validCompany);
 
         assertDoesNotThrow(() -> addCommand.execute(modelStub),
-                new CommandException.DuplicateCompanyException(validCompany).getMessage());
+                new CommandException.DuplicateCompanyException(validCompany,
+                        modelStub.getDuplicateIndex(validCompany),
+                        validCompany.listAllChangedFields(
+                                modelStub.getDuplicateCompany(validCompany))
+                ).getMessage());
     }
 
     @Test
@@ -81,7 +90,11 @@ public class AddCommandTest {
         ModelStub modelStub = new ModelStubWithCompany(validCompany);
 
         assertDoesNotThrow(() -> addCommand.execute(modelStub),
-                new CommandException.DuplicateCompanyException(validCompany).getMessage());
+                new CommandException.DuplicateCompanyException(validCompany,
+                        modelStub.getDuplicateIndex(validCompany),
+                        validCompany.listAllChangedFields(
+                                modelStub.getDuplicateCompany(validCompany))
+                ).getMessage());
     }
 
     @Test
@@ -91,17 +104,19 @@ public class AddCommandTest {
         Company duplicateCompany = companyBuilder
                 .withEmail("hello@gmail.com")
                 .withPhone("89004789")
-                .withDeadline("12-10-2015")
-                .withPriority("LOW")
+                .withPriority("HIGH")
                 .withRecruiterName("Cameron")
                 .withStatus("PA")
                 .build();
         AddCommand addCommand = new AddCommand(duplicateCompany);
         ModelStub modelStub = new ModelStubWithCompany(validCompany);
+        CommandException.DuplicateCompanyException thrownException =
+                Assertions.assertThrows(CommandException.DuplicateCompanyException.class, (
+                        ) -> addCommand.execute(modelStub));
 
-        assertThrows(CommandException.DuplicateCompanyException.class,
-                new CommandException.DuplicateCompanyException(validCompany).getMessage(), (
-                ) -> addCommand.execute(modelStub));
+        String expectedMessage = thrownException.getExpectedMessage();
+
+        Assert.assertEquals(expectedMessage, thrownException.getMessage());
     }
 
     @Test
@@ -121,7 +136,11 @@ public class AddCommandTest {
         ModelStub modelStub = new ModelStubWithCompany(validCompany);
 
         assertDoesNotThrow(() -> addCommand.execute(modelStub),
-                new CommandException.DuplicateCompanyException(validCompany).getMessage());
+                new CommandException.DuplicateCompanyException(validCompany,
+                        modelStub.getDuplicateIndex(validCompany),
+                        validCompany.listAllChangedFields(
+                                modelStub.getDuplicateCompany(validCompany))
+                ).getMessage());
     }
 
     @Test
@@ -141,7 +160,12 @@ public class AddCommandTest {
         ModelStub modelStub = new ModelStubWithCompany(validCompany);
 
         assertDoesNotThrow(() -> addCommand.execute(modelStub),
-                new CommandException.DuplicateCompanyException(validCompany).getMessage());
+                new CommandException.DuplicateCompanyException(
+                        validCompany,
+                        modelStub.getDuplicateIndex(validCompany),
+                        validCompany.listAllChangedFields(
+                                modelStub.getDuplicateCompany(validCompany))
+                ).getMessage());
     }
 
     @Test
@@ -284,6 +308,11 @@ public class AddCommandTest {
         public Company getDuplicateCompany(Company company) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public int getDuplicateIndex(Company company) {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     /**
@@ -331,6 +360,13 @@ public class AddCommandTest {
         public void setCurrentViewedCompany(Company company) {
 
         }
+
+        @Override
+        public int getDuplicateIndex(Company company) {
+            return 0;
+        }
+
+
     }
 
     /**

@@ -21,7 +21,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.company.Company;
-import seedu.address.model.company.NameContainsKeywordsPredicate;
+import seedu.address.model.company.predicates.NameContainsKeywordsPredicate;
 import seedu.address.testutil.EditCompanyDescriptorBuilder;
 
 /**

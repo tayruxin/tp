@@ -188,4 +188,9 @@ public class ModelManager implements Model {
                 && userPrefs.equals(otherModelManager.userPrefs)
                 && filteredCompanies.equals(otherModelManager.filteredCompanies);
     }
+
+    @Override
+    public int getDuplicateIndex(Company company) {
+        return addressBook.getDuplicateIndex(company);
+    }
 }

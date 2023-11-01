@@ -1,6 +1,11 @@
 package seedu.address.model.company;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 
 import java.util.Objects;
 
@@ -73,7 +78,7 @@ public class Company {
 
     /**
      * Returns true if both entries have the same company name and the
-     * role is the same.
+     * role and the deadline is the same.
      */
     public boolean isSameCompany(Company otherCompany) {
         if (otherCompany == this) {
@@ -87,7 +92,42 @@ public class Company {
         return otherCompany.getName() != null
                 && otherCompany.getName().equals(getName())
                 && otherCompany.getRole() != null
-                && otherCompany.getRole().equals(getRole());
+                && otherCompany.getRole().equals(getRole())
+                && otherCompany.getDeadline() != null
+                && otherCompany.getDeadline().equals(getDeadline());
+    }
+
+    /**
+     * Returns string of all fields that are different between the two companies.
+     * Only to be used by add command's exception for duplicate companies.
+     * @param duplicatedCompany
+     * @return
+     */
+    public String listAllChangedFields(Company duplicatedCompany) {
+        String changedFields = "";
+        final String space = " ";
+
+        assert getName().equals(duplicatedCompany.getName());
+        assert getRole().equals(duplicatedCompany.getRole());
+        assert getDeadline().equals(duplicatedCompany.getDeadline());
+
+        if (!getPhone().equals(duplicatedCompany.getPhone())) {
+            changedFields += PREFIX_PHONE.getPrefix() + this.getPhone() + space;
+        }
+        if (!getEmail().equals(duplicatedCompany.getEmail())) {
+            changedFields += PREFIX_EMAIL.getPrefix() + this.getEmail() + space;
+        }
+        if (!getStatus().equals(duplicatedCompany.getStatus())) {
+            changedFields += PREFIX_STATUS.getPrefix() + this.getStatus() + space;
+        }
+        if (!getRecruiterName().equals(duplicatedCompany.getRecruiterName())) {
+            changedFields += PREFIX_RECRUITER_NAME.getPrefix() + this.getRecruiterName() + space;
+        }
+        if (!getPriority().equals(duplicatedCompany.getPriority())) {
+            changedFields += PREFIX_PRIORITY.getPrefix() + this.getPriority() + space;
+        }
+
+        return changedFields.strip();
     }
 
     /**
@@ -135,11 +175,4 @@ public class Company {
                 .toString();
     }
 
-    /**
-     * Returns a string representation of the company in the form of a list of attributes.
-     * Used to display the entire string representation in one line
-     */
-    public String duplicatedCompanyFlagOutput() {
-        return "Name : " + name + "," + " Role : " + role;
-    }
 }

@@ -1,10 +1,11 @@
-package seedu.address.model.company;
+package seedu.address.model.company.predicates;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.model.company.ApplicationStatus;
 import seedu.address.testutil.CompanyBuilder;
 
 public class ApplicationStatusPredicateTest {

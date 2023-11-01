@@ -25,9 +25,9 @@ public class CompanyTest {
         // null -> returns false
         assertFalse(META.isSameCompany(null));
 
-        // same name and same role all other attributes different -> returns true
+        // same name, same role and deadline all other attributes different -> returns true
         Company editedMeta = new CompanyBuilder(META).withPhone(VALID_PHONE_TIKTOK).withEmail(VALID_EMAIL_TIKTOK)
-                .withDeadline(VALID_DEADLINE_TIKTOK).withStatus(VALID_STATUS_TIKTOK)
+                .withStatus(VALID_STATUS_TIKTOK)
                 .build();
         assertTrue(META.isSameCompany(editedMeta));
 
@@ -36,17 +36,17 @@ public class CompanyTest {
                 .withDeadline(VALID_DEADLINE_TIKTOK).withStatus(VALID_STATUS_TIKTOK).build();
         assertFalse(META.isSameCompany(editedMeta));
 
-        // name differs in case, all other attributes same -> returns false
+        // name differs in case, all other attributes same -> returns true (case-insensitive)
         Company editedTikTok = new CompanyBuilder(TIKTOK).withName(VALID_NAME_TIKTOK.toLowerCase())
                 .withRole(VALID_ROLE_TIKTOK).withDeadline(VALID_DEADLINE_TIKTOK)
                 .withStatus(VALID_STATUS_TIKTOK).build();
-        assertFalse(TIKTOK.isSameCompany(editedTikTok));
+        assertTrue(TIKTOK.isSameCompany(editedTikTok));
 
-        // name has trailing spaces, all other attributes same -> returns false
+        // name has trailing spaces, all other attributes same -> returns true (trailing spaces ignored)
         String nameWithTrailingSpaces = VALID_NAME_TIKTOK + " ";
         editedTikTok = new CompanyBuilder(TIKTOK).withName(nameWithTrailingSpaces).withRole(VALID_ROLE_TIKTOK)
                 .withDeadline(VALID_DEADLINE_TIKTOK).withStatus(VALID_STATUS_TIKTOK).build();
-        assertFalse(TIKTOK.isSameCompany(editedTikTok));
+        assertTrue(TIKTOK.isSameCompany(editedTikTok));
     }
 
     @Test

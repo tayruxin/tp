@@ -8,13 +8,16 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Guarantees: immutable; is valid as declared in {@link #isValidPhone(String)}
  */
 public class Phone {
-
     public static final String MESSAGE_CONSTRAINTS_NON_EMPTY =
             "Oops! Phone number should not be blank! Please try again with a valid phone number.";
     public static final String MESSAGE_CONSTRAINTS_VALID_REGEX =
-            "Oops! Phone number should only contain numbers, and it should be at least 3 digits long! \n"
+            "Oops! Phone number should only contain numbers, and it should be at "
+                    + "least 3 digits and at most 20 characters long! \n"
                     + "Please try again with a valid phone number. ";
-    public static final String VALIDATION_REGEX = "\\d{3,}";
+
+    // The regex allows for 3 to 15 digits, but can be up to 20 characters considering formatting characters.
+    public static final String VALIDATION_REGEX = "^[\\d\\s\\-\\+\\(\\)]{3,20}$";
+
     public final String value;
 
     /**
@@ -36,6 +39,33 @@ public class Phone {
         return test.matches(VALIDATION_REGEX);
     }
 
+    /**
+     * Standardizes a given phone number by stripping away all formatting characters
+     * such as spaces, dashes, parentheses, and the plus sign. This method allows for
+     * different formats of the same phone number to be considered equal.
+     *
+     * <p>Examples:</p>
+     *
+     * <ul>
+     *   <li>{@code standardizeNumber("1234567890")} returns {@code "1234567890"}.</li>
+     *   <li>{@code standardizeNumber("123-456-7890")} returns {@code "1234567890"}.</li>
+     *   <li>{@code standardizeNumber("(123) 456-7890")} returns {@code "1234567890"}.</li>
+     *   <li>{@code standardizeNumber("+1 123-456-7890")} returns {@code "11234567890"}.</li>
+     * </ul>
+     *
+     * <p>Note:</p>
+     * <ul>
+     *   <li>Phone numbers {@code "1234567890"} and {@code "123-456-7890"} are considered equals.</li>
+     *   <li>Phone numbers {@code "+1 123-456-7890"} and {@code "+1123-456-7890"} are considered equals.</li>
+     *   <li>Phone numbers {@code "(123) 456-7890"} and {@code "1234567890"} are considered equals.</li>
+     * </ul>
+     *
+     * @param number The phone number to be standardized.
+     * @return The standardized phone number without formatting characters.
+     */
+    private static String standardizeNumber(String number) {
+        return number.replaceAll("[\\s\\-\\+\\(\\)]", "");
+    }
     @Override
     public String toString() {
         return value;
@@ -53,7 +83,7 @@ public class Phone {
         }
 
         Phone otherPhone = (Phone) other;
-        return value.equals(otherPhone.value);
+        return standardizeNumber(value).equals(standardizeNumber(otherPhone.value));
     }
 
     @Override

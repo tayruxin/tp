@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.FilterCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.company.ApplicationStatus;
-import seedu.address.model.company.ApplicationStatusPredicate;
+import seedu.address.model.company.predicates.ApplicationStatusPredicate;
 
 /**
  * Parses input arguments and creates a new FilterCommand object.
