@@ -34,7 +34,7 @@ public class Messages {
     public static final String MESSAGE_EMPTY_INDEX = "Oops! The index you have given is empty. "
             + "Remember to key in an index!";
 
-    public static final String MESSAGE_EMPTY_PREFIX = "Oops! You have not entered any information. "
+    public static final String MESSAGE_EMPTY_PREFIX = "Oops! You have not entered any parameters. "
             + "Remember to follow the command format below! \n%1$s";
 
     /**

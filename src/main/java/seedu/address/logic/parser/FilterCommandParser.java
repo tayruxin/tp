@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.Messages.MESSAGE_EMPTY_PREFIX;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 
@@ -23,6 +24,12 @@ public class FilterCommandParser implements Parser<FilterCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_STATUS);
 
+        // Checks for empty text after filter word
+        if (args.isEmpty()) {
+            throw new ParseException(String.format(MESSAGE_EMPTY_PREFIX, FilterCommand.MESSAGE_USAGE));
+        }
+
+        // Checks for missing prefixes after add word
         if (!arePrefixesPresent(argMultimap, PREFIX_STATUS) || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
         }
@@ -30,14 +37,9 @@ public class FilterCommandParser implements Parser<FilterCommand> {
         ApplicationStatus applicationStatus;
         ApplicationStatusPredicate predicate;
 
-        try {
-            applicationStatus = ParserUtil.parseStatus(argMultimap.getValue(PREFIX_STATUS).get());
-            predicate = new ApplicationStatusPredicate(applicationStatus);
-            return new FilterCommand(applicationStatus, predicate);
-        } catch (ParseException pe) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE), pe);
-        }
+        applicationStatus = ParserUtil.parseStatus(argMultimap.getValue(PREFIX_STATUS).get());
+        predicate = new ApplicationStatusPredicate(applicationStatus);
+        return new FilterCommand(applicationStatus, predicate);
     }
 
     /**

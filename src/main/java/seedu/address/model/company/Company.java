@@ -21,14 +21,15 @@ public class Company {
     private final ApplicationStatus status;
     private final RecruiterName recruiterName;
     private final Priority priority;
+    private final Remark remark;
 
 
     /**
      * Every field must be present and not null.
      */
     public Company(Name name, Phone phone, Email email, Role role, Deadline deadline, ApplicationStatus status,
-                   RecruiterName recruiterName, Priority priority) {
-        requireAllNonNull(name, phone, email, role, deadline, status, priority);
+                   RecruiterName recruiterName, Priority priority, Remark remark) {
+        requireAllNonNull(name, phone, email, role, deadline, status, priority, remark);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -37,6 +38,7 @@ public class Company {
         this.status = status;
         this.recruiterName = recruiterName;
         this.priority = priority;
+        this.remark = remark;
     }
 
     public Name getName() {
@@ -69,6 +71,10 @@ public class Company {
 
     public Priority getPriority() {
         return priority;
+    }
+
+    public Remark getRemark() {
+        return remark;
     }
 
     /**
@@ -113,12 +119,13 @@ public class Company {
                 && deadline.equals(otherCompany.deadline)
                 && status.equals(otherCompany.status)
                 && recruiterName.equals(otherCompany.recruiterName)
-                && priority.equals(otherCompany.priority);
+                && priority.equals(otherCompany.priority)
+                && remark.equals(otherCompany.remark);
     }
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, role, deadline, status, recruiterName, priority);
+        return Objects.hash(name, phone, email, role, deadline, status, recruiterName, priority, remark);
     }
 
     @Override
@@ -132,6 +139,7 @@ public class Company {
                 .add("phone", phone)
                 .add("email", email)
                 .add("priority", priority)
+                .add("remark", remark)
                 .toString();
     }
 
