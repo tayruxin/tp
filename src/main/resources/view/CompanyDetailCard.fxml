@@ -58,7 +58,7 @@
         </VBox>
         <VBox spacing="10" minHeight="105" GridPane.columnIndex="0" GridPane.rowIndex="6"
               styleClass="card-with-border">
-            <Label fx:id="remark" styleClass="card_small_label" text="\$remark" />
+            <Label fx:id="remark" styleClass="card_small_label" text="\$remark" wrapText="true" />
         </VBox>
     </GridPane>
 </HBox>
