@@ -140,6 +140,6 @@ public class Company {
      * Used to display the entire string representation in one line
      */
     public String duplicatedCompanyFlagOutput() {
-        return "Name = " + name + "," + " Role = " + role;
+        return "Name : " + name + "," + " Role : " + role;
     }
 }
