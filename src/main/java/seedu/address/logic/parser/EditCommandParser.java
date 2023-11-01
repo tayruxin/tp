@@ -34,12 +34,19 @@ public class EditCommandParser implements Parser<EditCommand> {
 
         Index index;
 
+        // Checks for invalid prefixes parsed as the preamble
+        if (!argMultimap.isValidPreamble()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
+        }
+
+        //Checks for valid index
         try {
             index = ParserUtil.parseIndex(argMultimap.getPreamble());
         } catch (ParseException pe) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE), pe);
+            throw new ParseException(pe.getMessage(), pe);
         }
 
+        // Checks for duplicate prefix
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_COMPANY_NAME, PREFIX_RECRUITER_NAME, PREFIX_ROLE, PREFIX_STATUS,
                 PREFIX_DEADLINE, PREFIX_EMAIL, PREFIX_PHONE, PREFIX_PRIORITY, PREFIX_REMARK);
 
@@ -81,5 +88,4 @@ public class EditCommandParser implements Parser<EditCommand> {
 
         return new EditCommand(index, editCompanyDescriptor);
     }
-
 }

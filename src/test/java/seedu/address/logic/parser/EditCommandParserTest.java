@@ -1,6 +1,8 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.logic.Messages.MESSAGE_EMPTY_INDEX;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.Messages.MESSAGE_NON_POSITIVE_INTEGER_INDEX;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
@@ -51,16 +53,16 @@ public class EditCommandParserTest {
         assertParseFailure(parser, "1", EditCommand.MESSAGE_NOT_EDITED);
 
         // no index and no field specified
-        assertParseFailure(parser, "", MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, "", MESSAGE_EMPTY_INDEX);
     }
 
     @Test
     public void parse_invalidPreamble_failure() {
         // negative index
-        assertParseFailure(parser, "-5" + NAME_DESC_GOOGLE, MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, "-5" + NAME_DESC_GOOGLE, MESSAGE_NON_POSITIVE_INTEGER_INDEX);
 
         // zero index
-        assertParseFailure(parser, "0" + NAME_DESC_GOOGLE, MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, "0" + NAME_DESC_GOOGLE, MESSAGE_NON_POSITIVE_INTEGER_INDEX);
 
         // invalid arguments being parsed as preamble
         assertParseFailure(parser, "1 some random string", MESSAGE_INVALID_FORMAT);
@@ -154,7 +156,7 @@ public class EditCommandParserTest {
 
         assertParseFailure(parser, userInput, Messages.getErrorMessageForDuplicatePrefixes(PREFIX_PHONE));
 
-        // mulltiple valid fields repeated
+        // multiple valid fields repeated
         userInput = targetIndex.getOneBased() + PHONE_DESC_GOOGLE + EMAIL_DESC_GOOGLE
                 + PHONE_DESC_GOOGLE + EMAIL_DESC_GOOGLE
                 + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK;
