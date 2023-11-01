@@ -15,7 +15,7 @@ public class ApplicationStatus {
             "Oops! You have entered an invalid application status! \n"
                     + "Valid statuses: PA (Pending Application), PI (Pending Interview), PO (Pending Outcome), "
                     + "A (Accepted), R (Rejected). \n"
-                    + "Please try again with a valid applications status.";
+                    + "Please try again with a valid application status.";
 
     /**
      * The application status of a company.
