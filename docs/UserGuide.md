@@ -115,10 +115,10 @@ you have a reliable companion to guide you through this exciting journey._
 
 This tour aims to help you get started with LinkMeIn by introducing you to its essential features that you will be
 using quite often. In this tour, you will be learning how and when to:
-- [add a company](),
-- [view its details](),
-- [edit its details]()
-- [delete it]().
+- [add a company](#1-adding-your-first-company-),
+- [view its details](#2-viewing-company-details-),
+- [edit its details](#3-editing-company-details-)
+- [delete it](#4-deleting-a-company-).
 
 Before we embark on this tour remember to download LinkMeIn and have your computer set up correctly. If you have not
 done so, do check out the [Quick Start Guide](#quick-start) for more information.
