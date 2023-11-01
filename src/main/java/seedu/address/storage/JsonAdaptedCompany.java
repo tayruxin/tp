@@ -111,7 +111,7 @@ class JsonAdaptedCompany {
                     Deadline.class.getSimpleName()));
         }
         if (!Deadline.isValidDeadline(deadline)) {
-            throw new IllegalValueException(Deadline.MESSAGE_CONSTRAINTS_VALID_REGEX);
+            throw new IllegalValueException(Deadline.MESSAGE_CONSTRAINTS_INVALID_DEADLINE);
         }
         final Deadline modelDeadline = new Deadline(deadline);
 
