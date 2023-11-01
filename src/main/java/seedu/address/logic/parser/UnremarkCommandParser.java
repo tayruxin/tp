@@ -26,8 +26,7 @@ public class UnremarkCommandParser implements Parser<RemarkCommand> {
             return new RemarkCommand(index, remark);
 
         } catch (ParseException pe) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                    RemarkCommand.MESSAGE_REMOVE_USAGE), pe);
+            throw new ParseException(String.format(pe.getMessage()), pe);
         }
     }
 }
