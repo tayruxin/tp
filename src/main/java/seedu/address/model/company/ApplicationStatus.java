@@ -45,7 +45,6 @@ public class ApplicationStatus {
 
     public final ApplicationStatusEnum status;
 
-
     /**
      * Constructs an {@code ApplicationStatus} based on the given status string.
      * The constructor supports a range of status inputs for flexibility, allowing
@@ -61,15 +60,15 @@ public class ApplicationStatus {
         status = status.toUpperCase().replaceAll("\\s+", " ").trim();
         // Convert to uppercase and replace multiple spaces with a single space
 
-        if (status.matches("^(PA|PENAPP|PENDINGAPP|PENDINGAPPLICATION|P\\sA|PENDING\\sA)$")) {
+        if (status.matches("^(PA|PEN\\s*APP|PENDING\\s*APP|PENDING\\s*APPLICATION|P\\sA|PENDING\\sA)$")) {
             this.status = ApplicationStatusEnum.PA;
-        } else if (status.matches("^(PI|PENDINT|PENDINGINT|PENDINGINTERVIEW|P\\sI|PENDING\\sI)$")) {
+        } else if (status.matches("^(PI|PEND\\s*INT|PENDING\\s*INT|PENDING\\s*INTERVIEW|P\\sI|PENDING\\sI)$")) {
             this.status = ApplicationStatusEnum.PI;
-        } else if (status.matches("^(PO|PENDOUT|PENDINGOUT|PENDINGOUTCOME|P\\sO|PENDING\\sO)$")) {
+        } else if (status.matches("^(PO|PEND\\s*OUT|PENDING\\s*OUT|PENDING\\s*OUTCOME|P\\sO|PENDING\\sO)$")) {
             this.status = ApplicationStatusEnum.PO;
         } else if (status.matches("^(A|ACC|ACCEPT|ACPT|ACCEPTED)$")) {
             this.status = ApplicationStatusEnum.A;
-        } else if (status.matches("^(R|REJ|REJECT|REJECTION)$")) {
+        } else if (status.matches("^(R|REJ|REJECT|REJECTED)$")) {
             this.status = ApplicationStatusEnum.R;
         } else {
             throw new IllegalArgumentException(MESSAGE_CONSTRAINTS_VALID_STATUS);
@@ -81,13 +80,12 @@ public class ApplicationStatus {
      */
     public static boolean isValidApplicationStatus(String test) {
         test = test.toUpperCase().replaceAll("\\s+", " ").trim();
-        return test.matches("^(PA|PENAPP|PENDINGAPP"
-                + "|PENDINGAPPLICATION|P\\sA|PENDING\\sA|PI|PENDINT|"
-                + "PENDINGINT|PENDINGINTERVIEW|P\\sI|PENDING\\sI|PO|PENDOUT|"
-                + "PENDINGOUT|PENDINGOUTCOME|P\\sO|PENDING\\sO|A|ACC|ACCEPT|ACPT|"
-                + "ACCEPTED|R|REJ|REJECT|REJECTION)$");
+        return test.matches("^(PA|PEN\\s*APP|PENDING\\s*APP"
+                + "|PENDING\\s*APPLICATION|P\\sA|PENDING\\sA|PI|PEND\\s*INT|"
+                + "PENDING\\s*INT|PENDING\\s*INTERVIEW|P\\sI|PENDING\\sI|PO|PEND\\s*OUT|"
+                + "PENDING\\s*OUT|PENDING\\s*OUTCOME|P\\sO|PENDING\\sO|A|ACC|ACCEPT|ACPT|"
+                + "ACCEPTED|R|REJ|REJECT|REJECTED)$");
     }
-
 
     @Override
     public String toString() {
