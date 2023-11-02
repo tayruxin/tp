@@ -15,9 +15,9 @@ public class SortCommand extends Command {
     public static final String MESSAGE_SUCCESS_DESCENDING = "Sorted all companies by their deadlines in descending "
             + "order";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sorts all companies by their deadlines in ascending "
-            + "or descending order.\n"
-            + "Parameters: ascending or descending (case-insensitive)\n"
+    public static final String MESSAGE_USAGE =
+            "Format: " + COMMAND_WORD + " <SORT_ORDER>. "
+            + "Valid ascending sort orders: a, asc, ascending. Valid descending sort orders:  d, desc, descending, \n"
             + "Example: " + COMMAND_WORD + " ascending";
 
     private final SortOrder sortOrder;
