@@ -668,6 +668,7 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 | pr/Priority          | Priority of the application.                  | Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`.                                                                                                  |
 | re/Remark            | Remark of the application.                    | Should not be blank.                                                                                                                                                                   |
 
+
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
 * If you enter an invalid input for any of the prefixes, you will see an error message in the command box. Check the description for the respective prefix and try the command again! An example of an error message is shown below.
