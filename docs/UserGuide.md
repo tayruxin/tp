@@ -31,7 +31,7 @@ LinkMeIn's user interface (UI) is designed to be **simple** and **intuitive**. T
 
 **3. Company List Panel** - Displays the list of companies that you have added.
 
-![uiIntro.png](images/UI-intro/uiIntro.png)
+![uiIntro.png](images/ui-intro/uiIntro.png)
 
 
 
