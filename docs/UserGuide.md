@@ -111,11 +111,11 @@ Now, follow us along this tour and transform yourself into a master of your inte
 Adding a company is the first step to tracking your internship applications. Let us start off by adding your
 first company to LinkMeIn.
 
-1. Whether you are scrolling through your LinkedIn feed or browsing through a job portal, if you come across a
+**Step 1:** Whether you are scrolling through your LinkedIn feed or browsing through a job portal, if you come across a
 company that you are interested in, you can add it to LinkMeIn. Let's say you are interested in a Software Engineering
 role at TikTok.
 
-2. Type the following `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com
+**Step 2:** Type the following `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com
 p/987654321 pr/high` in the command box and press Enter.
 
 <div markdown="block" class="alert alert-info">
@@ -123,7 +123,7 @@ p/987654321 pr/high` in the command box and press Enter.
 * If you wish to know more about what each parameter means and how to use the add command, you can do so <a href="#adding-a-company--add-">here</a>.
 </div>
 
-3. You should see a new entry successfully added into LinkMeIn as shown below.
+**Step 3:** You should see a new entry successfully added into LinkMeIn as shown below.
 
 ![AddCommand.png](images/add-command/AfterAddCommand.png)
 
@@ -132,11 +132,11 @@ Congratulations! You have successfully added your first company to LinkMeIn. Go 
 ## 2. Viewing company details ##
 After adding a few companies, you may want to view the details of a specific company.
 
-1. To view the details of Twitter, type `view 6` in the command box and press Enter.
+**Step 1:** To view the details of Twitter, type `view 6` in the command box and press Enter.
 
 ![ViewCommand.png](images/view-command/BeforeViewCommand.png)
 
-2. You should see the details of Twitter as shown below.
+**Step 2:** You should see the details of Twitter as shown below.
 
 ![ViewCommand.png](images/view-command/AfterViewCommand.png)
 
@@ -148,7 +148,7 @@ more companies on your own!
 After viewing the details of a company, you may realise that you have a typo in the role of a company, and you wish to
 edit the details of the company.
 
-1. To edit the application status and role of Twitter, type `edit 6 s/PI r/Frontend Developer` in the command box
+**Step 1:** To edit the application status and role of Twitter, type `edit 6 s/PI r/Frontend Developer` in the command box
 and press Enter.
 
 <div markdown="block" class="alert alert-info">
@@ -156,7 +156,7 @@ and press Enter.
 * If you wish to learn more about the edit command, you can do so <a href="#edit-a-company's-information--">here</a>.
 </div>
 
-2. You should see the details of Twitter updated.
+**Step 2:** You should see the details of Twitter updated.
 
 Now that you have learnt how to edit the details of a company, you can go ahead and try editing the details of a few
 more companies on your own! Having learnt how to add, view and edit a company in LinkMeIn, you are left
@@ -166,9 +166,9 @@ with one last step to master LinkMeIn.
 After adding a few companies, you were unfortunately rejected from some of the companies and you no longer need to track
 them in LinkMeIn. You can delete the companies that you no longer need to track in LinkMeIn.
 
-1. To delete Twitter, type `delete 6` in the command box and press Enter.
+**Step 1:** To delete Twitter, type `delete 6` in the command box and press Enter.
 
-2. You should see the details of Twitter removed from LinkMeIn.
+**Step 2:** You should see the details of Twitter removed from LinkMeIn.
 
 Go ahead and try deleting the other companies too. If you wish to read up more on the delete command, you can do so
 [here](#deleting-a-company--delete).
@@ -278,11 +278,14 @@ the detail of any company from the list of companies that you have added._
 </div>
 
 **Example:**
-1. After scrolling through your list of companies, you wish to view the details of the company _Twitter_. 
-Simply type `view 6` to view _Twitter's_ details.
+
+**Step 1:** After scrolling through your list of companies, you wish to view the details of the company _DSTA_. 
+Simply type `view 3` to view _DSTA's_ details.
+
 ![img.png](images/view-command/BeforeViewCommand.png)
 
-2. The detail panel will be updated to show the details of _Twitter_.
+**Step 2:** The detail panel will be updated to show the details of _DSTA_.
+
 ![img.png](images/view-command/AfterViewCommand.png)
 
 **Possible Error:**</br>
@@ -309,11 +312,14 @@ You can use the delete command to delete the company from the list of companies 
 </div>
 
 **Example:**
-1. Let's say after viewing the company _Twitter_, you decide that you no longer want to track it. 
-Simply type `delete 6` to delete _Twitter_.
+
+**Step 1:** Let's say after viewing the company _DSTA_, you decide that you no longer want to track it. 
+Simply type `delete 3` to delete _DSTA_.
+
 ![img.png](images/delete-command/BeforeDeleteCommand.png)
 
-2. Twitter will be removed from the list of companies. The detail panel will be cleared too.
+**Step 2:** _DSTA_ will be removed from the list of companies. The detail panel will be cleared too.
+
 ![img.png](images/delete-command/AfterDeleteCommand.png)
 
 **Possible Error:**
@@ -378,7 +384,8 @@ use the `unremark` command to delete it._
 Directly use the remark command and it overwrites the old remark!
 </div>
 
-**Examples:** </br>
+**Examples:** 
+
 1. If you wish to delete the remark of Google, type `unremark 4`
 ![UnremarkDemo1.png](images/remark-command/UnremarkDemo1.png)
 
@@ -630,7 +637,8 @@ Delete the `addressbook.json` file (stored at `[JAR file location]/data/addressb
 
 ### 7. What is an invalid index? ###
 An invalid index is a non-positive integer or an index greater than the number of companies you have. 
-e.g -1, 0, a, *, 1  0 (Only one index is allowed at a time). 
+e.g -1, 0, a, *, 1  0 (Only one index is allowed at a time). Positive index should not exceed the maximum allowed range 
+of 2147483647.
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
