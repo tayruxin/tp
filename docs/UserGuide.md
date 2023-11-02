@@ -7,8 +7,9 @@ title: User Guide
 
 _Master Your Internship Journey: Every Deadline, Every Detail._
 
-LinkMeIn is a **desktop application** built for [NUS School Of Computing's (NUS) Computer Science students](https://www.comp.nus.edu.sg/programmes/ug/cs/)
-to track their internship applications. It is recommended that you read this manual before using the application.
+LinkMeIn is a **desktop application** built for [NUS School Of Computing's (NUS) Computer Science students](https://www.comp.nus.edu.sg/programmes/ug/cs/) 
+to track their internship applications.
+
 
 Here is a **quick** overview of your internship journey with LinkMeIn:
 
@@ -19,40 +20,82 @@ Here is a **quick** overview of your internship journey with LinkMeIn:
 LinkMeIn is more than just an application—it's your **personalized** partner, offering a
 seamless experience that outclasses conventional tracking methods.
 
-Additionally, LinkMeIn combines the rapid **efficiency** of CLI with the visual clarity of GUI,
-offering a **tailored** experience for internship management that outpaces the generic
+Additionally, LinkMeIn combines the rapid **efficiency** of Command Line Interface (CLI) with the visual clarity of 
+Graphical User Interface (GUI), offering a **tailored** experience for internship management that outpaces the generic
 spreadsheets of Excel.
 
-# Navigating the user guide
+## Introducing LinkMeIn's User Interface ##
+LinkMeIn's user interface (UI) is designed to be **simple** and **intuitive**. The UI consists of three main components:
 
-This User Guide provides you with all the information you need to fully utilize LinkMeIn.
+**1. Command Box** - Where you type in commands for LinkMeIn to execute.
 
-If you need help setting up LinkMeIn, you can refer to the [Quick Start Section](#quick-start).
+**2. Company Detail Panel** - Displays the details of the company that you are viewing.
 
-If you want to find out more about LinkMeIn's features, you can refer to the [Features Section](#current-features).
+**3. Company List Panel** - Displays the list of companies that you have added.
 
-If you need an overview of LinkMeIn's commands, head over to the [Command Summary Section](#command-summary).
+![UIintro.png](images/UI-intro/UIintro.png)
 
-## Typographic conventions
 
+
+
+_This user guide aims to empower you with the knowledge and skills needed to maximize the potential of LinkMeIn. We are
+committed to guide you at every step of your internship journey, ensuring that you will have a smooth sailing internship
+tracking journey._
+
+Whether you're a new user looking to get started or 
+an experienced one seeking advanced insights. We've meticulously structured this guide to cater to users at all levels. 
+From initial setup to exploring an array of powerful features, you'll find valuable information tailored to your unique 
+needs and expertise.
+
+Before we teach you how to navigate this user guide, let us first introduce you to the symbols that you will be seeing
+throughout this user guide. 
+
+1.Tips
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tips:**<br>
-* Provides users with additional insights or more efficient ways to use your application.
+* Provides you with additional insights or more efficient ways to use LinkMeIn.
 </div>
 
+2.Notes
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
-* Highlights supplementary information that users should be aware of, but isn't necessarily mission-critical.
+* Highlights supplementary information that you should be aware of, but isn't necessarily mission-critical.
 </div>
 
+3.Warnings
 <div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
-* Alerts users to potential pitfalls or things to be cautious of when using your application.
+* Alerts you of potential pitfalls or things to be cautious of when using LinkMeIn.
 </div>
 
-`Code`: Indicates commands or programming-related content that can be typed or referred to.
+4.Code
+`Code`: Indicates commands or programming-related content that you can type or refer to.
 
+5.Acceptable Parameters
 > Acceptable parameters for command format
+
+## New to LinkMeIn? ##
+
+Thank you for choosing LinkMeIn as your internship tracking ally! We are excited to embark on this journey with you.
+
+1. To get started, you can refer to the [Quick Start Section](#quick-start) to set up LinkMeIn.
+2. After downloading LinkMeIn and setting up your computer, we have prepared a 
+[Quick Tour](#introducing-linkmein-a-quick-tour) for you. This tour will help you get started with the key features of 
+LinkMeIn that you will be using quite often.
+3. If you choose to explore LinkMeIn on your own, you can refer to the [Features Section](#current-features) to find out
+more about LinkMeIn's features.
+4. If you face any issue, you can refer to the [FAQ Section](#faq) to find out if your issue has been addressed before.
+
+## LinkMeIn Pros? ##
+Welcome back! We hope that you have been enjoying your internship tracking journey with LinkMeIn.
+
+1. If you need a refresher on how to use a feature, you can refer to the [Features Section](#current-features) to find
+out more about LinkMeIn's features. In the features section, there are **detailed explanations** of each feature and
+   **examples** to help you better understand how to use the feature.
+2. To quickly refer to the command format of a feature, you can head over to the [Command Summary Section](#command-summary)
+where all the commands are listed out in a table format.
+3. If you face any issue, you can refer to the [FAQ Section](#faq) to find out if your issue has been addressed before.
+
 
 # Table of Contents
 
@@ -60,42 +103,52 @@ If you need an overview of LinkMeIn's commands, head over to the [Command Summar
     {:toc}
 
 # Quick start
+In this section, you will learn how to set up LinkMeIn in your computer. 
 
-1. Make sure that you have **Java 11 or above** installed in your Computer.
+**Step 1: Verify Java Version:**
 
--   [How to check if you have Java installed?](#faq)
--   [How to check if you have Java 11 or above?](#faq)
+1. Make sure that you have **Java 11 or above** installed in your Computer. Click 
+[here](#1-how-do-i-check-if-i-have-java-11-installed-) if you are unsure of how to check if you have Java 11 installed.
 
-2. Download the latest jar file from [here](https://github.com/AY2324S1-CS2103T-T17-2/tp/releases/tag/v1.2.0)
-3. Copy the file to the folder you want to use as the home folder for your LinkMeIn.
+**Step 2: Download LinkMeIn:**
+1. With Java 11 installed, you can now download our latest jar file from [here](https://github.com/AY2324S1-CS2103T-T17-2/tp/releases/tag/v1.2.0)
+2. Click on the `LinkMeIn.jar` file to download it.
 
--   Create a new folder (you can name it LinkMeIn) where you would like to house the application
-    (e.g., Desktop, Documents, etc.)
--   Move the downloaded jar file as shown:
-    -   For Windows users
-    -   For Mac users
+![githubRelease.png](images/quick-start/githubRelease.png)
 
-4. Launch LinkMeIn
+**Step 3: Choose a home folder for LinkMeIn:**
+1. Decide on a folder to use as the home folder for LinkMeIn. This folder will be used to store the data of LinkMeIn.
+2. Create a new folder (you can name it "LinkMeIn") in a location of your choice, 
+such as your Desktop or Documents folder
+3. Move the downloaded jar file to the folder you have created in the previous step.
 
--   For Windows users
-
-    -   Double-click on the `LinkMeIn.jar` file to launch the application
-
--   For Mac users
-    -   Open up your terminal (Command +Space > type Terminal > Enter)
-    -   Navigate to the folder where you have placed the jar file with the `cd` command
-    -   For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter
+**Step 4: Launch LinkMeIn:**
+Depending on your operating system, do one of the following to launch LinkMeIn:
+1. For Windows users: 
+   - Double-click on the `LinkMeIn.jar` file to launch the application.
+2. For Mac users:
+   * Open up your terminal. If you are unsure of how to do so, you can head over to [here](#2-how-do-i-open-up-my-terminal-).
+   * Navigate to the folder where you have placed the jar file with the `cd` command. 
+   * For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter.
+   * Type `java -jar LinkMeIn.jar` and press Enter.
 
 <div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
 * Do not move or delete the `data` folder as it contains the data of your applications.
 </div>
 
-You should notice the GUI of the application pop up.
 
-1. Learn more about navigating the GUI [here](#navigating-the-user-guide).
-2. For new users, learn to use LinkMeIn [here](#introducing-linkmein-a-quick-tour).
-3. For advanced users, view all feature details [here](#current-features).
+By now, you should have successfully launched LinkMeIn with the following window appearing on your screen.
+
+![startupPage.png](images/quick-start/startupPage.png)
+
+To learn more about the GUI of LinkMeIn, you can refer to the [GUI Section](#introducing-linkmeins-user-interface) to find out more.
+
+Having successfully launched LinkMeIn, you are now ready to use LinkMeIn to track your internship applications. You 
+can either refer to the [Quick Tour Section](#introducing-linkmein-a-quick-tour) to get started with LinkMeIn or you can
+refer to the [Features Section](#current-features) to find out more about LinkMeIn's features.
+
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -421,7 +474,7 @@ Directly use the remark command and it overwrites the old remark!
 
 **Possible Error:**
 
-If you enter an [**invalid index**](#8-what-is-an-invalid-index),
+If you enter an [**invalid index**](#7-what-is-an-invalid-index),
 you will see an error message in the command box. Don’t worry, just edit your index accordingly and
 try the command again!
 An example of an error message is shown below.
@@ -641,9 +694,11 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 
 ## FAQ
 
-### 1. How do I check if I have Java installed?
 
--   Open up your terminal and type `java -version`. If you have Java installed, you should see something like this:
+### 1. How do I check if I have Java 11 installed?
+
+* Open up your terminal. If you are unsure of how to do so, you can refer to [here](#2-how-do-i-open-up-my-terminal-).
+* Type `java -version`. If you have Java installed, you will see the following:
 
 ```
 java version "
@@ -651,21 +706,17 @@ OpenJDK Runtime Environment (build
 OpenJDK 64-Bit Server VM (build
 ```
 
--   If you do not have Java installed, you can download it [here](https://www.oracle.com/sg/java/technologies/javase-downloads.html).
--   If you are using Windows, you can refer to this [guide](https://www.java.com/en/download/help/windows_manual_download.html) to install Java.
--   If you are using Mac, you can refer to this [guide](https://www.java.com/en/download/help/mac_install.html) to install Java.
--   If you are using Linux, you can refer to this [guide](https://www.java.com/en/download/help/linux_x64_install.html) to install Java.
--   If you are using Ubuntu, you can refer to this [guide](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-20-04) to install Java.
+* If you do not have Java installed, you can download it [here](https://www.oracle.com/sg/java/technologies/javase-downloads.html).
+  * If you are using Windows, you can refer to this [guide](https://www.java.com/en/download/help/windows_manual_download.html) to install Java.
+  * If you are using Mac, you can refer to this [guide](https://www.java.com/en/download/help/mac_install.html) to install Java.
+  * If you are using Linux, you can refer to this [guide](https://www.java.com/en/download/help/linux_x64_install.html) to install Java.
+  * If you are using Ubuntu, you can refer to this [guide](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-20-04) to install Java.
 
-### 2. How do I check if I have Java 11 or above?
-
-Open up your terminal and type `java -version`. If you have Java 11 or above installed, you should see something like this:
-
-```
-openjdk version "
-OpenJDK Runtime Environment (build
-OpenJDK 64-Bit Server VM (build
-```
+### 2. How do I open up my terminal?
+* **Windows:** Click the Windows Start button, and type "Command Prompt" or "cmd" into the search bar. 
+  Press Enter to open it.
+* **macOS:** Press Command (⌘) + Spacebar to open Spotlight Search. Type "Terminal" and press Enter when it appears in the 
+  search results.
 
 ### 3. How do I load data from another computer?
 
