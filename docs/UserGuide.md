@@ -98,10 +98,10 @@ you have a reliable companion to guide you through this exciting journey._
 
 This tour aims to help you get started with LinkMeIn by introducing you to its essential features that you will be
 using quite often. In this tour, you will be learning how and when to:
-- [add a company](#1-adding-your-first-company-),
-- [view its details](#2-viewing-company-details-),
-- [edit its details](#3-editing-company-details-),
-- [delete it](#4-deleting-a-company-).
+- [add a company](#1-adding-your-first-company),
+- [view its details](#2-viewing-company-details),
+- [edit its details](#3-editing-company-details),
+- [delete it](#4-deleting-a-company).
 
 Before we embark on this tour remember to download LinkMeIn and have your computer set up correctly. If you have not
 done so, do check out the [Quick Start Guide](#quick-start) for more information.
@@ -671,7 +671,7 @@ To be updated.
 | `remark` | `remark INDEX re/REMARK`                                                                                                                           | `remark 1 re/need Java`                                                                       |
 | `list`   | `list`                                                                                                                                             | `list`                                                                                        |
 | `filter` | `filter s/APPLICATION_STATUS`                                                                                                                      | `filter s/PI`                                                                                 |
-| 'sort`   | `sort SORT_ORDER`                                                                                                                                  | `sort ascending`                                                                              |
+| `sort`   | `sort SORT_ORDER`                                                                                                                                  | `sort ascending`                                                                              |
 | `edit`   | `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [re/REMARK]` | `edit 1 s/PI r/Frontend Developer`                                                            |
 | `find`   | `find KEYWORD [MORE_KEYWORDS]...`                                                                                                                  | `find ds`                                                                                     |
 | `clear`  | `clear`                                                                                                                                            | `clear`                                                                                       |
