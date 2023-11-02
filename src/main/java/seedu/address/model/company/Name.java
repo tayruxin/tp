@@ -8,7 +8,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Guarantees: immutable; is valid as declared in {@link #isValidName(String)}
  */
 public class Name {
-
+    public static final int MAX_NAME_LENGTH = 100;
     public static final String MESSAGE_CONSTRAINTS_NON_EMPTY =
             "Oops! Company's name should not be blank. Please try again with a valid company name.";
 
@@ -16,11 +16,10 @@ public class Name {
             "Oops! Company's name should only contain alphanumeric characters and spaces! Please try again with"
                     + " a valid company name.";
 
-    /*
-     * This regular expression allows names to start with an alphanumeric character
-     * (a letter or digit) and can be followed by zero or more alphanumeric characters
-     * or spaces. Names must start with an alphanumeric character.
-     */
+    public static final String MESSAGE_CONSTRAINTS_INVALID_LENGTH =
+            "Oops! Company's name should not be more than " + MAX_NAME_LENGTH + " characters long (excluding spaces). "
+                    + "Please try again with a shorter input.";
+
     public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
 
     public final String fullName;
@@ -34,6 +33,7 @@ public class Name {
         requireNonNull(name);
         checkArgument(!name.isBlank(), MESSAGE_CONSTRAINTS_NON_EMPTY);
         checkArgument(isValidName(name), MESSAGE_CONSTRAINTS_INVALID_REGEX);
+        checkArgument(isValidNameLength(name), MESSAGE_CONSTRAINTS_INVALID_LENGTH);
         fullName = name;
     }
 
@@ -42,6 +42,13 @@ public class Name {
      */
     public static boolean isValidName(String test) {
         return test.matches(VALIDATION_REGEX);
+    }
+
+    /**
+     * Returns true if a given string is a valid name length.
+     */
+    public static boolean isValidNameLength(String test) {
+        return test.length() <= MAX_NAME_LENGTH;
     }
 
 
