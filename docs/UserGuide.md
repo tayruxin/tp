@@ -27,9 +27,9 @@ This User Guide provides you with all the information you need to fully utilize 
 
 If you need help setting up LinkMeIn, you can refer to the [Quick Start Section](#quick-start).
 
-If you want to find out more about LinkMeIn's features, you can refer to the [Features Section](#current-features-).
+If you want to find out more about LinkMeIn's features, you can refer to the [Features Section](#current-features).
 
-If you need an overview of LinkMeIn's commands, head over to the [Command Summary Section](#command-summary-).
+If you need an overview of LinkMeIn's commands, head over to the [Command Summary Section](#command-summary).
 
 
 ## Typographic conventions
@@ -473,7 +473,9 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 | **Parameter** | Parameter is similar to a field in a form you have to fill up. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/COMPANY_NAME` and `e/EMAIL` are parameters in the command.                                           |
 | **Prefix**    | Prefix is a keyword that is used to identify the parameter. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/` and `e/` are prefixes.                                                                                |
 
+
 ### Parameters Description ###
+
 | Parameter            | Description                                   | Constraints                                                                           |
 |----------------------|-----------------------------------------------|---------------------------------------------------------------------------------------|
 | c/Company Name       | Name of the company that you are applying to. | Only contain alphanumeric characters and spaces, and should not be blank.             |
@@ -485,6 +487,7 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 | p/Phone Number       | Phone number of the recruiter.                | Only contain numbers, and should be at least 3 digits long. Should not be blank.      |
 | pr/Priority          | Priority of the application.                  | Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`. |
 
+
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
 * If you enter an invalid input for any of the prefixes, you will see an error message in the command box. Check the description for the respective prefix and try the command again! An example of an error message is shown below.
@@ -493,8 +496,8 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 
 </div>
 
-
 ### Application Status Description ###
+
 | Application Status | Description                                                                                                                                                          |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PA                 | Pending Application. This means that you have not submitted the application, but are currently working on it.                                                        |
