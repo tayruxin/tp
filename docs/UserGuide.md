@@ -207,11 +207,9 @@ Exits the program and closes the window.
 
 **Format:** `exit`
 
-<div class="typography-box note">
-  <span class="icon">ℹ️</span>
-  <span class="content">
-    <strong>Note :</strong> Entries will be saved automatically.
-  </span>
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* Entries will be saved automatically.
 </div>
 
 ### Help: `help` ###
@@ -343,19 +341,14 @@ use the `remark` command to input these additional details._
 >`INDEX`: Adds remark of the company at INDEX number shown in the displayed company list. </br>
 >`re/REMARK` : type prefix `re/` followed by the remark you want to add </br>
 
-
-<div class="typography-box note">
-  <span class="icon">ℹ️</span>
-  <span class="content">
-    <strong>Note :</strong> Remark cannot be empty. Use the unremark command to delete instead.
-  </span>
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* Remark cannot be empty. Use the unremark command to delete instead.
 </div>
 
-<div class="typography-box warning">
-  <span class="icon">⚠️</span>
-  <span class="content">
-    <strong>Warning :</strong> When adding a remark, the existing remark of the company will be removed i.e adding of remark is not cumulative.
-  </span>
+<div markdown="block" class="alert alert-danger">
+**:exclamation: Warning:**<br>
+* When adding a remark, the existing remark of the company will be removed i.e adding of remark is not cumulative.
 </div>
 
 **Examples:** </br>
@@ -384,12 +377,10 @@ use the `unremark` command to delete it._
 
 >`INDEX`: Deletes remark of the company at INDEX number shown in the displayed company list.
 
-<div class="typography-box tip">
-  <span class="icon">💡</span>
-  <span class="content">
-    <strong>Tip :</strong> To update the remark, you do NOT need to delete using unremark first.
+<div markdown="block" class="alert alert-success">
+**:bulb: Useful Tips:**<br>
+* To update the remark, you do NOT need to delete using unremark first.
 Directly use the remark command and it overwrites the old remark!
-  </span>
 </div>
 
 **Examples:** </br>
@@ -417,18 +408,14 @@ use the `edit` command to input the accurate details._
 >`[c/COMPANY_NAME]` etc. : type prefix `c/` followed by new company name to edit company name. </br>
 > At least one of the optional fields must be provided.
 
-<div class="typography-box warning">
-  <span class="icon">⚠️</span>
-  <span class="content">
-    <strong>Warning :</strong> When editing the note, the existing note of the company will be removed i.e adding of note is not cumulative.
-  </span>
+<div markdown="block" class="alert alert-danger">
+**:exclamation: Warning:**<br>
+* When editing the remark, the existing remark of the company will be removed i.e adding of remark is not cumulative.
 </div>
 
-<div class="typography-box tip">
-  <span class="icon">💡</span>
-  <span class="content">
-    <strong>Tip :</strong> You can edit remarks through the edit or remark command!
-  </span>
+<div markdown="block" class="alert alert-success">
+**:bulb: Useful Tips:**<br>
+* You can edit remarks through the edit or remark command!
 </div>
 
 **Examples:** </br>
