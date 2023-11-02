@@ -207,6 +207,11 @@ Exits the program and closes the window.
 
 **Format:** `exit`
 
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* Entries will be saved automatically.
+</div>
+
 ### Help: `help` ###
 Exits the program and closes the window.
 
@@ -267,11 +272,9 @@ the detail of any company from the list of companies that you have added._
 **Format:** `view INDEX`
 > INDEX must be a positive integer number e.g 1,2,3... and must not be greater than the number of company in the list.
 
-<div class="typography-box note">
-  <span class="icon">ℹ️</span>
-  <span class="content">
-    <strong>Note :</strong> INDEX refers to the index number shown in the displayed company list.
-  </span>
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* INDEX refers to the index number shown in the displayed company list.
 </div>
 
 **Example:**
@@ -300,12 +303,9 @@ You can use the delete command to delete the company from the list of companies 
 
 > INDEX must be a positive integer number e.g 1,2,3... and must not be greater than the number of company in the list.
 
-<div class="typography-box note">
-  <span class="icon">ℹ️</span>
-  <span class="content">
-    <strong>Note :</strong> INDEX refers to the index number shown in the displayed company list. 
-You can only delete one company at a time. 
-  </span>
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* INDEX refers to the index number shown in the displayed company list. You can only delete one company at a time. 
 </div>
 
 **Example:**
@@ -327,25 +327,108 @@ An example of an error message is shown below.
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
-### Edit a company's information: `edit` ###
-If you made a typo or need to update the progress of application,
-use the `edit` command to input the accurate details.
+### Add remark to a company: `remark` ###
+_After adding a company, if you wish to note down more information such as job description,
+use the `remark` command to input these additional details._
 
-**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [nt/NOTE]`
+**Format:** `remark INDEX re/REMARK`
 
-* `INDEX`: Edits the company at INDEX number shown in the displayed company list.
-* `[c/COMPANY_NAME]` etc. : type prefix `c/` followed by new company name to edit company name.
-* At least one of the optional fields must be provided.
+>`INDEX`: Adds remark of the company at INDEX number shown in the displayed company list. </br>
+>`re/REMARK` : type prefix `re/` followed by the remark you want to add </br>
 
-:warning: When editing the note, the existing note of the company will be removed i.e. adding of note is not cumulative.
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* Remark cannot be empty. Use the unremark command to delete instead.
+</div>
+
+<div markdown="block" class="alert alert-danger">
+**:exclamation: Warning:**<br>
+* When adding a remark, the existing remark of the company will be removed i.e adding of remark is not cumulative.
+</div>
 
 **Examples:** </br>
-1.Type `edit 2 s/PI r/Frontend Developer`
+1. After adding the internship for Microsoft into LinkMeIn, 
+you also want to note down that this internship requires experience in Java.
 
-![EditDemo1.png](images/EditDemo1.png)
-2.The 2nd company's the status and role is edited to be Pending Interview and Frontend Developer respectively.
+2. To note this down, type `remark 1 re/need Java`
+![RemarkDemo1.png](images/remark-command/RemarkDemo1.png)
 
-![EditDemo2.png](images/EditDemo2.png)
+3. You can view the remark the 1st company as shown below.
+![RemarkDemo2.png](images/remark-command/RemarkDemo2.png)
+
+**Possible Error:**
+
+If you enter an **empty remark**,
+you will see an error message in the command box. Don’t worry, just add in your remark and
+try the command again!
+An example of an error message is shown below.
+![RemarkErrMsg.png](images/remark-command/RemarkErrMsg.png)
+
+### Delete the remark of a company: `unremark` ###
+_If you input some remarks to the wrong company or the remark has become outdated,
+use the `unremark` command to delete it._
+
+**Format:** `unremark INDEX`
+
+>`INDEX`: Deletes remark of the company at INDEX number shown in the displayed company list.
+
+<div markdown="block" class="alert alert-success">
+**:bulb: Useful Tips:**<br>
+* To update the remark, you do NOT need to delete using unremark first.
+Directly use the remark command and it overwrites the old remark!
+</div>
+
+**Examples:** </br>
+1. If you wish to delete the remark of Google, type `unremark 4`
+![UnremarkDemo1.png](images/remark-command/UnremarkDemo1.png)
+
+2. You can view the remark the 1st company as shown below.
+![UnremarkDemo2.png](images/remark-command/UnremarkDemo2.png)
+
+**Possible Error:**
+
+If you enter an [**invalid index**](#8-what-is-an-invalid-index),
+you will see an error message in the command box. Don’t worry, just edit your index accordingly and
+try the command again!
+An example of an error message is shown below.
+![UnremarkErrMsg.png](images/remark-command/UnremarkErrMsg.png)
+
+### Edit a company's information: `edit` ###
+_If you made a typo or need to update the progress of application,
+use the `edit` command to input the accurate details._
+
+**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [re/REMARK]`
+
+>`INDEX`: Edits the company at INDEX number shown in the displayed company list. </br>
+>`[c/COMPANY_NAME]` etc. : type prefix `c/` followed by new company name to edit company name. </br>
+> At least one of the optional fields must be provided.
+
+<div markdown="block" class="alert alert-danger">
+**:exclamation: Warning:**<br>
+* When editing the remark, the existing remark of the company will be removed i.e adding of remark is not cumulative.
+</div>
+
+<div markdown="block" class="alert alert-success">
+**:bulb: Useful Tips:**<br>
+* You can edit remarks through the edit or remark command!
+</div>
+
+**Examples:** </br>
+1.You received an email from Microsoft to interview for a Frontend Developer role instead, which is different from the Software Engineer role you applied for.
+To edit the company's information, type `edit 2 s/PI r/Frontend Developer`
+
+![EditDemo1.png](images/edit-command/EditDemo1.png)
+2.The status and role of the 2nd company in the list is edited to be Pending Interview and Frontend Developer respectively.
+
+![EditDemo2.png](images/edit-command/EditDemo2.png)
+
+**Possible Error:**
+
+If you enter an **invalid prefix**,
+you will see an error message in the command box. Don’t worry, just edit your prefixes accordingly and
+try the command again!
+An example of an error message is shown below.
+![EditErrMsg.png](images/edit-command/EditErrMsg.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
