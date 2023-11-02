@@ -283,7 +283,7 @@ Exits the program and closes the window.
 
 ### Help: `help`
 
-Exits the program and closes the window.
+Displays a window with the link to our user guide. 
 
 **Format:** `help`
 
