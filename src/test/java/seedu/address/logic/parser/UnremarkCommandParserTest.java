@@ -20,7 +20,7 @@ public class UnremarkCommandParserTest {
         // have remark
         Index targetIndex = INDEX_FIRST_COMPANY;
         String userInput = targetIndex.getOneBased() + " ";
-        RemarkCommand expectedCommand = new RemarkCommand(INDEX_FIRST_COMPANY, new Remark(""));
+        RemarkCommand expectedCommand = new RemarkCommand(INDEX_FIRST_COMPANY, new Remark("No remarks"));
         assertParseSuccess(parser, userInput, expectedCommand);
     }
 

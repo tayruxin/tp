@@ -21,7 +21,8 @@ public class UnremarkCommandParser implements Parser<RemarkCommand> {
         requireNonNull(args);
         try {
             Index index = ParserUtil.parseIndex(args);
-            Remark remark = new Remark("");
+            Remark remark = new Remark("No remarks");
+            remark.deleteRemark();
             return new RemarkCommand(index, remark);
 
         } catch (ParseException pe) {
