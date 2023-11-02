@@ -16,6 +16,8 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.company.Company;
 
+import java.util.List;
+
 /**
  * Adds a company to the address book.
  */
@@ -61,7 +63,9 @@ public class AddCommand extends Command {
 
         if (model.hasCompany(toAdd)) {
             Company duplicateCompany = model.getDuplicateCompany(toAdd);
-            int indexOfDuplicateCompany = model.getDuplicateIndex(duplicateCompany);
+            List<Company> lastShownList = model.getFilteredCompanyList();
+            int indexOfDuplicateCompany = lastShownList.indexOf(duplicateCompany);
+
             String allChangedFields = toAdd.listAllChangedFields(duplicateCompany);
 
             throw new CommandException.DuplicateCompanyException(

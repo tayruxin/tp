@@ -16,7 +16,8 @@ public class Priority {
                     + "low or none (to remove priority). \n"
                     + "Please try again.";
 
-    public static final String VALIDATION_REGEX = "(HIGH|MEDIUM|LOW|NONE)";
+
+    public static final String VALIDATION_REGEX = "(?i)(HIGH|MEDIUM|LOW|NONE)";
 
     public final String priority;
 
@@ -29,7 +30,7 @@ public class Priority {
         requireNonNull(priority);
         checkArgument(!priority.isBlank(), MESSAGE_CONSTRAINTS_NON_EMPTY);
         checkArgument(isValidPriority(priority), MESSAGE_CONSTRAINTS_VALID_REGEX);
-        this.priority = priority;
+        this.priority = priority.toUpperCase();
     }
 
     /**
