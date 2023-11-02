@@ -10,6 +10,8 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 
+import java.util.List;
+
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -61,7 +63,9 @@ public class AddCommand extends Command {
 
         if (model.hasCompany(toAdd)) {
             Company duplicateCompany = model.getDuplicateCompany(toAdd);
-            int indexOfDuplicateCompany = model.getDuplicateIndex(duplicateCompany);
+            List<Company> lastShownList = model.getFilteredCompanyList();
+            int indexOfDuplicateCompany = lastShownList.indexOf(duplicateCompany);
+
             String allChangedFields = toAdd.listAllChangedFields(duplicateCompany);
 
             throw new CommandException.DuplicateCompanyException(
