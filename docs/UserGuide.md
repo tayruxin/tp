@@ -435,25 +435,30 @@ An example of an error message is shown below.
 ## Company List Features ##
 ### Find a company: `find` ###
 
+You've applied to many companies and now you want to track a specific internship application for a particular 
+company. Use the `find` command to quickly locate the company you want.
+
 **Format:** `find KEYWORD [MORE_KEYWORDS]...`
+-   **Case-Insensitive Search:** Whether you type `tiktok` or `TikTok`, it will still match `TikTok`.
+-   **Order Independent:** You can search for `tiktok google` and it will find `Google TikTok`.
+-   **Substring Matching:** Typing `tik` will return companies like `TikTok`.
 
-You wish to find a specific company in the list of companies. You can use the find command to find the
-company that you are looking for. The find command allows you to find the company whose name contain any of the
-given keywords.
+> **Note:** The `find` command searches only the company name.
 
-- The search is case-insensitive. e.g `tiktok` will match `TikTok`.
-- The order of the keywords does not matter. e.g. `tiktok google` will match `Google TikTok`.
-- Only the company name is searched.
-- Only full words will be matched e.g. `tik` will not match `tiktok`.
-- Only companies with names that contain all the keywords will be returned e.g. `tiktok google` will match `Google TikTok` but not `TikTok`.
+**Search Criteria:**
 
-**Examples:**
-* `find TikTok` returns `TikTok`
-* `find TikTok Google` returns `TikTok Google`
+-   Companies with names that contain **any** of the keywords will be returned. You can enter multiple keywords.
 
-**What you will see when command succeeds:**
+**Example:**
 
-![img.png](FindCommand.png)
+**Step 1:** Let's say you want to follow up on a DSTA application. Simply type `find ds` to search for DSTA.
+
+![img.png](images/find-command/BeforeFind.png)
+
+**Step 2:** You will see the list of companies that match your search criteria. In this case, the company DSTA will be 
+shown. And that is it! You have found the company you wanted.
+
+![img.png](images/find-command/AfterFind.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
