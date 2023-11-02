@@ -43,22 +43,6 @@ public class Phone {
      * such as spaces, dashes, parentheses, and the plus sign. This method allows for
      * different formats of the same phone number to be considered equal.
      *
-     * <p>Examples:</p>
-     *
-     * <ul>
-     *   <li>{@code standardizeNumber("1234567890")} returns {@code "1234567890"}.</li>
-     *   <li>{@code standardizeNumber("123-456-7890")} returns {@code "1234567890"}.</li>
-     *   <li>{@code standardizeNumber("(123) 456-7890")} returns {@code "1234567890"}.</li>
-     *   <li>{@code standardizeNumber("+1 123-456-7890")} returns {@code "11234567890"}.</li>
-     * </ul>
-     *
-     * <p>Note:</p>
-     * <ul>
-     *   <li>Phone numbers {@code "1234567890"} and {@code "123-456-7890"} are considered equals.</li>
-     *   <li>Phone numbers {@code "+1 123-456-7890"} and {@code "+1123-456-7890"} are considered equals.</li>
-     *   <li>Phone numbers {@code "(123) 456-7890"} and {@code "1234567890"} are considered equals.</li>
-     * </ul>
-     *
      * @param number The phone number to be standardized.
      * @return The standardized phone number without formatting characters.
      */
