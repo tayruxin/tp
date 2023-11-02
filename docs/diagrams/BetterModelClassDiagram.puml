@@ -5,17 +5,17 @@ skinparam arrowColor MODEL_COLOR
 skinparam classBackgroundColor MODEL_COLOR
 
 AddressBook *-right-> "1" UniqueCompanyList
-AddressBook *-right-> "1" UniqueTagList
-UniqueTagList -[hidden]down- UniqueCompanyList
-UniqueTagList -[hidden]down- UniqueCompanyList
 
-UniqueTagList -right-> "*" Tag
 UniqueCompanyList -right-> Company
-
-Company -up-> "*" Tag
 
 Company *--> Name
 Company *--> Phone
 Company *--> Email
 Company *--> Address
+Company *--> ApplicationStatus
+Company *--> Deadline
+Company *--> RecruiterName
+Company *--> Role
+Company *--> Priority
+Company *--> Remark
 @enduml

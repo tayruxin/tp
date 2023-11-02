@@ -382,6 +382,12 @@ use the `remark` command to input these additional details._
 3. You can view the remark the 1st company as shown below.
    ![RemarkDemo2.png](images/remark-command/RemarkDemo2.png)
 
+4. Go ahead and add remarks for more companies on your own!
+
+   **More examples:**
+    - remark 3 re/interview went well!
+    - remark 4 re/$800 per month
+
 **Possible Error:**
 
 If you enter an **empty remark**,
@@ -426,29 +432,30 @@ An example of an error message is shown below.
 _If you made a typo or need to update the progress of application,
 use the `edit` command to input the accurate details._
 
-**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [re/REMARK]`
+**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY]`
 
-> `INDEX`: Edits the company at INDEX number shown in the displayed company list. </br> >`[c/COMPANY_NAME]` etc. : type prefix `c/` followed by new company name to edit company name. </br>
+>`INDEX`: Edits the company at INDEX number shown in the displayed company list.
+>
+>`c/COMPANY_NAME` etc. : type prefix `c/` followed by new company name to edit company name. 
+>
 > At least one of the optional fields must be provided.
 
-<div markdown="block" class="alert alert-danger">
-**:exclamation: Warning:**<br>
-* When editing the remark, the existing remark of the company will be removed i.e adding of remark is not cumulative.
-</div>
+**Examples:** 
 
-<div markdown="block" class="alert alert-success">
-**:bulb: Useful Tips:**<br>
-* You can edit remarks through the edit or remark command!
-</div>
-
-**Examples:** </br>
-1.You received an email from Microsoft to interview for a Frontend Developer role instead, which is different from the Software Engineer role you applied for.
+1. You received an email from Microsoft to interview for a Frontend Developer role instead, which is different from the Software Engineer role you applied for.
 To edit the company's information, type `edit 2 s/PI r/Frontend Developer`
 
 ![EditDemo1.png](images/edit-command/EditDemo1.png)
-2.The status and role of the 2nd company in the list is edited to be Pending Interview and Frontend Developer respectively.
+2. The status and role of the 2nd company in the list is edited to be Pending Interview and Frontend Developer respectively.
 
 ![EditDemo2.png](images/edit-command/EditDemo2.png)
+
+3. Go ahead and edit more companies on your own! 
+
+    **More examples:**
+    - edit 3 d/11-09-2025 pr/LOW
+    - edit 1 n/Amy Tan e/amytan@gmail.com
+
 
 **Possible Error:**
 
