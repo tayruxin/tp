@@ -136,7 +136,7 @@ How the parsing works:
 
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
 
-<img src="images/ModelClassDiagram.png" width="450" />
+<img src="images/ModelClassDiagram.png" width="500" />
 
 The `Model` component,
 
@@ -146,12 +146,6 @@ The `Model` component,
     bound to this list so that the UI automatically updates when the data in the list change.
 -   stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 -   does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
-
-<img src="images/BetterModelClassDiagram.png" width="472" />
-
-</div>
 
 ### 3.5 Storage component
 
@@ -363,6 +357,26 @@ indexing to the supplied Index, get the company associated with the index and re
   to be deleted.
     - Pros: The user does not need to remember the index of the company to be deleted.
     - Cons: The user may enter the wrong company name to be deleted.
+
+### 4.6 Remark Command
+
+The `remark` command allows user to add and delete a remark from a company.
+
+#### 4.6.1 Implementation
+
+Unlike other `Command` class, the `RemarkCommand` class has two `COMMAND_WORD` - remark and unremark. 
+Hence, it is a dependency for two `Parser` - `RemarkCommandParser` and `UnremarkCommandParser`. 
+The following activity diagram will show how `RemarkCommand` can achieve the functionality of both `COMMAND_WORD`.
+<img src="images/RemarkActivityDiagram.png"/>
+
+#### 4.6.2 Design Considerations
+**Aspect: How adding/editing of Remark is implemented**
+- **Alternative 1 (current choice):** Use two `COMMAND_WORD`
+    - Pros: More specific commands allow for better error handling i.e empty remark can be considered invalid input, thus more defensive programming
+    - Cons: More prone to bugs if error handling not implemented correctly.
+- **Alternative 2:** Use only one `COMMAND_WORD`
+    - Pros: Easier to implement.
+    - Cons: Remarks may be accidentally deleted by empty input.
 
 ### \[Proposed\] Undo/redo feature
 
