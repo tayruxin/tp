@@ -7,6 +7,18 @@ import static java.util.Objects.requireNonNull;
  * Guarantees: immutable; is valid as declared in {@link #isValidApplicationStatus(String)}
  */
 public class ApplicationStatus {
+    public static final String PENDING_APPLICATION =
+            "^(PA|PENDAPP|PENDINGAPP|PENDINGAPPLICATION|PENDING APPLICATION|P\\sA|PENDING\\sA)$";
+
+    public static final String PENDING_INTERVIEW =
+            "^(PI|PENDINT|PENDINGINT|PENDINGINTERVIEW|PENDING INTERVIEW|P\\sI|PENDING\\sI)$";
+
+    public static final String PENDING_OUTCOME =
+            "^(PO|PENDOUT|PENDINGOUT|PENDINGOUTCOME|PENDING OUTCOME|P\\sO|PENDING\\sO)$";
+
+    public static final String ACCEPTED = "^(A|ACC|ACCEPT|ACPT|ACCEPTED)$";
+
+    public static final String REJECTED = "^(R|REJ|REJECT|REJECTED)$";
 
     public static final String MESSAGE_CONSTRAINTS_NON_EMPTY =
             "Oops! Application status should not be blank! Please try again with a valid application status.";
@@ -45,7 +57,6 @@ public class ApplicationStatus {
 
     public final ApplicationStatusEnum status;
 
-
     /**
      * Constructs an {@code ApplicationStatus} based on the given status string.
      * The constructor supports a range of status inputs for flexibility, allowing
@@ -58,18 +69,23 @@ public class ApplicationStatus {
      */
     public ApplicationStatus(String status) throws IllegalArgumentException {
         requireNonNull(status);
-        status = status.toUpperCase().replaceAll("\\s+", " ").trim();
         // Convert to uppercase and replace multiple spaces with a single space
+        status = status.toUpperCase().replaceAll("\\s+", " ").trim();
 
-        if (status.matches("^(PA|PENAPP|PENDINGAPP|PENDINGAPPLICATION|P\\sA|PENDING\\sA)$")) {
+        if (status.matches("^(PA|PEN\\s*APP|PENDING\\s*APP|PENDING\\s*APPLICATION|P\\sA|PENDING\\sA)$")) {
             this.status = ApplicationStatusEnum.PA;
-        } else if (status.matches("^(PI|PENDINT|PENDINGINT|PENDINGINTERVIEW|P\\sI|PENDING\\sI)$")) {
+        } else if (status.matches("^(PI|PEND\\s*INT|PENDING\\s*INT|PENDING\\s*INTERVIEW|P\\sI|PENDING\\sI)$")) {
             this.status = ApplicationStatusEnum.PI;
-        } else if (status.matches("^(PO|PENDOUT|PENDINGOUT|PENDINGOUTCOME|P\\sO|PENDING\\sO)$")) {
+        } else if (status.matches("^(PO|PEND\\s*OUT|PENDING\\s*OUT|PENDING\\s*OUTCOME|P\\sO|PENDING\\sO)$")) {
+        if (status.matches(PENDING_APPLICATION)) {
+            this.status = ApplicationStatusEnum.PA;
+        } else if (status.matches(PENDING_INTERVIEW)) {
+            this.status = ApplicationStatusEnum.PI;
+        } else if (status.matches(PENDING_OUTCOME)) {
             this.status = ApplicationStatusEnum.PO;
-        } else if (status.matches("^(A|ACC|ACCEPT|ACPT|ACCEPTED)$")) {
+        } else if (status.matches(ACCEPTED)) {
             this.status = ApplicationStatusEnum.A;
-        } else if (status.matches("^(R|REJ|REJECT|REJECTION)$")) {
+        } else if (status.matches("^(R|REJ|REJECT|REJECTED)$")) {
             this.status = ApplicationStatusEnum.R;
         } else {
             throw new IllegalArgumentException(MESSAGE_CONSTRAINTS_VALID_STATUS);
@@ -81,13 +97,12 @@ public class ApplicationStatus {
      */
     public static boolean isValidApplicationStatus(String test) {
         test = test.toUpperCase().replaceAll("\\s+", " ").trim();
-        return test.matches("^(PA|PENAPP|PENDINGAPP"
-                + "|PENDINGAPPLICATION|P\\sA|PENDING\\sA|PI|PENDINT|"
-                + "PENDINGINT|PENDINGINTERVIEW|P\\sI|PENDING\\sI|PO|PENDOUT|"
-                + "PENDINGOUT|PENDINGOUTCOME|P\\sO|PENDING\\sO|A|ACC|ACCEPT|ACPT|"
-                + "ACCEPTED|R|REJ|REJECT|REJECTION)$");
+        return test.matches("^(PA|PEN\\s*APP|PENDING\\s*APP"
+                + "|PENDING\\s*APPLICATION|P\\sA|PENDING\\sA|PI|PEND\\s*INT|"
+                + "PENDING\\s*INT|PENDING\\s*INTERVIEW|P\\sI|PENDING\\sI|PO|PEND\\s*OUT|"
+                + "PENDING\\s*OUT|PENDING\\s*OUTCOME|P\\sO|PENDING\\sO|A|ACC|ACCEPT|ACPT|"
+                + "ACCEPTED|R|REJ|REJECT|REJECTED)$");
     }
-
 
     @Override
     public String toString() {
