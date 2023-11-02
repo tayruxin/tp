@@ -25,8 +25,10 @@ public class Messages {
     public static final String MESSAGE_DUPLICATE_FIELDS =
                 "Oops! Multiple values are specified for the following single-valued parameter(s): ";
 
-    public static final String MESSAGE_NON_INTEGER_INDEX = "Oops! The index you have given is not an integer."
-            + " Please try again with an integer!";
+    public static final String MESSAGE_NON_INTEGER_INDEX = "Oops! The index you provided is not valid.\n"
+            + "It appears to be either not a valid integer or it exceeds the maximum allowed value "
+            + "(2147483647).\n"
+            + "Please try again with a valid integer!";
 
     public static final String MESSAGE_NON_POSITIVE_INTEGER_INDEX = "Oops! The index you have given is not a "
             + "positive integer. Please try again with a positive integer!";
