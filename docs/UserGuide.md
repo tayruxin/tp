@@ -27,9 +27,9 @@ This User Guide provides you with all the information you need to fully utilize 
 
 If you need help setting up LinkMeIn, you can refer to the [Quick Start Section](#quick-start).
 
-If you want to find out more about LinkMeIn's features, you can refer to the [Features Section](#current-features-).
+If you want to find out more about LinkMeIn's features, you can refer to the [Features Section](#current-features).
 
-If you need an overview of LinkMeIn's commands, head over to the [Command Summary Section](#command-summary-).
+If you need an overview of LinkMeIn's commands, head over to the [Command Summary Section](#command-summary).
 
 
 ## Typographic conventions
@@ -207,6 +207,11 @@ Exits the program and closes the window.
 
 **Format:** `exit`
 
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* Entries will be saved automatically.
+</div>
+
 ### Help: `help` ###
 Exits the program and closes the window.
 
@@ -322,27 +327,108 @@ An example of an error message is shown below.
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
+### Add remark to a company: `remark` ###
+_After adding a company, if you wish to note down more information such as job description,
+use the `remark` command to input these additional details._
+
+**Format:** `remark INDEX re/REMARK`
+
+>`INDEX`: Adds remark of the company at INDEX number shown in the displayed company list. </br>
+>`re/REMARK` : type prefix `re/` followed by the remark you want to add </br>
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* Remark cannot be empty. Use the unremark command to delete instead.
+</div>
+
+<div markdown="block" class="alert alert-danger">
+**:exclamation: Warning:**<br>
+* When adding a remark, the existing remark of the company will be removed i.e adding of remark is not cumulative.
+</div>
+
+**Examples:** </br>
+1. After adding the internship for Microsoft into LinkMeIn, 
+you also want to note down that this internship requires experience in Java.
+
+2. To note this down, type `remark 1 re/need Java`
+![RemarkDemo1.png](images/remark-command/RemarkDemo1.png)
+
+3. You can view the remark the 1st company as shown below.
+![RemarkDemo2.png](images/remark-command/RemarkDemo2.png)
+
+**Possible Error:**
+
+If you enter an **empty remark**,
+you will see an error message in the command box. Don’t worry, just add in your remark and
+try the command again!
+An example of an error message is shown below.
+![RemarkErrMsg.png](images/remark-command/RemarkErrMsg.png)
+
+### Delete the remark of a company: `unremark` ###
+_If you input some remarks to the wrong company or the remark has become outdated,
+use the `unremark` command to delete it._
+
+**Format:** `unremark INDEX`
+
+>`INDEX`: Deletes remark of the company at INDEX number shown in the displayed company list.
+
+<div markdown="block" class="alert alert-success">
+**:bulb: Useful Tips:**<br>
+* To update the remark, you do NOT need to delete using unremark first.
+Directly use the remark command and it overwrites the old remark!
+</div>
+
+**Examples:** </br>
+1. If you wish to delete the remark of Google, type `unremark 4`
+![UnremarkDemo1.png](images/remark-command/UnremarkDemo1.png)
+
+2. You can view the remark the 1st company as shown below.
+![UnremarkDemo2.png](images/remark-command/UnremarkDemo2.png)
+
+**Possible Error:**
+
+If you enter an [**invalid index**](#8-what-is-an-invalid-index),
+you will see an error message in the command box. Don’t worry, just edit your index accordingly and
+try the command again!
+An example of an error message is shown below.
+![UnremarkErrMsg.png](images/remark-command/UnremarkErrMsg.png)
+
 ### Edit a company's information: `edit` ###
-If you made a typo or need to update the progress of application,
-use the `edit` command to input the accurate details.
+_If you made a typo or need to update the progress of application,
+use the `edit` command to input the accurate details._
 
-**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [nt/NOTE]`
+**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [re/REMARK]`
 
-* `INDEX`: Edits the company at INDEX number shown in the displayed company list.
-* `[c/COMPANY_NAME]` etc. : type prefix `c/` followed by new company name to edit company name.
-* At least one of the optional fields must be provided.
+>`INDEX`: Edits the company at INDEX number shown in the displayed company list. </br>
+>`[c/COMPANY_NAME]` etc. : type prefix `c/` followed by new company name to edit company name. </br>
+> At least one of the optional fields must be provided.
 
-:warning: When editing the note, the existing note of the company will be removed i.e. adding of note is not cumulative.
+<div markdown="block" class="alert alert-danger">
+**:exclamation: Warning:**<br>
+* When editing the remark, the existing remark of the company will be removed i.e adding of remark is not cumulative.
+</div>
 
-**Examples:** 
+<div markdown="block" class="alert alert-success">
+**:bulb: Useful Tips:**<br>
+* You can edit remarks through the edit or remark command!
+</div>
 
+**Examples:** </br>
+1.You received an email from Microsoft to interview for a Frontend Developer role instead, which is different from the Software Engineer role you applied for.
+To edit the company's information, type `edit 2 s/PI r/Frontend Developer`
 
-1.Type `edit 2 s/PI r/Frontend Developer`
+![EditDemo1.png](images/edit-command/EditDemo1.png)
+2.The status and role of the 2nd company in the list is edited to be Pending Interview and Frontend Developer respectively.
 
-![EditDemo1.png](images/EditDemo1.png)
-2.The 2nd company's the status and role is edited to be Pending Interview and Frontend Developer respectively.
+![EditDemo2.png](images/edit-command/EditDemo2.png)
 
-![EditDemo2.png](images/EditDemo2.png)
+**Possible Error:**
+
+If you enter an **invalid prefix**,
+you will see an error message in the command box. Don’t worry, just edit your prefixes accordingly and
+try the command again!
+An example of an error message is shown below.
+![EditErrMsg.png](images/edit-command/EditErrMsg.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -470,7 +556,9 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 | **Parameter** | Parameter is similar to a field in a form you have to fill up. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/COMPANY_NAME` and `e/EMAIL` are parameters in the command.                                           |
 | **Prefix**    | Prefix is a keyword that is used to identify the parameter. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/` and `e/` are prefixes.                                                                                |
 
+
 ### Parameters Description ###
+
 | Parameter            | Description                                   | Constraints                                                                           |
 |----------------------|-----------------------------------------------|---------------------------------------------------------------------------------------|
 | c/Company Name       | Name of the company that you are applying to. | Only contain alphanumeric characters and spaces, and should not be blank.             |
@@ -482,6 +570,7 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 | p/Phone Number       | Phone number of the recruiter.                | Only contain numbers, and should be at least 3 digits long. Should not be blank.      |
 | pr/Priority          | Priority of the application.                  | Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`. |
 
+
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
 * If you enter an invalid input for any of the prefixes, you will see an error message in the command box. Check the description for the respective prefix and try the command again! An example of an error message is shown below.
@@ -490,8 +579,8 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 
 </div>
 
-
 ### Application Status Description ###
+
 | Application Status | Description                                                                                                                                                          |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PA                 | Pending Application. This means that you have not submitted the application, but are currently working on it.                                                        |
