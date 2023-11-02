@@ -1,7 +1,6 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.RemarkCommand;
@@ -26,8 +25,7 @@ public class UnremarkCommandParser implements Parser<RemarkCommand> {
             return new RemarkCommand(index, remark);
 
         } catch (ParseException pe) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                    RemarkCommand.MESSAGE_REMOVE_USAGE), pe);
+            throw new ParseException(String.format(pe.getMessage()), pe);
         }
     }
 }

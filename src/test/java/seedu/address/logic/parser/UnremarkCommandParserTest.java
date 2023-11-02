@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.Messages.MESSAGE_EMPTY_INDEX;
+import static seedu.address.logic.Messages.MESSAGE_NON_POSITIVE_INTEGER_INDEX;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_COMPANY;
@@ -24,14 +25,13 @@ public class UnremarkCommandParserTest {
     }
 
     @Test
-    public void parse_missingCompulsoryField_failure() {
-        String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, RemarkCommand.MESSAGE_REMOVE_USAGE);
-
-        // no parameters
-        assertParseFailure(parser, RemarkCommand.REMOVE_COMMAND_WORD, expectedMessage);
+    public void parse_invalidIndex_failure() {
 
         // no index
-        assertParseFailure(parser, RemarkCommand.REMOVE_COMMAND_WORD + " ", expectedMessage);
+        assertParseFailure(parser, " ", MESSAGE_EMPTY_INDEX);
+
+        // invalid index
+        assertParseFailure(parser, " 0 ", MESSAGE_NON_POSITIVE_INTEGER_INDEX);
 
 
     }
