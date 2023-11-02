@@ -368,11 +368,11 @@ company. Use the `find` command to quickly locate the company you want.
 
 **Example:**
 
-Step 1: Let's say you want to follow up on a DSTA application. Simply type `find ds` to search for DSTA.
+**Step 1:** Let's say you want to follow up on a DSTA application. Simply type `find ds` to search for DSTA.
 
 ![img.png](images/find-command/BeforeFind.png)
 
-Step 2: You will see the list of companies that match your search criteria. In this case, the company DSTA will be 
+**Step 2:** You will see the list of companies that match your search criteria. In this case, the company DSTA will be 
 shown. And that is it! You have found the company you wanted.
 
 ![img.png](images/find-command/AfterFind.png)
