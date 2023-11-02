@@ -397,23 +397,16 @@ An example of an error message is shown below.
 _If you made a typo or need to update the progress of application,
 use the `edit` command to input the accurate details._
 
-**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [re/REMARK]`
+**Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY]`
 
->`INDEX`: Edits the company at INDEX number shown in the displayed company list. </br>
->`[c/COMPANY_NAME]` etc. : type prefix `c/` followed by new company name to edit company name. </br>
+>`INDEX`: Edits the company at INDEX number shown in the displayed company list.
+>
+>`c/COMPANY_NAME` etc. : type prefix `c/` followed by new company name to edit company name. 
+>
 > At least one of the optional fields must be provided.
 
-<div markdown="block" class="alert alert-danger">
-**:exclamation: Warning:**<br>
-* When editing the remark, the existing remark of the company will be removed i.e adding of remark is not cumulative.
-</div>
+**Examples:** 
 
-<div markdown="block" class="alert alert-success">
-**:bulb: Useful Tips:**<br>
-* You can edit remarks through the edit or remark command!
-</div>
-
-**Examples:** </br>
 1.You received an email from Microsoft to interview for a Frontend Developer role instead, which is different from the Software Engineer role you applied for.
 To edit the company's information, type `edit 2 s/PI r/Frontend Developer`
 

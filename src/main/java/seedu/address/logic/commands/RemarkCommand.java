@@ -32,7 +32,7 @@ public class RemarkCommand extends Command {
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_NO_REMARK = "Remarks missing in entry.";
+    public static final String MESSAGE_NO_REMARK = "Oops! No remarks found in entry. Please try again!";
     public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to Company: %1$s";
     public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from Company: %1$s";
 
