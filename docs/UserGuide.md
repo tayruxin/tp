@@ -352,25 +352,30 @@ use the `edit` command to input the accurate details.
 ## Company List Features ##
 ### Find a company: `find` ###
 
-**Format:** `find KEYWORD [MORE_KEYWORDS]...`
+You've applied to many companies and now you want to track a specific internship application for a particular 
+company. Use the `find` command to quickly locate the company you want.
 
-You wish to find a specific company in the list of companies. You can use the find command to find the
-company that you are looking for. The find command allows you to find the company whose name contain any of the
-given keywords.
+**Format:** `find [KEYWORDS]...`
+-   **Case-Insensitive Search:** Whether you type `tiktok` or `TikTok`, it will still match `TikTok`.
+-   **Order Independent:** You can search for `tiktok google` and it will find `Google TikTok`.
+-   **Substring Matching:** Typing `tik` will return companies like `TikTok`.
 
-- The search is case-insensitive. e.g `tiktok` will match `TikTok`.
-- The order of the keywords does not matter. e.g. `tiktok google` will match `Google TikTok`.
-- Only the company name is searched.
-- Only full words will be matched e.g. `tik` will not match `tiktok`.
-- Only companies with names that contain all the keywords will be returned e.g. `tiktok google` will match `Google TikTok` but not `TikTok`.
+> **Note:** The `find` command searches only the company name.
 
-**Examples:**
-* `find TikTok` returns `TikTok`
-* `find TikTok Google` returns `TikTok Google`
+**Search Criteria:**
 
-**What you will see when command succeeds:**
+-   Companies with names that contain **any** of the keywords will be returned. You can enter multiple keywords.
 
-![img.png](FindCommand.png)
+**Example:**
+
+Step 1: Let's say you want to follow up on a DSTA application. Simply type `find ds` to search for DSTA.
+
+![img.png](images/find-command/BeforeFind.png)
+
+Step 2: You will see the list of companies that match your search criteria. In this case, the company DSTA will be 
+shown. And that is it! You have found the company you wanted.
+
+![img.png](images/find-command/AfterFind.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
