@@ -34,7 +34,7 @@ If you need an overview of LinkMeIn's commands, head over to the [Command Summar
 
 ## Typographic conventions
 
-<div markdown="block" class="alert alert-tip">
+<div markdown="block" class="alert alert-success">
 **:bulb: Useful Tips:**<br>
 * Provides users with additional insights or more efficient ways to use your application.
 </div>
@@ -44,7 +44,7 @@ If you need an overview of LinkMeIn's commands, head over to the [Command Summar
 * Highlights supplementary information that users should be aware of, but isn't necessarily mission-critical.
 </div>
 
-<div markdown="block" class="alert alert-warning">
+<div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
 * Alerts users to potential pitfalls or things to be cautious of when using your application.
 </div>
@@ -63,31 +63,23 @@ If you need an overview of LinkMeIn's commands, head over to the [Command Summar
 1. Make sure that you have **Java 11 or above** installed in your Computer.
   - [How to check if you have Java installed?](#faq-1)
   - [How to check if you have Java 11 or above?](#faq-2)
-
 2. Download the latest jar file from [here](https://github.com/AY2324S1-CS2103T-T17-2/tp/releases/tag/v1.2.0)
-
 3. Copy the file to the folder you want to use as the home folder for your LinkMeIn.
-
-  - Create a new folder (you can name it LinkMeIn) where you would like to house the application
+* Create a new folder (you can name it LinkMeIn) where you would like to house the application
     (e.g., Desktop, Documents, etc.)
-  - Move the downloaded jar file as shown:
-
-    - For Windows users
-    - For Mac users
-
+* Move the downloaded jar file as shown:
+  * For Windows users 
+  * For Mac users
 4. Launch LinkMeIn
+* For Windows users 
+  * Double-click on the `LinkMeIn.jar` file to launch the application
 
-  - For Windows users
+* For Mac users
+  * Open up your terminal (Command +Space > type Terminal > Enter)
+  * Navigate to the folder where you have placed the jar file with the `cd` command 
+  * For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter
 
-    - Double-click on the `LinkMeIn.jar` file to launch the application
-
-  - For Mac users
-
-    - Open up your terminal (Command +Space > type Terminal > Enter)
-    - Navigate to the folder where you have placed the jar file with the `cd` command
-    - For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter
-
-<div markdown="block" class="alert alert-warning">
+<div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
 * Do not move or delete the `data` folder as it contains the data of your applications.
 </div>
@@ -205,7 +197,7 @@ Clears all entries of internship application.
 
 **Format:** `clear`
 
-<div markdown="block" class="alert alert-warning">
+<div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
 * Entries cannot be recovered after clearing.
 </div>
@@ -253,7 +245,7 @@ Add the company to LinkMeIn now to keep track of the application process using t
 
 4. You can proceed to add more companies by repeating the steps above!
 
-<div markdown="block" class="alert alert-tip">
+<div markdown="block" class="alert alert-success">
 **:bulb: Useful Tips:**<br>
 * To quickly navigate to the start and end of your input, you can use 'Ctrl' (Windows User) / 'Command' (Mac User) with the 'Left' and 'Right' arrow keys respectively!
 </div>
