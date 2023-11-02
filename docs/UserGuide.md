@@ -36,8 +36,6 @@ LinkMeIn's user interface (UI) is designed to be **simple** and **intuitive**. T
 ![uiIntro.png](images/ui-intro/uiIntro.png)
 
 
-
-
 _This user guide aims to empower you with the knowledge and skills needed to maximize the potential of LinkMeIn. We are
 committed to guide you at every step of your internship journey, ensuring that you will have a smooth sailing internship
 tracking journey._
@@ -307,19 +305,19 @@ Add the company to LinkMeIn now to keep track of the application process using t
 * Order of input **does not** matter.
 </div>
 
-**Example:**</br>
+**Example:**
 
-1. You came across the _Software Engineer_ role from _Apple_ which you are interested to apply for after touching up your resume. The deadline for this application is _10 October 2023_. The recruiter's name is _John Tan_, and you noted down his email address _johnd@example.com_ and his phone number _98765432_, so that you can contact him in the future. The priority of this application is _medium_ as you have other applications that you want to focus on first.
+**Step 1:** You came across the _Software Engineer_ role from _Apple_ which you are interested to apply for after touching up your resume. The deadline for this application is _10 October 2023_. The recruiter is _John Tan_, and you noted down his email address _johnd@example.com_ and his phone number _98765432_, so that you can contact him in the future. The priority of this application is _medium_ as you have other applications that you want to focus on first.
 
-2. With the information above, you can add the company's application into LinkMeIn using the `add` command. Simply type `add c/Apple r/Software Engineer s/PA n/John Tan d/12-12-2023 e/johntan@example.com p/987654321 pr/medium` into the command box and press Enter.
+**Step 2:** With the details above, simply type `add c/Apple r/Software Engineer s/PA n/John Tan d/12-12-2023 e/johntan@example.com p/987654321 pr/medium` into the command box and press Enter.
 
 ![img.png](images/add-command/BeforeAddCommand.png)
 
-3. The detail panel will be updated to show the details of the newly added company's application, and the company will be added to the list of companies.
+**Step 3:** The detail panel will be updated to show the details of the newly added company's application, and the company will be added to the list of companies.
 
 ![img.png](images/add-command/AfterAddCommand.png)
 
-4. You can proceed to add more companies by repeating the steps above!
+**Step 4:** You can proceed to add more companies by repeating the steps above!
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tips:**<br>
@@ -330,7 +328,7 @@ Add the company to LinkMeIn now to keep track of the application process using t
 If you miss out any of the compulsory parameters, you will see an error message in the command box informing you of the invalid command format.
 Don't worry, just identify the missing parameter(s) and edit your input accordingly! An example of the error message is shown below.
 
-![img.png](images/add-command/AddCommandError_2.png)
+![img.png](images/add-command/AddCommandError2.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -560,7 +558,7 @@ _You've found the specific company you wanted using the find command earlier, an
 
 **Example:**
 
-1. You have used the `find` command to find the company _TikTok_ earlier. Now, you want to see all of your applications in one list again. Simply type `list` to view the full list of your applications again!
+**Step 1:** You have used the `find` command to find the company _DSTA_ earlier. Now, you want to see all of your applications in one list again. Simply type `list` to view the full list of your applications again!
 
 ![img.png](images/list-command/ListCommand.png)
 
@@ -582,18 +580,17 @@ Filter the list of companies by their application status using the `filter` comm
 
 **Example:**
 
-1. You want to prepare for the upcoming interviews you received.
+**Step 1:** You want to prepare for the upcoming interviews you have received. 
 
-2. Simply type `filter s/PI` to filter the list of companies to show only companies with status "Pending Interview".
-   and press Enter.
+**Step 2:** Simply type `filter s/PI` to filter the list of companies to show only companies with status "Pending Interview" and press Enter.
 
 ![img.png](images/filter-command/FilterByPI.png)
 
-3. You can then view all the companies that you have pending interviews for from the company list.
+**Step 3:** You can then view all the companies that you have pending interviews for from the company list.
 
 ![img.png](images/filter-command/AfterFilterCommand.png)
 
-**Possible Error:**</br>
+**Possible Error:**
 
 If you enter an invalid prefix for the filter command, you will see an error message informing you of the invalid command, and suggest the correct format to follow.
 
@@ -659,16 +656,18 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 
 ### Parameters Description
 
-| Parameter            | Description                                   | Constraints                                                                           |
-| -------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------- |
-| c/Company Name       | Name of the company that you are applying to. | Only contain alphanumeric characters and spaces, and should not be blank.             |
-| r/Role               | Role of the internship that you are applying. | Only contain alphanumeric characters and spaces, and should not be blank.             |
-| s/Application Status | Status of the application.                    | Case-insensitive and should be one of the following: `PA`, `PI`, `PO`, `A`, `R`.      |
-| d/Deadline           | Deadline of the application.                  | Should be in DD-MM-YYYY format.                                                       |
-| n/Recruiter Name     | Name of the recruiter.                        | Only contain alphanumeric characters and spaces, and should not be blank.             |
-| e/Email              | Email of the recruiter.                       | Should be in the format of `local-part@domain` and should not be blank.               |
-| p/Phone Number       | Phone number of the recruiter.                | Only contain numbers, and should be at least 3 digits long. Should not be blank.      |
-| pr/Priority          | Priority of the application.                  | Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`. |
+| Parameter            | Description                                   | Constraints                                                                                                                                                                            |
+|----------------------|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| c/Company Name       | Name of the company that you are applying to. | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                                |
+| r/Role               | Role of the internship that you are applying. | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                                |
+| s/Application Status | Status of the application.                    | Case-insensitive and should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. Refer to [Application Status Description](#application-status-description) for other possible inputs. |
+| d/Deadline           | Deadline of the application.                  | Should be in DD-MM-YYYY format.                                                                                                                                                        |
+| n/Recruiter Name     | Name of the recruiter.                        | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                                |
+| e/Email              | Email of the recruiter.                       | Should be in the format of `local-part@domain` and should not be blank.                                                                                                                |
+| p/Phone Number       | Phone number of the recruiter.                | Only contain numbers, be at least 3 digits and at most 20 digits long. Should not be blank.                                                                                            |
+| pr/Priority          | Priority of the application.                  | Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`.                                                                                                  |
+| re/Remark            | Remark of the application.                    | Should not be blank.                                                                                                                                                                   |
+
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
@@ -680,13 +679,14 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 
 ### Application Status Description
 
-| Application Status | Description                                                                                                                                                          |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PA                 | Pending Application. This means that you have not submitted the application, but are currently working on it.                                                        |
-| PI                 | Pending Interview. This means that you have submitted the application, and are either waiting for an interview offer, or waiting to go for the interview.            |
-| PO                 | Pending Outcome. This means that you have went through the interview, but the final decision or outcome (whether accepted or rejected) hasn't been communicated yet. |
-| A                  | Accepted. This means you have been offered the internship position. Congratulations!                                                                                 |
-| R                  | Rejected. Unfortunately, this means that the application wasn't successful and you were not offered the internship. Don't worry, try again next time!                |
+| Application Status  | Other Accepted Inputs                                       | Description                                                                                                                                         |
+|---------------------|-------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| PENDING APPLICATION | PA, PENDAPP, PENDINGAPP, PENDINGAPPLICATION, P A, PENDING A | This means that you have not submitted the application, but are currently working on it.                                                            |
+| PENDING INTERVIEW   | PI, PENDINT, PENDINGINT, PENDINGINTERVIEW, P I, PENDING I   | This means that you have submitted the application, and are either waiting for an interview offer, or waiting to go for the interview.              |
+| PENDING OUTCOME     | PO, PENDOUT, PENDINGOUT, PENDINGOUTCOME, P O, PENDING O     | This means that you have went through the interview, but the final decision or outcome (whether accepted or rejected) hasn't been communicated yet. |
+| ACCEPTED            | A, ACC, ACCEPT, ACPT                                        | This means you have been offered the internship position. Congratulations!                                                                          |
+| REJECTED            | R, REJ, REJECT                                              | Unfortunately, this means that the application wasn't successful and you were not offered the internship. Don't worry, try again next time!         |
+
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -754,14 +754,20 @@ To be updated.
 
 ## Command Summary
 
-| Command  | Format                                                                                                                                           | Example                                                                                           |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
-| `add`    | `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/priority]`                                | `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com p/987654321` |
-| `list`   | `list`                                                                                                                                           | `list`                                                                                            |
-| `find`   | `find KEYWORD [MORE_KEYWORDS]...`                                                                                                                | `find TikTok`                                                                                     |
-| `view`   | `view INDEX`                                                                                                                                     | `view 1`                                                                                          |
-| `delete` | `delete INDEX`                                                                                                                                   | `delete 1`                                                                                        |
-| `edit`   | `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [nt/NOTE]` | `edit 2 s/PI r/Frontend Developer`                                                                |
-| `sort`   | `sort SORT_ORDER`                                                                                                                                | `sort asc`                                                                                        |
+| Command  | Format                                                                                                                                             | Example                                                                                       |
+|----------|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| `add`    | `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/PRIORITY]`                                  | `add c/Apple r/Software Engineer s/PA d/12-12-2023 n/John Tan e/johntan@gmail.com p/98765432` |
+| `view`   | `view INDEX`                                                                                                                                       | `view 1`                                                                                      |
+| `delete` | `delete INDEX`                                                                                                                                     | `delete 1`                                                                                    |
+| `remark` | `remark INDEX re/REMARK`                                                                                                                           | `remark 1 re/need Java`                                                                       |
+| `list`   | `list`                                                                                                                                             | `list`                                                                                        |
+| `filter` | `filter s/APPLICATION_STATUS`                                                                                                                      | `filter s/PI`                                                                                 |
+| `sort`   | `sort SORT_ORDER`                                                                                                                                  | `sort ascending`                                                                              |
+| `edit`   | `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [re/REMARK]` | `edit 1 s/PI r/Frontend Developer`                                                            |
+| `find`   | `find KEYWORD [MORE_KEYWORDS]...`                                                                                                                  | `find ds`                                                                                     |
+| `clear`  | `clear`                                                                                                                                            | `clear`                                                                                       |
+| `exit`   | `exit`                                                                                                                                             | `exit`                                                                                        |
+| `help`   | `help`                                                                                                                                             | `help`                                                                                        |
+
 
 [&uarr; Back to Table of Contents](#table-of-contents)

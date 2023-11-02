@@ -40,16 +40,16 @@ public class Messages {
             + "Remember to follow the command format below! \n%1$s";
 
     public static final String MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_NO_CHANGES =
-            "Duplicate Entry Detected\n"
+            "Oops! Duplicate entry is detected. \n"
                     + "You already have another entry with the exact same details for the "
                     + "company %s with the role %s at index %d.";
 
     public static final String MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES =
-            "Duplicate Entry Detected\n"
+            "Oops! Duplicate entry is detected. \n"
                     + "You already have another entry for the company %s with the role %s at index %d.\n"
                     + "Perhaps you meant to use the edit command instead? Type: edit %d %s";
     public static final String MESSAGE_DUPLICATE_COMPANY_EDIT_COMMAND =
-            "Duplicate Entry Detected\nYou already have another entry for the company %s with the "
+            "Oops! Duplicate entry is detected. \n You already have another entry for the company %s with the "
                     + "role %s at index %d.";
 
     /**
