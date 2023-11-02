@@ -51,7 +51,7 @@ public class UniqueCompanyList implements Iterable<Company> {
     /**
      * Returns the index of the duplicate company [zero-based] as the given argument.
      * @param company
-     * @return
+     * @return integer index of the duplicate company
      */
     public int getDuplicateIndex(Company company) {
         requireNonNull(company);

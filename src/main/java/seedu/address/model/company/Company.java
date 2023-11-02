@@ -101,7 +101,7 @@ public class Company {
      * Returns string of all fields that are different between the two companies.
      * Only to be used by add command's exception for duplicate companies.
      * @param duplicatedCompany
-     * @return
+     * @return string of all fields that are different between the two companies.
      */
     public String listAllChangedFields(Company duplicatedCompany) {
         String changedFields = "";

@@ -28,7 +28,6 @@ import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.company.Company;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Role;
-import seedu.address.testutil.Assert;
 import seedu.address.testutil.CompanyBuilder;
 
 public class AddCommandTest {
@@ -50,7 +49,7 @@ public class AddCommandTest {
         assertEquals(Arrays.asList(validCompany), modelStub.companiesAdded);
     }
 
-    //Duplicate tests, considered duplicate if same company name and same role and deadline
+    //Duplicate tests, considered duplicate if same company name, same role and deadline
     @Test
     public void execute_fullyDuplicatedCompany_throwsCommandException() {
         Company validCompany = new CompanyBuilder().build();
@@ -58,10 +57,11 @@ public class AddCommandTest {
         ModelStub modelStub = new ModelStubWithCompany(validCompany);
 
         assertThrows(CommandException.DuplicateCompanyException.class,
-                new CommandException.DuplicateCompanyException(validCompany,
+                new CommandException.DuplicateCompanyException(
+                        Messages.getErrorMessageForDuplicateCompanyAddCommand(validCompany,
                         modelStub.getDuplicateIndex(validCompany),
                         validCompany.listAllChangedFields(
-                                modelStub.getDuplicateCompany(validCompany))).getMessage(), (
+                                modelStub.getDuplicateCompany(validCompany)))).getMessage(), (
                 ) -> addCommand.execute(modelStub));
     }
 
@@ -74,10 +74,11 @@ public class AddCommandTest {
         ModelStubWithCompany modelStub = new ModelStubWithCompany(validCompany);
 
         assertDoesNotThrow(() -> addCommand.execute(modelStub),
-                new CommandException.DuplicateCompanyException(validCompany,
+                new CommandException.DuplicateCompanyException(
+                        Messages.getErrorMessageForDuplicateCompanyAddCommand(validCompany,
                         modelStub.getDuplicateIndex(validCompany),
                         validCompany.listAllChangedFields(
-                                modelStub.getDuplicateCompany(validCompany))
+                                modelStub.getDuplicateCompany(validCompany)))
                 ).getMessage());
     }
 
@@ -90,10 +91,11 @@ public class AddCommandTest {
         ModelStub modelStub = new ModelStubWithCompany(validCompany);
 
         assertDoesNotThrow(() -> addCommand.execute(modelStub),
-                new CommandException.DuplicateCompanyException(validCompany,
+                new CommandException.DuplicateCompanyException(
+                        Messages.getErrorMessageForDuplicateCompanyAddCommand(validCompany,
                         modelStub.getDuplicateIndex(validCompany),
                         validCompany.listAllChangedFields(
-                                modelStub.getDuplicateCompany(validCompany))
+                                modelStub.getDuplicateCompany(validCompany)))
                 ).getMessage());
     }
 
@@ -114,9 +116,14 @@ public class AddCommandTest {
                 Assertions.assertThrows(CommandException.DuplicateCompanyException.class, (
                         ) -> addCommand.execute(modelStub));
 
-        String expectedMessage = thrownException.getExpectedMessage();
-
-        Assert.assertEquals(expectedMessage, thrownException.getMessage());
+        //assumes the caller of listAllChangedFields() is correct
+        assertThrows(CommandException.DuplicateCompanyException.class,
+                new CommandException.DuplicateCompanyException(
+                        Messages.getErrorMessageForDuplicateCompanyAddCommand(validCompany,
+                                modelStub.getDuplicateIndex(validCompany),
+                                duplicateCompany.listAllChangedFields(
+                                        modelStub.getDuplicateCompany(validCompany)))).getMessage(), (
+                ) -> addCommand.execute(modelStub));
     }
 
     @Test
@@ -136,10 +143,12 @@ public class AddCommandTest {
         ModelStub modelStub = new ModelStubWithCompany(validCompany);
 
         assertDoesNotThrow(() -> addCommand.execute(modelStub),
-                new CommandException.DuplicateCompanyException(validCompany,
+                new CommandException.DuplicateCompanyException(
+                        Messages.getErrorMessageForDuplicateCompanyAddCommand(
+                        validCompany,
                         modelStub.getDuplicateIndex(validCompany),
                         validCompany.listAllChangedFields(
-                                modelStub.getDuplicateCompany(validCompany))
+                                modelStub.getDuplicateCompany(validCompany)))
                 ).getMessage());
     }
 
@@ -161,10 +170,11 @@ public class AddCommandTest {
 
         assertDoesNotThrow(() -> addCommand.execute(modelStub),
                 new CommandException.DuplicateCompanyException(
+                        Messages.getErrorMessageForDuplicateCompanyAddCommand(
                         validCompany,
                         modelStub.getDuplicateIndex(validCompany),
                         validCompany.listAllChangedFields(
-                                modelStub.getDuplicateCompany(validCompany))
+                                modelStub.getDuplicateCompany(validCompany)))
                 ).getMessage());
     }
 

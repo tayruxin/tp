@@ -117,8 +117,10 @@ public class EditCommandTest {
 
         assertCommandFailure(editCommand,
                 model,
-                new CommandException.DuplicateCompanyException(firstCompany,
-                        model.getDuplicateIndex(firstCompany)).getMessage());
+                new CommandException.DuplicateCompanyException(
+                        Messages.getErrorMessageForDuplicateCompanyEditCommand(
+                        firstCompany,
+                        model.getDuplicateIndex(firstCompany))).getMessage());
     }
 
     @Test
@@ -135,8 +137,10 @@ public class EditCommandTest {
 
         assertCommandFailure(editCommand,
                 model,
-                new CommandException.DuplicateCompanyException(firstCompany,
-                        model.getDuplicateIndex(firstCompany)).getMessage());
+                new CommandException.DuplicateCompanyException(
+                        Messages.getErrorMessageForDuplicateCompanyEditCommand(
+                        firstCompany,
+                        model.getDuplicateIndex(firstCompany))).getMessage());
     }
 
     @Test
@@ -191,8 +195,11 @@ public class EditCommandTest {
 
         assertCommandFailure(editCommand,
                 model,
-                new CommandException.DuplicateCompanyException(companyInList,
-                        INDEX_FIRST_COMPANY.getZeroBased() - 1).getMessage());
+                new CommandException.DuplicateCompanyException(
+                        Messages.getErrorMessageForDuplicateCompanyEditCommand(
+                                companyInList,
+                        INDEX_FIRST_COMPANY.getZeroBased() - 1)
+                ).getMessage());
     }
 
     @Test

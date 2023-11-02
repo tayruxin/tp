@@ -47,63 +47,14 @@ public class ApplicationStatus {
 
 
     /**
-     * Constructs a {@code ApplicationStatus}.
-     * It allows for a flexible comparison, including partial input and
-     * partial word string matches.
+     * Constructs an {@code ApplicationStatus} based on the given status string.
+     * The constructor supports a range of status inputs for flexibility, allowing
+     * for both short codes and various longer forms. This includes allowing
+     * infinite spaces between letters such as 'P' and 'O'. Refer to the class
+     * documentation for a detailed list of supported status inputs.
      *
-     * <p>
-     * Handled statuses:
-     * </p>
-     * <ul>
-     *   <li><b>PA (Pending Application):</b>
-     *       <ul>
-     *           <li>PENDAPP</li>
-     *           <li>PENDINGAPP</li>
-     *           <li>PENDING APPLICATION</li>
-     *           <li>P A</li>
-     *           <li>PENDING A</li>
-     *       </ul>
-     *   </li>
-     *   <li><b>PI (Pending Interview):</b>
-     *       <ul>
-     *           <li>PENDINT</li>
-     *           <li>PENDINGINT</li>
-     *           <li>PENDING INTERVIEW</li>
-     *           <li>P I</li>
-     *           <li>PENDING I</li>
-     *       </ul>
-     *   </li>
-     *   <li><b>PO (Pending Outcome):</b>
-     *       <ul>
-     *           <li>PENDOUT</li>
-     *           <li>PENDINGOUT</li>
-     *           <li>PENDING OUTCOME</li>
-     *           <li>P O</li>
-     *           <li>PENDING O</li>
-     *       </ul>
-     *   </li>
-     *   <li><b>A (Accepted):</b>
-     *       <ul>
-     *           <li>ACC</li>
-     *           <li>ACCEPT</li>
-     *           <li>ACPT</li>
-     *           <li>ACCEPTED</li>
-     *       </ul>
-     *   </li>
-     *   <li><b>R (Rejected):</b>
-     *       <ul>
-     *           <li>REJ</li>
-     *           <li>REJECT</li>
-     *           <li>REJECTION</li>
-     *       </ul>
-     *   </li>
-     * </ul>
-     * <p>
-     * And infinite spaces between letters such as P and O.
-     * </p>
-     *
-     * @param status A valid application status.
-     * @throws IllegalArgumentException if given status is invalid.
+     * @param status A string representation of the application status.
+     * @throws IllegalArgumentException If the provided status string is invalid.
      */
     public ApplicationStatus(String status) throws IllegalArgumentException {
         requireNonNull(status);

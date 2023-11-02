@@ -88,10 +88,6 @@ public class Name {
         // Trim whitespace and reduce consecutive whitespaces to a single space
         name = name.trim().replaceAll("\\s+", " ");
 
-        // Remove diacritics
-        // name = Normalizer.normalize(name, Normalizer.Form.NFD);
-        // name = name.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
-
         return name;
     }
 
