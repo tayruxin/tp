@@ -69,21 +69,16 @@ public class ApplicationStatus {
      */
     public ApplicationStatus(String status) throws IllegalArgumentException {
         requireNonNull(status);
-        // Convert to uppercase and replace multiple spaces with a single space
         status = status.toUpperCase().replaceAll("\\s+", " ").trim();
+        // Convert to uppercase and replace multiple spaces with a single space
 
         if (status.matches("^(PA|PEN\\s*APP|PENDING\\s*APP|PENDING\\s*APPLICATION|P\\sA|PENDING\\sA)$")) {
             this.status = ApplicationStatusEnum.PA;
         } else if (status.matches("^(PI|PEND\\s*INT|PENDING\\s*INT|PENDING\\s*INTERVIEW|P\\sI|PENDING\\sI)$")) {
             this.status = ApplicationStatusEnum.PI;
         } else if (status.matches("^(PO|PEND\\s*OUT|PENDING\\s*OUT|PENDING\\s*OUTCOME|P\\sO|PENDING\\sO)$")) {
-        if (status.matches(PENDING_APPLICATION)) {
-            this.status = ApplicationStatusEnum.PA;
-        } else if (status.matches(PENDING_INTERVIEW)) {
-            this.status = ApplicationStatusEnum.PI;
-        } else if (status.matches(PENDING_OUTCOME)) {
             this.status = ApplicationStatusEnum.PO;
-        } else if (status.matches(ACCEPTED)) {
+        } else if (status.matches("^(A|ACC|ACCEPT|ACPT|ACCEPTED)$")) {
             this.status = ApplicationStatusEnum.A;
         } else if (status.matches("^(R|REJ|REJECT|REJECTED)$")) {
             this.status = ApplicationStatusEnum.R;
