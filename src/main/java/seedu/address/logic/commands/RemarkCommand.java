@@ -20,10 +20,7 @@ public class RemarkCommand extends Command {
 
     public static final String COMMAND_WORD = "remark";
     public static final String REMOVE_COMMAND_WORD = "unremark";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the remark of the company identified "
-            + "by the index number used in the displayed company list. "
-            + "Existing remark will be overwritten by the input.\n"
-            + "Parameters: INDEX (must be a positive integer) "
+    public static final String MESSAGE_USAGE = "Parameters: INDEX (must be a positive integer) "
             + PREFIX_REMARK + "REMARK\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_REMARK + "Experience in Java";
@@ -32,7 +29,8 @@ public class RemarkCommand extends Command {
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_NO_REMARK = "Oops! No remarks found in entry. Please try again!";
+    public static final String MESSAGE_NO_REMARK = "Oops! No remarks found in entry. Please try again!\n"
+            + MESSAGE_USAGE;
     public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to Company: %1$s";
     public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from Company: %1$s";
 
