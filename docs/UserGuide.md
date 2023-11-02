@@ -679,13 +679,13 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 
 ### Application Status Description
 
-| Application Status  | Other Accepted Inputs                                       | Description                                                                                                                                         |
-|---------------------|-------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| PENDING APPLICATION | PA, PENDAPP, PENDINGAPP, PENDINGAPPLICATION, P A, PENDING A | This means that you have not submitted the application, but are currently working on it.                                                            |
-| PENDING INTERVIEW   | PI, PENDINT, PENDINGINT, PENDINGINTERVIEW, P I, PENDING I   | This means that you have submitted the application, and are either waiting for an interview offer, or waiting to go for the interview.              |
-| PENDING OUTCOME     | PO, PENDOUT, PENDINGOUT, PENDINGOUTCOME, P O, PENDING O     | This means that you have went through the interview, but the final decision or outcome (whether accepted or rejected) hasn't been communicated yet. |
-| ACCEPTED            | A, ACC, ACCEPT, ACPT                                        | This means you have been offered the internship position. Congratulations!                                                                          |
-| REJECTED            | R, REJ, REJECT                                              | Unfortunately, this means that the application wasn't successful and you were not offered the internship. Don't worry, try again next time!         |
+| Application Status  | Other Accepted Inputs                                        | Description                                                                                                                                         |
+|---------------------|--------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| PENDING APPLICATION | PA, PENDAPP, PENDINGAPP, PENDINGAPPLICATION, P A, PENDING A  | This means that you have not submitted the application, but are currently working on it.                                                            |
+| PENDING INTERVIEW   | PI, PENDINT, PENDINGINT, PENDINGINTERVIEW, P I, PENDING I    | This means that you have submitted the application, and are either waiting for an interview offer, or waiting to go for the interview.              |
+| PENDING OUTCOME     | PO, PENDOUT, PENDINGOUT, PENDINGOUTCOME, P O, PENDING O      | This means that you have went through the interview, but the final decision or outcome (whether accepted or rejected) hasn't been communicated yet. |
+| ACCEPTED            | A, ACC, ACPT, ACCEPT, ACCEPTED                               | This means you have been offered the internship position. Congratulations!                                                                          |
+| REJECTED            | R, REJ, REJECT, REJECTED                                     | Unfortunately, this means that the application wasn't successful and you were not offered the internship. Don't worry, try again next time!         |
 
 
 [&uarr; Back to Table of Contents](#table-of-contents)
