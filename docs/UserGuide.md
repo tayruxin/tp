@@ -355,7 +355,7 @@ use the `edit` command to input the accurate details.
 You've applied to many companies and now you want to track a specific internship application for a particular 
 company. Use the `find` command to quickly locate the company you want.
 
-**Format:** `find [KEYWORDS]...`
+**Format:** `find KEYWORD [MORE_KEYWORDS]...`
 -   **Case-Insensitive Search:** Whether you type `tiktok` or `TikTok`, it will still match `TikTok`.
 -   **Order Independent:** You can search for `tiktok google` and it will find `Google TikTok`.
 -   **Substring Matching:** Typing `tik` will return companies like `TikTok`.
