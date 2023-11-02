@@ -54,12 +54,15 @@ public class ParserUtil {
      */
     public static Name parseName(String name) throws ParseException {
         requireNonNull(name);
-        String trimmedName = name.trim();
+        String trimmedName = name.trim().replaceAll("\\s+", " ");
         if (trimmedName.isEmpty()) {
             throw new ParseException(Name.MESSAGE_CONSTRAINTS_NON_EMPTY);
         }
         if (!Name.isValidName(trimmedName)) {
             throw new ParseException(Name.MESSAGE_CONSTRAINTS_INVALID_REGEX);
+        }
+        if (!Name.isValidNameLength(trimmedName)) {
+            throw new ParseException(Name.MESSAGE_CONSTRAINTS_INVALID_LENGTH);
         }
         return new Name(trimmedName);
     }
@@ -72,7 +75,7 @@ public class ParserUtil {
      */
     public static Phone parsePhone(String phone) throws ParseException {
         requireNonNull(phone);
-        String trimmedPhone = phone.trim();
+        String trimmedPhone = phone.trim().replaceAll("\\s+", " ");
         if (trimmedPhone.isEmpty()) {
             throw new ParseException(Phone.MESSAGE_CONSTRAINTS_NON_EMPTY);
         }
@@ -108,12 +111,15 @@ public class ParserUtil {
      */
     public static Role parseRole(String role) throws ParseException {
         requireNonNull(role);
-        String trimmedRole = role.trim();
+        String trimmedRole = role.trim().replaceAll("\\s+", " ");
         if (trimmedRole.isEmpty()) {
             throw new ParseException(Role.MESSAGE_CONSTRAINTS_NON_EMPTY);
         }
         if (!Role.isValidRole(trimmedRole)) {
             throw new ParseException(Role.MESSAGE_CONSTRAINTS_INVALID_REGEX);
+        }
+        if (!Role.isValidRoleLength(trimmedRole)) {
+            throw new ParseException(Role.MESSAGE_CONSTRAINTS_INVALID_LENGTH);
         }
         return new Role(trimmedRole);
     }
@@ -166,12 +172,15 @@ public class ParserUtil {
      */
     public static RecruiterName parseRecruiterName(String recruiterName) throws ParseException {
         requireNonNull(recruiterName);
-        String trimmedRecruiterName = recruiterName.trim();
+        String trimmedRecruiterName = recruiterName.trim().replaceAll("\\s+", " ");;
         if (trimmedRecruiterName.isEmpty()) {
             throw new ParseException(RecruiterName.MESSAGE_CONSTRAINTS_NON_EMPTY);
         }
         if (!RecruiterName.isValidName(trimmedRecruiterName)) {
             throw new ParseException(RecruiterName.MESSAGE_CONSTRAINTS_INVALID_REGEX);
+        }
+        if (!RecruiterName.isValidNameLength(trimmedRecruiterName)) {
+            throw new ParseException(RecruiterName.MESSAGE_CONSTRAINTS_INVALID_LENGTH);
         }
         return new RecruiterName(trimmedRecruiterName);
     }
