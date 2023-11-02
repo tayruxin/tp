@@ -64,11 +64,11 @@ throughout this user guide.
 3.Warnings
 <div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
-* Alerts you og potential pitfalls or things to be cautious of when using LinkMeIn.
+* Alerts you of potential pitfalls or things to be cautious of when using LinkMeIn.
 </div>
 
 4.Code
-`Code`: Indicates commands or programming-related content that can be typed or referred to.
+`Code`: Indicates commands or programming-related content that you can type or refer to.
 
 5.Acceptable Parameters
 > Acceptable parameters for command format
@@ -89,9 +89,9 @@ more about LinkMeIn's features.
 Welcome back! We hope that you have been enjoying your internship tracking journey with LinkMeIn.
 
 1. If you need a refresher on how to use a feature, you can refer to the [Features Section](#current-features) to find
-out more about LinkMeIn's features. In the features section, there are **detailed explanation** of each feature and
+out more about LinkMeIn's features. In the features section, there are **detailed explanations** of each feature and
    **examples** to help you better understand how to use the feature.
-2. To quickly refer to the command format of a feature, you can refer to the [Command Summary Section](#command-summary)
+2. To quickly refer to the command format of a feature, you can head over to the [Command Summary Section](#command-summary)
 where all the commands are listed out in a table format.
 3. If you face any issue, you can refer to the [FAQ Section](#faq) to find out if your issue has been addressed before.
 
@@ -124,12 +124,12 @@ such as your Desktop or Documents folder
 **Step 4: Launch LinkMeIn:**
 Depending on your operating system, do one of the following to launch LinkMeIn:
 1. For Windows users: 
-   - Double-click on the `LinkMeIn.jar` file to launch the application
+   - Double-click on the `LinkMeIn.jar` file to launch the application.
 2. For Mac users:
-   * Open up your terminal. If you are unsure of how to do so, you can refer to [here]().
-   * Navigate to the folder where you have placed the jar file with the `cd` command 
-   * For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter
-   * Type `java -jar LinkMeIn.jar` and press Enter
+   * Open up your terminal. If you are unsure of how to do so, you can head over to [here](#2-how-do-i-open-up-my-terminal-).
+   * Navigate to the folder where you have placed the jar file with the `cd` command. 
+   * For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter.
+   * Type `java -jar LinkMeIn.jar` and press Enter.
 
 <div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
@@ -142,7 +142,7 @@ By now, you should have successfully launched LinkMeIn with the following window
 
 To learn more about the GUI of LinkMeIn, you can refer to the [GUI Section](#introducing-linkmeins-user-interface) to find out more.
 
-Having successfully, launched LinkMeIn, you are now ready to use LinkMeIn to track your internship applications. You 
+Having successfully launched LinkMeIn, you are now ready to use LinkMeIn to track your internship applications. You 
 can either refer to the [Quick Tour Section](#introducing-linkmein-a-quick-tour) to get started with LinkMeIn or you can
 refer to the [Features Section](#current-features) to find out more about LinkMeIn's features.
 
