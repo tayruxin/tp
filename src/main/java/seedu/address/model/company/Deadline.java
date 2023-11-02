@@ -6,6 +6,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 
 /**
  * Represents a Company's deadline in the address book.
@@ -13,14 +14,18 @@ import java.time.format.DateTimeParseException;
  */
 public class Deadline implements Comparable<Deadline> {
 
-    public static final String MESSAGE_CONSTRAINTS =
-            "Please enter a valid deadline in the format DD-MM-YYYY";
-    public static final String VALIDATION_REGEX = "^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19[0-9]{2}|2[0-9]{3})$";
+    public static final String MESSAGE_CONSTRAINTS_NON_EMPTY =
+            "Oops! Deadline should not be blank! Please try again with a valid deadline of format DD-MM-YYYY.";
+    public static final String MESSAGE_CONSTRAINTS_INVALID_DEADLINE =
+            "Oops! You have entered an invalid deadline! Please try again with the deadline format DD-MM-YYYY.";
 
-    public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    public static final String MESSAGE_CONSTRAINTS_WRONG_FORMAT =
+            "Oops! You have entered an incorrect format for the deadline! Please use the format DD-MM-YYYY.";
 
+    public static final String FORMAT_REGEX = "^\\d{2}-\\d{2}-\\d{4}$";
+    public static final DateTimeFormatter FORMATTER =
+            DateTimeFormatter.ofPattern("dd-MM-uuuu").withResolverStyle(ResolverStyle.STRICT);
     public final LocalDate value;
-
 
     /**
      * Constructs a {@code Deadline}.
@@ -29,15 +34,24 @@ public class Deadline implements Comparable<Deadline> {
      */
     public Deadline(String deadline) {
         requireNonNull(deadline);
-        checkArgument(isValidDeadline(deadline), MESSAGE_CONSTRAINTS);
+        checkArgument(!deadline.isBlank(), MESSAGE_CONSTRAINTS_NON_EMPTY);
+        checkArgument(isValidFormat(deadline), MESSAGE_CONSTRAINTS_WRONG_FORMAT);
+        checkArgument(isValidDeadline(deadline), MESSAGE_CONSTRAINTS_INVALID_DEADLINE);
         this.value = LocalDate.parse(deadline, FORMATTER);
+    }
+
+    /**
+     * Returns true if the given string follows the correct format.
+     */
+    public static boolean isValidFormat(String test) {
+        return test.matches(FORMAT_REGEX);
     }
 
     /**
      * Returns true if a given string is a valid deadline.
      */
     public static boolean isValidDeadline(String test) {
-        if (!test.matches(VALIDATION_REGEX)) {
+        if (!isValidFormat(test)) {
             return false;
         }
 
@@ -48,7 +62,6 @@ public class Deadline implements Comparable<Deadline> {
             return false;
         }
     }
-
 
     @Override
     public String toString() {
@@ -83,4 +96,3 @@ public class Deadline implements Comparable<Deadline> {
         return this.value.compareTo(other.value);
     }
 }
-

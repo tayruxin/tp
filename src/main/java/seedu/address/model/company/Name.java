@@ -9,12 +9,17 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Name {
 
-    public static final String MESSAGE_CONSTRAINTS =
-            "Names should only contain alphanumeric characters and spaces, and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS_NON_EMPTY =
+            "Oops! Company's name should not be blank. Please try again with a valid company name.";
+
+    public static final String MESSAGE_CONSTRAINTS_INVALID_REGEX =
+            "Oops! Company's name should only contain alphanumeric characters and spaces! Please try again with"
+                    + " a valid company name.";
 
     /*
-     * The first character of the address must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
+     * This regular expression allows names to start with an alphanumeric character
+     * (a letter or digit) and can be followed by zero or more alphanumeric characters
+     * or spaces. Names must start with an alphanumeric character.
      */
     public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
 
@@ -27,7 +32,8 @@ public class Name {
      */
     public Name(String name) {
         requireNonNull(name);
-        checkArgument(isValidName(name), MESSAGE_CONSTRAINTS);
+        checkArgument(!name.isBlank(), MESSAGE_CONSTRAINTS_NON_EMPTY);
+        checkArgument(isValidName(name), MESSAGE_CONSTRAINTS_INVALID_REGEX);
         fullName = name;
     }
 

@@ -9,9 +9,12 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class RecruiterName {
 
-    public static final String MESSAGE_CONSTRAINTS =
-            "Recruiter names should only contain alphanumeric characters and spaces, and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS_NON_EMPTY =
+            "Oops! Recruiter's name should not be blank! Please try again with a valid recruiter name.";
 
+    public static final String MESSAGE_CONSTRAINTS_INVALID_REGEX =
+            "Oops! Recruiter's name should only contain alphanumeric characters and spaces! Please try again with"
+                    + " a valid recruiter name.";
     /*
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
@@ -27,7 +30,8 @@ public class RecruiterName {
      */
     public RecruiterName(String name) {
         requireNonNull(name);
-        checkArgument(isValidName(name), MESSAGE_CONSTRAINTS);
+        checkArgument(!name.isBlank(), MESSAGE_CONSTRAINTS_NON_EMPTY);
+        checkArgument(isValidName(name), MESSAGE_CONSTRAINTS_INVALID_REGEX);
         fullName = name;
     }
 

@@ -9,9 +9,11 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Phone {
 
-
-    public static final String MESSAGE_CONSTRAINTS =
-            "Phone numbers should only contain numbers, and it should be at least 3 digits long";
+    public static final String MESSAGE_CONSTRAINTS_NON_EMPTY =
+            "Oops! Phone number should not be blank! Please try again with a valid phone number.";
+    public static final String MESSAGE_CONSTRAINTS_VALID_REGEX =
+            "Oops! Phone number should only contain numbers, and it should be at least 3 digits long, "
+                    + "without any spaces!\n Please try again with a valid phone number. ";
     public static final String VALIDATION_REGEX = "\\d{3,}";
     public final String value;
 
@@ -22,7 +24,8 @@ public class Phone {
      */
     public Phone(String phone) {
         requireNonNull(phone);
-        checkArgument(isValidPhone(phone), MESSAGE_CONSTRAINTS);
+        checkArgument(!phone.isBlank(), MESSAGE_CONSTRAINTS_NON_EMPTY);
+        checkArgument(isValidPhone(phone), MESSAGE_CONSTRAINTS_VALID_REGEX);
         value = phone;
     }
 

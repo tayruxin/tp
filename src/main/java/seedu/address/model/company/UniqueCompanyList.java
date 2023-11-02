@@ -9,6 +9,7 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import seedu.address.logic.SortOrder;
 import seedu.address.model.company.exceptions.CompanyNotFoundException;
 import seedu.address.model.company.exceptions.DuplicateCompanyException;
 
@@ -35,6 +36,17 @@ public class UniqueCompanyList implements Iterable<Company> {
     public boolean contains(Company toCheck) {
         requireNonNull(toCheck);
         return internalList.stream().anyMatch(toCheck::isSameCompany);
+    }
+
+    /**
+     * Returns Company if the list contains an equivalent company as the given argument.
+     * Implements findFirst to act as protection against multiple companies with the same name.
+     */
+    public Company getDuplicateCompany(Company toCheck) {
+        requireNonNull(toCheck);
+        assert(contains(toCheck));
+        Company duplicateCompany = internalList.stream().filter(toCheck::isSameCompany).findFirst().get();
+        return duplicateCompany;
     }
 
     /**
@@ -108,8 +120,13 @@ public class UniqueCompanyList implements Iterable<Company> {
     /**
      * Sorts the companies by their deadlines.
      */
-    public void sortCompaniesByDeadline() {
-        internalList.sort(Comparator.comparing(Company::getDeadline));
+    public void sortCompaniesByDeadline(SortOrder sortOrder) {
+        requireNonNull(sortOrder);
+        if (sortOrder == SortOrder.ASCENDING) {
+            internalList.sort(Comparator.comparing(Company::getDeadline));
+        } else {
+            internalList.sort(Comparator.comparing(Company::getDeadline).reversed());
+        }
     }
 
     /**

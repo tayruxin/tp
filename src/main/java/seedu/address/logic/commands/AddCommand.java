@@ -23,8 +23,8 @@ public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a company to the address book. "
-            + "Parameters: "
+    public static final String MESSAGE_USAGE =
+            "Parameters: "
             + PREFIX_COMPANY_NAME + "COMPANY_NAME "
             + PREFIX_ROLE + "ROLE "
             + PREFIX_STATUS + "STATUS "
@@ -32,7 +32,7 @@ public class AddCommand extends Command {
             + PREFIX_RECRUITER_NAME + "RECRUITER_NAME "
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
-            + PREFIX_PRIORITY + "PRIORITY \n"
+            + "[" + PREFIX_PRIORITY + "PRIORITY] \n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_COMPANY_NAME + "Google "
             + PREFIX_ROLE + "Software Engineer "
@@ -44,7 +44,6 @@ public class AddCommand extends Command {
             + PREFIX_PRIORITY + "HIGH ";
 
     public static final String MESSAGE_SUCCESS = "New company added: %1$s";
-    public static final String MESSAGE_DUPLICATE_COMPANY = "This company already exists in the address book";
 
     private final Company toAdd;
 
@@ -61,7 +60,8 @@ public class AddCommand extends Command {
         requireNonNull(model);
 
         if (model.hasCompany(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_COMPANY);
+            Company duplicateCompany = model.getDuplicateCompany(toAdd);
+            throw new CommandException.DuplicateCompanyException(duplicateCompany);
         }
 
         model.addCompany(toAdd);
@@ -70,6 +70,10 @@ public class AddCommand extends Command {
         return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.getCompanyName(toAdd)));
     }
 
+    /**
+     * Returns true if both companies have the same identity and data fields.
+     * This defines a stronger notion of equality between two companies.
+     */
     @Override
     public boolean equals(Object other) {
         if (other == this) {

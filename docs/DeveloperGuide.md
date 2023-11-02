@@ -481,14 +481,14 @@ application process, simplifying the pursuit of career opportunities.
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                      | I want to …​                 | So that I can…​                                                          |
-|----------|----------------------------------------------|------------------------------|--------------------------------------------------------------------------|
-| `* * *`  | new user                                     | see usage instructions       | refer to instructions when I forget how to use the App                   |
-| `* * *`  | user                                         | add a new company            |                                                                          |
-| `* * *`  | user                                         | delete a company             | remove entries that I no longer need                                     |
-| `* * *`  | user                                         | find a company by name       | locate details of companies without having to go through the entire list |
-| `* *`    | user                                         | hide private contact details | minimize chance of someone else seeing them by accident                  |
-| `*`      | user with many companies in the address book | sort companies by name       | locate a company easily                                                  |
+| Priority | As a …​                                      | I want to …​                           | So that I can…​                                                               |
+|----------|----------------------------------------------|----------------------------------------|-------------------------------------------------------------------------------|
+| `* * *`  | new user                                     | see usage instructions                 | refer to instructions when I forget how to use the App                        |
+| `* * *`  | user                                         | add a new company                      |                                                                               |
+| `* * *`  | user                                         | delete a company                       | remove entries that I no longer need                                          |
+| `* * *`  | user                                         | find a company by name                 | locate details of companies without having to go through the entire list      |
+| `* *`    | user with many companies in the address book | sort companies by application deadline | view applications with nearer or further deadlines easily to plan my schedule |
+| `* *`    | user                                         | hide private contact details           | minimize chance of someone else seeing them by accident                       |
 
 _{More to be added}_
 
@@ -604,6 +604,34 @@ _{More to be added}_
     Use case ends.
 
 -   3a. The given index is invalid.
+
+    -   3a1. AddressBook shows an error message.
+
+        Use case resumes at step 2.
+
+
+**Use case: Sort companies by deadline**
+
+**MSS**
+
+1.  User requests to list companies.
+
+2.  AddressBook shows a list of companies.
+
+3.  User requests to sort the companies by deadline in a specific order (ascending or descending).
+
+4.  AddressBook sorts and displays the companies based on the deadline in the specified order.
+
+    Use case ends.
+
+
+**Extensions**
+
+-   2a. The list is empty.
+
+    Use case ends.
+
+-   3a. The given order (ascending or descending) is invalid or not specified.
 
     -   3a1. AddressBook shows an error message.
 

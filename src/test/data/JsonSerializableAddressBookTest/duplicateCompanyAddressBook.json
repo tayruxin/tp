@@ -7,15 +7,17 @@
     "deadline": "10-10-2023",
     "status": "PA",
     "recruiterName": "Alice Pauline",
-    "priority": "HIGH"
+    "priority": "HIGH",
+    "remark" : "No remarks"
   }, {
     "name": "Meta",
     "phone": "94351253",
     "email": "pauline@example.com",
-    "role": "Data Scientist",
+    "role": "Software Engineer",
     "deadline": "10-10-2023",
     "status": "PA",
     "recruiterName": "Alice Pauline",
-    "priority": "HIGH"
+    "priority": "HIGH",
+    "remark" : "No remarks"
   } ]
 }

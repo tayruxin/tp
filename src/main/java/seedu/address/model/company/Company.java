@@ -21,14 +21,15 @@ public class Company {
     private final ApplicationStatus status;
     private final RecruiterName recruiterName;
     private final Priority priority;
+    private final Remark remark;
 
 
     /**
      * Every field must be present and not null.
      */
     public Company(Name name, Phone phone, Email email, Role role, Deadline deadline, ApplicationStatus status,
-                   RecruiterName recruiterName, Priority priority) {
-        requireAllNonNull(name, phone, email, role, deadline, status, priority);
+                   RecruiterName recruiterName, Priority priority, Remark remark) {
+        requireAllNonNull(name, phone, email, role, deadline, status, priority, remark);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -37,6 +38,7 @@ public class Company {
         this.status = status;
         this.recruiterName = recruiterName;
         this.priority = priority;
+        this.remark = remark;
     }
 
     public Name getName() {
@@ -71,17 +73,27 @@ public class Company {
         return priority;
     }
 
+    public Remark getRemark() {
+        return remark;
+    }
+
     /**
-     * Returns true if both companies have the same name.
-     * This defines a weaker notion of equality between two companies.
+     * Returns true if both entries have the same company name and the
+     * role is the same.
      */
     public boolean isSameCompany(Company otherCompany) {
         if (otherCompany == this) {
             return true;
         }
 
-        return otherCompany != null
-                && otherCompany.getName().equals(getName());
+        if (otherCompany == null) {
+            return false;
+        }
+
+        return otherCompany.getName() != null
+                && otherCompany.getName().equals(getName())
+                && otherCompany.getRole() != null
+                && otherCompany.getRole().equals(getRole());
     }
 
     /**
@@ -107,13 +119,13 @@ public class Company {
                 && deadline.equals(otherCompany.deadline)
                 && status.equals(otherCompany.status)
                 && recruiterName.equals(otherCompany.recruiterName)
-                && priority.equals(otherCompany.priority);
+                && priority.equals(otherCompany.priority)
+                && remark.equals(otherCompany.remark);
     }
-
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, role, deadline, status, recruiterName, priority);
+        return Objects.hash(name, phone, email, role, deadline, status, recruiterName, priority, remark);
     }
 
     @Override
@@ -127,7 +139,15 @@ public class Company {
                 .add("phone", phone)
                 .add("email", email)
                 .add("priority", priority)
+                .add("remark", remark)
                 .toString();
     }
 
+    /**
+     * Returns a string representation of the company in the form of a list of attributes.
+     * Used to display the entire string representation in one line
+     */
+    public String duplicatedCompanyFlagOutput() {
+        return "Name = " + name + "," + " Role = " + role;
+    }
 }
