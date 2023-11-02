@@ -437,9 +437,9 @@ An example of an error message is shown below.
 
 **Format:** `find KEYWORD [MORE_KEYWORDS]...`
 
-You wish to find a specific company in the list of companies. You can use the find command to find the
+_You wish to find a specific company in the list of companies. You can use the find command to find the
 company that you are looking for. The find command allows you to find the company whose name contain any of the
-given keywords.
+given keywords._
 
 - The search is case-insensitive. e.g `tiktok` will match `TikTok`.
 - The order of the keywords does not matter. e.g. `tiktok google` will match `Google TikTok`.
@@ -504,8 +504,8 @@ If you enter an invalid prefix for the filter command, you will see an error mes
 
 ### Sort companies by their deadlines: `sort` ###
 
-Want to see which application deadlines are coming up soon or which ones are far off? Use the `sort` command to 
-arrange your list of applications based on their deadlines.
+_Want to see which application deadlines are coming up soon or which ones are far off? Use the `sort` command to 
+arrange your list of applications based on their deadlines._
 
 **Format:** `sort SORT_ORDER`
 
