@@ -504,31 +504,32 @@ If you enter an invalid prefix for the filter command, you will see an error mes
 
 ### Sort companies by their deadlines: `sort` ###
 
-Want to see which application deadlines are coming up soon or which ones are far off? Use the `sort` command to arrange your list of companies based on their deadlines.
+Want to see which application deadlines are coming up soon or which ones are far off? Use the `sort` command to 
+arrange your list of applications based on their deadlines.
 
 **Format:** `sort SORT_ORDER`
 
 Where `SORT_ORDER` can be:
 
--   `ascending` or its short forms `a` or `asc`: to sort in increasing order of deadlines.
+-   `ascending` or its short forms `a` or `asc`: to sort nearest deadlines first.
 
--   `descending` or its short forms `d` or `desc`: to sort in decreasing order of deadlines.
-
--   If no order is specified, it will default to `ascending`.
+-   `descending` or its short forms `d` or `desc`: to sort furthest deadlines first.
 
 -   The sort is case-insensitive. e.g. `ASCENDING` and `ascending` are treated the same.
 
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* If no order is specified, sort will default to `ascending`.
+</div>
 
 **Example:**
-1. Here is the list of companies before sorting.
+
+**Step 1.** You've lost track of time and are uncertain about which internship deadlines are looming. Your current 
+list looks chaotic. Just type `sort ascending` to sort the list of applications by their deadlines.
 
 ![typecommand.png](images/sort-command/BeforeSorting.png)
 
-2. Type `sort ascending`
-
-![typecommand.png](images/sort-command/TypeCommand.png)
-
-3. The list of companies is now sorted. 
+**Step 2.** Your applications are now organized by upcoming deadlines. Time to start applying without delay!
 
 ![img.png](images/sort-command/AfterSorting.png)
 
@@ -654,5 +655,6 @@ To be updated.
 | `view`   | `view INDEX`                                                                                                                                     | `view 1`                                                                                          |
 | `delete` | `delete INDEX`                                                                                                                                   | `delete 1`                                                                                        |
 | `edit`   | `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [nt/NOTE]` | `edit 2 s/PI r/Frontend Developer`                                                                |
+| `sort`   | `sort SORT_ORDER`                                                                                                                                | `sort asc`                                                                                        |
 
 [&uarr; Back to Table of Contents](#table-of-contents)
