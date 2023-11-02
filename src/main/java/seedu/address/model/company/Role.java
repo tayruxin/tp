@@ -56,8 +56,33 @@ public class Role {
             return false;
         }
 
-        Role otherName = (Role) other;
-        return jobRole.equals(otherName.jobRole);
+        Role otherRole = (Role) other;
+        return sanitize(jobRole).equals(sanitize(otherRole.jobRole));
+    }
+
+    /**
+     * Sanitizes the role for comparison purposes:
+     * 1. Converts to lowercase.
+     * 2. Trims whitespace and reduces consecutive whitespaces to a single space.
+     * 3. Removes special characters.
+     * @param role Role to sanitize
+     * @return Sanitized role
+     */
+    private String sanitize(String role) {
+        if (role == null) {
+            return null;
+        }
+
+        // Convert to lowercase
+        role = role.toLowerCase();
+
+        // Remove special characters
+        role = role.replaceAll("[^a-z ]", "");
+
+        // Trim whitespace and reduce consecutive whitespaces to a single space
+        role = role.trim().replaceAll("\\s+", " ");
+
+        return role;
     }
 
     @Override

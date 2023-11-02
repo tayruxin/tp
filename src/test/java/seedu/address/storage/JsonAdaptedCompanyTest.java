@@ -20,7 +20,7 @@ import seedu.address.model.company.Role;
 
 public class JsonAdaptedCompanyTest {
     private static final String INVALID_COMPANY_NAME = "G@ogle";
-    private static final String INVALID_PHONE = "+651234";
+    private static final String INVALID_PHONE = "+6512&34";
     private static final String INVALID_EMAIL = "example.com";
     private static final String INVALID_PRIORITY = "HIGHH";
     private static final String INVALID_REMARK = " ";

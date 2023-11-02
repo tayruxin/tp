@@ -42,7 +42,11 @@ public class AddCommandIntegrationTest {
     public void execute_duplicateCompany_throwsCommandException() {
         Company companyInList = model.getAddressBook().getCompanyList().get(0);
         assertCommandFailure(new AddCommand(companyInList), model,
-                new CommandException.DuplicateCompanyException(companyInList).getMessage());
+                new CommandException.DuplicateCompanyException(
+                        Messages.getErrorMessageForDuplicateCompanyAddCommand(
+                        companyInList,
+                        model.getDuplicateIndex(companyInList),
+                        companyInList.listAllChangedFields(model.getDuplicateCompany(companyInList)))
+                ).getMessage());
     }
-
 }

@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.FilterCommand;
 import seedu.address.model.company.ApplicationStatus;
-import seedu.address.model.company.ApplicationStatusPredicate;
+import seedu.address.model.company.predicates.ApplicationStatusPredicate;
 
 public class FilterCommandParserTest {
     private FilterCommandParser parser = new FilterCommandParser();

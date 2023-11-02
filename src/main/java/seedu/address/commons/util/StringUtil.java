@@ -77,10 +77,9 @@ public class StringUtil {
      */
     public static boolean isInteger(String s) {
         requireNonNull(s);
-
         try {
             int value = Integer.parseInt(s);
-            return true; // It's an integer
+            return true;
         } catch (NumberFormatException nfe) {
             return false; // Not an integer
         }

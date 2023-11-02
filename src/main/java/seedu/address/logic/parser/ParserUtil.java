@@ -5,6 +5,8 @@ import static seedu.address.logic.Messages.MESSAGE_EMPTY_INDEX;
 import static seedu.address.logic.Messages.MESSAGE_NON_INTEGER_INDEX;
 import static seedu.address.logic.Messages.MESSAGE_NON_POSITIVE_INTEGER_INDEX;
 
+import java.util.logging.Logger;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -150,6 +152,7 @@ public class ParserUtil {
             throw new ParseException(ApplicationStatus.MESSAGE_CONSTRAINTS_NON_EMPTY);
         }
         if (!ApplicationStatus.isValidApplicationStatus(trimmedStatus)) {
+            Logger.getGlobal().warning("CAUGHT HERE");
             throw new ParseException(ApplicationStatus.MESSAGE_CONSTRAINTS_VALID_STATUS);
         }
         return new ApplicationStatus(trimmedStatus);

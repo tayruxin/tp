@@ -84,7 +84,12 @@ public class EditCommand extends Command {
 
         if (!companyToEdit.isSameCompany(editedCompany) && model.hasCompany(editedCompany)) {
             Company duplicateCompany = model.getDuplicateCompany(editedCompany);
-            throw new CommandException.DuplicateCompanyException(duplicateCompany);
+            List<Company> lastShownListWithDuplicate = model.getFilteredCompanyList();
+            int indexOfDuplicateCompany = lastShownListWithDuplicate.indexOf(duplicateCompany);
+
+            throw new CommandException.DuplicateCompanyException(
+                    Messages.getErrorMessageForDuplicateCompanyEditCommand(
+                    duplicateCompany, indexOfDuplicateCompany));
         }
 
         model.setCompany(companyToEdit, editedCompany);

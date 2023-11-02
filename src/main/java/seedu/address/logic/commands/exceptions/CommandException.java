@@ -1,7 +1,6 @@
 package seedu.address.logic.commands.exceptions;
 
 import seedu.address.logic.commands.Command;
-import seedu.address.model.company.Company;
 
 /**
  * Represents an error which occurs during execution of a {@link Command}.
@@ -23,21 +22,12 @@ public class CommandException extends Exception {
      * companies with the same name field and the same role field.
      */
     public static class DuplicateCompanyException extends CommandException {
-
         /**
          * Constructs a new {@code DuplicateCompanyException} with the specified detail {@code message}.
-         * This is to be used for user interaction.
-         *
-         * @param company
+         * This is to be used for user interaction for the ADD AND EDIT command.
          */
-        public DuplicateCompanyException(Company company) {
-            super("Duplicate Entry Detected"
-                    + "\n" + "You already have another entry "
-                    + "for the company " + company.getName() + " with the role "
-                    + company.getRole() + "."
-                    + "\n" + "Here are the details of the existing entry: "
-                    + "\n" + company.duplicatedCompanyFlagOutput()
-            );
+        public DuplicateCompanyException(String message) {
+            super(message);
         }
     }
 }
