@@ -267,11 +267,9 @@ the detail of any company from the list of companies that you have added._
 **Format:** `view INDEX`
 > INDEX must be a positive integer number e.g 1,2,3... and must not be greater than the number of company in the list.
 
-<div class="typography-box note">
-  <span class="icon">ℹ️</span>
-  <span class="content">
-    <strong>Note :</strong> INDEX refers to the index number shown in the displayed company list.
-  </span>
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* INDEX refers to the index number shown in the displayed company list.
 </div>
 
 **Example:**
@@ -282,7 +280,7 @@ Simply type `view 6` to view _Twitter's_ details.
 2. The detail panel will be updated to show the details of _Twitter_.
 ![img.png](images/view-command/AfterViewCommand.png)
 
-**Possible Error:**</br>
+**Possible Error:**
 If you enter an [**invalid index**](#7-what-is-an-invalid-index-), you will see an error message in the command box. 
 Don’t worry, just edit your index accordingly and try the command again!
 An example of an error message is shown below.
@@ -300,12 +298,9 @@ You can use the delete command to delete the company from the list of companies 
 
 > INDEX must be a positive integer number e.g 1,2,3... and must not be greater than the number of company in the list.
 
-<div class="typography-box note">
-  <span class="icon">ℹ️</span>
-  <span class="content">
-    <strong>Note :</strong> INDEX refers to the index number shown in the displayed company list. 
-You can only delete one company at a time. 
-  </span>
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* INDEX refers to the index number shown in the displayed company list. You can only delete one company at a time. 
 </div>
 
 **Example:**
@@ -339,7 +334,9 @@ use the `edit` command to input the accurate details.
 
 :warning: When editing the note, the existing note of the company will be removed i.e. adding of note is not cumulative.
 
-**Examples:** </br>
+**Examples:** 
+
+
 1.Type `edit 2 s/PI r/Frontend Developer`
 
 ![EditDemo1.png](images/EditDemo1.png)
