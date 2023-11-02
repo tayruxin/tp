@@ -237,18 +237,19 @@ Add the company to LinkMeIn now to keep track of the application process using t
 * Order of input **does not** matter.
 </div>
 
-**Example:**</br>
-1. You came across the _Software Engineer_ role from _Apple_ which you are interested to apply for after touching up your resume. The deadline for this application is _10 October 2023_. The recruiter's name is _John Tan_, and you noted down his email address _johnd@example.com_ and his phone number _98765432_, so that you can contact him in the future. The priority of this application is _medium_ as you have other applications that you want to focus on first.
+**Example:**
 
-2. With the information above, you can add the company's application into LinkMeIn using the `add` command. Simply type `add c/Apple r/Software Engineer s/PA n/John Tan d/12-12-2023 e/johntan@example.com p/987654321 pr/medium` into the command box and press Enter.
+**Step 1:** You came across the _Software Engineer_ role from _Apple_ which you are interested to apply for after touching up your resume. The deadline for this application is _10 October 2023_. The recruiter is _John Tan_, and you noted down his email address _johnd@example.com_ and his phone number _98765432_, so that you can contact him in the future. The priority of this application is _medium_ as you have other applications that you want to focus on first.
+
+**Step 2:** With the details above, simply type `add c/Apple r/Software Engineer s/PA n/John Tan d/12-12-2023 e/johntan@example.com p/987654321 pr/medium` into the command box and press Enter.
 
 ![img.png](images/add-command/BeforeAddCommand.png) 
 
-3. The detail panel will be updated to show the details of the newly added company's application, and the company will be added to the list of companies. 
+**Step 3:** The detail panel will be updated to show the details of the newly added company's application, and the company will be added to the list of companies. 
 
 ![img.png](images/add-command/AfterAddCommand.png)
 
-4. You can proceed to add more companies by repeating the steps above!
+**Step 4:** You can proceed to add more companies by repeating the steps above!
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tips:**<br>
@@ -259,7 +260,7 @@ Add the company to LinkMeIn now to keep track of the application process using t
 If you miss out any of the compulsory parameters, you will see an error message in the command box informing you of the invalid command format. 
 Don't worry, just identify the missing parameter(s) and edit your input accordingly! An example of the error message is shown below.
 
-![img.png](images/add-command/AddCommandError_2.png)
+![img.png](images/add-command/AddCommandError2.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -476,7 +477,8 @@ _You've found the specific company you wanted using the find command earlier, an
 **Format:** `list`
 
 **Example:**
-1. You have used the `find` command to find the company _TikTok_ earlier. Now, you want to see all of your applications in one list again. Simply type `list` to view the full list of your applications again!
+
+**Step 1:** You have used the `find` command to find the company _TikTok_ earlier. Now, you want to see all of your applications in one list again. Simply type `list` to view the full list of your applications again!
 
 ![img.png](images/list-command/ListCommand.png)
 
@@ -495,18 +497,18 @@ Filter the list of companies by their application status using the `filter` comm
 > [**APPLICATION_STATUS**](#application-status-description) should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. 
 
 **Example:**
-1. You want to prepare for the upcoming interviews you received. 
 
-2. Simply type `filter s/PI` to filter the list of companies to show only companies with status "Pending Interview".
-   and press Enter.
+**Step 1:** You want to prepare for the upcoming interviews you have received. 
+
+**Step 2:** Simply type `filter s/PI` to filter the list of companies to show only companies with status "Pending Interview" and press Enter.
 
 ![img.png](images/filter-command/FilterByPI.png)
 
-3. You can then view all the companies that you have pending interviews for from the company list.
+**Step 3:** You can then view all the companies that you have pending interviews for from the company list.
 
 ![img.png](images/filter-command/AfterFilterCommand.png)
 
-**Possible Error:**</br>
+**Possible Error:**
 
 If you enter an invalid prefix for the filter command, you will see an error message informing you of the invalid command, and suggest the correct format to follow. 
 
