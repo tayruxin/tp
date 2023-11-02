@@ -7,7 +7,7 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.company.ApplicationStatus;
-import seedu.address.model.company.ApplicationStatusPredicate;
+import seedu.address.model.company.predicates.ApplicationStatusPredicate;
 
 /**
  * Filters the company list by application status.

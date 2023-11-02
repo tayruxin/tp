@@ -12,7 +12,7 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.company.ApplicationStatus;
-import seedu.address.model.company.ApplicationStatusPredicate;
+import seedu.address.model.company.predicates.ApplicationStatusPredicate;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for FilterCommand.

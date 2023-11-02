@@ -15,7 +15,7 @@ import seedu.address.model.company.Priority;
 
 public class ParserUtilTest {
     private static final String INVALID_COMPANY_NAME = "G@ogle";
-    private static final String INVALID_PHONE = "+651234";
+    private static final String INVALID_PHONE = "+65&1234";
     private static final String INVALID_EMAIL = "example.com";
 
     private static final String INVALID_PRIORITY = "0";

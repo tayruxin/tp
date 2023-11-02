@@ -37,6 +37,19 @@ public class Messages {
     public static final String MESSAGE_EMPTY_PREFIX = "Oops! You have not entered any parameters. "
             + "Remember to follow the command format below! \n%1$s";
 
+    public static final String MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_NO_CHANGES =
+            "Duplicate Entry Detected\n"
+                    + "You already have another entry with the exact same details for the "
+                    + "company %s with the role %s at index %d.";
+
+    public static final String MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES =
+            "Duplicate Entry Detected\n"
+                    + "You already have another entry for the company %s with the role %s at index %d.\n"
+                    + "Perhaps you meant to use the edit command instead? Type: edit %d %s";
+    public static final String MESSAGE_DUPLICATE_COMPANY_EDIT_COMMAND =
+            "Duplicate Entry Detected\nYou already have another entry for the company %s with the "
+                    + "role %s at index %d.";
+
     /**
      * Returns an error message indicating the duplicate prefixes.
      */
@@ -48,6 +61,18 @@ public class Messages {
 
         return MESSAGE_DUPLICATE_FIELDS + String.join(" ", duplicateFields) + "\n"
                 + "Please try again with only one value for each parameter!";
+    }
+
+    public static String getErrorMessageForDuplicateCompanyAddCommand(Company company,
+                                                                      int index, String allChangedFields) {
+        return allChangedFields.isEmpty()
+                ? String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_NO_CHANGES,
+                company.getName(), company.getRole(), index + 1)
+                : String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES,
+                company.getName(), company.getRole(), index + 1, index + 1, allChangedFields);
+    }
+    public static String getErrorMessageForDuplicateCompanyEditCommand(Company company, int index) {
+        return String.format(MESSAGE_DUPLICATE_COMPANY_EDIT_COMMAND, company.getName(), company.getRole(), index + 1);
     }
 
     /**

@@ -45,8 +45,18 @@ public class UniqueCompanyList implements Iterable<Company> {
     public Company getDuplicateCompany(Company toCheck) {
         requireNonNull(toCheck);
         assert(contains(toCheck));
-        Company duplicateCompany = internalList.stream().filter(toCheck::isSameCompany).findFirst().get();
-        return duplicateCompany;
+        return internalList.stream().filter(toCheck::isSameCompany).findFirst().get();
+    }
+
+    /**
+     * Returns the index of the duplicate company [zero-based] as the given argument.
+     * @param company
+     * @return integer index of the duplicate company
+     */
+    public int getDuplicateIndex(Company company) {
+        requireNonNull(company);
+        assert(contains(company));
+        return internalList.indexOf(company);
     }
 
     /**

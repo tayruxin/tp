@@ -60,7 +60,32 @@ public class RecruiterName {
         }
 
         RecruiterName otherName = (RecruiterName) other;
-        return fullName.equals(otherName.fullName);
+        return sanitize(fullName).equals(sanitize(otherName.fullName));
+    }
+
+    /**
+     * Sanitizes the name for comparison purposes:
+     * 1. Converts to lowercase.
+     * 2. Trims whitespace and reduces consecutive whitespaces to a single space.
+     * 3. Removes special characters.
+     * @param name Name to sanitize
+     * @return Sanitized name
+     */
+    private String sanitize(String name) {
+        if (name == null) {
+            return null;
+        }
+
+        // Convert to lowercase
+        name = name.toLowerCase();
+
+        // Remove special characters
+        name = name.replaceAll("[^a-z ]", "");
+
+        // Trim whitespace and reduce consecutive whitespaces to a single space
+        name = name.trim().replaceAll("\\s+", " ");
+
+        return name;
     }
 
     @Override
