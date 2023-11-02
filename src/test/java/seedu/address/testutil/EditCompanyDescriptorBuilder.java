@@ -11,6 +11,7 @@ import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
 import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
+import seedu.address.model.company.Remark;
 import seedu.address.model.company.Role;
 
 /**
@@ -41,6 +42,7 @@ public class EditCompanyDescriptorBuilder {
         descriptor.setRole(company.getRole());
         descriptor.setRecruiterName(company.getRecruiterName());
         descriptor.setStatus(company.getStatus());
+        descriptor.setRemark(company.getRemark());
     }
 
     /**
@@ -111,6 +113,14 @@ public class EditCompanyDescriptorBuilder {
      */
     public EditCompanyDescriptorBuilder withPriority(String priority) {
         descriptor.setPriority(new Priority(priority));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Remark} of the {@code EditCompanyDescriptor} that we are building.
+     */
+    public EditCompanyDescriptorBuilder withRemark(String remark) {
+        descriptor.setRemark(new Remark(remark));
         return this;
     }
 

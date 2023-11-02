@@ -300,6 +300,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public void clearCompanyDetailPanel() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void checkDelete(Company company) {
             throw new AssertionError("This method should not be called.");
         }

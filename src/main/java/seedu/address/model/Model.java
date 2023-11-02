@@ -123,6 +123,12 @@ public interface Model {
      */
     public void checkDelete(Company company);
 
+
+    /**
+     * Clears the company detail panel.
+     */
+    public void clearCompanyDetailPanel();
+
     /**
      * Sorts the companies in the address book by their deadlines.
      */

@@ -23,7 +23,7 @@ public class Messages {
     public static final String MESSAGE_COMPANIES_LISTED_OVERVIEW = "%1$d companies listed!";
 
     public static final String MESSAGE_DUPLICATE_FIELDS =
-                "Multiple values specified for the following single-valued field(s): ";
+                "Oops! Multiple values are specified for the following single-valued parameter(s): ";
 
     public static final String MESSAGE_NON_INTEGER_INDEX = "Oops! The index you have given is not an integer."
             + " Please try again with an integer!";
@@ -34,7 +34,7 @@ public class Messages {
     public static final String MESSAGE_EMPTY_INDEX = "Oops! The index you have given is empty. "
             + "Remember to key in an index!";
 
-    public static final String MESSAGE_EMPTY_PREFIX = "Oops! You have not entered any information. "
+    public static final String MESSAGE_EMPTY_PREFIX = "Oops! You have not entered any parameters. "
             + "Remember to follow the command format below! \n%1$s";
 
     public static final String MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_NO_CHANGES =
@@ -59,7 +59,8 @@ public class Messages {
         Set<String> duplicateFields =
                 Stream.of(duplicatePrefixes).map(Prefix::toString).collect(Collectors.toSet());
 
-        return MESSAGE_DUPLICATE_FIELDS + String.join(" ", duplicateFields);
+        return MESSAGE_DUPLICATE_FIELDS + String.join(" ", duplicateFields) + "\n"
+                + "Please try again with only one value for each parameter!";
     }
 
     public static String getErrorMessageForDuplicateCompanyAddCommand(Company company,
@@ -106,7 +107,7 @@ public class Messages {
     }
 
     public static String getCompanyInfo(Company company) {
-        return company.getName().toString() + " ( " + "Role: " + company.getRole().toString()
+        return company.getName().toString() + " (" + "Role: " + company.getRole().toString()
                 + ", " + "Deadline: " + company.getDeadline().toString() + ")";
 
     }

@@ -18,6 +18,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
  * can be inserted multiple times for the same prefix.
  */
 public class ArgumentMultimap {
+    public static final String PREAMBLE_VALIDATION_REGEX = "^(?:-?\\d+(\\.\\d*)?|\\.\\d+)?$";
 
     /** Prefixes mapped to their respective arguments**/
     private final Map<Prefix, List<String>> argMultimap = new HashMap<>();
@@ -53,6 +54,14 @@ public class ArgumentMultimap {
             return new ArrayList<>();
         }
         return new ArrayList<>(argMultimap.get(prefix));
+    }
+
+    /**
+     * Returns true if the preamble of argument parsed is valid.
+     *
+     */
+    public Boolean isValidPreamble() {
+        return getPreamble().matches(PREAMBLE_VALIDATION_REGEX);
     }
 
     /**

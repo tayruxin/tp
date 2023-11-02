@@ -17,7 +17,6 @@ public class Phone {
 
     // The regex allows for 3 to 20 digits, but can be up to 20 characters considering formatting characters.
     public static final String VALIDATION_REGEX = "^[\\d\\s\\-\\+\\(\\)]{3,20}$";
-
     public final String value;
 
     /**
