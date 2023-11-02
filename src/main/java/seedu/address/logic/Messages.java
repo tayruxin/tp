@@ -42,15 +42,16 @@ public class Messages {
     public static final String MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_NO_CHANGES =
             "Oops! Duplicate entry is detected. \n"
                     + "You already have another entry with the exact same details for the "
-                    + "company %s with the role %s at index %d.";
+                    + "company %s with the role %s and deadline %s at index %d.";
 
     public static final String MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES =
-            "Oops! Duplicate entry is detected. \n"
-                    + "You already have another entry for the company %s with the role %s at index %d.\n"
+            "Oops! Duplicate Entry Detected\n"
+                    + "You already have another entry for the company %s with the role %s and deadline %s"
+                    + " at index %d.\n"
                     + "Perhaps you meant to use the edit command instead? Type: edit %d %s";
     public static final String MESSAGE_DUPLICATE_COMPANY_EDIT_COMMAND =
-            "Oops! Duplicate entry is detected. \n You already have another entry for the company %s with the "
-                    + "role %s at index %d.";
+            "Oops! Duplicate Entry Detected\nYou already have another entry for the company %s with the "
+                    + "role %s and deadline %s at index %d.";
 
     /**
      * Returns an error message indicating the duplicate prefixes.
@@ -65,16 +66,33 @@ public class Messages {
                 + "Please try again with only one value for each parameter!";
     }
 
+    /**
+     * Returns an error message indicating the duplicate company information for the add command.
+     *
+     * @param company
+     * @param index
+     * @param allChangedFields
+     * @return string representing the error message
+     */
     public static String getErrorMessageForDuplicateCompanyAddCommand(Company company,
                                                                       int index, String allChangedFields) {
         return allChangedFields.isEmpty()
                 ? String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_NO_CHANGES,
-                company.getName(), company.getRole(), index + 1)
+                company.getName(), company.getRole(), company.getDeadline(), index + 1)
                 : String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES,
-                company.getName(), company.getRole(), index + 1, index + 1, allChangedFields);
+                company.getName(), company.getRole(), company.getDeadline(), index + 1, index + 1, allChangedFields);
     }
+
+    /**
+     * Returns an error message indicating the duplicate company information for the edit command.
+     *
+     * @param company
+     * @param index
+     * @return string representing the error message
+     */
     public static String getErrorMessageForDuplicateCompanyEditCommand(Company company, int index) {
-        return String.format(MESSAGE_DUPLICATE_COMPANY_EDIT_COMMAND, company.getName(), company.getRole(), index + 1);
+        return String.format(MESSAGE_DUPLICATE_COMPANY_EDIT_COMMAND,
+                company.getName(), company.getRole(), company.getDeadline(), index + 1);
     }
 
     /**

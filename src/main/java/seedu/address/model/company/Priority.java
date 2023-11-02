@@ -16,6 +16,7 @@ public class Priority {
                     + "low or none (to remove priority). \n"
                     + "Please try again.";
 
+
     public static final String VALIDATION_REGEX = "(HIGH|MEDIUM|LOW|NONE)";
 
     public final String priority;

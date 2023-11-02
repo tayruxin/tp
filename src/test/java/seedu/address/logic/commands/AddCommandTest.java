@@ -59,7 +59,7 @@ public class AddCommandTest {
         assertThrows(CommandException.DuplicateCompanyException.class,
                 new CommandException.DuplicateCompanyException(
                         Messages.getErrorMessageForDuplicateCompanyAddCommand(validCompany,
-                        modelStub.getDuplicateIndex(validCompany),
+                        modelStub.getFilteredCompanyList().indexOf(validCompany),
                         validCompany.listAllChangedFields(
                                 modelStub.getDuplicateCompany(validCompany)))).getMessage(), (
                 ) -> addCommand.execute(modelStub));
@@ -76,7 +76,7 @@ public class AddCommandTest {
         assertDoesNotThrow(() -> addCommand.execute(modelStub),
                 new CommandException.DuplicateCompanyException(
                         Messages.getErrorMessageForDuplicateCompanyAddCommand(validCompany,
-                        modelStub.getDuplicateIndex(validCompany),
+                                modelStub.getFilteredCompanyList().indexOf(validCompany),
                         validCompany.listAllChangedFields(
                                 modelStub.getDuplicateCompany(validCompany)))
                 ).getMessage());
@@ -93,7 +93,7 @@ public class AddCommandTest {
         assertDoesNotThrow(() -> addCommand.execute(modelStub),
                 new CommandException.DuplicateCompanyException(
                         Messages.getErrorMessageForDuplicateCompanyAddCommand(validCompany,
-                        modelStub.getDuplicateIndex(validCompany),
+                                modelStub.getFilteredCompanyList().indexOf(validCompany),
                         validCompany.listAllChangedFields(
                                 modelStub.getDuplicateCompany(validCompany)))
                 ).getMessage());
@@ -120,7 +120,7 @@ public class AddCommandTest {
         assertThrows(CommandException.DuplicateCompanyException.class,
                 new CommandException.DuplicateCompanyException(
                         Messages.getErrorMessageForDuplicateCompanyAddCommand(validCompany,
-                                modelStub.getDuplicateIndex(validCompany),
+                                modelStub.getFilteredCompanyList().indexOf(validCompany),
                                 duplicateCompany.listAllChangedFields(
                                         modelStub.getDuplicateCompany(validCompany)))).getMessage(), (
                 ) -> addCommand.execute(modelStub));
@@ -381,7 +381,10 @@ public class AddCommandTest {
             return 0;
         }
 
-
+        @Override
+        public ObservableList<Company> getFilteredCompanyList() {
+            return new AddressBook().getCompanyList();
+        }
     }
 
     /**
