@@ -5,7 +5,6 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.RemarkCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.company.Remark;
@@ -25,11 +24,19 @@ public class RemarkCommandParser implements Parser<RemarkCommand> {
 
         Index index;
 
+        // Checks for invalid prefixes parsed as the preamble
+        if (!argMultimap.isValidPreamble()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, RemarkCommand.MESSAGE_USAGE));
+        }
+
         try {
             index = ParserUtil.parseIndex(argMultimap.getPreamble());
-        } catch (IllegalValueException ive) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, RemarkCommand.MESSAGE_USAGE), ive);
+        } catch (ParseException pe) {
+            throw new ParseException(String.format(pe.getMessage(), pe));
         }
+
+        // Checks for duplicate prefix
+        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_REMARK);
 
         if (argMultimap.getValue(PREFIX_REMARK).isEmpty()) {
             throw new ParseException(RemarkCommand.MESSAGE_NO_REMARK);

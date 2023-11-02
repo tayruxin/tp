@@ -24,9 +24,9 @@ public class RemarkCommand extends Command {
             + "by the index number used in the displayed company list. "
             + "Existing remark will be overwritten by the input.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + PREFIX_REMARK + "[REMARK]\n"
+            + PREFIX_REMARK + "REMARK\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + PREFIX_REMARK + "Likes to swim.";
+            + PREFIX_REMARK + "Experience in Java";
     public static final String MESSAGE_REMOVE_USAGE = REMOVE_COMMAND_WORD
             + ": Removes the remark identified by the index number used in the displayed company list.\n"
             + "Parameters: INDEX (must be a positive integer)\n"
@@ -77,9 +77,10 @@ public class RemarkCommand extends Command {
      * {@code companyToEdit}.
      */
     private String generateSuccessMessage(Company companyToEdit) {
-        String message = !remark.value.isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;
+        String message = remark.getIsDeleted() ? MESSAGE_DELETE_REMARK_SUCCESS : MESSAGE_ADD_REMARK_SUCCESS;
         return String.format(message, Messages.getCompanyName(companyToEdit));
     }
+
 
     @Override
     public boolean equals(Object other) {

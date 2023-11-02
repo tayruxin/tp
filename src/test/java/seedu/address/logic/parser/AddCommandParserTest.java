@@ -260,7 +260,7 @@ public class AddCommandParserTest {
         // invalid deadline
         assertParseFailure(parser, NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
                 + ROLE_DESC_TIKTOK + INVALID_DEADLINE_DESC + STATUS_DESC_TIKTOK + RECRUITER_NAME_DESC_TIKTOK
-                + PRIORITY_DESC_TIKTOK, Deadline.MESSAGE_CONSTRAINTS_VALID_REGEX);
+                + PRIORITY_DESC_TIKTOK, Deadline.MESSAGE_CONSTRAINTS_WRONG_FORMAT);
 
         // invalid status
         assertParseFailure(parser, NAME_DESC_TIKTOK + PHONE_DESC_TIKTOK + EMAIL_DESC_TIKTOK
