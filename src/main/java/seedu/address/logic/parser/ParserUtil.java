@@ -15,6 +15,7 @@ import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
 import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
+import seedu.address.model.company.Remark;
 import seedu.address.model.company.Role;
 
 /**
@@ -127,8 +128,11 @@ public class ParserUtil {
         if (trimmedDeadline.isEmpty()) {
             throw new ParseException(Deadline.MESSAGE_CONSTRAINTS_NON_EMPTY);
         }
+        if (!Deadline.isValidFormat(trimmedDeadline)) {
+            throw new ParseException(Deadline.MESSAGE_CONSTRAINTS_WRONG_FORMAT);
+        }
         if (!Deadline.isValidDeadline(trimmedDeadline)) {
-            throw new ParseException(Deadline.MESSAGE_CONSTRAINTS_VALID_REGEX);
+            throw new ParseException(Deadline.MESSAGE_CONSTRAINTS_INVALID_DEADLINE);
         }
         return new Deadline(trimmedDeadline);
     }
@@ -185,5 +189,20 @@ public class ParserUtil {
             throw new ParseException(Priority.MESSAGE_CONSTRAINTS_VALID_REGEX);
         }
         return new Priority(trimmedPriority);
+    }
+
+    /**
+     * Parses a {@code String remark} into a {@code remark}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code remark} is invalid.
+     */
+    public static Remark parseRemark(String remark) throws ParseException {
+        requireNonNull(remark);
+        String trimmedRemark = remark.trim();
+        if (!Remark.isValidRemark(trimmedRemark)) {
+            throw new ParseException(Remark.MESSAGE_CONSTRAINTS);
+        }
+        return new Remark(trimmedRemark);
     }
 }

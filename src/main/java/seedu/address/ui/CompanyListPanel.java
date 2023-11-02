@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
@@ -25,6 +26,11 @@ public class CompanyListPanel extends UiPart<Region> {
      */
     public CompanyListPanel(ObservableList<Company> companyList) {
         super(FXML);
+        // Set a placeholder message for an empty list
+        Label placeholderLabel = new Label("No company to display.");
+        placeholderLabel.setStyle("-fx-text-fill: white;"); // Set the text color to white
+        companyListView.setPlaceholder(placeholderLabel);
+
         companyListView.setItems(companyList);
         companyListView.setCellFactory(listView -> new CompanyListViewCell());
     }

@@ -12,6 +12,7 @@ import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
 import seedu.address.model.company.Priority;
 import seedu.address.model.company.RecruiterName;
+import seedu.address.model.company.Remark;
 import seedu.address.model.company.Role;
 
 /**
@@ -29,6 +30,7 @@ class JsonAdaptedCompany {
     private final String status;
     private final String recruiterName;
     private final String priority;
+    private final String remark;
 
     /**
      * Constructs a {@code JsonAdaptedCompany} with the given company details.
@@ -38,7 +40,7 @@ class JsonAdaptedCompany {
                               @JsonProperty("email") String email, @JsonProperty("role") String role,
                               @JsonProperty("deadline") String deadline, @JsonProperty("status") String status,
                               @JsonProperty("recruiterName") String recruiterName,
-                              @JsonProperty("priority") String priority) {
+                              @JsonProperty("priority") String priority, @JsonProperty("remark") String remark) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -47,6 +49,7 @@ class JsonAdaptedCompany {
         this.status = status;
         this.priority = priority;
         this.recruiterName = recruiterName;
+        this.remark = remark;
     }
 
     /**
@@ -61,6 +64,7 @@ class JsonAdaptedCompany {
         status = source.getStatus().toString();
         recruiterName = source.getRecruiterName().fullName;
         priority = source.getPriority().priority;
+        remark = source.getRemark().value;
     }
 
     /**
@@ -107,7 +111,7 @@ class JsonAdaptedCompany {
                     Deadline.class.getSimpleName()));
         }
         if (!Deadline.isValidDeadline(deadline)) {
-            throw new IllegalValueException(Deadline.MESSAGE_CONSTRAINTS_VALID_REGEX);
+            throw new IllegalValueException(Deadline.MESSAGE_CONSTRAINTS_INVALID_DEADLINE);
         }
         final Deadline modelDeadline = new Deadline(deadline);
 
@@ -138,9 +142,14 @@ class JsonAdaptedCompany {
         }
         final Priority modelPriority = new Priority(priority);
 
+        if (remark == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Remark.class.getSimpleName()));
+        }
+
+        final Remark modelRemark = new Remark(remark);
 
         return new Company(modelName, modelPhone, modelEmail, modelRole, modelDeadline, modelStatus,
-                modelRecruiterName, modelPriority);
+                modelRecruiterName, modelPriority, modelRemark);
     }
 
 }

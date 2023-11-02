@@ -23,42 +23,35 @@ offering a **tailored** experience for internship management that outpaces the g
 spreadsheets of Excel.
 
 # Navigating the user guide
+This User Guide provides you with all the information you need to fully utilize LinkMeIn. 
+
+If you need help setting up LinkMeIn, you can refer to the [Quick Start Section](#quick-start).
+
+If you want to find out more about LinkMeIn's features, you can refer to the [Features Section](#current-features).
+
+If you need an overview of LinkMeIn's commands, head over to the [Command Summary Section](#command-summary).
+
 
 ## Typographic conventions
 
-<div class="typography-box warning">
-  <span class="icon">❗</span>
-  <span class="content">
-    <strong>Warning :</strong> Alerts users to potential pitfalls or things to be cautious of when using your application.
-  </span>
+<div markdown="block" class="alert alert-success">
+**:bulb: Useful Tips:**<br>
+* Provides users with additional insights or more efficient ways to use your application.
 </div>
 
-<div class="typography-box tip">
-  <span class="icon">💡</span>
-  <span class="content">
-    <strong>Tip :</strong> Provides users with additional insights or more efficient ways to use your application.
-  </span>
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* Highlights supplementary information that users should be aware of, but isn't necessarily mission-critical.
 </div>
 
-<div class="typography-box note">
-  <span class="icon">ℹ️</span>
-  <span class="content">
-    <strong>Note :</strong> Highlights supplementary information that users should be aware of, but isn't necessarily mission-critical.
-  </span>
+<div markdown="block" class="alert alert-danger">
+**:exclamation: Warning:**<br>
+* Alerts users to potential pitfalls or things to be cautious of when using your application.
 </div>
 
-<div class="typography-box code">
-  <span class="icon">🖋</span>
-  <span class="content">
-    <strong>Code :</strong> Indicates commands or programming-related content that can be typed or referred to.
-  </span>
-</div>
+`Code`: Indicates commands or programming-related content that can be typed or referred to.
 
-## Non-typographic conventions
-For the feature section, each page follows a predictable syntax and style.
-<br>
-</br>
-Proceed to explain ... [TODO]
+> Acceptable parameters for command format
 
 # Table of Contents
 
@@ -70,35 +63,25 @@ Proceed to explain ... [TODO]
 1. Make sure that you have **Java 11 or above** installed in your Computer.
   - [How to check if you have Java installed?](#faq-1)
   - [How to check if you have Java 11 or above?](#faq-2)
-
-2. Download the latest jar file from [here]()
-
+2. Download the latest jar file from [here](https://github.com/AY2324S1-CS2103T-T17-2/tp/releases/tag/v1.2.0)
 3. Copy the file to the folder you want to use as the home folder for your LinkMeIn.
-
-  - Create a new folder (you can name it LinkMeIn) where you would like to house the application
+* Create a new folder (you can name it LinkMeIn) where you would like to house the application
     (e.g., Desktop, Documents, etc.)
-  - Move the downloaded jar file as shown:
-
-    - For Windows users
-    - For Mac users
-
+* Move the downloaded jar file as shown:
+  * For Windows users 
+  * For Mac users
 4. Launch LinkMeIn
+* For Windows users 
+  * Double-click on the `LinkMeIn.jar` file to launch the application
 
-  - For Windows users
+* For Mac users
+  * Open up your terminal (Command +Space > type Terminal > Enter)
+  * Navigate to the folder where you have placed the jar file with the `cd` command 
+  * For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter
 
-    - Double-click on the `LinkMeIn.jar` file to launch the application
-
-  - For Mac users
-
-    - Open up your terminal (Command +Space > type Terminal > Enter)
-    - Navigate to the folder where you have placed the jar file with the `cd` command
-    - For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter
-
-<div class="typography-box warning">
-  <span class="icon">❗️</span>
-  <span class="content">
-    <strong>Warning :</strong> Do not move or delete the `data` folder as it contains the data of your applications.
-  </span>
+<div markdown="block" class="alert alert-danger">
+**:exclamation: Warning:**<br>
+* Do not move or delete the `data` folder as it contains the data of your applications.
 </div>
 
 You should notice the GUI of the application pop up.
@@ -108,7 +91,105 @@ You should notice the GUI of the application pop up.
 
 --------------------------------------------------------------------------------------------------------------------
 
+# Introducing LinkMeIn: A Quick Tour #
+_If you are new to LinkMeIn, welcome aboard! We know that navigating the world of internship applications can be
+daunting, especially when you have multiple opportunities in sight. But fret not, because with LinkMeIn,
+you have a reliable companion to guide you through this exciting journey._
+
+This tour aims to help you get started with LinkMeIn by introducing you to its essential features that you will be
+using quite often. In this tour, you will be learning how and when to:
+- [add a company](#1-adding-your-first-company-),
+- [view its details](#2-viewing-company-details-),
+- [edit its details](#3-editing-company-details-),
+- [delete it](#4-deleting-a-company-).
+
+Before we embark on this tour remember to download LinkMeIn and have your computer set up correctly. If you have not
+done so, do check out the [Quick Start Guide](#quick-start) for more information.
+Now, follow us along this tour and transform yourself into a master of your internship application!
+
+## 1. Adding your first company ##
+Adding a company is the first step to tracking your internship applications. Let us start off by adding your
+first company to LinkMeIn.
+
+1. Whether you are scrolling through your LinkedIn feed or browsing through a job portal, if you come across a
+company that you are interested in, you can add it to LinkMeIn. Let's say you are interested in a Software Engineering
+role at TikTok.
+
+2. Type the following `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com
+p/987654321 pr/high` in the command box and press Enter.
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* If you wish to know more about what each parameter means and how to use the add command, you can do so <a href="#adding-a-company--add-">here</a>.
+</div>
+
+3. You should see a new entry successfully added into LinkMeIn as shown below.
+
+![AddCommand.png](images/add-command/AfterAddCommand.png)
+
+Congratulations! You have successfully added your first company to LinkMeIn. Go ahead and try adding a few more companies on your own!
+
+## 2. Viewing company details ##
+After adding a few companies, you may want to view the details of a specific company.
+
+1. To view the details of Twitter, type `view 6` in the command box and press Enter.
+
+![ViewCommand.png](images/view-command/BeforeViewCommand.png)
+
+2. You should see the details of Twitter as shown below.
+
+![ViewCommand.png](images/view-command/AfterViewCommand.png)
+
+Congratulations! You have successfully viewed the details of Twitter. If you wish to read up more on the view
+command, you can do so [here](#view-full-company-information-view-). Go ahead and try viewing the details of a few
+more companies on your own!
+
+## 3. Editing company details ##
+After viewing the details of a company, you may realise that you have a typo in the role of a company, and you wish to
+edit the details of the company.
+
+1. To edit the application status and role of Twitter, type `edit 6 s/PI r/Frontend Developer` in the command box
+and press Enter.
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* If you wish to learn more about the edit command, you can do so <a href="#edit-a-company's-information--">here</a>.
+</div>
+
+2. You should see the details of Twitter updated.
+
+Now that you have learnt how to edit the details of a company, you can go ahead and try editing the details of a few
+more companies on your own! Having learnt how to add, view and edit a company in LinkMeIn, you are left
+with one last step to master LinkMeIn.
+
+## 4. Deleting a company ##
+After adding a few companies, you were unfortunately rejected from some of the companies and you no longer need to track
+them in LinkMeIn. You can delete the companies that you no longer need to track in LinkMeIn.
+
+1. To delete Twitter, type `delete 6` in the command box and press Enter.
+
+2. You should see the details of Twitter removed from LinkMeIn.
+
+Go ahead and try deleting the other companies too. If you wish to read up more on the delete command, you can do so
+[here](#deleting-a-company--delete-).
+
+_Congratulations! You have completed the quick tour of LinkMeIn. You are now ready to use LinkMeIn to track your
+internship applications. LinkMeIn offers more than just the features that you have learnt in this tour.
+If you wish to learn more about the other features of LinkMeIn, you can do so
+[here](#current-features-). You can also visit the [FAQ](#faq-) to view the frequently asked questions if you need
+more help!_
+
+[&uarr; Back to Table of Contents](#table-of-contents)
+
+
 # Current Features #
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* Parameters can be in any order. e.g. if the command specifies n/COMPANY_NAME r/ROLE, r/ROLE c/COMPANY_NAME is also acceptable.
+* Parameters are case-insensitive. e.g. c/COMPANY_NAME is the same as c/company_name.
+* Parameters with enclosing [ ] braces refer to it being OPTIONAL.
+</div>
 
 ## General Features ##
 ### Clear all entries: `clear` ###
@@ -116,7 +197,10 @@ Clears all entries of internship application.
 
 **Format:** `clear`
 
-:warning: Entries cannot be recovered after clearing.
+<div markdown="block" class="alert alert-danger">
+**:exclamation: Warning:**<br>
+* Entries cannot be recovered after clearing.
+</div>
 
 ### Exit LinkMeIn: `exit` ###
 Exits the program and closes the window.
@@ -126,7 +210,9 @@ Exits the program and closes the window.
 ### Help: `help` ###
 Exits the program and closes the window.
 
-**Format:** `exit`
+**Format:** `help`
+
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 ## Company Management Features ##
 
@@ -141,31 +227,34 @@ Add the company to LinkMeIn now to keep track of the application process using t
 
 > All [**parameters**](#parameters-description-) specified in the format are compulsory except for PRIORITY.
 
-
-<div class="typography-box note">
-  <span class="icon">ℹ️</span>
-  <span class="content">
-    <strong>Note :</strong> Order of input **does not** matter. 
-  </span>
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* Order of input **does not** matter.
 </div>
-
 
 **Example:**</br>
 1. You came across the _Software Engineer_ role from _Apple_ which you are interested to apply for after touching up your resume. The deadline for this application is _10 October 2023_. The recruiter's name is _John Tan_, and you noted down his email address _johnd@example.com_ and his phone number _98765432_, so that you can contact him in the future. The priority of this application is _medium_ as you have other applications that you want to focus on first.
 
 2. With the information above, you can add the company's application into LinkMeIn using the `add` command. Simply type `add c/Apple r/Software Engineer s/PA n/John Tan d/12-12-2023 e/johntan@example.com p/987654321 pr/medium` into the command box and press Enter.
 
-    ![img.png](images/add-command/BeforeAddCommand.png) 
+![img.png](images/add-command/BeforeAddCommand.png) 
 
 3. The detail panel will be updated to show the details of the newly added company's application, and the company will be added to the list of companies. 
+
 ![img.png](images/add-command/AfterAddCommand.png)
 
-2. You can proceed to add more companies by repeating the steps above!
+4. You can proceed to add more companies by repeating the steps above!
+
+<div markdown="block" class="alert alert-success">
+**:bulb: Useful Tips:**<br>
+* To quickly navigate to the start and end of your input, you can use 'Ctrl' (Windows User) / 'Command' (Mac User) with the 'Left' and 'Right' arrow keys respectively!
+</div>
 
 **Possible Error:**</br>
-If you enter an invalid input for any of the prefixes, you will see an error message in the command box. Check the [**parameter constraints**](#parameters-description-) for the respective prefix and try the command again! An example of an error message is shown below. 
+If you miss out any of the compulsory parameters, you will see an error message in the command box informing you of the invalid command format. 
+Don't worry, just identify the missing parameter(s) and edit your input accordingly! An example of the error message is shown below.
 
-![img.png](images/add-command/AddCommandError.png)
+![img.png](images/add-command/AddCommandError_2.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -188,17 +277,17 @@ the detail of any company from the list of companies that you have added._
 **Example:**
 1. After scrolling through your list of companies, you wish to view the details of the company _Twitter_. 
 Simply type `view 6` to view _Twitter's_ details.
-![img.png](BeforeViewCommand.png)
+![img.png](images/view-command/BeforeViewCommand.png)
 
 2. The detail panel will be updated to show the details of _Twitter_.
-![img.png](AfterViewCommand.png)
+![img.png](images/view-command/AfterViewCommand.png)
 
 **Possible Error:**</br>
 If you enter an [**invalid index**](#7-what-is-an-invalid-index-), you will see an error message in the command box. 
 Don’t worry, just edit your index accordingly and try the command again!
 An example of an error message is shown below.
 
-![img.png](ViewCommandError.png)
+![img.png](images/view-command/ViewCommandError.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -222,10 +311,10 @@ You can only delete one company at a time.
 **Example:**
 1. Let's say after viewing the company _Twitter_, you decide that you no longer want to track it. 
 Simply type `delete 6` to delete _Twitter_.
-![img.png](BeforeDeleteCommand.png)
+![img.png](images/delete-command/BeforeDeleteCommand.png)
 
 2. Twitter will be removed from the list of companies. The detail panel will be cleared too.
-![img.png](AfterDeleteCommand.png)
+![img.png](images/delete-command/AfterDeleteCommand.png)
 
 **Possible Error:**
 
@@ -234,7 +323,7 @@ you will see an error message in the command box. Don’t worry, just edit your 
 try the command again!
 An example of an error message is shown below.
 
-![img.png](DeleteCommandError.png)
+![img.png](images/delete-command/DeleteCommandError.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -293,35 +382,40 @@ _You've found the specific company you wanted using the find command earlier, an
 
 **Example:**
 1. You have used the `find` command to find the company _TikTok_ earlier. Now, you want to see all of your applications in one list again. Simply type `list` to view the full list of your applications again!
+
 ![img.png](images/list-command/ListCommand.png)
 
-<div class="typography-box note">
-  <span class="icon">ℹ️</span>
-  <span class="content">
-    <strong>Note:</strong> Whenever LinkMeIn is started, you will see the full list of companies displayed by default (i.e. `list` command is executed automatically).
-  </span>
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* Whenever LinkMeIn is started, you will see the full list of companies displayed by default (i.e. `list` command is executed automatically).
 </div>
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
 ### Filter companies by application status: `filter` ###
-Can't remember which applications you haven't submitted or want to prepare for the companies that have offered you an interview?
-Filter the list of companies by their application status using the `filter` command!
+_Can't remember which applications you haven't submitted or want to prepare for the companies that have offered you an interview?
+Filter the list of companies by their application status using the `filter` command!_
 
 **Format:** `filter s/APPLICATION_STATUS`
 > [**APPLICATION_STATUS**](#application-status-description-) should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. 
 
 **Example:**
 1. You want to prepare for the upcoming interviews you received. 
+
 2. Simply type `filter s/PI` to filter the list of companies to show only companies with status "Pending Interview".
-   ![img.png](images/filter-command/FilterByPI.png)
-3. You can then view the details of the companies that you have interviews for from the company list.
-   ![img.png](images/filter-command/AfterFilterCommand.png)
+   and press Enter.
+
+![img.png](images/filter-command/FilterByPI.png)
+
+3. You can then view all the companies that you have pending interviews for from the company list.
+
+![img.png](images/filter-command/AfterFilterCommand.png)
 
 **Possible Error:**</br>
 
-If you enter an invalid application status, you will see an error message in the command box. Don’t worry, try the command again with a [**valid application statuses**](#application-status-description-).
-An example of an error message is shown below.
+If you enter an invalid prefix for the filter command, you will see an error message informing you of the invalid command, and suggest the correct format to follow. 
+
+![img.png](images/filter-command/FilterCommandError.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -362,6 +456,7 @@ and suggest the correct keyword to use:
 
 ![img.png](images/sort-command/SortError.png)
 
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -377,7 +472,10 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 | **Command**   | A command is an instruction given by a user to LinkMeIn to perform a specific action. For example,`add` command is a command to add the company's application into LinkMeIn.                                                        |
 | **Parameter** | Parameter is similar to a field in a form you have to fill up. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/COMPANY_NAME` and `e/EMAIL` are parameters in the command.                                           |
 | **Prefix**    | Prefix is a keyword that is used to identify the parameter. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/` and `e/` are prefixes.                                                                                |
+
+
 ### Parameters Description ###
+
 | Parameter            | Description                                   | Constraints                                                                           |
 |----------------------|-----------------------------------------------|---------------------------------------------------------------------------------------|
 | c/Company Name       | Name of the company that you are applying to. | Only contain alphanumeric characters and spaces, and should not be blank.             |
@@ -389,7 +487,17 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 | p/Phone Number       | Phone number of the recruiter.                | Only contain numbers, and should be at least 3 digits long. Should not be blank.      |
 | pr/Priority          | Priority of the application.                  | Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`. |
 
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* If you enter an invalid input for any of the prefixes, you will see an error message in the command box. Check the description for the respective prefix and try the command again! An example of an error message is shown below.
+
+![img.png](images/add-command/AddCommandError.png)
+
+</div>
+
 ### Application Status Description ###
+
 | Application Status | Description                                                                                                                                                          |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PA                 | Pending Application. This means that you have not submitted the application, but are currently working on it.                                                        |
@@ -398,6 +506,7 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 | A                  | Accepted. This means you have been offered the internship position. Congratulations!                                                                                 |
 | R                  | Rejected. Unfortunately, this means that the application wasn't successful and you were not offered the internship. Don't worry, try again next time!                |
 
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 ## FAQ ##
@@ -439,20 +548,27 @@ Delete the `addressbook.json` file (stored at `[JAR file location]/data/addressb
 An invalid index is a non-positive integer or an index greater than the number of companies you have. 
 e.g -1, 0, a, *, 1  0 (Only one index is allowed at a time). 
 
+[&uarr; Back to Table of Contents](#table-of-contents)
+
 --------------------------------------------------------------------------------------------------------------------
 
-## Known issues ##
+## Known issues ## 
+
+To be updated. 
+
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command Summary ##
 
-| Command     | Format                                                                           | Example                                                                                                          |
-|-------------|----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| `add`       | `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/priority]` | `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com p/987654321`              |
-| `list`      | `list`                                                                           | `list`                                                                                                           |
-| `find`      | `find KEYWORD [MORE_KEYWORDS]...`                                                 | `find TikTok`                                                                                                   |
-| `view`      | `view INDEX`                                                                     | `view 1`                                                                                                        |
-| `delete`    | `delete INDEX`                                                                   | `delete 1`                                                                                                      |
-| `edit`      | `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [nt/NOTE]` | `edit 2 s/PI r/Frontend Developer`                                                |
+| Command  | Format                                                                                                                                           | Example                                                                                           |
+|----------|--------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| `add`    | `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/priority]`                                | `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com p/987654321` |
+| `list`   | `list`                                                                                                                                           | `list`                                                                                            |
+| `find`   | `find KEYWORD [MORE_KEYWORDS]...`                                                                                                                | `find TikTok`                                                                                     |
+| `view`   | `view INDEX`                                                                                                                                     | `view 1`                                                                                          |
+| `delete` | `delete INDEX`                                                                                                                                   | `delete 1`                                                                                        |
+| `edit`   | `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [nt/NOTE]` | `edit 2 s/PI r/Frontend Developer`                                                                |
 
+[&uarr; Back to Table of Contents](#table-of-contents)
