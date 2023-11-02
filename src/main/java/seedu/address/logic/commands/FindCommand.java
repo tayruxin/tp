@@ -8,7 +8,7 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.model.Model;
-import seedu.address.model.company.NameContainsKeywordsPredicate;
+import seedu.address.model.company.predicates.NameContainsKeywordsPredicate;
 
 /**
  * Finds and lists all companies in the address book whose name matches the criteria

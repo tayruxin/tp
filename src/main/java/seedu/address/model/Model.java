@@ -140,4 +140,7 @@ public interface Model {
      * @param predicate the predicate to be used to filter the companies.
      */
     void filterCompaniesByStatus(Predicate<Company> predicate);
+
+    int getDuplicateIndex(Company company);
+
 }

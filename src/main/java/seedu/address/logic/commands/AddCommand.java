@@ -61,7 +61,12 @@ public class AddCommand extends Command {
 
         if (model.hasCompany(toAdd)) {
             Company duplicateCompany = model.getDuplicateCompany(toAdd);
-            throw new CommandException.DuplicateCompanyException(duplicateCompany);
+            int indexOfDuplicateCompany = model.getDuplicateIndex(duplicateCompany);
+            String allChangedFields = toAdd.listAllChangedFields(duplicateCompany);
+
+            throw new CommandException.DuplicateCompanyException(
+                    Messages.getErrorMessageForDuplicateCompanyAddCommand(
+                    duplicateCompany, indexOfDuplicateCompany, allChangedFields));
         }
 
         model.addCompany(toAdd);

@@ -8,6 +8,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Guarantees: immutable; is valid as declared in {@link #isValidRole(String)}
  */
 public class Role {
+    public static final int MAX_NAME_LENGTH = 100;
 
     public static final String MESSAGE_CONSTRAINTS_NON_EMPTY =
             "Oops! Role should not be blank! Please try again with a valid role.";
@@ -15,6 +16,10 @@ public class Role {
     public static final String MESSAGE_CONSTRAINTS_INVALID_REGEX =
             "Oops! Role should only contain alphanumeric characters and spaces! Please try again with"
                     + " a valid role.";
+
+    public static final String MESSAGE_CONSTRAINTS_INVALID_LENGTH =
+            "Oops! Role should not be more than " + MAX_NAME_LENGTH + " characters long (excluding spaces). "
+                    + "Please try again with a shorter input.";
 
     public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
 
@@ -29,6 +34,7 @@ public class Role {
         requireNonNull(role);
         checkArgument(!role.isBlank(), MESSAGE_CONSTRAINTS_NON_EMPTY);
         checkArgument(isValidRole(role), MESSAGE_CONSTRAINTS_INVALID_REGEX);
+        checkArgument(isValidRoleLength(role), MESSAGE_CONSTRAINTS_INVALID_LENGTH);
         jobRole = role;
     }
 
@@ -39,6 +45,9 @@ public class Role {
         return test.matches(VALIDATION_REGEX);
     }
 
+    public static boolean isValidRoleLength(String test) {
+        return test.length() <= MAX_NAME_LENGTH;
+    }
 
     @Override
     public String toString() {
@@ -56,8 +65,33 @@ public class Role {
             return false;
         }
 
-        Role otherName = (Role) other;
-        return jobRole.equals(otherName.jobRole);
+        Role otherRole = (Role) other;
+        return sanitize(jobRole).equals(sanitize(otherRole.jobRole));
+    }
+
+    /**
+     * Sanitizes the role for comparison purposes:
+     * 1. Converts to lowercase.
+     * 2. Trims whitespace and reduces consecutive whitespaces to a single space.
+     * 3. Removes special characters.
+     * @param role Role to sanitize
+     * @return Sanitized role
+     */
+    private String sanitize(String role) {
+        if (role == null) {
+            return null;
+        }
+
+        // Convert to lowercase
+        role = role.toLowerCase();
+
+        // Remove special characters
+        role = role.replaceAll("[^a-z ]", "");
+
+        // Trim whitespace and reduce consecutive whitespaces to a single space
+        role = role.trim().replaceAll("\\s+", " ");
+
+        return role;
     }
 
     @Override

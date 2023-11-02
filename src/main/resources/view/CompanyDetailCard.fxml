@@ -18,25 +18,20 @@
             <padding>
                 <Insets top="15" right="5" bottom="5" left="15" />
             </padding>
-            <Label fx:id="name" text="\$first" styleClass="card_big_label">
-                <minWidth>
-                    <!-- Ensures that the label text is never truncated -->
-                    <Region fx:constant="USE_PREF_SIZE" />
-                </minWidth>
-            </Label>
+            <Label fx:id="name" text="\$first" styleClass="card_big_label" wrapText="true"/>
             <FlowPane fx:id="priority" />
         </VBox>
         <VBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1">
             <padding>
                 <Insets top="10" left="15" bottom="-10"/>
             </padding>
-            <Label text="Company's Information" styleClass="card_medium_label" />
+            <Label text="Company's Information" styleClass="card_medium_label"  />
         </VBox>
         <VBox alignment="CENTER_LEFT" spacing="10" minHeight="105" GridPane.columnIndex="0" GridPane.rowIndex="2"
               styleClass="card-with-border">
-            <Label fx:id="role" styleClass="card_small_label" text="\$role" />
-            <Label fx:id="deadline" styleClass="card_small_label" text="\$deadline" />
-            <Label fx:id="status" styleClass="card_small_label" text="\$status" />
+            <Label fx:id="role" styleClass="card_small_label" text="\$role" wrapText="true" />
+            <Label fx:id="deadline" styleClass="card_small_label" text="\$deadline" wrapText="true" />
+            <Label fx:id="status" styleClass="card_small_label" text="\$status" wrapText="true" />
         </VBox>
         <VBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="3">
             <padding>
@@ -46,9 +41,9 @@
         </VBox>
         <VBox alignment="CENTER_LEFT" spacing="10" minHeight="105" GridPane.columnIndex="0" GridPane.rowIndex="4"
               styleClass="card-with-border">
-            <Label fx:id="recruiterName" styleClass="card_small_label" text="\$recruiterName" />
-            <Label fx:id="email" styleClass="card_small_label" text="\$email" />
-            <Label fx:id="phone" styleClass="card_small_label" text="\$phone" />
+            <Label fx:id="recruiterName" styleClass="card_small_label" text="\$recruiterName" wrapText="true" />
+            <Label fx:id="email" styleClass="card_small_label" text="\$email" wrapText="true" />
+            <Label fx:id="phone" styleClass="card_small_label" text="\$phone" wrapText="true" />
         </VBox>
         <VBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="5">
             <padding>

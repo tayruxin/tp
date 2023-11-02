@@ -117,25 +117,30 @@ public class EditCommandTest {
 
         assertCommandFailure(editCommand,
                 model,
-                new CommandException.DuplicateCompanyException(firstCompany).getMessage());
+                new CommandException.DuplicateCompanyException(
+                        Messages.getErrorMessageForDuplicateCompanyEditCommand(
+                        firstCompany,
+                        model.getDuplicateIndex(firstCompany))).getMessage());
     }
 
     @Test
-    public void execute_duplicatedNameAndRoleUnfilteredList_failure() {
+    public void execute_duplicatedNameAndRoleAndDeadlineUnfilteredList_failure() {
         Company firstCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
         EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder(firstCompany)
                 .withEmail("gy@gmail.com")
                 .withPhone("91234567")
                 .withPriority("LOW")
                 .withStatus("PA")
-                .withDeadline("10-10-2021")
                 .withRecruiterName("Gerald Yeo")
                 .build();
         EditCommand editCommand = new EditCommand(INDEX_SECOND_COMPANY, descriptor);
 
         assertCommandFailure(editCommand,
                 model,
-                new CommandException.DuplicateCompanyException(firstCompany).getMessage());
+                new CommandException.DuplicateCompanyException(
+                        Messages.getErrorMessageForDuplicateCompanyEditCommand(
+                        firstCompany,
+                        model.getDuplicateIndex(firstCompany))).getMessage());
     }
 
     @Test
@@ -190,7 +195,11 @@ public class EditCommandTest {
 
         assertCommandFailure(editCommand,
                 model,
-                new CommandException.DuplicateCompanyException(companyInList).getMessage());
+                new CommandException.DuplicateCompanyException(
+                        Messages.getErrorMessageForDuplicateCompanyEditCommand(
+                                companyInList,
+                        INDEX_FIRST_COMPANY.getZeroBased() - 1)
+                ).getMessage());
     }
 
     @Test

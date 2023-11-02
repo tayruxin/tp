@@ -1,9 +1,10 @@
-package seedu.address.model.company;
+package seedu.address.model.company.predicates;
 
 import java.util.List;
 import java.util.function.Predicate;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.company.Company;
 
 /**
  * Represents a predicate to test if a {@code Company}'s {@code Name} contains

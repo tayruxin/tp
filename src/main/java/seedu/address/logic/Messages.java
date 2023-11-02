@@ -25,8 +25,10 @@ public class Messages {
     public static final String MESSAGE_DUPLICATE_FIELDS =
                 "Oops! Multiple values are specified for the following single-valued parameter(s): ";
 
-    public static final String MESSAGE_NON_INTEGER_INDEX = "Oops! The index you have given is not an integer."
-            + " Please try again with an integer!";
+    public static final String MESSAGE_NON_INTEGER_INDEX = "Oops! The index you provided is not valid.\n"
+            + "It appears to be either not a valid integer or it exceeds the maximum allowed value "
+            + "(2147483647).\n"
+            + "Please try again with a valid positive integer!";
 
     public static final String MESSAGE_NON_POSITIVE_INTEGER_INDEX = "Oops! The index you have given is not a "
             + "positive integer. Please try again with a positive integer!";
@@ -36,6 +38,19 @@ public class Messages {
 
     public static final String MESSAGE_EMPTY_PREFIX = "Oops! You have not entered any parameters. "
             + "Remember to follow the command format below! \n%1$s";
+
+    public static final String MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_NO_CHANGES =
+            "Oops! Duplicate entry is detected. \n"
+                    + "You already have another entry with the exact same details for the "
+                    + "company %s with the role %s at index %d.";
+
+    public static final String MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES =
+            "Oops! Duplicate entry is detected. \n"
+                    + "You already have another entry for the company %s with the role %s at index %d.\n"
+                    + "Perhaps you meant to use the edit command instead? Type: edit %d %s";
+    public static final String MESSAGE_DUPLICATE_COMPANY_EDIT_COMMAND =
+            "Oops! Duplicate entry is detected. \n You already have another entry for the company %s with the "
+                    + "role %s at index %d.";
 
     /**
      * Returns an error message indicating the duplicate prefixes.
@@ -48,6 +63,18 @@ public class Messages {
 
         return MESSAGE_DUPLICATE_FIELDS + String.join(" ", duplicateFields) + "\n"
                 + "Please try again with only one value for each parameter!";
+    }
+
+    public static String getErrorMessageForDuplicateCompanyAddCommand(Company company,
+                                                                      int index, String allChangedFields) {
+        return allChangedFields.isEmpty()
+                ? String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_NO_CHANGES,
+                company.getName(), company.getRole(), index + 1)
+                : String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES,
+                company.getName(), company.getRole(), index + 1, index + 1, allChangedFields);
+    }
+    public static String getErrorMessageForDuplicateCompanyEditCommand(Company company, int index) {
+        return String.format(MESSAGE_DUPLICATE_COMPANY_EDIT_COMMAND, company.getName(), company.getRole(), index + 1);
     }
 
     /**

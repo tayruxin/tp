@@ -45,9 +45,17 @@ public class Email {
      */
     public Email(String email) {
         requireNonNull(email);
-        checkArgument(!email.isBlank(), MESSAGE_CONSTRAINTS_NON_EMPTY);
-        checkArgument(isValidEmail(email), MESSAGE_CONSTRAINTS_VALID_REGEX);
-        value = email;
+        String sanitizedEmail = sanitizeEmail(email);
+        checkArgument(!sanitizedEmail.isBlank(), MESSAGE_CONSTRAINTS_NON_EMPTY);
+        checkArgument(isValidEmail(sanitizedEmail), MESSAGE_CONSTRAINTS_VALID_REGEX);
+        value = sanitizedEmail;
+    }
+
+    /**
+     * Sanitizes the email by trimming and converting to lower case.
+     */
+    private static String sanitizeEmail(String email) {
+        return email.trim().toLowerCase();
     }
 
     /**

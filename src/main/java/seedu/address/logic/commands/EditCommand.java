@@ -7,7 +7,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_COMPANIES;
@@ -40,10 +39,7 @@ public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the company identified "
-            + "by the index number used in the displayed company list. "
-            + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: INDEX (must be a positive integer) "
+    public static final String MESSAGE_USAGE = "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_COMPANY_NAME + "COMPANY_NAME] "
             + "[" + PREFIX_RECRUITER_NAME + "RECRUITER_NAME] "
             + "[" + PREFIX_ROLE + "ROLE] "
@@ -51,8 +47,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_DEADLINE + "DEADLINE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_PHONE + "PHONE] "
-            + "[" + PREFIX_PRIORITY + "PRIORITY] "
-            + "[" + PREFIX_REMARK + "REMARK]\n "
+            + "[" + PREFIX_PRIORITY + "PRIORITY]\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
@@ -89,7 +84,12 @@ public class EditCommand extends Command {
 
         if (!companyToEdit.isSameCompany(editedCompany) && model.hasCompany(editedCompany)) {
             Company duplicateCompany = model.getDuplicateCompany(editedCompany);
-            throw new CommandException.DuplicateCompanyException(duplicateCompany);
+            List<Company> lastShownListWithDuplicate = model.getFilteredCompanyList();
+            int indexOfDuplicateCompany = lastShownListWithDuplicate.indexOf(duplicateCompany);
+
+            throw new CommandException.DuplicateCompanyException(
+                    Messages.getErrorMessageForDuplicateCompanyEditCommand(
+                    duplicateCompany, indexOfDuplicateCompany));
         }
 
         model.setCompany(companyToEdit, editedCompany);
@@ -114,7 +114,7 @@ public class EditCommand extends Command {
         RecruiterName updatedRecruiterName = editCompanyDescriptor.getRecruiterName()
                 .orElse(companyToEdit.getRecruiterName());
         Priority updatedPriority = editCompanyDescriptor.getPriority().orElse(companyToEdit.getPriority());
-        Remark updatedRemark = editCompanyDescriptor.getRemark().orElse(companyToEdit.getRemark());
+        Remark updatedRemark = companyToEdit.getRemark();
 
         return new Company(updatedName, updatedPhone, updatedEmail, updatedRole, updatedDeadline,
                 updatedStatus, updatedRecruiterName, updatedPriority, updatedRemark);

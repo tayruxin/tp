@@ -5,6 +5,8 @@ import static seedu.address.logic.Messages.MESSAGE_EMPTY_INDEX;
 import static seedu.address.logic.Messages.MESSAGE_NON_INTEGER_INDEX;
 import static seedu.address.logic.Messages.MESSAGE_NON_POSITIVE_INTEGER_INDEX;
 
+import java.util.logging.Logger;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -52,12 +54,15 @@ public class ParserUtil {
      */
     public static Name parseName(String name) throws ParseException {
         requireNonNull(name);
-        String trimmedName = name.trim();
+        String trimmedName = name.trim().replaceAll("\\s+", " ");
         if (trimmedName.isEmpty()) {
             throw new ParseException(Name.MESSAGE_CONSTRAINTS_NON_EMPTY);
         }
         if (!Name.isValidName(trimmedName)) {
             throw new ParseException(Name.MESSAGE_CONSTRAINTS_INVALID_REGEX);
+        }
+        if (!Name.isValidNameLength(trimmedName)) {
+            throw new ParseException(Name.MESSAGE_CONSTRAINTS_INVALID_LENGTH);
         }
         return new Name(trimmedName);
     }
@@ -70,7 +75,7 @@ public class ParserUtil {
      */
     public static Phone parsePhone(String phone) throws ParseException {
         requireNonNull(phone);
-        String trimmedPhone = phone.trim();
+        String trimmedPhone = phone.trim().replaceAll("\\s+", " ");
         if (trimmedPhone.isEmpty()) {
             throw new ParseException(Phone.MESSAGE_CONSTRAINTS_NON_EMPTY);
         }
@@ -106,12 +111,15 @@ public class ParserUtil {
      */
     public static Role parseRole(String role) throws ParseException {
         requireNonNull(role);
-        String trimmedRole = role.trim();
+        String trimmedRole = role.trim().replaceAll("\\s+", " ");
         if (trimmedRole.isEmpty()) {
             throw new ParseException(Role.MESSAGE_CONSTRAINTS_NON_EMPTY);
         }
         if (!Role.isValidRole(trimmedRole)) {
             throw new ParseException(Role.MESSAGE_CONSTRAINTS_INVALID_REGEX);
+        }
+        if (!Role.isValidRoleLength(trimmedRole)) {
+            throw new ParseException(Role.MESSAGE_CONSTRAINTS_INVALID_LENGTH);
         }
         return new Role(trimmedRole);
     }
@@ -150,6 +158,7 @@ public class ParserUtil {
             throw new ParseException(ApplicationStatus.MESSAGE_CONSTRAINTS_NON_EMPTY);
         }
         if (!ApplicationStatus.isValidApplicationStatus(trimmedStatus)) {
+            Logger.getGlobal().warning("CAUGHT HERE");
             throw new ParseException(ApplicationStatus.MESSAGE_CONSTRAINTS_VALID_STATUS);
         }
         return new ApplicationStatus(trimmedStatus);
@@ -163,12 +172,15 @@ public class ParserUtil {
      */
     public static RecruiterName parseRecruiterName(String recruiterName) throws ParseException {
         requireNonNull(recruiterName);
-        String trimmedRecruiterName = recruiterName.trim();
+        String trimmedRecruiterName = recruiterName.trim().replaceAll("\\s+", " ");;
         if (trimmedRecruiterName.isEmpty()) {
             throw new ParseException(RecruiterName.MESSAGE_CONSTRAINTS_NON_EMPTY);
         }
         if (!RecruiterName.isValidName(trimmedRecruiterName)) {
             throw new ParseException(RecruiterName.MESSAGE_CONSTRAINTS_INVALID_REGEX);
+        }
+        if (!RecruiterName.isValidNameLength(trimmedRecruiterName)) {
+            throw new ParseException(RecruiterName.MESSAGE_CONSTRAINTS_INVALID_LENGTH);
         }
         return new RecruiterName(trimmedRecruiterName);
     }

@@ -1,6 +1,9 @@
-package seedu.address.model.company;
+package seedu.address.model.company.predicates;
 
 import java.util.function.Predicate;
+
+import seedu.address.model.company.ApplicationStatus;
+import seedu.address.model.company.Company;
 
 /**
  * Tests that a {@code Company}'s {@code ApplicationStatus} matches the status given.
