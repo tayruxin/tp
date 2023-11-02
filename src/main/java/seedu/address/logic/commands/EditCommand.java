@@ -7,7 +7,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_COMPANIES;
@@ -48,8 +47,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_DEADLINE + "DEADLINE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_PHONE + "PHONE] "
-            + "[" + PREFIX_PRIORITY + "PRIORITY] "
-            + "[" + PREFIX_REMARK + "REMARK]\n "
+            + "[" + PREFIX_PRIORITY + "PRIORITY]\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
@@ -116,7 +114,7 @@ public class EditCommand extends Command {
         RecruiterName updatedRecruiterName = editCompanyDescriptor.getRecruiterName()
                 .orElse(companyToEdit.getRecruiterName());
         Priority updatedPriority = editCompanyDescriptor.getPriority().orElse(companyToEdit.getPriority());
-        Remark updatedRemark = editCompanyDescriptor.getRemark().orElse(companyToEdit.getRemark());
+        Remark updatedRemark = companyToEdit.getRemark();
 
         return new Company(updatedName, updatedPhone, updatedEmail, updatedRole, updatedDeadline,
                 updatedStatus, updatedRecruiterName, updatedPriority, updatedRemark);

@@ -23,6 +23,7 @@ Class Priority
 Class RecruiterName
 Class Role
 Class Priority
+Class Remark
 
 Class I #FFFFFF
 }
@@ -40,7 +41,7 @@ ModelManager -right-> "1" UserPrefs
 UserPrefs .up.|> ReadOnlyUserPrefs
 
 AddressBook *--> "1" UniqueCompanyList
-UniqueCompanyList --> "~* all" Company
+UniqueCompanyList -left-> "~* all" Company
 Company *--> Email
 Company *--> Name
 Company *--> Phone
@@ -49,6 +50,7 @@ Company *--> Deadline
 Company *--> RecruiterName
 Company *--> Role
 Company *--> Priority
+Company *--> Remark
 
 Company -[hidden]up--> I
 UniqueCompanyList -[hidden]right-> I

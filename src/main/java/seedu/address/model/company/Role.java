@@ -8,6 +8,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Guarantees: immutable; is valid as declared in {@link #isValidRole(String)}
  */
 public class Role {
+    public static final int MAX_NAME_LENGTH = 100;
 
     public static final String MESSAGE_CONSTRAINTS_NON_EMPTY =
             "Oops! Role should not be blank! Please try again with a valid role.";
@@ -15,6 +16,10 @@ public class Role {
     public static final String MESSAGE_CONSTRAINTS_INVALID_REGEX =
             "Oops! Role should only contain alphanumeric characters and spaces! Please try again with"
                     + " a valid role.";
+
+    public static final String MESSAGE_CONSTRAINTS_INVALID_LENGTH =
+            "Oops! Role should not be more than " + MAX_NAME_LENGTH + " characters long (excluding spaces). "
+                    + "Please try again with a shorter input.";
 
     public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
 
@@ -29,6 +34,7 @@ public class Role {
         requireNonNull(role);
         checkArgument(!role.isBlank(), MESSAGE_CONSTRAINTS_NON_EMPTY);
         checkArgument(isValidRole(role), MESSAGE_CONSTRAINTS_INVALID_REGEX);
+        checkArgument(isValidRoleLength(role), MESSAGE_CONSTRAINTS_INVALID_LENGTH);
         jobRole = role;
     }
 
@@ -39,6 +45,9 @@ public class Role {
         return test.matches(VALIDATION_REGEX);
     }
 
+    public static boolean isValidRoleLength(String test) {
+        return test.length() <= MAX_NAME_LENGTH;
+    }
 
     @Override
     public String toString() {

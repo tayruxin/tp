@@ -18,22 +18,23 @@
       <padding>
         <Insets top="5" right="5" bottom="5" left="15" />
       </padding>
-      <HBox spacing="5" alignment="CENTER_LEFT">
+      <HBox spacing="5">
         <Label fx:id="id" styleClass="cell_big_label">
           <minWidth>
             <!-- Ensures that the label text is never truncated -->
             <Region fx:constant="USE_PREF_SIZE" />
           </minWidth>
         </Label>
-        <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
+        <Label fx:id="name" text="\$first" styleClass="cell_big_label" wrapText="true" />
         <padding>
           <Insets bottom="5" />
         </padding>
       </HBox>
+
       <FlowPane fx:id="priority" />
-      <Label fx:id="role" styleClass="cell_small_label" text="\$role" />
-      <Label fx:id="deadline" styleClass="cell_small_label" text="\$deadline" />
-      <Label fx:id="status" styleClass="cell_small_label" text="\$status" />
+      <Label fx:id="role" styleClass="cell_small_label" text="\$role" wrapText="true" />
+      <Label fx:id="deadline" styleClass="cell_small_label" text="\$deadline" wrapText="true" />
+      <Label fx:id="status" styleClass="cell_small_label" text="\$status" wrapText="true" />
     </VBox>
   </GridPane>
 </HBox>
