@@ -61,8 +61,8 @@ If you need an overview of LinkMeIn's commands, head over to the [Command Summar
 # Quick start
 
 1. Make sure that you have **Java 11 or above** installed in your Computer.
-  - [How to check if you have Java installed?](#faq-1)
-  - [How to check if you have Java 11 or above?](#faq-2)
+  - [How to check if you have Java installed?](#faq)
+  - [How to check if you have Java 11 or above?](#faq)
 2. Download the latest jar file from [here](https://github.com/AY2324S1-CS2103T-T17-2/tp/releases/tag/v1.2.0)
 3. Copy the file to the folder you want to use as the home folder for your LinkMeIn.
 * Create a new folder (you can name it LinkMeIn) where you would like to house the application
@@ -85,9 +85,9 @@ If you need an overview of LinkMeIn's commands, head over to the [Command Summar
 </div>
 
 You should notice the GUI of the application pop up.
-1. Learn more about navigating the GUI [here]().
-2. For new users, learn to use LinkMeIn [here]().
-3. For advanced users, view all feature details [here]().
+1. Learn more about navigating the GUI [here](#navigating-the-user-guide).
+2. For new users, learn to use LinkMeIn [here](#introducing-linkmein-a-quick-tour).
+3. For advanced users, view all feature details [here](#current-features).
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -141,7 +141,7 @@ After adding a few companies, you may want to view the details of a specific com
 ![ViewCommand.png](images/view-command/AfterViewCommand.png)
 
 Congratulations! You have successfully viewed the details of Twitter. If you wish to read up more on the view
-command, you can do so [here](#view-full-company-information-view-). Go ahead and try viewing the details of a few
+command, you can do so [here](#view-full-company-information-view). Go ahead and try viewing the details of a few
 more companies on your own!
 
 ## 3. Editing company details ##
@@ -171,12 +171,12 @@ them in LinkMeIn. You can delete the companies that you no longer need to track 
 2. You should see the details of Twitter removed from LinkMeIn.
 
 Go ahead and try deleting the other companies too. If you wish to read up more on the delete command, you can do so
-[here](#deleting-a-company--delete-).
+[here](#deleting-a-company--delete).
 
 _Congratulations! You have completed the quick tour of LinkMeIn. You are now ready to use LinkMeIn to track your
 internship applications. LinkMeIn offers more than just the features that you have learnt in this tour.
 If you wish to learn more about the other features of LinkMeIn, you can do so
-[here](#current-features-). You can also visit the [FAQ](#faq-) to view the frequently asked questions if you need
+[here](#current-features). You can also visit the [FAQ](#faq) to view the frequently asked questions if you need
 more help!_
 
 [&uarr; Back to Table of Contents](#table-of-contents)
@@ -230,7 +230,7 @@ Add the company to LinkMeIn now to keep track of the application process using t
 **Format**:
 `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/PRIORITY]`
 
-> All [**parameters**](#parameters-description-) specified in the format are compulsory except for PRIORITY.
+> All [**parameters**](#parameters-description) specified in the format are compulsory except for PRIORITY.
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
@@ -285,8 +285,8 @@ Simply type `view 6` to view _Twitter's_ details.
 2. The detail panel will be updated to show the details of _Twitter_.
 ![img.png](images/view-command/AfterViewCommand.png)
 
-**Possible Error:**
-If you enter an [**invalid index**](#7-what-is-an-invalid-index-), you will see an error message in the command box. 
+**Possible Error:**</br>
+If you enter an [**invalid index**](#7-what-is-an-invalid-index), you will see an error message in the command box. 
 Don’t worry, just edit your index accordingly and try the command again!
 An example of an error message is shown below.
 
@@ -318,7 +318,7 @@ Simply type `delete 6` to delete _Twitter_.
 
 **Possible Error:**
 
-If you enter an [**invalid index**](#7-what-is-an-invalid-index-), 
+If you enter an [**invalid index**](#7-what-is-an-invalid-index), 
 you will see an error message in the command box. Don’t worry, just edit your index accordingly and 
 try the command again!
 An example of an error message is shown below.
@@ -480,7 +480,7 @@ _Can't remember which applications you haven't submitted or want to prepare for 
 Filter the list of companies by their application status using the `filter` command!_
 
 **Format:** `filter s/APPLICATION_STATUS`
-> [**APPLICATION_STATUS**](#application-status-description-) should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. 
+> [**APPLICATION_STATUS**](#application-status-description) should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. 
 
 **Example:**
 1. You want to prepare for the upcoming interviews you received. 
@@ -593,6 +593,7 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 
 --------------------------------------------------------------------------------------------------------------------
 ## FAQ ##
+
 ### 1. How do I check if I have Java installed? ###
 
 * Open up your terminal and type `java -version`. If you have Java installed, you should see something like this:
