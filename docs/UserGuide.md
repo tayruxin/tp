@@ -356,6 +356,12 @@ you also want to note down that this internship requires experience in Java.
 3. You can view the remark the 1st company as shown below.
 ![RemarkDemo2.png](images/remark-command/RemarkDemo2.png)
 
+4. Go ahead and add remarks for more companies on your own!
+
+   **More examples:**
+    - remark 3 re/interview went well!
+    - remark 4 re/$800 per month
+
 **Possible Error:**
 
 If you enter an **empty remark**,
@@ -407,13 +413,20 @@ use the `edit` command to input the accurate details._
 
 **Examples:** 
 
-1.You received an email from Microsoft to interview for a Frontend Developer role instead, which is different from the Software Engineer role you applied for.
+1. You received an email from Microsoft to interview for a Frontend Developer role instead, which is different from the Software Engineer role you applied for.
 To edit the company's information, type `edit 2 s/PI r/Frontend Developer`
 
 ![EditDemo1.png](images/edit-command/EditDemo1.png)
-2.The status and role of the 2nd company in the list is edited to be Pending Interview and Frontend Developer respectively.
+2. The status and role of the 2nd company in the list is edited to be Pending Interview and Frontend Developer respectively.
 
 ![EditDemo2.png](images/edit-command/EditDemo2.png)
+
+3. Go ahead and edit more companies on your own! 
+
+    **More examples:**
+    - edit 3 d/11-09-2025 pr/LOW
+    - edit 1 n/Amy Tan e/amytan@gmail.com
+
 
 **Possible Error:**
 

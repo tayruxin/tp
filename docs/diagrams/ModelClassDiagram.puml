@@ -41,7 +41,7 @@ ModelManager -right-> "1" UserPrefs
 UserPrefs .up.|> ReadOnlyUserPrefs
 
 AddressBook *--> "1" UniqueCompanyList
-UniqueCompanyList --> "~* all" Company
+UniqueCompanyList -left-> "~* all" Company
 Company *--> Email
 Company *--> Name
 Company *--> Phone
