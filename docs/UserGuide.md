@@ -281,7 +281,7 @@ Exits the program and closes the window.
 ### Help: `help`
 
 Displays a window that allows you to view our user guide. Additional option offered to open in browser as well.
-![img.png](images/help-command/HelpCommand.png)
+![img.png](images/help-command/helpcommand.png)
 
 **Format:** `help`
 
