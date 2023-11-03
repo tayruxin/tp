@@ -97,7 +97,7 @@ where all the commands are listed out in a table format.
 
 # Table of Contents
 * TOC
-  {:toc}
+{:toc}
 
 # Quick start
 In this section, you will learn how to set up LinkMeIn in your computer. 
