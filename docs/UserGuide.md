@@ -280,7 +280,7 @@ Exits the program and closes the window.
 
 ### Help: `help`
 
-Displays a window that allows you to view our user guide. Additional option offered to open in browser as well.
+Displays a window that allows you copy the url and subsequently view our user guide on a browser.
 ![img.png](images/help-command/helpcommand.png)
 
 **Format:** `help`
