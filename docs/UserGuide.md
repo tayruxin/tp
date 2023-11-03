@@ -96,9 +96,8 @@ where all the commands are listed out in a table format.
 
 
 # Table of Contents
-
--   TOC
-    {:toc}
+* TOC
+  {:toc}
 
 # Quick start
 In this section, you will learn how to set up LinkMeIn in your computer. 
@@ -281,9 +280,11 @@ Exits the program and closes the window.
 
 ### Help: `help`
 
-Displays a window with the link to our user guide. 
+Displays a window that allows you to view our user guide. Additional option offered to open in browser as well.
+![img.png](images/help-command/HelpCommand.png)
 
 **Format:** `help`
+
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
