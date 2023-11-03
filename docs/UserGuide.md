@@ -96,9 +96,8 @@ where all the commands are listed out in a table format.
 
 
 # Table of Contents
-
--   TOC
-    {:toc}
+* TOC
+{:toc}
 
 # Quick start
 In this section, you will learn how to set up LinkMeIn in your computer. 
@@ -281,9 +280,11 @@ Exits the program and closes the window.
 
 ### Help: `help`
 
-Displays a window with the link to our user guide. 
+Displays a window that allows you copy the url and subsequently view our user guide on a browser.
+![img.png](images/help-command/helpcommand.png)
 
 **Format:** `help`
+
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -324,7 +325,7 @@ Add the company to LinkMeIn now to keep track of the application process using t
 * To quickly navigate to the start and end of your input, you can use 'Ctrl' (Windows User) / 'Command' (Mac User) with the 'Left' and 'Right' arrow keys respectively!
 </div>
 
-**Possible Error:**</br>
+**Possible Error:**
 If you miss out any of the compulsory parameters, you will see an error message in the command box informing you of the invalid command format.
 Don't worry, just identify the missing parameter(s) and edit your input accordingly! An example of the error message is shown below.
 
@@ -358,7 +359,7 @@ Simply type `view 3` to view _DSTA's_ details.
 
 ![img.png](images/view-command/AfterViewCommand.png)
 
-**Possible Error:**</br>
+**Possible Error:**
 If you enter an [**invalid index**](#7-what-is-an-invalid-index), you will see an error message in the command box.
 Don’t worry, just edit your index accordingly and try the command again!
 An example of an error message is shown below.
@@ -410,7 +411,8 @@ use the `remark` command to input these additional details._
 
 **Format:** `remark INDEX re/REMARK`
 
-> `INDEX`: Adds remark of the company at INDEX number shown in the displayed company list. </br> >`re/REMARK` : type prefix `re/` followed by the remark you want to add </br>
+> `INDEX`: Adds remark of the company at INDEX number shown in the displayed company list.  
+> `re/REMARK` : type prefix `re/` followed by the remark you want to add 
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
@@ -422,18 +424,18 @@ use the `remark` command to input these additional details._
 * When adding a remark, the existing remark of the company will be removed i.e adding of remark is not cumulative.
 </div>
 
-**Examples:** </br>
+**Examples:** 
 
-1. After adding the internship for Microsoft into LinkMeIn,
+**Step 1.** After adding the internship for Microsoft into LinkMeIn,
    you also want to note down that this internship requires experience in Java.
 
-2. To note this down, type `remark 1 re/need Java`
+**Step 2.** To note this down, type `remark 1 re/need Java`
    ![RemarkDemo1.png](images/remark-command/RemarkDemo1.png)
 
-3. You can view the remark the 1st company as shown below.
+**Step 3.** You can view the remark the 1st company as shown below.
    ![RemarkDemo2.png](images/remark-command/RemarkDemo2.png)
 
-4. Go ahead and add remarks for more companies on your own!
+**Step 4.** Go ahead and add remarks for more companies on your own!
 
    **More examples:**
     - remark 3 re/interview went well!
@@ -464,10 +466,10 @@ Directly use the remark command and it overwrites the old remark!
 
 **Examples:**
 
-1. If you wish to delete the remark of Google, type `unremark 4`
+**Step 1.** If you wish to delete the remark of Google, type `unremark 4`
    ![UnremarkDemo1.png](images/remark-command/UnremarkDemo1.png)
 
-2. You can view the remark the 1st company as shown below.
+**Step 2.** You can view the remark the 1st company as shown below.
    ![UnremarkDemo2.png](images/remark-command/UnremarkDemo2.png)
 
 **Possible Error:**
