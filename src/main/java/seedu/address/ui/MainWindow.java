@@ -24,7 +24,6 @@ import seedu.address.logic.parser.exceptions.ParseException;
 public class MainWindow extends UiPart<Stage> {
 
     private static final String FXML = "MainWindow.fxml";
-    private static ResultDisplay resultDisplay;
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
@@ -35,6 +34,7 @@ public class MainWindow extends UiPart<Stage> {
     private CompanyListPanel companyListPanel;
     private CompanyDetailCard companyDetailCard;
     private CompanyDetailPanel companyDetailPanel;
+    private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
 
     @FXML
@@ -154,14 +154,6 @@ public class MainWindow extends UiPart<Stage> {
         } else {
             helpWindow.focus();
         }
-    }
-
-    /**
-     * Displays the result of the command execution.
-     * @param feedback the feedback to be displayed
-     */
-    public static void displayResult(String feedback) {
-        resultDisplay.setFeedbackToUser(feedback);
     }
 
     void show() {
