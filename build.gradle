@@ -75,6 +75,7 @@ dependencies {
 
 shadowJar {
     archiveFileName = 'LinkMeIn.jar'
+    minimize()
 }
 
 run {
