@@ -21,56 +21,61 @@ LinkMeIn is more than just an application—it's your **personalized** partner, 
 seamless experience that outclasses conventional tracking methods.
 
 Additionally, LinkMeIn combines the rapid **efficiency** of Command Line Interface (CLI) with the visual clarity of 
-Graphical User Interface (GUI), offering a **tailored** experience for internship management that outpaces the generic
+[Graphical User Interface (GUI)](#introducing-linkmeins-gui), offering a **tailored** experience for internship management that outpaces the generic
 spreadsheets of Excel.
 
-## Introducing LinkMeIn's User Interface ##
-LinkMeIn's user interface (UI) is designed to be **simple** and **intuitive**. The UI consists of three main components:
-
-**1. Command Box** - Where you type in commands for LinkMeIn to execute.
-
-**2. Company Detail Panel** - Displays the details of the company that you are viewing.
-
-**3. Company List Panel** - Displays the list of companies that you have added.
+## Introducing LinkMeIn's GUI
+LinkMeIn's [GUI](#glossary) is designed to be **simple** and **intuitive** with you in mind. 
+The GUI consists of four main components:
 
 ![uiIntro.png](images/ui-intro/uiIntro.png)
 
+If you are unsure about what each component does, you can refer to the table below: 
 
-_This user guide aims to empower you with the knowledge and skills needed to maximize the potential of LinkMeIn. We are
-committed to guide you at every step of your internship journey, ensuring that you will have a smooth sailing internship
-tracking journey._
+| Number | Component            | Description                                              |
+|--------|----------------------|----------------------------------------------------------|
+| 1      | Command Box          | Key in your commands here and LinkMeIn will execute them |
+| 2      | Message Box          | Displays success or error messages to you                |
+| 3      | Company List Panel   | Displays the list of companies that you have added       |
+| 4      | Company Detail Panel | Displays the detail of the company that you are viewing  |
 
-Whether you're a new user looking to get started or 
-an experienced one seeking advanced insights. We've meticulously structured this guide to cater to users at all levels. 
-From initial setup to exploring an array of powerful features, you'll find valuable information tailored to your unique 
+
+# Navigating the User Guide
+
+This user guide aims to empower you with the knowledge and skills needed to maximize the potential of LinkMeIn. We are
+committed to guide you at every step of your internship journey. Whether you're a new user looking to get started or 
+an experienced one seeking advanced insights you'll find valuable information tailored to your unique 
 needs and expertise.
 
-Before we teach you how to navigate this user guide, let us first introduce you to the symbols that you will be seeing
+Before we teach you how to navigate this user guide, let us first introduce you to the annotations that you will be seeing
 throughout this user guide. 
 
-1.Tips
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tips:**<br>
 * Provides you with additional insights or more efficient ways to use LinkMeIn.
 </div>
 
-2.Notes
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
 * Highlights supplementary information that you should be aware of, but isn't necessarily mission-critical.
 </div>
 
-3.Warnings
 <div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
 * Alerts you of potential pitfalls or things to be cautious of when using LinkMeIn.
 </div>
 
-4.Code
-`Code`: Indicates commands or programming-related content that you can type or refer to.
+Throughout this guide, you will also see **different styles of text**. Here are what each of them mean:
 
-5.Acceptable Parameters
-> Acceptable parameters for command format
+| Text styles             | What it means                                                                                                            |
+|-------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| _italics_               | _Italics_ (mainly in the feature sections) refer to the possible scenarios that you can use a feature for                |
+| [blue and underlined]() | These are hyperlinks that you can click into which will direct you to another section of this user guide or to a website |
+| `code block`            | These represents content that you can type into the command box                                                          |
+| > quote                 | These represents the acceptable parameters that you can key into a command                                               |
+
+
+Now that you are familiar with the annotations and text styles, let us teach you how to navigate this user guide.
 
 ## New to LinkMeIn? ##
 
@@ -82,9 +87,8 @@ Thank you for choosing LinkMeIn as your internship tracking ally! We are excited
 LinkMeIn that you will be using quite often.
 3. If you choose to explore LinkMeIn on your own, you can refer to the [Features Section](#current-features) to find out
 more about LinkMeIn's features.
-4. If you face any issue, you can refer to the [FAQ Section](#faq) to find out if your issue has been addressed before.
 
-## LinkMeIn Pros? ##
+## LinkMeIn Experts? ##
 Welcome back! We hope that you have been enjoying your internship tracking journey with LinkMeIn.
 
 1. If you need a refresher on how to use a feature, you can refer to the [Features Section](#current-features) to find
@@ -92,7 +96,8 @@ out more about LinkMeIn's features. In the features section, there are **detaile
    **examples** to help you better understand how to use the feature.
 2. To quickly refer to the command format of a feature, you can head over to the [Command Summary Section](#command-summary)
 where all the commands are listed out in a table format.
-3. If you face any issue, you can refer to the [FAQ Section](#faq) to find out if your issue has been addressed before.
+
+If you face any issues while using LinkMeIn, you can refer to the [FAQ Section](#faq) to see if your issue has been addressed before.
 
 
 # Table of Contents
@@ -105,7 +110,7 @@ In this section, you will learn how to set up LinkMeIn in your computer.
 **Step 1: Verify Java Version:**
 
 1. Make sure that you have **Java 11 or above** installed in your Computer. Click 
-[here](#1-how-do-i-check-if-i-have-java-11-installed-) if you are unsure of how to check if you have Java 11 installed.
+[here](#1-how-do-i-check-if-i-have-java-11-installed) if you are unsure of how to check if you have Java 11 installed.
 
 **Step 2: Download LinkMeIn:**
 1. With Java 11 installed, you can now download our latest jar file from [here](https://github.com/AY2324S1-CS2103T-T17-2/tp/releases/tag/v1.2.0)
@@ -120,14 +125,10 @@ such as your Desktop or Documents folder
 3. Move the downloaded jar file to the folder you have created in the previous step.
 
 **Step 4: Launch LinkMeIn:**
-Depending on your operating system, do one of the following to launch LinkMeIn:
-1. For Windows users: 
-   - Double-click on the `LinkMeIn.jar` file to launch the application.
-2. For Mac users:
-   * Open up your terminal. If you are unsure of how to do so, you can head over to [here](#2-how-do-i-open-up-my-terminal-).
-   * Navigate to the folder where you have placed the jar file with the `cd` command. 
-   * For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter.
-   * Type `java -jar LinkMeIn.jar` and press Enter.
+1. Open up your terminal. If you are unsure of how to do so, you can head over to [here](#2-how-do-i-open-up-my-terminal).
+2. Navigate to the folder where you have placed the jar file with the `cd` command. 
+3. For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter.
+4. Type `java -jar LinkMeIn.jar` and press Enter.
 
 <div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
@@ -139,7 +140,7 @@ By now, you should have successfully launched LinkMeIn with the following window
 
 ![startupPage.png](images/quick-start/startupPage.png)
 
-To learn more about the GUI of LinkMeIn, you can refer to the [GUI Section](#introducing-linkmeins-user-interface) to find out more.
+If you are unsure about LinkMeIn's GUI, you can refer to the [GUI Section](#introducing-linkmeins-gui) to find out more.
 
 Having successfully launched LinkMeIn, you are now ready to use LinkMeIn to track your internship applications. You 
 can either refer to the [Quick Tour Section](#introducing-linkmein-a-quick-tour) to get started with LinkMeIn or you can
@@ -172,37 +173,31 @@ Now, follow us along this tour and transform yourself into a master of your inte
 Adding a company is the first step to tracking your internship applications. Let us start off by adding your
 first company to LinkMeIn.
 
-**Step 1:** Whether you are scrolling through your LinkedIn feed or browsing through a job portal, if you come across a
-company that you are interested in, you can add it to LinkMeIn. Let's say you are interested in a Software Engineering
-role at TikTok.
+**Step 1:** Type the following `add c/Tesla r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com
+p/987654321 pr/high` in the command box and press **Enter**.
 
-**Step 2:** Type the following `add c/Tiktok r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com
-p/987654321 pr/high` in the command box and press Enter.
+- If you wish to learn more about what each parameter means and how to use the add command, you can do so [here](#adding-a-company--add).
 
-<div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
-* If you wish to know more about what each parameter means and how to use the add command, you can do so <a href="#adding-a-company--add-">here</a>.
-</div>
 
-**Step 3:** You should see a new entry successfully added into LinkMeIn as shown below.
+**Step 2:** You should see a new entry successfully added into LinkMeIn as shown below.
 
-![AddCommand.png](images/add-command/AfterAddCommand.png)
 
 Congratulations! You have successfully added your first company to LinkMeIn. Go ahead and try adding a few more companies on your own!
+Here are some more examples that you can try: 
+- `add c/Oracle r/Software Engineer s/PA n/Marry Lim d/10-10-2023 e/marrylim@example.com p/98452321`
+- `add c/Samsung r/Software Engineer s/PA n/Bob Cheng d/04-03-2023 e/bobcheng@example.com p/88283345 pr/low`
 
 ## 2. Viewing company details
 
-After adding a few companies, you may want to view the details of a specific company.
+Now that you had added your first few companies into LinkMeIn, you may want to view the details of a specific company.
 
-**Step 1:** To view the details of Twitter, type `view 6` in the command box and press Enter.
+**Step 1:** To view the details of DSTA, type `view 3` in the command box and press Enter.
 
 ![ViewCommand.png](images/view-command/BeforeViewCommand.png)
 
-**Step 2:** You should see the details of Twitter as shown below.
+**Step 2:** You should see the details of DSTA displayed in the company detail panel.
 
-![ViewCommand.png](images/view-command/AfterViewCommand.png)
-
-Congratulations! You have successfully viewed the details of Twitter. If you wish to read up more on the view
+If you wish to read up more on the view
 command, you can do so [here](#view-full-company-information-view). Go ahead and try viewing the details of a few
 more companies on your own!
 
@@ -211,41 +206,53 @@ more companies on your own!
 After viewing the details of a company, you may realise that you have a typo in the role of a company, and you wish to
 edit the details of the company.
 
-**Step 1:** To edit the application status and role of Twitter, type `edit 6 s/PI r/Frontend Developer` in the command box
+**Step 1:** To edit the application status and role of DSTA, type `edit 6 s/PI r/Frontend Developer` in the command box
 and press Enter.
 
-<div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
-* If you wish to learn more about the edit command, you can do so <a href="#edit-a-company's-information--">here</a>.
-</div>
+- If you wish to learn more about the edit command, you can do so [here](#edit-a-companys-information-edit).
+
 
 **Step 2:** You should see the details of Twitter updated.
 
-Now that you have learnt how to edit the details of a company, you can go ahead and try editing the details of a few
-more companies on your own! Having learnt how to add, view and edit a company in LinkMeIn, you are left
-with one last step to master LinkMeIn.
+Go ahead and try editing the details of a few more companies on your own! 
 
 ## 4. Deleting a company
 
-After adding a few companies, you were unfortunately rejected from some of the companies and you no longer need to track
-them in LinkMeIn. You can delete the companies that you no longer need to track in LinkMeIn.
+After adding a few companies, you can delete the companies that you no longer need to track in LinkMeIn.
 
-**Step 1:** To delete Twitter, type `delete 6` in the command box and press Enter.
+**Step 1:** To delete DSTA, type `delete 3` in the command box and press Enter.
 
-**Step 2:** You should see the details of Twitter removed from LinkMeIn.
+**Step 2:** You should see the details of DSTA removed from LinkMeIn.
 
 Go ahead and try deleting the other companies too. If you wish to read up more on the delete command, you can do so
 [here](#deleting-a-company--delete).
 
-_Congratulations! You have completed the quick tour of LinkMeIn. You are now ready to use LinkMeIn to track your
-internship applications. LinkMeIn offers more than just the features that you have learnt in this tour.
+
+**Congratulations!** You have completed the quick tour of LinkMeIn. You are now ready to use LinkMeIn to track your
+internship applications. 
+- After completing the tour, you're all set to start adding your own entries! Feel free to clear the sample entries by
+simply typing 'clear' in the command box. If you'd like to learn more about the 'clear' command, check it out [here](#clear-all-entries-clear).
+
+LinkMeIn offers more than just the features that you have learnt in this tour.
 If you wish to learn more about the other features of LinkMeIn, you can do so
 [here](#current-features). You can also visit the [FAQ](#faq) to view the frequently asked questions if you need
-more help!_
+more help!
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
+---
+
 # Current Features
+
+LinkMeIn's feature can be categorised into 3 broad categories:
+
+-  [General Features](#general-features): You will find essential tools for navigating LinkMeIn. Allowing you to get help,
+clear all entries, and exit LinkMeIn.
+- [Company Management Features](#company-management-features): You will find a set of commands that enable you to **interact with a company entry**.
+Allowing you to add, view, edit, delete, and add remarks to companies.
+- [Company List Features](#company-list-features): You will find a set of commands that enable you to **interact with the list of companies**.
+Allowing you to find, list, filter, and sort companies.
+
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
@@ -350,17 +357,17 @@ the detail of any company from the list of companies that you have added._
 
 **Example:**
 
-**Step 1:** After scrolling through your list of companies, you wish to view the details of the company _DSTA_.
-Simply type `view 3` to view _DSTA's_ details.
+**Step 1:** After scrolling through your list of companies, you wish to view the details of the company DSTA.
+Simply type `view 3` to view DSTA's details.
 
 ![img.png](images/view-command/BeforeViewCommand.png)
 
-**Step 2:** The detail panel will be updated to show the details of _DSTA_.
+**Step 2:** The detail panel will be updated to show the details of DSTA.
 
 ![img.png](images/view-command/AfterViewCommand.png)
 
 **Possible Error:**
-If you enter an [**invalid index**](#7-what-is-an-invalid-index), you will see an error message in the command box.
+If you enter an [**invalid index**](#5-what-is-an-invalid-index), you will see an error message in the command box.
 Don’t worry, just edit your index accordingly and try the command again!
 An example of an error message is shown below.
 
@@ -384,18 +391,18 @@ You can use the delete command to delete the company from the list of companies 
 
 **Example:**
 
-**Step 1:** Let's say after viewing the company _DSTA_, you decide that you no longer want to track it.
-Simply type `delete 3` to delete _DSTA_.
+**Step 1:** Let's say after viewing the company DSTA, you decide that you no longer want to track it.
+Simply type `delete 3` to delete DSTA.
 
 ![img.png](images/delete-command/BeforeDeleteCommand.png)
 
-**Step 2:** _DSTA_ will be removed from the list of companies. The detail panel will be cleared too.
+**Step 2:** DSTA will be removed from the list of companies. The detail panel will be cleared too.
 
 ![img.png](images/delete-command/AfterDeleteCommand.png)
 
 **Possible Error:**
 
-If you enter an [**invalid index**](#7-what-is-an-invalid-index),
+If you enter an [**invalid index**](#5-what-is-an-invalid-index),
 you will see an error message in the command box. Don’t worry, just edit your index accordingly and
 try the command again!
 An example of an error message is shown below.
@@ -702,17 +709,14 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 * Open up your terminal. If you are unsure of how to do so, you can refer to [here](#2-how-do-i-open-up-my-terminal-).
 * Type `java -version`. If you have Java installed, you will see the following:
 
-```
-java version "
-OpenJDK Runtime Environment (build
-OpenJDK 64-Bit Server VM (build
-```
+![img.png](images/quick-start/java11.png)
 
-* If you do not have Java installed, you can download it [here](https://www.oracle.com/sg/java/technologies/javase-downloads.html).
-  * If you are using Windows, you can refer to this [guide](https://www.java.com/en/download/help/windows_manual_download.html) to install Java.
-  * If you are using Mac, you can refer to this [guide](https://www.java.com/en/download/help/mac_install.html) to install Java.
-  * If you are using Linux, you can refer to this [guide](https://www.java.com/en/download/help/linux_x64_install.html) to install Java.
-  * If you are using Ubuntu, you can refer to this [guide](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-20-04) to install Java.
+* If you do not have Java installed, you can download it [here](https://www.oracle.com/sg/java/technologies/downloads/#java11).
+Remember to download the Java 11 version. 
+* You can refer to the guides below to install Java 11:
+  * Windows: [Guide](https://www.java.com/en/download/help/windows_manual_download.html) to install Java.
+  * Mac: [Guide](https://www.java.com/en/download/help/mac_install.html) to install Java.
+  * Linux: [Guide](https://www.java.com/en/download/help/linux_x64_install.html) to install Java.
 
 ### 2. How do I open up my terminal?
 * **Windows:** Click the Windows Start button, and type "Command Prompt" or "cmd" into the search bar. 
@@ -728,15 +732,7 @@ Delete the `addressbook.json` file (stored at `[JAR file location]/data/addressb
 
 Make sure you have Java 11 installed on your machine as the product only runs on Java 11.
 
-### 5. How can I add priority to my internship application details?
-
-When adding a new company, use the `pr/` prefix followed by the priority value. For instance, `pr/high` to set the priority to high.
-
-### 6. How do I load data from another computer?
-
-Delete the `addressbook.json` file (stored at `[JAR file location]/data/addressbook.json`) from the computer that you wish to use LinkMeIn on. Then, copy over the `addressbook.json` file from the computer which you no longer wish to use LinkMeIn on. After which, boot up LinkMeIn to check whether your doctor information is properly loaded into the new computer.
-
-### 7. What is an invalid index?
+### 5. What is an invalid index?
 
 An invalid index is a non-positive integer or an index greater than the number of companies you have.
 e.g -1, 0, a, \*, 1 0 (Only one index is allowed at a time). Positive index should not exceed the maximum allowed range
