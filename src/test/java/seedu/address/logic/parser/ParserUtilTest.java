@@ -15,14 +15,15 @@ import seedu.address.model.company.Priority;
 
 public class ParserUtilTest {
     private static final String INVALID_COMPANY_NAME = "G@ogle";
-    private static final String INVALID_PHONE = "+65&1234";
+    private static final String INVALID_PHONE_NON_NUMERICAL_DIGITS = "+65&1234";
+    private static final String INVALID_PHONE_LESS_THAN_3_DIGITS = "   1   1 ";
     private static final String INVALID_EMAIL = "example.com";
-
     private static final String INVALID_PRIORITY = "0";
-    private static final String VALID_COMPANY_NAME = "Google";
-    private static final String VALID_PHONE = "98765432";
-    private static final String VALID_EMAIL = "rachel@example.com";
 
+    private static final String VALID_COMPANY_NAME = "Google";
+    private static final String VALID_PHONE_WITHOUT_SPACES = "98765432";
+    private static final String VALID_PHONE_IN_BETWEEN_WHITESPACES = "9  87 6 54 3 2";
+    private static final String VALID_EMAIL = "rachel@example.com";
     private static final String VALID_PRIORITY = "NONE";
 
     private static final String WHITESPACE = " \t\r\n";
@@ -77,12 +78,17 @@ public class ParserUtilTest {
 
     @Test
     public void parsePhone_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parsePhone((String) null));
+        assertThrows(NullPointerException.class, () -> ParserUtil.parsePhone(null));
     }
 
     @Test
-    public void parsePhone_invalidValue_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parsePhone(INVALID_PHONE));
+    public void parsePhone_invalidValueWithNonNumerical_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parsePhone(INVALID_PHONE_NON_NUMERICAL_DIGITS));
+    }
+
+    @Test
+    public void parsePhone_invalidValueWithLessThan3Digits_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parsePhone(INVALID_PHONE_LESS_THAN_3_DIGITS));
     }
 
     @Test
@@ -91,15 +97,21 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parsePhone_validValueWithoutWhitespace_returnsPhone() throws Exception {
-        Phone expectedPhone = new Phone(VALID_PHONE);
-        assertEquals(expectedPhone, ParserUtil.parsePhone(VALID_PHONE));
+    public void parsePhone_validValueWithInBetweenWhiteSpace_returnsPhone() throws Exception {
+        Phone expectedPhone = new Phone(VALID_PHONE_WITHOUT_SPACES);
+        assertEquals(expectedPhone, ParserUtil.parsePhone(VALID_PHONE_IN_BETWEEN_WHITESPACES));
     }
 
     @Test
-    public void parsePhone_validValueWithWhitespace_returnsTrimmedPhone() throws Exception {
-        String phoneWithWhitespace = WHITESPACE + VALID_PHONE + WHITESPACE;
-        Phone expectedPhone = new Phone(VALID_PHONE);
+    public void parsePhone_validValueWithoutWhitespace_returnsPhone() throws Exception {
+        Phone expectedPhone = new Phone(VALID_PHONE_WITHOUT_SPACES);
+        assertEquals(expectedPhone, ParserUtil.parsePhone(VALID_PHONE_WITHOUT_SPACES));
+    }
+
+    @Test
+    public void parsePhone_validValueWithTrailingWhitespace_returnsTrimmedPhone() throws Exception {
+        String phoneWithWhitespace = WHITESPACE + VALID_PHONE_WITHOUT_SPACES + WHITESPACE;
+        Phone expectedPhone = new Phone(VALID_PHONE_WITHOUT_SPACES);
         assertEquals(expectedPhone, ParserUtil.parsePhone(phoneWithWhitespace));
     }
 
