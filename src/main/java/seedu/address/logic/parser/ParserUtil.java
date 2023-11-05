@@ -75,7 +75,7 @@ public class ParserUtil {
      */
     public static Phone parsePhone(String phone) throws ParseException {
         requireNonNull(phone);
-        String trimmedPhone = phone.trim().replaceAll("\\s+", " ");
+        String trimmedPhone = phone.trim().replaceAll("\\s+", "");
         if (trimmedPhone.isEmpty()) {
             throw new ParseException(Phone.MESSAGE_CONSTRAINTS_NON_EMPTY);
         }
