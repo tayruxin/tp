@@ -69,13 +69,13 @@ public class ParserUtil {
 
     /**
      * Parses a {@code String phone} into a {@code Phone}.
-     * Leading and trailing whitespaces will be trimmed.
+     * Leading, trailing and in-between whitespaces will be trimmed.
      *
      * @throws ParseException if the given {@code phone} is invalid.
      */
     public static Phone parsePhone(String phone) throws ParseException {
         requireNonNull(phone);
-        String trimmedPhone = phone.trim().replaceAll("\\s+", " ");
+        String trimmedPhone = phone.trim().replaceAll("\\s+", "");
         if (trimmedPhone.isEmpty()) {
             throw new ParseException(Phone.MESSAGE_CONSTRAINTS_NON_EMPTY);
         }

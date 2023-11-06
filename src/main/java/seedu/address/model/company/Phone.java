@@ -15,7 +15,7 @@ public class Phone {
                     + "It should be at least 3 digits and at most 20 characters long (excluding spaces). \n"
                     + "Please try again with a valid phone number. ";
 
-    public static final String VALIDATION_REGEX = "^(?:\\d|\\s){3,20}$";
+    public static final String VALIDATION_REGEX = "^(?=.*\\d)\\s*\\d\\s*(?:\\s*\\d\\s*){2,19}$";
 
     public final String value;
 
