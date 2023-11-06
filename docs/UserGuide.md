@@ -318,9 +318,15 @@ Add the company to LinkMeIn now to keep track of the application process using t
 
 **Example:**
 
-**Step 1:** You came across the _Software Engineer_ role from _Apple_ which you are interested to apply for after touching up your resume. The deadline for this application is _10 October 2023_. The recruiter is _John Tan_, and you noted down his email address _johnd@example.com_ and his phone number _98765432_, so that you can contact him in the future. The priority of this application is _medium_ as you have other applications that you want to focus on first.
+**Step 1:** Let's say you are interested to apply for the **Software Engineer** role from **Apple**. Through the application description, you obtained the following information:
+* **Deadline:** 12-12-2023
+* **Recruiter Name:** John Tan
+* **Email:** johntan@gmail.com
+* **Phone Number:** 98765432
 
-**Step 2:** With the details above, simply type `add c/Apple r/Software Engineer s/PA n/John Tan d/12-12-2023 e/johntan@example.com p/987654321 pr/medium` into the command box and press Enter.
+This application is of **medium** priority as you have other applications that you want to focus on first.
+
+**Step 2:** With the details above, simply type `add c/Apple r/Software Engineer s/PA n/John Tan d/12-12-2023 e/johntan@gmail.com p/98765432 pr/medium` into the command box and press Enter.
 
 ![img.png](images/add-command/BeforeAddCommand.png)
 
@@ -336,10 +342,14 @@ Add the company to LinkMeIn now to keep track of the application process using t
 </div>
 
 **Possible Error:**
-If you miss out any of the compulsory parameters, you will see an error message in the command box informing you of the invalid command format.
+
+* If you miss out any of the compulsory parameters, you will see an error message in the command box informing you of the invalid command format.
 Don't worry, just identify the missing parameter(s) and edit your input accordingly! An example of the error message is shown below.
 
 ![img.png](images/add-command/AddCommandError2.png)
+
+* If you enter a company with the same company name, role and deadline as an existing company in LinkMeIn, you will see an error message in the command box informing you of the duplicate company.
+
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -709,7 +719,7 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 
 ### 1. How do I check if I have Java 11 installed?
 
-* Open up your terminal. If you are unsure of how to do so, you can refer to [here](#2-how-do-i-open-up-my-terminal-).
+* Open up your terminal. If you are unsure of how to do so, you can refer to [here](#2-how-do-i-open-up-my-terminal).
 * Type `java -version`. If you have Java installed, you will see the following:
 
 ![img.png](images/quick-start/java11.png)
