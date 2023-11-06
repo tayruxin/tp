@@ -119,6 +119,9 @@ public class AddressBook implements ReadOnlyAddressBook {
         companies.remove(key);
     }
 
+    /**
+     * Removes all companies from this {@code AddressBook}.
+     */
     public void clearDetailPanel() {
         currentViewedCompany.clear();
     }

@@ -37,6 +37,9 @@ public class Remark {
         return test.matches(VALIDATION_REGEX);
     }
 
+    /**
+     * Set the isDeleted boolean to true.
+     */
     public void deleteRemark() {
         this.isDeleted = true;
     }

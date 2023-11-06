@@ -56,7 +56,7 @@ public class ViewCommand extends Command {
         logger.info("Executing view command: " + companyToView.toString());
 
         // name of the company to view
-        String companyDetailsToDisplayString = companyToView.getName().toString();
+        String companyDetailsToDisplayString = Messages.getCompanyName(companyToView);
         return new CommandResult(String.format(MESSAGE_VIEW_COMPANY_SUCCESS, companyDetailsToDisplayString));
     }
 

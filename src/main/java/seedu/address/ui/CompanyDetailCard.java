@@ -59,8 +59,8 @@ public class CompanyDetailCard extends UiPart<Region> {
         deadline.setText("Deadline: " + company.getDeadline().toString());
         status.setText("Application status: " + company.getStatus().getDescription());
         recruiterName.setText("Name: " + company.getRecruiterName().fullName);
-        priorityFlowPane(company);
         remark.setText(company.getRemark().value);
+        priorityFlowPane(company);
 
     }
 
