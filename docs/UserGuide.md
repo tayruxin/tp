@@ -39,12 +39,17 @@ If you are unsure about what each component does, you can refer to the table bel
 | 3      | Company List Panel   | Displays the list of companies that you have added       |
 | 4      | Company Detail Panel | Displays the detail of the company that you are viewing  |
 
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* To enhance your viewing experience, you can opt for full-screen mode in LinkMeIn! Nevertheless, even if you prefer not to use 
+full screen, rest assured that most of LinkMeIn;s feature will still function flawlessly. 
+</div>
 
 # Navigating the User Guide
 
 This user guide aims to empower you with the knowledge and skills needed to maximize the potential of LinkMeIn. We are
 committed to guide you at every step of your internship journey. Whether you're a new user looking to get started or 
-an experienced one seeking advanced insights you'll find valuable information tailored to your unique 
+an experienced one seeking advanced insights, you'll find valuable information tailored to your unique 
 needs and expertise.
 
 Before we teach you how to navigate this user guide, let us first introduce you to the annotations that you will be seeing
@@ -67,12 +72,12 @@ throughout this user guide.
 
 Throughout this guide, you will also see **different styles of text**. Here are what each of them mean:
 
-| Text styles             | What it means                                                                                                            |
-|-------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| _italics_               | _Italics_ (mainly in the feature sections) refer to the possible scenarios that you can use a feature for                |
-| [blue and underlined]() | These are hyperlinks that you can click into which will direct you to another section of this user guide or to a website |
-| `code block`            | These represents content that you can type into the command box                                                          |
-| > quote                 | These represents the acceptable parameters that you can key into a command                                               |
+| Text styles             | What it means                                                                                                               |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| _italics_               | Represents possible scenarios that you can use a feature for (mainly in the feature sections).                              |
+| [blue and underlined]() | Represents hyperlinks that you can click into, which will direct you to another section of this user guide or to a website. |
+| `code block`            | Represents content that you can type into the command box.                                                                  |
+| > quote                 | Represents the acceptable parameters that you can key into a command.                                                       |
 
 
 Now that you are familiar with the annotations and text styles, let us teach you how to navigate this user guide.
@@ -125,10 +130,10 @@ such as your Desktop or Documents folder
 3. Move the downloaded jar file to the folder you have created in the previous step.
 
 **Step 4: Launch LinkMeIn:**
-1. Open up your terminal. If you are unsure of how to do so, you can head over to [here](#2-how-do-i-open-up-my-terminal).
+1. Open up your terminal. If you are unsure of how to do so, you can check out [this FAQ](#2-how-do-i-open-up-my-terminal).
 2. Navigate to the folder where you have placed the jar file with the `cd` command. 
-3. For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter.
-4. Type `java -jar LinkMeIn.jar` and press Enter.
+   - For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter.
+3. Type `java -jar LinkMeIn.jar` and press Enter.
 
 <div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
@@ -184,7 +189,7 @@ p/987654321 pr/high` in the command box and press **Enter**.
 
 Congratulations! You have successfully added your first company to LinkMeIn. Go ahead and try adding a few more companies on your own!
 Here are some more examples that you can try: 
-- `add c/Oracle r/Software Engineer s/PA n/Marry Lim d/10-10-2023 e/marrylim@example.com p/98452321`
+- `add c/Oracle r/Data Analyst s/PA n/Marry Lim d/12-11-2023 e/marrylim@example.com p/98452321`
 - `add c/Samsung r/Software Engineer s/PA n/Bob Cheng d/04-03-2023 e/bobcheng@example.com p/88283345 pr/low`
 
 ## 2. Viewing company details
@@ -228,15 +233,13 @@ Go ahead and try deleting the other companies too. If you wish to read up more o
 [here](#deleting-a-company--delete).
 
 
-**Congratulations!** You have completed the quick tour of LinkMeIn. You are now ready to use LinkMeIn to track your
-internship applications. 
-- After completing the tour, you're all set to start adding your own entries! Feel free to clear the sample entries by
-simply typing 'clear' in the command box. If you'd like to learn more about the 'clear' command, check it out [here](#clear-all-entries-clear).
+**Congratulations!** You have completed the quick tour of LinkMeIn. You are now ready to use LinkMeIn to track your own 
+internship applications. To remove the sample data provided in LinkMeIn, simply type `clear` in the command box to remove 
+all existing entries. Find out more about the `clear` command [here](#clear-all-entries-clear).
 
 LinkMeIn offers more than just the features that you have learnt in this tour.
 If you wish to learn more about the other features of LinkMeIn, you can do so
-[here](#current-features). You can also visit the [FAQ](#faq) to view the frequently asked questions if you need
-more help!
+[here](#current-features). You can also visit the [FAQ](#faq) to view the frequently asked questions if you need more help!
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -246,12 +249,12 @@ more help!
 
 LinkMeIn's feature can be categorised into 3 broad categories:
 
--  [General Features](#general-features): You will find essential tools for navigating LinkMeIn. Allowing you to get help,
-clear all entries, and exit LinkMeIn.
-- [Company Management Features](#company-management-features): You will find a set of commands that enable you to **interact with a company entry**.
-Allowing you to add, view, edit, delete, and add remarks to companies.
-- [Company List Features](#company-list-features): You will find a set of commands that enable you to **interact with the list of companies**.
-Allowing you to find, list, filter, and sort companies.
+-  [General Features](#general-features): This section equips you with essential tools to navigate LinkMeIn effectively.
+Here, you can access help, clear all entries, and gracefully exit LinkMeIn.
+- [Company Management Features](#company-management-features): Dive into section to **engage with individual company entries.** You can easily
+add, view, edit, delete companies, as well as add your own remarks to companies. 
+- [Company List Features](#company-list-features): This section allows you to **interact with the list of companies,** thereby unlocking LinkMeIn's full potential. 
+Explore option to find, list, filter and sort companies, managing all companies with ease. 
 
 
 <div markdown="block" class="alert alert-info">
