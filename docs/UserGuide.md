@@ -447,9 +447,9 @@ use the `remark` command to input these additional details._
 
 **Step 4.** Go ahead and add remarks for more companies on your own!
 
-   **More examples:**
-    - remark 3 re/interview went well!
-    - remark 4 re/$800 per month
+    **More examples:**
+    - 'remark 3 re/interview went well!'
+    - 'remark 4 re/$800 per month'
 
 **Possible Error:**
 
@@ -474,9 +474,15 @@ use the `unremark` command to delete it._
 Directly use the remark command and it overwrites the old remark!
 </div>
 
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* You can unremark a company that already have no remarks. 
+LinkMeIn does not check if a remark exists i.e the same result message will be displayed regardless of whether a remark exist for a company.
+</div>
+
 **Examples:**
 
-**Step 1.** If you wish to delete the remark of Google, type `unremark 4`
+**Step 1.** If you wish to delete the remark of Google, type `unremark 2`
    ![UnremarkDemo1.png](images/remark-command/UnremarkDemo1.png)
 
 **Step 2.** You can view the remark the 1st company as shown below.
@@ -503,21 +509,22 @@ use the `edit` command to input the accurate details._
 >
 > At least one of the optional fields must be provided.
 
-**Examples:** 
+**Examples:**
 
-1. You received an email from Microsoft to interview for a Frontend Developer role instead, which is different from the Software Engineer role you applied for.
+**Step 1.** You received an email from Microsoft to interview for a Frontend Developer role instead, which is different from the Software Engineer role you applied for.
 To edit the company's information, type `edit 2 s/PI r/Frontend Developer`
 
 ![EditDemo1.png](images/edit-command/EditDemo1.png)
-2. The status and role of the 2nd company in the list is edited to be Pending Interview and Frontend Developer respectively.
+
+**Step 2.** The status and role of the 2nd company in the list is edited to be Pending Interview and Frontend Developer respectively.
 
 ![EditDemo2.png](images/edit-command/EditDemo2.png)
 
-3. Go ahead and edit more companies on your own! 
+**Step 3.** Go ahead and edit more companies on your own! 
 
     **More examples:**
-    - edit 3 d/11-09-2025 pr/LOW
-    - edit 1 n/Amy Tan e/amytan@gmail.com
+    - `edit 3 d/11-09-2025 pr/LOW`
+    - `edit 1 n/Amy Tan e/amytan@gmail.com`
 
 
 **Possible Error:**
