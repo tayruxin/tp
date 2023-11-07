@@ -5,7 +5,7 @@ title: Tay Ru Xin's Project Portfolio Page
 
 # Project: LinkMeIn
 
-LinkMeIn - Is a desktop address book application made for computer sciences to 
+LinkMeIn - Is a desktop address book application made for computer science to 
 their internship application.
 The user interacts with it using a CLI, and it has a
 GUI created with JavaFX. It is written in Java, and has about
@@ -61,14 +61,14 @@ test cases.
 ## Contribution to the UG: 
 
 The following sections from the UG were contributed by me:
-1. **Introducing LinkMeIn's User Interface:** Added an intro to LinkMeIn's GUI 
-2. **Navigating the User Guide:** Added a section on how to navigate the UG, which includes symbols used and how the user guide is catered for all levels of users 
-3. **Quick Start:** Added this section to teach user how to download and set-up LinkMeIn
+1. **Introducing LinkMeIn's User Interface:** Added an intro to LinkMeIn's GUI. 
+2. **Navigating the User Guide:** Added a section on how to navigate the UG, which includes symbols used and how the user guide is catered for all levels of users. 
+3. **Quick Start:** Added this section to teach user how to download and set-up LinkMeIn.
 4. **Introducing LinkMeIn: A quick tour:** Added this section to teach first-time users how to use the application. Included features like 
 add, view, delete, edit and clear. 
 5. Features: 
-   - View full company information: Added description, examples and possible errors for the view command
-   - Delete a company: Added description, examples and possible error for the delete command
+   - View full company information: Added description, examples and possible errors for the view command.
+   - Delete a company: Added description, examples and possible error for the delete command.
 6. Added FAQ:
    - How do I check if I have Java 11 installed?
    - How do I open up my terminal? 
@@ -82,10 +82,10 @@ add, view, delete, edit and clear.
 - Elaborated on how the View command works in the DG.
 
 ## Contribution to team-based tasks:
-- Set up the team repo and organisation on GitHub
-- Created the labels that are required for the project 
-- Set up the project board in GitHub for user stories
-- Help to enable assertion in the team repo (in `build.gradle`)
+- Set up the team repo and organisation on GitHub.
+- Created the labels that are required for the project.
+- Set up the project board in GitHub for user stories.
+- Help to enable assertion in the team repo (in `build.gradle`).
 
 ## Review/mentoring contributions:
 - PRs reviewed: 
