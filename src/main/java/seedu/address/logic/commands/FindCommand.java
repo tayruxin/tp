@@ -36,7 +36,7 @@ public class FindCommand extends Command {
     public CommandResult execute(Model model) {
         requireNonNull(model);
         logger.info("Executing FindCommand with predicate: " + predicate);
-        model.updateFilteredCompanyList(predicate);
+        model.findCompanies(predicate);
         return new CommandResult(
                 String.format(Messages.MESSAGE_COMPANIES_LISTED_OVERVIEW, model.getFilteredCompanyList().size()));
     }
