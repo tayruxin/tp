@@ -156,4 +156,9 @@ public interface Model {
      * @return the index of the duplicate company in the filtered address book.
      */
     int getDuplicateIndexFromFilteredAddressbook(Company company);
+     * Finds the companies in the address book by their application status.
+     *
+     * @param predicate the predicate to be used to find the companies.
+     */
+    void findCompanies(Predicate<Company> predicate);
 }
