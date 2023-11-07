@@ -112,46 +112,42 @@ If you face any issues while using LinkMeIn, you can refer to the [FAQ Section](
 # Quick start
 In this section, you will learn how to set up LinkMeIn in your computer. 
 
-**Step 1: Verify Java Version:**
-
 1. Make sure that you have **Java 11 or above** installed in your Computer. Click 
 [here](#1-how-do-i-check-if-i-have-java-11-installed) if you are unsure of how to check if you have Java 11 installed.
 
-**Step 2: Download LinkMeIn:**
-1. With Java 11 installed, you can now download our latest jar file from [here](https://github.com/AY2324S1-CS2103T-T17-2/tp/releases/tag/v1.2.0)
-2. Click on the `LinkMeIn.jar` file to download it.
+2. With Java 11 installed, you can now download our latest jar file from [here](https://github.com/AY2324S1-CS2103T-T17-2/tp/releases/tag/v1.2.0).
 
-![githubRelease.png](images/quick-start/githubRelease.png)
+3. Click on the `LinkMeIn.jar` file to download it.
+    <div style="margin-top: 10px; margin-bottom: 10px">
+        <img src="images/quick-start/githubRelease.png" alt="Github Release" width="650"/>
+    </div>
 
-**Step 3: Choose a home folder for LinkMeIn:**
-1. Decide on a folder to use as the home folder for LinkMeIn. This folder will be used to store the data of LinkMeIn.
-2. Create a new folder (you can name it "LinkMeIn") in a location of your choice, 
-such as your Desktop or Documents folder
-3. Move the downloaded jar file to the folder you have created in the previous step.
+4. Move the downloaded jar file into a home folder of your choice, such as the **Desktop** or **Documents** folder for your LinkMeIn.
 
-**Step 4: Launch LinkMeIn:**
-1. Open up your terminal. If you are unsure of how to do so, you can check out [this FAQ](#2-how-do-i-open-up-my-terminal).
-2. Navigate to the folder where you have placed the jar file with the `cd` command. 
-   - For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter.
-3. Type `java -jar LinkMeIn.jar` and press Enter.
+5. Open up your command terminal. If you are unsure of how to do so, you can check out [this FAQ](#2-how-do-i-open-up-my-terminal).
 
-<div markdown="block" class="alert alert-danger">
-**:exclamation: Warning:**<br>
-* Do not move or delete the `data` folder as it contains the data of your applications.
-</div>
+6. Navigate to the folder where you have placed the jar file with the `cd` command. 
+   - For example if you have placed the jar file in the **Documents** folder, type `cd Documents` and press Enter.
+   
+7. Enter the next command `java -jar LinkMeIn.jar` and press Enter. Your command terminal should look like this:
+    <div style="margin-top: 10px; margin-bottom: 10px">
+        <img src="images/quick-start/launchLinkMeIn.png" alt="Launch LinkMeIn" width="650"/>
+    </div>
 
+    <div markdown="block" class="alert alert-danger">
+    **:exclamation: Warning:**<br>
+    * Do not move or delete the `data` folder as it contains the data of your applications.
+    </div>
 
-By now, you should have successfully launched LinkMeIn with the following window appearing on your screen.
+8. You should have successfully launched LinkMeIn with the following interface appearing on your screen.
+    <div style="margin-top: 10px; margin-bottom: 10px">
+        <img src="images/quick-start/startupPage.png" alt="Start Up Page LinkMeIn" width="650"/>
+    </div>
 
-![startupPage.png](images/quick-start/startupPage.png)
+9. Great job! You are now ready to learn about the [Command Line Interface](#using-linkmeins-cli) of LinkMeIn!
 
-If you are unsure about LinkMeIn's GUI, you can refer to the [GUI Section](#introducing-linkmeins-gui) to find out more.
+# Using LinkMeIn's CLI
 
-Having successfully launched LinkMeIn, you are now ready to use LinkMeIn to track your internship applications. You 
-can either refer to the [Quick Tour Section](#introducing-linkmein-a-quick-tour) to get started with LinkMeIn or you can
-refer to the [Features Section](#current-features) to find out more about LinkMeIn's features.
-
-[&uarr; Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -732,22 +728,22 @@ The email format is `local-part@domain`.
 
 ### 1. How do I check if I have Java 11 installed?
 
-* Open up your terminal. If you are unsure of how to do so, you can refer to [here](#2-how-do-i-open-up-my-terminal).
+* Open up your terminal. If you are unsure of how to do so, you can refer [here](#2-how-do-i-open-up-my-terminal).
 * Type `java -version`. If you have Java installed, you will see the following:
 
 ![img.png](images/quick-start/java11.png)
 
 * If you do not have Java installed, you can download it [here](https://www.oracle.com/sg/java/technologies/downloads/#java11).
 Remember to download the Java 11 version. 
-* You can refer to the guides below to install Java 11:
-  * Windows: [Guide](https://www.java.com/en/download/help/windows_manual_download.html) to install Java.
-  * Mac: [Guide](https://www.java.com/en/download/help/mac_install.html) to install Java.
-  * Linux: [Guide](https://www.java.com/en/download/help/linux_x64_install.html) to install Java.
+* You can refer to the guides below to install Java 11 for your respective operating systems:
+  * [Windows Guide](https://www.java.com/en/download/help/windows_manual_download.html) to install Java.
+  * [macOS Guide](https://www.java.com/en/download/help/mac_install.html) to install Java.
+  * [Linux Guide](https://www.java.com/en/download/help/linux_x64_install.html) to install Java.
 
 ### 2. How do I open up my terminal?
-* **Windows:** Click the Windows Start button, and type "Command Prompt" or "cmd" into the search bar. 
+* **Windows:** Click the Windows Start button, and type **'Command Prompt'** or **'cmd'** into the search bar. 
   Press Enter to open it.
-* **macOS:** Press Command (⌘) + Spacebar to open Spotlight Search. Type "Terminal" and press Enter when it appears in the 
+* **macOS:** Click on **'F4'** and type **'terminal'**. Press Enter when it appears in the 
   search results.
 
 ### 3. How do I load data from another computer?
