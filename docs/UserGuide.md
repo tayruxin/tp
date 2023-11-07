@@ -678,37 +678,50 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 
 ### Parameters Description
 
-| Parameter            | Description                                   | Constraints                                                                                                                                                                            |
-|----------------------|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| c/Company Name       | Name of the company that you are applying to. | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                                |
-| r/Role               | Role of the internship that you are applying. | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                                |
-| s/Application Status | Status of the application.                    | Case-insensitive and should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. Refer to [Application Status Description](#application-status-description) for other possible inputs. |
-| d/Deadline           | Deadline of the application.                  | Should be in DD-MM-YYYY format.                                                                                                                                                        |
-| n/Recruiter Name     | Name of the recruiter.                        | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                                |
-| e/Email              | Email of the recruiter.                       | Should be in the format of `local-part@domain` and should not be blank.                                                                                                                |
-| p/Phone Number       | Phone number of the recruiter.                | Only contain numbers, be at least 3 digits and at most 20 digits long. Should not be blank.                                                                                            |
-| pr/Priority          | Priority of the application.                  | Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`.                                                                                                  |
-| re/Remark            | Remark of the application.                    | Should not be blank.                                                                                                                                                                   |
+| Parameter            | Description                                   | Constraints                                                                                                             |
+|----------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| c/Company Name       | Name of the company that you are applying to. | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces). |
+| r/Role               | Role of the internship that you are applying. | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces). |
+| s/Application Status | Status of the application.                    | Case-insensitive. Refer to [Application Status Description](#application-status-description) for all possible inputs.   |
+| d/Deadline           | Deadline of the application.                  | Should be in DD-MM-YYYY format. Dates before the current date are allowed.                                              |
+| n/Recruiter Name     | Name of the recruiter.                        | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces). |
+| e/Email              | Email of the recruiter.                       | Should be in the format of [`local-part@domain`](#email-format-description) and should not be blank.                    |
+| p/Phone Number       | Phone number of the recruiter.                | Only contain numbers, be at least 3 digits and at most 20 digits long. Should not be blank.                             |
+| pr/Priority          | Priority of the application.                  | Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`.                                   |
+| re/Remark            | Remark of the application.                    | Should not be blank.                                                                                                    |
 
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
-* If you enter an invalid input for any of the prefixes, you will see an error message in the command box. Check the description for the respective prefix and try the command again! An example of an error message is shown below.
+* If you enter an invalid input for any of the prefixes, you will see an error message in the command box. Refer to the error message, check the description for the respective prefix and try the command again! An example of an error message is shown below.
 
 ![img.png](images/add-command/AddCommandError.png)
 
 </div>
 
-### Application Status Description
+#### Application Status Parameter Description
 
-| Application Status  | Other Accepted Inputs                                        | Description                                                                                                                                         |
-|---------------------|--------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| PENDING APPLICATION | PA, PENDAPP, PENDINGAPP, PENDINGAPPLICATION, P A, PENDING A  | This means that you have not submitted the application, but are currently working on it.                                                            |
-| PENDING INTERVIEW   | PI, PENDINT, PENDINGINT, PENDINGINTERVIEW, P I, PENDING I    | This means that you have submitted the application, and are either waiting for an interview offer, or waiting to go for the interview.              |
-| PENDING OUTCOME     | PO, PENDOUT, PENDINGOUT, PENDINGOUTCOME, P O, PENDING O      | This means that you have went through the interview, but the final decision or outcome (whether accepted or rejected) hasn't been communicated yet. |
-| ACCEPTED            | A, ACC, ACPT, ACCEPT, ACCEPTED                               | This means you have been offered the internship position. Congratulations!                                                                          |
-| REJECTED            | R, REJ, REJECT, REJECTED                                     | Unfortunately, this means that the application wasn't successful and you were not offered the internship. Don't worry, try again next time!         |
+| Application Status    | Other Accepted Inputs                                                   | What it means                                                                                                                       |
+|-----------------------|-------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `PENDING APPLICATION` | `PA`, `PENDAPP`, `PENDINGAPP`, `PENDINGAPPLICATION`, `P A`, `PENDING A` | You have not submitted the application, but are currently working on it.                                                            |
+| `PENDING INTERVIEW`   | `PI`, `PENDINT`, `PENDINGINT`, `PENDINGINTERVIEW`, `P I`, `PENDING I`   | You have submitted the application, and are either waiting for an interview offer, or waiting to go for the interview.              |
+| `PENDING OUTCOME`     | `PO`, `PENDOUT`, `PENDINGOUT`, `PENDINGOUTCOME`, `P O`, `PENDING O`     | You have went through the interview, but the final decision or outcome (whether accepted or rejected) hasn't been communicated yet. |
+| `ACCEPTED`            | `A`, `ACC`, `ACPT`, `ACCEPT`                                            | You have been offered the internship position. Congratulations!                                                                     |
+| `REJECTED`            | `R`, `REJ`, `REJECT`                                                    | Unfortunately, the application wasn't successful and you were not offered the internship. Don't worry, try again next time!         |
 
+
+#### Email Format Description
+The email format is `local-part@domain`. 
+
+`local-part` constraints: 
+* Only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). 
+* May not start or end with any special characters.
+
+`domain` name constraints:
+* Made up of domain labels separated by periods.
+* End with a domain label at least 2 characters long 
+* Have each domain label start and end with alphanumeric characters 
+* Have each domain label consist of alphanumeric characters, separated only by hyphens, if any.
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
