@@ -12,6 +12,7 @@ import seedu.address.model.company.Company;
  */
 public class Messages {
     public static final String MESSAGE_UNKNOWN_COMMAND = "Unknown command";
+
     public static final String MESSAGE_INVALID_COMMAND_FORMAT =
             "Oops! You have entered an invalid command format. "
                     + "Please follow the command format below and try again! \n%1$s";
@@ -42,16 +43,21 @@ public class Messages {
     public static final String MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_NO_CHANGES =
             "Oops! Duplicate entry is detected. \n"
                     + "You already have another entry with the exact same details for the "
-                    + "company %s with the role %s and deadline %s at index %d.";
+                    + "company %s with the role %s and deadline %s.";
 
-    public static final String MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES =
+    public static final String MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES_ON_UNFILTERED_LIST =
             "Oops! Duplicate Entry Detected\n"
-                    + "You already have another entry for the company %s with the role %s and deadline %s"
-                    + " at index %d.\n"
+                    + "You already have another entry for the company %s with the role %s and deadline %s.\n"
+                    + "Perhaps you meant to use the edit command instead? Type: list, followed by edit %d %s";
+
+    public static final String MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES_ON_FILTERED_LIST =
+            "Oops! Duplicate Entry Detected\n"
+                    + "You already have another entry for the company %s with the role %s and deadline %s.\n"
                     + "Perhaps you meant to use the edit command instead? Type: edit %d %s";
+
     public static final String MESSAGE_DUPLICATE_COMPANY_EDIT_COMMAND =
             "Oops! Duplicate Entry Detected\nYou already have another entry for the company %s with the "
-                    + "role %s and deadline %s at index %d.";
+                    + "role %s and deadline %s";
 
     /**
      * Returns an error message indicating the duplicate prefixes.
@@ -75,24 +81,27 @@ public class Messages {
      * @return string representing the error message
      */
     public static String getErrorMessageForDuplicateCompanyAddCommand(Company company,
-                                                                      int index, String allChangedFields) {
+                                                                      int index, String allChangedFields,
+                                                                      boolean isFiltered) {
         return allChangedFields.isEmpty()
                 ? String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_NO_CHANGES,
                 company.getName(), company.getRole(), company.getDeadline(), index + 1)
-                : String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES,
-                company.getName(), company.getRole(), company.getDeadline(), index + 1, index + 1, allChangedFields);
+                : isFiltered
+                ? String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES_ON_FILTERED_LIST,
+                company.getName(), company.getRole(), company.getDeadline(), index + 1, allChangedFields)
+                : String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES_ON_UNFILTERED_LIST,
+                company.getName(), company.getRole(), company.getDeadline(), index + 1, allChangedFields);
     }
 
     /**
      * Returns an error message indicating the duplicate company information for the edit command.
      *
      * @param company
-     * @param index
      * @return string representing the error message
      */
-    public static String getErrorMessageForDuplicateCompanyEditCommand(Company company, int index) {
+    public static String getErrorMessageForDuplicateCompanyEditCommand(Company company) {
         return String.format(MESSAGE_DUPLICATE_COMPANY_EDIT_COMMAND,
-                company.getName(), company.getRole(), company.getDeadline(), index + 1);
+                company.getName(), company.getRole(), company.getDeadline());
     }
 
     /**

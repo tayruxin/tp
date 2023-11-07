@@ -56,5 +56,24 @@ public class NameTest {
 
         // different values -> returns false
         assertFalse(name.equals(new Name("Other Valid Name")));
+
+        // different case -> returns true
+        assertTrue(name.equals(new Name("VALID NAME")));
+
+        // different case -> returns true
+        assertTrue(name.equals(new Name("valid name")));
+
+        name = new Name("Valid Name 123");
+
+        // Alphanumerics preserved -> returns true
+        assertTrue(name.equals(new Name("Valid Name 123")));
+
+        name = new Name("Valid Name 2");
+
+        //Does not strip numbers
+        assertFalse(name.equals(new Name("Valid Name ")));
+
+        assertFalse(name.equals(new Name("Valid Name")));
+
     }
 }

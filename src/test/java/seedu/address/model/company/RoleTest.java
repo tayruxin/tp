@@ -55,5 +55,23 @@ public class RoleTest {
 
         // different values -> returns false
         assertFalse(role.equals(new Role("Other Valid Role")));
+
+        // different case -> returns true
+        assertTrue(role.equals(new Role("Valid ROLE")));
+
+        // different case -> returns true
+        assertTrue(role.equals(new Role("valid role")));
+
+        role = new Role("Valid Name 123");
+
+        // Alphanumerics preserved -> returns true
+        assertTrue(role.equals(new Role("Valid Name 123")));
+
+        role = new Role("Valid Name 2");
+
+        //Does not strip numbers
+        assertFalse(role.equals(new Role("Valid Name ")));
+
+        assertFalse(role.equals(new Role("Valid Name")));
     }
 }

@@ -195,7 +195,12 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public int getDuplicateIndex(Company company) {
+    public int getDuplicateIndexFromOriginalAddressbook(Company company) {
         return addressBook.getDuplicateIndex(company);
+    }
+
+    @Override
+    public int getDuplicateIndexFromFilteredAddressbook(Company company) {
+        return filteredCompanies.indexOf(company);
     }
 }

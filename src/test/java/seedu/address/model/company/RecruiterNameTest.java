@@ -55,5 +55,23 @@ public class RecruiterNameTest {
 
         // different values -> returns false
         assertFalse(recruiterName.equals(new RecruiterName("Other Valid Recruiter Name")));
+
+        // different case -> returns true
+        assertTrue(recruiterName.equals(new RecruiterName("Valid RECRUITER Name")));
+
+        // different case -> returns true
+        assertTrue(recruiterName.equals(new RecruiterName("valid recruiter name")));
+
+        recruiterName = new RecruiterName("Valid Name 123");
+
+        // Alphanumerics preserved -> returns true
+        assertTrue(recruiterName.equals(new RecruiterName("Valid Name 123")));
+
+        recruiterName = new RecruiterName("Valid Name 2");
+
+        //Does not strip numbers
+        assertFalse(recruiterName.equals(new RecruiterName("Valid Name ")));
+
+        assertFalse(recruiterName.equals(new RecruiterName("Valid Name")));
     }
 }

@@ -85,8 +85,8 @@ public class Role {
         // Convert to lowercase
         role = role.toLowerCase();
 
-        // Remove special characters
-        role = role.replaceAll("[^a-z ]", "");
+        // Remove special characters, excluding spaces, alphanumeric characters
+        role = role.replaceAll("[^a-zA-Z0-9 ]", "");
 
         // Trim whitespace and reduce consecutive whitespaces to a single space
         role = role.trim().replaceAll("\\s+", " ");
