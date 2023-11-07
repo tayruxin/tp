@@ -52,7 +52,7 @@ committed to guide you at every step of your internship journey. Whether you're 
 an experienced one seeking advanced insights, you'll find valuable information tailored to your unique 
 needs and expertise.
 
-Before we teach you how to navigate this user guide, let us first introduce you to the annotations that you will be seeing
+Before we begin, let us first introduce you to the annotations that you will be seeing
 throughout this user guide. 
 
 <div markdown="block" class="alert alert-success">
@@ -70,17 +70,14 @@ throughout this user guide.
 * Alerts you of potential pitfalls or things to be cautious of when using LinkMeIn.
 </div>
 
-Throughout this guide, you will also see **different styles of text**. Here are what each of them mean:
+Throughout this guide, you will also notice **various text styles**. Here's what each of them means:
+- _Represents possible scenarios that you can use a feature for (mainly in the feature sections)._
+- [Represents hyperlinks that you can click into, which will direct you to another section of this user guide or to a website.](): 
+- `Represents content that you can type into the command box.`
+- > Represents the acceptable parameters that you can key into a command.
 
-| Text styles             | What it means                                                                                                               |
-|-------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| _italics_               | Represents possible scenarios that you can use a feature for (mainly in the feature sections).                              |
-| [blue and underlined]() | Represents hyperlinks that you can click into, which will direct you to another section of this user guide or to a website. |
-| `code block`            | Represents content that you can type into the command box.                                                                  |
-| > quote                 | Represents the acceptable parameters that you can key into a command.                                                       |
-
-
-Now that you are familiar with the annotations and text styles, let us teach you how to navigate this user guide.
+Now that you are familiar with the annotations and text styles, let us teach you how to navigate this user guide according 
+to your level of expertise. 
 
 ## New to LinkMeIn? ##
 
@@ -217,7 +214,7 @@ and press Enter.
 - If you wish to learn more about the edit command, you can do so [here](#edit-a-companys-information-edit).
 
 
-**Step 2:** You should see the details of Twitter updated.
+**Step 2:** You should see the details of DSTA updated.
 
 Go ahead and try editing the details of a few more companies on your own! 
 
