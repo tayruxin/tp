@@ -146,7 +146,6 @@ public class ModelManager implements Model {
 
     @Override
     public void filterCompaniesByStatus(Predicate<Company> predicate) {
-        addressBook.clearDetailPanel();
         updateFilteredCompanyList(predicate);
     }
 
@@ -164,6 +163,7 @@ public class ModelManager implements Model {
     @Override
     public void updateFilteredCompanyList(Predicate<Company> predicate) {
         requireNonNull(predicate);
+        addressBook.clearDetailPanel();
         filteredCompanies.setPredicate(predicate);
     }
 
