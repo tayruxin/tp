@@ -135,4 +135,9 @@ public class ModelStub implements Model {
     public int getDuplicateIndexFromOriginalAddressbook(Company company) {
         throw new AssertionError("This method should not be called.");
     }
+
+    @Override
+    public void findCompanies(Predicate<Company> predicate) {
+        throw new AssertionError("This method should not be called.");
+    }
 }
