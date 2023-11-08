@@ -38,6 +38,6 @@ public class SortCommandParserTest {
     public void parse_invalidInputs_throwsParseException() {
         // invalid sort order
         assertParseFailure(parser, "invalidOrder",
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE));
+                String.format(SortCommand.MESSAGE_INVALID_SORT_ORDER, SortCommand.MESSAGE_USAGE));
     }
 }
