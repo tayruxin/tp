@@ -72,7 +72,7 @@ throughout this user guide.
 
 Throughout this guide, you will also notice **various text styles**. Here's what each of them means:
 - _Represents possible scenarios that you can use a feature for (mainly in the feature sections)._
-- [Represents hyperlinks that you can click into, which will direct you to another section of this user guide or to a website.](): 
+- [Represents hyperlinks that you can click into, which will direct you to another section of this user guide or to a website.]()
 - `Represents content that you can type into the command box.`
 - > Represents the acceptable parameters that you can key into a command.
 
