@@ -15,6 +15,8 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[Github](https://github.com/AlagappanRa)]
 
+[[portfolio](team/alagappanra.md)]
+
 * Role: Developer
 
 ### Tay Ru Xin
@@ -22,6 +24,8 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/tayruxin.png" width="200px">
 
 [[Github](http://github.com/tayruxin)]
+
+[[portfolio](team/tayruxin.md)]
 
 * Role: Developer
 
@@ -31,6 +35,8 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[Github](http://github.com/glendachong)]
 [[LinkedIn](https://www.linkedin.com/in/glenda-chong-149367237)]
+
+[[portfolio](team/glendachong.md)]
 
 
 * Role: Deliverables and deadlines
@@ -42,6 +48,8 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[Github](http://github.com/alientian)]
 
+[[portfolio](team/alientian.md)]
+
 
 * Role: Developer
 * Responsibilities: UI
@@ -52,6 +60,8 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[Github](http://github.com/papataco14)]
 [[LinkedIn](https://www.linkedin.com/in/rithikvijay/)]
+
+[[portfolio](team/papataco14.md)]
 
 * Role: Developer
 * * Responsibilities: Deciphering requirements
