@@ -5,13 +5,13 @@ title: Ramu Rithik Vijay's Project Portfolio Page
 
 # Project: LinkMeIn
 
-LinkMeIn - Is a desktop address book application made for computer science students to track their internship 
-applications. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, 
+LinkMeIn - Is a desktop address book application made for computer science students to track their internship
+applications. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java,
 and has about ~10 kLoC.
 
 The features in LinkMeIn can be categorised into 3 main categories:
 1. **General features:** Navigating the application. Includes, help, exit and clear commands.
-2. **Company management features:** Manage an entry of a company. Includes, add, delete, edit, view, remark and 
+2. **Company management features:** Manage an entry of a company. Includes, add, delete, edit, view, remark and
    unremark commands.
 3. **Company list features:** Manage the list of companies added. Includes, list, find, sort and filter commands.
 
@@ -31,13 +31,13 @@ order.
 
 #### Justification:
 
-This feature was implemented to assist users in efficiently managing their application deadlines. It addresses the 
-need for quick prioritization and helps prevent missing important deadlines by keeping the closest deadlines at the  
+This feature was implemented to assist users in efficiently managing their application deadlines. It addresses the
+need for quick prioritization and helps prevent missing important deadlines by keeping the closest deadlines at the
 forefront.
 
 #### Highlights:
 
--   **Ease of Use**: Case-insensitive input and a default to the most commonly used sorting order (ascending). Also 
+-   **Ease of Use**: Case-insensitive input and a default to the most commonly used sorting order (ascending). Also
     allow various other `SORT-ORDER` inputs such as `asc` and `desc` for fast typists.
 -   **Robust Error Handling**: Informs users of incorrect input and guides them towards correct usage.
 -   **Thorough Testing**: Ensured reliability and performance across diverse scenarios and data sets.
@@ -46,30 +46,30 @@ forefront.
 
 #### What it does:
 
-The `find` command enables users to search for companies by keywords, with case-insensitive and partial matching 
+The `find` command enables users to search for companies by keywords, with case-insensitive and partial matching
 capabilities.
 
 #### Justification:
 
-Implemented to enhance navigability and accessibility, this command allows users to locate companies quickly without 
+Implemented to enhance navigability and accessibility, this command allows users to locate companies quickly without
 exact name recall, significantly improving user experience.
 
 #### Highlights:
 
 -   **Flexible Search**: Supports partial keyword matching for broader search results.
 -   **Case-Insensitive Logic**: Ensures user convenience by eliminating the need for precise casing.
--   **Predicate Enhancement**: Modified `NameContainsKeywordsPredicate` for substring matching, boosting the 
+-   **Predicate Enhancement**: Modified `NameContainsKeywordsPredicate` for substring matching, boosting the
     command's functionality.
--   **User-Centric Design**: Selected design alternatives aim for the optimal balance between flexibility and 
+-   **User-Centric Design**: Selected design alternatives aim for the optimal balance between flexibility and
     precision, prioritizing ease of use.
 
 ### 3. Modified the Deadline class
-Previously, the deadline field in the Deadline class was a string. I have modified this to be a java LocalDate 
-object for better date time management. I also modified the validation regex and error messages to distinguish 
-between invalid date formats and invalid dates. For implementation of the sorting functionality, instead of having 
-the basis of comparison between deadlines being defined in the sort method, I have modified the Deadline class to 
-implement the comparable interface and defined the basis of comparison within the Deadline class itself. This allows 
-for simpler code and better abstraction. 
+Previously, the deadline field in the Deadline class was a string. I have modified this to be a java LocalDate
+object for better date time management. I also modified the validation regex and error messages to distinguish
+between invalid date formats and invalid dates. For implementation of the sorting functionality, instead of having
+the basis of comparison between deadlines being defined in the sort method, I have modified the Deadline class to
+implement the comparable interface and defined the basis of comparison within the Deadline class itself. This allows
+for simpler code and better abstraction.
 
 ### 4. Refactor person to company
 Changed the person model to company model for better OOP at the start of the project.
@@ -100,7 +100,7 @@ The following sections from the UG were contributed by me:
 
 ## Review/mentoring contributions:
 - PRs reviewed:
-  - [\#107](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/107), [\#92](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/92), 
+  - [\#107](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/107), [\#92](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/92),
 [\#140](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/140), [\#167](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/167)
 
 ## Contributions beyond the project team:
