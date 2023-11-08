@@ -112,46 +112,42 @@ If you face any issues while using LinkMeIn, you can refer to the [FAQ Section](
 # Quick start
 In this section, you will learn how to set up LinkMeIn in your computer. 
 
-**Step 1: Verify Java Version:**
-
 1. Make sure that you have **Java 11 or above** installed in your Computer. Click 
 [here](#1-how-do-i-check-if-i-have-java-11-installed) if you are unsure of how to check if you have Java 11 installed.
 
-**Step 2: Download LinkMeIn:**
-1. With Java 11 installed, you can now download our latest jar file from [here](https://github.com/AY2324S1-CS2103T-T17-2/tp/releases/tag/v1.2.0)
-2. Click on the `LinkMeIn.jar` file to download it.
+2. With Java 11 installed, you can now download our latest jar file from [here](https://github.com/AY2324S1-CS2103T-T17-2/tp/releases/tag/v1.2.0).
 
-![githubRelease.png](images/quick-start/githubRelease.png)
+3. Click on the `LinkMeIn.jar` file to download it.
+    <div style="margin-top: 10px; margin-bottom: 10px">
+        <img src="images/quick-start/githubRelease.png" alt="Github Release" width="650"/>
+    </div>
 
-**Step 3: Choose a home folder for LinkMeIn:**
-1. Decide on a folder to use as the home folder for LinkMeIn. This folder will be used to store the data of LinkMeIn.
-2. Create a new folder (you can name it "LinkMeIn") in a location of your choice, 
-such as your Desktop or Documents folder
-3. Move the downloaded jar file to the folder you have created in the previous step.
+4. Move the downloaded jar file into a home folder of your choice, such as the **Desktop** or **Documents** folder for your LinkMeIn.
 
-**Step 4: Launch LinkMeIn:**
-1. Open up your terminal. If you are unsure of how to do so, you can check out [this FAQ](#2-how-do-i-open-up-my-terminal).
-2. Navigate to the folder where you have placed the jar file with the `cd` command. 
-   - For example if you have placed the jar file in the Documents folder, type `cd Documents` and press Enter.
-3. Type `java -jar LinkMeIn.jar` and press Enter.
+5. Open up your command terminal. If you are unsure of how to do so, you can check out [this FAQ](#2-how-do-i-open-up-my-terminal).
 
-<div markdown="block" class="alert alert-danger">
-**:exclamation: Warning:**<br>
-* Do not move or delete the `data` folder as it contains the data of your applications.
-</div>
+6. Navigate to the folder where you have placed the jar file with the `cd` command. 
+   - For example if you have placed the jar file in the **Documents** folder, type `cd Documents` and press Enter.
+   
+7. Enter the next command `java -jar LinkMeIn.jar` and press Enter. Your command terminal should look like this:
+    <div style="margin-top: 10px; margin-bottom: 10px">
+        <img src="images/quick-start/launchLinkMeIn.png" alt="Launch LinkMeIn" width="650"/>
+    </div>
 
+    <div markdown="block" class="alert alert-danger">
+    **:exclamation: Warning:**<br>
+    * Do not move or delete the `data` folder as it contains the data of your applications.
+    </div>
 
-By now, you should have successfully launched LinkMeIn with the following window appearing on your screen.
+8. You should have successfully launched LinkMeIn with the following interface appearing on your screen.
+    <div style="margin-top: 10px; margin-bottom: 10px">
+        <img src="images/quick-start/startupPage.png" alt="Start Up Page LinkMeIn" width="650"/>
+    </div>
 
-![startupPage.png](images/quick-start/startupPage.png)
+9. Great job! You are now ready to learn about the [Command Line Interface](#using-linkmeins-cli) of LinkMeIn!
 
-If you are unsure about LinkMeIn's GUI, you can refer to the [GUI Section](#introducing-linkmeins-gui) to find out more.
+# Using LinkMeIn's CLI
 
-Having successfully launched LinkMeIn, you are now ready to use LinkMeIn to track your internship applications. You 
-can either refer to the [Quick Tour Section](#introducing-linkmein-a-quick-tour) to get started with LinkMeIn or you can
-refer to the [Features Section](#current-features) to find out more about LinkMeIn's features.
-
-[&uarr; Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -318,9 +314,15 @@ Add the company to LinkMeIn now to keep track of the application process using t
 
 **Example:**
 
-**Step 1:** You came across the _Software Engineer_ role from _Apple_ which you are interested to apply for after touching up your resume. The deadline for this application is _10 October 2023_. The recruiter is _John Tan_, and you noted down his email address _johnd@example.com_ and his phone number _98765432_, so that you can contact him in the future. The priority of this application is _medium_ as you have other applications that you want to focus on first.
+**Step 1:** Let's say you are interested to apply for the **Software Engineer** role from **Apple**. Through the application description, you obtained the following information:
+* **Deadline:** 12-12-2023
+* **Recruiter Name:** John Tan
+* **Email:** johntan@gmail.com
+* **Phone Number:** 98765432
 
-**Step 2:** With the details above, simply type `add c/Apple r/Software Engineer s/PA n/John Tan d/12-12-2023 e/johntan@example.com p/987654321 pr/medium` into the command box and press Enter.
+This application is of **medium** priority as you have other applications that you want to focus on first.
+
+**Step 2:** With the details above, simply type `add c/Apple r/Software Engineer s/PA n/John Tan d/12-12-2023 e/johntan@gmail.com p/98765432 pr/medium` into the command box and press Enter.
 
 ![img.png](images/add-command/BeforeAddCommand.png)
 
@@ -336,10 +338,14 @@ Add the company to LinkMeIn now to keep track of the application process using t
 </div>
 
 **Possible Error:**
-If you miss out any of the compulsory parameters, you will see an error message in the command box informing you of the invalid command format.
+
+* If you miss out any of the compulsory parameters, you will see an error message in the command box informing you of the invalid command format.
 Don't worry, just identify the missing parameter(s) and edit your input accordingly! An example of the error message is shown below.
 
 ![img.png](images/add-command/AddCommandError2.png)
+
+* If you enter a company with the same company name, role and deadline as an existing company in LinkMeIn, you will see an error message in the command box informing you of the duplicate company.
+
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -668,37 +674,50 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 
 ### Parameters Description
 
-| Parameter            | Description                                   | Constraints                                                                                                                                                                            |
-|----------------------|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| c/Company Name       | Name of the company that you are applying to. | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                                |
-| r/Role               | Role of the internship that you are applying. | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                                |
-| s/Application Status | Status of the application.                    | Case-insensitive and should be one of the following: `PA`, `PI`, `PO`, `A`, `R`. Refer to [Application Status Description](#application-status-description) for other possible inputs. |
-| d/Deadline           | Deadline of the application.                  | Should be in DD-MM-YYYY format.                                                                                                                                                        |
-| n/Recruiter Name     | Name of the recruiter.                        | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                                |
-| e/Email              | Email of the recruiter.                       | Should be in the format of `local-part@domain` and should not be blank.                                                                                                                |
-| p/Phone Number       | Phone number of the recruiter.                | Only contain numbers, be at least 3 digits and at most 20 digits long. Should not be blank.                                                                                            |
-| pr/Priority          | Priority of the application.                  | Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`.                                                                                                  |
-| re/Remark            | Remark of the application.                    | Should not be blank.                                                                                                                                                                   |
+| Parameter            | Description                                   | Constraints                                                                                                             |
+|----------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| c/Company Name       | Name of the company that you are applying to. | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces). |
+| r/Role               | Role of the internship that you are applying. | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces). |
+| s/Application Status | Status of the application.                    | Case-insensitive. Refer to [Application Status Description](#application-status-description) for all possible inputs.   |
+| d/Deadline           | Deadline of the application.                  | Should be in DD-MM-YYYY format. Dates before the current date are allowed.                                              |
+| n/Recruiter Name     | Name of the recruiter.                        | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces). |
+| e/Email              | Email of the recruiter.                       | Should be in the format of [`local-part@domain`](#email-format-description) and should not be blank.                    |
+| p/Phone Number       | Phone number of the recruiter.                | Only contain numbers, be at least 3 digits and at most 20 digits long. Should not be blank.                             |
+| pr/Priority          | Priority of the application.                  | Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`.                                   |
+| re/Remark            | Remark of the application.                    | Should not be blank.                                                                                                    |
 
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
-* If you enter an invalid input for any of the prefixes, you will see an error message in the command box. Check the description for the respective prefix and try the command again! An example of an error message is shown below.
+* If you enter an invalid input for any of the prefixes, you will see an error message in the command box. Refer to the error message, check the description for the respective prefix and try the command again! An example of an error message is shown below.
 
 ![img.png](images/add-command/AddCommandError.png)
 
 </div>
 
-### Application Status Description
+#### Application Status Parameter Description
 
-| Application Status  | Other Accepted Inputs                                        | Description                                                                                                                                         |
-|---------------------|--------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| PENDING APPLICATION | PA, PENDAPP, PENDINGAPP, PENDINGAPPLICATION, P A, PENDING A  | This means that you have not submitted the application, but are currently working on it.                                                            |
-| PENDING INTERVIEW   | PI, PENDINT, PENDINGINT, PENDINGINTERVIEW, P I, PENDING I    | This means that you have submitted the application, and are either waiting for an interview offer, or waiting to go for the interview.              |
-| PENDING OUTCOME     | PO, PENDOUT, PENDINGOUT, PENDINGOUTCOME, P O, PENDING O      | This means that you have went through the interview, but the final decision or outcome (whether accepted or rejected) hasn't been communicated yet. |
-| ACCEPTED            | A, ACC, ACPT, ACCEPT, ACCEPTED                               | This means you have been offered the internship position. Congratulations!                                                                          |
-| REJECTED            | R, REJ, REJECT, REJECTED                                     | Unfortunately, this means that the application wasn't successful and you were not offered the internship. Don't worry, try again next time!         |
+| Application Status    | Other Accepted Inputs                                                   | What it means                                                                                                                       |
+|-----------------------|-------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `PENDING APPLICATION` | `PA`, `PENDAPP`, `PENDINGAPP`, `PENDINGAPPLICATION`, `P A`, `PENDING A` | You have not submitted the application, but are currently working on it.                                                            |
+| `PENDING INTERVIEW`   | `PI`, `PENDINT`, `PENDINGINT`, `PENDINGINTERVIEW`, `P I`, `PENDING I`   | You have submitted the application, and are either waiting for an interview offer, or waiting to go for the interview.              |
+| `PENDING OUTCOME`     | `PO`, `PENDOUT`, `PENDINGOUT`, `PENDINGOUTCOME`, `P O`, `PENDING O`     | You have went through the interview, but the final decision or outcome (whether accepted or rejected) hasn't been communicated yet. |
+| `ACCEPTED`            | `A`, `ACC`, `ACPT`, `ACCEPT`                                            | You have been offered the internship position. Congratulations!                                                                     |
+| `REJECTED`            | `R`, `REJ`, `REJECT`                                                    | Unfortunately, the application wasn't successful and you were not offered the internship. Don't worry, try again next time!         |
 
+
+#### Email Format Description
+The email format is `local-part@domain`. 
+
+`local-part` constraints: 
+* Only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). 
+* May not start or end with any special characters.
+
+`domain` name constraints:
+* Made up of domain labels separated by periods.
+* End with a domain label at least 2 characters long 
+* Have each domain label start and end with alphanumeric characters 
+* Have each domain label consist of alphanumeric characters, separated only by hyphens, if any.
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -709,22 +728,22 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 
 ### 1. How do I check if I have Java 11 installed?
 
-* Open up your terminal. If you are unsure of how to do so, you can refer to [here](#2-how-do-i-open-up-my-terminal-).
+* Open up your terminal. If you are unsure of how to do so, you can refer [here](#2-how-do-i-open-up-my-terminal).
 * Type `java -version`. If you have Java installed, you will see the following:
 
 ![img.png](images/quick-start/java11.png)
 
 * If you do not have Java installed, you can download it [here](https://www.oracle.com/sg/java/technologies/downloads/#java11).
 Remember to download the Java 11 version. 
-* You can refer to the guides below to install Java 11:
-  * Windows: [Guide](https://www.java.com/en/download/help/windows_manual_download.html) to install Java.
-  * Mac: [Guide](https://www.java.com/en/download/help/mac_install.html) to install Java.
-  * Linux: [Guide](https://www.java.com/en/download/help/linux_x64_install.html) to install Java.
+* You can refer to the guides below to install Java 11 for your respective operating systems:
+  * [Windows Guide](https://www.java.com/en/download/help/windows_manual_download.html) to install Java.
+  * [macOS Guide](https://www.java.com/en/download/help/mac_install.html) to install Java.
+  * [Linux Guide](https://www.java.com/en/download/help/linux_x64_install.html) to install Java.
 
 ### 2. How do I open up my terminal?
-* **Windows:** Click the Windows Start button, and type "Command Prompt" or "cmd" into the search bar. 
+* **Windows:** Click the Windows Start button, and type **'Command Prompt'** or **'cmd'** into the search bar. 
   Press Enter to open it.
-* **macOS:** Press Command (⌘) + Spacebar to open Spotlight Search. Type "Terminal" and press Enter when it appears in the 
+* **macOS:** Click on **'F4'** and type **'terminal'**. Press Enter when it appears in the 
   search results.
 
 ### 3. How do I load data from another computer?
