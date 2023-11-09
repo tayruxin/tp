@@ -328,6 +328,11 @@ public class AddCommandTest {
         public int getDuplicateIndex(Company company) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public void findCompanies(Predicate<Company> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     /**

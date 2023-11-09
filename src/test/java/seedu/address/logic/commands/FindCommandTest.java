@@ -63,7 +63,7 @@ public class FindCommandTest {
         String expectedMessage = String.format(MESSAGE_COMPANIES_LISTED_OVERVIEW, 0);
         NameContainsKeywordsPredicate predicate = preparePredicate(" ");
         FindCommand command = new FindCommand(predicate);
-        expectedModel.updateFilteredCompanyList(predicate);
+        expectedModel.findCompanies(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Collections.emptyList(), model.getFilteredCompanyList());
     }
@@ -73,7 +73,7 @@ public class FindCommandTest {
         String expectedMessage = String.format(MESSAGE_COMPANIES_LISTED_OVERVIEW, 2);
         NameContainsKeywordsPredicate predicate = preparePredicate("Microsoft Accenture");
         FindCommand command = new FindCommand(predicate);
-        expectedModel.updateFilteredCompanyList(predicate);
+        expectedModel.findCompanies(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Arrays.asList(MICROSOFT, ACCENTURE), model.getFilteredCompanyList());
     }
@@ -91,7 +91,7 @@ public class FindCommandTest {
         String expectedMessage = String.format(MESSAGE_COMPANIES_LISTED_OVERVIEW, 5);
         NameContainsKeywordsPredicate predicate = preparePredicate("A");
         FindCommand command = new FindCommand(predicate);
-        expectedModel.updateFilteredCompanyList(predicate);
+        expectedModel.findCompanies(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Arrays.asList(APPLE, APPLESTORE, APPLE_STORE, BANANASTORE, ACCENTURE),
                 model.getFilteredCompanyList());
@@ -102,7 +102,7 @@ public class FindCommandTest {
         String expectedMessage = String.format(MESSAGE_COMPANIES_LISTED_OVERVIEW, 3);
         NameContainsKeywordsPredicate predicate = preparePredicate("Ap");
         FindCommand command = new FindCommand(predicate);
-        expectedModel.updateFilteredCompanyList(predicate);
+        expectedModel.findCompanies(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Arrays.asList(APPLE, APPLESTORE, APPLE_STORE), model.getFilteredCompanyList());
     }
@@ -112,7 +112,7 @@ public class FindCommandTest {
         String expectedMessage = String.format(MESSAGE_COMPANIES_LISTED_OVERVIEW, 1);
         NameContainsKeywordsPredicate predicate = preparePredicate("AppleStore");
         FindCommand command = new FindCommand(predicate);
-        expectedModel.updateFilteredCompanyList(predicate);
+        expectedModel.findCompanies(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Collections.singletonList(APPLESTORE), model.getFilteredCompanyList());
     }
@@ -122,7 +122,7 @@ public class FindCommandTest {
         String expectedMessage = String.format(MESSAGE_COMPANIES_LISTED_OVERVIEW, 4);
         NameContainsKeywordsPredicate predicate = preparePredicate("Apple Store");
         FindCommand command = new FindCommand(predicate);
-        expectedModel.updateFilteredCompanyList(predicate);
+        expectedModel.findCompanies(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Arrays.asList(APPLE, APPLESTORE, APPLE_STORE, BANANASTORE), model.getFilteredCompanyList());
     }
@@ -132,7 +132,7 @@ public class FindCommandTest {
         String expectedMessage = String.format(MESSAGE_COMPANIES_LISTED_OVERVIEW, 2);
         NameContainsKeywordsPredicate predicate = preparePredicate("B");
         FindCommand command = new FindCommand(predicate);
-        expectedModel.updateFilteredCompanyList(predicate);
+        expectedModel.findCompanies(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Arrays.asList(BANANASTORE, B), model.getFilteredCompanyList());
     }
