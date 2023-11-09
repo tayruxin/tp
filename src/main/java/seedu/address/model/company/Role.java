@@ -88,8 +88,8 @@ public class Role {
         // Remove special characters, excluding spaces, alphanumeric characters
         role = role.replaceAll("[^a-zA-Z0-9 ]", "");
 
-        // Trim whitespace and reduce consecutive whitespaces to a single space
-        role = role.trim().replaceAll("\\s+", " ");
+        // Trim whitespace and remove all whitespaces
+        role = role.trim().replaceAll("\\s+", "");
 
         return role;
     }

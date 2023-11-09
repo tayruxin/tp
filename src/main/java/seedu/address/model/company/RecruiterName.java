@@ -92,8 +92,8 @@ public class RecruiterName {
         // Remove special characters, excluding spaces, alphanumeric characters
         name = name.replaceAll("[^a-zA-Z0-9 ]", "");
 
-        // Trim whitespace and reduce consecutive whitespaces to a single space
-        name = name.trim().replaceAll("\\s+", " ");
+        // Trim whitespace and remove all whitespaces
+        name = name.trim().replaceAll("\\s+", "");
 
         return name;
     }

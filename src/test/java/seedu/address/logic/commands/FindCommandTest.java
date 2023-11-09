@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.Messages.MESSAGE_COMPANIES_LISTED_OVERVIEW;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.testdata.FindCommandTestCompanies.APPLESTORE;
-import static seedu.address.logic.commands.testdata.FindCommandTestCompanies.APPLE_STORE;
+import static seedu.address.logic.commands.testdata.FindCommandTestCompanies.APPLE_STORES;
 import static seedu.address.logic.commands.testdata.FindCommandTestCompanies.B;
 import static seedu.address.logic.commands.testdata.FindCommandTestCompanies.BANANASTORE;
 import static seedu.address.logic.commands.testdata.FindCommandTestCompanies.getFindCommandTestAddressBook;
@@ -93,7 +93,7 @@ public class FindCommandTest {
         FindCommand command = new FindCommand(predicate);
         expectedModel.findCompanies(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
-        assertEquals(Arrays.asList(APPLE, APPLESTORE, APPLE_STORE, BANANASTORE, ACCENTURE),
+        assertEquals(Arrays.asList(APPLE, APPLESTORE, APPLE_STORES, BANANASTORE, ACCENTURE),
                 model.getFilteredCompanyList());
     }
 
@@ -104,7 +104,7 @@ public class FindCommandTest {
         FindCommand command = new FindCommand(predicate);
         expectedModel.findCompanies(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
-        assertEquals(Arrays.asList(APPLE, APPLESTORE, APPLE_STORE), model.getFilteredCompanyList());
+        assertEquals(Arrays.asList(APPLE, APPLESTORE, APPLE_STORES), model.getFilteredCompanyList());
     }
 
     @Test
@@ -124,7 +124,7 @@ public class FindCommandTest {
         FindCommand command = new FindCommand(predicate);
         expectedModel.findCompanies(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
-        assertEquals(Arrays.asList(APPLE, APPLESTORE, APPLE_STORE, BANANASTORE), model.getFilteredCompanyList());
+        assertEquals(Arrays.asList(APPLE, APPLESTORE, APPLE_STORES, BANANASTORE), model.getFilteredCompanyList());
     }
 
     @Test

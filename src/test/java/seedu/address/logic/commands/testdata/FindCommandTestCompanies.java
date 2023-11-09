@@ -18,7 +18,7 @@ import seedu.address.testutil.CompanyBuilder;
 public class FindCommandTestCompanies {
 
     public static final Company APPLESTORE = new CompanyBuilder().withName("AppleStore").build();
-    public static final Company APPLE_STORE = new CompanyBuilder().withName("Apple Store").build();
+    public static final Company APPLE_STORES = new CompanyBuilder().withName("Apple Stores").build();
     public static final Company BANANASTORE = new CompanyBuilder().withName("BananaStore").build();
     public static final Company B = new CompanyBuilder().withName("B").build();
     public static final Company C = new CompanyBuilder().withName("C").build();
@@ -34,6 +34,6 @@ public class FindCommandTestCompanies {
     }
 
     public static List<Company> getFindCommandTestCompanies() {
-        return new ArrayList<>(Arrays.asList(APPLE, APPLESTORE, APPLE_STORE, BANANASTORE, B, C, MICROSOFT, ACCENTURE));
+        return new ArrayList<>(Arrays.asList(APPLE, APPLESTORE, APPLE_STORES, BANANASTORE, B, C, MICROSOFT, ACCENTURE));
     }
 }
