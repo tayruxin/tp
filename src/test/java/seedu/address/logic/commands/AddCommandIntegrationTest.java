@@ -45,8 +45,9 @@ public class AddCommandIntegrationTest {
                 new CommandException.DuplicateCompanyException(
                         Messages.getErrorMessageForDuplicateCompanyAddCommand(
                         companyInList,
-                        model.getDuplicateIndex(companyInList),
-                        companyInList.listAllChangedFields(model.getDuplicateCompany(companyInList)))
+                        model.getDuplicateIndexFromOriginalAddressbook(companyInList),
+                        companyInList.listAllChangedFields(model.getDuplicateCompany(companyInList)),
+                                true)
                 ).getMessage());
     }
 }
