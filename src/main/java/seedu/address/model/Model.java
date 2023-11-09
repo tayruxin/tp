@@ -141,7 +141,21 @@ public interface Model {
      */
     void filterCompaniesByStatus(Predicate<Company> predicate);
 
-    int getDuplicateIndex(Company company);
+    /**
+     * Returns the index of the duplicate company in the original address book.
+     *
+     * @param company the company to be checked.
+     * @return the index of the duplicate company in the original address book.
+     */
+    int getDuplicateIndexFromOriginalAddressbook(Company company);
+
+    /**
+     * Returns the index of the duplicate company in the filtered address book.
+     *
+     * @param company the company to be checked.
+     * @return the index of the duplicate company in the filtered address book.
+     */
+    int getDuplicateIndexFromFilteredAddressbook(Company company);
 
     /**
      * Finds the companies in the address book by their application status.

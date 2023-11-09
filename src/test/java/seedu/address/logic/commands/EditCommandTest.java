@@ -38,7 +38,7 @@ public class EditCommandTest {
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
-    public void execute_allFieldsSpecifiedUnfilteredList_success() {
+    public void execute_allFieldsSpecified_success() {
         Company editedCompany = new CompanyBuilder().build();
         EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder(editedCompany).build();
         EditCommand editCommand = new EditCommand(INDEX_FIRST_COMPANY, descriptor);
@@ -53,7 +53,7 @@ public class EditCommandTest {
     }
 
     @Test
-    public void execute_someFieldsSpecifiedUnfilteredList_success() {
+    public void execute_someFieldsSpecified_success() {
         Index indexLastCompany = Index.fromOneBased(model.getFilteredCompanyList().size());
         Company lastCompany = model.getFilteredCompanyList().get(indexLastCompany.getZeroBased());
 
@@ -78,7 +78,7 @@ public class EditCommandTest {
     }
 
     @Test
-    public void execute_noFieldSpecifiedUnfilteredList_success() {
+    public void execute_noFieldSpecified_success() {
         EditCommand editCommand = new EditCommand(INDEX_FIRST_COMPANY, new EditCompanyDescriptor());
         Company editedCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
 
@@ -110,7 +110,7 @@ public class EditCommandTest {
 
     //Duplicate checks
     @Test
-    public void execute_fullDuplicateCompanyUnfilteredList_failure() {
+    public void execute_fullDuplicateCompany_failure() {
         Company firstCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
         EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder(firstCompany).build();
         EditCommand editCommand = new EditCommand(INDEX_SECOND_COMPANY, descriptor);
@@ -119,12 +119,11 @@ public class EditCommandTest {
                 model,
                 new CommandException.DuplicateCompanyException(
                         Messages.getErrorMessageForDuplicateCompanyEditCommand(
-                        firstCompany,
-                        model.getDuplicateIndex(firstCompany))).getMessage());
+                        firstCompany)).getMessage());
     }
 
     @Test
-    public void execute_duplicatedNameAndRoleAndDeadlineUnfilteredList_failure() {
+    public void execute_duplicatedNameAndRoleAndDeadline_failure() {
         Company firstCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
         EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder(firstCompany)
                 .withEmail("gy@gmail.com")
@@ -139,12 +138,11 @@ public class EditCommandTest {
                 model,
                 new CommandException.DuplicateCompanyException(
                         Messages.getErrorMessageForDuplicateCompanyEditCommand(
-                        firstCompany,
-                        model.getDuplicateIndex(firstCompany))).getMessage());
+                        firstCompany)).getMessage());
     }
 
     @Test
-    public void execute_duplicatedRoleOnlyUnfilteredList_success() {
+    public void execute_duplicatedRoleOnly_success() {
         Company firstCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
         EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder(firstCompany)
                 .withEmail("gy@gmail.com")
@@ -164,7 +162,7 @@ public class EditCommandTest {
     }
 
     @Test
-    public void execute_duplicatedNameOnlyUnfilteredList_success() {
+    public void execute_duplicatedNameOnly_success() {
         Company firstCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
         EditCompanyDescriptor descriptor = new EditCompanyDescriptorBuilder(firstCompany)
                 .withEmail("gy@gmail.com")
@@ -185,7 +183,7 @@ public class EditCommandTest {
     }
 
     @Test
-    public void execute_duplicateCompanyFilteredList_failure() {
+    public void execute_duplicateCompany_failure() {
         showCompanyAtIndex(model, INDEX_FIRST_COMPANY);
 
         // edit company in filtered list into a duplicate in address book
@@ -197,9 +195,7 @@ public class EditCommandTest {
                 model,
                 new CommandException.DuplicateCompanyException(
                         Messages.getErrorMessageForDuplicateCompanyEditCommand(
-                                companyInList,
-                        INDEX_FIRST_COMPANY.getZeroBased() - 1)
-                ).getMessage());
+                                companyInList)).getMessage());
     }
 
     @Test

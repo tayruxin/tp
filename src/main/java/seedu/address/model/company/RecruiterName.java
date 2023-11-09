@@ -89,11 +89,11 @@ public class RecruiterName {
         // Convert to lowercase
         name = name.toLowerCase();
 
-        // Remove special characters
-        name = name.replaceAll("[^a-z ]", "");
+        // Remove special characters, excluding spaces, alphanumeric characters
+        name = name.replaceAll("[^a-zA-Z0-9 ]", "");
 
-        // Trim whitespace and reduce consecutive whitespaces to a single space
-        name = name.trim().replaceAll("\\s+", " ");
+        // Trim whitespace and remove all whitespaces
+        name = name.trim().replaceAll("\\s+", "");
 
         return name;
     }
