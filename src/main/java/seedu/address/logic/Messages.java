@@ -83,14 +83,17 @@ public class Messages {
     public static String getErrorMessageForDuplicateCompanyAddCommand(Company company,
                                                                       int index, String allChangedFields,
                                                                       boolean isFiltered) {
-        return allChangedFields.isEmpty()
-                ? String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_NO_CHANGES,
-                company.getName(), company.getRole(), company.getDeadline(), index + 1)
-                : isFiltered
-                ? String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES_ON_FILTERED_LIST,
-                company.getName(), company.getRole(), company.getDeadline(), index + 1, allChangedFields)
-                : String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES_ON_UNFILTERED_LIST,
-                company.getName(), company.getRole(), company.getDeadline(), index + 1, allChangedFields);
+        if (allChangedFields.isEmpty()) {
+            return String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_NO_CHANGES,
+                    company.getName(), company.getRole(), company.getDeadline(), index + 1);
+        }
+        if (isFiltered) {
+            return String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES_ON_FILTERED_LIST,
+                    company.getName(), company.getRole(), company.getDeadline(), index + 1, allChangedFields);
+        } else {
+            return String.format(MESSAGE_DUPLICATE_COMPANY_ADD_COMMAND_WITH_CHANGES_ON_UNFILTERED_LIST,
+                    company.getName(), company.getRole(), company.getDeadline(), index + 1, allChangedFields);
+        }
     }
 
     /**
