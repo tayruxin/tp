@@ -20,7 +20,7 @@ public class Messages {
         "Oops! You have entered an index that is greater than the number of companies that you have. "
                 + "Please try again!";
 
-    public static final String MESSAGE_COMPANIES_LISTED_OVERVIEW = "%1$d companies listed!";
+    public static final String MESSAGE_COMPANIES_LISTED_OVERVIEW = "Company(s) listed: %1$d";
 
     public static final String MESSAGE_DUPLICATE_FIELDS =
                 "Oops! Multiple values are specified for the following single-valued parameter(s): ";
