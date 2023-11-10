@@ -13,6 +13,9 @@ import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_TIKTOK;
 import static seedu.address.logic.commands.CommandTestUtil.PRIORITY_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.PRIORITY_DESC_TIKTOK;
+import static seedu.address.logic.commands.CommandTestUtil.REMARK_DESC_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.ROLE_DESC_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.STATUS_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_GOOGLE;
@@ -69,6 +72,18 @@ public class EditCommandParserTest {
 
         // invalid prefix being parsed as preamble
         assertParseFailure(parser, "1 i/ string", MESSAGE_INVALID_FORMAT);
+    }
+
+    @Test
+    public void parse_remarkField_failure() {
+        // only remark field
+        assertParseFailure(parser, "1" + REMARK_DESC_GOOGLE, MESSAGE_INVALID_FORMAT);
+
+
+        // remark field parsed with other fields
+        assertParseFailure(parser, "1" + ROLE_DESC_GOOGLE + REMARK_DESC_GOOGLE, MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, "1" + REMARK_DESC_GOOGLE + PHONE_DESC_GOOGLE + STATUS_DESC_GOOGLE,
+                MESSAGE_INVALID_FORMAT);
     }
 
     @Test
