@@ -476,8 +476,9 @@ Directly use the remark command and it overwrites the old remark!
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
-* You can unremark a company that already have no remarks. 
-LinkMeIn does not check if a remark exists i.e the same result message will be displayed regardless of whether a remark exist for a company.
+* You can unremark a company that already has no remarks.
+LinkMeIn does not check for the existence of a remark.
+The same message will be displayed regardless of whether a remark exists for a company.
 </div>
 
 **Examples:**
@@ -511,7 +512,7 @@ use the `edit` command to input the accurate details._
 
 **Examples:**
 
-**Step 1.** You received an email from Microsoft to interview for a Frontend Developer role instead, which is different from the Software Engineer role you applied for.
+**Step 1.** You received an email from Microsoft inviting you to interview for a Frontend Developer role, which differs from the Software Engineer role you initially applied for. 
 To edit the company's information, type `edit 2 s/PI r/Frontend Developer`
 
 ![EditDemo1.png](images/edit-command/EditDemo1.png)
@@ -520,11 +521,13 @@ To edit the company's information, type `edit 2 s/PI r/Frontend Developer`
 
 ![EditDemo2.png](images/edit-command/EditDemo2.png)
 
-**Step 3.** Go ahead and edit more companies on your own! 
+**Step 3.** Here are some other examples you can try to familiarise with the edit command! 
 
     **More examples:**
     - `edit 3 d/11-09-2025 pr/LOW`
+        Edits dateline and priority of 3rd company in the displayed list.
     - `edit 1 n/Amy Tan e/amytan@gmail.com`
+        Edits recruiter's name and email of 1st company in the displayed list.
 
 
 **Possible Error:**
