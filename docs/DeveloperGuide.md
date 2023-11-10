@@ -276,32 +276,40 @@ With the design considerations, we've chosen the alternatives that provide a bal
 
 ### 4.3 Filter Command
 
-The `filter` command allows user to filter the company list by the application status. The following sequence diagram
-will illustrate the process of performing the `filter` command.
+The `filter` command allows user to filter the company list by the application status. 
+
+#### 4.3.1 Implementation
+The `filter` command is implemented in the `FilterCommand` class, which uses the `ApplicationStatusPredicate` class. The `ApplicationStatusPredicate` class implements the `Predicate` interface, which allows it to be used in the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method. 
+
+Given below is an example usage scenario and how the `filter` mechanism behaves at each step.
+
+1. The user enters the input `filter s/PA`.
+2. The `LogicManager` calls `AddressBookParser#parseCommand()` with the user input.
+3. The `AddressBookParser` creates a parser that matches the `filter` command, a `FilterCommandParser` object and uses it to parse the command.
+4. This results in a `FilterCommand` object, which is executed by the `LogicManager`.
+5. The `FilterCommand` object can communicate with the `Model` when it is executed. It calls `Model#filterCompaniesByStatus(Predicate<Company> predicate)` to filter the list of companies by their application status.
+6. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+
+The following sequence diagram will illustrate the process of performing the `filter` command.
 
 <img src="images/FilterSequenceDiagram.png"/>
 
-#### 4.3.1 Implementation
-
-The `filter` function is implemented in the `FilterCommand` class and uses the `FilterCommandParser` class to parse the
-arguments. The predicate class implementing `Predicate<Company>` is `ApplicationStatusPredicate`.
-- `ApplicationStatusPredicate` - Predicate to check if the company's application status is the same as the application
-  status specified in the command.
+<div markdown="block" class="alert alert-info">
+**:information_source: Note:**
+The lifeline for `FilterCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram. 
+</div>
 
 #### 4.3.2 Design Considerations
 
-**Aspect: UI of the filter command**
+**Aspect: UI of the Filter Command**
 
-- **Alternative 1 (current choice):** The company details panel will be cleared whenever the filter command is executed.
-    - Pros: Users can focus on viewing details of company belonging to the filtered list only, reducing distractions and confusions.
-    - Cons: Users might have to execute the `view` command again to access details of the company that is selected even
-      if that company is in the filtered list, potentially leading to additional steps.
+* **Alternative 1:** The company details panel will still display the details of the company that was selected before the filter command is executed.
+  * Pros: Users can still view the details of the company in the company details panel alongside the filtered list of companies.
+  * Cons: Users may be confused as the currently viewed company in the company details panel may not be in the filtered list of companies.
 
-- **Alternative 2:** The company details panel will still display the details of the company that was selected before the
-  filter command is executed.
-    - Pros: Users can still view the details of the company in the company details panel alongside the filtered list of companies.
-    - Cons: Users may be confused as the currently viewed company in the company details panel may not be in the
-      filtered list of companies.
+* **Alternative 2 (current choice):** The company details panel will be cleared whenever the filter command is executed.
+  * Pros: Users can focus on viewing details of company belonging to the filtered list only, reducing distractions and confusions.
+  * Cons: Users might have to execute the `view` command again to access details of the company that is selected even if that company is in the filtered list, potentially leading to additional steps.
 
 ### 4.4 Edit feature
 
@@ -377,6 +385,50 @@ The following activity diagram will show how `RemarkCommand` can achieve the fun
 - **Alternative 2:** Use only one `COMMAND_WORD`
     - Pros: Easier to implement.
     - Cons: Remarks may be accidentally deleted by empty input.
+
+### 4.7 Add Command
+The `add` command allows users to add companies into LinkMeIn. The compulsory fields are the company's name, the application's role, status and deadline, and the recruiter's name, phone and email address. The optional field is the priority field. Fields can be added in any order. 
+
+#### 4.7.1 Implementation
+Given below is an example usage scenario and how the `add` mechanism behaves at each step.
+
+1. The user enters the input `add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan p/98765432 e/francist@gmail.com`.
+
+2. The `LogicManager` calls `AddressBookParser#parseCommand()` with the user input.
+
+3. The `AddressBookParser` creates a parser that matches the `add` command, an `AddCommandParser` object and uses it to parse the command. 
+
+4. This results in an `AddCommand` object, which is executed by the `LogicManager`.
+
+5. The `AddCommand` object can communicate with the `Model` when it is executed. It first checks if there's a duplicate input, which has the same company name, application role and application deadline. 
+
+6. If the `Model` does not have a duplicate, the `AddCommand` object calls `Model#addCompany` to add the new `Company` into LinkMeIn. 
+
+7. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+
+The following sequence diagram illustrates how the `add` command works: 
+
+<img src="images/AddSequenceDiagram.png" alt="Add Sequence Diagram"/>
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Note:**
+The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram. 
+</div>
+
+The following activity diagram shows how the `add` command works: 
+
+<img src="images/AddActivityDiagram.png" alt="Add Activity Diagram"/>
+
+#### 4.7.2 Design Considerations
+**Aspect: Fields to be Added into Company**
+
+* **Alternative 1:** `Company` object only has company name, application role, and application deadline. 
+    * Pros: Short and concise `add` command for users to type in. Easy for developers to implement with less code.
+    * Cons: Users may not be able to add in all the information they want to store in LinkMeIn, such as recruiter's information. Users may also be unable to keep track of which stage of their application they are at.
+* **Alternative 2 (current choice):** `Company` object also includes application status of user, recruiter's name, phone and email address. The priority field, which is the user's opinion of the application priority, is kept optional.
+    * Pros: Users can add in all the information at once, minimising the need to use other commands to do so, like `edit` command. 
+    * Cons: Longer `add` command for users. Users may also not have recruiter's information at hand when they are adding in the company. As such, our planned enhancements will have the recruiter's name, phone and email as optional fields instead. 
+
 
 ### \[Proposed\] Undo/redo feature
 

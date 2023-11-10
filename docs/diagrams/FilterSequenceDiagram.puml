@@ -14,7 +14,6 @@ end box
 
 box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
-participant ":Addressbook" as Addressbook MODEL_COLOR
 end box
 
 [-> LogicManager : execute("filter s/pa")
@@ -30,7 +29,7 @@ activate FilterCommandParser
 FilterCommandParser --> AddressBookParser
 deactivate FilterCommandParser
 
-FilterCommandParser -> FilterCommandParser : parse("s/pa")
+AddressBookParser -> FilterCommandParser : parse("s/pa")
 activate FilterCommandParser
 
 create FilterCommand
@@ -55,19 +54,7 @@ activate FilterCommand
 FilterCommand -> Model : filterCompaniesByStatus(predicate)
 activate Model
 
-Model -> Addressbook : clearDetailPanel()
-activate Addressbook
-
-Addressbook --> Model
-deactivate Addressbook
-
-Model -> Model: updateFilteredCompanyList(predicate)
-activate Model
-
-Model --> Model
-deactivate Model
-
-Model --> FilterCommand
+Model -->FilterCommand
 deactivate Model
 
 create CommandResult
@@ -79,8 +66,6 @@ deactivate CommandResult
 
 FilterCommand --> LogicManager : result
 deactivate FilterCommand
-
-deactivate Addressbook
 
 [<--LogicManager
 deactivate LogicManager
