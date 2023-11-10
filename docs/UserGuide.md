@@ -42,7 +42,7 @@ If you are unsure about what each component does, you can refer to the table bel
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
 * To enhance your viewing experience, you can opt for full-screen mode in LinkMeIn! Nevertheless, even if you prefer not to use 
-full screen, rest assured that most of LinkMeIn;s feature will still function flawlessly. 
+full screen, rest assured that LinkMeIn's features will still function flawlessly. 
 </div>
 
 # Navigating the User Guide
@@ -341,9 +341,6 @@ Don't worry, just identify the missing parameter(s) and edit your input accordin
 
 ![img.png](images/add-command/AddCommandError2.png)
 
-* If you enter a company with the same company name, role and deadline as an existing company in LinkMeIn, you will see an error message in the command box informing you of the duplicate company.
-
-
 [&uarr; Back to Table of Contents](#table-of-contents)
 
 ### View full company information: `view`
@@ -531,6 +528,28 @@ try the command again!
 An example of an error message is shown below.
 ![EditErrMsg.png](images/edit-command/EditErrMsg.png)
 
+### Duplicate detection
+
+_Got an error message while trying to add a company twice? LinkMeIn has got you covered!_
+
+If you add an application with the same company name, role and deadline as an existing application in LinkMeIn, 
+you will see an error message in the command box informing you of the duplicate company.
+
+**Example:**
+Exact match of all fields
+![img.png](images/duplicate-detection/add-command/duplicate-exact-match.png)
+
+**Example:**
+Partial match of fields
+![img.png](images/duplicate-detection/add-command/duplicate-partial-match.png)
+
+If you edit an application into a duplicate application, with the same company, role and 
+deadline as an existing application in LinkMeIn, you will see an error message in the command box informing 
+you of the duplicate company.
+
+**Example:**
+![img.png](images/duplicate-detection/edit-command/duplicate-edit.png)
+
 [&uarr; Back to Table of Contents](#table-of-contents)
 
 ## Company List Features
@@ -616,6 +635,7 @@ If you enter an invalid prefix for the filter command, you will see an error mes
 ### Sort companies by their deadlines: `sort`
 
 _Want to see which application deadlines are coming up soon or which ones are far off? Use the `sort` command to
+arrange your list of applications based on their deadlines._
 arrange your list of applications based on their deadlines._
 
 **Format:** `sort SORT_ORDER`
