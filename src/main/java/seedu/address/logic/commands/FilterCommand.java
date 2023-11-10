@@ -26,10 +26,10 @@ public class FilterCommand extends Command {
     private final ApplicationStatusPredicate predicate;
 
     /**
-     * Creates a FilterCommand to filter the company list by the specified {@code ApplicationStatus}
+     * Creates a FilterCommand to filter the company list by the specified {@code ApplicationStatus}.
      *
-     * @param status application status to filter the company list by
-     * @param predicate predicate to filter the company list by
+     * @param status application status to filter the company list by.
+     * @param predicate predicate to filter the company list by.
      */
     public FilterCommand(ApplicationStatus status, ApplicationStatusPredicate predicate) {
         this.status = status;
