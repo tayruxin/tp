@@ -276,10 +276,10 @@ With the design considerations, we've chosen the alternatives that provide a bal
 
 ### 4.3 Filter Command
 
-The `filter` command allows user to filter the company list by the application status. 
+The `filter` command allows user to filter the company list by the application status.
 
 #### 4.3.1 Implementation
-The `filter` command is implemented in the `FilterCommand` class, which uses the `ApplicationStatusPredicate` class. The `ApplicationStatusPredicate` class implements the `Predicate` interface, which allows it to be used in the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method. 
+The `filter` command is implemented in the `FilterCommand` class, which uses the `ApplicationStatusPredicate` class. The `ApplicationStatusPredicate` class implements the `Predicate` interface, which allows it to be used in the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method.
 
 Given below is an example usage scenario and how the `filter` mechanism behaves at each step.
 
@@ -296,7 +296,7 @@ The following sequence diagram will illustrate the process of performing the `fi
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**
-The lifeline for `FilterCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram. 
+The lifeline for `FilterCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 #### 4.3.2 Design Considerations
@@ -372,8 +372,8 @@ The `remark` command allows user to add and delete a remark from a company.
 
 #### 4.6.1 Implementation
 
-Unlike other `Command` class, the `RemarkCommand` class has two `COMMAND_WORD` - remark and unremark. 
-Hence, it is a dependency for two `Parser` - `RemarkCommandParser` and `UnremarkCommandParser`. 
+Unlike other `Command` class, the `RemarkCommand` class has two `COMMAND_WORD` - remark and unremark.
+Hence, it is a dependency for two `Parser` - `RemarkCommandParser` and `UnremarkCommandParser`.
 The following activity diagram will show how `RemarkCommand` can achieve the functionality of both `COMMAND_WORD`.
 <img src="images/RemarkActivityDiagram.png"/>
 
@@ -387,7 +387,7 @@ The following activity diagram will show how `RemarkCommand` can achieve the fun
     - Cons: Remarks may be accidentally deleted by empty input.
 
 ### 4.7 Add Command
-The `add` command allows users to add companies into LinkMeIn. The compulsory fields are the company's name, the application's role, status and deadline, and the recruiter's name, phone and email address. The optional field is the priority field. Fields can be added in any order. 
+The `add` command allows users to add companies into LinkMeIn. The compulsory fields are the company's name, the application's role, status and deadline, and the recruiter's name, phone and email address. The optional field is the priority field. Fields can be added in any order.
 
 #### 4.7.1 Implementation
 Given below is an example usage scenario and how the `add` mechanism behaves at each step.
@@ -400,35 +400,34 @@ Given below is an example usage scenario and how the `add` mechanism behaves at 
 
 4. This results in an `AddCommand` object, which is executed by the `LogicManager`.
 
-5. The `AddCommand` object can communicate with the `Model` when it is executed. It first checks if there's a duplicate input, which has the same company name, application role and application deadline. 
+5. The `AddCommand` object can communicate with the `Model` when it is executed. It first checks if there's a duplicate input, which has the same company name, application role and application deadline.
 
-6. If the `Model` does not have a duplicate, the `AddCommand` object calls `Model#addCompany` to add the new `Company` into LinkMeIn. 
+6. If the `Model` does not have a duplicate, the `AddCommand` object calls `Model#addCompany` to add the new `Company` into LinkMeIn.
 
 7. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
 
-The following sequence diagram illustrates how the `add` command works: 
+The following sequence diagram illustrates how the `add` command works:
 
 <img src="images/AddSequenceDiagram.png" alt="Add Sequence Diagram"/>
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**
-The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram. 
+The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
-The following activity diagram shows how the `add` command works: 
+The following activity diagram shows how the `add` command works:
 
 <img src="images/AddActivityDiagram.png" alt="Add Activity Diagram"/>
 
 #### 4.7.2 Design Considerations
 **Aspect: Fields to be Added into Company**
 
-* **Alternative 1:** `Company` object only has company name, application role, and application deadline. 
+* **Alternative 1:** `Company` object only has company name, application role, and application deadline.
     * Pros: Short and concise `add` command for users to type in. Easy for developers to implement with less code.
     * Cons: Users may not be able to add in all the information they want to store in LinkMeIn, such as recruiter's information. Users may also be unable to keep track of which stage of their application they are at.
 * **Alternative 2 (current choice):** `Company` object also includes application status of user, recruiter's name, phone and email address. The priority field, which is the user's opinion of the application priority, is kept optional.
-    * Pros: Users can add in all the information at once, minimising the need to use other commands to do so, like `edit` command. 
-    * Cons: Longer `add` command for users. Users may also not have recruiter's information at hand when they are adding in the company. As such, our planned enhancements will have the recruiter's name, phone and email as optional fields instead. 
-
+    * Pros: Users can add in all the information at once, minimising the need to use other commands to do so, like `edit` command.
+    * Cons: Longer `add` command for users. Users may also not have recruiter's information at hand when they are adding in the company. As such, our planned enhancements will have the recruiter's name, phone and email as optional fields instead.
 
 ### \[Proposed\] Undo/redo feature
 
