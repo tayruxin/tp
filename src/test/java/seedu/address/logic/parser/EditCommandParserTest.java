@@ -5,9 +5,12 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.Messages.MESSAGE_NON_POSITIVE_INTEGER_INDEX;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_TIKTOK;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_DEADLINE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_PRIORITY_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_STATUS_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_GOOGLE;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_TIKTOK;
@@ -32,9 +35,12 @@ import org.junit.jupiter.api.Test;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.EditCommand;
+import seedu.address.model.company.ApplicationStatus;
+import seedu.address.model.company.Deadline;
 import seedu.address.model.company.Email;
 import seedu.address.model.company.Name;
 import seedu.address.model.company.Phone;
+import seedu.address.model.company.Priority;
 import seedu.address.testutil.EditCompanyDescriptorBuilder;
 
 public class EditCommandParserTest {
@@ -47,7 +53,7 @@ public class EditCommandParserTest {
     @Test
     public void parse_missingParts_failure() {
         // no index specified
-        assertParseFailure(parser, VALID_NAME_GOOGLE, MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, NAME_DESC_GOOGLE, MESSAGE_EMPTY_INDEX);
 
         // no field specified
         assertParseFailure(parser, "1", EditCommand.MESSAGE_NOT_EDITED);
@@ -73,9 +79,20 @@ public class EditCommandParserTest {
 
     @Test
     public void parse_invalidValue_failure() {
-        assertParseFailure(parser, "1" + INVALID_NAME_DESC, Name.MESSAGE_CONSTRAINTS_INVALID_REGEX); // invalid name
-        assertParseFailure(parser, "1" + INVALID_PHONE_DESC, Phone.MESSAGE_CONSTRAINTS_VALID_REGEX); // invalid phone
-        assertParseFailure(parser, "1" + INVALID_EMAIL_DESC, Email.MESSAGE_CONSTRAINTS_VALID_REGEX); // invalid email
+        // invalid name
+        assertParseFailure(parser, "1" + INVALID_NAME_DESC, Name.MESSAGE_CONSTRAINTS_INVALID_REGEX);
+        // invalid phone
+        assertParseFailure(parser, "1" + INVALID_PHONE_DESC, Phone.MESSAGE_CONSTRAINTS_VALID_REGEX);
+        // invalid email
+        assertParseFailure(parser, "1" + INVALID_EMAIL_DESC, Email.MESSAGE_CONSTRAINTS_VALID_REGEX);
+        // invalid deadline
+        assertParseFailure(parser, "1" + INVALID_DEADLINE_DESC, Deadline.MESSAGE_CONSTRAINTS_WRONG_FORMAT);
+        // invalid status
+        assertParseFailure(parser, "1" + INVALID_STATUS_DESC,
+                ApplicationStatus.MESSAGE_CONSTRAINTS_VALID_STATUS);
+        //invalid priority
+        assertParseFailure(parser, "1" + INVALID_PRIORITY_DESC, Priority.MESSAGE_CONSTRAINTS_VALID_REGEX);
+
 
         // invalid phone followed by valid email
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC + EMAIL_DESC_GOOGLE, Phone.MESSAGE_CONSTRAINTS_VALID_REGEX);
