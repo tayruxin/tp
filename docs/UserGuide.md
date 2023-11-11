@@ -42,7 +42,7 @@ If you are unsure about what each component does, you can refer to the table bel
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
 * To enhance your viewing experience, you can opt for full-screen mode in LinkMeIn! Nevertheless, even if you prefer not to use 
-full screen, rest assured that most of LinkMeIn;s feature will still function flawlessly. 
+full screen, rest assured that LinkMeIn's features will still function flawlessly. 
 </div>
 
 # Navigating the User Guide
@@ -400,9 +400,6 @@ Don't worry, just identify the missing parameter(s) and edit your input accordin
 
 ![img.png](images/add-command/AddCommandError2.png)
 
-* If you enter a company with the same company name, role and deadline as an existing company in LinkMeIn, you will see an error message in the command box informing you of the duplicate company.
-
-
 [&uarr; Back to Table of Contents](#table-of-contents)
 
 ### View full company information: `view`
@@ -536,9 +533,16 @@ use the `unremark` command to delete it._
 Directly use the remark command and it overwrites the old remark!
 </div>
 
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* You can unremark a company that already has no remarks.
+LinkMeIn does not check for the existence of a remark.
+The same message will be displayed regardless of whether a remark exists for a company.
+</div>
+
 **Examples:**
 
-**Step 1.** If you wish to delete the remark of Google, type `unremark 4`
+**Step 1.** If you wish to delete the remark of Google, type `unremark 2`
    ![UnremarkDemo1.png](images/remark-command/UnremarkDemo1.png)
 
 **Step 2.** You can view the remark the 1st company as shown below.
@@ -565,22 +569,28 @@ use the `edit` command to input the accurate details._
 >
 > At least one of the optional fields must be provided.
 
-**Examples:** 
+**Examples:**
 
-1. You received an email from Microsoft to interview for a Frontend Developer role instead, which is different from the Software Engineer role you applied for.
+**Step 1.** You received an email from Microsoft inviting you to interview for a Frontend Developer role, which differs from the Software Engineer role you initially applied for. 
 To edit the company's information, type `edit 2 s/PI r/Frontend Developer`
 
 ![EditDemo1.png](images/edit-command/EditDemo1.png)
-2. The status and role of the 2nd company in the list is edited to be Pending Interview and Frontend Developer respectively.
+
+**Step 2.** The status and role of the 2nd company in the list is edited to be Pending Interview and Frontend Developer respectively.
 
 ![EditDemo2.png](images/edit-command/EditDemo2.png)
 
-3. Go ahead and edit more companies on your own! 
+**Step 3.** Here are some other examples you can try to familiarise with the edit command! 
+
 
 **More examples:**
 - `edit 3 d/11-09-2025 pr/LOW`
+
+  Edits dateline and priority of 3rd company in the displayed list.
+  
 - `edit 1 n/Amy Tan e/amytan@gmail.com`
 
+  Edits recruiter's name and email of 1st company in the displayed list.
 
 **Possible Error:**
 
@@ -589,6 +599,28 @@ you will see an error message in the command box. Don’t worry, just edit your 
 try the command again!
 An example of an error message is shown below.
 ![EditErrMsg.png](images/edit-command/EditErrMsg.png)
+
+### Duplicate detection
+
+_Got an error message while trying to add a company twice? LinkMeIn has got you covered!_
+
+If you add an application with the same company name, role and deadline as an existing application in LinkMeIn, 
+you will see an error message in the command box informing you of the duplicate company.
+
+**Example:**
+Exact match of all fields
+![img.png](images/duplicate-detection/add-command/duplicate-exact-match.png)
+
+**Example:**
+Partial match of fields
+![img.png](images/duplicate-detection/add-command/duplicate-partial-match.png)
+
+If you edit an application into a duplicate application, with the same company, role and 
+deadline as an existing application in LinkMeIn, you will see an error message in the command box informing 
+you of the duplicate company.
+
+**Example:**
+![img.png](images/duplicate-detection/edit-command/duplicate-edit.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -675,6 +707,7 @@ If you enter an invalid prefix for the filter command, you will see an error mes
 ### Sort companies by their deadlines: `sort`
 
 _Want to see which application deadlines are coming up soon or which ones are far off? Use the `sort` command to
+arrange your list of applications based on their deadlines._
 arrange your list of applications based on their deadlines._
 
 **Format:** `sort SORT_ORDER`
