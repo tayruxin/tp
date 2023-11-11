@@ -3,8 +3,8 @@ layout: page
 title: Developer Guide
 ---
 
--   Table of Contents
-    {:toc}
+* Table of Contents
+{:toc}
 
 ---
 
@@ -522,16 +522,27 @@ application process, simplifying the pursuit of career opportunities.
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                      | I want to …​                           | So that I can…​                                                               |
-|----------|----------------------------------------------|----------------------------------------|-------------------------------------------------------------------------------|
-| `* * *`  | new user                                     | see usage instructions                 | refer to instructions when I forget how to use the App                        |
-| `* * *`  | user                                         | add a new company                      |                                                                               |
-| `* * *`  | user                                         | delete a company                       | remove entries that I no longer need                                          |
-| `* * *`  | user                                         | find a company by name                 | locate details of companies without having to go through the entire list      |
-| `* *`    | user with many companies in the address book | sort companies by application deadline | view applications with nearer or further deadlines easily to plan my schedule |
-| `* *`    | user                                         | hide private contact details           | minimize chance of someone else seeing them by accident                       |
+| Priority | As a …​                         | I want to …​                                                 | So that I can…​                                                                            |
+|----------|---------------------------------|--------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| `* * *`  | user                            | add a new company to LinkMeIn                                | manage my internship applications for that company                                         |
+| `* * *`  | thorough user                   | view the recruiter's information of a company                | follow up on my internship application                                                     |
+| `* * *`  | tidy user                       | delete a company                                             | ensure my list of companies remains organised by removing those I no longer wish to manage |
+| `* * *`  | user                            | list out all my companies                                    | have an overview of my internship applications                                             |
+| `* *`    | careless user                   | edit the details of a company                                | rectify any typographical errors in the company details                                    |
+| `* *`    | user managing many applications | find companies by their name                                 | locate details of companies without having to go through the entire list                   |
+| `* *`    | user managing many applications | sort companies by application deadline                       | view applications with nearer or further deadlines easily to plan my schedule              |
+| `* *`    | meticulous user                 | add remarks for a company                                    | keep track of specific notes, thoughts or important details related to that application    |
+| `* *`    | meticulous user                 | remove remarks for a company                                 | remove irrelevant information and keep my remarks up to date                               |
+| `* *`    | seasoned user                   | clear all data                                               | start afresh on a internship application cycle                                             |
+| `* *`    | user                            | exit the app quickly                                         | conclude my session and ensure the application is not running in the background            |
+| `* *`    | confused user                   | view a list of available CLI commands and their descriptions | learn more about the application's features                                                |
+| `* *`    | new user                        | access a list of sample data                                 | test the application out                                                                   |
+| `* *`    | seasoned user                   | filter companies by application status                       | focus on the most pertinent and relevant applications of interest                          |
+| `* *`    | careless user                   | check for duplicate entries before adding an entry           | avoid redundancy and maintain an accurate representation of my internship applications     |
+| `* `     | creative user                   | be able to change the theme of LinkMeIn                      | personalise the visual appearance of the interface based on my preferences                 |
+| `*`      | new user                        | import data from excel file                                  | easily switch from excel to LinkMeIn and continue tracking my internship applications      |
+| `*`      | new user                        | export data to excel file                                    | easily switch from LinkMeIn to excel and continue tracking my internship applications      |
 
-_{More to be added}_
 
 ### Use cases
 
