@@ -150,13 +150,12 @@ CLI is a means of interacting with a computer program by **inputting lines of te
 
 Do not be put off by its name! Read on to find out how simple CLI is in LinkMeIn.
 
-_Read a quick [introduction](#introducing-linkmeins-gui) to familiarise yourself with our user interface._
 <div style="margin-top: 10px; margin-bottom: 10px">
     <img src="images/cli-description/CliDescription1.png" alt="CliDescription1" width="650"/>
 </div>
 
 
-The Command box is where you input the command lines. After you press enter, LinkMeIn reads your input and replies you through the Message Box.
+The Command Box is where you input the command lines. After you press enter, LinkMeIn reads your input and replies you through the Message Box.
 In this process, you are interacting with our application through text and that is exactly how CLI works!
 Let's move on to learn how to write command lines and you are ready to try LinkMeIn!
 
@@ -169,6 +168,7 @@ A command line has 4 components, command word, index, prefix and parameter.
 | Index        | `1` `5`    | Indicates the company to be edited (e.g., 5th company in the list)                                                                                              |
 | Prefix       | `c/`       | Indicates the type of parameter to be edited (e.g., name)                                                                                                       |
 | Parameter    | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, are used to replace the `UPPER_CASE` letters in the command format |
+
 _You can find all the parameters used in LinkMeIn [here](#parameters-description)._
 
 We will be using the colour code below to highlight the different components to you.
@@ -183,7 +183,7 @@ Let's use the [`add` command](#adding-a-company--add) format as shown below to e
 
 `add` is the command word for add feature. Every command line must have a command word to indicate the feature you wish to use.
 The prefix specifies the parameter type. For example, `c/John` adds John as company name while `n/John` adds John as recruiter's name.
-Replace the `UPPER_CASE` parameters with your application details and you have successfully written a command line!
+Replace the parameters with your application details and you have successfully written a command!
 
 But wait! Notice the `[]` around `pr/PRIORITY`? 
 
@@ -204,14 +204,9 @@ Since `PRIORITY` parameter is optional, the following command lines are accepted
 * Parameters are case-insensitive. e.g. c/COMPANY_NAME is the same as c/company_name.
 </div>
 
-Notice that the `add` command does use `INDEX` in its command format. Each feature has a unique command format.
+Notice that the `add` command does not use `INDEX` in its command format. Each feature has a unique command format.
 You can find the command format for each feature in the [Features](#current-features) section
 or do a [quick tour](#introducing-linkmein-a-quick-tour) to get your hands on LinkMeIn.
-
-<div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
-* Find out how `INDEX` is used in the [delete](#deleting-a-company-delete) feature.
-</div>
 
 ---
 
@@ -586,11 +581,11 @@ To edit the company's information, type `edit 2 s/PI r/Frontend Developer`
 **More examples:**
 - `edit 3 d/11-09-2025 pr/LOW`
 
-  Edits dateline and priority of 3rd company in the displayed list.
+  Edits dateline and priority of the 3rd company in the displayed list.
   
 - `edit 1 n/Amy Tan e/amytan@gmail.com`
 
-  Edits recruiter's name and email of 1st company in the displayed list.
+  Edits recruiter's name and email of the 1st company in the displayed list.
 
 **Possible Error:**
 
