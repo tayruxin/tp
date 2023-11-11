@@ -198,6 +198,12 @@ Since `PRIORITY` parameter is optional, the following command lines are accepted
 - `add c/GovTech r/Software Engineer s/PA n/John Doe d/12-12-2023 e/johnDoe@gmail.com p/98765432 pr/medium`
 - `add c/GovTech r/Software Engineer s/PA n/John Doe d/12-12-2023 e/johnDoe@gmail.com p/98765432`
 
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* Parameters can be in any order. e.g. if the command specifies c/COMPANY_NAME r/ROLE, r/ROLE c/COMPANY_NAME is also acceptable.
+* Parameters are case-insensitive. e.g. c/COMPANY_NAME is the same as c/company_name.
+</div>
+
 Notice that the `add` command does use `INDEX` in its command format. Each feature has a unique command format.
 You can find the command format for each feature in the [Features](#current-features) section
 or do a [quick tour](#introducing-linkmein-a-quick-tour) to get your hands on LinkMeIn.
@@ -309,14 +315,6 @@ Here, you can access help, clear all entries, and gracefully exit LinkMeIn.
 add, view, edit, delete companies, as well as add your own remarks to companies. 
 - [Company List Features](#company-list-features): This section allows you to **interact with the list of companies,** thereby unlocking LinkMeIn's full potential. 
 Explore option to find, list, filter and sort companies, managing all companies with ease. 
-
-
-<div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
-* Parameters can be in any order. e.g. if the command specifies n/COMPANY_NAME r/ROLE, r/ROLE c/COMPANY_NAME is also acceptable.
-* Parameters are case-insensitive. e.g. c/COMPANY_NAME is the same as c/company_name.
-* Parameters with enclosing [ ] braces refer to it being OPTIONAL.
-</div>
 
 ## General Features
 
@@ -511,9 +509,9 @@ use the `remark` command to input these additional details._
 
 **Step 4.** Go ahead and add remarks for more companies on your own!
 
-   **More examples:**
-    - remark 3 re/interview went well!
-    - remark 4 re/$800 per month
+**More examples:**
+- `remark 3 re/interview went well!`
+- `remark 4 re/$800 per month`
 
 **Possible Error:**
 
@@ -548,7 +546,7 @@ Directly use the remark command and it overwrites the old remark!
 
 **Possible Error:**
 
-If you enter an [**invalid index**](#7-what-is-an-invalid-index),
+If you enter an [**invalid index**](#5-what-is-an-invalid-index),
 you will see an error message in the command box. Don’t worry, just edit your index accordingly and
 try the command again!
 An example of an error message is shown below.
@@ -579,9 +577,9 @@ To edit the company's information, type `edit 2 s/PI r/Frontend Developer`
 
 3. Go ahead and edit more companies on your own! 
 
-    **More examples:**
-    - edit 3 d/11-09-2025 pr/LOW
-    - edit 1 n/Amy Tan e/amytan@gmail.com
+**More examples:**
+- `edit 3 d/11-09-2025 pr/LOW`
+- `edit 1 n/Amy Tan e/amytan@gmail.com`
 
 
 **Possible Error:**
