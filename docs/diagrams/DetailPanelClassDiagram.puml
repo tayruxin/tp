@@ -3,7 +3,6 @@
 skinparam arrowThickness 1.1
 skinparam arrowColor UI_COLOR_T4
 skinparam classBackgroundColor UI_COLOR
-show members
 
 package UI <<Rectangle>>{
 Class MainWindow
@@ -20,8 +19,10 @@ Class HiddenModel #FFFFFF
 MainWindow *-down-> "1" CompanyDetailPanel
 CompanyDetailPanel *-down-> "0...1" CompanyDetailCard
 CompanyDetailCard -right..> Model
-MainWindow --|> UiPart
+MainWindow -left-|> UiPart
 CompanyDetailPanel -down-|> UiPart
 CompanyDetailCard -left-|> UiPart
+
+show CompanyDetailCard members
 
 @enduml

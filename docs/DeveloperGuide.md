@@ -170,7 +170,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 This section describes some noteworthy details on how certain features are implemented.
 
 ### 4.1 Company detail panel (UI component)
-The `CompanyDetailPanel` allows user to view the company details of the selected company in the company list.
+The `CompanyDetailPanel` allows the user to view the company details of the selected company in the company list.
 Recruiter's information, company's information and remarks will be shown in the company detail panel.
 
 #### 4.1.1 Implementation
@@ -183,14 +183,14 @@ In `CompanyDetailCard` the method `priorityFlowPane` is used to create a `FlowPa
 The color of the `FlowPane` is determined by the priority of the company. Red is used to indicate high priority,
 orange is used to indicate medium priority and green is used to indicate low priority. 
 
-As for the other information, FMXL labels are used to display the information. Within the constructor of `CompanyDetailCard`, 
+As for the other information, FXML labels are used to display the information. Within the constructor of `CompanyDetailCard`, 
 the respective FXML labels are set with the information of the company.
 
 To display the details in 3 different boxes, `CompanyDetailCard.fxml` is divided into 3 sections with each section 
 being a `VBox`. The 3 `VBox` are then added into a `HBox` to display the details in 3 different boxes.
 
 As for `CompanyDetailPanel`, there is an inner class `CompanyDetailViewCell` which extends `ListCell<Company>`. This class 
-setGraphics to the `CompanyDetailCard` by constructing a new `CompanyDetailCard` with the company details of the company.
+sets the graphics to the `CompanyDetailCard` by constructing a new `CompanyDetailCard` with the company details of the company.
 
 #### 4.1.2 Design Considerations
 
@@ -206,7 +206,7 @@ setGraphics to the `CompanyDetailCard` by constructing a new `CompanyDetailCard`
     -   Cons: The company list panel will be too cluttered with too much information displayed in a company card.
 
 ### 4.2 View Command
-The `CompanyDetailPanel` allows user to view the company details of the selected company in the company list.
+The `CompanyDetailPanel` allows the user to view the company details of the selected company in the company list.
 The user can use the `view` command to select the company to view.
 
 #### 4.2.1 Implementation
@@ -250,8 +250,8 @@ shown in the activity diagram below.
     -   Cons: There is a need to clear the list before adding the selected company to the `UniqueCompanyList` to ensure that only one company is displayed in the `CompanyDetailPanel` at any time.
 
 -   **Alternative 2:** Create a new `Company` object in `AddressBook` to store the selected company which the user wishes to view.
-    -   Pros: There is not a need to clear the list as there is not list involved. 
-    -   Cons: The `CompanyDetailPanel` will not be updated automatically when there is any changes made to the `Company`
+    -   Pros: Since there are no lists involved, there is no need to clear the list.  
+    -   Cons: The `CompanyDetailPanel` will not be updated automatically when there are any changes made to the `Company`
         object. There is a need to create additional methods to update the `CompanyDetailPanel` when there is any changes
         made to the `Company` object.
 
