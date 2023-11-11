@@ -148,7 +148,7 @@ In this section, you will learn how to set up LinkMeIn in your computer.
 LinkMeIn uses the Command Line Interface (CLI). 
 CLI is a means of interacting with a computer program by **inputting lines of text called command-lines**.
 
-Do not be put off by its name! Read on to find out how simple CLI is in LinkMeIn.
+Do not be put off by its name! Read on to find out how simple CLI is for LinkMeIn.
 
 <div style="margin-top: 10px; margin-bottom: 10px">
     <img src="images/cli-description/CliDescription1.png" alt="CliDescription1" width="650"/>
