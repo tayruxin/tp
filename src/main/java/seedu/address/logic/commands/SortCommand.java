@@ -2,8 +2,10 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import javafx.collections.ObservableList;
 import seedu.address.logic.SortOrder;
 import seedu.address.model.Model;
+import seedu.address.model.company.Company;
 
 /**
  * Sorts and lists all companies in the address book to the user by their deadlines.
@@ -33,7 +35,17 @@ public class SortCommand extends Command {
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        model.sortCompaniesByDeadline(sortOrder);
+
+        ObservableList<Company> companyList = model.getAddressBook().getCompanyList();
+        ObservableList<Company> sortedList = companyList.sorted((company1, company2) -> {
+            if (sortOrder == SortOrder.ASCENDING) {
+                return company1.getDeadline().compareTo(company2.getDeadline());
+            } else {
+                return company2.getDeadline().compareTo(company1.getDeadline());
+            }
+        });
+
+        model.setAllCompanies(sortedList);
         return new CommandResult(sortOrder == SortOrder.ASCENDING ? MESSAGE_SUCCESS_ASCENDING
                 : MESSAGE_SUCCESS_DESCENDING);
     }

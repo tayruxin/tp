@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
@@ -79,6 +80,13 @@ public interface Model {
      * book.
      */
     void setCompany(Company target, Company editedCompany);
+
+    /**
+     * Sets all the companies in the address book.
+     *
+     * @param companies the list of companies to be set.
+     */
+    void setAllCompanies(List<Company> companies);
 
     /**
      * Returns an unmodifiable view of the filtered company list.

@@ -1,6 +1,7 @@
 package seedu.address.logic.commands.stubs;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
@@ -72,6 +73,11 @@ public class ModelStub implements Model {
 
     @Override
     public void setCompany(Company target, Company editedCompany) {
+        throw new AssertionError("This method should not be called.");
+    }
+
+    @Override
+    public void setAllCompanies(List<Company> companies) {
         throw new AssertionError("This method should not be called.");
     }
 
