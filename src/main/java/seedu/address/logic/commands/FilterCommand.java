@@ -17,7 +17,7 @@ public class FilterCommand extends Command {
     public static final String COMMAND_WORD = "filter";
 
     public static final String MESSAGE_USAGE =
-            "Parameter: " + PREFIX_STATUS + "STATUS. Valid statuses are: PA, PI, PO, A, R\n"
+            "Format: " + COMMAND_WORD + " " + PREFIX_STATUS + "STATUS. Valid statuses are: PA, PI, PO, A, R\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_STATUS + "PA";
 
     public static final String MESSAGE_SUCCESS = "Filtered company list by application status: %1$s";
