@@ -72,7 +72,8 @@ throughout this user guide.
 
 Throughout this guide, you will also notice **various text styles**. Here's what each of them means:
 - _Represents possible scenarios that you can use a feature for (mainly in the feature sections)._
-- [Represents hyperlinks that you can click into, which will direct you to another section of this user guide or to a website.]()
+- [Represents hyperlinks that you can click into, which will direct you to another section of this user guide or to 
+  a website.](#)
 - `Represents content that you can type into the command box.`
 - > Represents the acceptable parameters that you can key into a command.
 
@@ -691,27 +692,31 @@ and suggest the correct keyword to use:
 
 Encountered an unfamiliar term when using LinkMeIn? Read the respective descriptions to better understand the term!
 
-| Term          | Definition                                                                                                                                                                                                                          |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **CLI**       | Command-Line Interface (CLI) is a text-based user interface where users interact with the application by typing commands.                                                                                                           |
-| **GUI**       | Graphical User Interface (GUI) is a visual method to interact with software using icons, buttons, and windows. GUI provides a user-friendly way to interact with software using graphical elements rather than text-based commands. |
-| **Command**   | A command is an instruction given by a user to LinkMeIn to perform a specific action. For example,`add` command is a command to add the company's application into LinkMeIn.                                                        |
-| **Parameter** | Parameter is similar to a field in a form you have to fill up. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/COMPANY_NAME` and `e/EMAIL` are parameters in the command.                                           |
-| **Prefix**    | Prefix is a keyword that is used to identify the parameter. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/` and `e/` are prefixes.                                                                                |
+| Term             | Definition                                                                                                                                                                                                                          |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Alphanumeric** | Alphanumeric refers to a character set that includes both letters and numbers. It includes the 26 letters of the English alphabet (both uppercase and lowercase) and the numbers 0 through 9.                                       |
+| **CLI**          | Command-Line Interface (CLI) is a text-based user interface where users interact with the application by typing commands.                                                                                                           |
+| **Command**      | A command is an instruction given by a user to LinkMeIn to perform a specific action. For example,`add` command is a command to add the company's application into LinkMeIn.                                                        |
+| **GUI**          | Graphical User Interface (GUI) is a visual method to interact with software using icons, buttons, and windows. GUI provides a user-friendly way to interact with software using graphical elements rather than text-based commands. |
+| **Index**        | Refers to the index number shown in the displayed company list                                                                                                                                                                      |
+| **JAR**          | JAR stands for Java Archive and is a package file format typically used to aggregate many Java class files and associated metadata and resources into one file for distribution.                                                    |
+| **JSON**         | JSON stands for JavaScript Object Notation. It is lightweight format for data interchange, easy to read and write for humans, and easy to parse for machines. Often used in web applications and configuration files.               |
+| **Parameter**    | Parameter is similar to a field in a form you have to fill up. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `COMPANY_NAME` and `EMAIL` are parameters in the command.                                               |
+| **Prefix**       | Prefix is a keyword that is used to identify the parameter. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/` and `e/` are prefixes.                                                                                |
 
 ### Parameters Description
 
-| Parameter            | Description                                   | Constraints                                                                                                             |
-|----------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| c/Company Name       | Name of the company that you are applying to. | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces). |
-| r/Role               | Role of the internship that you are applying. | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces). |
-| s/Application Status | Status of the application.                    | Case-insensitive. Refer to [Application Status Description](#application-status-description) for all possible inputs.   |
-| d/Deadline           | Deadline of the application.                  | Should be in DD-MM-YYYY format. Dates before the current date are allowed.                                              |
-| n/Recruiter Name     | Name of the recruiter.                        | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces). |
-| e/Email              | Email of the recruiter.                       | Should be in the format of [`local-part@domain`](#email-format-description) and should not be blank.                    |
-| p/Phone Number       | Phone number of the recruiter.                | Only contain numbers, be at least 3 digits and at most 20 digits long. Should not be blank.                             |
-| pr/Priority          | Priority of the application.                  | Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`.                                   |
-| re/Remark            | Remark of the application.                    | Should not be blank.                                                                                                    |
+| Parameter          | Description                                   | Constraints                                                                                                                     |
+|--------------------|-----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| COMPANY_NAME       | Name of the company that you are applying to. | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).         |
+| ROLE               | Role of the internship that you are applying. | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).         |
+| APPLICATION_STATUS | Status of the application.                    | Case-insensitive. Refer to [Application Status Description](#application-status-parameter-description) for all possible inputs. |
+| DEADLINE           | Deadline of the application.                  | Should be in DD-MM-YYYY format. Dates before the current date are allowed.                                                      |
+| RECRUITER_NAME     | Name of the recruiter.                        | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).         |
+| EMAIL              | Email of the recruiter.                       | Should be in the format of [`local-part@domain`](#email-format-description) and should not be blank.                            |
+| PHONE_NUMBER       | Phone number of the recruiter.                | Only contain numbers, be at least 3 digits and at most 20 digits long. Should not be blank.                                     |
+| PRIORITY           | Priority of the application.                  | Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`.                                           |
+| REMARK             | Remark of the application.                    | Should not be blank.                                                                                                            |
 
 
 <div markdown="block" class="alert alert-info">
@@ -775,7 +780,13 @@ Remember to download the Java 11 version.
 
 ### 3. How do I load data from another computer?
 
-Delete the `companydata.json` file (stored at `[JAR file location]/data/companydata.json`) from the computer that you wish to use LinkMeIn on. Then, copy over the `companydata.json` file from the computer which you no longer wish to use LinkMeIn on. After which, boot up LinkMeIn to check whether your doctor information is properly loaded into the new computer.
+Delete the `companydata.json` file stored at `[JAR file location]/data/companydata.json` from the computer that you 
+wish to use LinkMeIn on (refer to image below).
+
+![img.png](images/CompanyDataLocation.png)
+
+Then, copy over the `companydata.json` file from the other computer. And that's it! Just start LinkMeIn to 
+check whether your data is properly loaded into the new computer and you're good to go!
 
 ### 4. Why am I unable to run LinkMeIn?
 
@@ -786,14 +797,6 @@ Make sure you have Java 11 installed on your machine as the product only runs on
 An invalid index is a non-positive integer or an index greater than the number of companies you have.
 e.g -1, 0, a, \*, 1 0 (Only one index is allowed at a time). Positive index should not exceed the maximum allowed range
 of 2147483647.
-
-[&uarr; Back to Table of Contents](#table-of-contents)
-
----
-
-## Known issues
-
-To be updated.
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
