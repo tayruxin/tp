@@ -276,7 +276,7 @@ With the design considerations, we've chosen the alternatives that provide a bal
 
 ### 4.3 Filter Command
 
-The `filter` command allows user to filter the company list by the application status.
+The `filter` command allows users to filter the company list by the application status.
 
 #### 4.3.1 Implementation
 The `filter` command is implemented in the `FilterCommand` class, which uses the `ApplicationStatusPredicate` class. The `ApplicationStatusPredicate` class implements the `Predicate` interface, which allows it to be used in the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method.
@@ -303,13 +303,13 @@ The lifeline for `FilterCommandParser` should end at the destroy marker (X) but 
 
 **Aspect: UI of the Filter Command**
 
-* **Alternative 1:** The company details panel will still display the details of the company that was selected before the filter command is executed.
-  * Pros: Users can still view the details of the company in the company details panel alongside the filtered list of companies.
-  * Cons: Users may be confused as the currently viewed company in the company details panel may not be in the filtered list of companies.
+* **Alternative 1:** The `CompanyDetailPanel` will still display the details of the company that was selected before the `filter` command is executed.
+  * Pros: Users can still view the details of the company in the `CompanyDetailPanel` alongside the filtered list of companies.
+  * Cons: Users may be confused as the currently viewed company in the `CompanyDetailPanel` may not be in the filtered list of companies.
 
-* **Alternative 2 (current choice):** The company details panel will be cleared whenever the filter command is executed.
-  * Pros: Users can focus on viewing details of company belonging to the filtered list only, reducing distractions and confusions.
-  * Cons: Users might have to execute the `view` command again to access details of the company that is selected even if that company is in the filtered list, potentially leading to additional steps.
+* **Alternative 2 (current choice):** The `CompanyDetailPanel` will be cleared whenever the `filter` command is executed.
+  * Pros: Users can focus on viewing details of company(s) belonging to the filtered list only, reducing distractions and confusions.
+  * Cons: Users might have to execute the `view` command again to access details of the company that is selected before filtering even if that company is still in the filtered list, potentially leading to additional steps taken.
 
 ### 4.4 Edit feature
 
@@ -387,7 +387,7 @@ The following activity diagram will show how `RemarkCommand` can achieve the fun
     - Cons: Remarks may be accidentally deleted by empty input.
 
 ### 4.7 Add Command
-The `add` command allows users to add companies into LinkMeIn. The compulsory fields are the company's name, the application's role, status and deadline, and the recruiter's name, phone and email address. The optional field is the priority field. Fields can be added in any order.
+The `add` command allows users to add companies into LinkMeIn. The compulsory parameters are the company's name, the application's role, status and deadline, and the recruiter's name, phone and email address. The optional field is the priority field. Parameters can be added in any order.
 
 #### 4.7.1 Implementation
 Given below is an example usage scenario and how the `add` mechanism behaves at each step.
@@ -420,14 +420,14 @@ The following activity diagram shows how the `add` command works:
 <img src="images/AddActivityDiagram.png" alt="Add Activity Diagram"/>
 
 #### 4.7.2 Design Considerations
-**Aspect: Fields to be Added into Company**
+**Aspect: Parameters to be Added into Company**
 
-* **Alternative 1:** `Company` object only has company name, application role, and application deadline.
+* **Alternative 1:** A `Company` object only requires the company's name, application's role and deadline as parameters for `add` command.
     * Pros: Short and concise `add` command for users to type in. Easy for developers to implement with less code.
-    * Cons: Users may not be able to add in all the information they want to store in LinkMeIn, such as recruiter's information. Users may also be unable to keep track of which stage of their application they are at.
-* **Alternative 2 (current choice):** `Company` object also includes application status of user, recruiter's name, phone and email address. The priority field, which is the user's opinion of the application priority, is kept optional.
-    * Pros: Users can add in all the information at once, minimising the need to use other commands to do so, like `edit` command.
-    * Cons: Longer `add` command for users. Users may also not have recruiter's information at hand when they are adding in the company. As such, our planned enhancements will have the recruiter's name, phone and email as optional fields instead.
+    * Cons: Users may not be able to store necessary information in LinkMeIn, such as recruiter's information. Users may also be unable to keep track of which stage of the application they are at.
+* **Alternative 2 (Current Choice):** A `Company` object also includes application status, recruiter's name, phone and email address. The priority field, which is the user's opinion of the application priority, is kept optional.
+    * Pros: Users can add in all the information at once, minimising the need to use other commands to do so afterward, like using `edit` command.
+    * Cons: Longer `add` command for users. Users may also not have recruiter's information at hand when they are adding in the company into LinkMeIn.
 
 ### \[Proposed\] Undo/redo feature
 

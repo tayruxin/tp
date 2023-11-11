@@ -10,14 +10,11 @@ start
 'diamond we place it as the true branch instead.
 
 if () then ([input is valid])
-    :Construct Company object;
-    :Construct AddCommand object;
-    :Return back to LogicManager;
     :LogicManager executes AddCommand;
     if () then ([company already exists])
         :Display duplicate company error message;
     else ([else])
-        :Insert company to CompanyList;
+        :Insert company to list of companies;
         :Update UI;
     endif
 

@@ -7,6 +7,7 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":FilterCommandParser" as FilterCommandParser LOGIC_COLOR
+participant "p:ApplicationStatusPredicate" as ApplicationStatusPredicate MODEL_COLOR
 participant "f:FilterCommand" as FilterCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 
@@ -32,6 +33,13 @@ deactivate FilterCommandParser
 AddressBookParser -> FilterCommandParser : parse("s/pa")
 activate FilterCommandParser
 
+create ApplicationStatusPredicate
+FilterCommandParser -> ApplicationStatusPredicate
+activate ApplicationStatusPredicate
+
+ApplicationStatusPredicate --> FilterCommandParser
+deactivate ApplicationStatusPredicate
+
 create FilterCommand
 FilterCommandParser -> FilterCommand
 activate FilterCommand
@@ -51,7 +59,7 @@ deactivate AddressBookParser
 LogicManager -> FilterCommand : execute()
 activate FilterCommand
 
-FilterCommand -> Model : filterCompaniesByStatus(predicate)
+FilterCommand -> Model : filterCompaniesByStatus(p)
 activate Model
 
 Model -->FilterCommand
