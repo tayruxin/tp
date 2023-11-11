@@ -14,8 +14,6 @@ end box
 
 box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
-participant ":Addressbook" as Addressbook MODEL_COLOR
-participant "currentViewedCompany:UniqueCompanyList" as UniqueCompanyList MODEL_COLOR
 end box
 
 [-> LogicManager : execute("view 1")
@@ -56,16 +54,7 @@ activate ViewCommand
 ViewCommand -> Model : setCurrentViewedCompany(Company company)
 
 activate Model
-Model -> Addressbook : setCurrentViewedCompany(Company company)
 
-activate Addressbook
-Addressbook -> UniqueCompanyList: currentViewedCompany.clear()
-activate UniqueCompanyList
-Addressbook -> UniqueCompanyList: currentViewedCompany.add(company)
-UniqueCompanyList --> Addressbook
-deactivate UniqueCompanyList
-Addressbook --> Model
-deactivate Addressbook
 Model --> ViewCommand
 deactivate Model
 
@@ -78,8 +67,6 @@ deactivate CommandResult
 
 ViewCommand --> LogicManager : result
 deactivate ViewCommand
-
-deactivate Addressbook
 
 [<--LogicManager
 deactivate LogicManager
