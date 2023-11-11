@@ -145,6 +145,67 @@ In this section, you will learn how to set up LinkMeIn in your computer.
 
 # Using LinkMeIn's CLI
 
+LinkMeIn uses the Command Line Interface (CLI). 
+CLI is a means of interacting with a computer program by **inputting lines of text called command-lines**.
+
+Do not be put off by its name! Read on to find out how simple CLI is in LinkMeIn.
+
+_Read a quick [introduction](#introducing-linkmeins-gui) to familiarise yourself with our user interface._
+<div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/cli-description/CliDescription1.png" alt="CliDescription1" width="650"/>
+</div>
+
+
+The Command box is where you input the command lines. After you press enter, LinkMeIn reads your input and replies you through the Message Box.
+In this process, you are interacting with our application through text and that is exactly how CLI works!
+Let's move on to learn how to write command lines and you are ready to try LinkMeIn!
+
+## Command Format
+A command line has 4 components, command word, index, prefix and parameter.
+
+| Component    | Example    | Description                                                                                                                                                     |
+|--------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command word | `add`      | Indicates the feature to be executed                                                                                                                            |
+| Index        | `1` `5`    | Indicates the company to be edited (e.g., 5th company in the list)                                                                                              |
+| Prefix       | `c/`       | Indicates the type of parameter to be edited (e.g., name)                                                                                                       |
+| Parameter    | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, are used to replace the `UPPER_CASE` letters in the command format |
+_You can find all the parameters used in LinkMeIn [here](#parameters-description)._
+
+We will be using the colour code below to highlight the different components to you.
+<div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/cli-description/CommandFormat1.png" alt="CommandFormat1" width="650"/>
+</div>
+
+Let's use the [`add` command](#adding-a-company--add) format as shown below to explain the components. 
+<div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/cli-description/CommandFormat2.png" alt="CommandFormat2" width="650"/>
+</div>
+
+`add` is the command word for add feature. Every command line must have a command word to indicate the feature you wish to use.
+The prefix specifies the parameter type. For example, `c/John` adds John as company name while `n/John` adds John as recruiter's name.
+Replace the `UPPER_CASE` parameters with your application details and you have successfully written a command line!
+
+But wait! Notice the `[]` around `pr/PRIORITY`? 
+
+| Symbol  | Description      | Example          | Interpretation                                        |
+|---------|------------------|------------------|-------------------------------------------------------|
+| None    | Compulsory field | `C/COMPANY_NAME` | The company's name is required when adding a company  |
+| `[ ]`   | Optional field   | `[pr/PRIORITY]`  | Not a must to indicate priority when adding a company |
+
+Since `PRIORITY` parameter is optional, the following command lines are accepted.
+
+**Example:**
+- `add c/GovTech r/Software Engineer s/PA n/John Doe d/12-12-2023 e/johnDoe@gmail.com p/98765432 pr/medium`
+- `add c/GovTech r/Software Engineer s/PA n/John Doe d/12-12-2023 e/johnDoe@gmail.com p/98765432`
+
+Notice that the `add` command does use `INDEX` in its command format. Each feature has a unique command format.
+You can find the command format for each feature in the [Features](#current-features) section
+or do a [quick tour](#introducing-linkmein-a-quick-tour) to get your hands on LinkMeIn.
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* Find out how `INDEX` is used in the [delete](#deleting-a-company-delete) feature.
+</div>
 
 ---
 
