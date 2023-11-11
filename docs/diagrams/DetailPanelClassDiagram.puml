@@ -1,0 +1,27 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor UI_COLOR_T4
+skinparam classBackgroundColor UI_COLOR
+show members
+
+package UI <<Rectangle>>{
+Class MainWindow
+Class CompanyDetailPanel
+Class CompanyDetailCard {
+Company company
+priorityFlowPane() : void
+}
+Class "{abstract}\nUiPart" as UiPart
+}
+package Model <<Rectangle>> {
+Class HiddenModel #FFFFFF
+}
+MainWindow *-down-> "1" CompanyDetailPanel
+CompanyDetailPanel *-down-> "0...1" CompanyDetailCard
+CompanyDetailCard -right..> Model
+MainWindow --|> UiPart
+CompanyDetailPanel -down-|> UiPart
+CompanyDetailCard -left-|> UiPart
+
+@enduml

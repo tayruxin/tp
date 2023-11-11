@@ -170,37 +170,27 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 This section describes some noteworthy details on how certain features are implemented.
 
 ### 4.1 Company detail panel (UI component)
-
 The `CompanyDetailPanel` allows user to view the company details of the selected company in the company list.
-The user can use the `view` command to select the company to view.
+Recruiter's information, company's information and remarks will be shown in the company detail panel.
 
 #### 4.1.1 Implementation
+`CompanyDetailCard` and `CompanyDetailPanel` both inheriting `UiPart` are used to display the company details. More details 
+of the class implementation can be seen in the class diagram below.
 
-The company detail panel UI component is achieved by creating a new `UniqueCompanyList` in `AddressBook` to
-store the selected company which the user wishes to view. Additionally, the following operations are implemented in
-`AddressBook` to support the `view` and other commands:
+<img src="images/DetailPanelClassDiagram.png" />
 
--   `setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed.
--   `clearDetailPanel()` - Clears the `UniqueCompanyList` to remove the selected company from the company detail panel.
+In `CompanyDetailCard` the method `priorityFlowPane` is used to create a `FlowPane` to display the priority of the company.
+The color of the `FlowPane` is determined by the priority of the company. Red is used to indicate high priority,
+orange is used to indicate medium priority and green is used to indicate low priority. 
 
-These operations are exposed in the `Model` interface as `Model#setCurrentViewedCompany(Company company)` and
-`Model#checkDelete()` respectively.
+As for the other information, FMXL labels are used to display the information. Within the constructor of `CompanyDetailCard`, 
+the respective FXML labels are set with the information of the company.
 
-The `view` function is implemented in the `ViewCommand` class which calls `Model#setCurrentViewedCopany(Company company)`
-to insert the selected company into the `UniqueCompanyList`.
-The follow sequence diagram depicts how the `view` command is executed.
+To display the details in 3 different boxes, `CompanyDetailCard.fxml` is divided into 3 sections with each section 
+being a `VBox`. The 3 `VBox` are then added into a `HBox` to display the details in 3 different boxes.
 
-<img src="images/ViewSequenceDiagram.png" />
-
-Since only the detail of one company will be displayed anytime, `Model#setCurrentViewedCopany(Company company)` will
-clear the `UniqueCompanyList` before inserting the selected company.
-Since `UniqueCompanyList` is an observable list, the `CompanyDetailPanel` will be updated automatically
-when there is any changes made to the `UniqueCompanyList`
-
-When the `edit`, `add`, `view` or `delete` command is executed, the `CompanyDetailPanel` will be updated respectively as
-shown in the activity diagram below.
-
-<img src="images/CompanyDetailPanelActivityDiagram.png" width="400"/>
+As for `CompanyDetailPanel`, there is an inner class `CompanyDetailViewCell` which extends `ListCell<Company>`. This class 
+setGraphics to the `CompanyDetailCard` by constructing a new `CompanyDetailCard` with the company details of the company.
 
 #### 4.1.2 Design Considerations
 
@@ -215,6 +205,43 @@ shown in the activity diagram below.
     -   Pros: User does not need to key in additional commands to view the details of the company.
     -   Cons: The company list panel will be too cluttered with too much information displayed in a company card.
 
+### 4.2 View Command
+The `CompanyDetailPanel` allows user to view the company details of the selected company in the company list.
+The user can use the `view` command to select the company to view.
+
+#### 4.2.1 Implementation
+A new `UniqueCompanyList` is created in `AddressBook` to store the selected company which the user wishes to view. 
+Additionally, the following operations are implemented in `AddressBook` to support the `view` and other commands:
+
+-   `setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed.
+-   `clearDetailPanel()` - Clears the `UniqueCompanyList` to remove the selected company from the company detail panel.
+
+These operations are exposed in the `Model` interface as `Model#setCurrentViewedCompany(Company company)` and
+`Model#checkDelete()` respectively.
+
+The `view` function is implemented in the `ViewCommand` class which calls `Model#setCurrentViewedCopany(Company company)`
+to insert the selected company into the `UniqueCompanyList`.
+The follow sequence diagram depicts how the `view` command is executed.
+
+<img src="images/ViewSequenceDiagram.png" />
+
+<div markdown="block" class="alert alert-info">
+ **:information_source: Note:**
+ The lifeline for `ViewCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+ </div>
+
+Since only the detail of one company will be displayed anytime, `Model#setCurrentViewedCopany(Company company)` will
+clear the `UniqueCompanyList` before inserting the selected company.
+Since `UniqueCompanyList` is an observable list, the `CompanyDetailPanel` will be updated automatically
+when there is any changes made to the `UniqueCompanyList`.
+
+When the `edit`, `add`, `view` or `delete` command is executed, the `CompanyDetailPanel` will be updated respectively as
+shown in the activity diagram below.
+
+<img src="images/CompanyDetailPanelActivityDiagram.png" width="400"/>
+
+#### 4.2.2 Design Considerations
+
 **Aspect: How the company to be viewed is stored in the `AddressBook`**
 
 -   **Alternative 1 (current choice):** Create a new `UniqueCompanyList` in `AddressBook` to store the selected company which the user wishes to view.
@@ -223,14 +250,14 @@ shown in the activity diagram below.
     -   Cons: There is a need to clear the list before adding the selected company to the `UniqueCompanyList` to ensure that only one company is displayed in the `CompanyDetailPanel` at any time.
 
 -   **Alternative 2:** Create a new `Company` object in `AddressBook` to store the selected company which the user wishes to view.
-    -   Pros: It is intuitive to create a new `Company` object to store the selected company which the user wishes to view.
+    -   Pros: There is not a need to clear the list as there is not list involved. 
     -   Cons: The `CompanyDetailPanel` will not be updated automatically when there is any changes made to the `Company`
         object. There is a need to create additional methods to update the `CompanyDetailPanel` when there is any changes
         made to the `Company` object.
 
-### 4.2 Find command
+### 4.3 Find command
 
-#### 4.2.1 Implementation
+#### 4.3.1 Implementation
 
 The `find` command allows users to search for companies using one or more keywords. Companies matching any of the keywords in their names will be returned. This search is case-insensitive, and partial matches are valid. The critical change in the implementation centers around the modification of the `NameContainsKeywordsPredicate` class.
 
@@ -246,7 +273,7 @@ The sequence diagram below illustrates the processing of a `find` command, such 
 
 > :information_source: **Note:** The above sequence diagram simplifies the interaction by focusing on the primary components involved in processing the `find` command.
 
-#### 4.2.2 Design considerations:
+#### 4.3.2 Design considerations:
 
 **Aspect: Approach to matching keywords**
 
@@ -274,21 +301,21 @@ The sequence diagram below illustrates the processing of a `find` command, such 
 
 With the design considerations, we've chosen the alternatives that provide a balance between user-friendliness and precision.
 
-### 4.3 Filter Command
+### 4.4 Filter Command
 
 The `filter` command allows user to filter the company list by the application status. The following sequence diagram
 will illustrate the process of performing the `filter` command.
 
 <img src="images/FilterSequenceDiagram.png"/>
 
-#### 4.3.1 Implementation
+#### 4.4.1 Implementation
 
 The `filter` function is implemented in the `FilterCommand` class and uses the `FilterCommandParser` class to parse the
 arguments. The predicate class implementing `Predicate<Company>` is `ApplicationStatusPredicate`.
 - `ApplicationStatusPredicate` - Predicate to check if the company's application status is the same as the application
   status specified in the command.
 
-#### 4.3.2 Design Considerations
+#### 4.4.2 Design Considerations
 
 **Aspect: UI of the filter command**
 
@@ -303,9 +330,9 @@ arguments. The predicate class implementing `Predicate<Company>` is `Application
     - Cons: Users may be confused as the currently viewed company in the company details panel may not be in the
       filtered list of companies.
 
-### 4.4 Edit feature
+### 4.5 Edit feature
 
-#### 4.4.1 Implementation
+#### 4.5.1 Implementation
 The edit mechanism is facilitated by `EditCompanyDescriptor`. It is a nested class of `EditCommand` that stores the edited fields of a company and unedited fields to be `null`.
 Additionally, `EditCommand` implements the following operations:
 
@@ -320,7 +347,7 @@ After the `EditCommandParser` initializes an `EditCompanyDescriptor` object, it 
 When `EditCommand#execute()` is called, a `Company` object, `c`, with edited attributes is initialized since `Company` is immutable.
 When `Model#setCompany(Company company)` is called, the original `Company` object in the `AddressBook` is replaced with the edited Company `c`.
 
-#### 4.4.2 Design considerations:
+#### 4.5.2 Design considerations:
 
 **Aspect: How to edit different attributes of a company**
 
@@ -332,20 +359,20 @@ When `Model#setCompany(Company company)` is called, the original `Company` objec
     * Pros: Command line is shorter which reduces users' error such as duplicates or invalid command. This improves user experience.
     * Cons: We must ensure that the implementation of each individual command are correct. This may also require more memory usage, a Company object is initialized for every modified attribute.
 
-### 4.5 Delete Command
+### 4.6 Delete Command
 
 The `delete` command allows user to delete a company using the observed index (one-based index) of the company.
 The following sequence diagram will illustrate the process of performing the `delete` command.
 
 <img src="images/DeleteCompanySequenceDiagram.png"/>
 
-#### 4.5.1 Implementation
+#### 4.6.1 Implementation
 
 The `delete` function is implemented in the `DeleteCommand` class and uses the `DeleteCommandParser` class to parse the
 arguments. The LogicManger#execute() method will retrieve the filtered company list from the model, perform zero-based
 indexing to the supplied Index, get the company associated with the index and requests model to `delete` the company.
 
-#### 4.5.2 Design Considerations
+#### 4.6.2 Design Considerations
 **Aspect: Coupling between `DeleteCommand` and `FilterCommand`**
 - **Alternative:** The delete function can be performed by the `DeleteCommand` class without having to
   retrieve the filtered company list from the model.
@@ -358,18 +385,18 @@ indexing to the supplied Index, get the company associated with the index and re
     - Pros: The user does not need to remember the index of the company to be deleted.
     - Cons: The user may enter the wrong company name to be deleted.
 
-### 4.6 Remark Command
+### 4.7 Remark Command
 
 The `remark` command allows user to add and delete a remark from a company.
 
-#### 4.6.1 Implementation
+#### 4.7.1 Implementation
 
 Unlike other `Command` class, the `RemarkCommand` class has two `COMMAND_WORD` - remark and unremark. 
 Hence, it is a dependency for two `Parser` - `RemarkCommandParser` and `UnremarkCommandParser`. 
 The following activity diagram will show how `RemarkCommand` can achieve the functionality of both `COMMAND_WORD`.
 <img src="images/RemarkActivityDiagram.png"/>
 
-#### 4.6.2 Design Considerations
+#### 4.7.2 Design Considerations
 **Aspect: How adding/editing of Remark is implemented**
 - **Alternative 1 (current choice):** Use two `COMMAND_WORD`
     - Pros: More specific commands allow for better error handling i.e empty remark can be considered invalid input, thus more defensive programming
