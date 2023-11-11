@@ -179,7 +179,7 @@ of the class implementation can be seen in the class diagram below.
 
 <img src="images/DetailPanelClassDiagram.png" />
 
-In `CompanyDetailCard` the method `priorityFlowPane` is used to create a `FlowPane` to display the priority of the company.
+`CompanyDetailCard` calls the static method `createPriorityFlowPane` from `CompanyCardUtils` which creates a `FlowPane` to display the priority of the company.
 The color of the `FlowPane` is determined by the priority of the company. Red is used to indicate high priority,
 orange is used to indicate medium priority and green is used to indicate low priority. 
 

@@ -7,22 +7,24 @@ skinparam classBackgroundColor UI_COLOR
 package UI <<Rectangle>>{
 Class MainWindow
 Class CompanyDetailPanel
-Class CompanyDetailCard {
-Company company
-priorityFlowPane() : void
-}
+Class CompanyDetailCard
 Class "{abstract}\nUiPart" as UiPart
+Class CompanyCardUtils {
+<u> createPriorityFlowPane(Company, Boolean) : FlowPane
+}
 }
 package Model <<Rectangle>> {
 Class HiddenModel #FFFFFF
 }
-MainWindow *-down-> "1" CompanyDetailPanel
+
+MainWindow *-right-> "1" CompanyDetailPanel
 CompanyDetailPanel *-down-> "0...1" CompanyDetailCard
 CompanyDetailCard -right..> Model
-MainWindow -left-|> UiPart
+MainWindow -down-|> UiPart
 CompanyDetailPanel -down-|> UiPart
-CompanyDetailCard -left-|> UiPart
+CompanyDetailCard -down-|> UiPart
+CompanyDetailCard .down.> CompanyCardUtils
 
-show CompanyDetailCard members
+show CompanyCardUtils members
 
 @enduml
