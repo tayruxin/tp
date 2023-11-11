@@ -23,38 +23,36 @@ The code that I have contributed can be found in this [RepoSense link](https://n
 
 ## Enhancements implemented: 
 
-### 1. Implemented the view command.
-Created a new command class `ViewCommand` to handle the view command. A new parser class `ViewCommandParser` was created to handle the parsing of the view command.
+**1. Implemented the view command.**
 
+Created a new command class `ViewCommand` to handle the view command. A new parser class `ViewCommandParser` was created to handle the parsing of the view command. 
 Furthermore, a new UniqueCompanyList was created in `AddressBook` to store the 
-filtered company list which will contain the company that the user wish to view. This ObservableList was passed to the GUI to display the company that the user wish to view.
-New methods were added to `model` which will edit the `UniqueCompanyList` to contain the company that the user wish to view.
+filtered company list which will contain the company that the user wish to view. Test cases were added to test the view command.
 
-Test cases were added to test the view command.
+**2. Enhance error message for invalid index**
 
-### 2. Enhance error message for invalid index
 Previously, when checking for invalid index, the error message is the same regardless of whether the index is out of bounds or the index is not a positive integer.
 
 I have enhanced the error message to be more specific to the error. I have added new methods in `String.util` to check if the index passed is an integer with the 
-`isInteger` method. Currently, there are 3 error messages for invalid index. 1 for when the index is larger than the number of company that the user have, 1 for 
-when the integer is not a positive integer and 1 for when the index is not an integer. 
+`isInteger` method.
 
-### 3. Added the company detail panel and company detail card to the GUI.
+**3. Added the company detail panel and company detail card to the GUI.**
+
 Previously, the GUI only shows the list of companies that the user have. I have added a `CompanyDetailPanel` which extends `UiPart<Region>` to the GUI. 
 Furthermore, I have added `CompanyDetailPanel.fxml` to the GUI. 
 
 
-### 4. Added the priority field to company model.
+**4. Added the priority field to company model.**
+
 A new priority field was added to the company model. I have made the priority filed optional. When the user adds a company 
 without indicated the priority, the priority will be set to `none`.
 
-Furthermore, I have edited the GUI such that, a high priority will have a red flowpane, a medium priority will have an orange 
-flowpane and a low priority will have a green flowpane.This check was done in the `CompanyDetailCard` class with a switch-case. 
+**5. Added the application status field to company model.** 
 
-### 5. Added the application status field to company model. 
 A new application status field was added to the company model. The application status is an enums with 5 possible values. 
 
-### 6. Delete address field from the company model.
+**6. Delete address field from the company model.**
+
 The address field was deleted from the company model as the address field was not used in any of the commands. Address field was also removed in all the various 
 test cases.
 
