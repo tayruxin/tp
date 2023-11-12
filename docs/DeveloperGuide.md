@@ -515,7 +515,7 @@ Use case ends.
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input.
   * 1a1. LinkMeIn displays an error message. 
-  * 1a2. User enters a new command. <br>
+  * 1a2. User enters a new command to list all companies. <br>
   Use case resumes from Step 1.
 
 
@@ -662,7 +662,7 @@ Use case ends.
 
 **MSS** <br>
 1. User requests for help to use LinkMeIn. 
-2. LinkMeIn displays a link to the user guide. <br>
+2. LinkMeIn displays a window with a link to the user guide. <br>
 Use case ends.
 
 **Extensions** <br>
