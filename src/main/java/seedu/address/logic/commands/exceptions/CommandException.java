@@ -21,12 +21,12 @@ public class CommandException extends Exception {
      * Represents an error when a duplicate company is added. Duplicate company refers to
      * companies with the same name field and the same role field.
      */
-    public static class DuplicateCompanyException extends CommandException {
+    public static class DuplicateException extends CommandException {
         /**
-         * Constructs a new {@code DuplicateCompanyException} with the specified detail {@code message}.
+         * Constructs a new {@code DuplicateException} with the specified detail {@code message}.
          * This is to be used for user interaction for the ADD AND EDIT command.
          */
-        public DuplicateCompanyException(String message) {
+        public DuplicateException(String message) {
             super(message);
         }
     }

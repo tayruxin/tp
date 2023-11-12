@@ -102,7 +102,7 @@ public class Messages {
      * @param company
      * @return string representing the error message
      */
-    public static String getErrorMessageForDuplicateCompanyEditCommand(Company company) {
+    public static String getDupErrMsgEdit(Company company) {
         return String.format(MESSAGE_DUPLICATE_COMPANY_EDIT_COMMAND,
                 company.getName(), company.getRole(), company.getDeadline());
     }

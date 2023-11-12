@@ -3,8 +3,8 @@ layout: page
 title: Developer Guide
 ---
 
--   Table of Contents
-    {:toc}
+Table of Contents
+{:toc}
 
 ---
 
@@ -332,31 +332,58 @@ When `Model#setCompany(Company company)` is called, the original `Company` objec
     * Pros: Command line is shorter which reduces users' error such as duplicates or invalid command. This improves user experience.
     * Cons: We must ensure that the implementation of each individual command are correct. This may also require more memory usage, a Company object is initialized for every modified attribute.
 
-### 4.5 Delete Command
+### 4.5 Duplicate detection
 
-The `delete` command allows user to delete a company using the observed index (one-based index) of the company.
-The following sequence diagram will illustrate the process of performing the `delete` command.
-
-<img src="images/DeleteCompanySequenceDiagram.png"/>
+<img src="images/duplicate-detection/edit-command/DuplicateSequenceDiagram.png"/>
 
 #### 4.5.1 Implementation
+The term _duplicate_ hereafter refers to companies with the same company name, role and deadline
 
-The `delete` function is implemented in the `DeleteCommand` class and uses the `DeleteCommandParser` class to parse the
-arguments. The LogicManger#execute() method will retrieve the filtered company list from the model, perform zero-based
-indexing to the supplied Index, get the company associated with the index and requests model to `delete` the company.
+The _duplicate_ detection mechanism is facilitated by `Company#isSameCompany(Company otherCompany)`.
+This method is used by `AddCommand` and `EditCommand` to check if the company to be added or edited already exists
+in the company list.
+
+The above sequence diagram shows the events when a user attempts to **edit** the details of an existing company,
+namely the company name, role and deadline fields to match that of another company in the company list. 
+The purpose of the diagram is a **simplified** view of the message passing when a _duplicate_ company is detected.
+
+Therefore, the diagram omits the following
+1. The `if` statement in the `EditCommand` class that checks if the edited company is the same as the company to be 
+edited before the call to `getDuplicateCompany(c)`. This is removed as the purpose of the diagram is to show the message 
+passing **after** a duplicate company is detected.
+1. The `if` statements in the `isSameCompany` method checking for strict equality with `this` and company d with`null`.
+This is removed to simplify the diagram and not show the inner-workings of the method in detail.
+1. The `equals` method propagated after the `getName()`, `getRole()` and `getDeadline()` methods. Again, this would
+involve the details of the equality checks of the `Name`, `Role` and `Deadline` classes which is not the focus of the 
+diagram.
+1. The instantiation of the `CommandException` class through the `super` call from `DuplicateException` class. 
+This is removed to simplify the diagram.
+
+Below is an activity diagram showing the events when a user attempts to **add** a duplicate company to the company list.
+
+<img src="images/duplicate-detection/add-command/DuplicateActivityDiagram.png"/>
+
+The purpose of the diagram is to show the difference in the message passing when a duplicate company is detected
+between the `AddCommand` and `EditCommand` classes. Therefore, the diagram omits the propagation of the 
+getDuplicateCompany(toAdd) method, which has already been shown in the sequence diagram prior.
 
 #### 4.5.2 Design Considerations
-**Aspect: Coupling between `DeleteCommand` and `FilterCommand`**
-- **Alternative:** The delete function can be performed by the `DeleteCommand` class without having to
-  retrieve the filtered company list from the model.
-    - Pros: The `DeleteCommand` class will be simpler and easier to understand.
-    - Cons: The `DeleteCommand` class will be tightly coupled with the `FilterCommand` class.
+**Aspect: Change the location of the duplicate detection**
+- **Alternative:** Implement the duplicate detection logic within the `AddCommandParser` or `EditCommandParser` classes.
+    - Pros: The `execute` method's sole responsibility will be to execute the add or edit command without 
+needing to handle duplicate detection logic, adhering to the Single Responsibility Principle.
+    - Cons: The current architecture design dictates that `Model` be separate from `Logic`. The interaction
+between `Model` and `Logic` is through the `execute` method. Implementing the duplicate detection in the 
+`Parser` classes will require the `Parser` classes to have access to the `Model` class, which violates the
+current architecture design.
 
-**Aspect: Type of company deletion input from the user**
-- **Alternative:** Instead of one-based index input from the user, require the user to enter the company name
-  to be deleted.
-    - Pros: The user does not need to remember the index of the company to be deleted.
-    - Cons: The user may enter the wrong company name to be deleted.
+**Aspect: Change the definition of a _duplicate_**
+- **Alternative:** Define _duplicates_ as equivalence of all fields other than just `Name`, `Role` and `Deadline`.
+    - Pros: Allows users to add companies with the same name, role and deadline but different contact details.
+    - Cons: This approach does not align with real-world scenarios where if the Name, Role, and Deadline fields 
+are identical, it likely indicates the same job application. The purpose of the duplicate detection is to prevent 
+interns from inadvertently applying multiple times to the same position at a company with the same role and 
+application deadline. 
 
 ### 4.6 Remark Command
 

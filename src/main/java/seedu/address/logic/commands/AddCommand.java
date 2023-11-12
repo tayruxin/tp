@@ -71,7 +71,7 @@ public class AddCommand extends Command {
 
             String allChangedFields = toAdd.listAllChangedFields(duplicateCompany);
 
-            throw new CommandException.DuplicateCompanyException(
+            throw new CommandException.DuplicateException(
                     Messages.getErrorMessageForDuplicateCompanyAddCommand(
                     duplicateCompany, indexOfDuplicateCompany, allChangedFields,
                             inFilteredList));
