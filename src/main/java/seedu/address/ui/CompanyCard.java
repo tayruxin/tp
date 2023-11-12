@@ -1,9 +1,10 @@
 package seedu.address.ui;
 
+import static seedu.address.ui.CompanyCardUtils.createPriorityFlowPane;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.address.model.company.Company;
 
@@ -25,23 +26,15 @@ public class CompanyCard extends UiPart<Region> {
     public final Company company;
 
     @FXML
-    private HBox cardPane;
-    @FXML
     private Label name;
     @FXML
     private Label id;
-    @FXML
-    private Label phone;
-    @FXML
-    private Label email;
     @FXML
     private Label role;
     @FXML
     private Label deadline;
     @FXML
     private Label status;
-    @FXML
-    private Label recruiterName;
     @FXML
     private FlowPane priority;
 
@@ -56,37 +49,6 @@ public class CompanyCard extends UiPart<Region> {
         role.setText(company.getRole().jobRole);
         deadline.setText(company.getDeadline().toString());
         status.setText(company.getStatus().getDescription());
-        priorityFlowPane(company);
+        priority.getChildren().add(createPriorityFlowPane(company, false));
     }
-
-    private void priorityFlowPane(Company company) {
-        if (!company.getPriority().priority.equals("NONE")) {
-            FlowPane priorityPane = new FlowPane();
-
-            Label priorityValue = new Label(company.getPriority().priority);
-
-            String backgroundColor;
-
-            switch (company.getPriority().priority) {
-            case "HIGH":
-                backgroundColor = "#990000"; // Dark red
-                break;
-            case "MEDIUM":
-                backgroundColor = "#FF8000"; // Dark orange
-                break;
-            case "LOW":
-                backgroundColor = "#006400"; // Dark green
-                break;
-            default:
-                backgroundColor = "#444444"; // Dark gray (default)
-                break;
-            }
-
-            priorityValue.setStyle("-fx-background-color: " + backgroundColor);
-
-            priorityPane.getChildren().addAll(priorityValue);
-            priority.getChildren().add(priorityPane);
-        }
-    }
-
 }
