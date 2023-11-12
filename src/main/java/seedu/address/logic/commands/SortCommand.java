@@ -23,15 +23,12 @@ public class SortCommand extends Command {
     public static final String MESSAGE_SUCCESS_ASCENDING = "Sorted all companies by their deadlines in ascending order";
     public static final String MESSAGE_SUCCESS_DESCENDING = "Sorted all companies by their deadlines in descending "
             + "order";
-
-    private static final Logger logger = LogsCenter.getLogger(SortCommand.class);
+    public static final String MESSAGE_INVALID_SORT_ORDER = "Oops! You have entered an invalid sort order. "
+            + "Please try again with a valid sort order! \n%1$s";
 
     public static final String MESSAGE_USAGE = "Valid ascending sort orders: a, asc, ascending. Valid descending "
             + "sort orders:  d, desc, descending, \n" + "Example: " + COMMAND_WORD + " ascending";
-
-
-    public static final String MESSAGE_INVALID_SORT_ORDER = "Oops! You have entered an invalid sort order. "
-            + "Please try again with a valid sort order! \n%1$s";
+    private static final Logger logger = LogsCenter.getLogger(SortCommand.class);
     private final SortOrder sortOrder;
 
     /**
