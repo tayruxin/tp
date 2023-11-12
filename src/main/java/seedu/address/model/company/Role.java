@@ -45,6 +45,9 @@ public class Role {
         return test.matches(VALIDATION_REGEX);
     }
 
+    /**
+     * Returns true if a given string is a valid role length.
+     */
     public static boolean isValidRoleLength(String test) {
         return test.length() <= MAX_NAME_LENGTH;
     }

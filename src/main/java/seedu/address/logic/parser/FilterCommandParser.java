@@ -29,12 +29,12 @@ public class FilterCommandParser implements Parser<FilterCommand> {
             throw new ParseException(String.format(MESSAGE_EMPTY_PREFIX, FilterCommand.MESSAGE_USAGE));
         }
 
-        // Checks for missing prefixes after add word
+        // Checks for missing prefixes after filter word
         if (!arePrefixesPresent(argMultimap, PREFIX_STATUS) || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
         }
 
-        // check for duplicate status prefixes
+        // Checks for duplicate status prefixes
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_STATUS);
 
         ApplicationStatus applicationStatus;
