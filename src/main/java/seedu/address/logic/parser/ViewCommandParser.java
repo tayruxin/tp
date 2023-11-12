@@ -16,6 +16,8 @@ public class ViewCommandParser implements Parser<ViewCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public ViewCommand parse(String args) throws ParseException {
+        assert args != null;
+
         try {
             Index index = ParserUtil.parseIndex(args);
             return new ViewCommand(index);
