@@ -146,6 +146,68 @@ In this section, you will learn how to set up LinkMeIn in your computer.
 
 # Using LinkMeIn's CLI
 
+LinkMeIn uses the Command Line Interface (CLI). 
+CLI is a means of interacting with a computer program by **inputting lines of text called command-lines**.
+
+Do not be put off by its name! Read on to find out how simple CLI is for LinkMeIn.
+
+<div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/cli-description/CliDescription1.png" alt="CliDescription1" width="650"/>
+</div>
+
+
+The Command Box is where you input the command lines. After you press enter, LinkMeIn reads your input and replies you through the Message Box.
+In this process, you are interacting with our application through text and that is exactly how CLI works!
+Let's move on to learn how to write command lines and you are ready to try LinkMeIn!
+
+## Command Format
+A command line has 4 components, command word, index, prefix and parameter.
+
+| Component    | Example    | Description                                                                                                                                                     |
+|--------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command word | `add`      | Indicates the feature to be executed                                                                                                                            |
+| Index        | `1` `5`    | Indicates the company to be edited (e.g., 5th company in the list)                                                                                              |
+| Prefix       | `c/`       | Indicates the type of parameter to be edited (e.g., name)                                                                                                       |
+| Parameter    | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, are used to replace the `UPPER_CASE` letters in the command format |
+
+_You can find all the parameters used in LinkMeIn [here](#parameters-description)._
+
+We will be using the colour code below to highlight the different components to you.
+<div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/cli-description/CommandFormat1.png" alt="CommandFormat1" width="650"/>
+</div>
+
+Let's use the [`add` command](#adding-a-company--add) format as shown below to explain the components. 
+<div style="margin-top: 10px; margin-bottom: 10px">
+    <img src="images/cli-description/CommandFormat2.png" alt="CommandFormat2" width="650"/>
+</div>
+
+`add` is the command word for add feature. Every command line must have a command word to indicate the feature you wish to use.
+The prefix specifies the parameter type. For example, `c/John` adds John as company name while `n/John` adds John as recruiter's name.
+Replace the parameters with your application details and you have successfully written a command!
+
+But wait! Notice the `[]` around `pr/PRIORITY`? 
+
+| Symbol  | Description      | Example          | Interpretation                                        |
+|---------|------------------|------------------|-------------------------------------------------------|
+| None    | Compulsory field | `C/COMPANY_NAME` | The company's name is required when adding a company  |
+| `[ ]`   | Optional field   | `[pr/PRIORITY]`  | Not a must to indicate priority when adding a company |
+
+Since `PRIORITY` parameter is optional, the following command lines are accepted.
+
+**Example:**
+- `add c/GovTech r/Software Engineer s/PA n/John Doe d/12-12-2023 e/johnDoe@gmail.com p/98765432 pr/medium`
+- `add c/GovTech r/Software Engineer s/PA n/John Doe d/12-12-2023 e/johnDoe@gmail.com p/98765432`
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* Parameters can be in any order. e.g. if the command specifies c/COMPANY_NAME r/ROLE, r/ROLE c/COMPANY_NAME is also acceptable.
+* Parameters are case-insensitive. e.g. c/COMPANY_NAME is the same as c/company_name.
+</div>
+
+Notice that the `add` command does not use `INDEX` in its command format. Each feature has a unique command format.
+You can find the command format for each feature in the [Features](#current-features) section
+or do a [quick tour](#introducing-linkmein-a-quick-tour) to get your hands on LinkMeIn.
 
 ---
 
@@ -249,14 +311,6 @@ Here, you can access help, clear all entries, and gracefully exit LinkMeIn.
 add, view, edit, delete companies, as well as add your own remarks to companies. 
 - [Company List Features](#company-list-features): This section allows you to **interact with the list of companies,** thereby unlocking LinkMeIn's full potential. 
 Explore option to find, list, filter and sort companies, managing all companies with ease. 
-
-
-<div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
-* Parameters can be in any order. e.g. if the command specifies n/COMPANY_NAME r/ROLE, r/ROLE c/COMPANY_NAME is also acceptable.
-* Parameters are case-insensitive. e.g. c/COMPANY_NAME is the same as c/company_name.
-* Parameters with enclosing [ ] braces refer to it being OPTIONAL.
-</div>
 
 ## General Features
 
@@ -448,9 +502,9 @@ use the `remark` command to input these additional details._
 
 **Step 4.** Go ahead and add remarks for more companies on your own!
 
-    **More examples:**
-    - 'remark 3 re/interview went well!'
-    - 'remark 4 re/$800 per month'
+**More examples:**
+- `remark 3 re/interview went well!`
+- `remark 4 re/$800 per month`
 
 **Possible Error:**
 
@@ -492,7 +546,7 @@ The same message will be displayed regardless of whether a remark exists for a c
 
 **Possible Error:**
 
-If you enter an [**invalid index**](#7-what-is-an-invalid-index),
+If you enter an [**invalid index**](#5-what-is-an-invalid-index),
 you will see an error message in the command box. Don’t worry, just edit your index accordingly and
 try the command again!
 An example of an error message is shown below.
@@ -524,12 +578,15 @@ To edit the company's information, type `edit 2 s/PI r/Frontend Developer`
 
 **Step 3.** Here are some other examples you can try to familiarise with the edit command! 
 
-    **More examples:**
-    - `edit 3 d/11-09-2025 pr/LOW`
-        Edits dateline and priority of 3rd company in the displayed list.
-    - `edit 1 n/Amy Tan e/amytan@gmail.com`
-        Edits recruiter's name and email of 1st company in the displayed list.
 
+**More examples:**
+- `edit 3 d/11-09-2025 pr/LOW`
+
+  Edits dateline and priority of the 3rd company in the displayed list.
+  
+- `edit 1 n/Amy Tan e/amytan@gmail.com`
+
+  Edits recruiter's name and email of the 1st company in the displayed list.
 
 **Possible Error:**
 
