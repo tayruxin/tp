@@ -3,8 +3,8 @@ layout: page
 title: Developer Guide
 ---
 
--   Table of Contents
-    {:toc}
+* Table of Contents
+{:toc}
 
 ---
 
@@ -170,37 +170,27 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 This section describes some noteworthy details on how certain features are implemented.
 
 ### 4.1 Company detail panel (UI component)
-
-The `CompanyDetailPanel` allows user to view the company details of the selected company in the company list.
-The user can use the `view` command to select the company to view.
+The `CompanyDetailPanel` allows the user to view the company details of the selected company in the company list.
+Recruiter's information, company's information and remarks will be shown in the company detail panel.
 
 #### 4.1.1 Implementation
+`CompanyDetailCard` and `CompanyDetailPanel` both inheriting `UiPart` are used to display the company details. More details 
+of the class implementation can be seen in the class diagram below.
 
-The company detail panel UI component is achieved by creating a new `UniqueCompanyList` in `AddressBook` to
-store the selected company which the user wishes to view. Additionally, the following operations are implemented in
-`AddressBook` to support the `view` and other commands:
+<img src="images/DetailPanelClassDiagram.png" />
 
--   `setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed.
--   `clearDetailPanel()` - Clears the `UniqueCompanyList` to remove the selected company from the company detail panel.
+`CompanyDetailCard` calls the static method `createPriorityFlowPane` from `CompanyCardUtils` which creates a `FlowPane` to display the priority of the company.
+The color of the `FlowPane` is determined by the priority of the company. Red is used to indicate high priority,
+orange is used to indicate medium priority and green is used to indicate low priority. 
 
-These operations are exposed in the `Model` interface as `Model#setCurrentViewedCompany(Company company)` and
-`Model#checkDelete()` respectively.
+As for the other information, FXML labels are used to display the information. Within the constructor of `CompanyDetailCard`, 
+the respective FXML labels are set with the information of the company.
 
-The `view` function is implemented in the `ViewCommand` class which calls `Model#setCurrentViewedCopany(Company company)`
-to insert the selected company into the `UniqueCompanyList`.
-The follow sequence diagram depicts how the `view` command is executed.
+To display the details in 3 different boxes, `CompanyDetailCard.fxml` is divided into 3 sections with each section 
+being a `VBox`. The 3 `VBox` are then added into a `HBox` to display the details in 3 different boxes.
 
-<img src="images/ViewSequenceDiagram.png" />
-
-Since only the detail of one company will be displayed anytime, `Model#setCurrentViewedCopany(Company company)` will
-clear the `UniqueCompanyList` before inserting the selected company.
-Since `UniqueCompanyList` is an observable list, the `CompanyDetailPanel` will be updated automatically
-when there is any changes made to the `UniqueCompanyList`
-
-When the `edit`, `add`, `view` or `delete` command is executed, the `CompanyDetailPanel` will be updated respectively as
-shown in the activity diagram below.
-
-<img src="images/CompanyDetailPanelActivityDiagram.png" width="400"/>
+As for `CompanyDetailPanel`, there is an inner class `CompanyDetailViewCell` which extends `ListCell<Company>`. This class 
+sets the graphics to the `CompanyDetailCard` by constructing a new `CompanyDetailCard` with the company details of the company.
 
 #### 4.1.2 Design Considerations
 
@@ -215,6 +205,43 @@ shown in the activity diagram below.
     -   Pros: User does not need to key in additional commands to view the details of the company.
     -   Cons: The company list panel will be too cluttered with too much information displayed in a company card.
 
+### 4.2 View Command
+The `CompanyDetailPanel` allows the user to view the company details of the selected company in the company list.
+The user can use the `view` command to select the company to view.
+
+#### 4.2.1 Implementation
+A new `UniqueCompanyList` is created in `AddressBook` to store the selected company which the user wishes to view. 
+Additionally, the following operations are implemented in `AddressBook` to support the `view` and other commands:
+
+-   `setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed.
+-   `clearDetailPanel()` - Clears the `UniqueCompanyList` to remove the selected company from the company detail panel.
+
+These operations are exposed in the `Model` interface as `Model#setCurrentViewedCompany(Company company)` and
+`Model#checkDelete()` respectively.
+
+The `view` function is implemented in the `ViewCommand` class which calls `Model#setCurrentViewedCopany(Company company)`
+to insert the selected company into the `UniqueCompanyList`.
+The follow sequence diagram depicts how the `view` command is executed.
+
+<img src="images/ViewSequenceDiagram.png" />
+
+<div markdown="block" class="alert alert-info">
+ **:information_source: Note:**
+ The lifeline for `ViewCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+ </div>
+
+Since only the detail of one company will be displayed anytime, `Model#setCurrentViewedCopany(Company company)` will
+clear the `UniqueCompanyList` before inserting the selected company.
+Since `UniqueCompanyList` is an observable list, the `CompanyDetailPanel` will be updated automatically
+when there is any changes made to the `UniqueCompanyList`.
+
+When the `edit`, `add`, `view` or `delete` command is executed, the `CompanyDetailPanel` will be updated respectively as
+shown in the activity diagram below.
+
+<img src="images/CompanyDetailPanelActivityDiagram.png" width="400"/>
+
+#### 4.2.2 Design Considerations
+
 **Aspect: How the company to be viewed is stored in the `AddressBook`**
 
 -   **Alternative 1 (current choice):** Create a new `UniqueCompanyList` in `AddressBook` to store the selected company which the user wishes to view.
@@ -223,14 +250,14 @@ shown in the activity diagram below.
     -   Cons: There is a need to clear the list before adding the selected company to the `UniqueCompanyList` to ensure that only one company is displayed in the `CompanyDetailPanel` at any time.
 
 -   **Alternative 2:** Create a new `Company` object in `AddressBook` to store the selected company which the user wishes to view.
-    -   Pros: It is intuitive to create a new `Company` object to store the selected company which the user wishes to view.
-    -   Cons: The `CompanyDetailPanel` will not be updated automatically when there is any changes made to the `Company`
+    -   Pros: Since there are no lists involved, there is no need to clear the list.  
+    -   Cons: The `CompanyDetailPanel` will not be updated automatically when there are any changes made to the `Company`
         object. There is a need to create additional methods to update the `CompanyDetailPanel` when there is any changes
         made to the `Company` object.
 
-### 4.2 Find command
+### 4.3 Find command
 
-#### 4.2.1 Implementation
+#### 4.3.1 Implementation
 
 The `find` command allows users to search for companies using one or more keywords. Companies matching any of the keywords in their names will be returned. This search is case-insensitive, and partial matches are valid. The critical change in the implementation centers around the modification of the `NameContainsKeywordsPredicate` class.
 
@@ -246,7 +273,7 @@ The sequence diagram below illustrates the processing of a `find` command, such 
 
 > :information_source: **Note:** The above sequence diagram simplifies the interaction by focusing on the primary components involved in processing the `find` command.
 
-#### 4.2.2 Design considerations:
+#### 4.3.2 Design considerations:
 
 **Aspect: Approach to matching keywords**
 
@@ -274,21 +301,21 @@ The sequence diagram below illustrates the processing of a `find` command, such 
 
 With the design considerations, we've chosen the alternatives that provide a balance between user-friendliness and precision.
 
-### 4.3 Filter Command
+### 4.4 Filter Command
 
 The `filter` command allows user to filter the company list by the application status. The following sequence diagram
 will illustrate the process of performing the `filter` command.
 
 <img src="images/FilterSequenceDiagram.png"/>
 
-#### 4.3.1 Implementation
+#### 4.4.1 Implementation
 
 The `filter` function is implemented in the `FilterCommand` class and uses the `FilterCommandParser` class to parse the
 arguments. The predicate class implementing `Predicate<Company>` is `ApplicationStatusPredicate`.
 - `ApplicationStatusPredicate` - Predicate to check if the company's application status is the same as the application
   status specified in the command.
 
-#### 4.3.2 Design Considerations
+#### 4.4.2 Design Considerations
 
 **Aspect: UI of the filter command**
 
@@ -303,9 +330,9 @@ arguments. The predicate class implementing `Predicate<Company>` is `Application
     - Cons: Users may be confused as the currently viewed company in the company details panel may not be in the
       filtered list of companies.
 
-### 4.4 Edit feature
+### 4.5 Edit feature
 
-#### 4.4.1 Implementation
+#### 4.5.1 Implementation
 The edit mechanism is facilitated by `EditCompanyDescriptor`. It is a nested class of `EditCommand` that stores the edited fields of a company and unedited fields to be `null`.
 Additionally, `EditCommand` implements the following operations:
 
@@ -320,7 +347,7 @@ After the `EditCommandParser` initializes an `EditCompanyDescriptor` object, it 
 When `EditCommand#execute()` is called, a `Company` object, `c`, with edited attributes is initialized since `Company` is immutable.
 When `Model#setCompany(Company company)` is called, the original `Company` object in the `AddressBook` is replaced with the edited Company `c`.
 
-#### 4.4.2 Design considerations:
+#### 4.5.2 Design considerations:
 
 **Aspect: How to edit different attributes of a company**
 
@@ -332,20 +359,20 @@ When `Model#setCompany(Company company)` is called, the original `Company` objec
     * Pros: Command line is shorter which reduces users' error such as duplicates or invalid command. This improves user experience.
     * Cons: We must ensure that the implementation of each individual command are correct. This may also require more memory usage, a Company object is initialized for every modified attribute.
 
-### 4.5 Delete Command
+### 4.6 Delete Command
 
 The `delete` command allows user to delete a company using the observed index (one-based index) of the company.
 The following sequence diagram will illustrate the process of performing the `delete` command.
 
 <img src="images/DeleteCompanySequenceDiagram.png"/>
 
-#### 4.5.1 Implementation
+#### 4.6.1 Implementation
 
 The `delete` function is implemented in the `DeleteCommand` class and uses the `DeleteCommandParser` class to parse the
 arguments. The LogicManger#execute() method will retrieve the filtered company list from the model, perform zero-based
 indexing to the supplied Index, get the company associated with the index and requests model to `delete` the company.
 
-#### 4.5.2 Design Considerations
+#### 4.6.2 Design Considerations
 **Aspect: Coupling between `DeleteCommand` and `FilterCommand`**
 - **Alternative:** The delete function can be performed by the `DeleteCommand` class without having to
   retrieve the filtered company list from the model.
@@ -358,18 +385,18 @@ indexing to the supplied Index, get the company associated with the index and re
     - Pros: The user does not need to remember the index of the company to be deleted.
     - Cons: The user may enter the wrong company name to be deleted.
 
-### 4.6 Remark Command
+### 4.7 Remark Command
 
 The `remark` command allows user to add and delete a remark from a company.
 
-#### 4.6.1 Implementation
+#### 4.7.1 Implementation
 
 Unlike other `Command` class, the `RemarkCommand` class has two `COMMAND_WORD` - remark and unremark. 
 Hence, it is a dependency for two `Parser` - `RemarkCommandParser` and `UnremarkCommandParser`. 
 The following activity diagram will show how `RemarkCommand` can achieve the functionality of both `COMMAND_WORD`.
 <img src="images/RemarkActivityDiagram.png"/>
 
-#### 4.6.2 Design Considerations
+#### 4.7.2 Design Considerations
 **Aspect: How adding/editing of Remark is implemented**
 - **Alternative 1 (current choice):** Use two `COMMAND_WORD`
     - Pros: More specific commands allow for better error handling i.e empty remark can be considered invalid input, thus more defensive programming
@@ -377,91 +404,6 @@ The following activity diagram will show how `RemarkCommand` can achieve the fun
 - **Alternative 2:** Use only one `COMMAND_WORD`
     - Pros: Easier to implement.
     - Cons: Remarks may be accidentally deleted by empty input.
-
-### \[Proposed\] Undo/redo feature
-
-#### Proposed Implementation
-
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
-
--   `VersionedAddressBook#commit()` — Saves the current address book state in its history.
--   `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
--   `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
-
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
-
-Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
-
-![UndoRedoState0](images/UndoRedoState0.png)
-
-Step 2. The user executes `delete 5` command to delete the 5th company in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
-
-![UndoRedoState1](images/UndoRedoState1.png)
-
-Step 3. The user executes `add n/David …​` to add a new company. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
-
-![UndoRedoState2](images/UndoRedoState2.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
-
-</div>
-
-Step 4. The user now decides that adding the company was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
-
-![UndoRedoState3](images/UndoRedoState3.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
-
-</div>
-
-The following sequence diagram shows how the undo operation works:
-
-![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
-</div>
-
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-
-</div>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
-
-![UndoRedoState4](images/UndoRedoState4.png)
-
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-![UndoRedoState5](images/UndoRedoState5.png)
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-<img src="images/CommitActivityDiagram.png" width="308" />
-
-#### Design considerations:
-
-**Aspect: How undo & redo executes:**
-
--   **Alternative 1 (current choice):** Saves the entire address book.
-
-    -   Pros: Easy to implement.
-    -   Cons: May have performance issues in terms of memory usage.
-
--   **Alternative 2:** Individual command knows how to undo/redo by
-    itself.
-    -   Pros: Will use less memory (e.g. for `delete`, just save the company being deleted).
-    -   Cons: We must ensure that the implementation of each individual command are correct.
-
-_{more aspects and alternatives to be added}_
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
 
 ---
 
@@ -495,16 +437,27 @@ application process, simplifying the pursuit of career opportunities.
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                      | I want to …​                           | So that I can…​                                                               |
-|----------|----------------------------------------------|----------------------------------------|-------------------------------------------------------------------------------|
-| `* * *`  | new user                                     | see usage instructions                 | refer to instructions when I forget how to use the App                        |
-| `* * *`  | user                                         | add a new company                      |                                                                               |
-| `* * *`  | user                                         | delete a company                       | remove entries that I no longer need                                          |
-| `* * *`  | user                                         | find a company by name                 | locate details of companies without having to go through the entire list      |
-| `* *`    | user with many companies in the address book | sort companies by application deadline | view applications with nearer or further deadlines easily to plan my schedule |
-| `* *`    | user                                         | hide private contact details           | minimize chance of someone else seeing them by accident                       |
+| Priority | As a …​                         | I want to …​                                                 | So that I can…​                                                                            |
+|----------|---------------------------------|--------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| `* * *`  | user                            | add a new company to LinkMeIn                                | manage my internship applications for that company                                         |
+| `* * *`  | thorough user                   | view the recruiter's information of a company                | follow up on my internship application                                                     |
+| `* * *`  | tidy user                       | delete a company                                             | ensure my list of companies remains organised by removing those I no longer wish to manage |
+| `* * *`  | user                            | list out all my companies                                    | have an overview of my internship applications                                             |
+| `* *`    | careless user                   | edit the details of a company                                | rectify any typographical errors in the company details                                    |
+| `* *`    | user managing many applications | find companies by their name                                 | locate details of companies without having to go through the entire list                   |
+| `* *`    | user managing many applications | sort companies by application deadline                       | view applications with nearer or further deadlines easily to plan my schedule              |
+| `* *`    | meticulous user                 | add remarks for a company                                    | keep track of specific notes, thoughts or important details related to that application    |
+| `* *`    | meticulous user                 | remove remarks for a company                                 | remove irrelevant information and keep my remarks up to date                               |
+| `* *`    | seasoned user                   | clear all data                                               | start afresh on a internship application cycle                                             |
+| `* *`    | user                            | exit the app quickly                                         | conclude my session and ensure the application is not running in the background            |
+| `* *`    | confused user                   | view a list of available CLI commands and their descriptions | learn more about the application's features                                                |
+| `* *`    | new user                        | access a list of sample data                                 | test the application out                                                                   |
+| `* *`    | seasoned user                   | filter companies by application status                       | focus on the most pertinent and relevant applications of interest                          |
+| `* *`    | careless user                   | check for duplicate entries before adding an entry           | avoid redundancy and maintain an accurate representation of my internship applications     |
+| `* `     | creative user                   | be able to change the theme of LinkMeIn                      | personalise the visual appearance of the interface based on my preferences                 |
+| `*`      | new user                        | import data from excel file                                  | easily switch from excel to LinkMeIn and continue tracking my internship applications      |
+| `*`      | new user                        | export data to excel file                                    | easily switch from LinkMeIn to excel and continue tracking my internship applications      |
 
-_{More to be added}_
 
 ### Use cases
 
