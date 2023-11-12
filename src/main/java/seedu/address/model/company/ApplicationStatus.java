@@ -7,18 +7,6 @@ import static java.util.Objects.requireNonNull;
  * Guarantees: immutable; is valid as declared in {@link #isValidApplicationStatus(String)}
  */
 public class ApplicationStatus {
-    public static final String PENDING_APPLICATION =
-            "^(PA|PENDAPP|PENDINGAPP|PENDINGAPPLICATION|PENDING APPLICATION|P\\sA|PENDING\\sA)$";
-
-    public static final String PENDING_INTERVIEW =
-            "^(PI|PENDINT|PENDINGINT|PENDINGINTERVIEW|PENDING INTERVIEW|P\\sI|PENDING\\sI)$";
-
-    public static final String PENDING_OUTCOME =
-            "^(PO|PENDOUT|PENDINGOUT|PENDINGOUTCOME|PENDING OUTCOME|P\\sO|PENDING\\sO)$";
-
-    public static final String ACCEPTED = "^(A|ACC|ACCEPT|ACPT|ACCEPTED)$";
-
-    public static final String REJECTED = "^(R|REJ|REJECT|REJECTED)$";
 
     public static final String MESSAGE_CONSTRAINTS_NON_EMPTY =
             "Oops! Application status should not be blank! Please try again with a valid application status.";

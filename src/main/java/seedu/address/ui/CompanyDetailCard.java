@@ -1,9 +1,10 @@
 package seedu.address.ui;
 
+import static seedu.address.ui.CompanyCardUtils.createPriorityFlowPane;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.address.model.company.Company;
 
@@ -23,9 +24,6 @@ public class CompanyDetailCard extends UiPart<Region> {
      */
 
     public final Company company;
-
-    @FXML
-    private HBox cardPane;
     @FXML
     private Label name;
     @FXML
@@ -46,7 +44,7 @@ public class CompanyDetailCard extends UiPart<Region> {
     private Label remark;
 
     /**
-     * Creates a {@code CompanyCode} with the given {@code Company} and index to display.
+     * Creates a {@code CompanyDetailCard} with the given {@code Company}.
      */
     public CompanyDetailCard(Company company) {
         super(FXML);
@@ -59,41 +57,9 @@ public class CompanyDetailCard extends UiPart<Region> {
         deadline.setText("Deadline: " + company.getDeadline().toString());
         status.setText("Application status: " + company.getStatus().getDescription());
         recruiterName.setText("Name: " + company.getRecruiterName().fullName);
-        priorityFlowPane(company);
+        priority.getChildren().add(createPriorityFlowPane(company, true));
         remark.setText(company.getRemark().value);
 
     }
-
-    private void priorityFlowPane(Company company) {
-        assert company != null;
-        if (!company.getPriority().priority.equals("NONE")) {
-            FlowPane priorityPane = new FlowPane();
-
-            Label priorityLabel = new Label("Priority: ");
-            Label priorityValue = new Label(company.getPriority().priority);
-
-            String backgroundColor = "#444444"; // Dark gray (default)
-
-            switch (company.getPriority().priority) {
-            case "HIGH":
-                backgroundColor = "#990000"; // Dark red
-                break;
-            case "MEDIUM":
-                backgroundColor = "#FF8000"; // Dark orange
-                break;
-            case "LOW":
-                backgroundColor = "#006400"; // Dark green
-                break;
-            default:
-                break;
-            }
-
-            priorityValue.setStyle("-fx-background-color: " + backgroundColor);
-
-            priorityPane.getChildren().addAll(priorityLabel, priorityValue);
-            priority.getChildren().add(priorityPane);
-        }
-    }
-
 }
 
