@@ -502,148 +502,174 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use Cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+<div markdown="block" class="alert alert-info">
+**:information_source: Note:**<br>
+For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `user`, unless specified otherwise.
+</div>
 
-**Use case: Delete a company**
 
-**MSS**
+**Use Case: UC01 - List all Companies**
 
-1.  User requests to list companies
-2.  AddressBook shows a list of companies
-3.  User requests to delete a specific company in the list
-4.  AddressBook deletes the company
+**MSS** <br>
+1. User requests to list all companies. 
+2. LinkMeIn displays the full list of companies. <br>
+Use case ends.
 
-    Use case ends.
+**Extensions** <br>
+* 1a. LinkMeIn detects an invalid command format error in the input.
+  * 1a1. LinkMeIn displays an error message. 
+  * 1a2. User enters a new command. <br>
+  Use case resumes from Step 1.
 
-**Extensions**
 
--   2a. The list is empty.
+**Use Case: UC02 - Add a Company**
 
-    Use case ends.
-
--   3a. The given index is invalid.
-
-    -   3a1. AddressBook shows an error message.
-
-        Use case resumes at step 2.
-
--   3b. User is viewing the details of the company to be deleted.
-
-    -   3b1. AddressBook clears the company details panel.
-
-        Use case resumes at step 4.
-
-**Use case: Find a Company**
-
-**MSS**
-
-1. User requests to find a company by name.
-2. AddressBook shows a list of companies whose names contain the given keywords.
-
-    Use case ends.
-
-**Extensions**
-
--   2a. The list is empty.
-
-    Use case ends.
-
--   2b. The given keywords do not match any company name.
-
-    -   2b1. AddressBook shows an empty list.
-
-        Use case ends.
-
--   2c. The given keywords match multiple company names.
-
-    -   2c1. AddressBook shows a list of companies whose names contain the given keywords.
-
-        Use case ends.
-
-**Use case: Add a company**
-
-**MSS**
-
+**MSS** <br>
 1. User requests to add a company.
-2. User key in required field and information.
-3. AddressBook adds the company.
-4. AddressBook shows the company detail of the added company in the company detail panel.
+2. LinkMeIn adds the company. <br>
+Use case ends.
 
-    Use case ends.
+**Extensions** <br>
+* 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
+* 1b. LinkMeIn detects an invalid parameter input.
+  * 1b1. LinkMeIn displays an error message.
+  * 1b2. User enters new data for the parameter. <br>
+    Use case resumes from Step 1.
+* 1c. User requests to add a duplicate company.
+  * 1c1. LinkMeIn displays an error message. 
+  * 1c2. User enters the information of a new company. <br>
+  Use case resumes from Step 1.
 
-**Extensions**
 
--   2a. User key in invalid information.
+**Use Case: UC03 - Delete a Company**
 
-    -   2a1. AddressBook shows an error message.
+**MSS** <br>
+1. User requests to delete a specific company from the list of companies. 
+2. LinkMeIn deletes the company. <br>
+   Use case ends.
 
-        Use case resumes at step 2.
+**Extensions** <br>
+* 1a. LinkMeIn detects an invalid index input.
+  * 1a1. LinkMeIn displays an error message.
+  * 1a2. User enters a new index. <br>
+    Use case resumes from Step 1.
 
-**Use case: List company**
+* 1b. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 
-**MSS**
 
-1. User requests to list companies.
-2. AddressBook shows a list of companies.
+**Use Case: UC04 - View a Company Detailed Information**
 
-    Use case ends.
-
-**Extensions**
-
--   2a. The list is empty.
-
-    Use case ends.
-
-**Use case: View full company information**
-
-**MSS**
-
-1. User requests to list companies.
-2. AddressBook shows a list of companies.
-3. User requests to view a specific company in the list.
-4. AddressBook shows the full information of the company in the company detail panel.
-
-    Use case ends.
+**MSS** <br>
+1. User requests to view a specific company from the list of companies.
+2. LinkMeIn shows the full information of the company in the company detail panel. <br>
+Use case ends.
 
 **Extensions**
-
--   2a. The list is empty.
-
-    Use case ends.
-
--   3a. The given index is invalid.
-
-    -   3a1. AddressBook shows an error message.
-
-        Use case resumes at step 2.
+* 1a. LinkMeIn detects an invalid index input → handled similarly to 1a of UC03.
+* 1b. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 
 
-**Use case: Sort companies by deadline**
+**Use Case: UC05 - Clear all Companies**
 
-**MSS**
+**MSS** <br>
+1. User requests to clear all companies from the full list of companies.
+2. LinkMeIn clears all companies in the data. <br>
+Use case ends. 
 
-1.  User requests to list companies.
-
-2.  AddressBook shows a list of companies.
-
-3.  User requests to sort the companies by deadline in a specific order (ascending or descending).
-
-4.  AddressBook sorts and displays the companies based on the deadline in the specified order.
-
-    Use case ends.
+**Extensions** <br>
+* 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 
 
-**Extensions**
+**Use Case: UC06 - Edit a Company**
 
--   2a. The list is empty.
+**MSS** <br>
+1. User requests to edit parameter(s) of a specific company in the list.
+2. LinkMeIn edits the company. <br>
+   Use case ends.
 
-    Use case ends.
+**Extensions** <br>
+* 1a. LinkMeIn detects an invalid index input → handled similarly to 1a of UC03. 
+* 1b. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
+* 1c. User requests to edit to a duplicate company → handled similarly to 1c of UC02.
 
--   3a. The given order (ascending or descending) is invalid or not specified.
 
-    -   3a1. AddressBook shows an error message.
+**Use Case: UC07 - Find a Company**
 
-        Use case resumes at step 2.
+**MSS** <br>
+1. User requests to find companies based on the keywords. 
+2. LinkMeIn displays a list of companies with matching keywords. <br>
+   Use case ends.
+
+**Extensions** <br>
+* 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
+
+
+**Use Case: UC08 - Filter Companies by Application Status**
+
+**MSS** <br>
+1. User requests to filter the list of companies by one of the application statuses. 
+2. LinkMein displays a list of companies matching the application status. <br>
+Use case ends.
+
+**Extensions** <br>
+* 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01. 
+* 1b. LinkMeIn detects an invalid parameter input → handled similarly to 1b of UC02.
+
+
+**Use Case: UC09 - Sort Companies by Deadline**
+
+**MSS** <br>
+1. User requests to sort the list of companies by deadline. 
+2. LinkMeIn displays the sorted list of companies. <br>
+Use case ends.
+
+**Extensions** <br>
+* 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01. 
+* 1b. LinkMeIn detects an invalid parameter input → handled similarly to 1b of UC02.
+
+
+**Use Case: UC10 - Add Remarks for a Company**
+
+**MSS** <br>
+1. User requests to add remarks for a specific company. 
+2. LinkMeIn adds the remarks to the company. <br>
+Use case ends.
+
+**Extensions** <br>
+* 1a. LinkMeIn detects an invalid index input → handled similarly to 1a of UC03.
+
+
+**Use Case: UC11 - Delete Remarks for a Company**
+
+**MSS** <br>
+1. User requests to delete remarks for a specific company from the list of companies. 
+2. LinkMeIn deletes the remarks from the company. <br>
+Use case ends.
+
+**Extensions** <br>
+* 1a. LinkMeIn detects an invalid index input → handled similarly to 1a of UC03.
+
+
+**Use Case: UC12 - Exit the Program**
+
+**MSS** <br>
+1. User requests to exit the program. 
+2. LinkMeIn exits the program. <br>
+Use case ends.
+
+**Extensions** <br>
+* 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
+
+
+**Use Case: UC13 - View Help**
+
+**MSS** <br>
+1. User requests for help to use LinkMeIn. 
+2. LinkMeIn displays a link to the user guide. <br>
+Use case ends.
+
+**Extensions** <br>
+* 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 
 ### Non-Functional Requirements
 
