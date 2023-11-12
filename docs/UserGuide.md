@@ -7,7 +7,7 @@ title: User Guide
 
 _Master Your Internship Journey: Every Deadline, Every Detail._
 
-LinkMeIn is a **desktop application** built for NUS School Of Computing's (NUS) Computer Science students 
+LinkMeIn is a **desktop application** built for NUS School Of Computing's Computer Science students 
 to track their internship applications.
 
 
@@ -20,9 +20,8 @@ Here is a **quick** overview of your internship journey with LinkMeIn:
 LinkMeIn is more than just an application—it's your **personalized** partner, offering a
 seamless experience that outclasses conventional tracking methods.
 
-Additionally, LinkMeIn combines the rapid **efficiency** of [Command Line Interface (CLI)](#using-linkmeins-cli) with the visual clarity of 
-[Graphical User Interface (GUI)](#introducing-linkmeins-gui), offering a **tailored** experience for internship management that outpaces the generic
-spreadsheets of Excel.
+Additionally, LinkMeIn combines the rapid **efficiency** of [Command Line Interface (CLI)](#introducing-linkmeins-cli) with the visual clarity of 
+[Graphical User Interface (GUI)](#introducing-linkmeins-gui), offering a **tailored** experience for you.
 
 # Table of Contents
 * TOC
@@ -45,7 +44,7 @@ throughout this user guide.
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* Presents additional details that are valuable to know when using LinkMeIn.
+* Presents additional details to you that are valuable to know when using LinkMeIn.
 </div>
 
 <div markdown="block" class="alert alert-danger">
@@ -127,44 +126,41 @@ In this section, you will learn how to set up LinkMeIn in your computer.
 [&uarr; Back to Table of Contents](#table-of-contents)
 
 # Introducing LinkMeIn's GUI
-LinkMeIn's [GUI](#glossary) is designed to be **simple** and **intuitive** with you in mind.
+LinkMeIn's [GUI](#glossary) is designed to be **simple** and **intuitive**, with you in mind.
 The GUI consists of four main components:
 
 ![uiIntro.png](images/ui-intro/uiIntro.png)
 
-If you are unsure about what each component does, you can refer to the table below:
+Here are what each components stand for:
 
 | Number | Component            | Description                                              |
 |--------|----------------------|----------------------------------------------------------|
 | 1      | Command Box          | Key in your commands here and LinkMeIn will execute them |
 | 2      | Message Box          | Displays success or error messages to you                |
 | 3      | Company List Panel   | Displays the list of companies that you have added       |
-| 4      | Company Detail Panel | Displays the detail of the company that you are viewing  |
+| 4      | Company Detail Panel | Displays the details of the company that you are viewing |
 
-<div markdown="block" class="alert alert-info">
-**:information_source: Note:**<br>
-* To enhance your viewing experience, you can opt for full-screen mode in LinkMeIn! Nevertheless, even if you prefer not to use 
-full screen, rest assured that LinkMeIn's features will still function flawlessly. 
+<div markdown="block" class="alert alert-success">
+**:bulb: Useful Tip:**<br>
+* To maximise your viewing experience, opt for full-screen mode in LinkMeIn!"
 </div>
 
-Having introduced you to the GUI, let us now move on to learn how to use CLI to interact with LinkMeIn.
+Now that you've been introduced to the GUI, let's move on to learning how you can use CLI to interact with LinkMeIn. 
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
-# Using LinkMeIn's CLI
+# Introducing LinkMeIn's CLI
 
-LinkMeIn operates through the CommandLineInterface (CLI), a method of interacting with a computer program by **entering line of 
-text known as command-lines.** Say goodbye to the days of multitasking between typing and clicking, and say hello to 
-the world of CLI!
+LinkMeIn operates through the Command Line Interface (CLI), a method of interacting with a computer program by **entering line of 
+text known as command-lines.** Say goodbye to the days of multitasking between typing and clicking, and say hello to the world of CLI!
 
-Don't let the name intimidate you! Continue reading to discover how **E**ffortless, **E**asy and **E**fficient CLI is when using LinkMeIn.
+Don't let the name intimidate you! Continue reading on to discover how **E**ffortless, **E**asy and **E**fficient CLI is when using LinkMeIn.
 
 <div style="margin-top: 10px; margin-bottom: 10px">
     <img src="images/cli-description/CliDescription1.png" alt="CliDescription1" width="650"/>
 </div>
 
-The Command Box serves as the gateway for entering command lines. Once you press enter, LinkMeIn processes your 
-input and provides responses through the Message Box. This process of interacting with LinkMeIn through text is exactly how CLI works!
+The Command Box serves as the gateway for entering command lines. Once you press enter, LinkMeIn processes your input and provides responses through the Message Box. This process of interacting with LinkMeIn through text is exactly how CLI works!
 Now, let's move on to learn how to write command lines, and you are ready to try LinkMeIn!
 
 ## Command Format
@@ -173,15 +169,15 @@ A command line has 4 components, **command word**, **index**, **prefix** and **p
 | Component    | Example    | Description                                                                                                                                               |
 |--------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command word | `add`      | Indicates the feature to be executed                                                                                                                      |
-| Index        | `1`, `5`   | Indicates the company to be edited (e.g., 5th company in the list)                                                                                        |
-| Prefix       | `c/`       | Indicates the type of parameter to be edited (e.g., name)                                                                                                 |
+| Index        | `1`, `5`   | Indicates the position of the company in the list (e.g., 5th company in the list)                                                                         |
 | Parameter    | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, replaces the `UPPER_CASE` placeholders in the command format |
+| Prefix       | `c/`       | Indicates the type of parameter to be edited (e.g., name)                                                                                                 |
 
 _You can find all the parameters used in LinkMeIn [here](#parameters-description)._
 _To learn more about the prefixes and command words used in LinkMeIn, you can refer to the [Command Summary Section](#command-summary)._
 
-Now, let us learn how to use these 4 components to write a command. 
-The following color code will assist in highlighting each component for better understanding. 
+Now, let's see how you can use these components to easily write a command!
+The following color code will assist you in highlighting each component for better understanding. 
 
 <div style="margin-top: 10px; margin-bottom: 10px">
     <img src="images/cli-description/CommandFormat1.png" alt="CommandFormat1" width="650"/>
@@ -192,9 +188,9 @@ Let's use the [`add` command](#adding-a-company--add) format as shown below to e
     <img src="images/cli-description/CommandFormat2.png" alt="CommandFormat2" width="650"/>
 </div>
 
-The `add` command is used to initiate the add feature. Every command line should begin with a command word to specify the desired feature.
+The `add` command is used to initiate the adding a company into LinkMeIn. Every command line should begin with a command word to specify the desired feature.
 The prefix indicates the parameter type. For example, `c/John` adds "John" as the company name while `n/John` adds "John" as the recruiter's name.
-Simply replace the parameters with your specific application details, and you have effectively crafted a command!
+Simply replace the parameters with your specific application details, and you have effectively crafted an `add` command!
 
 But wait! Notice the `[]` around `pr/PRIORITY`? 
 
@@ -415,9 +411,8 @@ Don't worry, just identify the missing parameter(s) and edit your input accordin
 
 ### View full company information: `view`
 
-_You look at the list of companies, and you see a company that has not been getting back to you. You can use the view
-command to view the company's recruiter's contact details to follow up with them. The view command allows you to view
-the detail of any company from the list of companies that you have added._
+_You look at the list of companies, and you notice that it's been 3 weeks since the interview, but the company has not gotten back to you. 
+With the `view` command, you can easily view the full detail of a specific company, including the recruiter's contact details, and follow up with them!
 
 **Format:** `view INDEX`
 
