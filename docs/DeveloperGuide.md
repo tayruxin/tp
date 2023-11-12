@@ -802,36 +802,41 @@ testers are expected to do more *exploratory* testing.
 </div>
 
 ### Launch and Shutdown
-
 1. Initial launch
-
-    1. Download the jar file and copy into an empty folder
-
-    2. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
-
+    1. Download the jar file and copy into an empty folder.
+    2. Run `java -jar LinkMeIn.jar` in the folder containing the jar file to launch LinkMeIn. <br>
+   Expected: Shows the GUI with a set of sample companies. The window size may not be optimum.
 2. Saving window preferences
-
     1. Resize the window to an optimum size. Move the window to a different location. Close the window.
-
-    2. Re-launch the app by double-clicking the jar file.<br>
+    2. Re-launch LinkMeIn.<br>
        Expected: The most recent window size and location is retained.
 
-3. _{ more test cases …​ }_
+### Adding a Company
+1. Test case: `add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan p/98765432 e/johnd@example.com pr/HIGH` <br>
+Expected: A new company is added to the end of the list of companies. Details of the added company is displayed in the company detail panel.
+2. Test case: `add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan` <br>
+Expected: No company is added. Error details shown in the command message.
+3. Try adding the same test case from Step 1. Check that an error message is displayed.
+
+### Editing a Company
+Prerequisite: There is at least one company in the list.
+
+1. Test case: `edit 1 r/Data Analyst` <br>
+Expected: First company’s role is updated in the list. Details of the edited company is displayed in the company detail panel.
+2. Try editing other companies with different parameters.
 
 ### Deleting a Company
 
-1. Deleting a company while all companies are being shown
+1. Deleting a company when all companies are being shown
+   1. Prerequisite: There is at least one company in the list.
+   2. Test case: `delete 1`<br>
+      Expected: First contact is deleted from the list. Details of the deleted company shown in the message box.
 
-    1. Prerequisites: List all companies using the `list` command. Multiple companies in the list.
+   3. Test case: `delete 0`<br>
+         Expected: No company is deleted. Error details shown in the message box.
 
-    2. Test case: `delete 1`<br>
-       Expected: First contact is deleted from the list. Details of the deleted company shown in the message box.
-
-    3. Test case: `delete 0`<br>
-       Expected: No company is deleted. Error details shown in the message box.
-
-    4. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-       Expected: Similar to previous.
+   4. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+      Expected: Similar to previous.
 
 2. Deleting a company when some companies are being shown
     1. Prerequisites: Filter the list of companies by their application status (eg. Pending Application) using the
@@ -843,28 +848,67 @@ testers are expected to do more *exploratory* testing.
        Expected: Similar to previous.
 
 ### Viewing a Company
+Prerequisites: List all companies using the `list` command. Multiple companies in the list.
 
-1. Viewing a company while all the companies are being shown
-    1. Prerequisites: List all companies using the `list` command. Multiple companies in the list.
-    2. Test case: `view 1`<br>
-       Expected: First company is shown in the company detail panel.
-    3. Test case: `view 0`<br>
-       Expected: No company is shown in the company detail panel. Error details shown in the message box.
-    4. Other incorrect view commands to try: `view`, `view x`, `...` (where x is larger than the list size)<br>
-       Expected: Similar to previous.
+1. Test case: `view 1`<br>
+    Expected: First company is shown in the company detail panel.
+2. Test case: `view 0`<br>
+    Expected: No company is shown in the company detail panel. Error details shown in the message box.
+3. Other incorrect view commands to try: `view`, `view x`, `...` (where x is larger than the list size)<br>
+    Expected: Similar to previous.
 
 
+### Adding Remarks to a Company
+Prerequisite: There is at least one company in the list.
+
+1. Test case: `remark 1 r/This is a remark` <br>
+Expected: Remarks are added to the first company in the list.
+2. Try adding remarks to a company with an index greater than the number of companies in the current list. Check that an error message is displayed and no remarks are added.
+
+### Deleting Remarks from a Company
+Prerequisite: There is at least one company in the list.
+
+1. Test case: `unremark 1` <br>
+Expected: Remarks deleted from the first company in the list. Company detail panel will display "No remarks" under Remarks.
+
+### Listing Companies
+1. Test case: `list` <br>
+Expected: All companies in the list are displayed in the company list panel.
+
+### Finding Companies
+1. Test case: `find Google` <br>
+Expected: All companies with the keyword "Google" in their names are displayed in the company list panel.
+
+### Sorting Companies by Deadline
+1. Test case: `sort` <br>
+Expected: All companies in the list are displayed in the company list panel, sorted by deadline in ascending order.
+2. Test case: `sort d` <br>
+Expected: All companies in the list are displayed in the company list panel, sorted by deadline in descending order.
+
+### Filtering Companies by Application Status
+1. Test case: `filter s/PA` <br>
+Expected: All companies with the application status "PA" are displayed in the company list panel.
+2. Try again with an invalid application status. Check that an error message is displayed.
+
+### Clearing All Data
+1. Test case: `clear` <br>
+Expected: All companies are deleted from the list.
+
+### Exiting LinkMeIn
+1. Test case: `exit` <br>
+Expected: LinkMeIn closes.
+
+   
 ### Saving Data
-
 1. Dealing with missing data file
-
-    1. Prerequisites: Delete the data file named `companydata.json` from the data folder.
-    2. Test case: Launch the app.<br>
-       Expected: A new data file is created with the sample data.
-
+   1. Delete the file named `companydata.json` located in the `data` folder.  
+   2. Relaunch LinkMeIn. <br>
+   Expected: A new `companydata.json` file is created in the `data` folder, with sample companies shown in the GUI.
 2. Dealing with corrupted data file
-    1. Prerequisites: Corrupt the data file named `companydata.json` in the data folder by deleting the first four lines of the file.
-    2. Test case: Launch the app.<br>
-       Expected: The company list panel should be empty with an error message being logged in the terminal.
+    1. Open the `companydata.json` file located in the `data` folder with a text editor.
+    2. Corrupt the file by deleting a few characters. Save the file.
+    3. Relaunch LinkMeIn. <br>
+    Expected: No companies will be shown in LinkMeIn.
+
 
 ## **Appendix D: Effort**
