@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.logic.commands.testdata.FindCommandTestCompanies.getFindCommandTestAddressBook;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.SortOrder;
+import seedu.address.logic.commands.testdata.SortCommandTestCompanies;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -17,27 +17,35 @@ import seedu.address.model.UserPrefs;
  * Contains integration tests (interaction with the Model) and unit tests for SortCommand.
  */
 public class SortCommandTest {
-    private Model model = new ModelManager(getFindCommandTestAddressBook(), new UserPrefs());
-    private Model expectedModel = new ModelManager(getFindCommandTestAddressBook(), new UserPrefs());
 
     @Test
     public void execute_sortAscending_success() {
         SortCommand sortCommand = new SortCommand(SortOrder.ASCENDING);
         String expectedMessage = SortCommand.MESSAGE_SUCCESS_ASCENDING;
 
-        expectedModel.sortCompaniesByDeadline(SortOrder.ASCENDING);
+        // Creating a model with unsorted companies
+        Model unsortedModel = new ModelManager(SortCommandTestCompanies.getUnsortedAddressBook(), new UserPrefs());
 
-        assertCommandSuccess(sortCommand, model, expectedMessage, expectedModel);
+        // Expected sorted model
+        Model expectedModel = new ModelManager(SortCommandTestCompanies.getSortedAscendingAddressBook(),
+                new UserPrefs());
+
+        assertCommandSuccess(sortCommand, unsortedModel, expectedMessage, expectedModel);
     }
-
     @Test
     public void execute_sortDescending_success() {
         SortCommand sortCommand = new SortCommand(SortOrder.DESCENDING);
         String expectedMessage = SortCommand.MESSAGE_SUCCESS_DESCENDING;
 
-        expectedModel.sortCompaniesByDeadline(SortOrder.DESCENDING);
+        // Creating a model with unsorted companies
+        Model unsortedModel = new ModelManager(SortCommandTestCompanies.getUnsortedAddressBook(), new UserPrefs());
 
-        assertCommandSuccess(sortCommand, model, expectedMessage, expectedModel);
+        // Expected sorted model
+        Model expectedModel = new ModelManager(SortCommandTestCompanies.getSortedDescendingAddressBook(),
+                new UserPrefs());
+
+        assertCommandSuccess(sortCommand, unsortedModel, expectedMessage, expectedModel);
+
     }
 
     @Test

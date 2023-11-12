@@ -2,7 +2,13 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
-import javafx.collections.ObservableList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
+
+import javafx.collections.FXCollections;
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.SortOrder;
 import seedu.address.model.Model;
 import seedu.address.model.company.Company;
@@ -13,9 +19,11 @@ import seedu.address.model.company.Company;
 public class SortCommand extends Command {
 
     public static final String COMMAND_WORD = "sort";
+
     public static final String MESSAGE_SUCCESS_ASCENDING = "Sorted all companies by their deadlines in ascending order";
     public static final String MESSAGE_SUCCESS_DESCENDING = "Sorted all companies by their deadlines in descending "
             + "order";
+    private static final Logger logger = LogsCenter.getLogger(SortCommand.class);
 
     public static final String MESSAGE_USAGE =
             "Format: " + COMMAND_WORD + " <SORT_ORDER>. "
@@ -35,17 +43,16 @@ public class SortCommand extends Command {
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
+        logger.info("Executing SortCommand in " + sortOrder.toString().toLowerCase() + " order");
 
-        ObservableList<Company> companyList = model.getAddressBook().getCompanyList();
-        ObservableList<Company> sortedList = companyList.sorted((company1, company2) -> {
-            if (sortOrder == SortOrder.ASCENDING) {
-                return company1.getDeadline().compareTo(company2.getDeadline());
-            } else {
-                return company2.getDeadline().compareTo(company1.getDeadline());
-            }
-        });
+        Comparator<Company> comparator = sortOrder == SortOrder.ASCENDING
+                ? Comparator.comparing(Company::getDeadline) : Comparator.comparing(Company::getDeadline).reversed();
 
-        model.setAllCompanies(sortedList);
+        List<Company> sortedList = model.getAddressBook().getCompanyList().stream()
+                .sorted(comparator)
+                .collect(Collectors.toList());
+
+        model.setAllCompanies(FXCollections.observableArrayList(sortedList));
         return new CommandResult(sortOrder == SortOrder.ASCENDING ? MESSAGE_SUCCESS_ASCENDING
                 : MESSAGE_SUCCESS_DESCENDING);
     }
