@@ -391,17 +391,20 @@ The `remark` command allows user to add and delete a remark from a company.
 
 Unlike other `Command` class, the `RemarkCommand` class has two `COMMAND_WORD` - remark and unremark.
 Hence, it is a dependency for two `Parser` - `RemarkCommandParser` and `UnremarkCommandParser`.
+The two command words require two different parsers as they have different command format.
+Meanwhile, both can create the same type of Command object, `RemarkCommand`, because both command words results in a change in remarks of a company.
 The following activity diagram will show how `RemarkCommand` can achieve the functionality of both `COMMAND_WORD`.
+
 <img src="images/RemarkActivityDiagram.png"/>
 
 #### Design Considerations
-**Aspect: How adding/editing of Remark is implemented**
+**Aspect: Implementation of `COMMAND_WORD` for Remark**
 - **Alternative 1 (current choice):** Use two `COMMAND_WORD`
     - Pros: More specific commands allow for better error handling i.e empty remark can be considered invalid input, thus more defensive programming
-    - Cons: More prone to bugs if error handling not implemented correctly.
-- **Alternative 2:** Use only one `COMMAND_WORD`
+    - Cons: More test cases needed to find bugs/More prone to bugs if error handling not implemented correctly.
+- **Alternative 2:** Use only one `COMMAND_WORD` - remark
     - Pros: Easier to implement.
-    - Cons: Remarks may be accidentally deleted by empty input.
+    - Cons: Remarks may be accidentally deleted by an empty input for the parameter. This can affect user experience negatively.
 
 ### Add Feature
 The `add` command allows users to add companies into LinkMeIn. The compulsory parameters are the company's name, the application's role, status and deadline, and the recruiter's name, phone and email address. The optional field is the priority field. Parameters can be added in any order.
@@ -726,6 +729,16 @@ Also, we understand that some users may not wish to type leading zeros for days 
 ### **9. Allow Multiple Indexes Input for Delete Command**
 
 ### **10. Enhance Remark Feature**
+**Potential flaw in current implementation**
+Our app is unable to allow users to copy texts from the company detail panel in our UI.
+If users wish to add on to the existing remark, they need to re-type the existing remark into the command box then add in the new remark.
+This may not be a practical implementation, especially if the existing remark is long, which affects user experience negatively.
+
+**How the feature will be changed**
+Edit the error message returned for `remark INDEX re/`.
+Currently, when `remark 1 re/` is entered, the error message returned is `Oops! Remark should not be empty. Please try again!`.
+This can be enhanced to return the existing remarks in the Message Box where the user can copy the content unlike in the company detail panel where the user is unable to do so.
+Hence, the `remark 1 re/` command is modified to become a way to copy and paste existing remarks so that remarks become cumulative.
 
 ---
 
