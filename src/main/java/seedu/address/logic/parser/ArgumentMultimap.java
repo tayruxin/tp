@@ -18,7 +18,9 @@ import seedu.address.logic.parser.exceptions.ParseException;
  * can be inserted multiple times for the same prefix.
  */
 public class ArgumentMultimap {
-    public static final String PREAMBLE_VALIDATION_REGEX = "^(?:-?\\d+(\\.\\d*)?|\\.\\d+)?$";
+    public static final String PREAMBLE_VALIDATION_REGEX = "^(\\S*[0-9]+\\S*)$";
+
+    public static final String INVALID_PREFIX_REGEX = "^[\\p{Alnum} ]*\\s+\\p{Alpha}+/[\\p{Alnum} ]*";
 
     /** Prefixes mapped to their respective arguments**/
     private final Map<Prefix, List<String>> argMultimap = new HashMap<>();
@@ -61,7 +63,11 @@ public class ArgumentMultimap {
      *
      */
     public Boolean isValidPreamble() {
-        return getPreamble().matches(PREAMBLE_VALIDATION_REGEX);
+        String preamble = getPreamble();
+        if (preamble.isEmpty()) {
+            return true;
+        }
+        return !preamble.matches(INVALID_PREFIX_REGEX) && preamble.matches(PREAMBLE_VALIDATION_REGEX);
     }
 
     /**
@@ -83,5 +89,16 @@ public class ArgumentMultimap {
         if (duplicatedPrefixes.length > 0) {
             throw new ParseException(Messages.getErrorMessageForDuplicatePrefixes(duplicatedPrefixes));
         }
+    }
+
+    /**
+     * Checks if there is any invalid prefixes parsed as the value of the prefixes given in {@code prefixes}.
+     */
+    public boolean verifyNoInvalidPrefixesFor(Prefix... prefixes) {
+        Prefix[] invalidPrefixes = Stream.of(prefixes)
+                .filter(prefix -> this.getValue(prefix).orElse("").matches(INVALID_PREFIX_REGEX))
+                .toArray(Prefix[]::new);
+
+        return invalidPrefixes.length == 0;
     }
 }
