@@ -14,9 +14,8 @@ This project is based on the AddressBook-Level3 project created by the [SE-EDU i
 
 * Libraries used: 
   * [JavaFX](https://openjfx.io/) 
-  *  [Jackson](https://github.com/FasterXML/jackson) 
-  *  [JUnit](https://junit.org/junit5/) 
-  *  [Codecov](https://codecov.io/)
+  * [Jackson](https://github.com/FasterXML/jackson) 
+  * [JUnit](https://junit.org/junit5/) 
 
 ---
 
