@@ -227,7 +227,7 @@ when there is any changes made to the `UniqueCompanyList`.
 When the `edit`, `add`, `view` or `delete` command is executed, the `CompanyDetailPanel` will be updated respectively as
 shown in the activity diagram below.
 
-<img src="images/CompanyDetailPanelActivityDiagram.png" width="400"/>
+<img src="images/CompanyDetailPanelActivityDiagram.png" alt="Company Detail Panel Activity Diagram"/>
 
 #### Design Considerations
 
