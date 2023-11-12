@@ -24,7 +24,7 @@ public class AddCommand extends Command {
     public static final String COMMAND_WORD = "add";
 
     public static final String MESSAGE_USAGE =
-            "Parameters: "
+            "Format: " + COMMAND_WORD + " "
             + PREFIX_COMPANY_NAME + "COMPANY_NAME "
             + PREFIX_ROLE + "ROLE "
             + PREFIX_STATUS + "STATUS "

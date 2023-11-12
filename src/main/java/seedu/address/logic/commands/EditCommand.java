@@ -154,7 +154,6 @@ public class EditCommand extends Command {
         private ApplicationStatus status;
         private RecruiterName recruiterName;
         private Priority priority;
-        private Remark remark;
 
         public EditCompanyDescriptor() {}
 
@@ -171,7 +170,6 @@ public class EditCommand extends Command {
             setStatus(toCopy.status);
             setRecruiterName(toCopy.recruiterName);
             setPriority(toCopy.priority);
-            setRemark(toCopy.remark);
         }
 
         /**
@@ -179,7 +177,7 @@ public class EditCommand extends Command {
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, role, deadline, status,
-                    recruiterName, priority, remark);
+                    recruiterName, priority);
         }
 
         public void setName(Name name) {
@@ -246,15 +244,6 @@ public class EditCommand extends Command {
             return Optional.ofNullable(priority);
         }
 
-        public void setRemark(Remark remark) {
-            this.remark = remark;
-        }
-
-        public Optional<Remark> getRemark() {
-            return Optional.ofNullable(remark);
-        }
-
-
         @Override
         public boolean equals(Object other) {
             if (other == this) {
@@ -274,8 +263,7 @@ public class EditCommand extends Command {
                     && Objects.equals(deadline, otherCompanyDescriptor.deadline)
                     && Objects.equals(status, otherCompanyDescriptor.status)
                     && Objects.equals(recruiterName, otherCompanyDescriptor.recruiterName)
-                    && Objects.equals(priority, otherCompanyDescriptor.priority)
-                    && Objects.equals(remark, otherCompanyDescriptor.remark);
+                    && Objects.equals(priority, otherCompanyDescriptor.priority);
         }
 
         @Override
@@ -289,7 +277,6 @@ public class EditCommand extends Command {
                     .add("phone", phone)
                     .add("email", email)
                     .add("priority", priority)
-                    .add("remark", remark)
                     .toString();
         }
     }
