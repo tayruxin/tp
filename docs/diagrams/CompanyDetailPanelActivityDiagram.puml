@@ -14,7 +14,6 @@ if () then ([view, edit or add command])
     UniqueCompanyList;
     :Company detail panel displays company;
 else ([delete command])
-    :checkDelete(Company company);
     if () then ([viewing the company to be deleted])
         :Clear company detail panel;
     else ([else])
