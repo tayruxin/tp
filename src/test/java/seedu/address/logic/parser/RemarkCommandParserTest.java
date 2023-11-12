@@ -1,7 +1,10 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.logic.Messages.MESSAGE_EMPTY_INDEX;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_REMARK_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.REMARK_DESC_GOOGLE;
+import static seedu.address.logic.commands.CommandTestUtil.REMARK_DESC_TIKTOK;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_COMPANY;
@@ -20,8 +23,8 @@ public class RemarkCommandParserTest {
     public void parse_indexSpecified_success() {
         // have remark
         Index targetIndex = INDEX_FIRST_COMPANY;
-        String userInput = targetIndex.getOneBased() + " " + PREFIX_REMARK + nonEmptyRemark;
-        RemarkCommand expectedCommand = new RemarkCommand(INDEX_FIRST_COMPANY, new Remark(nonEmptyRemark));
+        String userInput = targetIndex.getOneBased() + REMARK_DESC_GOOGLE;
+        RemarkCommand expectedCommand = new RemarkCommand(INDEX_FIRST_COMPANY, new Remark("Java/Python"));
         assertParseSuccess(parser, userInput, expectedCommand);
     }
 
@@ -30,15 +33,15 @@ public class RemarkCommandParserTest {
         Index targetIndex = INDEX_FIRST_COMPANY;
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, RemarkCommand.MESSAGE_USAGE);
 
-        // no parameters
-        assertParseFailure(parser, RemarkCommand.COMMAND_WORD, expectedMessage);
+        // no prefix
+        assertParseFailure(parser, targetIndex.getOneBased() + nonEmptyRemark, expectedMessage);
 
         // no index
-        assertParseFailure(parser, RemarkCommand.COMMAND_WORD + " " + nonEmptyRemark, expectedMessage);
+        assertParseFailure(parser, REMARK_DESC_TIKTOK, MESSAGE_EMPTY_INDEX);
 
         // no remark
         expectedMessage = Remark.MESSAGE_CONSTRAINTS;
-        String userInput = targetIndex.getOneBased() + " " + PREFIX_REMARK;
+        String userInput = targetIndex.getOneBased() + INVALID_REMARK_DESC;
         assertParseFailure(parser, userInput, expectedMessage);
 
         // no prefix and remark

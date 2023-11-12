@@ -28,14 +28,14 @@ import seedu.address.testutil.CompanyBuilder;
  */
 public class RemarkCommandTest {
 
-    private static final String REMARK_STUB = "Some remark";
+    private static final String REMARK_STUB = "No remarks"; //default remark after delete
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
     public void execute_addRemarkUnfilteredList_success() {
         Company firstCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
-        Company editedCompany = new CompanyBuilder(firstCompany).withRemark(REMARK_STUB).build();
+        Company editedCompany = new CompanyBuilder(firstCompany).withRemark(VALID_REMARK_GOOGLE).build();
 
         RemarkCommand remarkCommand = new RemarkCommand(INDEX_FIRST_COMPANY,
                 new Remark(editedCompany.getRemark().value));
@@ -50,14 +50,15 @@ public class RemarkCommandTest {
     }
 
     @Test
-    public void execute_noRemarksRemarkUnfilteredList_success() {
+    public void execute_removeRemarkUnfilteredList_success() {
         Company firstCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
-        Company editedCompany = new CompanyBuilder(firstCompany).withRemark("No remarks").build();
+        Company editedCompany = new CompanyBuilder(firstCompany).withRemark(REMARK_STUB).build();
 
-        RemarkCommand remarkCommand = new RemarkCommand(INDEX_FIRST_COMPANY,
-                new Remark(editedCompany.getRemark().toString()));
+        Remark remark = new Remark(REMARK_STUB);
+        remark.deleteRemark();
+        RemarkCommand remarkCommand = new RemarkCommand(INDEX_FIRST_COMPANY, remark);
 
-        String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS,
+        String expectedMessage = String.format(RemarkCommand.MESSAGE_DELETE_REMARK_SUCCESS,
                 editedCompany.getName().fullName);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
@@ -67,7 +68,7 @@ public class RemarkCommandTest {
     }
 
     @Test
-    public void execute_filteredList_success() {
+    public void execute_addRemarkFilteredList_success() {
         showCompanyAtIndex(model, INDEX_FIRST_COMPANY);
 
         Company firstCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
@@ -81,6 +82,29 @@ public class RemarkCommandTest {
                 editedCompany.getName().fullName);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        showCompanyAtIndex(expectedModel, INDEX_FIRST_COMPANY);
+        expectedModel.setCompany(firstCompany, editedCompany);
+
+        assertCommandSuccess(remarkCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
+    public void execute_removeRemarkFilteredList_success() {
+        showCompanyAtIndex(model, INDEX_FIRST_COMPANY);
+
+        Company firstCompany = model.getFilteredCompanyList().get(INDEX_FIRST_COMPANY.getZeroBased());
+        Company editedCompany = new CompanyBuilder(model.getFilteredCompanyList()
+                .get(INDEX_FIRST_COMPANY.getZeroBased())).withRemark(REMARK_STUB).build();
+
+        Remark remark = new Remark(REMARK_STUB);
+        remark.deleteRemark();
+        RemarkCommand remarkCommand = new RemarkCommand(INDEX_FIRST_COMPANY, remark);
+
+        String expectedMessage = String.format(RemarkCommand.MESSAGE_DELETE_REMARK_SUCCESS,
+                editedCompany.getName().fullName);
+
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        showCompanyAtIndex(expectedModel, INDEX_FIRST_COMPANY);
         expectedModel.setCompany(firstCompany, editedCompany);
 
         assertCommandSuccess(remarkCommand, model, expectedMessage, expectedModel);

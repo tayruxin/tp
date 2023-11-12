@@ -2,7 +2,6 @@ package seedu.address.logic.commands;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_COMPANIES;
 
 import java.util.List;
 
@@ -64,7 +63,6 @@ public class RemarkCommand extends Command {
                 remark);
 
         model.setCompany(companyToRemark, remarkedCompany);
-        model.updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
         model.setCurrentViewedCompany(remarkedCompany);
 
         return new CommandResult(generateSuccessMessage(remarkedCompany));
