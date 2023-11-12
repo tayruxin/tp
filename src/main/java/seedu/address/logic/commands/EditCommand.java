@@ -39,7 +39,7 @@ public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
-    public static final String MESSAGE_USAGE = "Parameters: INDEX (must be a positive integer) "
+    public static final String MESSAGE_USAGE = "Format: INDEX (must be a positive integer) "
             + "[" + PREFIX_COMPANY_NAME + "COMPANY_NAME] "
             + "[" + PREFIX_RECRUITER_NAME + "RECRUITER_NAME] "
             + "[" + PREFIX_ROLE + "ROLE] "
