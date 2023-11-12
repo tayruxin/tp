@@ -3,13 +3,11 @@ package seedu.address.model.company;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import seedu.address.logic.SortOrder;
 import seedu.address.model.company.exceptions.CompanyNotFoundException;
 import seedu.address.model.company.exceptions.DuplicateCompanyException;
 
@@ -125,18 +123,6 @@ public class UniqueCompanyList implements Iterable<Company> {
         }
 
         internalList.setAll(companies);
-    }
-
-    /**
-     * Sorts the companies by their deadlines.
-     */
-    public void sortCompaniesByDeadline(SortOrder sortOrder) {
-        requireNonNull(sortOrder);
-        if (sortOrder == SortOrder.ASCENDING) {
-            internalList.sort(Comparator.comparing(Company::getDeadline));
-        } else {
-            internalList.sort(Comparator.comparing(Company::getDeadline).reversed());
-        }
     }
 
     /**
