@@ -131,13 +131,22 @@ public class Messages {
     }
 
     /**
-     * Formats the {@code company} to only display the company's name to the user
-     * with the left UI panel for viewing the company details.
+     * Generates a string containing the name of the given {@code Company}.
+     *
+     * @param company The company for which the name is to be generated.
+     * @return A string containing the name of the given {@code Company}.
      */
     public static String getCompanyName(Company company) {
         return company.getName().toString();
     }
 
+    /**
+     * Generates a string containing relevant information about the given {@code Company}.
+     * The information includes the company name, role, and deadline.
+     *
+     * @param company The company for which information is to be generated.
+     * @return A string containing relevant information about the given {@code Company}.
+     */
     public static String getCompanyInfo(Company company) {
         return company.getName().toString() + " (" + "Role: " + company.getRole().toString()
                 + ", " + "Deadline: " + company.getDeadline().toString() + ")";

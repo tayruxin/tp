@@ -88,10 +88,10 @@ public class CommandTestUtil {
     static {
         DESC_GOOGLE = new EditCompanyDescriptorBuilder().withName(VALID_NAME_GOOGLE)
                 .withPhone(VALID_PHONE_GOOGLE).withEmail(VALID_EMAIL_GOOGLE).withPriority(VALID_PRIORITY_GOOGLE)
-                .withRemark(VALID_REMARK_GOOGLE).build();
+                .build();
         DESC_TIKTOK = new EditCompanyDescriptorBuilder().withName(VALID_NAME_TIKTOK)
                 .withPhone(VALID_PHONE_TIKTOK).withEmail(VALID_EMAIL_TIKTOK).withPriority(VALID_PRIORITY_TIKTOK)
-                .withRemark(VALID_REMARK_TIKTOK).build();
+                .build();
     }
 
     /**

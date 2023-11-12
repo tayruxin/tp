@@ -63,8 +63,7 @@ public class EditCompanyDescriptorTest {
                 + editCompanyDescriptor.getRecruiterName().orElse(null) + ", phone="
                 + editCompanyDescriptor.getPhone().orElse(null) + ", email="
                 + editCompanyDescriptor.getEmail().orElse(null) + ", priority="
-                + editCompanyDescriptor.getPriority().orElse(null) + ", remark="
-                + editCompanyDescriptor.getRemark().orElse(null)
+                + editCompanyDescriptor.getPriority().orElse(null)
                 + "}";
         assertEquals(expected, editCompanyDescriptor.toString());
     }

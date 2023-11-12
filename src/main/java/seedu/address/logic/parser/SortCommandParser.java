@@ -1,7 +1,6 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.logic.SortOrder;
 import seedu.address.logic.commands.SortCommand;
@@ -30,7 +29,7 @@ public class SortCommandParser implements Parser<SortCommand> {
             return new SortCommand(SortOrder.ASCENDING);
 
         default:
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(SortCommand.MESSAGE_INVALID_SORT_ORDER, SortCommand.MESSAGE_USAGE));
         }
     }
 }
