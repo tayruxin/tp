@@ -25,7 +25,7 @@ Additionally, LinkMeIn combines the rapid **efficiency** of [Command Line Interf
 
 # Table of Contents
 * TOC
-  {:toc}
+{:toc}
 
 # Navigating the User Guide
 
@@ -328,6 +328,13 @@ _You just completed an internship cycle and wish to start a new cycle, you can u
 entries in LinkMeIn._
 
 **Format:** `clear`
+
+**Step 1:** Type `clear` in the command box and press Enter.
+
+**Step 2:** You should see an empty list of companies. 
+
+![img.png](images/clear-command/clear.png)
+
 
 <div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
