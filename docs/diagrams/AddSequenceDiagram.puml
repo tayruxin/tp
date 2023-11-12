@@ -7,6 +7,7 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":AddCommandParser" as AddCommandParser LOGIC_COLOR
+participant "c:Company" as Company MODEL_COLOR
 participant "a:AddCommand" as AddCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 
@@ -32,6 +33,12 @@ deactivate AddCommandParser
 AddressBookParser -> AddCommandParser : parse("c/Google \n r/Software Engineer s/PA \n d/10-10-2023 n/Francis Tan \n p/98765432 e/francist@gmail.com")
 activate AddCommandParser
 
+create Company
+AddCommandParser -> Company: Company(...)
+activate Company
+
+Company --> AddCommandParser
+deactivate Company
 
 create AddCommand
 AddCommandParser -> AddCommand
