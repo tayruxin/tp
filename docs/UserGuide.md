@@ -412,7 +412,7 @@ This application is of **medium** priority as you have other applications that y
 * If you miss out any of the compulsory parameters, you will see an error message in the command box informing you of the invalid command format.
 Don't worry, just identify the missing parameter(s) and edit your input accordingly! An example of the error message is shown below.
 
-![img.png](images/add-command/AddCommandError2.png)
+![img.png](images/add-command/AddCommandError.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
