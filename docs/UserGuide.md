@@ -7,7 +7,7 @@ title: User Guide
 
 _Master Your Internship Journey: Every Deadline, Every Detail._
 
-LinkMeIn is a **desktop application** built for [NUS School Of Computing's (NUS) Computer Science students](https://www.comp.nus.edu.sg/programmes/ug/cs/) 
+LinkMeIn is a **desktop application** built for NUS School Of Computing's (NUS) Computer Science students 
 to track their internship applications.
 
 
@@ -20,30 +20,13 @@ Here is a **quick** overview of your internship journey with LinkMeIn:
 LinkMeIn is more than just an application—it's your **personalized** partner, offering a
 seamless experience that outclasses conventional tracking methods.
 
-Additionally, LinkMeIn combines the rapid **efficiency** of Command Line Interface (CLI) with the visual clarity of 
+Additionally, LinkMeIn combines the rapid **efficiency** of [Command Line Interface (CLI)](#using-linkmeins-cli) with the visual clarity of 
 [Graphical User Interface (GUI)](#introducing-linkmeins-gui), offering a **tailored** experience for internship management that outpaces the generic
 spreadsheets of Excel.
 
-## Introducing LinkMeIn's GUI
-LinkMeIn's [GUI](#glossary) is designed to be **simple** and **intuitive** with you in mind. 
-The GUI consists of four main components:
-
-![uiIntro.png](images/ui-intro/uiIntro.png)
-
-If you are unsure about what each component does, you can refer to the table below: 
-
-| Number | Component            | Description                                              |
-|--------|----------------------|----------------------------------------------------------|
-| 1      | Command Box          | Key in your commands here and LinkMeIn will execute them |
-| 2      | Message Box          | Displays success or error messages to you                |
-| 3      | Company List Panel   | Displays the list of companies that you have added       |
-| 4      | Company Detail Panel | Displays the detail of the company that you are viewing  |
-
-<div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
-* To enhance your viewing experience, you can opt for full-screen mode in LinkMeIn! Nevertheless, even if you prefer not to use 
-full screen, rest assured that LinkMeIn's features will still function flawlessly. 
-</div>
+# Table of Contents
+* TOC
+  {:toc}
 
 # Navigating the User Guide
 
@@ -56,13 +39,13 @@ Before we begin, let us first introduce you to the annotations that you will be 
 throughout this user guide. 
 
 <div markdown="block" class="alert alert-success">
-**:bulb: Useful Tips:**<br>
+**:bulb: Useful Tip:**<br>
 * Provides you with additional insights or more efficient ways to use LinkMeIn.
 </div>
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
-* Highlights supplementary information that you should be aware of, but isn't necessarily mission-critical.
+**:information_source: Note:**<br>
+* Presents additional details that are valuable to know when using LinkMeIn.
 </div>
 
 <div markdown="block" class="alert alert-danger">
@@ -102,10 +85,7 @@ where all the commands are listed out in a table format.
 
 If you face any issues while using LinkMeIn, you can refer to the [FAQ Section](#faq) to see if your issue has been addressed before.
 
-
-# Table of Contents
-* TOC
-{:toc}
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 # Quick start
 In this section, you will learn how to set up LinkMeIn in your computer. 
@@ -142,37 +122,66 @@ In this section, you will learn how to set up LinkMeIn in your computer.
         <img src="images/quick-start/startupPage.png" alt="Start Up Page LinkMeIn" width="650"/>
     </div>
 
-9. Great job! You are now ready to learn about the [Command Line Interface](#using-linkmeins-cli) of LinkMeIn!
+9. Great job! You are now ready to learn about the [GUI](#introducing-linkmeins-gui) of LinkMeIn!
+
+[&uarr; Back to Table of Contents](#table-of-contents)
+
+# Introducing LinkMeIn's GUI
+LinkMeIn's [GUI](#glossary) is designed to be **simple** and **intuitive** with you in mind.
+The GUI consists of four main components:
+
+![uiIntro.png](images/ui-intro/uiIntro.png)
+
+If you are unsure about what each component does, you can refer to the table below:
+
+| Number | Component            | Description                                              |
+|--------|----------------------|----------------------------------------------------------|
+| 1      | Command Box          | Key in your commands here and LinkMeIn will execute them |
+| 2      | Message Box          | Displays success or error messages to you                |
+| 3      | Company List Panel   | Displays the list of companies that you have added       |
+| 4      | Company Detail Panel | Displays the detail of the company that you are viewing  |
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Note:**<br>
+* To enhance your viewing experience, you can opt for full-screen mode in LinkMeIn! Nevertheless, even if you prefer not to use 
+full screen, rest assured that LinkMeIn's features will still function flawlessly. 
+</div>
+
+Having introduced you to the GUI, let us now move on to learn how to use CLI to interact with LinkMeIn.
+
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 # Using LinkMeIn's CLI
 
-LinkMeIn uses the Command Line Interface (CLI). 
-CLI is a means of interacting with a computer program by **inputting lines of text called command-lines**.
+LinkMeIn operates through the CommandLineInterface (CLI), a method of interacting with a computer program by **entering line of 
+text known as command-lines.** 
 
-Do not be put off by its name! Read on to find out how simple CLI is for LinkMeIn.
+Don't let the name intimidate you! Continue reading to discover how straightforward CLI is when using LinkMeIn.
 
 <div style="margin-top: 10px; margin-bottom: 10px">
     <img src="images/cli-description/CliDescription1.png" alt="CliDescription1" width="650"/>
 </div>
 
-
-The Command Box is where you input the command lines. After you press enter, LinkMeIn reads your input and replies you through the Message Box.
-In this process, you are interacting with our application through text and that is exactly how CLI works!
-Let's move on to learn how to write command lines and you are ready to try LinkMeIn!
+The Command Box serves as the gateway for entering command lines. Once you press enter, LinkMeIn processes your 
+input and provides responses through the Message Box. This process of interacting with LinkMeIn through text is exactly how CLI works!
+Now, let's move on to learn how to write command lines, and you are ready to try LinkMeIn!
 
 ## Command Format
-A command line has 4 components, command word, index, prefix and parameter.
+A command line has 4 components, **command word**, **index**, **prefix** and **parameter**.
 
-| Component    | Example    | Description                                                                                                                                                     |
-|--------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command word | `add`      | Indicates the feature to be executed                                                                                                                            |
-| Index        | `1` `5`    | Indicates the company to be edited (e.g., 5th company in the list)                                                                                              |
-| Prefix       | `c/`       | Indicates the type of parameter to be edited (e.g., name)                                                                                                       |
-| Parameter    | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, are used to replace the `UPPER_CASE` letters in the command format |
+| Component    | Example    | Description                                                                                                                                               |
+|--------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command word | `add`      | Indicates the feature to be executed                                                                                                                      |
+| Index        | `1`, `5`   | Indicates the company to be edited (e.g., 5th company in the list)                                                                                        |
+| Prefix       | `c/`       | Indicates the type of parameter to be edited (e.g., name)                                                                                                 |
+| Parameter    | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, replaces the `UPPER_CASE` placeholders in the command format |
 
 _You can find all the parameters used in LinkMeIn [here](#parameters-description)._
+_To learn more about the prefixes and command words used in LinkMeIn, you can refer to the [Command Summary Section](#command-summary)._
 
-We will be using the colour code below to highlight the different components to you.
+Now, let us learn how to use these 4 components to write a command. 
+The following color code will assist in highlighting each component for better understanding. 
+
 <div style="margin-top: 10px; margin-bottom: 10px">
     <img src="images/cli-description/CommandFormat1.png" alt="CommandFormat1" width="650"/>
 </div>
@@ -182,9 +191,9 @@ Let's use the [`add` command](#adding-a-company--add) format as shown below to e
     <img src="images/cli-description/CommandFormat2.png" alt="CommandFormat2" width="650"/>
 </div>
 
-`add` is the command word for add feature. Every command line must have a command word to indicate the feature you wish to use.
-The prefix specifies the parameter type. For example, `c/John` adds John as company name while `n/John` adds John as recruiter's name.
-Replace the parameters with your application details and you have successfully written a command!
+The `add` command is used to initiate the add feature. Every command line should begin with a command word to specify the desired feature.
+The prefix indicates the parameter type. For example, `c/John` adds "John" as the company name while `n/John` adds "John" as the recruiter's name.
+Simply replace the parameters with your specific application details, and you have effectively crafted a command!
 
 But wait! Notice the `[]` around `pr/PRIORITY`? 
 
@@ -313,10 +322,13 @@ add, view, edit, delete companies, as well as add your own remarks to companies.
 Explore option to find, list, filter and sort companies, managing all companies with ease. 
 
 ## General Features
+In this section, you'll find essential tools that empower you to navigate LinkMeIn with ease. Learn how to access help, 
+clear all entries, and gracefully exit the application, ensuring a seamless user experience.
 
 ### Clear all entries: `clear`
 
-Clears all entries of internship application.
+_You just completed an internship cycle and wish to start a new cycle, you can use the `clear` command to clear all the
+entries in LinkMeIn._
 
 **Format:** `clear`
 
@@ -326,27 +338,29 @@ Clears all entries of internship application.
 </div>
 
 ### Exit LinkMeIn: `exit`
-
-Exits the program and closes the window.
+_You are done tracking for the day and wish to exit LinkMeIn, you can use the `exit` command to exit LinkMeIn._
 
 **Format:** `exit`
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
+**:information_source: Note:**<br>
 * Entries will be saved automatically.
 </div>
 
 ### Help: `help`
 
-Displays a window that allows you copy the url and subsequently view our user guide on a browser.
-![img.png](images/help-command/helpcommand.png)
+_You are unsure of how to use a feature, you can use the `help` command which displays a window with the url to our user guide._
 
 **Format:** `help`
 
+![img.png](images/help-command/helpcommand.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
 ## Company Management Features
+Dive into the intricacies of managing individual company entries. Uncover the steps to add, view, edit, delete companies, 
+and personalize your entries by adding remarks. This section provides a detailed guide to enhancing your company management 
+capabilities.
 
 ### Adding a company : `add`
 
@@ -360,7 +374,7 @@ Add the company to LinkMeIn now to keep track of the application process using t
 > All [**parameters**](#parameters-description) specified in the format are compulsory except for PRIORITY.
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
+**:information_source: Note:**<br>
 * Order of input **does not** matter.
 </div>
 
@@ -385,7 +399,7 @@ This application is of **medium** priority as you have other applications that y
 **Step 4:** You can proceed to add more companies by repeating the steps above!
 
 <div markdown="block" class="alert alert-success">
-**:bulb: Useful Tips:**<br>
+**:bulb: Useful Tip:**<br>
 * To quickly navigate to the start and end of your input, you can use 'Ctrl' (Windows User) / 'Command' (Mac User) with the 'Left' and 'Right' arrow keys respectively!
 </div>
 
@@ -400,7 +414,7 @@ Don't worry, just identify the missing parameter(s) and edit your input accordin
 
 ### View full company information: `view`
 
-_You look at the list of companies and you see a company that has not been getting back to you. You can use the view
+_You look at the list of companies, and you see a company that has not been getting back to you. You can use the view
 command to view the company's recruiter's contact details to follow up with them. The view command allows you to view
 the detail of any company from the list of companies that you have added._
 
@@ -409,7 +423,7 @@ the detail of any company from the list of companies that you have added._
 > INDEX must be a positive integer number e.g 1,2,3... and must not be greater than the number of company in the list.
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
+**:information_source: Note:**<br>
 * INDEX refers to the index number shown in the displayed company list.
 </div>
 
@@ -443,7 +457,7 @@ You can use the delete command to delete the company from the list of companies 
 > INDEX must be a positive integer number e.g 1,2,3... and must not be greater than the number of company in the list.
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
+**:information_source: Note:**<br>
 * INDEX refers to the index number shown in the displayed company list. You can only delete one company at a time. 
 </div>
 
@@ -480,7 +494,7 @@ use the `remark` command to input these additional details._
 > `re/REMARK` : type prefix `re/` followed by the remark you want to add 
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
+**:information_source: Note:**<br>
 * Remark cannot be empty. Use the unremark command to delete instead.
 </div>
 
@@ -491,20 +505,20 @@ use the `remark` command to input these additional details._
 
 **Examples:** 
 
-**Step 1.** After adding the internship for Microsoft into LinkMeIn,
-   you also want to note down that this internship requires experience in Java.
+**Step 1.** After adding the internship for DSTA into LinkMeIn,
+   you wish to note down that this internship requires experience in Java.
 
-**Step 2.** To note this down, type `remark 1 re/need Java`
+**Step 2.** To note this down, type `remark 3 re/need Java`
    ![RemarkDemo1.png](images/remark-command/RemarkDemo1.png)
 
-**Step 3.** You can view the remark the 1st company as shown below.
+**Step 3.** You can view the remark of the 3rd company as shown below.
    ![RemarkDemo2.png](images/remark-command/RemarkDemo2.png)
 
 **Step 4.** Go ahead and add remarks for more companies on your own!
 
 **More examples:**
-- `remark 3 re/interview went well!`
-- `remark 4 re/$800 per month`
+- `remark 4 re/interview went well!`
+- `remark 5 re/$800 per month`
 
 **Possible Error:**
 
@@ -524,13 +538,13 @@ use the `unremark` command to delete it._
 > `INDEX`: Deletes remark of the company at INDEX number shown in the displayed company list.
 
 <div markdown="block" class="alert alert-success">
-**:bulb: Useful Tips:**<br>
+**:bulb: Useful Tip:**<br>
 * To update the remark, you do NOT need to delete using unremark first.
 Directly use the remark command and it overwrites the old remark!
 </div>
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
+**:information_source: Note:**<br>
 * You can unremark a company that already has no remarks.
 LinkMeIn does not check for the existence of a remark.
 The same message will be displayed regardless of whether a remark exists for a company.
@@ -538,10 +552,10 @@ The same message will be displayed regardless of whether a remark exists for a c
 
 **Examples:**
 
-**Step 1.** If you wish to delete the remark of Google, type `unremark 2`
+**Step 1.** If you wish to delete the remark of DSTA, type `unremark 3`
    ![UnremarkDemo1.png](images/remark-command/UnremarkDemo1.png)
 
-**Step 2.** You can view the remark the 1st company as shown below.
+**Step 2.** The remark of 3rd company is removed as shown below.
    ![UnremarkDemo2.png](images/remark-command/UnremarkDemo2.png)
 
 **Possible Error:**
@@ -554,7 +568,7 @@ An example of an error message is shown below.
 
 ### Edit a company's information: `edit`
 
-_If you made a typo or need to update the progress of application,
+_You look at the details of the application, and realise you have made a typo or need to update the progress of application,
 use the `edit` command to input the accurate details._
 
 **Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY]`
@@ -567,12 +581,12 @@ use the `edit` command to input the accurate details._
 
 **Examples:**
 
-**Step 1.** You received an email from Microsoft inviting you to interview for a Frontend Developer role, which differs from the Software Engineer role you initially applied for. 
-To edit the company's information, type `edit 2 s/PI r/Frontend Developer`
+**Step 1.** You received an email from DSTA inviting you to interview for a Frontend Developer role, which differs from the Software Engineer role you initially applied for. 
+To edit the company's information, type `edit 3 s/PI r/Frontend Developer`
 
 ![EditDemo1.png](images/edit-command/EditDemo1.png)
 
-**Step 2.** The status and role of the 2nd company in the list is edited to be Pending Interview and Frontend Developer respectively.
+**Step 2.** The status and role of the 3nd company in the list is edited to be Pending Interview and Frontend Developer respectively.
 
 ![EditDemo2.png](images/edit-command/EditDemo2.png)
 
@@ -600,7 +614,7 @@ An example of an error message is shown below.
 
 _Got an error message while trying to add a company twice? LinkMeIn has got you covered!_
 
-If you add an application with the same company name, role and deadline as an existing application in LinkMeIn, 
+If you **add** an application with the same company name, role and deadline as an existing application in LinkMeIn, 
 you will see an error message in the command box informing you of the duplicate company.
 
 **Example:**
@@ -611,20 +625,21 @@ Exact match of all fields
 Partial match of fields
 ![img.png](images/duplicate-detection/add-command/duplicate-partial-match.png)
 
-If you edit an application into a duplicate application, with the same company, role and 
-deadline as an existing application in LinkMeIn, you will see an error message in the command box informing 
-you of the duplicate company.
+LinkMeIn's duplicate check does not stop with adding entries. If you attempt to **edit** an application, creating a 
+duplicate entry with the same company, role, and deadline as an existing application in LinkMeIn, 
+an error message will be displayed in the command box, notifying you of the duplicate company as seen below. 
 
-**Example:**
 ![img.png](images/duplicate-detection/edit-command/duplicate-edit.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
 ## Company List Features
+Embark on a journey to unlock LinkMeIn's full potential through interactions with your list of companies. Discover 
+options to find, list, filter, and sort companies, offering you a comprehensive toolkit to manage and organize your entire company portfolio efficiently.
 
 ### Find a company: `find`
 
-_You've applied to many companies and now you want to track a specific internship application for a particular
+_You've applied to many companies, and now you want to track a specific internship application for a particular
 company. Use the `find` command to quickly locate the company you want._
 
 **Format:** `find KEYWORD [MORE_KEYWORDS]...`
@@ -665,7 +680,7 @@ _You've found the specific company you wanted using the find command earlier, an
 ![img.png](images/list-command/ListCommand.png)
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
+**:information_source: Note:**<br>
 * Whenever LinkMeIn is started, you will see the full list of companies displayed by default (i.e. `list` command is executed automatically).
 </div>
 
@@ -678,7 +693,7 @@ Filter the list of companies by their application status using the `filter` comm
 
 **Format:** `filter s/APPLICATION_STATUS`
 
-> [**APPLICATION_STATUS**](#application-status-description) should be one of the following: `PA`, `PI`, `PO`, `A`, `R`.
+> [**APPLICATION_STATUS**](#application-status-parameter-description) should be one of the following: `PA`, `PI`, `PO`, `A`, `R`.
 
 **Example:**
 
@@ -717,7 +732,7 @@ Where `SORT_ORDER` can be:
 -   The sort is case-insensitive. e.g. `ASCENDING` and `ascending` are treated the same.
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
+**:information_source: Note:**<br>
 * If no order is specified, sort will default to `ascending`.
 </div>
 
@@ -777,7 +792,7 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Notes:**<br>
+**:information_source: Note:**<br>
 * If you enter an invalid input for any of the prefixes, you will see an error message in the command box. Refer to the error message, check the description for the respective prefix and try the command again! An example of an error message is shown below.
 
 ![img.png](images/add-command/AddCommandError.png)
@@ -829,11 +844,16 @@ Remember to download the Java 11 version.
   * [macOS Guide](https://www.java.com/en/download/help/mac_install.html) to install Java.
   * [Linux Guide](https://www.java.com/en/download/help/linux_x64_install.html) to install Java.
 
+[&uarr; Back to Quick Start](#quick-start)
+
 ### 2. How do I open up my terminal?
 * **Windows:** Click the Windows Start button, and type **'Command Prompt'** or **'cmd'** into the search bar. 
   Press Enter to open it.
 * **macOS:** Click on **'F4'** and type **'terminal'**. Press Enter when it appears in the 
   search results.
+* **Linux:** Press **'Ctrl'**, **'Alt'** and **'T'** simultaneously to open the terminal.
+
+[&uarr; Back to Quick Start](#quick-start)
 
 ### 3. How do I load data from another computer?
 
