@@ -674,16 +674,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Feature Flaw in Current Implementation**
 
-Currently, the success message for view, edit, remark, unremark, and add commands only displays the company name.
+Currently, the success message for `view`, `edit`, `remark`, `unremark`, and `add` commands only displays the company name.
 However, the duplicate check implemented in LinkMeIn uses 3 criteria, company name, role, and deadline. As such, there
 can be more than one entry with the same company name. The user might want to know the role and deadline to
-differentiate between applications with the same company name. As such, with the current implementation of the success
-message, it can be confusing for the user as to which company specifically has been modified.
+differentiate between applications with the same company name. As such, the current success message displayed can be confusing for the user as to which company specifically has been modified.
 
 **Proposed Enhancement**
 
-Instead of displaying only the company name, the success message will display the company name, role and deadline. This
-is the implementation that is done for the existing `delete` command. As such, a method was already created in
+Instead of displaying only the company name, the success message will display the company name, role and deadline.
+This will be the same implementation done for the existing `delete` command. As such, a method was already created in
 the `Messages` class called `getCompanyInfo` where the company name, role and deadline from the company object will be
 returned as a string.
 
@@ -692,10 +691,10 @@ The following implementation will be adopted instead:
 
 **Examples**
 
-- **view**: `Viewing Company: COMPANY_NAME (ROLE, DEADLINE)`
+- **view**: `Viewing company: COMPANY_NAME (ROLE, DEADLINE)`
 - **edit**: `COMPANY_NAME (ROLE, DEADLINE) company edited.`
-- **remark**: `Added remark to Company: COMPANY_NAME (ROLE, DEADLINE)`
-- **unremark**: `Removed remark from Company: COMPANY_NAME (ROLE, DEADLINE)`
+- **remark**: `Added remark to company: COMPANY_NAME (ROLE, DEADLINE)`
+- **unremark**: `Removed remark from company: COMPANY_NAME (ROLE, DEADLINE)`
 - **add**: `New company added: COMPANY_NAME (ROLE, DEADLINE)`
 
 ### **2. Make Recruiter Name, Phone and Email Parameters Optional in Add Command**
@@ -720,15 +719,15 @@ If the user did not add in the recruiter's name, phone number and email address 
 
 **Feature Flaw in Current Implementation**
 
-Currently, the phone number field only accepts integers as valid user inputs. However, users may encounter scenarios,
-such as applying for overeseas internship, where they want to include symbols like `()`, `+`,  `-` and `.` in the phone
-number field. The current restriction prevents users from indiciating country codes, potentially causing confusion about
+Currently, the phone number parameter only accepts integers as valid user inputs. However, users may encounter scenarios,
+such as applying for overseas internships, where they want to include symbols like `()`, `+`,  `-` and `.` in the phone
+number field. The current restriction prevents users from indicating country codes, potentially causing confusion about
 the origin of the phone number.
 
-**Proposed Enhancement:**
+**Proposed Enhancement**
 
 The regex checking for a valid phone number will be changed to allow for `()`, `+`, `-` and `.` in the phone number
-field. In addition, the `+` will only be allowed at the start while, the other symbols have no positioning restrictions.
+field. In addition, the character `+` will only be allowed at the start while, the other symbols have no positioning restrictions.
 
 **Examples**
 
@@ -770,21 +769,22 @@ Also, we understand that some users may not wish to type leading zeros for days 
 * 2024-1-1 is in YYYY-M-D format
 * 12/12/2023 is in DD/MM/YYYY format
 
-### **9. Allow Multiple Indexes Input for Delete Command**
+### **9. Allow Multiple Indices Input for Delete Command**
 
 **Feature Flaw in Current Implementation**
 
-Currently, users can only delete one entry at once. However, there will be cases where the user wish to delete multiple entries at once, especially if the user wishes to delete all the companies that he got rejected from. This can be tedious and inconvenient for the user.
+Currently, the user can only delete one company at once. However, there will be cases where the user wish to delete multiple entries at once, especially if the user wishes to delete all the companies that he got rejected from. This can be tedious and inconvenient for the user.
 
 **Proposed Enhancement**
 
-Enable users to input multiple indices when attempting to delete entries. Users can separate each index with a comma. The delete command parser will then split the string by commas and remove the companies corresponding to the specified indices. There will also be checks to see if the user keyed in the same index more than once. If the same index is keyed in more than once, the parser will accept the input but treat it as if the user only keyed in that same index once.
+Enable the user to input multiple indices when attempting to delete entries. Users can separate each index with a comma.
+The `DeleteCommandParser` will then split the string by commas and remove the companies corresponding to the specified indices. There will also be checks to see if the user keyed in the same index more than once. If the same index is keyed in more than once, the parser will accept the input but treat it as if the user only keyed in that same index once.
 
 **Examples**
 
-- `delete 1, 2`: deletes company at index 1 and 2
+- `delete 1, 2`: deletes companies at index 1 and 2
 - `delete 1`: deletes company at index 1
-- `delete 4, 3, 7, 2`: deletes company at index 4, 3, 7, 2
+- `delete 4, 3, 7, 2`: deletes companies at index 4, 3, 7, 2
 
 
 
@@ -826,26 +826,16 @@ Expected: First company’s role is updated in the list. Details of the edited c
 2. Try editing other companies with different parameters.
 
 ### Deleting a Company
+Prerequisite: There is at least one company in the list.
 
-1. Deleting a company when all companies are being shown
-   1. Prerequisite: There is at least one company in the list.
-   2. Test case: `delete 1`<br>
+1. Test case: `delete 1`<br>
       Expected: First contact is deleted from the list. Details of the deleted company shown in the message box.
 
-   3. Test case: `delete 0`<br>
+2. Test case: `delete 0`<br>
          Expected: No company is deleted. Error details shown in the message box.
 
-   4. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+3. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
-
-2. Deleting a company when some companies are being shown
-    1. Prerequisites: Filter the list of companies by their application status (eg. Pending Application) using the
-       `filter s/pa` command. At least one company in the filtered list.
-    2. Test case: `delete 1`<br>
-       Expected: First company in the filtered list is deleted from the list. Details of the deleted company shown in the
-       message box.
-    3. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-       Expected: Similar to previous.
 
 ### Viewing a Company
 Prerequisites: List all companies using the `list` command. Multiple companies in the list.
@@ -878,12 +868,15 @@ Expected: All companies in the list are displayed in the company list panel.
 ### Finding Companies
 1. Test case: `find Google` <br>
 Expected: All companies with the keyword "Google" in their names are displayed in the company list panel.
+2. Try finding for a company that does not exist in the list. 
+Expected: No company is displayed in the company list panel.
 
 ### Sorting Companies by Deadline
 1. Test case: `sort` <br>
 Expected: All companies in the list are displayed in the company list panel, sorted by deadline in ascending order.
 2. Test case: `sort d` <br>
 Expected: All companies in the list are displayed in the company list panel, sorted by deadline in descending order.
+3. Try sorting companies by an invalid parameter. Check that an error message is displayed.
 
 ### Filtering Companies by Application Status
 1. Test case: `filter s/PA` <br>
