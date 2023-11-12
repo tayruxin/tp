@@ -17,6 +17,6 @@ else ([Duplicate company is in filtered company list panel])
 
 :       listAllChangedFields(duplicateCompany)\nformats the changed fields into a message string;
 :getErrorMessageForDuplicateCompanyAddCommand()\n                       formats the error message;
-:throw new DuplicateCompanyException(message);
+:throw new DuplicateException(message);
 stop
 @enduml

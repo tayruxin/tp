@@ -365,8 +365,9 @@ When `Model#setCompany(Company company)` is called, the original `Company` objec
 The term _duplicate_ hereafter refers to companies with the same company name, role and deadline
 
 The _duplicate_ detection mechanism is facilitated by `Company#isSameCompany(Company otherCompany)`.
-This method is used by `AddCommand` and `EditCommand` to check if the company to be added or edited already exists
-in the company list.
+This method checks if two `Company` entities are the same by checking if their `Name`, `Role` and 
+`Deadline` fields are equal. This method is used by `AddCommand` and `EditCommand` to check if 
+the company to be added or edited already exists in the company list.
 
 The above sequence diagram shows the events when a user attempts to **edit** the details of an existing company,
 namely the company name, role and deadline fields to match that of another company in the company list.
