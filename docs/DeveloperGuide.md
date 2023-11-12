@@ -647,14 +647,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Non-Functional Requirements
 
-1. The system should be available for download on our GitHub release page in the form of a JAR file.
-2. The system should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-3. The system should be able to hold up to 200 applications to companies without a noticeable sluggishness in performance for typical usage.
-4. The response to any user input should become visible within 2 seconds.
-5. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-6. Most of the commands should be easy to remember so that a new user can learn to use the system quickly.
-7. Data should be stored locally in the device (i.e. user can access the file through the system or directly from the device).
-8. The code should meet the coding standard of CS2103T for maintainability.
+1. The system should be available for download on our GitHub release page in the form of a JAR file. 
+2. The system should work on any mainstream OS as long as it has Java 11 or above installed. 
+3. The system should be able to hold up to 300 companies without a noticeable sluggishness in performance for typical usage. 
+4. The system should be a single-user application. 
+5. The response to any user input should become visible within 2 seconds.
+6. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse. 
+7. The system should be easily picked up by a novice with no experience with managing internship applications. 
+8. Data should be stored locally in the device. 
+9. The application should guide the user if it fails to execute any of the user’s commands for various reasons. 
+10. The application should be packaged into a single JAR file with size not exceeding 100MB. 
+11. The code should meet the coding standard of CS2103T for maintainability.
+
 
 ### Glossary
 
@@ -669,6 +673,20 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### **1. More Specific Success Message for Company**
 
 ### **2. Make Recruiter Name, Phone and Email Parameters Optional in Add Command**
+**Feature Flaw in Current Implementation** <br>
+Currently, the recruiter’s information, namely recruiter’s name, phone number and email address, are compulsory parameters as inputs for Add Command. However, the user may not have the recruiter’s information at the point of applying to the company, which is common in most internship applications now. The user may only have the recruiter’s information at a later point in time. Hence, the user will not be able to add the company into LinkMeIn, without the recruiter's name, phone number and email address.
+
+**Proposed Enhancement** <br>
+Instead of having the recruiter's name, phone number and email address to be compulsory fields, they will be changed to optional parameters in the `add` Command. This will allow the user to add the company into LinkMeIn without the recruiter's information.
+
+The updated `add` command format would be as follows:
+`add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE [n/RECRUITER_NAME] [p/PHONE] [e/EMAIL] [pr/PRIORITY]`.
+
+If the user did not add in the recruiter's name, phone number and email address upon adding the company into LinkMeIn, they can still do so with the existing `edit` command.
+
+**Examples**<br>
+* `add c/Google r/Software Engineer s/pa d/11-11-2023` 
+* `add c/TikTok r/Data Analyst s/pa d/10-12-2023 n/Ben Tan`
 
 ### **3. Omit Alphanumeric Checks for Company Name, Recruiter Name and Role Parameters**
 
@@ -679,8 +697,31 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### **6. Find Feature Enhancement 2**
 
 ### **7. Improve Error Message for Deadline Parameter**
+**Potential Flaw in Current Implementation**<br>
+Currently, users are able to input deadline past the current date successfully. We have allowed this in our current implementation because we understand that some users would like to track internship applications even if they have passed, but still belong in that internship cycle.
+
+However, some users might perceive it as a lack of validation check in LinkMeIn to inform them about an incorrectly entered deadline input.
+
+**Proposed Enhancement**<br>
+To enhance the deadline parameter input, we will add a check to determine if the input deadline has already passed. If the deadline is before the current date, the user will still be able to add or edit the deadline. However, instead of the success message being `New company added: COMPANY_NAME`, we will improve the success message to be:
+```
+New company added: COMPANY_NAME. 
+Note that you have entered a deadline past the current date. If you made a mistake in your input, please use the `edit` command to update the deadline. 
+```
 
 ### **8. Enhance Flexibility in Deadline Parameter Input**
+**Potential Flaw in Current Implementation**<br>
+Currently, users are constrained to adhere strictly to the DD-MM-YYYY format for inputting deadline parameters. This rigid format might be inconvenient for some users, who prefer different date formats, which are equally common.
+
+**Proposed Enhancement**<br>
+To enhance user flexibility and accommodate various user preferences, we will allow multiple deadline formats. Instead of accepting only DD-MM-YYYY format, we will also accept DD/MM/YYYY, YYYY/MM/DD and YYYY-MM-DD formats.
+
+Also, we understand that some users may not wish to type leading zeros for days and months with leading zeros, D/M/YYYY, D-M-YYYY, YYYY-M-D and YYYY/M/D formats will also be accepted.
+
+**Examples**
+* 1/1/2024 is in D/M/YYYY format
+* 2024-1-1 is in YYYY-M-D format
+* 12/12/2023 is in DD/MM/YYYY format
 
 ### **9. Allow Multiple Indexes Input for Delete Command**
 
