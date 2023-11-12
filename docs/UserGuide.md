@@ -142,7 +142,7 @@ Here are what each components stand for:
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
-* To maximise your viewing experience, opt for full-screen mode in LinkMeIn!"
+* To maximise your viewing experience, opt for full-screen mode in LinkMeIn!
 </div>
 
 Now that you've been introduced to the GUI, let's move on to learning how you can use CLI to interact with LinkMeIn. 
@@ -328,6 +328,8 @@ _You just completed an internship cycle and wish to start a new cycle, you can u
 entries in LinkMeIn._
 
 **Format:** `clear`
+
+**Example:**
 
 **Step 1:** Type `clear` in the command box and press Enter.
 
