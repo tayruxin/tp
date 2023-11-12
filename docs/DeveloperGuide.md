@@ -306,6 +306,7 @@ With the design considerations, we've chosen the alternatives that provide a bal
 The `filter` command allows users to filter the company list by the application status.
 
 #### 4.4.1 Implementation
+
 The `filter` command is implemented in the `FilterCommand` class, which uses the `ApplicationStatusPredicate` class. The `ApplicationStatusPredicate` class implements the `Predicate` interface, which allows it to be used in the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method.
 
 Given below is an example usage scenario and how the `filter` mechanism behaves at each step.
@@ -413,10 +414,10 @@ The following activity diagram will show how `RemarkCommand` can achieve the fun
     - Pros: Easier to implement.
     - Cons: Remarks may be accidentally deleted by empty input.
 
-### 4.7 Add Command
+### 4.8 Add Command
 The `add` command allows users to add companies into LinkMeIn. The compulsory parameters are the company's name, the application's role, status and deadline, and the recruiter's name, phone and email address. The optional field is the priority field. Parameters can be added in any order.
 
-#### 4.7.1 Implementation
+#### 4.8.1 Implementation
 Given below is an example usage scenario and how the `add` mechanism behaves at each step.
 
 1. The user enters the input `add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan p/98765432 e/francist@gmail.com`.
