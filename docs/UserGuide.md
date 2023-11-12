@@ -615,15 +615,21 @@ An example of an error message is shown below.
 
 _Got an error message while trying to add a company twice? LinkMeIn has got you covered!_
 
-If you **add** an application with the same company name, role and deadline as an existing application in LinkMeIn, 
-you will see an error message in the command box informing you of the duplicate company.
+How does LinkMeIn determine if a company is a duplicate? If you try to **add** a company with the same **company name**,
+**role**, and **deadline** as an existing application in LinkMeIn, you will see an error message in the command box information 
+you of the duplicate company. 
+
+- LinkMeIn's duplicate check is **case-insensitive** 
+
 
 **Example:**
-Exact match of all fields
+Adding a company with the same fields as an existing company
+
 ![img.png](images/duplicate-detection/add-command/duplicate-exact-match.png)
 
 **Example:**
-Partial match of fields
+Adding a company with the same company name, deadline and role but different recruiter's information or application status
+
 ![img.png](images/duplicate-detection/add-command/duplicate-partial-match.png)
 
 LinkMeIn's duplicate check does not stop with adding entries. If you attempt to **edit** an application, creating a 
