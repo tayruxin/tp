@@ -154,9 +154,10 @@ Having introduced you to the GUI, let us now move on to learn how to use CLI to 
 # Using LinkMeIn's CLI
 
 LinkMeIn operates through the CommandLineInterface (CLI), a method of interacting with a computer program by **entering line of 
-text known as command-lines.** 
+text known as command-lines.** Say goodbye to the days of multitasking between typing and clicking, and say hello to 
+the world of CLI!
 
-Don't let the name intimidate you! Continue reading to discover how straightforward CLI is when using LinkMeIn.
+Don't let the name intimidate you! Continue reading to discover how **E**ffortless, **E**asy and **E**fficient CLI is when using LinkMeIn.
 
 <div style="margin-top: 10px; margin-bottom: 10px">
     <img src="images/cli-description/CliDescription1.png" alt="CliDescription1" width="650"/>
