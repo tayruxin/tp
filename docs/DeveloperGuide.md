@@ -647,14 +647,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Non-Functional Requirements
 
-1. The system should be available for download on our GitHub release page in the form of a JAR file.
-2. The system should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-3. The system should be able to hold up to 200 applications to companies without a noticeable sluggishness in performance for typical usage.
-4. The response to any user input should become visible within 2 seconds.
-5. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-6. Most of the commands should be easy to remember so that a new user can learn to use the system quickly.
-7. Data should be stored locally in the device (i.e. user can access the file through the system or directly from the device).
-8. The code should meet the coding standard of CS2103T for maintainability.
+1. The system should be available for download on our GitHub release page in the form of a JAR file. 
+2. The system should work on any mainstream OS as long as it has Java 11 or above installed. 
+3. The system should be able to hold up to 300 companies without a noticeable sluggishness in performance for typical usage. 
+4. The system should be a single-user application. 
+5. The response to any user input should become visible within 2 seconds.
+6. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse. 
+7. The system should be easily picked up by a novice with no experience with managing internship applications. 
+8. Data should be stored locally in the device. 
+9. The application should guide the user if it fails to execute any of the user’s commands for various reasons. 
+10. The application should be packaged into a single JAR file with size not exceeding 100MB. 
+11. The code should meet the coding standard of CS2103T for maintainability.
+
 
 ### Glossary
 
