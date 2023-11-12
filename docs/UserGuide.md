@@ -142,7 +142,7 @@ Here are what each components stand for:
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
-* To maximise your viewing experience, opt for full-screen mode in LinkMeIn!"
+* To maximise your viewing experience, opt for full-screen mode in LinkMeIn!
 </div>
 
 Now that you've been introduced to the GUI, let's move on to learning how you can use CLI to interact with LinkMeIn. 
@@ -329,6 +329,8 @@ entries in LinkMeIn._
 
 **Format:** `clear`
 
+**Example:**
+
 **Step 1:** Type `clear` in the command box and press Enter.
 
 **Step 2:** You should see an empty list of companies. 
@@ -412,7 +414,7 @@ This application is of **medium** priority as you have other applications that y
 * If you miss out any of the compulsory parameters, you will see an error message in the command box informing you of the invalid command format.
 Don't worry, just identify the missing parameter(s) and edit your input accordingly! An example of the error message is shown below.
 
-![img.png](images/add-command/AddCommandError2.png)
+![img.png](images/add-command/AddCommandError.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
