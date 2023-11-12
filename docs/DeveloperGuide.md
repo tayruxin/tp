@@ -730,15 +730,28 @@ Also, we understand that some users may not wish to type leading zeros for days 
 
 ### **10. Enhance Remark Feature**
 **Potential flaw in current implementation**
+
 Our app is unable to allow users to copy texts from the company detail panel in our UI.
 If users wish to add on to the existing remark, they need to re-type the existing remark into the command box then add in the new remark.
 This may not be a practical implementation, especially if the existing remark is long, which affects user experience negatively.
 
-**How the feature will be changed**
+**Proposed Enhancement**
+
 Edit the error message returned for `remark INDEX re/`.
 Currently, when `remark 1 re/` is entered, the error message returned is `Oops! Remark should not be empty. Please try again!`.
 This can be enhanced to return the existing remarks in the Message Box where the user can copy the content unlike in the company detail panel where the user is unable to do so.
-Hence, the `remark 1 re/` command is modified to become a way to copy and paste existing remarks so that remarks become cumulative.
+Hence, the `remark INDEX re/` command is modified to become a way to copy and paste existing remarks so that remarks become cumulative.
+
+**Examples**
+* Google is the first company in the list and the user wants to add remarks cumulatively.
+
+When `remark 1 re/` is entered, the Message Box will display as shown below.
+```
+Remarks in Google:
+Require experience in Java, Interview on 12/12/2023
+```
+The user can copy from the Message Box and add on his remark. A sample input is 
+`remark 1 re/Require experience in Java, Interview on 12/12/2023, Interview went well!`
 
 ---
 
