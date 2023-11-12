@@ -18,7 +18,7 @@ public class Messages {
                     + "Please follow the command format below and try again! \n%1$s";
 
     public static final String MESSAGE_INVALID_COMPANY_DISPLAYED_INDEX =
-        "Oops! You have entered an index that is greater than the number of companies that you have. "
+        "Oops! You have entered an index that is greater than the number of companies that you have in the list. "
                 + "Please try again!";
 
     public static final String MESSAGE_COMPANIES_LISTED_OVERVIEW = "Company(s) listed: %1$d";

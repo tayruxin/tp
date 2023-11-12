@@ -78,7 +78,6 @@ public class CommandTestUtil {
 
     public static final String INVALID_PRIORITY_DESC = " " + PREFIX_PRIORITY + "HIGHH"; // invalid priority
     public static final String INVALID_REMARK_DESC = " " + PREFIX_REMARK + " "; // invalid remark
-
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
 

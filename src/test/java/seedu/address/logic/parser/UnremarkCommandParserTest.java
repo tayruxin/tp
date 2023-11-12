@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_EMPTY_INDEX;
+import static seedu.address.logic.Messages.MESSAGE_NON_INTEGER_INDEX;
 import static seedu.address.logic.Messages.MESSAGE_NON_POSITIVE_INTEGER_INDEX;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
@@ -30,8 +31,11 @@ public class UnremarkCommandParserTest {
         // no index
         assertParseFailure(parser, " ", MESSAGE_EMPTY_INDEX);
 
-        // invalid index
+        // non-positive index
         assertParseFailure(parser, " 0 ", MESSAGE_NON_POSITIVE_INTEGER_INDEX);
+
+        //invalid index
+        assertParseFailure(parser, " 123** ", MESSAGE_NON_INTEGER_INDEX);
 
 
     }
