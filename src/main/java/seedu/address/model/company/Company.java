@@ -83,8 +83,7 @@ public class Company {
     }
 
     /**
-     * Returns true if both entries have the same company name and the
-     * role and the deadline is the same.
+     * Returns true if both entries have the same company name, role and deadline.
      */
     public boolean isSameCompany(Company otherCompany) {
         if (otherCompany == this) {

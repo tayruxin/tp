@@ -40,9 +40,6 @@ public class Role {
 
     /**
      * Returns true if a given string is a valid role.
-     *
-     * @param test String to test.
-     * @return True if string is a valid role.
      */
     public static boolean isValidRole(String test) {
         return test.matches(VALIDATION_REGEX);
@@ -50,9 +47,6 @@ public class Role {
 
     /**
      * Returns true if a given string is a valid role length.
-     *
-     * @param test String to test.
-     * @return True if string is a valid role length.
      */
     public static boolean isValidRoleLength(String test) {
         return test.length() <= MAX_NAME_LENGTH;
