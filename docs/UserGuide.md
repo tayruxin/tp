@@ -329,6 +329,8 @@ entries in LinkMeIn._
 
 **Format:** `clear`
 
+**Example:**
+
 **Step 1:** Type `clear` in the command box and press Enter.
 
 **Step 2:** You should see an empty list of companies. 
