@@ -13,7 +13,9 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.logging.Logger;
 
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.commons.util.ToStringBuilder;
@@ -54,13 +56,13 @@ public class EditCommand extends Command {
 
     public static final String MESSAGE_EDIT_COMPANY_SUCCESS = "%1$s company edited.";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-
+    private static final Logger logger = LogsCenter.getLogger(EditCommand.class);
     private final Index index;
     private final EditCompanyDescriptor editCompanyDescriptor;
 
     /**
-     * @param index of the company in the filtered company list to edit
-     * @param editCompanyDescriptor details to edit the company with
+     * @param index of the company in the filtered company list to edit.
+     * @param editCompanyDescriptor details to edit the company with.
      */
     public EditCommand(Index index, EditCompanyDescriptor editCompanyDescriptor) {
         requireNonNull(index);
@@ -90,6 +92,7 @@ public class EditCommand extends Command {
                     duplicateCompany));
         }
 
+        logger.info("Executing edit command: " + editCompanyDescriptor);
         model.setCompany(companyToEdit, editedCompany);
         model.setCurrentViewedCompany(editedCompany);
         return new CommandResult(String.format(MESSAGE_EDIT_COMPANY_SUCCESS, Messages.getCompanyName(editedCompany)));
@@ -159,7 +162,6 @@ public class EditCommand extends Command {
 
         /**
          * Copy constructor.
-         * A defensive copy of {@code tags} is used internally.
          */
         public EditCompanyDescriptor(EditCompanyDescriptor toCopy) {
             setName(toCopy.name);
