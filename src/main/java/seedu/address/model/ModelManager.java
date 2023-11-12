@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -11,7 +12,6 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.logic.SortOrder;
 import seedu.address.model.company.Company;
 
 /**
@@ -139,12 +139,6 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void sortCompaniesByDeadline(SortOrder sortOrder) {
-        addressBook.sortCompaniesByDeadline(sortOrder);
-        updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
-    }
-
-    @Override
     public void filterCompaniesByStatus(Predicate<Company> predicate) {
         addressBook.clearDetailPanel();
         updateFilteredCompanyList(predicate);
@@ -154,6 +148,11 @@ public class ModelManager implements Model {
     public void findCompanies(Predicate<Company> predicate) {
         addressBook.clearDetailPanel();
         updateFilteredCompanyList(predicate);
+    }
+
+    @Override
+    public void setAllCompanies(List<Company> companies) {
+        addressBook.setCompanies(companies);
     }
 
     //=========== Filtered Company List Accessors =============================================================

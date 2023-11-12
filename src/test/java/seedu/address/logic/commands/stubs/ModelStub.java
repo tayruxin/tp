@@ -1,11 +1,11 @@
 package seedu.address.logic.commands.stubs;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.logic.SortOrder;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
@@ -76,6 +76,11 @@ public class ModelStub implements Model {
     }
 
     @Override
+    public void setAllCompanies(List<Company> companies) {
+        throw new AssertionError("This method should not be called.");
+    }
+
+    @Override
     public ObservableList<Company> getFilteredCompanyList() {
         throw new AssertionError("This method should not be called.");
     }
@@ -108,11 +113,6 @@ public class ModelStub implements Model {
 
     @Override
     public void checkDelete(Company company) {
-        throw new AssertionError("This method should not be called.");
-    }
-
-    @Override
-    public void sortCompaniesByDeadline(SortOrder sortOrder) {
         throw new AssertionError("This method should not be called.");
     }
 

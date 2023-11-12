@@ -8,35 +8,24 @@ title: Developer Guide
 
 ---
 
-## 1. **Acknowledgements**
-
-### Adapted code and documentation
+## **Acknowledgements**
 
 This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
 
-### Third party libraries
-
--   [Checkstyle](https://checkstyle.sourceforge.io/) - Checkstyle is a development tool to help programmers write Java code that adheres to a coding standard.
--   [Codecov](https://codecov.io/) - Codecov is a code coverage tool.
--   [Gradle](https://gradle.org/) - Gradle is an open-source build automation tool that is designed to be flexible enough to build almost any type of software.
--   [Jackson](https://github.com/FasterXML/jackson) - Jackson is a multipurpose Java library for processing JSON data format.
--   [Jacoco](https://docs.gradle.org/current/userguide/jacoco_plugin.html) - JaCoCo is a free code coverage library for Java, which has been created by the EclEmma team based on the lessons learned from using and integration existing libraries for many years.
--   [JavaFX](https://openjfx.io/) - JavaFX is a software platform for creating and delivering desktop applications, as well as rich Internet applications (RIAs) that can run across a wide variety of devices.
--   [JavaFX CSS](https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html) - JavaFX CSS is a simple CSS parser.
--   [JavaFX FXML](https://docs.oracle.com/javafx/2/fxml_get_started/jfxpub-fxml_get_started.htm) - JavaFX FXML is an XML-based language that provides the structure for building a user interface separate from the application logic of your code.
--   [JavaFX Scene Builder](https://gluonhq.com/products/scene-builder/) - JavaFX Scene Builder is a visual layout tool that lets users quickly design JavaFX application user interfaces, without coding.
--   [JUnit](https://junit.org/junit5/) - JUnit is a unit testing framework for the Java programming language.
--   [PlantUML](https://plantuml.com/) - PlantUML is an open-source tool allowing users to create UML diagrams from a plain text language.
+* Libraries used: 
+  * [JavaFX](https://openjfx.io/) 
+  * [Jackson](https://github.com/FasterXML/jackson) 
+  * [JUnit](https://junit.org/junit5/) 
 
 ---
 
-## 2. **Setting up, getting started**
+## **Setting Up, Getting Started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 ---
 
-## 3. **Design**
+## **Design**
 
 <div markdown="span" class="alert alert-primary">
 
@@ -44,7 +33,7 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 </div>
 
-### 3.1 Architecture
+### Architecture
 
 <img src="images/ArchitectureDiagram.png" width="280" />
 
@@ -84,7 +73,7 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 
 The sections below give more details of each component.
 
-### 3.2 UI component
+### UI Component
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
@@ -101,7 +90,7 @@ The `UI` component,
 -   keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 -   depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
 
-### 3.3 Logic component
+### Logic Component
 
 **API** : [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
 
@@ -132,7 +121,7 @@ How the parsing works:
 -   When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 -   All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
-### 3.4 Model component
+### Model Component
 
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
 
@@ -147,7 +136,7 @@ The `Model` component,
 -   stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 -   does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
-### 3.5 Storage component
+### Storage Component
 
 **API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
 
@@ -159,21 +148,21 @@ The `Storage` component,
 -   inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 -   depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
-### 3.6 Common classes
+### Common Classes
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
 ---
 
-## 4. **Implementation**
+## **Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### 4.1 Company detail panel (UI component)
+### Company Detail Panel (UI component)
 The `CompanyDetailPanel` allows the user to view the company details of the selected company in the company list.
 Recruiter's information, company's information and remarks will be shown in the company detail panel.
 
-#### 4.1.1 Implementation
+#### Implementation
 `CompanyDetailCard` and `CompanyDetailPanel` both inheriting `UiPart` are used to display the company details. More details 
 of the class implementation can be seen in the class diagram below.
 
@@ -192,7 +181,7 @@ being a `VBox`. The 3 `VBox` are then added into a `HBox` to display the details
 As for `CompanyDetailPanel`, there is an inner class `CompanyDetailViewCell` which extends `ListCell<Company>`. This class 
 sets the graphics to the `CompanyDetailCard` by constructing a new `CompanyDetailCard` with the company details of the company.
 
-#### 4.1.2 Design Considerations
+#### Design Considerations
 
 **Aspect: How details of the company is displayed**
 
@@ -205,11 +194,11 @@ sets the graphics to the `CompanyDetailCard` by constructing a new `CompanyDetai
     -   Pros: User does not need to key in additional commands to view the details of the company.
     -   Cons: The company list panel will be too cluttered with too much information displayed in a company card.
 
-### 4.2 View Command
+### View Feature
 The `CompanyDetailPanel` allows the user to view the company details of the selected company in the company list.
 The user can use the `view` command to select the company to view.
 
-#### 4.2.1 Implementation
+#### Implementation
 A new `UniqueCompanyList` is created in `AddressBook` to store the selected company which the user wishes to view. 
 Additionally, the following operations are implemented in `AddressBook` to support the `view` and other commands:
 
@@ -240,7 +229,7 @@ shown in the activity diagram below.
 
 <img src="images/CompanyDetailPanelActivityDiagram.png" width="400"/>
 
-#### 4.2.2 Design Considerations
+#### Design Considerations
 
 **Aspect: How the company to be viewed is stored in the `AddressBook`**
 
@@ -255,13 +244,13 @@ shown in the activity diagram below.
         object. There is a need to create additional methods to update the `CompanyDetailPanel` when there is any changes
         made to the `Company` object.
 
-### 4.3 Find command
+### Find Feature
 
-#### 4.3.1 Implementation
+#### Implementation
 
 The `find` command allows users to search for companies using one or more keywords. Companies matching any of the keywords in their names will be returned. This search is case-insensitive, and partial matches are valid. The critical change in the implementation centers around the modification of the `NameContainsKeywordsPredicate` class.
 
-##### How `NameContainsKeywordsPredicate` Works:
+**How `NameContainsKeywordsPredicate` Works**
 
 Previously, `NameContainsKeywordsPredicate` was designed to match a company name against a whole keyword. However, the modified implementation allows it to test a company's name against substrings and return true if the comapany's name contains the substring .
 
@@ -273,7 +262,7 @@ The sequence diagram below illustrates the processing of a `find` command, such 
 
 > :information_source: **Note:** The above sequence diagram simplifies the interaction by focusing on the primary components involved in processing the `find` command.
 
-#### 4.3.2 Design considerations:
+#### Design Considerations
 
 **Aspect: Approach to matching keywords**
 
@@ -301,38 +290,47 @@ The sequence diagram below illustrates the processing of a `find` command, such 
 
 With the design considerations, we've chosen the alternatives that provide a balance between user-friendliness and precision.
 
-### 4.4 Filter Command
+### Filter Feature
 
-The `filter` command allows user to filter the company list by the application status. The following sequence diagram
-will illustrate the process of performing the `filter` command.
+The `filter` command allows users to filter the company list by the application status.
+
+#### Implementation
+
+The `filter` command is implemented in the `FilterCommand` class, which uses the `ApplicationStatusPredicate` class. The `ApplicationStatusPredicate` class implements the `Predicate` interface, which allows it to be used in the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method.
+
+Given below is an example usage scenario and how the `filter` mechanism behaves at each step.
+
+1. The user enters the input `filter s/PA`.
+2. The `LogicManager` calls `AddressBookParser#parseCommand()` with the user input.
+3. The `AddressBookParser` creates a parser that matches the `filter` command, a `FilterCommandParser` object and uses it to parse the command.
+4. This results in a `FilterCommand` object, which is executed by the `LogicManager`.
+5. The `FilterCommand` object can communicate with the `Model` when it is executed. It calls `Model#filterCompaniesByStatus(Predicate<Company> predicate)` to filter the list of companies by their application status.
+6. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+
+The following sequence diagram will illustrate the process of performing the `filter` command.
 
 <img src="images/FilterSequenceDiagram.png"/>
 
-#### 4.4.1 Implementation
+<div markdown="block" class="alert alert-info">
+**:information_source: Note:**
+The lifeline for `FilterCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</div>
 
-The `filter` function is implemented in the `FilterCommand` class and uses the `FilterCommandParser` class to parse the
-arguments. The predicate class implementing `Predicate<Company>` is `ApplicationStatusPredicate`.
-- `ApplicationStatusPredicate` - Predicate to check if the company's application status is the same as the application
-  status specified in the command.
+#### Design Considerations
 
-#### 4.4.2 Design Considerations
+**Aspect: UI of the Filter Command**
 
-**Aspect: UI of the filter command**
+* **Alternative 1:** The `CompanyDetailPanel` will still display the details of the company that was selected before the `filter` command is executed.
+  * Pros: Users can still view the details of the company in the `CompanyDetailPanel` alongside the filtered list of companies.
+  * Cons: Users may be confused as the currently viewed company in the `CompanyDetailPanel` may not be in the filtered list of companies.
 
-- **Alternative 1 (current choice):** The company details panel will be cleared whenever the filter command is executed.
-    - Pros: Users can focus on viewing details of company belonging to the filtered list only, reducing distractions and confusions.
-    - Cons: Users might have to execute the `view` command again to access details of the company that is selected even
-      if that company is in the filtered list, potentially leading to additional steps.
+* **Alternative 2 (current choice):** The `CompanyDetailPanel` will be cleared whenever the `filter` command is executed.
+  * Pros: Users can focus on viewing details of company(s) belonging to the filtered list only, reducing distractions and confusions.
+  * Cons: Users might have to execute the `view` command again to access details of the company that is selected before filtering even if that company is still in the filtered list, potentially leading to additional steps taken.
 
-- **Alternative 2:** The company details panel will still display the details of the company that was selected before the
-  filter command is executed.
-    - Pros: Users can still view the details of the company in the company details panel alongside the filtered list of companies.
-    - Cons: Users may be confused as the currently viewed company in the company details panel may not be in the
-      filtered list of companies.
+### Edit Feature
 
-### 4.5 Edit feature
-
-#### 4.5.1 Implementation
+#### Implementation
 The edit mechanism is facilitated by `EditCompanyDescriptor`. It is a nested class of `EditCommand` that stores the edited fields of a company and unedited fields to be `null`.
 Additionally, `EditCommand` implements the following operations:
 
@@ -347,7 +345,7 @@ After the `EditCommandParser` initializes an `EditCompanyDescriptor` object, it 
 When `EditCommand#execute()` is called, a `Company` object, `c`, with edited attributes is initialized since `Company` is immutable.
 When `Model#setCompany(Company company)` is called, the original `Company` object in the `AddressBook` is replaced with the edited Company `c`.
 
-#### 4.5.2 Design considerations:
+#### Design Considerations
 
 **Aspect: How to edit different attributes of a company**
 
@@ -359,20 +357,20 @@ When `Model#setCompany(Company company)` is called, the original `Company` objec
     * Pros: Command line is shorter which reduces users' error such as duplicates or invalid command. This improves user experience.
     * Cons: We must ensure that the implementation of each individual command are correct. This may also require more memory usage, a Company object is initialized for every modified attribute.
 
-### 4.6 Delete Command
+### Delete Feature
 
 The `delete` command allows user to delete a company using the observed index (one-based index) of the company.
 The following sequence diagram will illustrate the process of performing the `delete` command.
 
 <img src="images/DeleteCompanySequenceDiagram.png"/>
 
-#### 4.6.1 Implementation
+#### Implementation
 
 The `delete` function is implemented in the `DeleteCommand` class and uses the `DeleteCommandParser` class to parse the
 arguments. The LogicManger#execute() method will retrieve the filtered company list from the model, perform zero-based
 indexing to the supplied Index, get the company associated with the index and requests model to `delete` the company.
 
-#### 4.6.2 Design Considerations
+#### Design Considerations
 **Aspect: Coupling between `DeleteCommand` and `FilterCommand`**
 - **Alternative:** The delete function can be performed by the `DeleteCommand` class without having to
   retrieve the filtered company list from the model.
@@ -385,18 +383,18 @@ indexing to the supplied Index, get the company associated with the index and re
     - Pros: The user does not need to remember the index of the company to be deleted.
     - Cons: The user may enter the wrong company name to be deleted.
 
-### 4.7 Remark Command
+### Remark Feature
 
 The `remark` command allows user to add and delete a remark from a company.
 
-#### 4.7.1 Implementation
+#### Implementation
 
-Unlike other `Command` class, the `RemarkCommand` class has two `COMMAND_WORD` - remark and unremark. 
-Hence, it is a dependency for two `Parser` - `RemarkCommandParser` and `UnremarkCommandParser`. 
+Unlike other `Command` class, the `RemarkCommand` class has two `COMMAND_WORD` - remark and unremark.
+Hence, it is a dependency for two `Parser` - `RemarkCommandParser` and `UnremarkCommandParser`.
 The following activity diagram will show how `RemarkCommand` can achieve the functionality of both `COMMAND_WORD`.
 <img src="images/RemarkActivityDiagram.png"/>
 
-#### 4.7.2 Design Considerations
+#### Design Considerations
 **Aspect: How adding/editing of Remark is implemented**
 - **Alternative 1 (current choice):** Use two `COMMAND_WORD`
     - Pros: More specific commands allow for better error handling i.e empty remark can be considered invalid input, thus more defensive programming
@@ -405,9 +403,52 @@ The following activity diagram will show how `RemarkCommand` can achieve the fun
     - Pros: Easier to implement.
     - Cons: Remarks may be accidentally deleted by empty input.
 
+### Add Feature
+The `add` command allows users to add companies into LinkMeIn. The compulsory parameters are the company's name, the application's role, status and deadline, and the recruiter's name, phone and email address. The optional field is the priority field. Parameters can be added in any order.
+
+#### Implementation
+Given below is an example usage scenario and how the `add` mechanism behaves at each step.
+
+1. The user enters the input `add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan p/98765432 e/francist@gmail.com`.
+
+2. The `LogicManager` calls `AddressBookParser#parseCommand()` with the user input.
+
+3. The `AddressBookParser` creates a parser that matches the `add` command, an `AddCommandParser` object and uses it to parse the command. 
+
+4. This results in an `AddCommand` object, which is executed by the `LogicManager`.
+
+5. The `AddCommand` object can communicate with the `Model` when it is executed. It first checks if there's a duplicate input, which has the same company name, application role and application deadline.
+
+6. If the `Model` does not have a duplicate, the `AddCommand` object calls `Model#addCompany` to add the new `Company` into LinkMeIn.
+
+7. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+
+The following sequence diagram illustrates how the `add` command works:
+
+<img src="images/AddSequenceDiagram.png" alt="Add Sequence Diagram"/>
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Note:**
+The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</div>
+
+The following activity diagram shows how the `add` command works:
+
+<img src="images/AddActivityDiagram.png" alt="Add Activity Diagram"/>
+
+#### Design Considerations
+**Aspect: Parameters to be Added into Company**
+
+* **Alternative 1:** A `Company` object only requires the company's name, application's role and deadline as parameters for `add` command.
+    * Pros: Short and concise `add` command for users to type in. Easy for developers to implement with less code.
+    * Cons: Users may not be able to store necessary information in LinkMeIn, such as recruiter's information. Users may also be unable to keep track of which stage of the application they are at.
+* **Alternative 2 (Current Choice):** A `Company` object also includes application status, recruiter's name, phone and email address. The priority field, which is the user's opinion of the application priority, is kept optional.
+    * Pros: Users can add in all the information at once, minimising the need to use other commands to do so afterward, like using `edit` command.
+    * Cons: Longer `add` command for users. Users may also not have recruiter's information at hand when they are adding in the company into LinkMeIn.
+
 ---
 
-## **Documentation, logging, testing, configuration, dev-ops**
+## **Documentation, Logging, Testing, Configuration, DevOps**
 
 -   [Documentation guide](Documentation.md)
 -   [Testing guide](Testing.md)
@@ -417,9 +458,9 @@ The following activity diagram will show how `RemarkCommand` can achieve the fun
 
 ---
 
-## **Appendix: Requirements**
+## **Appendix A: Requirements**
 
-### Product scope
+### Product Scope
 
 **Target user profile**:
 
@@ -433,7 +474,7 @@ The following activity diagram will show how `RemarkCommand` can achieve the fun
 A CLI address book not only efficiently stores these connections but also offers a valuable tool for monitoring and organizing the entire
 application process, simplifying the pursuit of career opportunities.
 
-### User stories
+### User Stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
@@ -459,7 +500,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `*`      | new user                        | export data to excel file                                    | easily switch from LinkMeIn to excel and continue tracking my internship applications      |
 
 
-### Use cases
+### Use Cases
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
@@ -606,14 +647,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Non-Functional Requirements
 
-1. The system should be available for download on our GitHub release page in the form of a JAR file.
-2. The system should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-3. The system should be able to hold up to 200 applications to companies without a noticeable sluggishness in performance for typical usage.
-4. The response to any user input should become visible within 2 seconds.
-5. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-6. Most of the commands should be easy to remember so that a new user can learn to use the system quickly.
-7. Data should be stored locally in the device (i.e. user can access the file through the system or directly from the device).
-8. The code should meet the coding standard of CS2103T for maintainability.
+1. The system should be available for download on our GitHub release page in the form of a JAR file. 
+2. The system should work on any mainstream OS as long as it has Java 11 or above installed. 
+3. The system should be able to hold up to 300 companies without a noticeable sluggishness in performance for typical usage. 
+4. The system should be a single-user application. 
+5. The response to any user input should become visible within 2 seconds.
+6. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse. 
+7. The system should be easily picked up by a novice with no experience with managing internship applications. 
+8. Data should be stored locally in the device. 
+9. The application should guide the user if it fails to execute any of the user’s commands for various reasons. 
+10. The application should be packaged into a single JAR file with size not exceeding 100MB. 
+11. The code should meet the coding standard of CS2103T for maintainability.
+
 
 ### Glossary
 
@@ -623,7 +668,68 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ---
 
-## **Appendix: Instructions for manual testing**
+## **Appendix B: Planned Enhancements**
+
+### **1. More Specific Success Message for Company**
+
+### **2. Make Recruiter Name, Phone and Email Parameters Optional in Add Command**
+**Feature Flaw in Current Implementation** <br>
+Currently, the recruiter’s information, namely recruiter’s name, phone number and email address, are compulsory parameters as inputs for Add Command. However, the user may not have the recruiter’s information at the point of applying to the company, which is common in most internship applications now. The user may only have the recruiter’s information at a later point in time. Hence, the user will not be able to add the company into LinkMeIn, without the recruiter's name, phone number and email address.
+
+**Proposed Enhancement** <br>
+Instead of having the recruiter's name, phone number and email address to be compulsory fields, they will be changed to optional parameters in the `add` Command. This will allow the user to add the company into LinkMeIn without the recruiter's information.
+
+The updated `add` command format would be as follows:
+`add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE [n/RECRUITER_NAME] [p/PHONE] [e/EMAIL] [pr/PRIORITY]`.
+
+If the user did not add in the recruiter's name, phone number and email address upon adding the company into LinkMeIn, they can still do so with the existing `edit` command.
+
+**Examples**<br>
+* `add c/Google r/Software Engineer s/pa d/11-11-2023` 
+* `add c/TikTok r/Data Analyst s/pa d/10-12-2023 n/Ben Tan`
+
+### **3. Omit Alphanumeric Checks for Company Name, Recruiter Name and Role Parameters**
+
+### **4. Enhanced Flexibility in Phone Number Parameter Input**
+
+### **5. Find Feature Enhancement 1**
+
+### **6. Find Feature Enhancement 2**
+
+### **7. Improve Error Message for Deadline Parameter**
+**Potential Flaw in Current Implementation**<br>
+Currently, users are able to input deadline past the current date successfully. We have allowed this in our current implementation because we understand that some users would like to track internship applications even if they have passed, but still belong in that internship cycle.
+
+However, some users might perceive it as a lack of validation check in LinkMeIn to inform them about an incorrectly entered deadline input.
+
+**Proposed Enhancement**<br>
+To enhance the deadline parameter input, we will add a check to determine if the input deadline has already passed. If the deadline is before the current date, the user will still be able to add or edit the deadline. However, instead of the success message being `New company added: COMPANY_NAME`, we will improve the success message to be:
+```
+New company added: COMPANY_NAME. 
+Note that you have entered a deadline past the current date. If you made a mistake in your input, please use the `edit` command to update the deadline. 
+```
+
+### **8. Enhance Flexibility in Deadline Parameter Input**
+**Potential Flaw in Current Implementation**<br>
+Currently, users are constrained to adhere strictly to the DD-MM-YYYY format for inputting deadline parameters. This rigid format might be inconvenient for some users, who prefer different date formats, which are equally common.
+
+**Proposed Enhancement**<br>
+To enhance user flexibility and accommodate various user preferences, we will allow multiple deadline formats. Instead of accepting only DD-MM-YYYY format, we will also accept DD/MM/YYYY, YYYY/MM/DD and YYYY-MM-DD formats.
+
+Also, we understand that some users may not wish to type leading zeros for days and months with leading zeros, D/M/YYYY, D-M-YYYY, YYYY-M-D and YYYY/M/D formats will also be accepted.
+
+**Examples**
+* 1/1/2024 is in D/M/YYYY format
+* 2024-1-1 is in YYYY-M-D format
+* 12/12/2023 is in DD/MM/YYYY format
+
+### **9. Allow Multiple Indexes Input for Delete Command**
+
+### **10. Enhance Remark Feature**
+
+---
+
+## **Appendix C: Instructions for Manual Testing**
 
 Given below are instructions to test the app manually.
 
@@ -632,7 +738,7 @@ testers are expected to do more *exploratory* testing.
 
 </div>
 
-### Launch and shutdown
+### Launch and Shutdown
 
 1. Initial launch
 
@@ -649,7 +755,7 @@ testers are expected to do more *exploratory* testing.
 
 3. _{ more test cases …​ }_
 
-### Deleting a company
+### Deleting a Company
 
 1. Deleting a company while all companies are being shown
 
@@ -666,10 +772,12 @@ testers are expected to do more *exploratory* testing.
 
 2. _{ more test cases …​ }_
 
-### Saving data
+### Saving Data
 
 1. Dealing with missing/corrupted data files
 
     1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
 2. _{ more test cases …​ }_
+
+## **Appendix D: Effort**

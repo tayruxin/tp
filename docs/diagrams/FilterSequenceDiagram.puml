@@ -7,6 +7,7 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":FilterCommandParser" as FilterCommandParser LOGIC_COLOR
+participant "p:ApplicationStatusPredicate" as ApplicationStatusPredicate MODEL_COLOR
 participant "f:FilterCommand" as FilterCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 
@@ -14,7 +15,6 @@ end box
 
 box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
-participant ":Addressbook" as Addressbook MODEL_COLOR
 end box
 
 [-> LogicManager : execute("filter s/pa")
@@ -30,8 +30,15 @@ activate FilterCommandParser
 FilterCommandParser --> AddressBookParser
 deactivate FilterCommandParser
 
-FilterCommandParser -> FilterCommandParser : parse("s/pa")
+AddressBookParser -> FilterCommandParser : parse("s/pa")
 activate FilterCommandParser
+
+create ApplicationStatusPredicate
+FilterCommandParser -> ApplicationStatusPredicate
+activate ApplicationStatusPredicate
+
+ApplicationStatusPredicate --> FilterCommandParser
+deactivate ApplicationStatusPredicate
 
 create FilterCommand
 FilterCommandParser -> FilterCommand
@@ -52,22 +59,10 @@ deactivate AddressBookParser
 LogicManager -> FilterCommand : execute()
 activate FilterCommand
 
-FilterCommand -> Model : filterCompaniesByStatus(predicate)
+FilterCommand -> Model : filterCompaniesByStatus(p)
 activate Model
 
-Model -> Addressbook : clearDetailPanel()
-activate Addressbook
-
-Addressbook --> Model
-deactivate Addressbook
-
-Model -> Model: updateFilteredCompanyList(predicate)
-activate Model
-
-Model --> Model
-deactivate Model
-
-Model --> FilterCommand
+Model -->FilterCommand
 deactivate Model
 
 create CommandResult
@@ -79,8 +74,6 @@ deactivate CommandResult
 
 FilterCommand --> LogicManager : result
 deactivate FilterCommand
-
-deactivate Addressbook
 
 [<--LogicManager
 deactivate LogicManager
