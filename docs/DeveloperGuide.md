@@ -160,15 +160,15 @@ This section describes some noteworthy details on how certain features are imple
 
 ### Company Detail Panel (UI component)
 The `CompanyDetailPanel` allows the user to view the company details of the selected company in the company list.
-Recruiter's information, company's information and remarks will be shown in the company detail panel.
+Recruiter's information, company's information and remarks will be shown in the `CompanyDetailPanel`.
 
 #### Implementation
-`CompanyDetailCard` and `CompanyDetailPanel` both inheriting `UiPart` are used to display the company details. More details 
+`CompanyDetailCard` and `CompanyDetailPanel`. both inheriting `UiPart` are used to display the company details. More details 
 of the class implementation can be seen in the class diagram below.
 
 <img src="images/DetailPanelClassDiagram.png" />
 
-`CompanyDetailCard` calls the static method `createPriorityFlowPane` from `CompanyCardUtils` which creates a `FlowPane` to display the priority of the company.
+`CompanyDetailCard` calls the static method `createPriorityFlowPane` from `CompanyCardUtils`, which creates a `FlowPane` to display the priority of the company.
 The color of the `FlowPane` is determined by the priority of the company. Red is used to indicate high priority,
 orange is used to indicate medium priority and green is used to indicate low priority. 
 
@@ -183,16 +183,16 @@ sets the graphics to the `CompanyDetailCard` by constructing a new `CompanyDetai
 
 #### Design Considerations
 
-**Aspect: How details of the company is displayed**
+**Aspect: How details of the company are displayed**
 
--   **Alternative 1 (current choice):** Display the details of the company in a separate panel.
+-   **Alternative 1 (Current Choice):** Display the details of the company in a separate panel.
 
     -   Pros: The information is well compartmentalized. This improves the user viewing experience.
-    -   Cons: More commands are needed to view the details of the company.
+    -   Cons: One additional command is needed to view the details of the company.
 
--   **Alternative 2:** Display the details of the company in the same panel as the company list.
+-   **Alternative 2:** Display all the details of the company in the same panel as the company list.
     -   Pros: User does not need to key in additional commands to view the details of the company.
-    -   Cons: The company list panel will be too cluttered with too much information displayed in a company card.
+    -   Cons: The `CompanyListPanel` will be too cluttered with too much information displayed in a company card.
 
 ### View Feature
 The `CompanyDetailPanel` allows the user to view the company details of the selected company in the company list.
@@ -233,16 +233,14 @@ shown in the activity diagram below.
 
 **Aspect: How the company to be viewed is stored in the `AddressBook`**
 
--   **Alternative 1 (current choice):** Create a new `UniqueCompanyList` in `AddressBook` to store the selected company which the user wishes to view.
+-   **Alternative 1 (Current Choice):** Create a new `UniqueCompanyList` in `AddressBook` to store the selected company which the user wishes to view.
 
     -   Pros: Since the `UniqueCompanyList` is an observable list, the `CompanyDetailPanel` will be updated automatically when there is any changes made to the `UniqueCompanyList`.
     -   Cons: There is a need to clear the list before adding the selected company to the `UniqueCompanyList` to ensure that only one company is displayed in the `CompanyDetailPanel` at any time.
 
 -   **Alternative 2:** Create a new `Company` object in `AddressBook` to store the selected company which the user wishes to view.
     -   Pros: Since there are no lists involved, there is no need to clear the list.  
-    -   Cons: The `CompanyDetailPanel` will not be updated automatically when there are any changes made to the `Company`
-        object. There is a need to create additional methods to update the `CompanyDetailPanel` when there is any changes
-        made to the `Company` object.
+    -   Cons: The `CompanyDetailPanel` will not be updated automatically when there are any changes made to the `Company` object. There is a need to create additional methods to update the `CompanyDetailPanel` when changes are made to the `Company` object.
 
 ### Find Feature
 
@@ -266,7 +264,7 @@ The sequence diagram below illustrates the processing of a `find` command, such 
 
 **Aspect: Approach to matching keywords**
 
--   **Alternative 1 (current choice):** Match company names that contain the keyword **anywhere** within them.
+-   **Alternative 1 (Current Choice):** Match company names that contain the keyword **anywhere** within them.
 
     -   Pros: Flexible search, allows partial keyword matching.
     -   Cons: Might produce more results than expected.
@@ -278,7 +276,7 @@ The sequence diagram below illustrates the processing of a `find` command, such 
 
 **Aspect: Case-sensitivity**
 
--   **Alternative 1 (current choice):** Case-insensitive matching.
+-   **Alternative 1 (Current Choice):** Case-insensitive matching.
 
     -   Pros: User-friendly; users don’t need to remember exact case.
     -   Cons: Might produce a broader range of results.
@@ -296,16 +294,16 @@ The `filter` command allows users to filter the company list by the application 
 
 #### Implementation
 
-The `filter` command is implemented in the `FilterCommand` class, which uses the `ApplicationStatusPredicate` class. The `ApplicationStatusPredicate` class implements the `Predicate` interface, which allows it to be used in the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method.
+The `filter` command uses the `ApplicationStatusPredicate` class, which tests and returns true if a company's application status matches the application status input specified by the user. The `ApplicationStatusPredicate` class implements the `Predicate` interface, which allows it to be used in the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method. 
 
 Given below is an example usage scenario and how the `filter` mechanism behaves at each step.
 
 1. The user enters the input `filter s/PA`.
 2. The `LogicManager` calls `AddressBookParser#parseCommand()` with the user input.
-3. The `AddressBookParser` creates a parser that matches the `filter` command, a `FilterCommandParser` object and uses it to parse the command.
-4. This results in a `FilterCommand` object, which is executed by the `LogicManager`.
+3. The `AddressBookParser` creates a parser that matches the `filter` command, a `FilterCommandParser` object, and uses it to parse the command.
+4. The `FilterCommandParser` creates a `ApplicationStatusPredicate` object with the application status, PA, and then creates a `FilterCommand` object with the `ApplicationStatusPredicate` object.
 5. The `FilterCommand` object can communicate with the `Model` when it is executed. It calls `Model#filterCompaniesByStatus(Predicate<Company> predicate)` to filter the list of companies by their application status.
-6. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+6. Finally, the `FilterCommand` object returns the `CommandResult` object.
 
 The following sequence diagram will illustrate the process of performing the `filter` command.
 
@@ -320,13 +318,13 @@ The lifeline for `FilterCommandParser` should end at the destroy marker (X) but 
 
 **Aspect: UI of the Filter Command**
 
-* **Alternative 1:** The `CompanyDetailPanel` will still display the details of the company that was selected before the `filter` command is executed.
-  * Pros: Users can still view the details of the company in the `CompanyDetailPanel` alongside the filtered list of companies.
-  * Cons: Users may be confused as the currently viewed company in the `CompanyDetailPanel` may not be in the filtered list of companies.
+* **Alternative 1:** The `CompanyDetailPanel` will still display the details of the company that was viewed before the `filter` command is executed.
+  * Pros: Users can still view the details of the last viewed company in the `CompanyDetailPanel` alongside the filtered list of companies.
+  * Cons: Users may be confused as the last viewed company in the `CompanyDetailPanel` may not be in the filtered list of companies after filtering.
 
-* **Alternative 2 (current choice):** The `CompanyDetailPanel` will be cleared whenever the `filter` command is executed.
+* **Alternative 2 (Current Choice):** The `CompanyDetailPanel` will be cleared whenever the `filter` command is executed.
   * Pros: Users can focus on viewing details of company(s) belonging to the filtered list only, reducing distractions and confusions.
-  * Cons: Users might have to execute the `view` command again to access details of the company that is selected before filtering even if that company is still in the filtered list, potentially leading to additional steps taken.
+  * Cons: Users might have to execute the `view` command again to access details of the last viewed company before filtering even if that company is still in the filtered list, potentially leading to additional steps taken.
 
 ### Edit Feature
 
@@ -349,7 +347,7 @@ When `Model#setCompany(Company company)` is called, the original `Company` objec
 
 **Aspect: How to edit different attributes of a company**
 
-* **Alternative 1 (current choice):** Edits all attributes using one command.
+* **Alternative 1 (Current Choice):** Edits all attributes using one command.
     * Pros: Easy to implement.
     * Cons: More prone to errors and bugs/ require more test cases for code coverage.
 
@@ -396,7 +394,7 @@ The following activity diagram will show how `RemarkCommand` can achieve the fun
 
 #### Design Considerations
 **Aspect: How adding/editing of Remark is implemented**
-- **Alternative 1 (current choice):** Use two `COMMAND_WORD`
+- **Alternative 1 (Current Choice):** Use two `COMMAND_WORD`
     - Pros: More specific commands allow for better error handling i.e empty remark can be considered invalid input, thus more defensive programming
     - Cons: More prone to bugs if error handling not implemented correctly.
 - **Alternative 2:** Use only one `COMMAND_WORD`
@@ -404,7 +402,7 @@ The following activity diagram will show how `RemarkCommand` can achieve the fun
     - Cons: Remarks may be accidentally deleted by empty input.
 
 ### Add Feature
-The `add` command allows users to add companies into LinkMeIn. The compulsory parameters are the company's name, the application's role, status and deadline, and the recruiter's name, phone and email address. The optional field is the priority field. Parameters can be added in any order.
+The `add` command allows users to add companies into LinkMeIn. The compulsory parameters are the company's name, the application's role, status and deadline, and the recruiter's name, phone and email address. The optional parameter is the priority of the application. Parameters can be added in any order.
 
 #### Implementation
 Given below is an example usage scenario and how the `add` mechanism behaves at each step.
@@ -413,15 +411,15 @@ Given below is an example usage scenario and how the `add` mechanism behaves at 
 
 2. The `LogicManager` calls `AddressBookParser#parseCommand()` with the user input.
 
-3. The `AddressBookParser` creates a parser that matches the `add` command, an `AddCommandParser` object and uses it to parse the command. 
+3. The `AddressBookParser` creates a parser that matches the `add` command, an `AddCommandParser` object, and uses it to parse the command. 
 
-4. This results in an `AddCommand` object, which is executed by the `LogicManager`.
+4. The `AddCommandParser` creates a `Company` object, and then creates an `AddCommand` object with the `Company` object.
 
 5. The `AddCommand` object can communicate with the `Model` when it is executed. It first checks if there's a duplicate input, which has the same company name, application role and application deadline.
 
 6. If the `Model` does not have a duplicate, the `AddCommand` object calls `Model#addCompany` to add the new `Company` into LinkMeIn.
 
-7. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+7. Finally, the `AddCommand` object returns the `CommandResult` object.
 
 The following sequence diagram illustrates how the `add` command works:
 
@@ -442,7 +440,7 @@ The following activity diagram shows how the `add` command works:
 * **Alternative 1:** A `Company` object only requires the company's name, application's role and deadline as parameters for `add` command.
     * Pros: Short and concise `add` command for users to type in. Easy for developers to implement with less code.
     * Cons: Users may not be able to store necessary information in LinkMeIn, such as recruiter's information. Users may also be unable to keep track of which stage of the application they are at.
-* **Alternative 2 (Current Choice):** A `Company` object also includes application status, recruiter's name, phone and email address. The priority field, which is the user's opinion of the application priority, is kept optional.
+* **Alternative 2 (Current Choice):** A `Company` object also includes application status, recruiter's name, phone and email address. The priority parameter is kept optional.
     * Pros: Users can add in all the information at once, minimising the need to use other commands to do so afterward, like using `edit` command.
     * Cons: Longer `add` command for users. Users may also not have recruiter's information at hand when they are adding in the company into LinkMeIn.
 
@@ -462,17 +460,16 @@ The following activity diagram shows how the `add` command works:
 
 ### Product Scope
 
-**Target user profile**:
+**Target User Profile**
 
--   Computer Science students preparing for an internship or job application
+National University of Singapore Computer Science students preparing for an internship who
 -   prefer desktop apps over other types
 -   can type quickly
--   prefers typing to mouse interactions
+-   prefer typing to mouse interactions
 -   is reasonably comfortable using CLI apps
 
-**Value proposition**: CS students often struggle to manage a multitude of internship contacts and track their application progress.
-A CLI address book not only efficiently stores these connections but also offers a valuable tool for monitoring and organizing the entire
-application process, simplifying the pursuit of career opportunities.
+**Value Proposition** <br> 
+CS students often struggle to manage a multitude of internship applications and track their application progress. An intuitive CLI address book not only efficiently stores these applications but also offers a valuable tool for monitoring and organizing the entire application process, simplifying the pursuit of career opportunities.
 
 ### User Stories
 
