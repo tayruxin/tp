@@ -362,8 +362,9 @@ The following sequence diagram will illustrate the process of performing the `ed
 The lifeline for `EditCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
-When `EditCommand#execute()` is called, an edited `Company` object is created in `EditCommand#createEditedCompany(Company companyToEdit, EditCompanyDescriptor editCompanyDescriptor)` since `Company` is immutable.
-When `Model#setCompany(Company company)` is called, the original `Company` object in the `AddressBook` is replaced with the edited `Company` object.
+The `Model#getCompany(Index index)` is a pseudo method to represent getting the original `Company` object, `target`, from `Model`.
+When `EditCommand#execute()` is called, an edited `Company` object, `c`, is created by a self-invoked method since `Company` is immutable.
+When `Model#setCompany(Company company)` is called, the original `target` in the `AddressBook` is replaced with the edited `c`.
 
 #### Design Considerations
 
