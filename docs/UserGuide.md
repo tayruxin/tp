@@ -527,7 +527,7 @@ _You have previously added some remarks to a company, but the remarks have becom
 
 **Format:** `unremark INDEX`
 
-> `INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. lesser than 2147483647).
+>`INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. lesser than 2147483647).g
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
