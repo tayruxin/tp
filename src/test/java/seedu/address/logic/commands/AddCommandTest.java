@@ -47,8 +47,8 @@ public class AddCommandTest {
         AddCommand addCommand = new AddCommand(validCompany);
         ModelStub modelStub = new ModelStubWithCompanyNotInFilteredCompanyList(validCompany);
 
-        assertThrows(CommandException.DuplicateCompanyException.class,
-                new CommandException.DuplicateCompanyException(
+        assertThrows(CommandException.DuplicateException.class,
+                new CommandException.DuplicateException(
                         Messages.getErrorMessageForDuplicateCompanyAddCommand(validCompany,
                         modelStub.getDuplicateIndexFromOriginalAddressbook(validCompany),
                         validCompany.listAllChangedFields(
@@ -122,8 +122,8 @@ public class AddCommandTest {
         ModelStub modelStub = new ModelStubWithCompanyNotInFilteredCompanyList(validCompany);
 
         //assumes the caller of listAllChangedFields() is correct
-        assertThrows(CommandException.DuplicateCompanyException.class,
-                new CommandException.DuplicateCompanyException(
+        assertThrows(CommandException.DuplicateException.class,
+                new CommandException.DuplicateException(
                         Messages.getErrorMessageForDuplicateCompanyAddCommand(validCompany,
                                 modelStub.getDuplicateIndexFromOriginalAddressbook(validCompany),
                                 duplicateCompany.listAllChangedFields(
@@ -201,8 +201,8 @@ public class AddCommandTest {
         AddCommand addCommand = new AddCommand(validCompany);
         ModelStub modelStub = new ModelStubWithCompanyNotInFilteredCompanyList(validCompany, 1);
 
-        assertThrows(CommandException.DuplicateCompanyException.class,
-                new CommandException.DuplicateCompanyException(
+        assertThrows(CommandException.DuplicateException.class,
+                new CommandException.DuplicateException(
                         Messages.getErrorMessageForDuplicateCompanyAddCommand(validCompany,
                                 modelStub.getDuplicateIndexFromOriginalAddressbook(validCompany),
                                 validCompany.listAllChangedFields(
@@ -276,8 +276,8 @@ public class AddCommandTest {
         ModelStub modelStub = new ModelStubWithCompanyNotInFilteredCompanyList(validCompany, 1);
 
         //assumes the caller of listAllChangedFields() is correct
-        assertThrows(CommandException.DuplicateCompanyException.class,
-                new CommandException.DuplicateCompanyException(
+        assertThrows(CommandException.DuplicateException.class,
+                new CommandException.DuplicateException(
                         Messages.getErrorMessageForDuplicateCompanyAddCommand(validCompany,
                                 modelStub.getDuplicateIndexFromOriginalAddressbook(validCompany),
                                 duplicateCompany.listAllChangedFields(
@@ -355,8 +355,8 @@ public class AddCommandTest {
         AddCommand addCommand = new AddCommand(validCompany);
         ModelStub modelStub = new ModelStubWithCompanyInFilteredCompanyList(validCompany);
 
-        assertThrows(CommandException.DuplicateCompanyException.class,
-                new CommandException.DuplicateCompanyException(
+        assertThrows(CommandException.DuplicateException.class,
+                new CommandException.DuplicateException(
                         Messages.getErrorMessageForDuplicateCompanyAddCommand(validCompany,
                                 modelStub.getDuplicateIndexFromOriginalAddressbook(validCompany),
                                 validCompany.listAllChangedFields(
@@ -429,8 +429,8 @@ public class AddCommandTest {
         AddCommand addCommand = new AddCommand(duplicateCompany);
         ModelStub modelStub = new ModelStubWithCompanyInFilteredCompanyList(validCompany);
 
-        assertThrows(CommandException.DuplicateCompanyException.class,
-                new CommandException.DuplicateCompanyException(
+        assertThrows(CommandException.DuplicateException.class,
+                new CommandException.DuplicateException(
                         Messages.getErrorMessageForDuplicateCompanyAddCommand(validCompany,
                                 modelStub.getDuplicateIndexFromOriginalAddressbook(validCompany),
                                 duplicateCompany.listAllChangedFields(
