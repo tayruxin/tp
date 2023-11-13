@@ -401,18 +401,15 @@ Add the company to LinkMeIn now to keep track of the application process using t
 
 **Example:**
 
-If you've completed the quick tour of LinkMeIn, you've likely added a few companies to your profile.
-If you have not done so yet, you can refer to the [Quick Tour](#1-adding-a-company) for guidance on adding companies.
-Here are some examples of `add` command that you can try:
+If you've completed the Quick Tour of LinkMeIn, you've likely added a few companies to your app. If not, you can refer to the [Quick Tour Section](#1-adding-a-company) for guidance on adding companies.
+
+Here are some other examples of `add` commands that you can try:
 - `add c/Uber r/Software Engineer s/PA n/Mavis d/02-03-2023 e/mavis@example.com p/88284452 pr/low`
 - `add c/Oracle r/Data Analyst s/PA n/Marry Lim d/12-11-2023 e/marrylim@example.com p/98452321`
 
-
-
 **Possible Error:** <br>
 
-If you miss out any of the compulsory parameters, you will see an error message in the command box informing you of the invalid command format.
-Don't worry, just identify the missing parameter(s) and edit your input accordingly! An example of the error message is shown below.
+If you made a mistake for any of the parameters input, you will see an error message in the Message Box informing you of the specific error message. Don't worry, just update your input accordingly and try again! An example of the error message is shown below.
 
 ![img.png](images/add-command/AddCommandError.png)
 
@@ -420,31 +417,29 @@ Don't worry, just identify the missing parameter(s) and edit your input accordin
 
 ### Viewing Full Company's Information: `view`
 
-_You look at the list of companies, and you notice that it's been 3 weeks since the interview, but the company has not gotten back to you. 
+_You look at the list of companies, and you realise that it's been 3 weeks since the interview, yet the company has not gotten back to you. 
 With the `view` command, you can easily view the full details of a specific company, including the recruiter's contact details, and follow up with them!_
 
 **Format:** `view INDEX`
 
-> INDEX must be a positive integer number e.g 1,2,3... and must not be greater than the number of company in the list.
+>`INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. lesser than 2147483647).
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* You can only view the full details of a company at a time.
+* You can only view the full details of one company at any time.
 </div>
 
 **Example:**
 
-If you've completed the quick tour of LinkMeIn, you've likely viewed a few companies.
-If you have not done so yet, you can refer to the [Quick Tour](#2-viewing-company-details) for guidance on viewing companies.
-Here are some examples of `view` command that you can try:
+If you've completed the Quick Tour of LinkMeIn, you've likely viewed a few companies. If not, you can refer to the [Quick Tour Section](#2-viewing-company-details) for guidance on viewing companies!
+
+Here are some other examples of `view` commands that you can try:
 - `view 1`
 - `view 4`
 
 **Possible Error:**
 
-If you enter an [**invalid index**](#5-what-is-an-invalid-index), you will see an error message in the Command Box.
-Don’t worry, just edit your index accordingly and try the command again!
-An example of an error message is shown below.
+If you have entered an [**invalid index**](#5-what-is-an-invalid-index), you will see an error message in the Message Box as shown below. Don’t worry, just edit your index accordingly and try the command again!
 
 ![img.png](images/view-command/ViewCommandError.png)
 
@@ -452,12 +447,12 @@ An example of an error message is shown below.
 
 ### Deleting a Company : `delete`
 
-_Whether you accidentally added a company or no longer want to track it, don't worry! LinkMeIn got you covered!
-You can use the delete command to delete the company from the list of companies that you have added._
+_Whether you accidentally added a company or no longer want to track it, don't worry! LinkMeIn has got you covered!
+You can use the `delete` command to delete any company from your list of companies._
 
 **Format:`delete INDEX`**
 
-> INDEX must be a positive integer number e.g 1,2,3... and must not be greater than the number of company in the list.
+> INDEX must be a positive integer less than the maximum integer (i.e. 1, 2, 3, ..., 2147483647) and not be greater than the number of companies in the list.
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
@@ -466,18 +461,16 @@ You can use the delete command to delete the company from the list of companies 
 
 **Example:**
 
-If you've completed the quick tour of LinkMeIn, you've likely deleted a few companies.
-If you have not done so yet, you can refer to the [Quick Tour](#4-deleting-a-company) for guidance on deleting companies.
-Here are some examples of `delete` command that you can try:
+If you've completed the Quick Tour of LinkMeIn, you've likely deleted a few companies. If not, you can refer to the [Quick Tour Section](#4-deleting-a-company) for guidance on deleting companies.
+
+Here are some other examples of `delete` commands that you can try:
 - `delete 1`
 - `delete 2`
 
 **Possible Error:**
 
-If you enter an [**invalid index**](#5-what-is-an-invalid-index),
-you will see an error message in the command box. Don’t worry, just edit your index accordingly and
-try the command again!
-An example of an error message is shown below.
+If you have entered an [**invalid index**](#5-what-is-an-invalid-index),
+you will see an error message in the Message Box as shown below. Don’t worry, just edit your index accordingly and try the command again!
 
 ![img.png](images/delete-command/DeleteCommandError.png)
 
@@ -485,117 +478,104 @@ An example of an error message is shown below.
 
 ### Adding Remarks to a Company: `remark`
 
-_After adding a company, you wish to note down more information such as the job description, pre-requisites and mental notes for yourself! Just use the `remark` command to input these additional details._
+_After adding a company, you wish to note down more information such as the job description, pre-requisites and mental notes for yourself! Just use the `remark` command to input these additional details!_
 
 **Format:** `remark INDEX re/REMARK`
 
-> `INDEX`: Adds remarks to the company at the INDEX number shown in the displayed company list.  
-> `re/REMARK` : Type prefix `re/` followed by the remarks you want to add. 
-
-<div markdown="block" class="alert alert-info">
-**:information_source: Note:**<br>
-* Remarks cannot be empty. If you wish to remove existing remarks, use the  [`unremark` command](#deleting-remarks-of-a-company) instead.
-</div>
+> `INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. lesser than 2147483647). <br>
+> Remarks cannot be empty.
 
 <div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
-* When adding remarks, the existing remarks of the company will be removed i.e. adding of remarks is not cumulative.
+* When adding remarks, the existing remarks of the company is not cumulative. This means that whenever you type new remarks, your existing remarks will be completely overwritten!
 </div>
 
-**Examples:** 
+**Example:** 
 
 **Step 1.** After adding the internship for DSTA into LinkMeIn,
-   you wish to note down that this internship requires experience in Java.
+   you want to note that this internship requires experience in Java.
 
-**Step 2.** To note this down, type `remark 3 re/need Java`
-   ![RemarkDemo1.png](images/remark-command/RemarkDemo1.png)
+**Step 2.** To note this down, type `remark 3 re/need Java` and press `Enter`.
 
-**Step 3.** You can view the remark of the 3rd company as shown below.
-   ![RemarkDemo2.png](images/remark-command/RemarkDemo2.png)
+![RemarkDemo1.png](images/remark-command/RemarkDemo1.png)
 
-**Step 4.** Go ahead and add remarks for more companies on your own!
+**Step 3.** You can view the remarks of the 3rd company as shown below in the Company Detail Panel.
 
-**More examples:**
+![RemarkDemo2.png](images/remark-command/RemarkDemo2.png)
+
+Here are some other examples of `remark` commands that you can try:
 - `remark 4 re/interview went well!`
 - `remark 5 re/$800 per month`
 
 **Possible Error:**
 
-If you enter an **empty remark**,
-you will see an error message in the command box. Don’t worry, just add in your remark and
-try the command again!
-An example of an error message is shown below.
+If you have entered an **empty remark**,
+you will see an error message in the Message Box as shown below. Don’t worry, just try again with remarks now!
+
 ![RemarkErrMsg.png](images/remark-command/RemarkErrMsg.png)
 
 ### Deleting Remarks of a Company: `unremark`
 
-_You have previously added some remarks to a company, but the remark has become outdated and you no longer need them anymore. Use the `unremark` command to quicly delete it._
+_You have previously added some remarks to a company, but the remarks has become outdated and you no longer need them anymore. Use the `unremark` command to quickly delete them._
 
 **Format:** `unremark INDEX`
 
-> `INDEX`: Deletes remarks from the company at the INDEX number shown in the displayed company list.
+> `INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. lesser than 2147483647).
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
-* To add new remarks, you do **NOT** need to delete the existing remarks using `unremark` first. Directly use the remark command and it overwrites the old remark!
+* To add new remarks, you do **NOT** need to delete the existing remarks using `unremark` command first. Directly use the `remark` command to add your new remarks.
 </div>
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
 * You can unremark a company that already has no remarks.
-LinkMeIn does not check for the existence of a remark.
-The same message will be displayed regardless of whether a remark exists for a company.
+LinkMeIn does not check for the existence of remarks.
+The same success message will be displayed regardless of whether remarks exist for a company.
 </div>
 
 **Examples:**
 
-**Step 1.** If you wish to delete the remark of DSTA, type `unremark 3`
-   ![UnremarkDemo1.png](images/remark-command/UnremarkDemo1.png)
+**Step 1.** If you wish to delete the remarks of DSTA company, which is 3rd in the Company List Panel, type `unremark 3` and press `Enter`.
 
-**Step 2.** The remark of the 3rd company is removed as shown below.
-   ![UnremarkDemo2.png](images/remark-command/UnremarkDemo2.png)
+![UnremarkDemo1.png](images/remark-command/UnremarkDemo1.png)
+
+**Step 2.** The remarks of DSTA will be removed as shown below.
+
+![UnremarkDemo2.png](images/remark-command/UnremarkDemo2.png)
 
 **Possible Error:**
 
-If you enter an [**invalid index**](#5-what-is-an-invalid-index),
-you will see an error message in the command box. Don’t worry, just edit your index accordingly and
-try the command again!
-An example of an error message is shown below.
+If you have entered an [**invalid index**](#5-what-is-an-invalid-index),
+you will see an error message in the Message Box as shown below. Don’t worry, just edit your index accordingly and try the command again!
+
 ![UnremarkErrMsg.png](images/remark-command/UnremarkErrMsg.png)
 
 ### Editing a Company's Information: `edit`
 
-_You look at the details of the application, and realise you have made a typo or need to update the progress of application,
-use the `edit` command to input the accurate details._
+_You look at the details of the application, and realise that you have made a typo or need to update the progress of application. Use the `edit` command to input the accurate details._
 
 **Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY]`
 
->`INDEX`: Edits the company at the INDEX number shown in the displayed company list.
->
->`c/COMPANY_NAME` etc. : type prefix `c/` followed by new company name to edit company name. 
->
-> At least one of the optional fields must be provided.
+>`INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. lesser than 2147483647). <br>
+> At least one of the optional parameters must be provided.
 
 **Examples:**
 
-If you've completed the quick tour of LinkMeIn, you've likely edited a few companies.
-If you have not done so yet, you can refer to the [Quick Tour](#3-editing-company-details) for guidance on editing companies.
-Here are some examples of `edit` command that you can try:
+If you've completed the Quick Tour of LinkMeIn, you've likely edited a few companies. If not, you can refer to the [Quick Tour Section](#3-editing-company-details) for guidance on editing companies.
 
-- `edit 3 d/11-09-2025 pr/LOW`
+Here are some more examples of `edit` commands that you can try:
 
-  Edits deadline and priority of the 3rd company in the displayed list.
+- `edit 3 d/11-09-2025 pr/LOW` <br>
+Edits the deadline and priority of the 3rd company in the displayed list.
   
-- `edit 1 n/Amy Tan e/amytan@gmail.com`
-
-  Edits recruiter's name and email of the 1st company in the displayed list.
+- `edit 1 n/Amy Tan e/amytan@gmail.com` <br>
+Edits the recruiter's name and email of the 1st company in the displayed list.
 
 **Possible Error:**
 
-If you enter an **invalid prefix**,
-you will see an error message in the command box. Don’t worry, just edit your prefixes accordingly and
-try the command again!
-An example of an error message is shown below.
+If you have entered an **invalid prefix**, you will see an error message in the Message Box. Don’t worry, just edit your prefixes accordingly and
+try the command again! An example of an invalid input and error message is shown below.
 ![EditErrMsg.png](images/edit-command/EditErrMsg.png)
 
 ### Duplicate Detection
@@ -629,8 +609,6 @@ an error message will be displayed in the command box, notifying you of the dupl
 [&uarr; Back to Table of Contents](#table-of-contents)
 
 ## Company List Features
-Embark on a journey to unlock LinkMeIn's full potential through interactions with your list of companies. Discover 
-options to find, list, filter, and sort companies, offering you a comprehensive toolkit to manage and organize your entire company portfolio efficiently.
 
 ### Finding a Company: `find`
 
