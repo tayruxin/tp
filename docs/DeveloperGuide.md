@@ -88,7 +88,7 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/AY2
 
 The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `CompanyListPanel`, `CompanyDetailPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
-The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The `UI` component uses the JavaFX UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
 
 The `UI` component,
 
@@ -136,12 +136,12 @@ How the parsing works:
 
 **API** : [`Model.java`](https://github.com/AY2324S1-CS2103T-T17-2/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
-<img src="images/ModelClassDiagram.png" width="500" />
+<img src="images/ModelClassDiagram.png" />
 
 The `Model` component,
 
 -   stores the address book data i.e., all `Company` objects (which are contained in a `UniqueCompanyList` object).
--   stores the currently 'selected' `Company` objects (e.g., results of a search query) as a separate _filtered_ list
+-   stores the currently 'selected' `Company` objects (e.g. results of a search query) as a separate _filtered_ list
     which is exposed to outsiders as an unmodifiable `ObservableList<Company>` that can be 'observed' e.g. the UI can be
     bound to this list so that the UI automatically updates when the data in the list change.
 -   stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
@@ -171,7 +171,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### Company Detail Panel (UI component)
+### Company Detail Panel (UI Component)
 The `CompanyDetailPanel` allows the user to view the company details of the selected company in the company list.
 Recruiter's information, company's information and remarks will be shown in the `CompanyDetailPanel`.
 
@@ -353,7 +353,7 @@ This operation is exposed in the `Model` interface as:
 * `Model#setCompany(Company target, Company editedCompany)` - Updates a company in the list to a new company with edited parameters.
 * `Model#setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed in the `CompanyDetailPanel`.
 
-The following sequence diagram will illustrate the process of performing the `edit` command.
+The following sequence diagram will illustrate the process of performing the `edit` command, taking `edit 1 r/SWE` as an example.
 
 <img src="images/EditSequenceDiagram.png"/>
 
@@ -426,7 +426,7 @@ getDuplicateCompany(toAdd) method, which has already been shown in the sequence 
 #### Design Considerations
 **Aspect: Change the location of the duplicate detection**
 - **Alternative:** Implement the duplicate detection logic within the `AddCommandParser` or `EditCommandParser` classes.
-    - Pros: The `execute` method's sole responsibility will be to execute the add or edit command without
+    - Pros: The `execute` method's sole responsibility will be to execute the `add` or `edit` command without
       needing to handle duplicate detection logic, adhering to the Single Responsibility Principle.
     - Cons: The current architecture design dictates that `Model` be separate from `Logic`. The interaction
       between `Model` and `Logic` is through the `execute` method. Implementing the duplicate detection in the
@@ -462,8 +462,8 @@ The remark feature has a similar implementation as the [edit feature](#edit-feat
 #### Design Considerations
 
 **Aspect: Implementation of `COMMAND_WORD` for Remark**
-- **Alternative 1 (current choice):** Use two `COMMAND_WORD`
-    - Pros: More specific commands allow for better error handling i.e empty remark can be considered invalid input, thus more defensive programming
+- **Alternative 1 (Current Choice):** Use two `COMMAND_WORD`
+    - Pros: More specific commands allow for better error handling i.e. empty remark can be considered invalid input, thus more defensive programming
     - Cons: More test cases needed to find bugs/More prone to bugs if error handling not implemented correctly.
 - **Alternative 2:** Use only one `COMMAND_WORD` - remark
     - Pros: Easier to implement.
@@ -475,10 +475,10 @@ The remark feature has a similar implementation as the [edit feature](#edit-feat
 The `add` command allows users to add companies into LinkMeIn. 
 
 #### Implementation
-The `add` feature is implemented using the `AddCommand` class. The `AddCommand` object takes in a `Company` object. Only if all the inputs for the parameters are valid and all compulsory parameters are present, then the `Company` object is created.
+The `add` feature is implemented using the `AddCommand` class. The `AddCommand` object takes in a `Company` object. Only if all the inputs for the parameters are valid, all compulsory parameters are present and there is no duplicate company in LinkMeIn, then the `Company` object is created.
 
 The `add` feature includes the following operations in `ModelManager`, which implements the `Model` interface:
-* `Model#hasCompany(Company company)` — Checks if the company is a _duplicate_ company in LinkMeIn,
+* `Model#hasCompany(Company company)` — Checks if the company is a _duplicate_ company in LinkMeIn.
 * `Model#addCompany(Company company)` — Adds a company into LinkMeIn.
 * `Model#setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed in the `CompanyDetailPanel`.
 
@@ -503,7 +503,7 @@ The following activity diagram shows what happens when the user executes the `ad
     * Cons: Users may not be able to store necessary information in LinkMeIn, such as recruiter's information. Users may also be unable to keep track of which stage of the application they are at.
 * **Alternative 2 (Current Choice):** A `Company` object also includes application status, recruiter's name, phone and email address. The priority parameter is kept optional.
     * Pros: Users can add in all the information at once, minimising the need to use other commands to do so afterward, like using `edit` command.
-    * Cons: Longer `add` command for users. Users may also not have recruiter's information at hand when they are adding in the company into LinkMeIn.
+    * Cons: Longer `add` command for users. Users may also not have recruiter's information at hand, especially during the initial stage of the application. Hence, users may not be able to add in the company into LinkMeIn.
 
 <div style="page-break-after: always;"></div>
 
@@ -585,8 +585,8 @@ CS students often struggle to manage a multitude of internship applications and 
 | `* *`    | seasoned user                   | filter companies by application status                       | focus on the most pertinent and relevant applications of interest                          |
 | `* *`    | careless user                   | check for duplicate entries before adding an entry           | avoid redundancy and maintain an accurate representation of my internship applications     |
 | `* `     | creative user                   | be able to change the theme of LinkMeIn                      | personalise the visual appearance of the interface based on my preferences                 |
-| `*`      | new user                        | import data from excel file                                  | easily switch from excel to LinkMeIn and continue tracking my internship applications      |
-| `*`      | new user                        | export data to excel file                                    | easily switch from LinkMeIn to excel and continue tracking my internship applications      |
+| `*`      | new user                        | import data from an Excel file                               | easily switch from excel to LinkMeIn and continue tracking my internship applications      |
+| `*`      | new user                        | export data to an Excel file                                 | easily switch from LinkMeIn to excel and continue tracking my internship applications      |
 
 <div style="page-break-after: always;"></div>
 
@@ -725,6 +725,7 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid index input → handled similarly to 1a of UC03.
+* 1b. LinkMeIn detects an invalid parameter input → handled similarly to 1b of UC02.
 
 
 **Use Case: UC11 - Delete Remarks for a Company**
@@ -837,15 +838,15 @@ The following implementation will be adopted instead:
 
 ### Make Recruiter Name, Phone and Email Parameters Optional in Add Command
 **Feature Flaw in Current Implementation** <br>
-Currently, the recruiter’s information, namely recruiter’s name, phone number and email address, are compulsory parameters as inputs for Add Command. However, the user may not have the recruiter’s information at the point of applying to the company, which is common in most internship applications now. The user may only have the recruiter’s information at a later point in time. Hence, the user will not be able to add the company into LinkMeIn, without the recruiter's name, phone number and email address.
+Currently, the recruiter’s information, namely recruiter’s name, phone number and email address, are compulsory parameters as inputs for `add` command. However, the user may not have the recruiter’s information at the point of applying to the company, which is common in most internship applications now. The user may only have the recruiter’s information at a later point in time. Hence, the user will not be able to add the company into LinkMeIn, without the recruiter's name, phone number and email address.
 
 **Proposed Enhancement** <br>
-Instead of having the recruiter's name, phone number and email address to be compulsory parameters, they will be changed to optional parameters in the `add` Command. This will allow the user to add the company into LinkMeIn without the recruiter's information.
+Instead of having the recruiter's name, phone number and email address to be compulsory parameters, they will be changed to optional parameters in the `add` command. This will allow the user to add the company into LinkMeIn without the recruiter's information.
 
 The updated `add` command format would be as follows:
 `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE [n/RECRUITER_NAME] [p/PHONE] [e/EMAIL] [pr/PRIORITY]`.
 
-If the user did not add in the recruiter's name, phone number and email address upon adding the company into LinkMeIn, they can still do so with the existing `edit` command.
+If the user did not add in the recruiter's name, phone number and email address upon adding the company into LinkMeIn, they can still do so with the existing `edit` command afterward.
 
 **Examples**<br>
 * `add c/Google r/Software Engineer s/pa d/11-11-2023`
@@ -939,7 +940,7 @@ Currently, LinkMeIn only allows searching through the list of companies by the `
 users might want to search through the list using other parameters, like `RECRUITER_NAME`, `PRIORITY` and `ROLE`.
 
 **Proposed Enhancement**<br>
-We plan to expand the current find command’s capability to allow for search using other parameters. The users will 
+We plan to expand the current find command’s capability to allow for search using other parameters. Users will 
 be able to specify the prefix that corresponds to the parameter they wish to use for the search, before the keyword(s). 
 The prefixes used will be consistent with the rest of the application, in regard to what parameter they represent.
 
@@ -958,11 +959,11 @@ Here are the new suggested formats :
 ### Enhance Find Feature to Allow for Search of Exact Company Names
 **Potential Flaw in Current Implementation**<br>
 If users would like to find a specific company that has two or more words in their name such as `Microsoft 
-Corporation`, using the current find command will return companies that match either “Microsoft” or “Corporation”. 
+Corporation`, using the current `find` command will return companies that match either `Microsoft` or `Corporation`. 
 This can potentially pollute the results and defeat the purpose of the find feature.
 
 **Proposed Enhancement**<br>
-We plan to expand the find command's capability, to allow for exact keyword matching. This can be done by specifying 
+We plan to expand the `find` command's capability, to allow for exact keyword matching. This can be done by specifying 
 the keyword(s) within quotations.
 
 Suggested command format for exact find: `find “KEYWORD [KEYWORDS]...”`
@@ -1004,7 +1005,7 @@ Also, we understand that some users may not wish to type leading zeros for days 
 
 **Feature Flaw in Current Implementation**
 
-Currently, the user can only delete one company at once. However, there will be cases where the user wish to delete multiple entries at once, especially if the user wishes to delete all the companies that he got rejected from. This can be tedious and inconvenient for the user.
+Currently, the user can only delete one company at once. However, there will be cases where the user wishes to delete multiple entries at once, such as deleting all the companies that the user got rejected from. This can be tedious and inconvenient for the user.
 
 **Proposed Enhancement**
 
