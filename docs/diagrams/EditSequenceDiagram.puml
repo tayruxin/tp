@@ -65,6 +65,11 @@ activate Model
 Model --> EditCommand : target
 deactivate Model
 
+EditCommand -> EditCommand : createEditedCompany(target, d)
+activate EditCommand
+EditCommand --> EditCommand : c
+deactivate EditCommand
+
 EditCommand -> Model : setCompany(target, c)
 activate Model
 
