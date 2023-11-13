@@ -4,9 +4,10 @@ title: Developer Guide
 ---
 
 * Table of Contents
-  {:toc}
+{:toc}
 
 ---
+<div style="page-break-after: always;"></div>
 
 ## **Acknowledgements**
 
@@ -24,6 +25,7 @@ This project is based on the AddressBook-Level3 project created by the [SE-EDU i
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 ---
+<div style="page-break-after: always;"></div>
 
 ## **Design**
 
@@ -88,7 +90,7 @@ The `UI` component,
 -   executes user commands using the `Logic` component.
 -   listens for changes to `Model` data so that the UI can be updated with the modified data.
 -   keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
--   depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
+-   depends on some classes in the `Model` component, as it displays `Company` object residing in the `Model`.
 
 ### Logic Component
 
@@ -153,6 +155,7 @@ The `Storage` component,
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
 ---
+<div style="page-break-after: always;"></div>
 
 ## **Implementation**
 
@@ -163,8 +166,8 @@ The `CompanyDetailPanel` allows the user to view the company details of the sele
 Recruiter's information, company's information and remarks will be shown in the `CompanyDetailPanel`.
 
 #### Implementation
-`CompanyDetailCard` and `CompanyDetailPanel`, both inheriting `UiPart` are used to display the company details. More details
-of the class implementation can be seen in the class diagram below.
+
+`CompanyDetailCard` and `CompanyDetailPanel`, both inheriting `UiPart`, are used to display the company details. More details of the class implementation can be seen in the class diagram below.
 
 <img src="images/DetailPanelClassDiagram.png" />
 
@@ -258,7 +261,10 @@ The sequence diagram below illustrates the processing of a `find` command, such 
 
 <img src="images/FindCompanySequenceDiagram.png"/>
 
-> :information_source: **Note:** The above sequence diagram simplifies the interaction by focusing on the primary components involved in processing the `find` command.
+<div markdown="block" class="alert alert-info">
+**:information_source: Note:** 
+The above sequence diagram simplifies the interaction by focusing on the primary components involved in processing the `find` command.
+</div>
 
 #### Design Considerations
 
@@ -337,9 +343,8 @@ The following sequence diagram will illustrate the process of performing the `ed
 The lifeline for `EditCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
-After the `EditCommandParser` initializes an `EditCompanyDescriptor` object, it sets the attributes of `EditCompanyDescriptor` that needs to be edited to the values input by the user.
-When `EditCommand#execute()` is called, a `Company` object, `c`, with edited attributes is initialized since `Company` is immutable.
-When `Model#setCompany(Company company)` is called, the original `Company` object in the `AddressBook` is replaced with the edited Company `c`.
+When `EditCommand#execute()` is called, an edited `Company` object is created in `EditCommand#createEditedCompany(Company companyToEdit, EditCompanyDescriptor editCompanyDescriptor)` since `Company` is immutable.
+When `Model#setCompany(Company company)` is called, the original `Company` object in the `AddressBook` is replaced with the edited `Company` object.
 
 #### Design Considerations
 
@@ -382,6 +387,7 @@ Therefore, the diagram omits the following
    This is removed to simplify the diagram.
 
 **Description of the diagram**
+
 Upon ascertaining that the edited company is a duplicate,
 1. The `EditCommand` class calls the `getDuplicateCompany(c)` method in the `ModelManager` class.
 1. `ModelManager` forwards the call to the `AddressBook` class.
@@ -505,6 +511,7 @@ diagram for simplicity.
 </div>
 
 ---
+<div style="page-break-after: always;"></div>
 
 ## **Documentation, Logging, Testing, Configuration, DevOps**
 
@@ -515,6 +522,7 @@ diagram for simplicity.
 -   [DevOps guide](DevOps.md)
 
 ---
+<div style="page-break-after: always;"></div>
 
 ## **Appendix A: Requirements**
 
@@ -530,6 +538,8 @@ National University of Singapore Computer Science students preparing for an inte
 
 **Value Proposition** <br>
 CS students often struggle to manage a multitude of internship applications and track their application progress. An intuitive CLI address book not only efficiently stores these applications but also offers a valuable tool for monitoring and organizing the entire application process, simplifying the pursuit of career opportunities.
+
+<div style="page-break-after: always;"></div>
 
 ### User Stories
 
@@ -556,6 +566,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `*`      | new user                        | import data from excel file                                  | easily switch from excel to LinkMeIn and continue tracking my internship applications      |
 | `*`      | new user                        | export data to excel file                                    | easily switch from LinkMeIn to excel and continue tracking my internship applications      |
 
+<div style="page-break-after: always;"></div>
 
 ### Use Cases
 
@@ -728,6 +739,8 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 
+<div style="page-break-after: always;"></div>
+
 ### Non-Functional Requirements
 
 1. The system should be available for download on our GitHub release page in the form of a JAR file.
@@ -742,6 +755,7 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 10. The application should be packaged into a single JAR file with size not exceeding 100MB.
 11. The code should meet the coding standard of CS2103T for maintainability.
 
+<div style="page-break-after: always;"></div>
 
 ### Glossary
 
@@ -768,6 +782,7 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 | **ROLE**               | Role of the internship that you are applying. Should only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                        |
 
 ---
+<div style="page-break-after: always;"></div>
 
 ## **Appendix B: Planned Enhancements**
 
@@ -918,8 +933,6 @@ The `DeleteCommandParser` will then split the string by commas and remove the co
 - `delete 1`: deletes company at index 1
 - `delete 4, 3, 7, 2`: deletes companies at index 4, 3, 7, 2
 
-
-
 ### Enhance Remark Feature
 **Potential Flaw in Current Implementation**
 
@@ -949,6 +962,7 @@ The user can copy from the Message Box and add on to his remarks. A sample input
 `remark 1 re/Require experience in Java, Interview on 12/12/2023, Interview went well!`
 
 ---
+<div style="page-break-after: always;"></div>
 
 ## **Appendix C: Instructions for Manual Testing**
 
@@ -1061,5 +1075,6 @@ Prerequisite: There is at least one company in the list.
     3. Relaunch LinkMeIn. <br>
        Expected: No companies will be shown in LinkMeIn.
 
+<div style="page-break-after: always;"></div>
 
 ## **Appendix D: Effort**
