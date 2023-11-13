@@ -3,6 +3,7 @@ layout: page
 title: Developer Guide
 ---
 
+## **Table of Contents**
 * Table of Contents
 {:toc}
 
@@ -41,11 +42,13 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 The **_Architecture Diagram_** given above explains the high-level design of the App.
 
+<div style="page-break-after: always;"></div>
+
 Given below is a quick overview of main components and how they interact with each other.
 
 **Main components of the architecture**
 
-**`Main`** (consisting of classes [`Main`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java)) is in charge of the app launch and shut down.
+**`Main`** (consisting of classes [`Main`](https://github.com/AY2324S1-CS2103T-T17-2/tp/blob/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/AY2324S1-CS2103T-T17-2/tp/blob/master/src/main/java/seedu/address/MainApp.java)) is in charge of the app launch and shut down.
 
 -   At app launch, it initializes the other components in the correct sequence, and connects them up with each other.
 -   At shut down, it shuts down the other components and invokes cleanup methods where necessary.
@@ -75,6 +78,8 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 
 The sections below give more details of each component.
 
+<div style="page-break-after: always;"></div>
+
 ### UI Component
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
@@ -91,6 +96,8 @@ The `UI` component,
 -   listens for changes to `Model` data so that the UI can be updated with the modified data.
 -   keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 -   depends on some classes in the `Model` component, as it displays `Company` object residing in the `Model`.
+
+<div style="page-break-after: always;"></div>
 
 ### Logic Component
 
@@ -123,6 +130,8 @@ How the parsing works:
 -   When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 -   All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
+<div style="page-break-after: always;"></div>
+
 ### Model Component
 
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
@@ -137,6 +146,8 @@ The `Model` component,
     bound to this list so that the UI automatically updates when the data in the list change.
 -   stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 -   does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
+
+<div style="page-break-after: always;"></div>
 
 ### Storage Component
 
@@ -197,6 +208,8 @@ sets the graphics to the `CompanyDetailCard` by constructing a new `CompanyDetai
     -   Pros: The user does not need to key in additional commands to view the details of the company.
     -   Cons: The `CompanyListPanel` will be too cluttered with too much information displayed in a company card.
 
+<div style="page-break-after: always;"></div>
+
 ### View Feature
 The `CompanyDetailPanel` allows the user to view the company details of the selected company in the company list.
 The user can use the `view` command to select the company to view.
@@ -244,6 +257,8 @@ shown in the activity diagram below.
 -   **Alternative 2:** Create a new `Company` object in `AddressBook` to store the selected company which the user wishes to view.
     -   Pros: Since there are no lists involved, there is no need to clear the list.
     -   Cons: The `CompanyDetailPanel` will not be updated automatically when there are any changes made to the `Company` object. There is a need to create additional methods to update the `CompanyDetailPanel` when changes are made to the `Company` object.
+
+<div style="page-break-after: always;"></div>
 
 ### Find Feature
 
@@ -294,6 +309,8 @@ The above sequence diagram simplifies the interaction by focusing on the primary
 
 With the design considerations, we've chosen the alternatives that provide a balance between user-friendliness and precision.
 
+<div style="page-break-after: always;"></div>
+
 ### Filter Feature
 
 The `filter` command allows users to filter the list of companies based on the valid application status. 
@@ -323,15 +340,17 @@ The lifeline for `FilterCommandParser` should end at the destroy marker (X) but 
     * Pros: Users can focus on viewing details of company(s) belonging to the filtered list only, reducing distractions and confusions.
     * Cons: Users might have to execute the `view` command again to access details of the last viewed company before filtering even if that company is still in the filtered list, potentially leading to additional steps taken.
 
+<div style="page-break-after: always;"></div>
+
 ### Edit Feature
 
 #### Implementation
-The edit mechanism is facilitated by `EditCompanyDescriptor`, which is a nested class of `EditCommand` that is similar to the `Company` model, except that the value of fields can be null.
-The `EditCommandParser` parses the user input and stores the values of the fields to be edited in an `EditCompanyDescriptor` object while unedited fields are `null`.
-Additionally, `EditCommand` implements the `EditCommand#execute(Model model)`operation which edits all the fields indicated by the user input.
+The edit mechanism is facilitated by `EditCompanyDescriptor`, which is a nested class of `EditCommand` that is similar to the `Company` model, except that the value of parameters can be null.
+The `EditCommandParser` parses the user input and stores the values of the parameters to be edited in an `EditCompanyDescriptor` object while unedited parameters are `null`.
+Additionally, `EditCommand` implements the `EditCommand#execute(Model model)`operation which edits all the parameters indicated by the user input.
 This operation is exposed in the `Model` interface as:
 
-* `Model#setCompany(Company target, Company editedCompany)` - Updates a company in the list to a new company with edited fields.
+* `Model#setCompany(Company target, Company editedCompany)` - Updates a company in the list to a new company with edited parameters.
 * `Model#setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed in the `CompanyDetailPanel`.
 
 The following sequence diagram will illustrate the process of performing the `edit` command.
@@ -358,7 +377,9 @@ When `Model#setCompany(Company company)` is called, the original `Company` objec
     * Pros: Command line is shorter which reduces users' error such as duplicates or invalid command. This improves user experience.
     * Cons: We must ensure that the implementation of each individual command are correct. This may also require more memory usage, a Company object is initialized for every modified attribute.
 
-### Duplicate detection
+<div style="page-break-after: always;"></div>
+
+### Duplicate Detection
 
 <img src="images/duplicate-detection/edit-command/DuplicateSequenceDiagram.png"/>
 
@@ -367,11 +388,11 @@ The term _duplicate_ hereafter refers to companies with the same company name, r
 
 The _duplicate_ detection mechanism is facilitated by `Company#isSameCompany(Company otherCompany)`.
 This method checks if two `Company` entities are the same by checking if their `Name`, `Role` and
-`Deadline` fields are equal. This method is used by `AddCommand` and `EditCommand` to check if
+`Deadline` parameters are equal. This method is used by `AddCommand` and `EditCommand` to check if
 the company to be added or edited already exists in the company list.
 
 The above sequence diagram shows the events when a user attempts to **edit** the details of an existing company,
-namely the company name, role and deadline fields to match that of another company in the company list.
+namely the company name, role and deadline parameters to match that of another company in the company list.
 The purpose of the diagram is a **simplified** view of the message passing when a _duplicate_ company is detected.
 
 Therefore, the diagram omits the following
@@ -420,13 +441,14 @@ getDuplicateCompany(toAdd) method, which has already been shown in the sequence 
       current architecture design.
 
 **Aspect: Change the definition of a _duplicate_**
-- **Alternative:** Define _duplicates_ as equivalence of all fields other than just `Name`, `Role` and `Deadline`.
+- **Alternative:** Define _duplicates_ as equivalence of all parameters other than just `Name`, `Role` and `Deadline`.
     - Pros: Allows users to add companies with the same name, role and deadline but different contact details.
-    - Cons: This approach does not align with real-world scenarios where if the Name, Role, and Deadline fields
+    - Cons: This approach does not align with real-world scenarios where if the Name, Role, and Deadline parameters
       are identical, it likely indicates the same job application. The purpose of the duplicate detection is to prevent
       interns from inadvertently applying multiple times to the same position at a company with the same role and
       application deadline.
 
+<div style="page-break-after: always;"></div>
 
 ### Remark Feature
 
@@ -453,6 +475,8 @@ The remark feature has a similar implementation as the [edit feature](#edit-feat
 - **Alternative 2:** Use only one `COMMAND_WORD` - remark
     - Pros: Easier to implement.
     - Cons: Remarks may be accidentally deleted by an empty input for the parameter. This can affect user experience negatively.
+
+<div style="page-break-after: always;"></div>
 
 ### Add Feature
 The `add` command allows users to add companies into LinkMeIn. 
@@ -488,13 +512,15 @@ The following activity diagram shows what happens when the user executes the `ad
     * Pros: Users can add in all the information at once, minimising the need to use other commands to do so afterward, like using `edit` command.
     * Cons: Longer `add` command for users. Users may also not have recruiter's information at hand when they are adding in the company into LinkMeIn.
 
+<div style="page-break-after: always;"></div>
+
 ### Sort Feature
 The `sort` command allows users to sort the list of companies by their application deadlines in either ascending or 
 descending order. 
 
 #### Implementation
 The `Deadline` class implements the `java.lang.Comparable` interface, which provides a natural ordering of deadlines. 
-The sort feature leverages the fact that the `Deadline` field in a `Company` object is comparable and uses 
+The sort feature leverages the fact that the `Deadline` parameter in a `Company` object is comparable and uses 
 the Java `Comparator` interface to sort companies based on their deadlines. 
 
 The sequence diagram below illustrates the execution of the SortCommand, when it is called with a `sortOrder` that can
@@ -543,7 +569,10 @@ CS students often struggle to manage a multitude of internship applications and 
 
 ### User Stories
 
-Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
+**Priority:**
+- `* * *` - High (must have) 
+- `* *` - Medium (nice to have)
+- `*` - Low (unlikely to have)
 
 | Priority | As a …​                         | I want to …​                                                 | So that I can…​                                                                            |
 |----------|---------------------------------|--------------------------------------------------------------|--------------------------------------------------------------------------------------------|
@@ -608,6 +637,7 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
     * 1c2. User enters the information of a new company. <br>
       Use case resumes from Step 1.
 
+<div style="page-break-after: always;"></div>
 
 **Use Case: UC03 - Delete a Company**
 
@@ -647,6 +677,7 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 
+<div style="page-break-after: always;"></div>
 
 **Use Case: UC06 - Edit a Company**
 
@@ -683,6 +714,7 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 * 1b. LinkMeIn detects an invalid parameter input → handled similarly to 1b of UC02.
 
+<div style="page-break-after: always;"></div>
 
 **Use Case: UC09 - Sort Companies by Deadline**
 
@@ -728,6 +760,7 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 
+<div style="page-break-after: always;"></div>
 
 **Use Case: UC13 - View Help**
 
@@ -738,8 +771,6 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
-
-<div style="page-break-after: always;"></div>
 
 ### Non-Functional Requirements
 
@@ -808,17 +839,19 @@ The following implementation will be adopted instead:
 **Examples**
 
 - **view**: `Viewing company: COMPANY_NAME (ROLE, DEADLINE)`
-- **edit**: `COMPANY_NAME (ROLE, DEADLINE) company edited.`
+- **edit**: `COMPANY_NAME (ROLE, DEADLINE) company edited`
 - **remark**: `Added remark to company: COMPANY_NAME (ROLE, DEADLINE)`
 - **unremark**: `Removed remark from company: COMPANY_NAME (ROLE, DEADLINE)`
 - **add**: `New company added: COMPANY_NAME (ROLE, DEADLINE)`
+
+<div style="page-break-after: always;"></div>
 
 ### Make Recruiter Name, Phone and Email Parameters Optional in Add Command
 **Feature Flaw in Current Implementation** <br>
 Currently, the recruiter’s information, namely recruiter’s name, phone number and email address, are compulsory parameters as inputs for Add Command. However, the user may not have the recruiter’s information at the point of applying to the company, which is common in most internship applications now. The user may only have the recruiter’s information at a later point in time. Hence, the user will not be able to add the company into LinkMeIn, without the recruiter's name, phone number and email address.
 
 **Proposed Enhancement** <br>
-Instead of having the recruiter's name, phone number and email address to be compulsory fields, they will be changed to optional parameters in the `add` Command. This will allow the user to add the company into LinkMeIn without the recruiter's information.
+Instead of having the recruiter's name, phone number and email address to be compulsory parameters, they will be changed to optional parameters in the `add` Command. This will allow the user to add the company into LinkMeIn without the recruiter's information.
 
 The updated `add` command format would be as follows:
 `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE [n/RECRUITER_NAME] [p/PHONE] [e/EMAIL] [pr/PRIORITY]`.
@@ -829,7 +862,62 @@ If the user did not add in the recruiter's name, phone number and email address 
 * `add c/Google r/Software Engineer s/pa d/11-11-2023`
 * `add c/TikTok r/Data Analyst s/pa d/10-12-2023 n/Ben Tan`
 
+<div style="page-break-after: always;"></div>
+
 ### Omit Alphanumeric Checks for Company Name, Recruiter Name and Role Parameters
+**Feature Flaw in Current Implementation**
+
+Currently, recruiter name, company name and role are checked for non-alphanumeric characters (defined as all characters other than alphabets and digits), and as a result, non-complying inputs are blocked.
+
+**Examples:**
+- `X Æ A-12` for recruiter name.
+- `H20.ai` for company name.
+- `Software Engineer (Backend)` for the role.
+
+The above inputs are all currently blocked due to the alphanumeric requirement.
+The input validation may be overly restrictive, restricting possible company names, recruiter names and roles inputs.
+
+**Proposed Enhancement**
+
+Instead of the current regex check located within the `Name`, `Role` and `RecruiterName` classes, the new regex check:
+- Allows periods (.) and parentheses ((, )) since these are common in company names and job titles.
+- Allows special characters like Æ and hyphens (-).
+- Allows any Unicode letter using \p{L}.
+- Allows for special characters at the start of the string as well.
+
+With the proposed change in the regular expression, the validation criteria for company names, recruiter names, and roles will be more inclusive. 
+
+**Examples**
+
+Here are some examples illustrating what will now be allowed and what will remain disallowed:
+
+**Allowed Inputs**
+1. **Company Names:**
+    - `H20.ai`: Includes a period and digits.
+    - `Klüft Skogar`: Includes a special character (ü).
+    - `Déjà Vu Inc.`: Includes special characters (é, à) and a period.
+
+2. **Recruiter Names:**
+    - `X Æ A-12`: Includes a special character (Æ) and a hyphen.
+    - `Anne-Marie`: Includes a hyphen.
+    - `O’Connor`: Includes an apostrophe.
+
+3. **Roles:**
+    - `Software Engineer (Backend)`: Includes parentheses.
+    - `C++ Developer`: Includes a plus sign.
+    - `Sr. Manager - R&D`: Includes a period and a hyphen.
+
+**Disallowed Inputs**
+**Company Names, Recruiter Names, and Roles:**
+- `@example.com`: Starts with a disallowed special character (@).
+- `Jane#Doe`: Includes a disallowed special character (#).
+- `$$$ Enterprises`: Starts with disallowed special characters ($$$).
+- `Developer!!!`: Ends with disallowed special characters (!!!).
+
+The new regex allows for a more diverse range of characters, accommodating special characters, Unicode letters, numbers, spaces, periods, parentheses, and hyphens.
+It still restricts inputs that start with or contain certain special characters not typically found in names or titles.
+
+<div style="page-break-after: always;"></div>
 
 ### Enhanced Flexibility in Phone Number Parameter Input
 
@@ -837,13 +925,13 @@ If the user did not add in the recruiter's name, phone number and email address 
 
 Currently, the phone number parameter only accepts integers as valid user inputs. However, users may encounter scenarios,
 such as applying for overseas internships, where they want to include symbols like `()`, `+`,  `-` and `.` in the phone
-number field. The current restriction prevents users from indicating country codes, potentially causing confusion about
+number parameter. The current restriction prevents users from indicating country codes, potentially causing confusion about
 the origin of the phone number.
 
 **Proposed Enhancement**
 
 The regex checking for a valid phone number will be changed to allow for `()`, `+`, `-` and `.` in the phone number
-field. In addition, the character `+` will only be allowed at the start while, the other symbols have no positioning restrictions.
+parameter. In addition, the character `+` will only be allowed at the start while, the other symbols have no positioning restrictions.
 
 **Examples**
 
@@ -854,7 +942,9 @@ field. In addition, the character `+` will only be allowed at the start while, t
 - 922492304: will be accepted
 - 24234 + 234243: will **not** be accepted
 
-### **5. Enhance Find Feature to Search with Other Parameters**
+<div style="page-break-after: always;"></div>
+
+### Enhance Find Feature to Search with Other Parameters
 **Potential Flaw in Current Implementation**<br>
 Currently, LinkMeIn only allows searching through the list of companies by the `COMPANY_NAME` parameter. However, 
 users might want to search through the list using other parameters, like `RECRUITER_NAME`, `PRIORITY` and `ROLE`.
@@ -874,7 +964,9 @@ Here are the new suggested formats :
 * `find pr/High`
 * `find r/Software Engineer`
 
-### **6. Enhance Find Feature to Allow for Search of Exact Company Names**
+<div style="page-break-after: always;"></div>
+
+### Enhance Find Feature to Allow for Search of Exact Company Names
 **Potential Flaw in Current Implementation**<br>
 If users would like to find a specific company that has two or more words in their name such as `Microsoft 
 Corporation`, using the current find command will return companies that match either “Microsoft” or “Corporation”. 
@@ -901,6 +993,7 @@ To enhance the deadline parameter input, we will add a check to determine if the
 New company added: COMPANY_NAME. 
 Note that you have entered a deadline past the current date. If you made a mistake in your input, please use the `edit` command to update the deadline. 
 ```
+<div style="page-break-after: always;"></div>
 
 ### Enhance Flexibility in Deadline Parameter Input
 **Potential Flaw in Current Implementation**<br>
@@ -915,6 +1008,8 @@ Also, we understand that some users may not wish to type leading zeros for days 
 * 1/1/2024 is in D/M/YYYY format
 * 2024-1-1 is in YYYY-M-D format
 * 12/12/2023 is in DD/MM/YYYY format
+
+<div style="page-break-after: always;"></div>
 
 ### Allow Multiple Indices Input for Delete Command
 
@@ -932,6 +1027,8 @@ The `DeleteCommandParser` will then split the string by commas and remove the co
 - `delete 1, 2`: deletes companies at index 1 and 2
 - `delete 1`: deletes company at index 1
 - `delete 4, 3, 7, 2`: deletes companies at index 4, 3, 7, 2
+
+<div style="page-break-after: always;"></div>
 
 ### Enhance Remark Feature
 **Potential Flaw in Current Implementation**
@@ -990,6 +1087,8 @@ testers are expected to do more *exploratory* testing.
    Expected: No company is added. Error details shown in the command message.
 3. Try adding the same test case from Step 1. Check that an error message is displayed.
 
+<div style="page-break-after: always;"></div>
+
 ### Editing a Company
 Prerequisite: There is at least one company in the list.
 
@@ -1019,6 +1118,7 @@ Prerequisites: List all companies using the `list` command. Multiple companies i
 3. Other incorrect view commands to try: `view`, `view x`, `...` (where x is larger than the list size)<br>
    Expected: Similar to previous.
 
+<div style="page-break-after: always;"></div>
 
 ### Adding Remarks to a Company
 Prerequisite: There is at least one company in the list.
@@ -1043,6 +1143,8 @@ Prerequisite: There is at least one company in the list.
 2. Try finding for a company that does not exist in the list.
    Expected: No company is displayed in the company list panel.
 
+<div style="page-break-after: always;"></div>
+
 ### Sorting Companies by Deadline
 1. Test case: `sort` <br>
    Expected: All companies in the list are displayed in the company list panel, sorted by deadline in ascending order.
@@ -1063,6 +1165,7 @@ Prerequisite: There is at least one company in the list.
 1. Test case: `exit` <br>
    Expected: LinkMeIn closes.
 
+<div style="page-break-after: always;"></div>
 
 ### Saving Data
 1. Dealing with missing data file
@@ -1078,3 +1181,49 @@ Prerequisite: There is at least one company in the list.
 <div style="page-break-after: always;"></div>
 
 ## **Appendix D: Effort**
+### Effort
+**UI Enhancements**
+
+With JavaFX, the UI has been revamped by importing different components such as `SplitPane` and `ListView`.
+Implementing these components requires us to learn more about JavaFX and experiment on our own.
+
+**Enhancements to Existing AB3 Features**
+
+While editing the commands to include new parameters may require less effort, we have put in substantial effort to enhance commands and issues inherited from AB3.
+This includes implementing a more optimised `find` command to search with greater flexibility and more extensive checks for more specific error messages which can guide users better.
+Duplicate check is one of the most commendable efforts for checks.
+
+**New Classes Implemented**
+
+Examples of new classes created:
+
+`Model` classes - Deadline, Priority, Status, Role etc.
+
+`Command` classes -  Filter, Remark, Sort, View
+
+Besides ensuring that new classes added follow the architecture, another important aspect is the code quality.
+We have added test cases for all new classes and practised defensive programming by adding assertion and logging statements.
+
+
+### Challenges Faced:
+- **Coding within a team:** 
+Most of us were used to doing personal projects or pair projects, which is much easier to manage, in terms of workflow.
+In the short amount of time we had, we had to familiarise ourselves with the GitHub workflow to enhance our collaboration.
+Merge conflicts and issues arising from minor mistakes with pull requests required a huge amount of time to resolve.
+
+- **Using JavaFX:**
+We were newly introduced to the JavaFX package in this course, which we had little experience with.
+Editing the UI aspect is also more complex than coding the frontend and backend systems, as changing the UI relies on visualisation, which requires much trial and error to perfect it.
+This makes the learning curve very steep for UI enhancements, which took us more time and effort to achieve.
+
+- **Evolving from AB-3:**
+Refactoring AB-3 code was challenging, especially when this was done right at the start of the project.
+Significant time was taken to understand how the large codebase works.
+This proved even more challenging as we only learned software design patterns quite late into the semester.
+Hence, the code did not make much sense to us when we first started.
+
+
+When evolving from AB-3 to LinkMeIn, we had a fair amount of enhancement and sufficient breadth in aspects of the software covered such as change in UI, adding new commands, and error handling. LinkMeIn is a small evolution from AB3. With these considerations, the difficulty level for the LinkMeIn project is moderate.
+
+### Achievements:
+We have made significant progress since the start of this module. We have familiarised ourselves with the GitHub workflow and have managed to produce a CLI application that follows proper code quality to achieve readability and maintainability. We are really proud of what we have achieved!

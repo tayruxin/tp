@@ -32,11 +32,11 @@ Moreover, LinkMeIn combines the **efficiency** of the [Command Line Interface (C
 # Usage of This Guide
 
 This user guide aims to empower you with the knowledge and skills needed to maximize the potential of LinkMeIn. We are
-committed to guide you at every step of your internship journey. Whether you're a new user looking to get started or 
-an experienced one seeking advanced insights, you'll find valuable information tailored to your unique 
+committed to guide you at every step of your internship journey. Whether you're a new user looking to get started or
+an experienced one seeking advanced insights, you'll find valuable information tailored to your unique
 needs and expertise.
 
-Before we begin, let us first introduce you to the annotations that you will encounter throughout this user guide. 
+Before we begin, let us first introduce you to the annotations that you will encounter throughout this user guide.
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
@@ -57,24 +57,24 @@ Before we begin, let us first introduce you to the annotations that you will enc
 
 Throughout this guide, you will also notice **various text styles**. Here's what each of them means:
 - _Used to show possible scenarios that you can use a feature for (mainly in the feature sections)._
-- [Represents hyperlinks that you can click into, which will direct you to another section of this user guide or to 
+- [Represents hyperlinks that you can click into, which will direct you to another section of this user guide or to
   a website.]()
 - `Used to highlight specific elements such as file names, commands, or any text that should be viewed as code.`
 - > Used to describe information about the parameters that you can key into a command.
 
-Now that you are familiar with the annotations and text styles, let us teach you how to navigate this user guide according 
-to your level of expertise. 
+Now that you are familiar with the annotations and text styles, let us teach you how to navigate this user guide according
+to your level of expertise.
 
 ## New to LinkMeIn? ##
 
 Thank you for choosing LinkMeIn as your internship tracking ally! We are excited to embark on this journey with you.
 
 1. To get started, you can refer to the [Quick Start Section](#quick-start) to set up LinkMeIn.
-2. After downloading LinkMeIn and setting up your computer, we have prepared a 
-[Quick Tour](#introducing-linkmein-a-quick-tour) for you. This tour will help you get started with the key features of 
-LinkMeIn that you will be using quite often.
+2. After downloading LinkMeIn and setting up your computer, we have prepared a
+   [Quick Tour](#introducing-linkmein-a-quick-tour) for you. This tour will help you get started with the key features of
+   LinkMeIn that you will be using quite often.
 3. If you choose to explore LinkMeIn on your own, you can refer to the [Features Section](#current-features) to find out
-more about LinkMeIn's features.
+   more about LinkMeIn's features.
 
 <div style="page-break-after: always;"></div><br/>
 
@@ -82,10 +82,10 @@ more about LinkMeIn's features.
 Welcome back! We hope that you have been enjoying your internship tracking journey with LinkMeIn.
 
 1. If you need a refresher on how to use a feature, you can refer to the [Features Section](#current-features) to find
-out more about LinkMeIn's features. In the Features Section, there are **detailed explanations** of each feature and
+   out more about LinkMeIn's features. In the Features Section, there are **detailed explanations** of each feature and
    **examples** to help you better understand how to use them.
 2. To quickly refer to the command format of a feature, you can head over to the [Command Summary Section](#command-summary)
-where all the commands are listed out in a table format.
+   where all the commands are listed out in a table format.
 
 If you face any issues while using LinkMeIn, you can refer to the [FAQ Section](#faq) to see if your issue has been addressed before.
 
@@ -94,10 +94,10 @@ If you face any issues while using LinkMeIn, you can refer to the [FAQ Section](
 <div style="page-break-after: always;"></div><br/>
 
 # Quick Start
-In this section, you will learn how to set up LinkMeIn on your computer. 
+In this section, you will learn how to set up LinkMeIn on your computer.
 
-1. Make sure that you have **Java 11 or above** installed on your Computer. Click 
-[here](#1-how-do-i-check-if-i-have-java-11-installed) if you are unsure of how to check if you have Java 11 installed.
+1. Make sure that you have **Java 11 or above** installed on your Computer. Click
+   [here](#1-how-do-i-check-if-i-have-java-11-installed) if you are unsure of how to check if you have Java 11 installed.
 
 2. With Java 11 installed, you can now download our latest jar file from [here](https://github.com/AY2324S1-CS2103T-T17-2/tp/releases/latest).
 
@@ -115,7 +115,7 @@ In this section, you will learn how to set up LinkMeIn on your computer.
 
    <div style="page-break-after: always;"></div><br/>
 
-7. Type the command `java -jar LinkMeIn.jar` and press `Enter`. Your command terminal should look like this after 
+7. Type the command `java -jar LinkMeIn.jar` and press `Enter`. Your command terminal should look like this after
    Steps 6 and 7:
     <div style="margin-top: 10px; margin-bottom: 10px">
         <img src="images/quick-start/launchLinkMeIn.png" alt="Launch LinkMeIn" width="650"/>
@@ -159,7 +159,7 @@ The GUI consists of four main components:
 * To maximise your viewing experience, opt for full-screen mode in LinkMeIn!
 </div>
 
-Now that you've been introduced to LinkMeIn's GUI, let's proceed to learn how you can use the CLI to interact with LinkMeIn. 
+Now that you've been introduced to LinkMeIn's GUI, let's proceed to learn how you can use the CLI to interact with LinkMeIn.
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -192,13 +192,13 @@ You can find all the parameters used in LinkMeIn [here](#parameters-description)
 To learn more about the prefixes and command words used in LinkMeIn, you can refer to the [Command Summary Section](#command-summary).
 
 Now, let's see how you can use these components to easily write a command!
-The following color code will assist you in highlighting each component for better understanding. 
+The following color code will assist you in highlighting each component for better understanding.
 
 <div style="margin-top: 10px; margin-bottom: 10px">
     <img src="images/cli-description/CommandFormat1.png" alt="CommandFormat1" width="650"/>
 </div>
 
-Let's use the [`add` command](#adding-a-company--add) format as shown below to explain the components. 
+Let's use the [`add` command](#adding-a-company--add) format as shown below to explain the components.
 <div style="margin-top: 10px; margin-bottom: 10px">
     <img src="images/cli-description/CommandFormat2.png" alt="CommandFormat2" width="750" />
 </div>
@@ -346,12 +346,12 @@ Go ahead and try deleting the other companies too. If you wish to read up more o
 [here](#deleting-a-company--delete).
 
 
-**Congratulations!** You have completed the quick tour of LinkMeIn. You are now ready to use LinkMeIn to track your own 
-internship applications. To remove the sample data provided in LinkMeIn, simply type `clear` in the command box to remove 
+**Congratulations!** You have completed the quick tour of LinkMeIn. You are now ready to use LinkMeIn to track your own
+internship applications. To remove the sample data provided in LinkMeIn, simply type `clear` in the command box to remove
 all existing entries. Find out more about the `clear` command [here](#clearing-all-companies-clear).
 
 LinkMeIn offers more than just the features that you have learnt in this tour.
-If you wish to learn more about the other features of LinkMeIn, head over to our **Features Section** right below! 
+If you wish to learn more about the other features of LinkMeIn, head over to our **Features Section** right below!
 You can also visit the [FAQ](#faq) to view the frequently asked questions if you need more help!
 
 [&uarr; Back to Table of Contents](#table-of-contents)
@@ -364,11 +364,11 @@ You can also visit the [FAQ](#faq) to view the frequently asked questions if you
 LinkMeIn's features can be categorised into 3 broad categories:
 
 -  [General Features](#general-features): This section equips you with essential tools to **navigate** LinkMeIn effectively.
-Here, you can access help, clear all entries, and gracefully exit LinkMeIn.
+   Here, you can access help, clear all entries, and gracefully exit LinkMeIn.
 - [Company Management Features](#company-management-features): Dive into this section to **engage with individual company entries.** You can easily
-add, view, edit, delete companies, as well as add your own remarks to them.
-- [Company List Features](#company-list-features): This section allows you to **interact with the list of companies,** thereby unlocking LinkMeIn's full potential. 
-Explore options to find, list, filter and sort companies, managing all companies with ease. 
+  add, view, edit, delete companies, as well as add your own remarks to them.
+- [Company List Features](#company-list-features): This section allows you to **interact with the list of companies,** thereby unlocking LinkMeIn's full potential.
+  Explore options to find, list, filter and sort companies, managing all companies with ease.
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
@@ -391,7 +391,7 @@ _You've just completed an internship cycle and are preparing for the next one! W
 
 **Step 1:** Type `clear` in the Command Box and press `Enter`.
 
-**Step 2:** You should see an empty list of companies immediately. 
+**Step 2:** You should see an empty list of companies immediately.
 
 ![img.png](images/clear-command/clear.png)
 
@@ -469,7 +469,7 @@ If you made a mistake for any of the parameters input, you will see an error mes
 
 ### Viewing Full Company's Information: `view`
 
-_You look at the list of companies, and you realise that it's been 3 weeks since the interview, yet the company has not gotten back to you. 
+_You look at the list of companies, and you realise that it's been 3 weeks since the interview, yet the company has not gotten back to you.
 With the `view` command, you can easily view the full details of a specific company, including the recruiter's contact details, and follow up with them!_
 
 **Format:** `view INDEX`
@@ -548,10 +548,10 @@ _After adding a company, you wish to note down more information such as the job 
 * When adding remarks, the existing remarks of the company is not cumulative. This means that whenever you type new remarks, your existing remarks will be completely overwritten!
 </div>
 
-**Examples:** 
+**Examples:**
 
 **Step 1.** After adding the internship for DSTA into LinkMeIn,
-   you want to note that this internship requires experience in Java.
+you want to note that this internship requires experience in Java.
 
 <div style="page-break-after: always;"></div><br/>
 
@@ -648,10 +648,10 @@ If you've completed the Quick Tour of LinkMeIn, you've likely edited a few compa
 Here are some more examples of `edit` commands that you can try:
 
 - `edit 3 d/11-09-2025 pr/LOW` <br>
-Edits the deadline and priority of the 3rd company in the displayed list.
-  
+  Edits the deadline and priority of the 3rd company in the displayed list.
+
 - `edit 1 n/Amy Tan e/amytan@gmail.com` <br>
-Edits the recruiter's name and email of the 1st company in the displayed list.
+  Edits the recruiter's name and email of the 1st company in the displayed list.
 
 **Possible Error:**
 
@@ -665,7 +665,7 @@ try the command again! An example of an invalid input and error message is shown
 
 ### Duplicate Detection
 
-_Seeking an internship but worried about double-applying? 
+_Seeking an internship but worried about double-applying?
 Our duplicate detection swiftly ensures you never submit the same application twice!_
 
 If you attempt to **add** or **edit** an application, you might accidentally create a duplicate entry with the same **company name**, **role**, and **deadline** as an existing company in LinkMeIn. An error message will be displayed in the Message Box, informing you of the **company name**, **role** and **deadline** of that duplicate company.
@@ -676,7 +676,7 @@ If you attempt to **add** or **edit** an application, you might accidentally cre
 </div>
 
 **Example 1:**
-Suppose you attempt to add a company with the **exact same company and recruiter information** as an existing entry in LinkMeIn, you will be notified of the duplicate company, as seen below. 
+Suppose you attempt to add a company with the **exact same company and recruiter information** as an existing entry in LinkMeIn, you will be notified of the duplicate company, as seen below.
 
 ![img.png](images/duplicate-detection/add-command/duplicate-exact-match.png)
 
@@ -690,9 +690,9 @@ If you attempt to add a company with the **same company name, role and deadline*
 <div style="page-break-after: always;"></div><br/>
 
 **Example 3:**
-LinkMeIn's duplicate check does not stop with adding entries. If you attempt to **edit** an application, creating a 
-duplicate entry with the **same company name, role, and deadline** as an existing application in LinkMeIn, 
-an error message will be displayed in the Message Box, notifying you of the duplicate company as seen below. 
+LinkMeIn's duplicate check does not stop with adding entries. If you attempt to **edit** an application, creating a
+duplicate entry with the **same company name, role, and deadline** as an existing application in LinkMeIn,
+an error message will be displayed in the Message Box, notifying you of the duplicate company as seen below.
 
 ![img.png](images/duplicate-detection/edit-command/duplicate-edit.png)
 
@@ -783,7 +783,7 @@ Filter the list of companies by their application status using the `filter` comm
 
 **Example:**
 
-**Step 1:** You wish to prepare for the upcoming interviews that you have secured. 
+**Step 1:** You wish to prepare for the upcoming interviews that you have secured.
 
 **Step 2:** Simply type `filter s/PI` to filter the list of companies to show only companies with status "Pending Interview" and press `Enter`.
 
@@ -791,7 +791,7 @@ Filter the list of companies by their application status using the `filter` comm
 
 <div style="page-break-after: always;"></div><br/>
 
-**Step 3:** You can then check the Company List Panel for all the companies where you have pending interviews. 
+**Step 3:** You can then check the Company List Panel for all the companies where you have pending interviews.
 
 ![img.png](images/filter-command/AfterFilterCommand.png)
 
@@ -911,16 +911,16 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 <div style="page-break-after: always;"></div><br/>
 
 #### Email Format Description
-The email format is `local-part@domain`. 
+The email format is `local-part@domain`.
 
-`local-part` constraints: 
-* Only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). 
+`local-part` constraints:
+* Only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-).
 * May not start or end with any special characters.
 
 `domain` name constraints:
 * Made up of domain labels separated by periods.
-* End with a domain label at least 2 characters long 
-* Have each domain label start and end with alphanumeric characters 
+* End with a domain label at least 2 characters long
+* Have each domain label start and end with alphanumeric characters
 * Have each domain label consist of alphanumeric characters, separated only by hyphens, if any.
 
 [&uarr; Back to Table of Contents](#table-of-contents)
@@ -938,20 +938,20 @@ The email format is `local-part@domain`.
 ![img.png](images/quick-start/java11.png)
 
 * If you do not have Java installed, you can download it [here](https://www.oracle.com/sg/java/technologies/downloads/#java11).
-Remember to download the Java 11 version. 
+  Remember to download the Java 11 version.
 * You can refer to the guides below to install Java 11 for your respective operating systems:
-  * [Windows Guide](https://www.java.com/en/download/help/windows_manual_download.html) to install Java.
-  * [macOS Guide](https://www.java.com/en/download/help/mac_install.html) to install Java.
-  * [Linux Guide](https://www.java.com/en/download/help/linux_x64_install.html) to install Java.
+   * [Windows Guide](https://www.java.com/en/download/help/windows_manual_download.html) to install Java.
+   * [macOS Guide](https://www.java.com/en/download/help/mac_install.html) to install Java.
+   * [Linux Guide](https://www.java.com/en/download/help/linux_x64_install.html) to install Java.
 
 [&uarr; Back to Quick Start](#quick-start)
 
 <div style="page-break-after: always;"></div><br/>
 
 ### 2. How do I open up my terminal?
-* **Windows:** Click the Windows Start button, and type **'Command Prompt'** or **'cmd'** into the search bar. 
+* **Windows:** Click the Windows Start button, and type **'Command Prompt'** or **'cmd'** into the search bar.
   Press Enter to open it.
-* **macOS:** Click on **'F4'** and type **'terminal'**. Press Enter when it appears in the 
+* **macOS:** Click on **'F4'** and type **'terminal'**. Press Enter when it appears in the
   search results.
 * **Linux:** Press **'Ctrl'**, **'Alt'** and **'T'** simultaneously to open the terminal.
 
@@ -959,12 +959,12 @@ Remember to download the Java 11 version.
 
 ### 3. How do I load data from another computer?
 
-Delete the `companydata.json` file stored at `[JAR file location]/data/companydata.json` from the computer that you 
+Delete the `companydata.json` file stored at `[JAR file location]/data/companydata.json` from the computer that you
 wish to use LinkMeIn on (refer to image below).
 
 ![img.png](images/CompanyDataLocation.png)
 
-Then, copy over the `companydata.json` file from the other computer. And that's it! Just start LinkMeIn to 
+Then, copy over the `companydata.json` file from the other computer. And that's it! Just start LinkMeIn to
 check whether your data is properly loaded into the new computer and you're good to go!
 
 ### 4. Why am I unable to run LinkMeIn?
