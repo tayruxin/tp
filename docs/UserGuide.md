@@ -544,7 +544,7 @@ Here are some other examples of `remark` commands that you can try:
 If you have entered an **empty remark**,
 you will see an error message in the Message Box as shown below. Don’t worry, just try again with remarks now!
 
-![RemarkErrMsg.png](images/remark-command/RemarkErrMsg.png
+![RemarkErrMsg.png](images/remark-command/RemarkErrMsg.png)
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
