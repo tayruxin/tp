@@ -219,7 +219,7 @@ you have a reliable companion to guide you through this exciting journey._
 This tour aims to help you get started with LinkMeIn by introducing you to its essential features that you will be
 using quite often. In this tour, you will be learning how and when to:
 
--   [add a company](#1-adding-your-first-company),
+-   [add a company](#1-adding-a-company),
 -   [view its details](#2-viewing-company-details),
 -   [edit its details](#3-editing-company-details),
 -   [delete it](#4-deleting-a-company).
@@ -232,52 +232,74 @@ Now, follow us along this tour and transform yourself into a master of your inte
 
 Adding a company is the first step to tracking your internship applications. Let us start off by adding your first company to LinkMeIn.
 
-**Step 1:** Type the following `add c/Tesla r/Software Engineer s/PA n/John Doe d/01-12-2023 e/johndoe@example.com p/98765432 pr/high` in the Command Box and press `Enter`.
+**Step 1:** Let's say you are interested to apply for the **Software Engineer** role from **Apple**. Through the application description, you obtained the following information:
+* **Deadline:** 10-10-2023
+* **Recruiter Name:** Francis Tan
+* **Email:** francistan@example.com
+* **Phone Number:** 88287345
 
-- If you wish to learn more about what each parameter means and how to use the add command, you can do so [here](#adding-a-company--add).
+This application is of **medium** priority as you have other applications that you want to focus on first.
 
-**Step 2:** You should see DSTA being successfully added into LinkMeIn and displayed in the Company List Panel and Company Detail Panel.
+**Step 2:** With the details above, simply type `add c/Apple r/Software Engineer s/PA n/Francis Tan d/10-10-2023 e/francistan@example.com p/88287345 pr/medium` into the Command Box and press `Enter`.
+
+![img.png](images/add-command/BeforeAddCommand.png)
+
+**Step 3:** The Company Detail Panel will be updated to show the details of the newly added company's application, and the company will be added to the list of companies.
+
+![img.png](images/add-command/AfterAddCommand.png)
+
+<div markdown="block" class="alert alert-success">
+**:bulb: Useful Tip:**<br>
+* To quickly navigate to the start and end of your command line, you can use 'Ctrl' (Windows User) / 'Command' (Mac User) with the 'Left' and 'Right' arrow keys respectively!
+</div>
 
 Congratulations! You have successfully added your first company to LinkMeIn. Go ahead and try adding a few more companies on your own!
-Here are some more examples that you can try: 
-- `add c/Oracle r/Data Analyst s/PA n/Marry Lim d/12-11-2023 e/marrylim@example.com p/98452321`
-- `add c/Samsung r/Software Engineer s/PA n/Bob Cheng d/04-03-2023 e/bobcheng@example.com p/88283345 pr/low`
+
+
+If you wish to learn more about the `add` command, you can do so [here](#adding-a-company--add).
 
 ## 2. Viewing Company Details
 
 Now that you had added your first few companies into LinkMeIn, you may want to view the details of a specific company.
 
-**Step 1:** To view the details of DSTA, type `view 3` in the command box and press `Enter`.
+**Step 1:** After scrolling through your list of companies, you wish to view the details of the company DSTA.
+Simply type `view 3` to view DSTA's details.
 
-![ViewCommand.png](images/view-command/BeforeViewCommand.png)
+![img.png](images/view-command/BeforeViewCommand.png)
 
-**Step 2:** You should see the details of DSTA displayed in the Company Detail Panel.
+**Step 2:** The Company Detail Panel will be updated to show the details of DSTA.
 
-If you wish to read up more on the `view`
-command, you can do so [here](#view-full-company-information-view). Go ahead and try viewing the details of a few
-more companies on your own!
+![img.png](images/view-command/AfterViewCommand.png)
+
+Go ahead and try viewing the details of a few more companies on your own!
+
+If you wish to read up more on the `view` command, you can do so [here](#viewing-full-companys-information-view).
 
 ## 3. Editing Company Details
 
-After viewing the details of a company, you may realise that you have a typo in the role of a company, and you wish to
-edit the details of the company.
+Suppose you received an email from DSTA inviting you to interview for a Frontend Developer role, which differs from the Software Engineer role you initially applied for.
 
-**Step 1:** To edit the application status and role of DSTA, type `edit 3 n/Eve Lim` in the command box and press `Enter`.
+**Step 1.** To edit the company's information, type `edit 3 s/PI r/Frontend Developer`
 
-- If you wish to learn more about the `edit` command, you can do so [here](#edit-a-companys-information-edit).
+![EditDemo1.png](images/edit-command/EditDemo1.png)
 
+**Step 2.** The application status and role of the 3rd company in the list is edited to be Pending Interview and Frontend Developer respectively.
 
-**Step 2:** You should see the details of DSTA updated.
+![EditDemo2.png](images/edit-command/EditDemo2.png)
 
-Go ahead and try editing the details of a few more companies on your own! 
+Go ahead and try editing the other companies too. If you wish to read up more on the `edit` command, you can do so [here](#editing-a-companys-information-edit).
 
 ## 4. Deleting a Company
 
 Suppose you no longer wish to track the DSTA application from earlier, you can easily delete the company from LinkMeIn.
 
-**Step 1:** To delete DSTA, type `delete 3` in the command box and press Enter.
+**Step 1:** To delete DSTA, type `delete 3` in the command box and press enter
 
-**Step 2:** You should see the details of DSTA removed from LinkMeIn.
+![img.png](images/delete-command/BeforeDeleteCommand.png)
+
+**Step 2:** DSTA will be removed from the list of companies. The Company Detail Panel will be cleared too.
+
+![img.png](images/delete-command/AfterDeleteCommand.png)
 
 Go ahead and try deleting the other companies too. If you wish to read up more on the delete command, you can do so
 [here](#deleting-a-company--delete).
@@ -285,7 +307,7 @@ Go ahead and try deleting the other companies too. If you wish to read up more o
 
 **Congratulations!** You have completed the quick tour of LinkMeIn. You are now ready to use LinkMeIn to track your own 
 internship applications. To remove the sample data provided in LinkMeIn, simply type `clear` in the command box to remove 
-all existing entries. Find out more about the `clear` command [here](#clear-all-entries-clear).
+all existing entries. Find out more about the `clear` command [here](#clear-all-companies-clear).
 
 LinkMeIn offers more than just the features that you have learnt in this tour.
 If you wish to learn more about the other features of LinkMeIn, head over to our 
@@ -379,28 +401,13 @@ Add the company to LinkMeIn now to keep track of the application process using t
 
 **Example:**
 
-**Step 1:** Let's say you are interested to apply for the **Software Engineer** role from **Apple**. Through the application description, you obtained the following information:
-* **Deadline:** 10-10-2023
-* **Recruiter Name:** Francis Tan
-* **Email:** john@example.com
-* **Phone Number:** 987652423
+If you've completed the quick tour of LinkMeIn, you've likely added a few companies to your profile.
+If you have not done so yet, you can refer to the [Quick Tour](#1-adding-a-company) for guidance on adding companies.
+Here are some examples of `add` command that you can try:
+- `add c/Uber r/Software Engineer s/PA n/Mavis d/02-03-2023 e/mavis@example.com p/88284452 pr/low`
+- `add c/Oracle r/Data Analyst s/PA n/Marry Lim d/12-11-2023 e/marrylim@example.com p/98452321`
 
-This application is of **medium** priority as you have other applications that you want to focus on first.
 
-**Step 2:** With the details above, simply type `add c/Apple r/Software Engineer s/PA n/Francis Tan d/10-10-2023 e/john@example.com p/987652423 pr/medium` into the Command Box and press `Enter`.
-
-![img.png](images/add-command/BeforeAddCommand.png)
-
-**Step 3:** The Company Detail Panel will be updated to show the details of the newly added company's application, and the company will be added to the list of companies.
-
-![img.png](images/add-command/AfterAddCommand.png)
-
-**Step 4:** You can proceed to add more companies by repeating the steps above!
-
-<div markdown="block" class="alert alert-success">
-**:bulb: Useful Tip:**<br>
-* To quickly navigate to the start and end of your command line, you can use 'Ctrl' (Windows User) / 'Command' (Mac User) with the 'Left' and 'Right' arrow keys respectively!
-</div>
 
 **Possible Error:** <br>
 
@@ -427,14 +434,11 @@ With the `view` command, you can easily view the full details of a specific comp
 
 **Example:**
 
-**Step 1:** After scrolling through your list of companies, you wish to view the details of the company DSTA.
-Simply type `view 3` to view DSTA's details.
-
-![img.png](images/view-command/BeforeViewCommand.png)
-
-**Step 2:** The Company Detail Panel will be updated to show the details of DSTA.
-
-![img.png](images/view-command/AfterViewCommand.png)
+If you've completed the quick tour of LinkMeIn, you've likely viewed a few companies.
+If you have not done so yet, you can refer to the [Quick Tour](#2-viewing-company-details) for guidance on viewing companies.
+Here are some examples of `view` command that you can try:
+- `view 1`
+- `view 4`
 
 **Possible Error:**
 
@@ -462,14 +466,11 @@ You can use the delete command to delete the company from the list of companies 
 
 **Example:**
 
-**Step 1:** Let's say after viewing the company DSTA, you decide that you no longer want to track it.
-Simply type `delete 3` to delete DSTA.
-
-![img.png](images/delete-command/BeforeDeleteCommand.png)
-
-**Step 2:** DSTA will be removed from the list of companies. The Company Detail Panel will be cleared too.
-
-![img.png](images/delete-command/AfterDeleteCommand.png)
+If you've completed the quick tour of LinkMeIn, you've likely deleted a few companies.
+If you have not done so yet, you can refer to the [Quick Tour](#4-deleting-a-company) for guidance on deleting companies.
+Here are some examples of `delete` command that you can try:
+- `delete 1`
+- `delete 2`
 
 **Possible Error:**
 
@@ -577,19 +578,10 @@ use the `edit` command to input the accurate details._
 
 **Examples:**
 
-**Step 1.** You received an email from DSTA inviting you to interview for a Frontend Developer role, which differs from the Software Engineer role you initially applied for. 
-To edit the company's information, type `edit 3 s/PI r/Frontend Developer`
+If you've completed the quick tour of LinkMeIn, you've likely edited a few companies.
+If you have not done so yet, you can refer to the [Quick Tour](#3-editing-company-details) for guidance on editing companies.
+Here are some examples of `edit` command that you can try:
 
-![EditDemo1.png](images/edit-command/EditDemo1.png)
-
-**Step 2.** The application status and role of the 3rd company in the list is edited to be Pending Interview and Frontend Developer respectively.
-
-![EditDemo2.png](images/edit-command/EditDemo2.png)
-
-**Step 3.** Here are some other examples you can try to familiarise with the edit command! 
-
-
-**More examples:**
 - `edit 3 d/11-09-2025 pr/LOW`
 
   Edits deadline and priority of the 3rd company in the displayed list.
@@ -642,20 +634,25 @@ options to find, list, filter, and sort companies, offering you a comprehensive 
 
 ### Finding a Company: `find`
 
-_You've applied to many companies, and now you want to track a specific internship application for a particular
-company. Use the `find` command to quickly locate the company you want._
+_You've applied to many companies, and now you want to track internship applications for a particular
+company. Use the `find` command to quickly locate the company you want!_
 
 **Format:** `find KEYWORD [MORE_KEYWORDS]...`
+> KEYWORD must be at least 1 character long. Multiple keywords can be provided.
 
--   **Case-Insensitive Search:** Whether you type `tiktok` or `TikTok`, it will still match `TikTok`.
--   **Order Independent:** You can search for `tiktok google` and it will find `Google TikTok`.
--   **Substring Matching:** Typing `tik` will return companies like `TikTok`.
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* The `find` command searches only the company name.
+* Companies with names that contain **any** of the keywords will be returned.
+* The case of the keyword doesn't matter (e.g. `tiktok` will match `TikTok`).
+* The order of your keywords doesn't matter (e.g. `tiktok google` will match `google tiktok`).
+</div>
 
-> **Note:** The `find` command searches only the company name.
-
-**Search Criteria:**
-
--   Companies with names that contain **any** of the keywords will be returned. You can enter multiple keywords.
+<div markdown="block" class="alert alert-info">
+**:information_source: Tip:**<br>
+* You don't have to type the full name of the company. Partial names work too! For example, `tik` will match 
+`tiktok`. Use this to find companies quickly!
+</div>
 
 **Example:**
 
@@ -721,21 +718,22 @@ If you enter an invalid prefix for the filter command, you will see an error mes
 ### Sorting Companies by Deadlines: `sort`
 
 _Want to see which application deadlines are coming up soon or which ones are far off? Use the `sort` command to
-arrange your list of applications based on their deadlines._
+arrange your list of applications based on their deadlines!_
 
 **Format:** `sort SORT_ORDER`
-
-Where `SORT_ORDER` can be:
-
--   `ascending` or its short forms `a` or `asc`: to sort nearest deadlines first.
-
--   `descending` or its short forms `d` or `desc`: to sort furthest deadlines first.
-
--   The sort is case-insensitive. e.g. `ASCENDING` and `ascending` are treated the same.
+> SORT_ORDER should be one of the following: `ascending`, `a`, `asc` for ascending order, and `descending`, `d`, `desc` for descending order.
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Note:**<br>
-* If no order is specified, sort will default to `ascending`.
+**:information_source: Notes:**<br>
+* Ascending order means that the nearest deadlines will be shown first.
+* Descending order means that the furthest deadlines will be shown first.
+* The case of `SORT_ORDER` does not matter (e.g. `ASCENDING` and `ascending` are treated the same).
+</div>
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Useful Tip:**<br>
+* If no `SORT_ORDER` is specified, it will default to `ascending`. Use this to quickly see which deadlines are 
+coming up soon by simply typing `sort`!
 </div>
 
 **Example:**
@@ -751,7 +749,7 @@ list looks chaotic. Just type `sort ascending` to sort the list of applications 
 
 **Possible Error:**
 
-Suppose you misspelled the `SORT-ORDER` keyword, you will see an error message informing you of the invalid command,
+Suppose you misspelled the `SORT-ORDER` keyword, you will see an error message informing you of the invalid keyword,
 and suggest the correct keyword to use:
 
 ![img.png](images/sort-command/SortError.png)
