@@ -463,7 +463,7 @@ Here are some other examples of `add` commands that you can try:
 
 If you made a mistake for any of the parameters input, you will see an error message in the Message Box informing you of the specific error message. Don't worry, just update your input accordingly and try again! An example of the error message is shown below.
 
-![img.png](images/add-command/AddCommandError.png)
+![img.png](images/add-command/AddCommandError2.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
