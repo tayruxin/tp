@@ -53,6 +53,8 @@ Before we begin, let us first introduce you to the annotations that you will enc
 * Alerts you of potential pitfalls or things to be cautious of when using LinkMeIn.
 </div>
 
+<div style="page-break-after: always;"></div><br/>
+
 Throughout this guide, you will also notice **various text styles**. Here's what each of them means:
 - _Used to show possible scenarios that you can use a feature for (mainly in the feature sections)._
 - [Represents hyperlinks that you can click into, which will direct you to another section of this user guide or to 
@@ -73,6 +75,8 @@ Thank you for choosing LinkMeIn as your internship tracking ally! We are excited
 LinkMeIn that you will be using quite often.
 3. If you choose to explore LinkMeIn on your own, you can refer to the [Features Section](#current-features) to find out
 more about LinkMeIn's features.
+
+<div style="page-break-after: always;"></div><br/>
 
 ## LinkMeIn Experts? ##
 Welcome back! We hope that you have been enjoying your internship tracking journey with LinkMeIn.
@@ -108,7 +112,9 @@ In this section, you will learn how to set up LinkMeIn on your computer.
 
 6. Navigate to the folder where you have placed the jar file by typing `cd`, followed by the folder path.
    - For example if you have placed the jar file in the **Documents** folder, type `cd ~/Documents` and press `Enter`.
-   
+
+   <div style="page-break-after: always;"></div><br/>
+
 7. Type the command `java -jar LinkMeIn.jar` and press `Enter`. Your command terminal should look like this after 
    Steps 6 and 7:
     <div style="margin-top: 10px; margin-bottom: 10px">
@@ -144,6 +150,8 @@ The GUI consists of four main components:
 | 3      | Company List Panel   | Displays the list of companies that you have added       |
 | 4      | Company Detail Panel | Displays the details of a company that you are viewing   |
 
+<div style="page-break-after: always;"></div><br/>
+
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
 * To maximise your viewing experience, opt for full-screen mode in LinkMeIn!
@@ -171,12 +179,12 @@ Now, let's move on to learn how to write command lines, and you are ready to try
 ## Command Format
 A command line has 4 components, **command word**, **index**, **prefix** and **parameter**.
 
-| Component    | Example  | Description                                                                                                                                               |
-|--------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command Word | `add`    | Indicates the feature to be executed                                                                                                                      |
-| Index        | `1`, `5` | Indicates the position of the company in the list (e.g., 5th company in the list)                                                                         |
-| Parameter    | `John`   | Represents the updated value or content. <br/> These values, which are provided by the user, replaces the `UPPER_CASE` placeholders in the command format |
-| Prefix       | `c/`     | Indicates the type of parameter to be edited (e.g., company's name)                                                                                       |
+| Component    | Example  | Description                                                                                                                                                         |
+|--------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command Word | `add`    | Indicates the feature to be executed                                                                                                                                |
+| Index        | `1`, `5` | Indicates the position of the company in the list (e.g., 5th company in the list)                                                                                   |
+| Parameter    | `John`   | Represents the updated value or content. <br/> These values, which are provided by the user, replaces the `UPPER_CASE` placeholders in the command format<br/><br/> |
+| Prefix       | `c/`     | Indicates the type of parameter to be edited (e.g., company's name)                                                                                                 |
 
 You can find all the parameters used in LinkMeIn [here](#parameters-description).
 To learn more about the prefixes and command words used in LinkMeIn, you can refer to the [Command Summary Section](#command-summary).
@@ -206,6 +214,8 @@ But wait! Notice the `[]` around `pr/PRIORITY`? Here's what it means:
 | `[ ]`   | Optional field   | `[pr/PRIORITY]`  | Not a must to indicate priority when adding a company |
 
 Since `PRIORITY` parameter is optional, the following command lines are accepted for the `add` command.
+
+<div style="page-break-after: always;"></div><br/>
 
 **Examples:**
 - `add c/GovTech r/Software Engineer s/PA n/John Doe d/12-12-2023 e/johnDoe@gmail.com p/98765432 pr/medium`
@@ -252,9 +262,13 @@ Adding a company is the first step to tracking your internship applications. Let
 
 This application is of **medium** priority as you have other applications that you want to focus on first.
 
+<div style="page-break-after: always;"></div><br/>
+
 **Step 2:** With the details above, simply type `add c/Apple r/Software Engineer s/PA n/Francis Tan d/10-10-2023 e/francistan@example.com p/88287345 pr/medium` into the Command Box and press `Enter`.
 
 ![img.png](images/add-command/BeforeAddCommand.png)
+
+<div style="page-break-after: always;"></div><br/>
 
 **Step 3:** The Company Detail Panel will be updated to show the details of the newly added company's application, and the company will be added to the list of companies.
 
@@ -266,7 +280,6 @@ This application is of **medium** priority as you have other applications that y
 </div>
 
 Congratulations! You have successfully added your first company to LinkMeIn. Go ahead and try adding a few more companies on your own!
-
 
 If you wish to learn more about the `add` command, you can do so [here](#adding-a-company--add).
 
@@ -280,6 +293,8 @@ Now that you have added your first few companies into LinkMeIn, you may want to 
 Simply type `view 3` to view DSTA's details.
 
 ![img.png](images/view-command/BeforeViewCommand.png)
+
+<div style="page-break-after: always;"></div><br/>
 
 **Step 2:** The Company Detail Panel will be updated to show the details of DSTA.
 
@@ -299,6 +314,8 @@ Suppose you received an email from DSTA inviting you to interview for a Frontend
 
 ![EditDemo1.png](images/edit-command/EditDemo1.png)
 
+<div style="page-break-after: always;"></div><br/>
+
 **Step 2.** The application status and role of the 3rd company in the list is edited to be Pending Interview and Frontend Developer respectively.
 
 ![EditDemo2.png](images/edit-command/EditDemo2.png)
@@ -314,6 +331,8 @@ Suppose you no longer wish to track the DSTA application from earlier, you can e
 **Step 1:** To delete DSTA, type `delete 3` in the command box and press enter
 
 ![img.png](images/delete-command/BeforeDeleteCommand.png)
+
+<div style="page-break-after: always;"></div><br/>
 
 **Step 2:** DSTA will be removed from the list of companies. The Company Detail Panel will be cleared too.
 
@@ -378,8 +397,6 @@ _You've just completed an internship cycle and are preparing for the next one! W
 * Companies cannot be recovered after clearing! Please only use the `clear` command when you are very sure that you no longer wish to track the existing list of companies!
 </div>
 
-<div style="page-break-after: always;"></div><br/>
-
 ### Exiting LinkMeIn: `exit`
 _You are done tracking for the day and wish to exit LinkMeIn. Simply use the `exit` command to bid farewell to LinkMeIn._
 
@@ -389,6 +406,8 @@ _You are done tracking for the day and wish to exit LinkMeIn. Simply use the `ex
 **:information_source: Note:**<br>
 * Don't worry about losing your data; it's safe with LinkMeIn, thanks to automatic saving!
 </div>
+
+<div style="page-break-after: always;"></div><br/>
 
 ### Accessing Help: `help`
 
@@ -527,6 +546,8 @@ _After adding a company, you wish to note down more information such as the job 
 **Step 1.** After adding the internship for DSTA into LinkMeIn,
    you want to note that this internship requires experience in Java.
 
+<div style="page-break-after: always;"></div><br/>
+
 **Step 2.** To note this down, type `remark 3 re/need Java` and press `Enter`.
 
 ![RemarkDemo1.png](images/remark-command/RemarkDemo1.png)
@@ -573,11 +594,15 @@ LinkMeIn does not check for the existence of remarks.
 The same success message will be displayed regardless of whether remarks exist for a company.
 </div>
 
+<div style="page-break-after: always;"></div><br/>
+
 **Example:**
 
 **Step 1.** If you wish to delete the remarks of DSTA company, which is 3rd in the Company List Panel, type `unremark 3` and press `Enter`.
 
 ![UnremarkDemo1.png](images/remark-command/UnremarkDemo1.png)
+
+<div style="page-break-after: always;"></div><br/>
 
 **Step 2.** The remarks of DSTA will be removed as shown below.
 
@@ -683,11 +708,15 @@ _You've applied to many companies, and now you wish to monitor your internship a
 `tiktok`. Use this to find companies quickly!
 </div>
 
+<div style="page-break-after: always;"></div><br/>
+
 **Example:**
 
 **Step 1:** Let's say you want to follow up on a DSTA application. Simply type `find ds` to search for DSTA.
 
 ![img.png](images/find-command/BeforeFind.png)
+
+<div style="page-break-after: always;"></div><br/>
 
 **Step 2:** You will see the list of companies that match your search criteria. In this case, the company DSTA will be
 shown. And that is it! You have found the company you wanted.
@@ -733,6 +762,8 @@ Filter the list of companies by their application status using the `filter` comm
 * LinkMeIn's `filter` command will always filter from the **full** list of companies. This means that if you have previously used `find`, performing `filter`, will not filter from the list of companies that you have searched for.
 </div>
 
+<div style="page-break-after: always;"></div><br/>
+
 **Example:**
 
 **Step 1:** You wish to prepare for the upcoming interviews that you have secured. 
@@ -740,6 +771,8 @@ Filter the list of companies by their application status using the `filter` comm
 **Step 2:** Simply type `filter s/PI` to filter the list of companies to show only companies with status "Pending Interview" and press `Enter`.
 
 ![img.png](images/filter-command/FilterByPI.png)
+
+<div style="page-break-after: always;"></div><br/>
 
 **Step 3:** You can then check the Company List Panel for all the companies where you have pending interviews. 
 
@@ -763,7 +796,6 @@ arrange your list of applications based on their deadlines!_
 **Format:** `sort SORT_ORDER`
 > SORT_ORDER should be one of the following: `ascending`, `a`, `asc` for ascending order, and `descending`, `d`, `desc` for descending order.
 
-
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
 * Ascending order means that the nearest deadlines will be shown first.
@@ -777,12 +809,16 @@ arrange your list of applications based on their deadlines!_
 coming up soon by simply typing `sort`!
 </div>
 
+<div style="page-break-after: always;"></div><br/>
+
 **Example:**
 
 **Step 1.** You've lost track of time and are uncertain about which internship deadlines are looming. Your current
 list looks chaotic. Just type `sort ascending` to sort the list of applications by their deadlines.
 
 ![typecommand.png](images/sort-command/BeforeSorting.png)
+
+<div style="page-break-after: always;"></div><br/>
 
 **Step 2.** Your applications are now organized by upcoming deadlines. Time to start applying without delay!
 
@@ -804,7 +840,7 @@ and suggest the correct keyword to use:
 
 ### Definitions of Key Terms
 
-Encountered an unfamiliar term when using LinkMeIn? Read the respective descriptions to better understand the term!
+Encountered an unfamiliar term when using LinkMeIn? Read the respective descriptions to better understand the term! <br/><br/>
 
 | Term                 | Definition                                                                                                                                                                                                                          |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -821,7 +857,7 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 
 <div style="page-break-after: always;"></div><br/>
 
-### Parameters Description
+### Parameters Description <br/><br/>
 
 | Parameter          | Description                                   | Constraints                                                                                                                     |
 |--------------------|-----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -855,6 +891,7 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 | `ACCEPTED`            | `A`, `ACC`, `ACPT`, `ACCEPT`                                            | You have been offered the internship position. Congratulations!                                                                     |
 | `REJECTED`            | `R`, `REJ`, `REJECT`                                                    | Unfortunately, the application wasn't successful and you were not offered the internship. Don't worry, try again next time!         |
 
+<div style="page-break-after: always;"></div><br/>
 
 #### Email Format Description
 The email format is `local-part@domain`. 
@@ -876,7 +913,6 @@ The email format is `local-part@domain`.
 
 ## FAQ
 
-
 ### 1. How do I check if I have Java 11 installed?
 
 * Open up your terminal. If you are unsure of how to do so, you can refer [here](#2-how-do-i-open-up-my-terminal).
@@ -892,6 +928,8 @@ Remember to download the Java 11 version.
   * [Linux Guide](https://www.java.com/en/download/help/linux_x64_install.html) to install Java.
 
 [&uarr; Back to Quick Start](#quick-start)
+
+<div style="page-break-after: always;"></div><br/>
 
 ### 2. How do I open up my terminal?
 * **Windows:** Click the Windows Start button, and type **'Command Prompt'** or **'cmd'** into the search bar. 
@@ -922,6 +960,8 @@ An invalid index is a non-positive integer or an index greater than the number o
 e.g -1, 0, a, \*, 1 0 (Only one index is allowed at a time). Positive index should not exceed the maximum allowed range
 of 2147483647.
 
+<div style="page-break-after: always;"></div><br/>
+
 ### 6. Do I need an internet connection to use LinkMeIn?
 
 LinkMeIn is an offline application that functions well without an internet connection. However, an Internet connection is required to download the application.
@@ -935,7 +975,7 @@ With LinkMeIn, there is no need for you to save manually. Everything is saved au
 ---
 <div style="page-break-after: always;"></div><br/>
 
-## Command Summary
+## Command Summary <br/><br/>
 
 | Command  | Format                                                                                                                                             | Example                                                                                       |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
