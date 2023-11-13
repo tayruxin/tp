@@ -1,11 +1,13 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_COMPANIES;
 
 import java.util.List;
+import java.util.logging.Logger;
 
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -20,7 +22,8 @@ public class RemarkCommand extends Command {
 
     public static final String COMMAND_WORD = "remark";
     public static final String REMOVE_COMMAND_WORD = "unremark";
-    public static final String MESSAGE_USAGE = "Parameters: INDEX (must be a positive integer) "
+    public static final String MESSAGE_USAGE = "Format: " + COMMAND_WORD
+            + " INDEX (must be a positive integer) "
             + PREFIX_REMARK + "REMARK\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_REMARK + "Experience in Java";
@@ -34,6 +37,7 @@ public class RemarkCommand extends Command {
     public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to Company: %1$s";
     public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from Company: %1$s";
 
+    public static final Logger logger = LogsCenter.getLogger(RemarkCommand.class);
     private final Index index;
     private final Remark remark;
 
@@ -50,6 +54,7 @@ public class RemarkCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
+        requireNonNull(model);
         List<Company> lastShownList = model.getFilteredCompanyList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
@@ -63,8 +68,8 @@ public class RemarkCommand extends Command {
                 companyToRemark.getStatus(), companyToRemark.getRecruiterName(), companyToRemark.getPriority(),
                 remark);
 
+        logger.info("Executing remark command with remark: " + remark);
         model.setCompany(companyToRemark, remarkedCompany);
-        model.updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
         model.setCurrentViewedCompany(remarkedCompany);
 
         return new CommandResult(generateSuccessMessage(remarkedCompany));
@@ -75,6 +80,8 @@ public class RemarkCommand extends Command {
      * {@code companyToEdit}.
      */
     private String generateSuccessMessage(Company companyToEdit) {
+        assert companyToEdit != null;
+
         String message = remark.getIsDeleted() ? MESSAGE_DELETE_REMARK_SUCCESS : MESSAGE_ADD_REMARK_SUCCESS;
         return String.format(message, Messages.getCompanyName(companyToEdit));
     }

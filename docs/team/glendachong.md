@@ -11,67 +11,55 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 
 
 The features in LinkMeIn can be categorised into 3 main categories:
-1. **General features:** Navigating the application. Includes, help, exit and clear commands.
-2. **Company management features:** Manage the entry of a company. Includes, add, delete, edit, view, remark and unremark commands.
-3. **Company list features:** Manage the list of companies added. Includes, list, find, sort and filter commands.
+1. **General Features:** Navigating the application. Includes, help, exit and clear commands.
+2. **Company Management Features:** Manage the entry of a company. Includes, add, delete, edit, view, remark and unremark commands.
+3. **Company List Features:** Manage the list of companies added. Includes, list, find, sort and filter commands.
 
 ## Summary of Contributions
 
 Given below are my contributions to the project.
 
-### Code Contributed
-The code that I have contributed can be found in this [RepoSense link](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=GlendaChong&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code&since=2023-09-22).
+* **Code Contributed:** The code that I have contributed can be found in this [RepoSense link](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=GlendaChong&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code&since=2023-09-22).
 
-### Enhancements Implemented
+* **New Feature: Filter Companies**
+  * **What it does:** Filters the list of companies by application status.
+  * **Justifications:** Users may wish to only view internship applications of a particular status. For example, they may wish to put more attention into applications that are pending interviews, so that they can prepare for the interviews.
+  * **Highlights:** The `filter` command relies on the new predicate, `ApplicationStatusPredicate`, to test if the company's application status matches the application status given by the user. The `filter` command also uses the updated `CompanyListPanel` to display the filtered list of companies.
 
-#### 1. Implement `Filter` Command (New feature)
-* **What:** `Filter` command filters the company list by the application status.
-* **Implementation**: Create a new command class `FilterCommand` to handle the filter command. A new parser class `FilterCommandParser` was created to handle the parsing of the filter command. A new `ApplicationStatusPredicate` class was created to update the filtered company list. The GUI will display only the filtered company list, and the `CompanyDetailPanel` will remove the existing company detail card, if any. 
+* **New Feature: Update GUI for `CompanyListPanel` and `CompanyDetailPanel`**
+  * **What it does:** `CompanyListPanel` and `CompanyDetailPanel` are of a similar colour theme. All the fields displayed will not be truncated, and will be soft-wrapped instead.
+  * **Justifications:** This update will improve the user experience of the GUI, and allow them to view the full information of the company. 
 
-#### 2. Enhance error messages for fields in company model
-* **What:** Previously when checking for invalid fields, the error message is the same regardless of whether the field is empty or the field is invalid. The fields that are edited are company name, role, recruiter name, phone number, application status and priority.
-* **Implementation**: I have enhanced the error messages to be more specific to the error and more user-friendly. For each field, there are 2 error messages. 1 for when the field is empty and 1 for when the field does not follow the valid regex. 
+* **Enhancement to Existing Features:** 
+  * **Enhance Error Messages for Fields in Company Model**
+    * **What it does:** For each field, there will be 2 main error messages, 1 for when the field is empty and 1 for when the field does not follow the valid regex.
+    * **Justifications:** The user needs to know exactly what is wrong with the input, and be able to correct it easily.
+    * **Highlights:** While the change was not difficult to implement, it was very tedious due to the large number of fields in the company model. It was very crucial to also not break the existing code base. 
+  * **Enhance Existing `add` Command**
+    * **What it does:** The `add` command now accepts all the new fields added to the company model, including `Role`, `RecruiterName`, `ApplicationStatus` and `Deadline`. The error messages for the `add` command now also differentiates between empty inputs, invalid fields, or duplicate fields.
+    * **Justifications:** The `add` command is one of the most important commands in LinkMeIn. By adding more fields to the `add` command, it allows the user to add more information about the company. More specific error messages also allow the user to know exactly what is wrong with the input, and be able to correct it easily.
 
-#### 3. Update GUI for company list panel and company detail panel
-* Edit the colours of the company list and detail panels to be of similar theme. 
-* Update `CompanyDetailPanel` and `CompanyListPanel` to display the fields without truncation. 
+* **Contributions to the UG**
+  * **Navigating the User Guide:** Add the annotations and icons using bootstrap alert icons.
+  * **Quick Start:** Improve on this section with step-by-step instructions, including adding more details and screenshots.
+  * **Features:** Add a company (`add`),  List all companies (`list`), Filter companies by application status (`filter`)
+    * Include description of command, format, notes, tips, examples and possible errors.
+  * **Glossary:** Add definitions of key terms, parameters description, application status parameter description and email format description sections.
+  * **Command Summary:** Add the command summary table. 
 
-#### 4. Add Role field to company model
-* **What:** Add a new company role field to the company model. 
-* **Implementation:** Role only accepts alphanumeric characters and spaces. Update `CompanyDetailCard`, `CompanyListPanel` to display the role field in the GUI.  
+* **Contributions to the DG**
+  * Add use cases. 
+  * Add 3 planned enhancements. 
+  * Add non-functional requirements. 
+  * Add implementation details for `filter` and `add` commands. 
+  * Add instructions for manual testing section.
 
-#### 5. Add RecruiterName field to company model
-* **What:** Add a new recruiter name field to the company model.
-* **Implementation:** Recruiter name only accepts alphanumeric characters and spaces. Update `CompanyDetailCard`, `CompanyListPanel` to display the recruiter name field in the GUI.
+* **Contributions to Team-Based Tasks**
+  * Set up CodeCov for the project. 
+  * Update landing page for the project website and AboutUs page. 
+  * Manage milestones, change their due dates, and wrap-up milestones. 
+  * Review PRs for the team regularly. 
+    * Non-trivial PRs reviewed: [#271](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/271), [#261](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/261), [#226](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/226), [#156](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/156), [#169](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/169), [#142](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/142), [#135](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/135), [#109](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/109), [#104](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/104).
 
-#### 6. Enhance existing `Add` Command
-* **What:** Update the existing AB3 `add` command for LinkMeIn. 
-* **Implementation:** Update `AddCommand` and `AddCommandParser` to include all the new fields added to the company model. Improve error messages to check for empty fields and invalid fields.
-
-
-
-
-### Contributions to the UG
-The following sections from the UG were contributed by me: 
-1. **Navigating the User Guide:** Add the annotations and icons using bootstrap alert icons.  
-2. **Quick Start:** Improve on this section with a step-by-step instruction, including adding more details and screenshots.  
-3. **Features:** Add a company (`add`),  List all companies (`list`), Filter companies by application status (`filter`)
-   * Include description of command, format, notes, tips, examples and possible errors.
-4. **Glossary:** Add definitions of key terms, parameters description, application status parameter description and email format description section. 
-5. **Command Summary:** Add the command summary table. 
-
-### Contributions to the DG
-
-  _to be added soon_
-
-### Contributions to Team-based Tasks
-1. Set up CodeCov for the project. 
-2. Update landing page. 
-3. Update UG for entire Glossary section.
-4. Managed milestones, changed their due dates, and closed them to wrap-up.
-5. Review PRs for the team regularly. 
-   * Non-trivial PRs reviewed: [#226](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/226), [#156](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/156), [#169](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/169), [#142](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/142), [#135](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/135), [#109](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/109), [#104](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/104).
-
-
-### Contributions beyond the Project Team**
-1. Extensive number of bugs reported for the other team's product during PE-D (28 bug reports)
+* Contributions beyond the Project Team
+  * Extensive number of bugs reported for the other team's product during PE-D (28 bug reports)
