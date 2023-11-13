@@ -7,7 +7,7 @@ title: User Guide
 
 _Master Your Internship Journey: Every Deadline, Every Detail._
 
-It's the time of the year again! You're scrolling through LinkedIn to discover internship opportunities and tackling programming problems non-stop to prepare for your coding interviews, all in pursuit of securing a summer internship. To increase your chances, you've mass-applied to multiple companies, and now you're struggling to keep track of all your applications.
+It's that time of the year again! You're scrolling through LinkedIn to discover internship opportunities and tackling programming problems non-stop to prepare for your coding interviews, all in pursuit of securing a summer internship. To increase your chances, you've mass-applied to multiple companies, and now you're struggling to keep track of all your applications.
 
 Well, fret not! LinkMeIn is here to help you! LinkMeIn is a **desktop application** specifically designed for all of you, NUS School Of Computing's Computer Science students, to effectively manage and track your internship applications.
 
@@ -100,7 +100,7 @@ In this section, you will learn how to set up LinkMeIn in your computer.
 
 5. Open up your command terminal. If you are unsure of how to do so, you can check out [this FAQ](#2-how-do-i-open-up-my-terminal).
 
-6. Navigate to the folder where you have placed the jar file by typing the `cd`, followed by the folder path.
+6. Navigate to the folder where you have placed the jar file by typing `cd`, followed by the folder path.
    - For example if you have placed the jar file in the **Documents** folder, type `cd ~/Documents` and press `Enter`.
    
 7. Enter the next command `java -jar LinkMeIn.jar` and press `Enter`. Your command terminal should look like this after Steps 6 and 7:
@@ -127,8 +127,6 @@ LinkMeIn's [GUI](#glossary) is designed to be **simple** and **intuitive**, with
 The GUI consists of four main components:
 
 ![uiIntro.png](images/ui-intro/uiIntro.png)
-
-Here's what each component stand for:
 
 | Number | Component            | Description                                              |
 |--------|----------------------|----------------------------------------------------------|
