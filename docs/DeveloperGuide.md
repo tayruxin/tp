@@ -166,8 +166,8 @@ The `CompanyDetailPanel` allows the user to view the company details of the sele
 Recruiter's information, company's information and remarks will be shown in the `CompanyDetailPanel`.
 
 #### Implementation
-`CompanyDetailCard` and `CompanyDetailPanel`, both inheriting `UiPart`, are used to display the company details. More details
-of the class implementation can be seen in the class diagram below.
+
+`CompanyDetailCard` and `CompanyDetailPanel`, both inheriting `UiPart`, are used to display the company details. More details of the class implementation can be seen in the class diagram below.
 
 <img src="images/DetailPanelClassDiagram.png" />
 
@@ -194,7 +194,7 @@ sets the graphics to the `CompanyDetailCard` by constructing a new `CompanyDetai
     -   Cons: One additional command is needed to view the details of the company.
 
 -   **Alternative 2:** Display all the details of the company in the same panel as the company list.
-    -   Pros: User does not need to key in additional commands to view the details of the company.
+    -   Pros: The user does not need to key in additional commands to view the details of the company.
     -   Cons: The `CompanyListPanel` will be too cluttered with too much information displayed in a company card.
 
 ### View Feature
