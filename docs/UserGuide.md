@@ -648,7 +648,7 @@ _You've applied to many companies, and now you wish to monitor your internship a
 * Companies with names that contain **any** of the keywords will be returned.
 * Keyword is case-insensitive (e.g. `tiktok` will match `TikTok`).
 * The order of your keywords doesn't matter (e.g. `tiktok google` will match `google tiktok`).
-* LinkMeIn's `find` command will always find from the **full** list of companies. This means that if you have previously used `filter s/pa`, performing `find`, will not search from the filtered list of companies.
+* LinkMeIn's `find` command will always find from the **full** list of companies. This means that if you have previously used `filter`, performing `find`, will not search from the filtered list of companies.
 </div>
 
 <div markdown="block" class="alert alert-success">
@@ -700,7 +700,7 @@ Filter the list of companies by their application status using the `filter` comm
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* LinkMeIn's `filter` command will always filter from the **full** list of companies. This means that if you have previously used `find ds`, performing `filter`, will not filter from the list of companies that you have searched for.
+* LinkMeIn's `filter` command will always filter from the **full** list of companies. This means that if you have previously used `find`, performing `filter`, will not filter from the list of companies that you have searched for.
 </div>
 
 
