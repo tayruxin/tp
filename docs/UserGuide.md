@@ -638,7 +638,7 @@ options to find, list, filter, and sort companies, offering you a comprehensive 
 
 ### Finding a Company: `find`
 
-_You've applied to many companies, and now you wish to monitor your internship applications for a specific company. Use the `find` command for a swift and efficient way to locate the company you want!_
+_You've applied to many companies, and now you wish to monitor your internship applications for a specific company. Use the find command for a swift and efficient way to locate the company you want!_
 
 **Format:** `find KEYWORD [MORE_KEYWORDS]...`
 > KEYWORD must be at least 1 character long. Multiple keywords can be provided.
@@ -647,8 +647,9 @@ _You've applied to many companies, and now you wish to monitor your internship a
 **:information_source: Notes:**<br>
 * The `find` command searches only the company name.
 * Companies with names that contain **any** of the keywords will be returned.
-* The keyword is case-insensitive (e.g. `tiktok` will match `TikTok`).
+* Keyword is case-insensitive (e.g. `tiktok` will match `TikTok`).
 * The order of your keywords doesn't matter (e.g. `tiktok google` will match `google tiktok`).
+* LinkMeIn's `find` command will always find from the **full** list of companies. This means that if you have previously used `filter`, performing `find`, will not search from the filtered list of companies.
 </div>
 
 <div markdown="block" class="alert alert-success">
@@ -700,12 +701,13 @@ Filter the list of companies by their application status using the `filter` comm
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* LinkMeIn's filter command will always filter from the full list of companies. This means that if you have previously done `find ds`, doing filter next, will not filter from the list of companies that you have searched for. 
+* LinkMeIn's `filter` command will always filter from the **full** list of companies. This means that if you have previously used `find`, performing `filter`, will not filter from the list of companies that you have searched for.
 </div>
+
 
 **Example:**
 
-**Step 1:** You wish to prepare for the upcoming interviews that you have secured.
+**Step 1:** You wish to prepare for the upcoming interviews that you have secured. 
 
 **Step 2:** Simply type `filter s/PI` to filter the list of companies to show only companies with status "Pending Interview" and press `Enter`.
 
@@ -741,7 +743,7 @@ arrange your list of applications based on their deadlines!_
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
-* If no `SORT_ORDER` is specified, it will default to `ascending`. Use this to quickly see which deadlines are 
+* If no `SORT_ORDER` is specified, it will be set to `ascending` by default. Use this to quickly see which deadlines are 
 coming up soon by simply typing `sort`!
 </div>
 
@@ -776,15 +778,15 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 | Term                 | Definition                                                                                                                                                                                                                          |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Alphanumeric**     | Alphanumeric refers to a character set that includes both letters and numbers. It includes the 26 letters of the English alphabet (both uppercase and lowercase) and the numbers 0 through 9.                                       |
+| **Case-insensitive** | Upper case and lower case are being treated the same way. For example, `tiktok` and `TikTok` will be considered the same.                                                                                                           |
 | **CLI**              | Command-Line Interface (CLI) is a text-based user interface where users interact with the application by typing commands.                                                                                                           |
 | **Command**          | A command is an instruction given by a user to LinkMeIn to perform a specific action. For example,`add` command is a command to add the company's application into LinkMeIn.                                                        |
 | **GUI**              | Graphical User Interface (GUI) is a visual method to interact with software using icons, buttons, and windows. GUI provides a user-friendly way to interact with software using graphical elements rather than text-based commands. |
-| **Index**            | Refers to the index number shown in the displayed company list                                                                                                                                                                      |
+| **Index**            | Refers to the index number shown in the displayed company list.                                                                                                                                                                     |
 | **JAR**              | JAR stands for Java Archive and is a package file format typically used to aggregate many Java class files and associated metadata and resources into one file for distribution.                                                    |
 | **JSON**             | JSON stands for JavaScript Object Notation. It is lightweight format for data interchange, easy to read and write for humans, and easy to parse for machines. Often used in web applications and configuration files.               |
 | **Parameter**        | Parameter is similar to a field in a form you have to fill up. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `COMPANY_NAME` and `EMAIL` are parameters in the command.                                               |
 | **Prefix**           | Prefix is a keyword that is used to identify the parameter. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/` and `e/` are prefixes.                                                                                |
-| **Case-insensitive** | Upper case and lower case are being treated the same way. For example, `tiktok` and `TikTok` will be considered the same.                                                                                                           |
 
 ### Parameters Description
 
@@ -885,11 +887,11 @@ An invalid index is a non-positive integer or an index greater than the number o
 e.g -1, 0, a, \*, 1 0 (Only one index is allowed at a time). Positive index should not exceed the maximum allowed range
 of 2147483647.
 
-### 6. Do I need an internet connection to use LinkMeIn? 
+### 6. Do I need an internet connection to use LinkMeIn?
 
 LinkMeIn is an offline application that functions well without an internet connection. However, an Internet connection is required to download the application.
 
-### 7. How do I save my data on LinkMeIn? 
+### 7. How do I save my data on LinkMeIn?
 
 With LinkMeIn, there is no need for you to save manually. Everything is saved automatically for you.
 
