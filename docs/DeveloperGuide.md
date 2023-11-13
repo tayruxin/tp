@@ -697,7 +697,7 @@ Use case ends.
 
 ## **Appendix B: Planned Enhancements**
 
-### **1. More Specific Success Message for Company**
+### More Specific Success Message for Company
 
 **Feature Flaw in Current Implementation**
 
@@ -724,7 +724,7 @@ The following implementation will be adopted instead:
 - **unremark**: `Removed remark from company: COMPANY_NAME (ROLE, DEADLINE)`
 - **add**: `New company added: COMPANY_NAME (ROLE, DEADLINE)`
 
-### **2. Make Recruiter Name, Phone and Email Parameters Optional in Add Command**
+### Make Recruiter Name, Phone and Email Parameters Optional in Add Command
 **Feature Flaw in Current Implementation** <br>
 Currently, the recruiter’s information, namely recruiter’s name, phone number and email address, are compulsory parameters as inputs for Add Command. However, the user may not have the recruiter’s information at the point of applying to the company, which is common in most internship applications now. The user may only have the recruiter’s information at a later point in time. Hence, the user will not be able to add the company into LinkMeIn, without the recruiter's name, phone number and email address.
 
@@ -740,9 +740,9 @@ If the user did not add in the recruiter's name, phone number and email address 
 * `add c/Google r/Software Engineer s/pa d/11-11-2023` 
 * `add c/TikTok r/Data Analyst s/pa d/10-12-2023 n/Ben Tan`
 
-### **3. Omit Alphanumeric Checks for Company Name, Recruiter Name and Role Parameters**
+### Omit Alphanumeric Checks for Company Name, Recruiter Name and Role Parameters
 
-### **4. Enhanced Flexibility in Phone Number Parameter Input**
+### Enhanced Flexibility in Phone Number Parameter Input
 
 **Feature Flaw in Current Implementation**
 
@@ -765,11 +765,11 @@ field. In addition, the character `+` will only be allowed at the start while, t
 - 922492304: will be accepted
 - 24234 + 234243: will **not** be accepted
 
-### **5. Find Feature Enhancement 1**
+### Find Feature Enhancement 1
 
-### **6. Find Feature Enhancement 2**
+### Find Feature Enhancement 2
 
-### **7. Improve Error Message for Deadline Parameter**
+### Improve Error Message for Deadline Parameter
 **Potential Flaw in Current Implementation**<br>
 Currently, users are able to input deadline past the current date successfully. We have allowed this in our current implementation because we understand that some users would like to track internship applications even if they have passed, but still belong in that internship cycle.
 
@@ -782,7 +782,7 @@ New company added: COMPANY_NAME.
 Note that you have entered a deadline past the current date. If you made a mistake in your input, please use the `edit` command to update the deadline. 
 ```
 
-### **8. Enhance Flexibility in Deadline Parameter Input**
+### Enhance Flexibility in Deadline Parameter Input
 **Potential Flaw in Current Implementation**<br>
 Currently, users are constrained to adhere strictly to the DD-MM-YYYY format for inputting deadline parameters. This rigid format might be inconvenient for some users, who prefer different date formats, which are equally common.
 
@@ -796,7 +796,7 @@ Also, we understand that some users may not wish to type leading zeros for days 
 * 2024-1-1 is in YYYY-M-D format
 * 12/12/2023 is in DD/MM/YYYY format
 
-### **9. Allow Multiple Indices Input for Delete Command**
+### Allow Multiple Indices Input for Delete Command
 
 **Feature Flaw in Current Implementation**
 
@@ -815,7 +815,7 @@ The `DeleteCommandParser` will then split the string by commas and remove the co
 
 
 
-### **10. Enhance Remark Feature**
+### Enhance Remark Feature
 **Potential flaw in current implementation**
 
 Our app is unable to allow users to copy texts from the company detail panel in our UI.
@@ -839,6 +839,7 @@ Require experience in Java, Interview on 12/12/2023
 ```
 The user can copy from the Message Box and add on his remark. A sample input is 
 `remark 1 re/Require experience in Java, Interview on 12/12/2023, Interview went well!`
+
 
 ---
 
