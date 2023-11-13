@@ -126,6 +126,8 @@ In this section, you will learn how to set up LinkMeIn on your computer.
     * Do not move or delete the `data` folder as it contains the data of your internship applications.
     </div>
 
+   <div style="page-break-after: always;"></div><br/>
+
 8. You should have successfully launched LinkMeIn with the following interface appearing on your screen.
     <div style="margin-top: 10px; margin-bottom: 10px">
         <img src="images/quick-start/startupPage.png" alt="Start Up Page LinkMeIn" width="650"/>
@@ -179,12 +181,12 @@ Now, let's move on to learn how to write command lines, and you are ready to try
 ## Command Format
 A command line has 4 components, **command word**, **index**, **prefix** and **parameter**.
 
-| Component    | Example  | Description                                                                                                                                                         |
-|--------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command Word | `add`    | Indicates the feature to be executed                                                                                                                                |
-| Index        | `1`, `5` | Indicates the position of the company in the list (e.g., 5th company in the list)                                                                                   |
-| Parameter    | `John`   | Represents the updated value or content. <br/> These values, which are provided by the user, replaces the `UPPER_CASE` placeholders in the command format<br/><br/> |
-| Prefix       | `c/`     | Indicates the type of parameter to be edited (e.g., company's name)                                                                                                 |
+| Component    | Example  | Description                                                                                                                                                               |
+|--------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command Word | `add`    | Indicates the feature to be executed                                                                                                                                      |
+| Index        | `1`, `5` | Indicates the position of the company in the list (e.g., 5th company in the list)                                                                                         |
+| Parameter    | `John`   | <br/> Represents the updated value or content. <br/> These values, which are provided by the user, replaces the `UPPER_CASE` placeholders in the command format<br/><br/> |
+| Prefix       | `c/`     | Indicates the type of parameter to be edited (e.g., company's name)                                                                                                       |
 
 You can find all the parameters used in LinkMeIn [here](#parameters-description).
 To learn more about the prefixes and command words used in LinkMeIn, you can refer to the [Command Summary Section](#command-summary).
@@ -228,6 +230,8 @@ Since `PRIORITY` parameter is optional, the following command lines are accepted
 </div>
 
 Notice that the `add` command does not use `INDEX` in its command format. Each feature has a unique command format, but every command line must begin with a command word to specify the desired feature. You can find the command format for each feature in the [Features](#current-features) section or take a **quick tour** to get hands-on experience with LinkMeIn, right below!.
+
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 ---
 <div style="page-break-after: always;"></div><br/>
@@ -368,7 +372,7 @@ Explore options to find, list, filter and sort companies, managing all companies
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
-* For commands that do not take in any parameters (such as help, list, exit and clear), anything typed after the command word will be ignored. For example, if you type `help 123`, `123` will be ignored, and the command will just be interpreted as `help`.
+* For commands that do not take in any parameters (such as `help`, `list`, `exit` and `clear`), anything typed after the command word will be ignored. For example, if you type `help 123`, `123` will be ignored, and the command will just be interpreted as `help`.
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines! It could result in an invalid input.
 </div>
 
@@ -391,11 +395,12 @@ _You've just completed an internship cycle and are preparing for the next one! W
 
 ![img.png](images/clear-command/clear.png)
 
-
 <div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
 * Companies cannot be recovered after clearing! Please only use the `clear` command when you are very sure that you no longer wish to track the existing list of companies!
 </div>
+
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 ### Exiting LinkMeIn: `exit`
 _You are done tracking for the day and wish to exit LinkMeIn. Simply use the `exit` command to bid farewell to LinkMeIn._
@@ -406,6 +411,8 @@ _You are done tracking for the day and wish to exit LinkMeIn. Simply use the `ex
 **:information_source: Note:**<br>
 * Don't worry about losing your data; it's safe with LinkMeIn, thanks to automatic saving!
 </div>
+
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 <div style="page-break-after: always;"></div><br/>
 
@@ -435,7 +442,7 @@ Add the company to LinkMeIn now to keep track of the application process using t
 **Format**:
 `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/PRIORITY]`
 
-> All [**parameters**](#parameters-description) specified in the format are compulsory except for PRIORITY.
+> All [**parameters**](#parameters-description-brbr) specified in the format are compulsory except for PRIORITY.
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
@@ -552,6 +559,8 @@ _After adding a company, you wish to note down more information such as the job 
 
 ![RemarkDemo1.png](images/remark-command/RemarkDemo1.png)
 
+<div style="page-break-after: always;"></div><br/>
+
 **Step 3.** You can view the remarks of the 3rd company as shown below in the Company Detail Panel.
 
 ![RemarkDemo2.png](images/remark-command/RemarkDemo2.png)
@@ -571,6 +580,8 @@ you will see an error message in the Message Box as shown below. Don’t worry, 
 **:bulb: Useful Tip:**<br>
 * However, if you intend to delete the existing remarks of a company and hence entered an empty remark, you should use the `unremark` command instead.
 </div>
+
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 <div style="page-break-after: always;"></div><br/>
 
@@ -615,6 +626,8 @@ you will see an error message in the Message Box as shown below. Don’t worry, 
 
 ![UnremarkErrMsg.png](images/remark-command/UnremarkErrMsg.png)
 
+[&uarr; Back to Table of Contents](#table-of-contents)
+
 <div style="page-break-after: always;"></div><br/>
 
 ### Editing a Company's Information: `edit`
@@ -643,6 +656,8 @@ Edits the recruiter's name and email of the 1st company in the displayed list.
 If you have entered an **invalid prefix**, you will see an error message in the Message Box. Don’t worry, just edit your prefixes accordingly and
 try the command again! An example of an invalid input and error message is shown below.
 ![EditErrMsg.png](images/edit-command/EditErrMsg.png)
+
+[&uarr; Back to Table of Contents](#table-of-contents)
 
 <div style="page-break-after: always;"></div><br/>
 
@@ -840,7 +855,7 @@ and suggest the correct keyword to use:
 
 ### Definitions of Key Terms
 
-Encountered an unfamiliar term when using LinkMeIn? Read the respective descriptions to better understand the term! <br/><br/>
+Encountered an unfamiliar term when using LinkMeIn? Read the respective descriptions to better understand the term!
 
 | Term                 | Definition                                                                                                                                                                                                                          |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -850,7 +865,7 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 | **Command**          | A command is an instruction given by a user to LinkMeIn to perform a specific action. For example,`add` command is a command to add the company's application into LinkMeIn.                                                        |
 | **GUI**              | Graphical User Interface (GUI) is a visual method to interact with software using icons, buttons, and windows. GUI provides a user-friendly way to interact with software using graphical elements rather than text-based commands. |
 | **Index**            | Refers to the index number shown in the displayed company list.                                                                                                                                                                     |
-| **JAR**              | JAR stands for Java Archive and is a package file format typically used to aggregate many Java class files and associated metadata and resources into one file for distribution.                                                    |
+| **JAR**              | <br/> JAR stands for Java Archive and is a package file format typically used to aggregate many Java class files and associated metadata and resources into one file for distribution. <br/><br/>                                   |
 | **JSON**             | JSON stands for JavaScript Object Notation. It is lightweight format for data interchange, easy to read and write for humans, and easy to parse for machines. Often used in web applications and configuration files.               |
 | **Parameter**        | Parameter is similar to a field in a form you have to fill up. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `COMPANY_NAME` and `EMAIL` are parameters in the command.                                               |
 | **Prefix**           | Prefix is a keyword that is used to identify the parameter. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/` and `e/` are prefixes.                                                                                |
@@ -954,13 +969,13 @@ check whether your data is properly loaded into the new computer and you're good
 
 Make sure you have Java 11 installed on your machine as the product only runs on Java 11.
 
+<div style="page-break-after: always;"></div><br/>
+
 ### 5. What is an invalid index?
 
 An invalid index is a non-positive integer or an index greater than the number of companies you have.
 e.g -1, 0, a, \*, 1 0 (Only one index is allowed at a time). Positive index should not exceed the maximum allowed range
 of 2147483647.
-
-<div style="page-break-after: always;"></div><br/>
 
 ### 6. Do I need an internet connection to use LinkMeIn?
 
@@ -975,21 +990,21 @@ With LinkMeIn, there is no need for you to save manually. Everything is saved au
 ---
 <div style="page-break-after: always;"></div><br/>
 
-## Command Summary <br/><br/>
+## Command Summary
 
-| Command  | Format                                                                                                                                             | Example                                                                                       |
-|----------|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-| `add`    | `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/PRIORITY]`                                  | `add c/Apple r/Software Engineer s/PA d/12-12-2023 n/John Tan e/johntan@gmail.com p/98765432` |
-| `view`   | `view INDEX`                                                                                                                                       | `view 1`                                                                                      |
-| `delete` | `delete INDEX`                                                                                                                                     | `delete 1`                                                                                    |
-| `remark` | `remark INDEX re/REMARK`                                                                                                                           | `remark 1 re/need Java`                                                                       |
-| `list`   | `list`                                                                                                                                             | `list`                                                                                        |
-| `filter` | `filter s/APPLICATION_STATUS`                                                                                                                      | `filter s/PI`                                                                                 |
-| `sort`   | `sort SORT_ORDER`                                                                                                                                  | `sort ascending`                                                                              |
-| `edit`   | `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [re/REMARK]` | `edit 1 s/PI r/Frontend Developer`                                                            |
-| `find`   | `find KEYWORD [MORE_KEYWORDS]...`                                                                                                                  | `find ds`                                                                                     |
-| `clear`  | `clear`                                                                                                                                            | `clear`                                                                                       |
-| `exit`   | `exit`                                                                                                                                             | `exit`                                                                                        |
-| `help`   | `help`                                                                                                                                             | `help`                                                                                        |
+| Command               | Format                                                                                                                                             | Example                                                                                       |
+|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| `add`                 | `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/PRIORITY]`                                  | `add c/Apple r/Software Engineer s/PA d/12-12-2023 n/John Tan e/johntan@gmail.com p/98765432` |
+| `view`                | `view INDEX`                                                                                                                                       | `view 1`                                                                                      |
+| `delete`              | `delete INDEX`                                                                                                                                     | `delete 1`                                                                                    |
+| `remark`              | `remark INDEX re/REMARK`                                                                                                                           | `remark 1 re/need Java`                                                                       |
+| `list`                | `list`                                                                                                                                             | `list`                                                                                        |
+| `filter`              | `filter s/APPLICATION_STATUS`                                                                                                                      | `filter s/PI`                                                                                 |
+| `sort`                | `sort SORT_ORDER`                                                                                                                                  | `sort ascending`                                                                              |
+| `edit`                | `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [re/REMARK]` | `edit 1 s/PI r/Frontend Developer`                                                            |
+| `find`                | `find KEYWORD [MORE_KEYWORDS]...`                                                                                                                  | `find ds`                                                                                     |
+| `clear`               | `clear`                                                                                                                                            | `clear`                                                                                       |
+| <br/>`exit`<br/><br/> | `exit`                                                                                                                                             | `exit`                                                                                        |
+| `help`                | `help`                                                                                                                                             | `help`                                                                                        |
 
 [&uarr; Back to Table of Contents](#table-of-contents)
