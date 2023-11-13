@@ -329,8 +329,8 @@ The lifeline for `FilterCommandParser` should end at the destroy marker (X) but 
 ### Edit Feature
 
 #### Implementation
-The edit mechanism is facilitated by `EditCompanyDescriptor`, which is a nested class of `EditCommand` that is similar to the company model, except that the value of fields can be null.
-It stores the values of the fields to be edited as interpreted by the `EditCommandParser` and unedited fields to be `null`.
+The edit mechanism is facilitated by `EditCompanyDescriptor`, which is a nested class of `EditCommand` that is similar to the `Company` model, except that the value of fields can be null.
+The `EditCommandParser` parses the user input and stores the values of the fields to be edited in an `EditCompanyDescriptor` object while unedited fields are `null`.
 Additionally, `EditCommand` implements the `EditCommand#execute(Model model)`operation which edits all the fields indicated by the user input.
 This operation is exposed in the `Model` interface as:
 
@@ -343,7 +343,7 @@ The following sequence diagram will illustrate the process of performing the `ed
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**
-The lifeline for `FilterCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+The lifeline for `EditCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 After the `EditCommandParser` initializes an `EditCompanyDescriptor` object, it sets the attributes of `EditCompanyDescriptor` that needs to be edited to the values input by the user.
@@ -433,7 +433,7 @@ getDuplicateCompany(toAdd) method, which has already been shown in the sequence 
 
 ### Remark Feature
 
-The `remark` feature allows user to add and delete a remark from a company.
+The `remark` feature allows user to add and delete remarks from a company.
 
 #### Implementation
 
@@ -445,7 +445,7 @@ The following activity diagram will show how `RemarkCommand` can achieve the fun
 
 <img src="images/RemarkActivityDiagram.png"/>
 
-The remark feature has similar implementation as the [edit feature](#edit-feature), except that a `Remark` object is initialized instead of `EditCompanyDescriptor`.
+The remark feature has a similar implementation as the [edit feature](#edit-feature), except that a `Remark` object is initialized instead of `EditCompanyDescriptor`.
 
 #### Design Considerations
 
