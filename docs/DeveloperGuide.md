@@ -4,7 +4,7 @@ title: Developer Guide
 ---
 
 * Table of Contents
-{:toc}
+  {:toc}
 
 ---
 
@@ -12,10 +12,10 @@ title: Developer Guide
 
 This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
 
-* Libraries used: 
-  * [JavaFX](https://openjfx.io/) 
-  * [Jackson](https://github.com/FasterXML/jackson) 
-  * [JUnit](https://junit.org/junit5/) 
+* Libraries used:
+    * [JavaFX](https://openjfx.io/)
+    * [Jackson](https://github.com/FasterXML/jackson)
+    * [JUnit](https://junit.org/junit5/)
 
 ---
 
@@ -163,22 +163,22 @@ The `CompanyDetailPanel` allows the user to view the company details of the sele
 Recruiter's information, company's information and remarks will be shown in the `CompanyDetailPanel`.
 
 #### Implementation
-`CompanyDetailCard` and `CompanyDetailPanel`. both inheriting `UiPart` are used to display the company details. More details 
+`CompanyDetailCard` and `CompanyDetailPanel`. both inheriting `UiPart` are used to display the company details. More details
 of the class implementation can be seen in the class diagram below.
 
 <img src="images/DetailPanelClassDiagram.png" />
 
 `CompanyDetailCard` calls the static method `createPriorityFlowPane` from `CompanyCardUtils`, which creates a `FlowPane` to display the priority of the company.
 The color of the `FlowPane` is determined by the priority of the company. Red is used to indicate high priority,
-orange is used to indicate medium priority and green is used to indicate low priority. 
+orange is used to indicate medium priority and green is used to indicate low priority.
 
-As for the other information, FXML labels are used to display the information. Within the constructor of `CompanyDetailCard`, 
+As for the other information, FXML labels are used to display the information. Within the constructor of `CompanyDetailCard`,
 the respective FXML labels are set with the information of the company.
 
-To display the details in 3 different boxes, `CompanyDetailCard.fxml` is divided into 3 sections with each section 
+To display the details in 3 different boxes, `CompanyDetailCard.fxml` is divided into 3 sections with each section
 being a `VBox`. The 3 `VBox` are then added into a `HBox` to display the details in 3 different boxes.
 
-As for `CompanyDetailPanel`, there is an inner class `CompanyDetailViewCell` which extends `ListCell<Company>`. This class 
+As for `CompanyDetailPanel`, there is an inner class `CompanyDetailViewCell` which extends `ListCell<Company>`. This class
 sets the graphics to the `CompanyDetailCard` by constructing a new `CompanyDetailCard` with the company details of the company.
 
 #### Design Considerations
@@ -199,7 +199,7 @@ The `CompanyDetailPanel` allows the user to view the company details of the sele
 The user can use the `view` command to select the company to view.
 
 #### Implementation
-A new `UniqueCompanyList` is created in `AddressBook` to store the selected company which the user wishes to view. 
+A new `UniqueCompanyList` is created in `AddressBook` to store the selected company which the user wishes to view.
 Additionally, the following operations are implemented in `AddressBook` to support the `view` and other commands:
 
 -   `setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed.
@@ -239,7 +239,7 @@ shown in the activity diagram below.
     -   Cons: There is a need to clear the list before adding the selected company to the `UniqueCompanyList` to ensure that only one company is displayed in the `CompanyDetailPanel` at any time.
 
 -   **Alternative 2:** Create a new `Company` object in `AddressBook` to store the selected company which the user wishes to view.
-    -   Pros: Since there are no lists involved, there is no need to clear the list.  
+    -   Pros: Since there are no lists involved, there is no need to clear the list.
     -   Cons: The `CompanyDetailPanel` will not be updated automatically when there are any changes made to the `Company` object. There is a need to create additional methods to update the `CompanyDetailPanel` when changes are made to the `Company` object.
 
 ### Find Feature
@@ -314,8 +314,8 @@ The lifeline for `FilterCommandParser` should end at the destroy marker (X) but 
   * Cons: Users may be confused as the last viewed company in the `CompanyDetailPanel` may not be in the filtered list of companies after filtering.
 
 * **Alternative 2 (Current Choice):** The `CompanyDetailPanel` will be cleared whenever the `filter` command is executed.
-  * Pros: Users can focus on viewing details of company(s) belonging to the filtered list only, reducing distractions and confusions.
-  * Cons: Users might have to execute the `view` command again to access details of the last viewed company before filtering even if that company is still in the filtered list, potentially leading to additional steps taken.
+    * Pros: Users can focus on viewing details of company(s) belonging to the filtered list only, reducing distractions and confusions.
+    * Cons: Users might have to execute the `view` command again to access details of the last viewed company before filtering even if that company is still in the filtered list, potentially leading to additional steps taken.
 
 ### Edit Feature
 
@@ -346,31 +346,74 @@ When `Model#setCompany(Company company)` is called, the original `Company` objec
     * Pros: Command line is shorter which reduces users' error such as duplicates or invalid command. This improves user experience.
     * Cons: We must ensure that the implementation of each individual command are correct. This may also require more memory usage, a Company object is initialized for every modified attribute.
 
-### Delete Feature
+### Duplicate detection
 
-The `delete` command allows user to delete a company using the observed index (one-based index) of the company.
-The following sequence diagram will illustrate the process of performing the `delete` command.
-
-<img src="images/DeleteCompanySequenceDiagram.png"/>
+<img src="images/duplicate-detection/edit-command/DuplicateSequenceDiagram.png"/>
 
 #### Implementation
+The term _duplicate_ hereafter refers to companies with the same company name, role and deadline
 
-The `delete` function is implemented in the `DeleteCommand` class and uses the `DeleteCommandParser` class to parse the
-arguments. The LogicManger#execute() method will retrieve the filtered company list from the model, perform zero-based
-indexing to the supplied Index, get the company associated with the index and requests model to `delete` the company.
+The _duplicate_ detection mechanism is facilitated by `Company#isSameCompany(Company otherCompany)`.
+This method checks if two `Company` entities are the same by checking if their `Name`, `Role` and
+`Deadline` fields are equal. This method is used by `AddCommand` and `EditCommand` to check if
+the company to be added or edited already exists in the company list.
+
+The above sequence diagram shows the events when a user attempts to **edit** the details of an existing company,
+namely the company name, role and deadline fields to match that of another company in the company list.
+The purpose of the diagram is a **simplified** view of the message passing when a _duplicate_ company is detected.
+
+Therefore, the diagram omits the following
+1. The `if` statement in the `EditCommand` class that checks if the edited company is the same as the company to be
+   edited before the call to `getDuplicateCompany(c)`. This is removed as the purpose of the diagram is to show the message
+   passing **after** a duplicate company is detected.
+1. The `if` statements in the `isSameCompany` method checking for strict equality with `this` and company d with`null`.
+   This is removed to simplify the diagram and not show the inner-workings of the method in detail.
+1. The `equals` method propagated after the `getName()`, `getRole()` and `getDeadline()` methods. Again, this would
+   involve the details of the equality checks of the `Name`, `Role` and `Deadline` classes which is not the focus of the
+   diagram.
+1. The instantiation of the `CommandException` class through the `super` call from `DuplicateException` class.
+   This is removed to simplify the diagram.
+
+**Description of the diagram**
+Upon ascertaining that the edited company is a duplicate,
+1. The `EditCommand` class calls the `getDuplicateCompany(c)` method in the `ModelManager` class.
+1. `ModelManager` forwards the call to the `AddressBook` class.
+1. The `AddressBook` class calls the `contains(c)` method in the `UniqueCompanyList` class.
+1. The `UniqueCompanyList` class calls the `Company::isSameCompany` method for each company in the list
+   to check if the edited company is a duplicate.
+1. `Company::isSameCompany` self-invokes the `getName()`, `getRole()` and `getDeadline()` methods and also
+   invokes the `getName()`, `getRole()` and `getDeadline()` on the company d to check for equality.
+1. The duplicated company is returned to the `EditCommand` class.
+1. From there, the message is formatted by the `Messages` class using the `getDupErrMsgEdit()` method.
+1. The `EditCommand` class then instantiates a `DuplicateException` instance with the formatted message.
+1. Error is thrown back to the caller of the `EditCommand` class.
+
+Below is an activity diagram showing the events when a user attempts to **add** a duplicate company to the company list.
+
+<img src="images/duplicate-detection/add-command/DuplicateActivityDiagram.png"/>
+
+The purpose of the diagram is to show the difference in the message passing when a duplicate company is detected
+between the `AddCommand` and `EditCommand` classes. Therefore, the diagram omits the propagation of the
+getDuplicateCompany(toAdd) method, which has already been shown in the sequence diagram prior.
 
 #### Design Considerations
-**Aspect: Coupling between `DeleteCommand` and `FilterCommand`**
-- **Alternative:** The delete function can be performed by the `DeleteCommand` class without having to
-  retrieve the filtered company list from the model.
-    - Pros: The `DeleteCommand` class will be simpler and easier to understand.
-    - Cons: The `DeleteCommand` class will be tightly coupled with the `FilterCommand` class.
+**Aspect: Change the location of the duplicate detection**
+- **Alternative:** Implement the duplicate detection logic within the `AddCommandParser` or `EditCommandParser` classes.
+    - Pros: The `execute` method's sole responsibility will be to execute the add or edit command without
+      needing to handle duplicate detection logic, adhering to the Single Responsibility Principle.
+    - Cons: The current architecture design dictates that `Model` be separate from `Logic`. The interaction
+      between `Model` and `Logic` is through the `execute` method. Implementing the duplicate detection in the
+      `Parser` classes will require the `Parser` classes to have access to the `Model` class, which violates the
+      current architecture design.
 
-**Aspect: Type of company deletion input from the user**
-- **Alternative:** Instead of one-based index input from the user, require the user to enter the company name
-  to be deleted.
-    - Pros: The user does not need to remember the index of the company to be deleted.
-    - Cons: The user may enter the wrong company name to be deleted.
+**Aspect: Change the definition of a _duplicate_**
+- **Alternative:** Define _duplicates_ as equivalence of all fields other than just `Name`, `Role` and `Deadline`.
+    - Pros: Allows users to add companies with the same name, role and deadline but different contact details.
+    - Cons: This approach does not align with real-world scenarios where if the Name, Role, and Deadline fields
+      are identical, it likely indicates the same job application. The purpose of the duplicate detection is to prevent
+      interns from inadvertently applying multiple times to the same position at a company with the same role and
+      application deadline.
+
 
 ### Remark Feature
 
@@ -450,7 +493,7 @@ National University of Singapore Computer Science students preparing for an inte
 -   prefer typing to mouse interactions
 -   is reasonably comfortable using CLI apps
 
-**Value Proposition** <br> 
+**Value Proposition** <br>
 CS students often struggle to manage a multitude of internship applications and track their application progress. An intuitive CLI address book not only efficiently stores these applications but also offers a valuable tool for monitoring and organizing the entire application process, simplifying the pursuit of career opportunities.
 
 ### User Stories
@@ -490,15 +533,15 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 **Use Case: UC01 - List all Companies**
 
 **MSS** <br>
-1. User requests to list all companies. 
+1. User requests to list all companies.
 2. LinkMeIn displays the full list of companies. <br>
-Use case ends.
+   Use case ends.
 
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input.
-  * 1a1. LinkMeIn displays an error message. 
-  * 1a2. User enters a new command to list all companies. <br>
-  Use case resumes from Step 1.
+    * 1a1. LinkMeIn displays an error message.
+    * 1a2. User enters a new command to list all companies. <br>
+      Use case resumes from Step 1.
 
 
 **Use Case: UC02 - Add a Company**
@@ -506,32 +549,32 @@ Use case ends.
 **MSS** <br>
 1. User requests to add a company.
 2. LinkMeIn adds the company. <br>
-Use case ends.
+   Use case ends.
 
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 * 1b. LinkMeIn detects an invalid parameter input.
-  * 1b1. LinkMeIn displays an error message.
-  * 1b2. User enters new data for the parameter. <br>
-    Use case resumes from Step 1.
+    * 1b1. LinkMeIn displays an error message.
+    * 1b2. User enters new data for the parameter. <br>
+      Use case resumes from Step 1.
 * 1c. User requests to add a duplicate company.
-  * 1c1. LinkMeIn displays an error message. 
-  * 1c2. User enters the information of a new company. <br>
-  Use case resumes from Step 1.
+    * 1c1. LinkMeIn displays an error message.
+    * 1c2. User enters the information of a new company. <br>
+      Use case resumes from Step 1.
 
 
 **Use Case: UC03 - Delete a Company**
 
 **MSS** <br>
-1. User requests to delete a specific company from the list of companies. 
+1. User requests to delete a specific company from the list of companies.
 2. LinkMeIn deletes the company. <br>
    Use case ends.
 
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid index input.
-  * 1a1. LinkMeIn displays an error message.
-  * 1a2. User enters a new index. <br>
-    Use case resumes from Step 1.
+    * 1a1. LinkMeIn displays an error message.
+    * 1a2. User enters a new index. <br>
+      Use case resumes from Step 1.
 
 * 1b. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 
@@ -541,7 +584,7 @@ Use case ends.
 **MSS** <br>
 1. User requests to view a specific company from the list of companies.
 2. LinkMeIn shows the full information of the company in the company detail panel. <br>
-Use case ends.
+   Use case ends.
 
 **Extensions**
 * 1a. LinkMeIn detects an invalid index input → handled similarly to 1a of UC03.
@@ -553,7 +596,7 @@ Use case ends.
 **MSS** <br>
 1. User requests to clear all companies from the full list of companies.
 2. LinkMeIn clears all companies in the data. <br>
-Use case ends. 
+   Use case ends.
 
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
@@ -567,7 +610,7 @@ Use case ends.
    Use case ends.
 
 **Extensions** <br>
-* 1a. LinkMeIn detects an invalid index input → handled similarly to 1a of UC03. 
+* 1a. LinkMeIn detects an invalid index input → handled similarly to 1a of UC03.
 * 1b. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 * 1c. User requests to edit to a duplicate company → handled similarly to 1c of UC02.
 
@@ -575,7 +618,7 @@ Use case ends.
 **Use Case: UC07 - Find a Company**
 
 **MSS** <br>
-1. User requests to find companies based on the keywords. 
+1. User requests to find companies based on the keywords.
 2. LinkMeIn displays a list of companies with matching keywords. <br>
    Use case ends.
 
@@ -586,33 +629,33 @@ Use case ends.
 **Use Case: UC08 - Filter Companies by Application Status**
 
 **MSS** <br>
-1. User requests to filter the list of companies by one of the application statuses. 
+1. User requests to filter the list of companies by one of the application statuses.
 2. LinkMein displays a list of companies matching the application status. <br>
-Use case ends.
+   Use case ends.
 
 **Extensions** <br>
-* 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01. 
+* 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 * 1b. LinkMeIn detects an invalid parameter input → handled similarly to 1b of UC02.
 
 
 **Use Case: UC09 - Sort Companies by Deadline**
 
 **MSS** <br>
-1. User requests to sort the list of companies by deadline. 
+1. User requests to sort the list of companies by deadline.
 2. LinkMeIn displays the sorted list of companies. <br>
-Use case ends.
+   Use case ends.
 
 **Extensions** <br>
-* 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01. 
+* 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 * 1b. LinkMeIn detects an invalid parameter input → handled similarly to 1b of UC02.
 
 
 **Use Case: UC10 - Add Remarks for a Company**
 
 **MSS** <br>
-1. User requests to add remarks for a specific company. 
+1. User requests to add remarks for a specific company.
 2. LinkMeIn adds the remarks to the company. <br>
-Use case ends.
+   Use case ends.
 
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid index input → handled similarly to 1a of UC03.
@@ -621,9 +664,9 @@ Use case ends.
 **Use Case: UC11 - Delete Remarks for a Company**
 
 **MSS** <br>
-1. User requests to delete remarks for a specific company from the list of companies. 
+1. User requests to delete remarks for a specific company from the list of companies.
 2. LinkMeIn deletes the remarks from the company. <br>
-Use case ends.
+   Use case ends.
 
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid index input → handled similarly to 1a of UC03.
@@ -632,9 +675,9 @@ Use case ends.
 **Use Case: UC12 - Exit the Program**
 
 **MSS** <br>
-1. User requests to exit the program. 
+1. User requests to exit the program.
 2. LinkMeIn exits the program. <br>
-Use case ends.
+   Use case ends.
 
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
@@ -643,25 +686,25 @@ Use case ends.
 **Use Case: UC13 - View Help**
 
 **MSS** <br>
-1. User requests for help to use LinkMeIn. 
+1. User requests for help to use LinkMeIn.
 2. LinkMeIn displays a window with a link to the user guide. <br>
-Use case ends.
+   Use case ends.
 
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 
 ### Non-Functional Requirements
 
-1. The system should be available for download on our GitHub release page in the form of a JAR file. 
-2. The system should work on any mainstream OS as long as it has Java 11 or above installed. 
-3. The system should be able to hold up to 300 companies without a noticeable sluggishness in performance for typical usage. 
-4. The system should be a single-user application. 
+1. The system should be available for download on our GitHub release page in the form of a JAR file.
+2. The system should work on any mainstream OS as long as it has Java 11 or above installed.
+3. The system should be able to hold up to 300 companies without a noticeable sluggishness in performance for typical usage.
+4. The system should be a single-user application.
 5. The response to any user input should become visible within 2 seconds.
-6. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse. 
-7. The system should be easily picked up by a novice with no experience with managing internship applications. 
-8. Data should be stored locally in the device. 
-9. The application should guide the user if it fails to execute any of the user’s commands for various reasons. 
-10. The application should be packaged into a single JAR file with size not exceeding 100MB. 
+6. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+7. The system should be easily picked up by a novice with no experience with managing internship applications.
+8. Data should be stored locally in the device.
+9. The application should guide the user if it fails to execute any of the user’s commands for various reasons.
+10. The application should be packaged into a single JAR file with size not exceeding 100MB.
 11. The code should meet the coding standard of CS2103T for maintainability.
 
 
@@ -715,7 +758,7 @@ The updated `add` command format would be as follows:
 If the user did not add in the recruiter's name, phone number and email address upon adding the company into LinkMeIn, they can still do so with the existing `edit` command.
 
 **Examples**<br>
-* `add c/Google r/Software Engineer s/pa d/11-11-2023` 
+* `add c/Google r/Software Engineer s/pa d/11-11-2023`
 * `add c/TikTok r/Data Analyst s/pa d/10-12-2023 n/Ben Tan`
 
 ### Omit Alphanumeric Checks for Company Name, Recruiter Name and Role Parameters
@@ -810,7 +853,7 @@ testers are expected to do more *exploratory* testing.
 1. Initial launch
     1. Download the jar file and copy into an empty folder.
     2. Run `java -jar LinkMeIn.jar` in the folder containing the jar file to launch LinkMeIn. <br>
-   Expected: Shows the GUI with a set of sample companies. The window size may not be optimum.
+       Expected: Shows the GUI with a set of sample companies. The window size may not be optimum.
 2. Saving window preferences
     1. Resize the window to an optimum size. Move the window to a different location. Close the window.
     2. Re-launch LinkMeIn.<br>
@@ -818,95 +861,95 @@ testers are expected to do more *exploratory* testing.
 
 ### Adding a Company
 1. Test case: `add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan p/98765432 e/johnd@example.com pr/HIGH` <br>
-Expected: A new company is added to the end of the list of companies. Details of the added company is displayed in the company detail panel.
+   Expected: A new company is added to the end of the list of companies. Details of the added company is displayed in the company detail panel.
 2. Test case: `add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan` <br>
-Expected: No company is added. Error details shown in the command message.
+   Expected: No company is added. Error details shown in the command message.
 3. Try adding the same test case from Step 1. Check that an error message is displayed.
 
 ### Editing a Company
 Prerequisite: There is at least one company in the list.
 
 1. Test case: `edit 1 r/Data Analyst` <br>
-Expected: First company’s role is updated in the list. Details of the edited company is displayed in the company detail panel.
+   Expected: First company’s role is updated in the list. Details of the edited company is displayed in the company detail panel.
 2. Try editing other companies with different parameters.
 
 ### Deleting a Company
 Prerequisite: There is at least one company in the list.
 
 1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted company shown in the message box.
+   Expected: First contact is deleted from the list. Details of the deleted company shown in the message box.
 
 2. Test case: `delete 0`<br>
-         Expected: No company is deleted. Error details shown in the message box.
+   Expected: No company is deleted. Error details shown in the message box.
 
 3. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-      Expected: Similar to previous.
+   Expected: Similar to previous.
 
 ### Viewing a Company
 Prerequisites: List all companies using the `list` command. Multiple companies in the list.
 
 1. Test case: `view 1`<br>
-    Expected: First company is shown in the company detail panel.
+   Expected: First company is shown in the company detail panel.
 2. Test case: `view 0`<br>
-    Expected: No company is shown in the company detail panel. Error details shown in the message box.
+   Expected: No company is shown in the company detail panel. Error details shown in the message box.
 3. Other incorrect view commands to try: `view`, `view x`, `...` (where x is larger than the list size)<br>
-    Expected: Similar to previous.
+   Expected: Similar to previous.
 
 
 ### Adding Remarks to a Company
 Prerequisite: There is at least one company in the list.
 
 1. Test case: `remark 1 r/This is a remark` <br>
-Expected: Remarks are added to the first company in the list.
+   Expected: Remarks are added to the first company in the list.
 2. Try adding remarks to a company with an index greater than the number of companies in the current list. Check that an error message is displayed and no remarks are added.
 
 ### Deleting Remarks from a Company
 Prerequisite: There is at least one company in the list.
 
 1. Test case: `unremark 1` <br>
-Expected: Remarks deleted from the first company in the list. Company detail panel will display "No remarks" under Remarks.
+   Expected: Remarks deleted from the first company in the list. Company detail panel will display "No remarks" under Remarks.
 
 ### Listing Companies
 1. Test case: `list` <br>
-Expected: All companies in the list are displayed in the company list panel.
+   Expected: All companies in the list are displayed in the company list panel.
 
 ### Finding Companies
 1. Test case: `find Google` <br>
-Expected: All companies with the keyword "Google" in their names are displayed in the company list panel.
-2. Try finding for a company that does not exist in the list. 
-Expected: No company is displayed in the company list panel.
+   Expected: All companies with the keyword "Google" in their names are displayed in the company list panel.
+2. Try finding for a company that does not exist in the list.
+   Expected: No company is displayed in the company list panel.
 
 ### Sorting Companies by Deadline
 1. Test case: `sort` <br>
-Expected: All companies in the list are displayed in the company list panel, sorted by deadline in ascending order.
+   Expected: All companies in the list are displayed in the company list panel, sorted by deadline in ascending order.
 2. Test case: `sort d` <br>
-Expected: All companies in the list are displayed in the company list panel, sorted by deadline in descending order.
+   Expected: All companies in the list are displayed in the company list panel, sorted by deadline in descending order.
 3. Try sorting companies by an invalid parameter. Check that an error message is displayed.
 
 ### Filtering Companies by Application Status
 1. Test case: `filter s/PA` <br>
-Expected: All companies with the application status "PA" are displayed in the company list panel.
+   Expected: All companies with the application status "PA" are displayed in the company list panel.
 2. Try again with an invalid application status. Check that an error message is displayed.
 
 ### Clearing All Data
 1. Test case: `clear` <br>
-Expected: All companies are deleted from the list.
+   Expected: All companies are deleted from the list.
 
 ### Exiting LinkMeIn
 1. Test case: `exit` <br>
-Expected: LinkMeIn closes.
+   Expected: LinkMeIn closes.
 
-   
+
 ### Saving Data
 1. Dealing with missing data file
-   1. Delete the file named `companydata.json` located in the `data` folder.  
-   2. Relaunch LinkMeIn. <br>
-   Expected: A new `companydata.json` file is created in the `data` folder, with sample companies shown in the GUI.
+    1. Delete the file named `companydata.json` located in the `data` folder.
+    2. Relaunch LinkMeIn. <br>
+       Expected: A new `companydata.json` file is created in the `data` folder, with sample companies shown in the GUI.
 2. Dealing with corrupted data file
     1. Open the `companydata.json` file located in the `data` folder with a text editor.
     2. Corrupt the file by deleting a few characters. Save the file.
     3. Relaunch LinkMeIn. <br>
-    Expected: No companies will be shown in LinkMeIn.
+       Expected: No companies will be shown in LinkMeIn.
 
 
 ## **Appendix D: Effort**
