@@ -606,25 +606,28 @@ An example of an error message is shown below.
 _Seeking an internship but worried about double-applying? 
 Our duplicate detection swiftly ensures you never submit the same application twice!_
 
-How does LinkMeIn determine if a company is a duplicate? If you try to **add** a company with the same **company name**,
-**role**, and **deadline** as an existing application in LinkMeIn, you will see an error message in the command box information 
-you of the duplicate company. 
+LinkMeIn's duplicate check works for both the `add` and `edit` commands. If you attempt to **add** or **edit** an application,
+creating a duplicate entry with the same **company name**, **role**, and **deadline** as an existing application in LinkMeIn, an error message will be displayed in the command box, notifying you of the company name, role and deadline of the duplicate company.
 
-- LinkMeIn's duplicate check is **case-insensitive** 
+<div markdown="block" class="alert alert-info">
+**:information_source: Note:**<br>
+* LinkMeIn's duplicate check is case-insensitive. e.g. `tiktok` is the same as `TikTok`.
+</div>
 
-
-**Example:**
-Adding a company with the same fields as an existing company
+**Example 1:**
+Suppose you attempt to add a company with the same company and recruiter information, you will be notified of the duplicate company as seen below. 
 
 ![img.png](images/duplicate-detection/add-command/duplicate-exact-match.png)
 
-**Example:**
-Adding a company with the same company name, deadline and role but different recruiter's information or application status
+**Example 2:**
+If you attempt to add a company with the same company name and role, but different recruiter information, you will be notified of the duplicate company similar to example 1.
+However, you will be prompted to edit the field that is different from the existing company in LinkMeIn as LinkMeIn acknowledges that you may have accidentally used the add command instead of the edit command.  
 
 ![img.png](images/duplicate-detection/add-command/duplicate-partial-match.png)
 
+**Example 3:**
 LinkMeIn's duplicate check does not stop with adding entries. If you attempt to **edit** an application, creating a 
-duplicate entry with the same company, role, and deadline as an existing application in LinkMeIn, 
+duplicate entry with the same company name, role, and deadline as an existing application in LinkMeIn, 
 an error message will be displayed in the command box, notifying you of the duplicate company as seen below. 
 
 ![img.png](images/duplicate-detection/edit-command/duplicate-edit.png)
