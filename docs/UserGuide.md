@@ -647,20 +647,25 @@ options to find, list, filter, and sort companies, offering you a comprehensive 
 
 ### Finding a Company: `find`
 
-_You've applied to many companies, and now you want to track a specific internship application for a particular
-company. Use the `find` command to quickly locate the company you want._
+_You've applied to many companies, and now you want to track internship applications for a particular
+company. Use the `find` command to quickly locate the company you want!_
 
 **Format:** `find KEYWORD [MORE_KEYWORDS]...`
+> KEYWORD must be at least 1 character long. Multiple keywords can be provided.
 
--   **Case-Insensitive Search:** Whether you type `tiktok` or `TikTok`, it will still match `TikTok`.
--   **Order Independent:** You can search for `tiktok google` and it will find `Google TikTok`.
--   **Substring Matching:** Typing `tik` will return companies like `TikTok`.
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* The `find` command searches only the company name.
+* Companies with names that contain **any** of the keywords will be returned.
+* The case of the keyword doesn't matter (e.g. `tiktok` will match `TikTok`).
+* The order of your keywords doesn't matter (e.g. `tiktok google` will match `google tiktok`).
+</div>
 
-> **Note:** The `find` command searches only the company name.
-
-**Search Criteria:**
-
--   Companies with names that contain **any** of the keywords will be returned. You can enter multiple keywords.
+<div markdown="block" class="alert alert-info">
+**:information_source: Tip:**<br>
+* You don't have to type the full name of the company. Partial names work too! For example, `tik` will match 
+`tiktok`. Use this to find companies quickly!
+</div>
 
 **Example:**
 
@@ -726,21 +731,22 @@ If you enter an invalid prefix for the filter command, you will see an error mes
 ### Sorting Companies by Deadlines: `sort`
 
 _Want to see which application deadlines are coming up soon or which ones are far off? Use the `sort` command to
-arrange your list of applications based on their deadlines._
+arrange your list of applications based on their deadlines!_
 
 **Format:** `sort SORT_ORDER`
-
-Where `SORT_ORDER` can be:
-
--   `ascending` or its short forms `a` or `asc`: to sort nearest deadlines first.
-
--   `descending` or its short forms `d` or `desc`: to sort furthest deadlines first.
-
--   The sort is case-insensitive. e.g. `ASCENDING` and `ascending` are treated the same.
+> SORT_ORDER should be one of the following: `ascending`, `a`, `asc` for ascending order, and `descending`, `d`, `desc` for descending order.
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Note:**<br>
-* If no order is specified, sort will default to `ascending`.
+**:information_source: Notes:**<br>
+* Ascending order means that the nearest deadlines will be shown first.
+* Descending order means that the furthest deadlines will be shown first.
+* The case of `SORT_ORDER` does not matter (e.g. `ASCENDING` and `ascending` are treated the same).
+</div>
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Useful Tip:**<br>
+* If no `SORT_ORDER` is specified, it will default to `ascending`. Use this to quickly see which deadlines are 
+coming up soon by simply typing `sort`!
 </div>
 
 **Example:**
@@ -756,7 +762,7 @@ list looks chaotic. Just type `sort ascending` to sort the list of applications 
 
 **Possible Error:**
 
-Suppose you misspelled the `SORT-ORDER` keyword, you will see an error message informing you of the invalid command,
+Suppose you misspelled the `SORT-ORDER` keyword, you will see an error message informing you of the invalid keyword,
 and suggest the correct keyword to use:
 
 ![img.png](images/sort-command/SortError.png)
