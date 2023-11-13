@@ -59,7 +59,7 @@ deactivate AddressBookParser
 LogicManager -> ViewCommand : execute(m)
 activate ViewCommand
 
-ViewCommand -> Model : setCurrentViewedCompany(company)
+ViewCommand -> Model : setCurrentViewedCompany(c)
 
 activate Model
 
