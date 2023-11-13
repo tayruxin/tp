@@ -684,7 +684,7 @@ _You've found the specific company you wanted using the find command earlier, an
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* Upon launching LinkMeIn, you will see your full list of companies. (i.e. list command is executed automatically).
+* Upon launching LinkMeIn, you will see your full list of companies. (i.e. `list` command is executed automatically).
 </div>
 
 [&uarr; Back to Table of Contents](#table-of-contents)
