@@ -4,7 +4,7 @@ title: Developer Guide
 ---
 
 * Table of Contents
-  {:toc}
+{:toc}
 
 ---
 
@@ -341,7 +341,7 @@ Given below is the sequence diagram shows how the edit operation works.
 
 After the `EditCommandParser` initializes an `EditCompanyDescriptor` object, it sets the attributes of `EditCompanyDescriptor` that needs to be edited to the values input by the user.
 When `EditCommand#execute()` is called, a `Company` object, `c`, with edited attributes is initialized since `Company` is immutable.
-When `Model#setCompany(Company company)` is called, the original `Company` object in the `AddressBook` is replaced with the edited Company `c`.
+When `ModelManager#setCompany(target, c)` is called, the original `Company` object, the `target`, in the `AddressBook` is replaced with the edited Company `c`.
 
 #### Design Considerations
 
@@ -1104,3 +1104,63 @@ Prerequisite: There is at least one company in the list.
 
 
 ## **Appendix D: Effort**
+**UI Enhancements**
+
+UI has been revamped to allow card-based viewing of recruiter details. 
+The main panel has been split into the company detail panel and the company 
+list panel. The main company list is found within the company list panel and a 
+`view`command has been implemented to allow for additional details to show up 
+when a particular contact is clicked.
+
+**Enhancements to existing AB3 commands**
+- Appropriate input validation classes set up for each field
+- Duplicate check implemented, comparing company name, interview deadline and roles
+- `Add` command was adapted to accept company name, role, status, deadline, recruiter name, phone, email, priority fields [optional]
+- `Edit` command is able to edit all the above fields
+- `Find` command was improved to include **Case-Insensitive**, **Order Independent** and **Substring Match** searches.
+
+**Additional commands implemented that were not part of AB3**
+- `Filter` command
+- `Remark` command
+- `Sort` command
+- `View` command
+
+**Brief implementational details of new commands and features**
+
+- Filter command filters based on application status supplied as argument
+- Find command does implements three matching types
+   - **Case-Insensitive Search**: Whether you type tiktok or TikTok, it will still match TikTok.
+   - **Order Independent**: You can search for tiktok google and it will find Google TikTok.
+   - **Substring Matching**: Typing tik will return companies like TikTok.
+- Remark command allows you to add a remark using the re/ prefix to your specific application. This allows the field to remain optional, and is relevant to our target users (internship applicants in SOC) as you may want to make a remark to the application at a later stage of the application process.
+- Sort is implemented using ascending to sort nearest deadlines first and descending to sort furthest deadlines first.
+- The view command allows you to view the details of any company from the list of companies that you have added.
+
+As compared to AB3, this project was much tougher and required more effort to build.
+The original AB3 is a one-layered implementation, where users can only interact with 
+one list of items, adding and deleting them.
+
+In LinkMeIn, we adopt a two-layer approach, which increases the complexity of the project.
+
+Here are some difficulties we faced during the implementation and how we overcame them:
+
+- Displaying the details of the company on `CompanyDetailPanel`: 
+At the outset, we encountered challenges attempting to call the UI directly 
+without a `LogicToUI` interface. There is no way for the view command to call 
+the UI directly to display the company that the user wishes to view. 
+Thus we explored the option of adding a company field to the address book to 
+store the company that we wish to view and to pass it into the `UI`. However, we 
+identified another drawback, it will not reflect changes after editing the company 
+detail information without implementing the `view` function again. Eventually we 
+decide to store the company that we wish to `view` in an `ObservableList`, which solves 
+the challenges mentioned above.
+
+
+- Distinguishing between the current state of the application list 
+for the duplicate detection algorithm. Since there were two distinguished 
+states of the list, a distinction had to be made between the filtered view state and the 
+unfiltered view state. The `Index` referenced by all the commands is based on the 
+current view state of the user. Since the error message thrown by the duplicate 
+detection algorithm had a message identifying the fields changes and the index that 
+should be keyed in to make an edit modification, getting the correct `Index` reference 
+was crucial based on the state of the application view page. 
