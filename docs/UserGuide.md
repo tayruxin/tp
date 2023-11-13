@@ -21,9 +21,13 @@ LinkMeIn is more than just an application — it's your **personalized** partner
 
 Moreover, LinkMeIn combines the **efficiency** of the [Command Line Interface (CLI)](#introducing-linkmeins-cli) with the visual clarity of the [Graphical User Interface (GUI)](#introducing-linkmeins-gui), offering a **best-of-both-worlds** experience.
 
+<div style="page-break-after: always;"></div><br/>
+
 # Table of Contents
 * TOC
 {:toc}
+
+<div style="page-break-after: always;"></div><br/>
 
 # Usage of This Guide
 
@@ -83,6 +87,8 @@ If you face any issues while using LinkMeIn, you can refer to the [FAQ Section](
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
+<div style="page-break-after: always;"></div><br/>
+
 # Quick Start
 In this section, you will learn how to set up LinkMeIn on your computer. 
 
@@ -123,6 +129,8 @@ In this section, you will learn how to set up LinkMeIn on your computer.
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
+<div style="page-break-after: always;"></div><br/>
+
 # Introducing LinkMeIn's GUI
 LinkMeIn's [GUI](#glossary) is designed to be **simple** and **intuitive**, with you in mind.
 The GUI consists of four main components:
@@ -144,6 +152,8 @@ The GUI consists of four main components:
 Now that you've been introduced to LinkMeIn's GUI, let's proceed to learn how you can use the CLI to interact with LinkMeIn. 
 
 [&uarr; Back to Table of Contents](#table-of-contents)
+
+<div style="page-break-after: always;"></div><br/>
 
 # Introducing LinkMeIn's CLI
 
@@ -210,6 +220,7 @@ Since `PRIORITY` parameter is optional, the following command lines are accepted
 Notice that the `add` command does not use `INDEX` in its command format. Each feature has a unique command format, but every command line must begin with a command word to specify the desired feature. You can find the command format for each feature in the [Features](#current-features) section or take a **quick tour** to get hands-on experience with LinkMeIn, right below!.
 
 ---
+<div style="page-break-after: always;"></div><br/>
 
 # Introducing LinkMeIn: A Quick Tour
 
@@ -259,6 +270,8 @@ Congratulations! You have successfully added your first company to LinkMeIn. Go 
 
 If you wish to learn more about the `add` command, you can do so [here](#adding-a-company--add).
 
+<div style="page-break-after: always;"></div><br/>
+
 ## 2. Viewing Company Details
 
 Now that you have added your first few companies into LinkMeIn, you may want to view the details of a specific company.
@@ -276,6 +289,8 @@ Go ahead and try viewing the details of a few more companies on your own!
 
 If you wish to read up more on the `view` command, you can do so [here](#viewing-full-companys-information-view).
 
+<div style="page-break-after: always;"></div><br/>
+
 ## 3. Editing Company Details
 
 Suppose you received an email from DSTA inviting you to interview for a Frontend Developer role, which differs from the Software Engineer role you initially applied for.
@@ -289,6 +304,8 @@ Suppose you received an email from DSTA inviting you to interview for a Frontend
 ![EditDemo2.png](images/edit-command/EditDemo2.png)
 
 Go ahead and try editing the other companies too. If you wish to read up more on the `edit` command, you can do so [here](#editing-a-companys-information-edit).
+
+<div style="page-break-after: always;"></div><br/>
 
 ## 4. Deleting a Company
 
@@ -336,6 +353,8 @@ Explore options to find, list, filter and sort companies, managing all companies
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines! It could result in an invalid input.
 </div>
 
+<div style="page-break-after: always;"></div><br/>
+
 ## General Features
 These general features are here to assist you in navigating LinkMeIn effectively, be it when you're a beginner or an expert user. Keep reading to find out more about them!
 
@@ -358,6 +377,8 @@ _You've just completed an internship cycle and are preparing for the next one! W
 **:exclamation: Warning:**<br>
 * Companies cannot be recovered after clearing! Please only use the `clear` command when you are very sure that you no longer wish to track the existing list of companies!
 </div>
+
+<div style="page-break-after: always;"></div><br/>
 
 ### Exiting LinkMeIn: `exit`
 _You are done tracking for the day and wish to exit LinkMeIn. Simply use the `exit` command to bid farewell to LinkMeIn._
@@ -410,6 +431,8 @@ Here are some other examples of `add` commands that you can try:
 - `add c/Uber r/Software Engineer s/PA n/Mavis d/02-03-2023 e/mavis@example.com p/88284452 pr/low`
 - `add c/Oracle r/Data Analyst s/PA n/Marry Lim d/12-11-2023 e/marrylim@example.com p/98452321`
 
+<div style="page-break-after: always;"></div><br/>
+
 **Possible Error:** <br>
 
 If you made a mistake for any of the parameters input, you will see an error message in the Message Box informing you of the specific error message. Don't worry, just update your input accordingly and try again! An example of the error message is shown below.
@@ -439,6 +462,8 @@ If you've completed the Quick Tour of LinkMeIn, you've likely viewed a few compa
 Here are some other examples of `view` commands that you can try:
 - `view 1`
 - `view 4`
+
+<div style="page-break-after: always;"></div><br/>
 
 **Possible Error:**
 
@@ -470,6 +495,8 @@ Here are some other examples of `delete` commands that you can try:
 - `delete 1`
 - `delete 2`
 
+<div style="page-break-after: always;"></div><br/>
+
 **Possible Error:**
 
 If you have entered an [**invalid index**](#5-what-is-an-invalid-index),
@@ -478,6 +505,8 @@ you will see an error message in the Message Box as shown below. Don’t worry, 
 ![img.png](images/delete-command/DeleteCommandError.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
+
+<div style="page-break-after: always;"></div><br/>
 
 ### Adding Remarks to a Company: `remark`
 
@@ -515,12 +544,14 @@ Here are some other examples of `remark` commands that you can try:
 If you have entered an **empty remark**,
 you will see an error message in the Message Box as shown below. Don’t worry, just try again with remarks now!
 
-![RemarkErrMsg.png](images/remark-command/RemarkErrMsg.png
+![RemarkErrMsg.png](images/remark-command/RemarkErrMsg.png)
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
 * However, if you intend to delete the existing remarks of a company and hence entered an empty remark, you should use the `unremark` command instead.
 </div>
+
+<div style="page-break-after: always;"></div><br/>
 
 ### Deleting Remarks of a Company: `unremark`
 
@@ -559,6 +590,8 @@ you will see an error message in the Message Box as shown below. Don’t worry, 
 
 ![UnremarkErrMsg.png](images/remark-command/UnremarkErrMsg.png)
 
+<div style="page-break-after: always;"></div><br/>
+
 ### Editing a Company's Information: `edit`
 
 _You look at the details of the application, and realise that you have made a typo or need to update the progress of application. Use the `edit` command to input the accurate details._
@@ -586,6 +619,8 @@ If you have entered an **invalid prefix**, you will see an error message in the 
 try the command again! An example of an invalid input and error message is shown below.
 ![EditErrMsg.png](images/edit-command/EditErrMsg.png)
 
+<div style="page-break-after: always;"></div><br/>
+
 ### Duplicate Detection
 
 _Seeking an internship but worried about double-applying? 
@@ -603,10 +638,14 @@ Suppose you attempt to add a company with the **exact same company and recruiter
 
 ![img.png](images/duplicate-detection/add-command/duplicate-exact-match.png)
 
+<div style="page-break-after: always;"></div><br/>
+
 **Example 2:**
 If you attempt to add a company with the **same company name, role and deadline**, but different recruiter information, you will be see an error message similar to that in Example 1. However, in this case, LinkMeIn will also prompt you to edit the parameter that differs from the duplicate company, recognizing that you may have accidentally used the `add` command instead of the `edit` command.
 
 ![img.png](images/duplicate-detection/add-command/duplicate-partial-match.png)
+
+<div style="page-break-after: always;"></div><br/>
 
 **Example 3:**
 LinkMeIn's duplicate check does not stop with adding entries. If you attempt to **edit** an application, creating a 
@@ -616,6 +655,8 @@ an error message will be displayed in the Message Box, notifying you of the dupl
 ![img.png](images/duplicate-detection/edit-command/duplicate-edit.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
+
+<div style="page-break-after: always;"></div><br/>
 
 ## Company List Features
 These features are crafted to simplify the management of your list of companies in LinkMeIn! Continue reading to discover more about how they work!
@@ -655,6 +696,8 @@ shown. And that is it! You have found the company you wanted.
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
+<div style="page-break-after: always;"></div><br/>
+
 ### Listing All Contacts: `list`
 
 _You've found the specific company you wanted using the find command earlier, and now you want to see all of your applications in one list again. You can do so easily with the `list` command!_
@@ -674,6 +717,8 @@ _You've found the specific company you wanted using the find command earlier, an
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
+<div style="page-break-after: always;"></div><br/>
+
 ### Filtering Companies by Application Status: `filter`
 
 _Can't remember which applications you haven't submitted or want to prepare for the companies that have offered you an interview?
@@ -687,7 +732,6 @@ Filter the list of companies by their application status using the `filter` comm
 **:information_source: Note:**<br>
 * LinkMeIn's `filter` command will always filter from the **full** list of companies. This means that if you have previously used `find`, performing `filter`, will not filter from the list of companies that you have searched for.
 </div>
-
 
 **Example:**
 
@@ -708,6 +752,8 @@ If you enter an invalid prefix for the filter command, you will see an error mes
 ![img.png](images/filter-command/FilterCommandError.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
+
+<div style="page-break-after: always;"></div><br/>
 
 ### Sorting Companies by Deadlines: `sort`
 
@@ -752,6 +798,7 @@ and suggest the correct keyword to use:
 [&uarr; Back to Table of Contents](#table-of-contents)
 
 ---
+<div style="page-break-after: always;"></div><br/>
 
 ## Glossary
 
@@ -771,6 +818,8 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 | **JSON**             | JSON stands for JavaScript Object Notation. It is lightweight format for data interchange, easy to read and write for humans, and easy to parse for machines. Often used in web applications and configuration files.               |
 | **Parameter**        | Parameter is similar to a field in a form you have to fill up. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `COMPANY_NAME` and `EMAIL` are parameters in the command.                                               |
 | **Prefix**           | Prefix is a keyword that is used to identify the parameter. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/` and `e/` are prefixes.                                                                                |
+
+<div style="page-break-after: always;"></div><br/>
 
 ### Parameters Description
 
@@ -792,8 +841,9 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 * If you enter an invalid input for any of the prefixes, you will see an error message in the command box. Refer to the error message, check the description for the respective prefix and try the command again! An example of an error message is shown below.
 
 ![img.png](images/add-command/AddCommandError.png)
-
 </div>
+
+<div style="page-break-after: always;"></div><br/>
 
 #### Application Status Parameter Description
 
@@ -822,6 +872,7 @@ The email format is `local-part@domain`.
 [&uarr; Back to Table of Contents](#table-of-contents)
 
 ---
+<div style="page-break-after: always;"></div><br/>
 
 ## FAQ
 
@@ -882,6 +933,7 @@ With LinkMeIn, there is no need for you to save manually. Everything is saved au
 [&uarr; Back to Table of Contents](#table-of-contents)
 
 ---
+<div style="page-break-after: always;"></div><br/>
 
 ## Command Summary
 
@@ -899,6 +951,5 @@ With LinkMeIn, there is no need for you to save manually. Everything is saved au
 | `clear`  | `clear`                                                                                                                                            | `clear`                                                                                       |
 | `exit`   | `exit`                                                                                                                                             | `exit`                                                                                        |
 | `help`   | `help`                                                                                                                                             | `help`                                                                                        |
-
 
 [&uarr; Back to Table of Contents](#table-of-contents)
