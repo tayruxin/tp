@@ -290,22 +290,13 @@ With the design considerations, we've chosen the alternatives that provide a bal
 
 ### Filter Feature
 
-The `filter` command allows users to filter the company list by the application status.
+The `filter` command allows users to filter the list of companies based on the valid application status. 
 
 #### Implementation
 
-The `filter` command uses the `ApplicationStatusPredicate` class, which tests and returns true if a company's application status matches the application status input specified by the user. The `ApplicationStatusPredicate` class implements the `Predicate` interface, which allows it to be used in the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method. 
+The `filter` command uses a new predicate, `ApplicationStatusPredicate`, which tests and returns true if a company's application status matches the application status input specified by the user. The `ApplicationStatusPredicate` class implements the `Predicate` interface, which allows it to be used in the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method to filter the list of companies. All companies that match the application status input will be displayed in the updated `CompanyListPanel`.
 
-Given below is an example usage scenario and how the `filter` mechanism behaves at each step.
-
-1. The user enters the input `filter s/PA`.
-2. The `LogicManager` calls `AddressBookParser#parseCommand()` with the user input.
-3. The `AddressBookParser` creates a parser that matches the `filter` command, a `FilterCommandParser` object, and uses it to parse the command.
-4. The `FilterCommandParser` creates a `ApplicationStatusPredicate` object with the application status, PA, and then creates a `FilterCommand` object with the `ApplicationStatusPredicate` object.
-5. The `FilterCommand` object can communicate with the `Model` when it is executed. It calls `Model#filterCompaniesByStatus(Predicate<Company> predicate)` to filter the list of companies by their application status.
-6. Finally, the `FilterCommand` object returns the `CommandResult` object.
-
-The following sequence diagram will illustrate the process of performing the `filter` command.
+The following sequence diagram will illustrate the process of performing the `filter` command, taking `filter s/pa` as an example.
 
 <img src="images/FilterSequenceDiagram.png"/>
 
@@ -318,7 +309,7 @@ The lifeline for `FilterCommandParser` should end at the destroy marker (X) but 
 
 **Aspect: UI of the Filter Command**
 
-* **Alternative 1:** The `CompanyDetailPanel` will still display the details of the company that was viewed before the `filter` command is executed.
+* **Alternative 1:** The `CompanyDetailPanel` will still display the details of the company that was last viewed before the `filter` command is executed.
   * Pros: Users can still view the details of the last viewed company in the `CompanyDetailPanel` alongside the filtered list of companies.
   * Cons: Users may be confused as the last viewed company in the `CompanyDetailPanel` may not be in the filtered list of companies after filtering.
 
@@ -402,26 +393,17 @@ The following activity diagram will show how `RemarkCommand` can achieve the fun
     - Cons: Remarks may be accidentally deleted by empty input.
 
 ### Add Feature
-The `add` command allows users to add companies into LinkMeIn. The compulsory parameters are the company's name, the application's role, status and deadline, and the recruiter's name, phone and email address. The optional parameter is the priority of the application. Parameters can be added in any order.
+The `add` command allows users to add companies into LinkMeIn. 
 
 #### Implementation
-Given below is an example usage scenario and how the `add` mechanism behaves at each step.
+The `add` feature is implemented using the `AddCommand` class. The `AddCommand` object takes in a `Company` object. Only if all the inputs for the parameters are valid and all compulsory parameters are present, then the `Company` object is created.
 
-1. The user enters the input `add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan p/98765432 e/francist@gmail.com`.
+The `add` feature includes the following operations in `ModelManager`, which is implemented by the `Model` interface:
+* `Model#hasCompany(Company company)` — Checks if the company already exists in LinkMeIn. Duplicate companies are those with the same company name, application role and application deadline.
+* `Model#addCompany(Company company)` — Adds a company into LinkMeIn.
+* `Model#setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed in the `CompanyDetailPanel`.
 
-2. The `LogicManager` calls `AddressBookParser#parseCommand()` with the user input.
-
-3. The `AddressBookParser` creates a parser that matches the `add` command, an `AddCommandParser` object, and uses it to parse the command. 
-
-4. The `AddCommandParser` creates a `Company` object, and then creates an `AddCommand` object with the `Company` object.
-
-5. The `AddCommand` object can communicate with the `Model` when it is executed. It first checks if there's a duplicate input, which has the same company name, application role and application deadline.
-
-6. If the `Model` does not have a duplicate, the `AddCommand` object calls `Model#addCompany` to add the new `Company` into LinkMeIn.
-
-7. Finally, the `AddCommand` object returns the `CommandResult` object.
-
-The following sequence diagram illustrates how the `add` command works:
+The following sequence diagram illustrates how the `add` command works and interacts between the `Logic` and `Model` components, taking the input `add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan p/98765432 e/francist@gmail.com` as an example.
 
 <img src="images/AddSequenceDiagram.png" alt="Add Sequence Diagram"/>
 
@@ -430,7 +412,7 @@ The following sequence diagram illustrates how the `add` command works:
 The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
-The following activity diagram shows how the `add` command works:
+The following activity diagram shows what happens when a `user` execute the `add` command.
 
 <img src="images/AddActivityDiagram.png" alt="Add Activity Diagram"/>
 
