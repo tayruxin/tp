@@ -459,7 +459,7 @@ The following sequence diagram illustrates how the `add` command works and inter
 The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
-The following activity diagram shows what happens when a `user` execute the `add` command.
+The following activity diagram shows what happens when the user executes the `add` command.
 
 <img src="images/AddActivityDiagram.png" alt="Add Activity Diagram"/>
 
