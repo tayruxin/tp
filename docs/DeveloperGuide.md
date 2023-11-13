@@ -41,11 +41,13 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 The **_Architecture Diagram_** given above explains the high-level design of the App.
 
+<div style="page-break-after: always;"></div>
+
 Given below is a quick overview of main components and how they interact with each other.
 
 **Main components of the architecture**
 
-**`Main`** (consisting of classes [`Main`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java)) is in charge of the app launch and shut down.
+**`Main`** (consisting of classes [`Main`](https://github.com/AY2324S1-CS2103T-T17-2/tp/blob/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/AY2324S1-CS2103T-T17-2/tp/blob/master/src/main/java/seedu/address/MainApp.java)) is in charge of the app launch and shut down.
 
 -   At app launch, it initializes the other components in the correct sequence, and connects them up with each other.
 -   At shut down, it shuts down the other components and invokes cleanup methods where necessary.
@@ -830,6 +832,56 @@ If the user did not add in the recruiter's name, phone number and email address 
 * `add c/TikTok r/Data Analyst s/pa d/10-12-2023 n/Ben Tan`
 
 ### Omit Alphanumeric Checks for Company Name, Recruiter Name and Role Parameters
+**Feature Flaw in Current Implementation**
+
+Currently, recruiter name, company name and role are checked for non-alphanumeric characters (defined as all characters other than alphabets and digits), and as a result, non-complying inputs are blocked.
+
+**Examples:**
+- `X Æ A-12` for recruiter name
+- `H20.ai` for company name
+- `Software Engineer (Backend)` for the role
+
+The above inputs are all currently blocked due to the alphanumeric requirement. The input validation may be overly restrictive, restricting possible company name, recruiter name and role.
+
+**Proposed Enhancement**
+
+Instead of the current regex check located within the Name, Role and Recruiter Name classes, the new regex check:
+- Allows periods (.) and parentheses ((, )) since these are common in company names and job titles.
+- Allows special characters like Æ and hyphens (-).
+- Allows any Unicode letter using \p{L}.
+- Allows for special characters at the start of the string as well.
+
+With the proposed change in the regular expression, the validation criteria for company names, recruiter names, and roles will be more inclusive. 
+
+**Examples**
+
+Here are examples illustrating what will now be allowed and what will remain disallowed:
+
+**Allowed Inputs**
+1. **Company Names:**
+    - `H20.ai`: Includes a period and digits.
+    - `Klüft Skogar`: Includes a special character (ü).
+    - `Déjà Vu Inc.`: Includes special characters (é, à) and a period.
+
+2. **Recruiter Names:**
+    - `X Æ A-12`: Includes a special character (Æ) and a hyphen.
+    - `Anne-Marie`: Includes a hyphen.
+    - `O’Connor`: Includes an apostrophe.
+
+3. **Roles:**
+    - `Software Engineer (Backend)`: Includes parentheses.
+    - `C++ Developer`: Includes a plus sign.
+    - `Sr. Manager - R&D`: Includes a period and a hyphen.
+
+**Disallowed Inputs**
+**Company Names, Recruiter Names, and Roles:**
+- `@example.com`: Starts with a disallowed special character (@).
+- `Jane#Doe`: Includes a disallowed special character (#).
+- `$$$ Enterprises`: Starts with disallowed special characters ($$$).
+- `Developer!!!`: Ends with disallowed special characters (!!!).
+
+The new regex allows for a more diverse range of characters, accommodating special characters, Unicode letters, numbers, spaces, periods, parentheses, and hyphens.
+It still restricts inputs that start with or contain certain special characters not typically found in names or titles.
 
 ### Enhanced Flexibility in Phone Number Parameter Input
 
@@ -854,7 +906,7 @@ field. In addition, the character `+` will only be allowed at the start while, t
 - 922492304: will be accepted
 - 24234 + 234243: will **not** be accepted
 
-### **5. Enhance Find Feature to Search with Other Parameters**
+### Enhance Find Feature to Search with Other Parameters
 **Potential Flaw in Current Implementation**<br>
 Currently, LinkMeIn only allows searching through the list of companies by the `COMPANY_NAME` parameter. However, 
 users might want to search through the list using other parameters, like `RECRUITER_NAME`, `PRIORITY` and `ROLE`.
@@ -874,7 +926,7 @@ Here are the new suggested formats :
 * `find pr/High`
 * `find r/Software Engineer`
 
-### **6. Enhance Find Feature to Allow for Search of Exact Company Names**
+### Enhance Find Feature to Allow for Search of Exact Company Names
 **Potential Flaw in Current Implementation**<br>
 If users would like to find a specific company that has two or more words in their name such as `Microsoft 
 Corporation`, using the current find command will return companies that match either “Microsoft” or “Corporation”. 
@@ -1078,3 +1130,56 @@ Prerequisite: There is at least one company in the list.
 <div style="page-break-after: always;"></div>
 
 ## **Appendix D: Effort**
+### UI Enhancements
+The UI has been revamped to allow card-based viewing of recruiter details.
+The main panel has been split into the company detail panel and the company list panel.
+The main address book is found within the company list panel and a `view`command has been implemented to allow for additional details to show up when a particular company is selected.
+
+### Enhancements to Existing AB3 Commands
+- Add command was adapted to accept company name, role, status, deadline, recruiter name, phone, email, priority[optional] fields.
+- Edit command is also adapted to edit all the fields mentioned above.
+- Find command was improved to include **Case-Insensitive**, **Order Independent** and **Substring Match** searches.
+- Duplicate checks are implemented, comparing company name, interview deadline and roles.
+- Appropriate input validation checks for more specific error handling
+
+
+### Additional Commands Implemented
+- View command
+- Filter command
+- Remark command
+- Sort command
+
+### Brief Implementation Details of New Commands and Features
+Filter command filters based on application status supplied as argument
+Find command does implements three matching types
+**Case-Insensitive Search**: Whether you type tiktok or TikTok, it will still match TikTok.
+**Order Independent**: You can search for tiktok google and it will find Google TikTok.
+**Substring Matching**: Typing tik will return companies like TikTok.
+Remark command allows you to add a remark using the re/ prefix to your specific application. This allows the field to remain optional, and is relevant to our target users (internship applicants in SOC) as you may want to make a remark to the application at a later stage of the application process.
+Sort is implemented using ascending to sort nearest deadlines first and descending to sort furthest deadlines first.
+The view command allows you to view the details of any company from the list of companies that you have added.
+
+### Difficulty Level and Challenges Faced
+As compared to AB3, this project was much tougher and required more effort to build. The original AB3 is a one-layered implementation, where users can only interact with one list of items, adding and deleting them.
+
+In LinkMeIn, we adopt a two-layer approach, which increases the complexity of the project.
+
+The main panel was reformatted into two panels, the company detail panel and the . They can open up a specific application using the view INDEX command, which shows the details of the application. They can interact with the particular application, such as adding a remark, editing priority of the application etc.
+
+This approach required us to consider the design of the program carefully, so as to ensure that we are able to successfully open the correct application, and ensure that after every command, the program is at the correct state each time.
+
+Here are some difficulties we faced during the implementation and how we overcame them:
+
+- **Displaying the details of the company on CompanyDetailPanel**
+
+At the outset, we encountered challenges attempting to call the UI directly without a LogicToUI interface.
+There is no way for the view command to call the UI directly to display the company that the user wishes to view.
+Thus, we explored the option of adding a company field to the address book to store the company that we wish to view and to pass it into the UI.
+However, we identified another drawback, it will not reflect changes after editing the company detail information without implementing the view function again.
+Eventually we decide to store the company that we wish to view in an ObservableList, which solves the challenges mentioned above.
+
+- **Distinguishing between the current state of the application list for the duplicate detection algorithm**
+
+Since there were two distinguished states of the list, a distinction had to be made between the filtered view state and the unfiltered view state.
+The `Index` referenced by all the commands is based on the current view state of the user.
+Since the error message thrown by the duplicate detection algorithm had a message identifying the fields changes and the index that should be keyed in to make an edit modification, getting the correct `Index` reference was crucial based on the state of the application view page. 
