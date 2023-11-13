@@ -252,7 +252,7 @@ The `find` command allows users to search for companies using one or more keywor
 
 **How `NameContainsKeywordsPredicate` Works**
 
-Previously, `NameContainsKeywordsPredicate` was designed to match a company name against a whole keyword. However, the modified implementation allows it to test a company's name against substrings and return true if the comapany's name contains the substring .
+Previously, `NameContainsKeywordsPredicate` was designed to match a company name against a whole keyword. However, the modified implementation allows it to test a company's name against substrings and return true if the company's name contains the substring .
 
 When `find` is executed, it uses the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method, passing in the modified `NameContainsKeywordsPredicate` to filter the list of companies.
 
@@ -445,6 +445,28 @@ The following activity diagram shows how the `add` command works:
 * **Alternative 2 (Current Choice):** A `Company` object also includes application status, recruiter's name, phone and email address. The priority field, which is the user's opinion of the application priority, is kept optional.
     * Pros: Users can add in all the information at once, minimising the need to use other commands to do so afterward, like using `edit` command.
     * Cons: Longer `add` command for users. Users may also not have recruiter's information at hand when they are adding in the company into LinkMeIn.
+
+### Sort Feature
+The `sort` command allows users to sort the list of companies by their application deadlines in either ascending or 
+descending order. 
+
+#### Implementation
+The `Deadline` class implements the `java.lang.Comparable` interface, which provides a natural ordering of deadlines. 
+The sort feature leverages the fact that the `Deadline` field in a `Company` object is comparable and uses 
+the Java `Comparator` interface to sort companies based on their deadlines. 
+
+The sequence diagram below illustrates the execution of the SortCommand, when it is called with a `sortOrder` that can
+be either `ASCENDING` or `DESCENDING`. For simplicity, the parsing of the command prior to the execution of the command
+has been excluded. 
+
+<img src="images/SortSequenceDiagram.png" alt="Sort Sequence Diagram"/>
+<div markdown="block" class="alert alert-info">
+**:information_source: Note:**
+The corresponding methods `createComparator`, `getUnmodifiableObservableList` and `sortCompanies` in the sequence diagram 
+are simplifications of the actual code implementations for their respective actions. Also, the `sortOrder` is stored 
+as an attribute in the `SortCommand` object, when it is created during parsing. It is shown as the way it is in the 
+diagram for simplicity. 
+</div>
 
 ---
 
