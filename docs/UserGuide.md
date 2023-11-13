@@ -473,9 +473,9 @@ You can use the delete command to delete the company from the list of companies 
 
 If you've completed the quick tour of LinkMeIn, you've likely deleted a few companies.
 If you have not done so yet, you can refer to the [Quick Tour](#4-deleting-a-company) for guidance on deleting companies.
-Here are some examples of `view` command that you can try:
-- `view 1`
-- `view 4`
+Here are some examples of `delete` command that you can try:
+- `delete 1`
+- `delete 2`
 
 **Possible Error:**
 
