@@ -399,7 +399,7 @@ Add the company to LinkMeIn now to keep track of the application process using t
 * Parameters can be in any order.
 </div>
 
-**Example:**
+**Examples:**
 
 If you've completed the Quick Tour of LinkMeIn, you've likely added a few companies to your app. If not, you can refer to the [Quick Tour Section](#1-adding-a-company) for guidance on adding companies.
 
@@ -429,7 +429,7 @@ With the `view` command, you can easily view the full details of a specific comp
 * You can only view the full details of one company at any time.
 </div>
 
-**Example:**
+**Examples:**
 
 If you've completed the Quick Tour of LinkMeIn, you've likely viewed a few companies. If not, you can refer to the [Quick Tour Section](#2-viewing-company-details) for guidance on viewing companies!
 
@@ -459,7 +459,7 @@ You can use the `delete` command to delete any company from your list of compani
 * You can only delete one company at a time. 
 </div>
 
-**Example:**
+**Examples:**
 
 If you've completed the Quick Tour of LinkMeIn, you've likely deleted a few companies. If not, you can refer to the [Quick Tour Section](#4-deleting-a-company) for guidance on deleting companies.
 
@@ -490,7 +490,7 @@ _After adding a company, you wish to note down more information such as the job 
 * When adding remarks, the existing remarks of the company is not cumulative. This means that whenever you type new remarks, your existing remarks will be completely overwritten!
 </div>
 
-**Example:** 
+**Examples:** 
 
 **Step 1.** After adding the internship for DSTA into LinkMeIn,
    you want to note that this internship requires experience in Java.
@@ -539,7 +539,7 @@ LinkMeIn does not check for the existence of remarks.
 The same success message will be displayed regardless of whether remarks exist for a company.
 </div>
 
-**Examples:**
+**Example:**
 
 **Step 1.** If you wish to delete the remarks of DSTA company, which is 3rd in the Company List Panel, type `unremark 3` and press `Enter`.
 
