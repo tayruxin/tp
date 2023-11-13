@@ -442,7 +442,7 @@ Add the company to LinkMeIn now to keep track of the application process using t
 **Format**:
 `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/PRIORITY]`
 
-> All [**parameters**](#parameters-description-brbr) specified in the format are compulsory except for PRIORITY.
+> All [**parameters**](#parameters-description) specified in the format are compulsory except for PRIORITY.
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
@@ -568,6 +568,8 @@ _After adding a company, you wish to note down more information such as the job 
 Here are some other examples of `remark` commands that you can try:
 - `remark 4 re/interview went well!`
 - `remark 5 re/$800 per month`
+
+<div style="page-break-after: always;"></div><br/>
 
 **Possible Error:**
 
@@ -872,7 +874,7 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 
 <div style="page-break-after: always;"></div><br/>
 
-### Parameters Description <br/><br/>
+### Parameters Description
 
 | Parameter          | Description                                   | Constraints                                                                                                                     |
 |--------------------|-----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -883,7 +885,7 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 | RECRUITER_NAME     | Name of the recruiter.                        | Only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).         |
 | EMAIL              | Email of the recruiter.                       | Should be in the format of [`local-part@domain`](#email-format-description) and should not be blank.                            |
 | PHONE_NUMBER       | Phone number of the recruiter.                | Only contain numbers, be at least 3 digits and at most 20 digits long. Should not be blank.                                     |
-| PRIORITY           | Priority of the application.                  | Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`.                                           |
+| PRIORITY           | Priority of the application.                  | <br/> Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`. <br/><br/>                          |
 | REMARK             | Remark of the application.                    | Should not be blank.                                                                                                            |
 
 
@@ -992,19 +994,19 @@ With LinkMeIn, there is no need for you to save manually. Everything is saved au
 
 ## Command Summary
 
-| Command               | Format                                                                                                                                             | Example                                                                                       |
-|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-| `add`                 | `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/PRIORITY]`                                  | `add c/Apple r/Software Engineer s/PA d/12-12-2023 n/John Tan e/johntan@gmail.com p/98765432` |
-| `view`                | `view INDEX`                                                                                                                                       | `view 1`                                                                                      |
-| `delete`              | `delete INDEX`                                                                                                                                     | `delete 1`                                                                                    |
-| `remark`              | `remark INDEX re/REMARK`                                                                                                                           | `remark 1 re/need Java`                                                                       |
-| `list`                | `list`                                                                                                                                             | `list`                                                                                        |
-| `filter`              | `filter s/APPLICATION_STATUS`                                                                                                                      | `filter s/PI`                                                                                 |
-| `sort`                | `sort SORT_ORDER`                                                                                                                                  | `sort ascending`                                                                              |
-| `edit`                | `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [re/REMARK]` | `edit 1 s/PI r/Frontend Developer`                                                            |
-| `find`                | `find KEYWORD [MORE_KEYWORDS]...`                                                                                                                  | `find ds`                                                                                     |
-| `clear`               | `clear`                                                                                                                                            | `clear`                                                                                       |
-| <br/>`exit`<br/><br/> | `exit`                                                                                                                                             | `exit`                                                                                        |
-| `help`                | `help`                                                                                                                                             | `help`                                                                                        |
+| Command          | Format                                                                                                                                             | Example                                                                                       |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| `add`            | `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/PRIORITY]`                                  | `add c/Apple r/Software Engineer s/PA d/12-12-2023 n/John Tan e/johntan@gmail.com p/98765432` |
+| `view`           | `view INDEX`                                                                                                                                       | `view 1`                                                                                      |
+| `delete`         | `delete INDEX`                                                                                                                                     | `delete 1`                                                                                    |
+| `remark`         | `remark INDEX re/REMARK`                                                                                                                           | `remark 1 re/need Java`                                                                       |
+| `list`           | `list`                                                                                                                                             | `list`                                                                                        |
+| `filter`         | `filter s/APPLICATION_STATUS`                                                                                                                      | `filter s/PI`                                                                                 |
+| `sort`           | `sort SORT_ORDER`                                                                                                                                  | `sort ascending`                                                                              |
+| `edit`           | `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY] [re/REMARK]` | `edit 1 s/PI r/Frontend Developer`                                                            |
+| `find`           | `find KEYWORD [MORE_KEYWORDS]...`                                                                                                                  | `find ds`                                                                                     |
+| `clear`          | `clear`                                                                                                                                            | `clear`                                                                                       |
+| `exit`<br/><br/> | `exit`<br/><br/>                                                                                                                                   | `exit`<br/><br/>                                                                              |
+| `help`           | `help`                                                                                                                                             | `help`                                                                                        |
 
 [&uarr; Back to Table of Contents](#table-of-contents)
