@@ -336,6 +336,7 @@ Explore options to find, list, filter and sort companies, managing all companies
 </div>
 
 ## General Features
+These general features are here to assist you in navigating LinkMeIn effectively, be it when you're a beginner or an expert user. Keep reading to find out more about them!
 
 ### Clearing All Companies: `clear`
 
@@ -382,6 +383,7 @@ Simply copy the link provided and paste it into your web browser to access LinkM
 <div style="page-break-after: always;"></div><br/>
 
 ## Company Management Features
+These features are designed to make managing individual companies in LinkMeIn a breeze for you! Read on further to find out more about them!
 
 ### Adding a Company : `add`
 
@@ -521,7 +523,7 @@ you will see an error message in the Message Box as shown below. Don’t worry, 
 
 ### Deleting Remarks of a Company: `unremark`
 
-_You have previously added some remarks to a company, but the remarks has become outdated and you no longer need them anymore. Use the `unremark` command to quickly delete them._
+_You have previously added some remarks to a company, but the remarks have become outdated and you no longer need them anymore. Use the `unremark` command to quickly delete them._
 
 **Format:** `unremark INDEX`
 
@@ -614,6 +616,7 @@ an error message will be displayed in the command box, notifying you of the dupl
 [&uarr; Back to Table of Contents](#table-of-contents)
 
 ## Company List Features
+These features are crafted to simplify the management of your list of companies in LinkMeIn! Continue reading to discover more about how they work!
 
 ### Finding a Company: `find`
 
