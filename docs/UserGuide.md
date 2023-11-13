@@ -307,7 +307,7 @@ Go ahead and try deleting the other companies too. If you wish to read up more o
 
 **Congratulations!** You have completed the quick tour of LinkMeIn. You are now ready to use LinkMeIn to track your own 
 internship applications. To remove the sample data provided in LinkMeIn, simply type `clear` in the command box to remove 
-all existing entries. Find out more about the `clear` command [here](#clear-all-companies-clear).
+all existing entries. Find out more about the `clear` command [here](#clearing-all-companies-clear).
 
 LinkMeIn offers more than just the features that you have learnt in this tour.
 If you wish to learn more about the other features of LinkMeIn, head over to our 
@@ -512,7 +512,12 @@ Here are some other examples of `remark` commands that you can try:
 If you have entered an **empty remark**,
 you will see an error message in the Message Box as shown below. Don’t worry, just try again with remarks now!
 
-![RemarkErrMsg.png](images/remark-command/RemarkErrMsg.png)
+![RemarkErrMsg.png](images/remark-command/RemarkErrMsg.png
+
+<div markdown="block" class="alert alert-success">
+**:bulb: Useful Tip:**<br>
+* However, if you intend to delete the existing remarks of a company and hence entered an empty remark, you should use the `unremark` command instead.
+</div>
 
 ### Deleting Remarks of a Company: `unremark`
 
