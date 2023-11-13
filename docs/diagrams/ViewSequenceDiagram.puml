@@ -7,6 +7,7 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":ViewCommandParser" as ViewCommandParser LOGIC_COLOR
+participant "c:Company" as Company MODEL_COLOR
 participant "v:ViewCommand" as ViewCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 
@@ -32,6 +33,13 @@ deactivate ViewCommandParser
 AddressBookParser -> ViewCommandParser : parse("1")
 activate ViewCommandParser
 
+create Company
+ViewCommandParser -> Company: Company(...)
+activate Company
+
+Company --> ViewCommandParser
+deactivate Company
+
 create ViewCommand
 ViewCommandParser -> ViewCommand
 activate ViewCommand
@@ -51,7 +59,7 @@ deactivate AddressBookParser
 LogicManager -> ViewCommand : execute(m)
 activate ViewCommand
 
-ViewCommand -> Model : setCurrentViewedCompany(Company company)
+ViewCommand -> Model : setCurrentViewedCompany(company)
 
 activate Model
 
