@@ -237,8 +237,8 @@ Adding a company is the first step to tracking your internship applications. Let
 **Step 1:** Let's say you are interested to apply for the **Software Engineer** role from **Apple**. Through the application description, you obtained the following information:
 * **Deadline:** 10-10-2023
 * **Recruiter Name:** Francis Tan
-* **Email:** john@example.com
-* **Phone Number:** 987652423
+* **Email:** francistan@example.com
+* **Phone Number:** 88287345
 
 This application is of **medium** priority as you have other applications that you want to focus on first.
 
