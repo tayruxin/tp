@@ -242,7 +242,7 @@ Adding a company is the first step to tracking your internship applications. Let
 
 This application is of **medium** priority as you have other applications that you want to focus on first.
 
-**Step 2:** With the details above, simply type `add c/Apple r/Software Engineer s/PA n/Francis Tan d/10-10-2023 e/john@example.com p/987652423 pr/medium` into the Command Box and press `Enter`.
+**Step 2:** With the details above, simply type `add c/Apple r/Software Engineer s/PA n/Francis Tan d/10-10-2023 e/francistan@example.com p/88287345 pr/medium` into the Command Box and press `Enter`.
 
 ![img.png](images/add-command/BeforeAddCommand.png)
 
