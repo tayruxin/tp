@@ -606,8 +606,7 @@ An example of an error message is shown below.
 _Seeking an internship but worried about double-applying? 
 Our duplicate detection swiftly ensures you never submit the same application twice!_
 
-LinkMeIn's duplicate check works for both the `add` and `edit` commands. If you attempt to **add** or **edit** an application,
-creating a duplicate entry with the same **company name**, **role**, and **deadline** as an existing application in LinkMeIn, an error message will be displayed in the command box, notifying you of the company name, role and deadline of the duplicate company.
+LinkMeIn's duplicate check works for both the `add` and `edit` commands. If you attempt to **add** or **edit** an application, you might accidentally create a duplicate entry with the same **company name**, **role**, and **deadline** as an existing company in LinkMeIn. An error message will be displayed in the Message Box, informing you of the **company name**, **role** and **deadline** of that duplicate company.
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
