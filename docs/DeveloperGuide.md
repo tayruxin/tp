@@ -372,32 +372,26 @@ namely the company name, role and deadline fields to match that of another compa
 The purpose of the diagram is a **simplified** view of the message passing when a _duplicate_ company is detected.
 
 Therefore, the diagram omits the following
-1. The `if` statement in the `EditCommand` class that checks if the edited company is the same as the company to be
-   edited before the call to `getDuplicateCompany(c)`. This is removed as the purpose of the diagram is to show the message
-   passing **after** a duplicate company is detected.
-1. The `if` statements in the `isSameCompany` method checking for strict equality with `this` and company d with`null`.
-   This is removed to simplify the diagram and not show the inner-workings of the method in detail.
-1. The `equals` method propagated after the `getName()`, `getRole()` and `getDeadline()` methods. Again, this would
-   involve the details of the equality checks of the `Name`, `Role` and `Deadline` classes which is not the focus of the
-   diagram.
-1. The instantiation of the `CommandException` class through the `super` call from `DuplicateException` class.
-   This is removed to simplify the diagram.
+1. The `if` statements in the `isSameCompany` method checking for strict equality with 
+`this` and company d with `null`. These blocks were added as a defensive programming measure and are 
+therefore removed to simplify the diagram.
+1. The `equals` method propagated to `Name`, `Role` and `Deadline` through the 
+`getName()`, `getRole()` and `getDeadline()` methods. This would involve the details of the 
+equality checks of the `Name`, `Role` and `Deadline` overcomplicating the diagram with 3 more classes.
 
 **Description of the diagram**
-Upon ascertaining that the edited company is a duplicate,
+
 1. The `EditCommand` class calls the `getDuplicateCompany(c)` method in the `ModelManager` class.
 1. `ModelManager` forwards the call to the `AddressBook` class.
 1. The `AddressBook` class calls the `contains(c)` method in the `UniqueCompanyList` class.
 1. The `UniqueCompanyList` class calls the `Company::isSameCompany` method for each company in the list
    to check if the edited company is a duplicate.
-1. `Company::isSameCompany` self-invokes the `getName()`, `getRole()` and `getDeadline()` methods and also
-   invokes the `getName()`, `getRole()` and `getDeadline()` on the company d to check for equality.
+1. `Company c` self-invokes the `getName()`, `getRole()` and `getDeadline()` methods and also
+   invokes the `getName()`, `getRole()` and `getDeadline()` on `Company c` to check for equality.
 1. The duplicated company is returned to the `EditCommand` class.
-1. From there, the message is formatted by the `Messages` class using the `getDupErrMsgEdit()` method.
-1. The `EditCommand` class then instantiates a `DuplicateException` instance with the formatted message.
-1. Error is thrown back to the caller of the `EditCommand` class.
 
-Below is an activity diagram showing the events when a user attempts to **add** a duplicate company to the company list.
+Below is an activity diagram showing the events when a user attempts to **add**
+a duplicate company to the company list.
 
 <img src="images/duplicate-detection/add-command/DuplicateActivityDiagram.png"/>
 
@@ -801,7 +795,67 @@ If the user did not add in the recruiter's name, phone number and email address 
 * `add c/Google r/Software Engineer s/pa d/11-11-2023`
 * `add c/TikTok r/Data Analyst s/pa d/10-12-2023 n/Ben Tan`
 
-### Omit Alphanumeric Checks for Company Name, Recruiter Name and Role Parameters
+### Allow more inclusive inputs for name fields such as company name, recruiter name and role fields
+
+**Feature Flaw in Current Implementation**
+
+In our current implementation, the recruiter name, company name, and role are checked for non-alphanumeric characters (defined as all characters other than alphabets [a-z, A-Z] and digits [0-9]). As a result, non-complying inputs are blocked.
+
+**Examples of inputs currently disallowed:**
+
+1. X Æ A-12 for recruiter name.
+1. H20.ai for company name.
+1. Software Engineer (Backend) for the role.
+
+The input validation may be overly restrictive, limiting possible company names, recruiter names, and roles.
+
+**Proposed Enhancement**
+
+We propose replacing the current regex check located within the Name, Role, and Recruiter Name classes.
+
+This new regex check:
+
+1. Allows periods (.) and parentheses ((, )), as these are common in company names and job titles.
+1. Allows special characters like Æ and hyphens (-).
+1. Allows any Unicode letter using \p{L}.
+1. Allows for most special characters except #, $, *, and !.
+
+**Examples**
+
+With the proposed change in the regular expression, the validation criteria 
+for company names, recruiter names, and roles will be more inclusive. Here 
+are examples illustrating what will now be allowed and what will remain disallowed:
+
+**Allowed Inputs**
+
+**Company Names:**
+
+1. H20.ai: Includes a period and digits.
+1. Klüft Skogar: Includes a special character (ü).
+1. Déjà Vu Inc.: Includes special characters (é, à) and a period.
+
+**Recruiter Names:**
+
+1. X Æ A-12: Includes a special character (Æ) and a hyphen.
+1. Anne-Marie: Includes a hyphen.
+1. O’Connor: Includes an apostrophe.
+
+**Roles:**
+
+1. Software Engineer (Backend): Includes parentheses.
+1. C++ Developer: Includes a plus sign.
+1. Sr. Manager - R&D: Includes a period and a hyphen.
+
+**Disallowed Inputs**
+
+1. Jane#Doe: Includes a disallowed special character (#).
+1. $$$ Enterprises: Includes disallowed special characters ($$$).
+1. Developer!!!: Includes disallowed special characters (!!!).
+1. !Emergency: Includes a disallowed special character (!).
+
+The new regex allows for a more diverse range of characters, accommodating special characters, 
+Unicode letters, numbers, spaces, periods, parentheses, and hyphens. It still restricts inputs 
+that contain certain special characters not typically found in names or titles.
 
 ### Enhanced Flexibility in Phone Number Parameter Input
 
