@@ -166,7 +166,6 @@ The `Storage` component,
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
 ---
-<div style="page-break-after: always;"></div>
 
 ## **Implementation**
 
@@ -272,13 +271,14 @@ Previously, `NameContainsKeywordsPredicate` was designed to match a company name
 
 When `find` is executed, it uses the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method, passing in the modified `NameContainsKeywordsPredicate` to filter the list of companies.
 
-The sequence diagram below illustrates the processing of a `find` command, such as `find Micr`:
+The sequence diagram below illustrates the processing of a `find` command, such as `find tech sta`:
 
 <img src="images/FindCompanySequenceDiagram.png"/>
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Note:** 
-The above sequence diagram simplifies the interaction by focusing on the primary components involved in processing the `find` command.
+**:information_source: Notes:** 
+* The above sequence diagram simplifies the interaction by focusing on the primary components involved in processing the `find` command.
+* The lifeline for `FindCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 #### Design Considerations
@@ -376,7 +376,7 @@ When `Model#setCompany(Company company)` is called, the original `target` in the
 
 * **Alternative 2:** Have a command to edit each attribute.
     * Pros: Command line is shorter which reduces users' error such as duplicates or invalid command. This improves user experience.
-    * Cons: We must ensure that the implementation of each individual command are correct. This may also require more memory usage, a Company object is initialized for every modified attribute.
+    * Cons: We must ensure that the implementation of each individual command are correct. This may also require more memory usage as a `Company` object is initialized for every modified attribute.
 
 <div style="page-break-after: always;"></div>
 
@@ -385,7 +385,7 @@ When `Model#setCompany(Company company)` is called, the original `target` in the
 <img src="images/duplicate-detection/edit-command/DuplicateSequenceDiagram.png"/>
 
 #### Implementation
-The term _duplicate_ hereafter refers to companies with the same company name, role and deadline
+The term _duplicate_ hereafter refers to companies with the same company name, role and deadline.
 
 The _duplicate_ detection mechanism is facilitated by `Company#isSameCompany(Company otherCompany)`.
 This method checks if two `Company` entities are the same by checking if their `Name`, `Role` and
@@ -396,32 +396,24 @@ The above sequence diagram shows the events when a user attempts to **edit** the
 namely the company name, role and deadline parameters to match that of another company in the company list.
 The purpose of the diagram is a **simplified** view of the message passing when a _duplicate_ company is detected.
 
-Therefore, the diagram omits the following
-1. The `if` statement in the `EditCommand` class that checks if the edited company is the same as the company to be
-   edited before the call to `getDuplicateCompany(c)`. This is removed as the purpose of the diagram is to show the message
-   passing **after** a duplicate company is detected.
+Therefore, the diagram omits the following:
 1. The `if` statements in the `isSameCompany` method checking for strict equality with `this` and company d with`null`.
    This is removed to simplify the diagram and not show the inner-workings of the method in detail.
-1. The `equals` method propagated after the `getName()`, `getRole()` and `getDeadline()` methods. Again, this would
-   involve the details of the equality checks of the `Name`, `Role` and `Deadline` classes which is not the focus of the
-   diagram.
-1. The instantiation of the `CommandException` class through the `super` call from `DuplicateException` class.
-   This is removed to simplify the diagram.
+2. The `equals` method propagated after the `getName()`, `getRole()` and `getDeadline()` methods. Again, this would
+   involve the details of the equality checks of the `Name`, `Role` and `Deadline` classes, overcomplicating the
+   diagram with three more classes.
 
 **Description of the diagram**
 
 Upon ascertaining that the edited company is a duplicate,
 1. The `EditCommand` class calls the `getDuplicateCompany(c)` method in the `ModelManager` class.
-1. `ModelManager` forwards the call to the `AddressBook` class.
-1. The `AddressBook` class calls the `contains(c)` method in the `UniqueCompanyList` class.
-1. The `UniqueCompanyList` class calls the `Company::isSameCompany` method for each company in the list
+2. `ModelManager` forwards the call to the `AddressBook` class.
+3. The `AddressBook` class calls the `contains(c)` method in the `UniqueCompanyList` class.
+4. The `UniqueCompanyList` class calls the `Company::isSameCompany` method for each company in the list
    to check if the edited company is a duplicate.
-1. `Company::isSameCompany` self-invokes the `getName()`, `getRole()` and `getDeadline()` methods and also
+5. `Company::isSameCompany` self-invokes the `getName()`, `getRole()` and `getDeadline()` methods and also
    invokes the `getName()`, `getRole()` and `getDeadline()` on the company d to check for equality.
-1. The duplicated company is returned to the `EditCommand` class.
-1. From there, the message is formatted by the `Messages` class using the `getDupErrMsgEdit()` method.
-1. The `EditCommand` class then instantiates a `DuplicateException` instance with the formatted message.
-1. Error is thrown back to the caller of the `EditCommand` class.
+6. The duplicated company is returned to the `EditCommand` class.
 
 Below is an activity diagram showing the events when a user attempts to **add** a duplicate company to the company list.
 
@@ -486,7 +478,7 @@ The `add` command allows users to add companies into LinkMeIn.
 The `add` feature is implemented using the `AddCommand` class. The `AddCommand` object takes in a `Company` object. Only if all the inputs for the parameters are valid and all compulsory parameters are present, then the `Company` object is created.
 
 The `add` feature includes the following operations in `ModelManager`, which implements the `Model` interface:
-* `Model#hasCompany(Company company)` — Checks if the company already exists in LinkMeIn. Duplicate companies are those with the same company name, application role and application deadline.
+* `Model#hasCompany(Company company)` — Checks if the company is a _duplicate_ company in LinkMeIn,
 * `Model#addCompany(Company company)` — Adds a company into LinkMeIn.
 * `Model#setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed in the `CompanyDetailPanel`.
 
@@ -558,10 +550,10 @@ diagram for simplicity.
 **Target User Profile**
 
 National University of Singapore Computer Science students preparing for an internship who
--   prefer desktop apps over other types
--   can type quickly
--   prefer typing to mouse interactions
--   is reasonably comfortable using CLI apps
+-   prefer desktop apps over other types,
+-   can type quickly,
+-   prefer typing to mouse interactions,
+-   are reasonably comfortable using CLI apps.
 
 **Value Proposition** <br>
 CS students often struggle to manage a multitude of internship applications and track their application progress. An intuitive CLI address book not only efficiently stores these applications but also offers a valuable tool for monitoring and organizing the entire application process, simplifying the pursuit of career opportunities.
@@ -638,8 +630,6 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
     * 1c2. User enters the information of a new company. <br>
       Use case resumes from Step 1.
 
-<div style="page-break-after: always;"></div>
-
 **Use Case: UC03 - Delete a Company**
 
 **MSS** <br>
@@ -678,8 +668,6 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 
-<div style="page-break-after: always;"></div>
-
 **Use Case: UC06 - Edit a Company**
 
 **MSS** <br>
@@ -715,7 +703,6 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 * 1b. LinkMeIn detects an invalid parameter input → handled similarly to 1b of UC02.
 
-<div style="page-break-after: always;"></div>
 
 **Use Case: UC09 - Sort Companies by Deadline**
 
@@ -761,7 +748,6 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 
-<div style="page-break-after: always;"></div>
 
 **Use Case: UC13 - View Help**
 
@@ -772,6 +758,8 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
+
+<div style="page-break-after: always;"></div>
 
 ### Non-Functional Requirements
 
@@ -936,12 +924,12 @@ parameter. In addition, the character `+` will only be allowed at the start whil
 
 **Examples**
 
-- +33 (0)6 12 34 56 78: will be accepted
-- +33612345678: will be accepted
-- 06.12.34.56.78: will be accepted
-- 06-12-34-56-78: will be accepted
-- 922492304: will be accepted
-- 24234 + 234243: will **not** be accepted
+- +33 (0)6 12 34 56 78: will be accepted.
+- +33612345678: will be accepted.
+- 06.12.34.56.78: will be accepted.
+- 06-12-34-56-78: will be accepted.
+- 922492304: will be accepted.
+- 24234 + 234243: will **not** be accepted.
 
 <div style="page-break-after: always;"></div>
 
@@ -1006,9 +994,9 @@ To enhance user flexibility and accommodate various user preferences, we will al
 Also, we understand that some users may not wish to type leading zeros for days and months with leading zeros, D/M/YYYY, D-M-YYYY, YYYY-M-D and YYYY/M/D formats will also be accepted.
 
 **Examples**
-* 1/1/2024 is in D/M/YYYY format
-* 2024-1-1 is in YYYY-M-D format
-* 12/12/2023 is in DD/MM/YYYY format
+* 1/1/2024 is in D/M/YYYY format.
+* 2024-1-1 is in YYYY-M-D format.
+* 12/12/2023 is in DD/MM/YYYY format.
 
 <div style="page-break-after: always;"></div>
 
@@ -1025,9 +1013,9 @@ The `DeleteCommandParser` will then split the string by commas and remove the co
 
 **Examples**
 
-- `delete 1, 2`: deletes companies at index 1 and 2
-- `delete 1`: deletes company at index 1
-- `delete 4, 3, 7, 2`: deletes companies at index 4, 3, 7, 2
+- `delete 1, 2`: deletes companies at index 1 and 2.
+- `delete 1`: deletes company at index 1.
+- `delete 4, 3, 7, 2`: deletes companies at index 4, 3, 7, 2.
 
 <div style="page-break-after: always;"></div>
 
@@ -1206,7 +1194,7 @@ Besides ensuring that new classes added follow the architecture, another importa
 We have added test cases for all new classes and practised defensive programming by adding assertion and logging statements.
 
 
-### Challenges Faced:
+### Challenges Faced
 - **Coding within a team:** 
 Most of us were used to doing personal projects or pair projects, which is much easier to manage, in terms of workflow.
 In the short amount of time we had, we had to familiarise ourselves with the GitHub workflow to enhance our collaboration.
@@ -1226,5 +1214,5 @@ Hence, the code did not make much sense to us when we first started.
 
 When evolving from AB-3 to LinkMeIn, we had a fair amount of enhancement and sufficient breadth in aspects of the software covered such as change in UI, adding new commands, and error handling. LinkMeIn is a small evolution from AB3. With these considerations, the difficulty level for the LinkMeIn project is moderate.
 
-### Achievements:
+### Achievements
 We have made significant progress since the start of this module. We have familiarised ourselves with the GitHub workflow and have managed to produce a CLI application that follows proper code quality to achieve readability and maintainability. We are really proud of what we have achieved!

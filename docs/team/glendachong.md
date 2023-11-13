@@ -55,5 +55,5 @@ Given below are my contributions to the project.
   * Review PRs for the team regularly.
     * Non-trivial PRs reviewed: [#271](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/271), [#261](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/261), [#226](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/226), [#156](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/156), [#169](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/169), [#142](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/142), [#135](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/135), [#109](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/109), [#104](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/104).
 
-* Contributions beyond the Project Team
+* **Contributions beyond the Project Team**
   * Extensive number of bugs reported for the other team's product during PE-D (28 bug reports)
