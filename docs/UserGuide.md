@@ -294,30 +294,28 @@ If you wish to learn more about the other features of LinkMeIn, head over to our
 [&uarr; Back to Table of Contents](#table-of-contents)
 
 ---
+<div style="page-break-after: always;"></div><br/>
 
 # Current Features
 
 LinkMeIn's features can be categorised into 3 broad categories:
 
--  [General Features](#general-features): This section equips you with essential tools to navigate LinkMeIn effectively.
+-  [General Features](#general-features): This section equips you with essential tools to **navigate** LinkMeIn effectively.
 Here, you can access help, clear all entries, and gracefully exit LinkMeIn.
-- [Company Management Features](#company-management-features): Dive into section to **engage with individual company entries.** You can easily
-add, view, edit, delete companies, as well as add your own remarks to companies. 
+- [Company Management Features](#company-management-features): Dive into this section to **engage with individual company entries.** You can easily
+add, view, edit, delete companies, as well as add your own remarks to them.
 - [Company List Features](#company-list-features): This section allows you to **interact with the list of companies,** thereby unlocking LinkMeIn's full potential. 
 Explore options to find, list, filter and sort companies, managing all companies with ease. 
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
-* Extraneous parameters for commands that do not take in parameters (such as help, list, exit and clear) will be ignored.
-e.g. if the command specifies help 123, it will be interpreted as help.
-* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
+* For commands that do not take in any parameters (such as help, list, exit and clear), anything typed after the command word will be ignored. For example, if you type `help 123`, `123` will be ignored, and the command will just be interpreted as `help`.
+* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines! It could result in an invalid input.
 </div>
 
 ## General Features
-In this section, you'll find essential tools that empower you to navigate LinkMeIn with ease. Learn how to access help, 
-clear all entries, and gracefully exit the application, ensuring a seamless user experience.
 
-### Clear All Companies: `clear`
+### Clearing All Companies: `clear`
 
 _You've just completed an internship cycle and are preparing for the next one! Want to keep your list of companies clutter-free? Just use the `clear` command to clear all the existing companies in LinkMeIn at once._
 
@@ -325,44 +323,43 @@ _You've just completed an internship cycle and are preparing for the next one! W
 
 **Example:**
 
-**Step 1:** Type `clear` in the command box and press `Enter`.
+**Step 1:** Type `clear` in the Command Box and press `Enter`.
 
-**Step 2:** You should see an empty list of companies. 
+**Step 2:** You should see an empty list of companies immediately. 
 
 ![img.png](images/clear-command/clear.png)
 
 
 <div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
-* Companies cannot be recovered after clearing! Please only use the `clear` command when you are very sure that you no longer wish to track the existing list of companies.
+* Companies cannot be recovered after clearing! Please only use the `clear` command when you are very sure that you no longer wish to track the existing list of companies!
 </div>
 
-### Exit LinkMeIn: `exit`
+### Exiting LinkMeIn: `exit`
 _You are done tracking for the day and wish to exit LinkMeIn. Simply use the `exit` command to bid farewell to LinkMeIn._
 
 **Format:** `exit`
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* Don't have to worry about losing your data, it will be saved automatically! 
+* Don't worry about losing your data; it's safe with LinkMeIn, thanks to automatic saving!
 </div>
 
-### Help: `help`
+### Accessing Help: `help`
 
 _You find yourself wrecking your brains just to think of that one command that you need to use. Just use the `help` command to access our User Guide, and you can easily get the help you need!_
 
 **Format:** `help`
 
-Simply copy the url provided and paste it into your web browser to access LinkMeIn's User Guide!
+Simply copy the link provided and paste it into your web browser to access LinkMeIn's User Guide!
 
 ![img.png](images/help-command/helpcommand.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
+<div style="page-break-after: always;"></div><br/>
+
 ## Company Management Features
-Dive into the intricacies of managing individual company entries. Uncover the steps to add, view, edit, delete companies, 
-and personalize your entries by adding remarks. This section provides a detailed guide to enhancing your company management 
-capabilities.
 
 ### Adding a Company : `add`
 
