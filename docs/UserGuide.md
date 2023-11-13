@@ -7,21 +7,19 @@ title: User Guide
 
 _Master Your Internship Journey: Every Deadline, Every Detail._
 
-LinkMeIn is a **desktop application** built for NUS School Of Computing's Computer Science students 
-to track their internship applications.
+It's the time of the year again! You're scrolling through LinkedIn to discover internship opportunities and tackling programming problems non-stop to prepare for your coding interviews, all in pursuit of securing a summer internship. To increase your chances, you've mass-applied to multiple companies, and now you're struggling to keep track of all your applications.
 
+Well, fret not! LinkMeIn is here to help you! LinkMeIn is a **desktop application** specifically designed for all of you, NUS School Of Computing's Computer Science students, to effectively manage and track your internship applications.
 
 Here is a **quick** overview of your internship journey with LinkMeIn:
 
--   Dynamic Data Management: Easily **add**, **edit**, and **filter** companies for targeted internship tracking.
+-   Dynamic Data Management: Easily **add**, **edit**, **find** and **filter** companies for targeted application tracking.
 -   Smart Organization: **Sort** applications by deadline and quickly pinpoint key opportunities.
--   Interactive Cards: Type **view** to expand internship details, a sleeker approach than Excel sheets.
+-   Interactive Cards: Easily **view** details of a specific company — a sleeker approach than Excel sheets.
 
-LinkMeIn is more than just an application—it's your **personalized** partner, offering a
-seamless experience that outclasses conventional tracking methods.
+LinkMeIn is more than just an application — it's your **personalized** partner, offering a seamless experience that outclasses conventional tracking methods.
 
-Additionally, LinkMeIn combines the rapid **efficiency** of [Command Line Interface (CLI)](#introducing-linkmeins-cli) with the visual clarity of 
-[Graphical User Interface (GUI)](#introducing-linkmeins-gui), offering a **tailored** experience for you.
+Moreover, LinkMeIn combines the rapid **efficiency** of [Command Line Interface (CLI)](#introducing-linkmeins-cli) with the visual clarity of [Graphical User Interface (GUI)](#introducing-linkmeins-gui), providing a **tailored** experience just for you.
 
 # Table of Contents
 * TOC
