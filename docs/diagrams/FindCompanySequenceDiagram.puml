@@ -47,6 +47,8 @@ deactivate FindCommand
 
 FindCommandParser --> AddressBookParser : u
 deactivate FindCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+FindCommandParser -[hidden]-> AddressBookParser
 destroy FindCommandParser
 
 AddressBookParser --> LogicManager : u
