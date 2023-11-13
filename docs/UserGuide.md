@@ -615,7 +615,7 @@ creating a duplicate entry with the same **company name**, **role**, and **deadl
 </div>
 
 **Example 1:**
-Suppose you attempt to add a company with the same company and recruiter information, you will be notified of the duplicate company as seen below. 
+Suppose you attempt to add a company with the **exact same company and recruiter information** as an existing entry in LinkMeIn, you will be notified of the duplicate company, as seen below. 
 
 ![img.png](images/duplicate-detection/add-command/duplicate-exact-match.png)
 
