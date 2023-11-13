@@ -746,7 +746,7 @@ shown. And that is it! You have found the company you wanted.
 
 <div style="page-break-after: always;"></div><br/>
 
-### Listing All Contacts: `list`
+### Listing All Companies: `list`
 
 _You've found the specific company you wanted using the find command earlier, and now you want to see all of your applications in one list again. You can do so easily with the `list` command!_
 
