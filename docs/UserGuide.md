@@ -648,7 +648,7 @@ _You've applied to many companies, and now you wish to monitor your internship a
 * Companies with names that contain **any** of the keywords will be returned.
 * Keyword is case-insensitive (e.g. `tiktok` will match `TikTok`).
 * The order of your keywords doesn't matter (e.g. `tiktok google` will match `google tiktok`).
-* LinkMeIn's find command will always find from the full list of companies. This means that if you have previously done `filter s/pa`, doing find next, will not find from the filtered list of companies.
+* LinkMeIn's `find` command will always find from the **full** list of companies. This means that if you have previously used `filter s/pa`, performing `find`, will not search from the filtered list of companies.
 </div>
 
 <div markdown="block" class="alert alert-success">
@@ -700,7 +700,7 @@ Filter the list of companies by their application status using the `filter` comm
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* LinkMeIn's filter command will always filter from the full list of companies. This means that if you have previously done `find ds`, doing filter next, will not filter from the list of companies that you have searched for.
+* LinkMeIn's `filter` command will always filter from the **full** list of companies. This means that if you have previously used `find ds`, performing `filter`, will not filter from the list of companies that you have searched for.
 </div>
 
 
@@ -741,7 +741,7 @@ arrange your list of applications based on their deadlines!_
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
-* If no `SORT_ORDER` is specified, it will default to `ascending`. Use this to quickly see which deadlines are 
+* If no `SORT_ORDER` is specified, it will be set to `ascending` by default. Use this to quickly see which deadlines are 
 coming up soon by simply typing `sort`!
 </div>
 
@@ -777,6 +777,7 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Alphanumeric**     | Alphanumeric refers to a character set that includes both letters and numbers. It includes the 26 letters of the English alphabet (both uppercase and lowercase) and the numbers 0 through 9.                                       |
 | **CLI**              | Command-Line Interface (CLI) is a text-based user interface where users interact with the application by typing commands.                                                                                                           |
+| **Case-insensitive** | Upper case and lower case are being treated the same way. For example, `tiktok` and `TikTok` will be considered the same.                                                                                                           |
 | **Command**          | A command is an instruction given by a user to LinkMeIn to perform a specific action. For example,`add` command is a command to add the company's application into LinkMeIn.                                                        |
 | **GUI**              | Graphical User Interface (GUI) is a visual method to interact with software using icons, buttons, and windows. GUI provides a user-friendly way to interact with software using graphical elements rather than text-based commands. |
 | **Index**            | Refers to the index number shown in the displayed company list                                                                                                                                                                      |
@@ -784,7 +785,6 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 | **JSON**             | JSON stands for JavaScript Object Notation. It is lightweight format for data interchange, easy to read and write for humans, and easy to parse for machines. Often used in web applications and configuration files.               |
 | **Parameter**        | Parameter is similar to a field in a form you have to fill up. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `COMPANY_NAME` and `EMAIL` are parameters in the command.                                               |
 | **Prefix**           | Prefix is a keyword that is used to identify the parameter. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/` and `e/` are prefixes.                                                                                |
-| **Case-insensitive** | Upper case and lower case are being treated the same way. For example, `tiktok` and `TikTok` will be considered the same.                                                                                                           |
 
 ### Parameters Description
 
