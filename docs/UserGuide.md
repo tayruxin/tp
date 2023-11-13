@@ -78,8 +78,6 @@ Thank you for choosing LinkMeIn as your internship tracking ally! We are excited
 
 <div style="page-break-after: always;"></div><br/>
 
-<div style="page-break-after: always;"></div><br/>
-
 ## LinkMeIn Experts? ##
 Welcome back! We hope that you have been enjoying your internship tracking journey with LinkMeIn.
 
@@ -117,8 +115,7 @@ In this section, you will learn how to set up LinkMeIn on your computer.
 
    <div style="page-break-after: always;"></div><br/>
 
-7. Type the command `java -jar LinkMeIn.jar` and press `Enter`. Your command terminal should look like this after 
-
+7. Type the command `java -jar LinkMeIn.jar` and press `Enter`. Your command terminal should look like this after
    Steps 6 and 7:
     <div style="margin-top: 10px; margin-bottom: 10px">
         <img src="images/quick-start/launchLinkMeIn.png" alt="Launch LinkMeIn" width="650"/>
@@ -445,7 +442,7 @@ Add the company to LinkMeIn now to keep track of the application process using t
 **Format**:
 `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/PRIORITY]`
 
-> All [**parameters**](#parameters-description-brbr) specified in the format are compulsory except for PRIORITY.
+> All [**parameters**](#parameters-description) specified in the format are compulsory except for PRIORITY.
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
@@ -555,8 +552,6 @@ _After adding a company, you wish to note down more information such as the job 
 
 **Step 1.** After adding the internship for DSTA into LinkMeIn,
 you want to note that this internship requires experience in Java.
-
-<div style="page-break-after: always;"></div><br/>
 
 <div style="page-break-after: always;"></div><br/>
 
@@ -796,7 +791,7 @@ Filter the list of companies by their application status using the `filter` comm
 
 <div style="page-break-after: always;"></div><br/>
 
-**Step 3:** You can then check the Company List Panel for all the companies where you have pending interviews. 
+**Step 3:** You can then check the Company List Panel for all the companies where you have pending interviews.
 
 ![img.png](images/filter-command/AfterFilterCommand.png)
 
@@ -879,7 +874,7 @@ Encountered an unfamiliar term when using LinkMeIn? Read the respective descript
 
 <div style="page-break-after: always;"></div><br/>
 
-### Parameters Description <br/><br/>
+### Parameters Description
 
 | Parameter          | Description                                   | Constraints                                                                                                                     |
 |--------------------|-----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
