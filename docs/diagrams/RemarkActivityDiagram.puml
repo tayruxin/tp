@@ -16,12 +16,12 @@ if () then ([remark command word])
 
 else ([unremark command word])
     :Create UnremarkCommandParser;
-    :Create RemarkCommand
+    :   Create RemarkCommand
     with "No remarks" as remark;
 
 endif
 
-:RemarkCommand.execute()
+:   RemarkCommand.execute()
 updates remark of the company;
 stop
 @enduml

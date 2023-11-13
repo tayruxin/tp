@@ -7,7 +7,7 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":EditCommandParser" as EditCommandParser LOGIC_COLOR
-participant "c:EditCompanyDescriptor" as EditCompanyDescriptor LOGIC_COLOR
+participant "d:EditCompanyDescriptor" as EditCompanyDescriptor LOGIC_COLOR
 participant "e:EditCommand" as EditCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 
@@ -37,11 +37,11 @@ create EditCompanyDescriptor
 EditCommandParser -> EditCompanyDescriptor
 activate EditCompanyDescriptor
 
-EditCompanyDescriptor --> EditCommandParser : c
+EditCompanyDescriptor --> EditCommandParser : d
 deactivate EditCompanyDescriptor
 
 create EditCommand
-EditCommandParser -> EditCommand : EditCommand(1, c)
+EditCommandParser -> EditCommand : EditCommand(1, d)
 activate EditCommand
 
 EditCommand --> EditCommandParser : e
@@ -59,13 +59,24 @@ deactivate AddressBookParser
 LogicManager -> EditCommand : execute(m)
 activate EditCommand
 
-EditCommand -> Model : setCompany(Company target, Company editedCompany)
+EditCommand -> Model : getCompany(1)
+activate Model
+
+Model --> EditCommand : target
+deactivate Model
+
+EditCommand -> EditCommand : createEditedCompany(target, d)
+activate EditCommand
+EditCommand --> EditCommand : c
+deactivate EditCommand
+
+EditCommand -> Model : setCompany(target, c)
 activate Model
 
 Model --> EditCommand
 deactivate Model
 
-EditCommand -> Model : setCurrentViewedCompany(Company company)
+EditCommand -> Model : setCurrentViewedCompany(c)
 activate Model
 
 Model --> EditCommand
