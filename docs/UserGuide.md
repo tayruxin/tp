@@ -229,7 +229,7 @@ Since `PRIORITY` parameter is optional, the following command lines are accepted
 * Parameters and prefixes are case-insensitive. e.g. `c/COMPANY_NAME` is the same as `C/company_name`.
 </div>
 
-Notice that the `add` command does not use `INDEX` in its command format. Each feature has a unique command format, but every command line must begin with a command word to specify the desired feature. You can find the command format for each feature in the [Features](#current-features) section or take a **quick tour** to get hands-on experience with LinkMeIn, right below!.
+Notice that the `add` command does not use `INDEX` in its command format. Each feature has a unique command format, but every command line must begin with a command word to specify the desired feature. You can find the command format for each feature in the [Features](#current-features) section or take a **quick tour** to get hands-on experience with LinkMeIn, right below!
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -379,7 +379,7 @@ LinkMeIn's features can be categorised into 3 broad categories:
 <div style="page-break-after: always;"></div><br/>
 
 ## General Features
-These general features are here to assist you in navigating LinkMeIn effectively, be it when you're a beginner or an expert user. Keep reading to find out more about them!
+These general features are here to enhance your user experience when using LinkMeIn. Keep reading to find out more about them!
 
 ### Clearing All Companies: `clear`
 
@@ -541,6 +541,7 @@ _After adding a company, you wish to note down more information such as the job 
 **Format:** `remark INDEX re/REMARK`
 
 > `INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. lesser than 2147483647). <br>
+>
 > Remarks cannot be empty.
 
 <div markdown="block" class="alert alert-danger">
@@ -593,7 +594,7 @@ _You have previously added some remarks to a company, but the remarks have becom
 
 **Format:** `unremark INDEX`
 
->`INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. lesser than 2147483647).g
+>`INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. lesser than 2147483647).
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
@@ -639,6 +640,7 @@ _You look at the details of the application, and realise that you have made a ty
 **Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY]`
 
 >`INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. lesser than 2147483647). <br>
+>
 > At least one of the optional parameters must be provided.
 
 **Examples:**
