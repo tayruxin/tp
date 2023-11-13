@@ -276,8 +276,9 @@ The sequence diagram below illustrates the processing of a `find` command, such 
 <img src="images/FindCompanySequenceDiagram.png"/>
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Note:** 
-The above sequence diagram simplifies the interaction by focusing on the primary components involved in processing the `find` command.
+**:information_source: Notes:** 
+* The above sequence diagram simplifies the interaction by focusing on the primary components involved in processing the `find` command.
+* The lifeline for `FindCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 #### Design Considerations
