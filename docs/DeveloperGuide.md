@@ -250,7 +250,7 @@ The `find` command allows users to search for companies using one or more keywor
 
 **How `NameContainsKeywordsPredicate` Works**
 
-Previously, `NameContainsKeywordsPredicate` was designed to match a company name against a whole keyword. However, the modified implementation allows it to test a company's name against substrings and return true if the comapany's name contains the substring .
+Previously, `NameContainsKeywordsPredicate` was designed to match a company name against a whole keyword. However, the modified implementation allows it to test a company's name against substrings and return true if the company's name contains the substring.
 
 When `find` is executed, it uses the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method, passing in the modified `NameContainsKeywordsPredicate` to filter the list of companies.
 
@@ -290,22 +290,13 @@ With the design considerations, we've chosen the alternatives that provide a bal
 
 ### Filter Feature
 
-The `filter` command allows users to filter the company list by the application status.
+The `filter` command allows users to filter the list of companies based on the valid application status. 
 
 #### Implementation
 
-The `filter` command uses the `ApplicationStatusPredicate` class, which tests and returns true if a company's application status matches the application status input specified by the user. The `ApplicationStatusPredicate` class implements the `Predicate` interface, which allows it to be used in the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method.
+The `filter` command uses a new predicate, `ApplicationStatusPredicate`, which tests and returns true if a company's application status matches the application status input specified by the user. The `ApplicationStatusPredicate` class implements the `Predicate` interface, which allows it to be used in the `Model#updateFilteredCompanyList(Predicate<Company> predicate)` method to filter the list of companies. All companies that match the application status input will be displayed in the updated `CompanyListPanel`.
 
-Given below is an example usage scenario and how the `filter` mechanism behaves at each step.
-
-1. The user enters the input `filter s/PA`.
-2. The `LogicManager` calls `AddressBookParser#parseCommand()` with the user input.
-3. The `AddressBookParser` creates a parser that matches the `filter` command, a `FilterCommandParser` object, and uses it to parse the command.
-4. The `FilterCommandParser` creates a `ApplicationStatusPredicate` object with the application status, PA, and then creates a `FilterCommand` object with the `ApplicationStatusPredicate` object.
-5. The `FilterCommand` object can communicate with the `Model` when it is executed. It calls `Model#filterCompaniesByStatus(Predicate<Company> predicate)` to filter the list of companies by their application status.
-6. Finally, the `FilterCommand` object returns the `CommandResult` object.
-
-The following sequence diagram will illustrate the process of performing the `filter` command.
+The following sequence diagram will illustrate the process of performing the `filter` command, taking `filter s/pa` as an example.
 
 <img src="images/FilterSequenceDiagram.png"/>
 
@@ -318,9 +309,9 @@ The lifeline for `FilterCommandParser` should end at the destroy marker (X) but 
 
 **Aspect: UI of the Filter Command**
 
-* **Alternative 1:** The `CompanyDetailPanel` will still display the details of the company that was viewed before the `filter` command is executed.
-    * Pros: Users can still view the details of the last viewed company in the `CompanyDetailPanel` alongside the filtered list of companies.
-    * Cons: Users may be confused as the last viewed company in the `CompanyDetailPanel` may not be in the filtered list of companies after filtering.
+* **Alternative 1:** The `CompanyDetailPanel` will still display the details of the company that was last viewed before the `filter` command is executed.
+  * Pros: Users can still view the details of the last viewed company in the `CompanyDetailPanel` alongside the filtered list of companies.
+  * Cons: Users may be confused as the last viewed company in the `CompanyDetailPanel` may not be in the filtered list of companies after filtering.
 
 * **Alternative 2 (Current Choice):** The `CompanyDetailPanel` will be cleared whenever the `filter` command is executed.
     * Pros: Users can focus on viewing details of company(s) belonging to the filtered list only, reducing distractions and confusions.
@@ -329,15 +320,22 @@ The lifeline for `FilterCommandParser` should end at the destroy marker (X) but 
 ### Edit Feature
 
 #### Implementation
-The edit mechanism is facilitated by `EditCompanyDescriptor`. It is a nested class of `EditCommand` that stores the edited fields of a company and unedited fields to be `null`.
-Additionally, `EditCommand` implements the following operations:
+The edit mechanism is facilitated by `EditCompanyDescriptor`, which is a nested class of `EditCommand` that is similar to the `Company` model, except that the value of fields can be null.
+The `EditCommandParser` parses the user input and stores the values of the fields to be edited in an `EditCompanyDescriptor` object while unedited fields are `null`.
+Additionally, `EditCommand` implements the `EditCommand#execute(Model model)`operation which edits all the fields indicated by the user input.
+This operation is exposed in the `Model` interface as:
 
-* `EditCommand#execute(Model model)` — Edits all the attributes indicated in user input.
+* `Model#setCompany(Company target, Company editedCompany)` - Updates a company in the list to a new company with edited fields.
+* `Model#setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed in the `CompanyDetailPanel`.
 
-These operations are exposed in the `Model` interface as `Model#setCompany(Company target, Company editedCompany)`.
+The following sequence diagram will illustrate the process of performing the `edit` command.
 
-Given below is the sequence diagram shows how the edit operation works.
 <img src="images/EditSequenceDiagram.png"/>
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Note:**
+The lifeline for `EditCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</div>
 
 After the `EditCommandParser` initializes an `EditCompanyDescriptor` object, it sets the attributes of `EditCompanyDescriptor` that needs to be edited to the values input by the user.
 When `EditCommand#execute()` is called, a `Company` object, `c`, with edited attributes is initialized since `Company` is immutable.
@@ -426,7 +424,7 @@ getDuplicateCompany(toAdd) method, which has already been shown in the sequence 
 
 ### Remark Feature
 
-The `remark` command allows user to add and delete a remark from a company.
+The `remark` feature allows user to add and delete remarks from a company.
 
 #### Implementation
 
@@ -437,6 +435,8 @@ Meanwhile, both can create the same type of Command object, `RemarkCommand`, bec
 The following activity diagram will show how `RemarkCommand` can achieve the functionality of both `COMMAND_WORD`.
 
 <img src="images/RemarkActivityDiagram.png"/>
+
+The remark feature has a similar implementation as the [edit feature](#edit-feature), except that a `Remark` object is initialized instead of `EditCompanyDescriptor`.
 
 #### Design Considerations
 
@@ -449,26 +449,17 @@ The following activity diagram will show how `RemarkCommand` can achieve the fun
     - Cons: Remarks may be accidentally deleted by an empty input for the parameter. This can affect user experience negatively.
 
 ### Add Feature
-The `add` command allows users to add companies into LinkMeIn. The compulsory parameters are the company's name, the application's role, status and deadline, and the recruiter's name, phone and email address. The optional parameter is the priority of the application. Parameters can be added in any order.
+The `add` command allows users to add companies into LinkMeIn. 
 
 #### Implementation
-Given below is an example usage scenario and how the `add` mechanism behaves at each step.
+The `add` feature is implemented using the `AddCommand` class. The `AddCommand` object takes in a `Company` object. Only if all the inputs for the parameters are valid and all compulsory parameters are present, then the `Company` object is created.
 
-1. The user enters the input `add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan p/98765432 e/francist@gmail.com`.
+The `add` feature includes the following operations in `ModelManager`, which implements the `Model` interface:
+* `Model#hasCompany(Company company)` — Checks if the company already exists in LinkMeIn. Duplicate companies are those with the same company name, application role and application deadline.
+* `Model#addCompany(Company company)` — Adds a company into LinkMeIn.
+* `Model#setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed in the `CompanyDetailPanel`.
 
-2. The `LogicManager` calls `AddressBookParser#parseCommand()` with the user input.
-
-3. The `AddressBookParser` creates a parser that matches the `add` command, an `AddCommandParser` object, and uses it to parse the command.
-
-4. The `AddCommandParser` creates a `Company` object, and then creates an `AddCommand` object with the `Company` object.
-
-5. The `AddCommand` object can communicate with the `Model` when it is executed. It first checks if there's a duplicate input, which has the same company name, application role and application deadline.
-
-6. If the `Model` does not have a duplicate, the `AddCommand` object calls `Model#addCompany` to add the new `Company` into LinkMeIn.
-
-7. Finally, the `AddCommand` object returns the `CommandResult` object.
-
-The following sequence diagram illustrates how the `add` command works:
+The following sequence diagram illustrates how the `add` command works and interacts between the `Logic` and `Model` components, taking the input `add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan p/98765432 e/francist@gmail.com` as an example.
 
 <img src="images/AddSequenceDiagram.png" alt="Add Sequence Diagram"/>
 
@@ -477,7 +468,7 @@ The following sequence diagram illustrates how the `add` command works:
 The lifeline for `AddCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
-The following activity diagram shows how the `add` command works:
+The following activity diagram shows what happens when the user executes the `add` command.
 
 <img src="images/AddActivityDiagram.png" alt="Add Activity Diagram"/>
 
@@ -490,6 +481,28 @@ The following activity diagram shows how the `add` command works:
 * **Alternative 2 (Current Choice):** A `Company` object also includes application status, recruiter's name, phone and email address. The priority parameter is kept optional.
     * Pros: Users can add in all the information at once, minimising the need to use other commands to do so afterward, like using `edit` command.
     * Cons: Longer `add` command for users. Users may also not have recruiter's information at hand when they are adding in the company into LinkMeIn.
+
+### Sort Feature
+The `sort` command allows users to sort the list of companies by their application deadlines in either ascending or 
+descending order. 
+
+#### Implementation
+The `Deadline` class implements the `java.lang.Comparable` interface, which provides a natural ordering of deadlines. 
+The sort feature leverages the fact that the `Deadline` field in a `Company` object is comparable and uses 
+the Java `Comparator` interface to sort companies based on their deadlines. 
+
+The sequence diagram below illustrates the execution of the SortCommand, when it is called with a `sortOrder` that can
+be either `ASCENDING` or `DESCENDING`. For simplicity, the parsing of the command prior to the execution of the command
+has been excluded. 
+
+<img src="images/SortSequenceDiagram.png" alt="Sort Sequence Diagram"/>
+<div markdown="block" class="alert alert-info">
+**:information_source: Note:**
+The corresponding methods `createComparator`, `getUnmodifiableObservableList` and `sortCompanies` in the sequence diagram 
+are simplifications of the actual code implementations for their respective actions. Also, the `sortOrder` is stored 
+as an attribute in the `SortCommand` object, when it is created during parsing. It is shown as the way it is in the 
+diagram for simplicity. 
+</div>
 
 ---
 
@@ -732,9 +745,27 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 
 ### Glossary
 
--   **Company**: A company that is offering an internship position
--   **Internship application**: An application made by the user to a company offering an internship position
--   **Mainstream OS**: Windows, Linux, Unix, OS-X
+| Term                   | Definition                                                                                                                                                                                                                          |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Alphanumeric**       | Refers to a character set that includes both letters and numbers. It includes the 26 letters of the English alphabet (both uppercase and lowercase) and the numbers 0 through 9.                                                    |
+| **APPLICATION_STATUS** | Status of the application. It can be either pending application, pending interview, pending outcome, accepted or rejected.                                                                                                          |
+| **CLI**                | Command-Line Interface (CLI) is a text-based user interface where users interact with the application by typing commands.                                                                                                           |
+| **Command**            | A command is an instruction given by a user to LinkMeIn to perform a specific action. For example,`add` command is a command to add the company's application into LinkMeIn.                                                        |
+| **COMPANY_NAME**       | Name of the company that you are applying to. Should only contain alphanumeric characters <br/>and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                   |
+| **DEADLINE**           | Deadline of the application. Should be in DD-MM-YYYY format. Dates before the current date are allowed.                                                                                                                             |
+| **EMAIL**              | Email of the recruiter. Should be in the format of `local-part@domain` and should not be blank.                                                                                                                                     |
+| **GUI**                | Graphical User Interface (GUI) is a visual method to interact with software using icons, buttons, and windows. GUI provides a user-friendly way to interact with software using graphical elements rather than text-based commands. |
+| **Index**              | Refers to the index number shown in the displayed company list.                                                                                                                                                                     |
+| **JAR**                | JAR stands for Java Archive and is a package file format typically used to aggregate many Java class files and associated metadata and resources into one file for distribution.                                                    |
+| **JSON**               | JSON stands for JavaScript Object Notation. It is a lightweight format for data interchange, easy to read and write for humans, and easy to parse for machines. Often used in web applications and configuration files.             |
+| **Mainstream OS**      | Windows, Linux, Unix, OS-X.                                                                                                                                                                                                         |
+| **Parameter**          | Parameter is similar to a field in a form you have to fill up. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `COMPANY_NAME` and `EMAIL` are parameters in the command.                                               |
+| **PHONE_NUMBER**       | Phone number of the recruiter. Should only contain numbers, be at least 3 digits and at most 20 digits long. Should not be blank.                                                                                                   |
+| **Prefix**             | Prefix is a keyword that is used to identify the parameter. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/` and `e/` are prefixes.                                                                                |
+| **PRIORITY**           | Priority of the internship application for a company. Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`.                                                                                         |
+| **RECRUITER_NAME**     | Name of the recruiter. Should only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                                               |
+| **REMARK**             | Refers to additional comments for the application. Should not be blank.                                                                                                                                                             |
+| **ROLE**               | Role of the internship that you are applying. Should only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                        |
 
 ---
 
@@ -808,9 +839,40 @@ field. In addition, the character `+` will only be allowed at the start while, t
 - 922492304: will be accepted
 - 24234 + 234243: will **not** be accepted
 
-### Find Feature Enhancement 1
+### **5. Enhance Find Feature to Search with Other Parameters**
+**Potential Flaw in Current Implementation**<br>
+Currently, LinkMeIn only allows searching through the list of companies by the `COMPANY_NAME` parameter. However, 
+users might want to search through the list using other parameters, like `RECRUITER_NAME`, `PRIORITY` and `ROLE`.
 
-### Find Feature Enhancement 2
+**Proposed Enhancement**<br>
+We plan to expand the current find command’s capability to allow for search using other parameters. The users will 
+be able to specify the prefix that corresponds to the parameter they wish to use for the search, before the keyword(s). 
+The prefixes used will be consistent with the rest of the application, in regard to what parameter they represent.
+
+Here are the new suggested formats :
+* Find using `RECRUITER_NAME` : `find n/KEYWORD [KEYWORDS]...`
+* Find using `PRIORITY`: `find pr/KEYWORD [KEYWORDS]...`
+* Find using `Role`: `find r/KEYWORD [KEYWORDS]...`
+
+**Examples**<br>
+* `find n/John Doe`
+* `find pr/High`
+* `find r/Software Engineer`
+
+### **6. Enhance Find Feature to Allow for Search of Exact Company Names**
+**Potential Flaw in Current Implementation**<br>
+If users would like to find a specific company that has two or more words in their name such as `Microsoft 
+Corporation`, using the current find command will return companies that match either “Microsoft” or “Corporation”. 
+This can potentially pollute the results and defeat the purpose of the find feature.
+
+**Proposed Enhancement**<br>
+We plan to expand the find command's capability, to allow for exact keyword matching. This can be done by specifying 
+the keyword(s) within quotations.
+
+Suggested command format for exact find: `find “KEYWORD [KEYWORDS]...”`
+
+For example, users can now type: `find “Microsoft Corporation”`. This will return companies with names that match 
+`Microsoft Corporation` exactly, reducing the potential for polluted find results.
 
 ### Improve Error Message for Deadline Parameter
 **Potential Flaw in Current Implementation**<br>

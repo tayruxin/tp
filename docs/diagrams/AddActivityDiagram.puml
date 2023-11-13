@@ -4,22 +4,21 @@ skinparam ActivityFontSize 12
 skinparam ArrowFontSize 12
 start
 :User executes AddCommand;
-:AddCommandParser parses user input;
 
 'Since the beta syntax does not support placing the condition outside the
 'diamond we place it as the true branch instead.
 
-if () then ([input is valid])
-    :LogicManager executes AddCommand;
+if () then ([user input is valid])
     if () then ([company already exists])
-        :Display duplicate company error message;
+        :System displays duplicate company error message;
     else ([else])
-        :Insert company to list of companies;
-        :Update UI;
+        :System inserts company to list of companies;
+        :System displays added company in CompanyListPanel;
+        :System displays added company in CompanyDetailPanel;
     endif
 
 else ([else])
-:Display error message;
+:System displays specific error message;
 
 endif
 stop
