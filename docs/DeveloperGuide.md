@@ -441,7 +441,7 @@ The `add` command allows users to add companies into LinkMeIn.
 #### Implementation
 The `add` feature is implemented using the `AddCommand` class. The `AddCommand` object takes in a `Company` object. Only if all the inputs for the parameters are valid and all compulsory parameters are present, then the `Company` object is created.
 
-The `add` feature includes the following operations in `ModelManager`, which is implemented by the `Model` interface:
+The `add` feature includes the following operations in `ModelManager`, which implements the `Model` interface:
 * `Model#hasCompany(Company company)` — Checks if the company already exists in LinkMeIn. Duplicate companies are those with the same company name, application role and application deadline.
 * `Model#addCompany(Company company)` — Adds a company into LinkMeIn.
 * `Model#setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed in the `CompanyDetailPanel`.
