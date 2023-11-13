@@ -181,7 +181,7 @@ The following color code will assist you in highlighting each component for bett
 
 Let's use the [`add` command](#adding-a-company--add) format as shown below to explain the components. 
 <div style="margin-top: 10px; margin-bottom: 10px">
-    <img src="images/cli-description/CommandFormat2.png" alt="CommandFormat2" width="650"/>
+    <img src="images/cli-description/CommandFormat2.png" alt="CommandFormat2" width="750" />
 </div>
 
 The `add` command word is used to initiate the adding a company into LinkMeIn. <br>
