@@ -1023,16 +1023,16 @@ The `DeleteCommandParser` will then split the string by commas and remove the co
 ### Enhance Remark Feature
 **Potential Flaw in Current Implementation**
 
-Currently, users are unable to copy texts from the company detail panel in our UI.
-If users wish to add on to the existing remark, they need to re-type the existing remark into the command box then add in the new remark.
-This may not be a practical implementation, especially if the existing remark is long, which affects user experience negatively.
+Currently, users are unable to copy texts from the `CompanyDetailPanel` in our UI.
+If users wish to add on to the existing remarks, they need to re-type the existing remarks into the Command Box, followed by their new remarks.
+This may not be a practical implementation, especially if the existing remarks are long, negatively affecting the user experience.
 
 **Proposed Enhancement**
 
 Edit the error message returned for `remark INDEX re/`.
 Currently, when `remark 1 re/` is entered, the error message returned is `Oops! Remark should not be empty. Please try again!`.
-This can be enhanced to return the existing remarks in the Message Box where the user can copy the content unlike in the company detail panel where the user is unable to do so.
-Hence, the `remark INDEX re/` command is modified such that if the user does not enter any remarks after `re/` prefix, the message displayed to the user will include their existing remarks.
+This can be enhanced to return the existing remarks in the Message Box where the user can copy the content unlike in the`CompanyDetailPanel` where the user is unable to do so.
+Hence, the `remark INDEX re/` command will be modified such that if the user does not enter any remarks after `re/` prefix, the message displayed to the user will include their existing remarks.
 Should they wish to add on to their existing remarks, they can easily copy their existing remarks from the Message Box.
 The success message for a valid cumulative remark command will be the same as the usual remark command, which is `Added remark to Company: COMPANY_NAME`.
 
@@ -1072,7 +1072,7 @@ testers are expected to do more *exploratory* testing.
 
 ### Adding a Company
 1. Test case: `add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan p/98765432 e/johnd@example.com pr/HIGH` <br>
-   Expected: A new company is added to the end of the list of companies. Details of the added company is displayed in the company detail panel.
+   Expected: A new company is added to the end of the list of companies. Details of the added company is displayed in the `CompanyDetailPanel`.
 2. Test case: `add c/Google r/Software Engineer s/PA d/10-10-2023 n/Francis Tan` <br>
    Expected: No company is added. Error details shown in the command message.
 3. Try adding the same test case from Step 1. Check that an error message is displayed.
@@ -1083,17 +1083,17 @@ testers are expected to do more *exploratory* testing.
 Prerequisite: There is at least one company in the list.
 
 1. Test case: `edit 1 r/Data Analyst` <br>
-   Expected: First company’s role is updated in the list. Details of the edited company is displayed in the company detail panel.
+   Expected: First company’s role is updated in the list. Details of the edited company is displayed in the `CompanyDetailPanel`.
 2. Try editing other companies with different parameters.
 
 ### Deleting a Company
 Prerequisite: There is at least one company in the list.
 
 1. Test case: `delete 1`<br>
-   Expected: First contact is deleted from the list. Details of the deleted company shown in the message box.
+   Expected: First contact is deleted from the list. Details of the deleted company shown in the Message Box.
 
 2. Test case: `delete 0`<br>
-   Expected: No company is deleted. Error details shown in the message box.
+   Expected: No company is deleted. Error details shown in the Message Box.
 
 3. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
    Expected: Similar to previous.
@@ -1102,9 +1102,9 @@ Prerequisite: There is at least one company in the list.
 Prerequisites: List all companies using the `list` command. Multiple companies in the list.
 
 1. Test case: `view 1`<br>
-   Expected: First company is shown in the company detail panel.
+   Expected: First company is shown in the `CompanyDetailPanel`.
 2. Test case: `view 0`<br>
-   Expected: No company is shown in the company detail panel. Error details shown in the message box.
+   Expected: No company is shown in the `CompanyDetailPanel`. Error details shown in the Message Box.
 3. Other incorrect view commands to try: `view`, `view x`, `...` (where x is larger than the list size)<br>
    Expected: Similar to previous.
 
@@ -1121,30 +1121,30 @@ Prerequisite: There is at least one company in the list.
 Prerequisite: There is at least one company in the list.
 
 1. Test case: `unremark 1` <br>
-   Expected: Remarks deleted from the first company in the list. Company detail panel will display "No remarks" under Remarks.
+   Expected: Remarks deleted from the first company in the list. `CompanyDetailPanel` will display "No remarks" under Remarks.
 
 ### Listing Companies
 1. Test case: `list` <br>
-   Expected: All companies in the list are displayed in the company list panel.
+   Expected: All companies in the list are displayed in the `CompanyListPanel`.
 
 ### Finding Companies
 1. Test case: `find Google` <br>
-   Expected: All companies with the keyword "Google" in their names are displayed in the company list panel.
-2. Try finding for a company that does not exist in the list.
-   Expected: No company is displayed in the company list panel.
+   Expected: All companies with the keyword "Google" in their names are displayed in the `CompanyListPanel`.
+2. Try finding for a company that does not exist in the list. <br>
+   Expected: No company is displayed in the `CompanyListPanel`.
 
 <div style="page-break-after: always;"></div>
 
 ### Sorting Companies by Deadline
 1. Test case: `sort` <br>
-   Expected: All companies in the list are displayed in the company list panel, sorted by deadline in ascending order.
+   Expected: All companies in the list are displayed in the `CompanyListPanel`, sorted by deadline in ascending order.
 2. Test case: `sort d` <br>
-   Expected: All companies in the list are displayed in the company list panel, sorted by deadline in descending order.
+   Expected: All companies in the list are displayed in the `CompanyListPanel`, sorted by deadline in descending order.
 3. Try sorting companies by an invalid parameter. Check that an error message is displayed.
 
 ### Filtering Companies by Application Status
 1. Test case: `filter s/PA` <br>
-   Expected: All companies with the application status "PA" are displayed in the company list panel.
+   Expected: All companies with the application status "PA" are displayed in the `CompanyListPanel`.
 2. Try again with an invalid application status. Check that an error message is displayed.
 
 ### Clearing All Data
