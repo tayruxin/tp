@@ -3,6 +3,7 @@ layout: page
 title: Developer Guide
 ---
 
+## **Table of Contents**
 * Table of Contents
 {:toc}
 
@@ -77,6 +78,8 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 
 The sections below give more details of each component.
 
+<div style="page-break-after: always;"></div>
+
 ### UI Component
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
@@ -93,6 +96,8 @@ The `UI` component,
 -   listens for changes to `Model` data so that the UI can be updated with the modified data.
 -   keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 -   depends on some classes in the `Model` component, as it displays `Company` object residing in the `Model`.
+
+<div style="page-break-after: always;"></div>
 
 ### Logic Component
 
@@ -125,6 +130,8 @@ How the parsing works:
 -   When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 -   All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
+<div style="page-break-after: always;"></div>
+
 ### Model Component
 
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
@@ -139,6 +146,8 @@ The `Model` component,
     bound to this list so that the UI automatically updates when the data in the list change.
 -   stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 -   does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
+
+<div style="page-break-after: always;"></div>
 
 ### Storage Component
 
@@ -199,6 +208,8 @@ sets the graphics to the `CompanyDetailCard` by constructing a new `CompanyDetai
     -   Pros: The user does not need to key in additional commands to view the details of the company.
     -   Cons: The `CompanyListPanel` will be too cluttered with too much information displayed in a company card.
 
+<div style="page-break-after: always;"></div>
+
 ### View Feature
 The `CompanyDetailPanel` allows the user to view the company details of the selected company in the company list.
 The user can use the `view` command to select the company to view.
@@ -246,6 +257,8 @@ shown in the activity diagram below.
 -   **Alternative 2:** Create a new `Company` object in `AddressBook` to store the selected company which the user wishes to view.
     -   Pros: Since there are no lists involved, there is no need to clear the list.
     -   Cons: The `CompanyDetailPanel` will not be updated automatically when there are any changes made to the `Company` object. There is a need to create additional methods to update the `CompanyDetailPanel` when changes are made to the `Company` object.
+
+<div style="page-break-after: always;"></div>
 
 ### Find Feature
 
@@ -296,6 +309,8 @@ The above sequence diagram simplifies the interaction by focusing on the primary
 
 With the design considerations, we've chosen the alternatives that provide a balance between user-friendliness and precision.
 
+<div style="page-break-after: always;"></div>
+
 ### Filter Feature
 
 The `filter` command allows users to filter the list of companies based on the valid application status. 
@@ -324,6 +339,8 @@ The lifeline for `FilterCommandParser` should end at the destroy marker (X) but 
 * **Alternative 2 (Current Choice):** The `CompanyDetailPanel` will be cleared whenever the `filter` command is executed.
     * Pros: Users can focus on viewing details of company(s) belonging to the filtered list only, reducing distractions and confusions.
     * Cons: Users might have to execute the `view` command again to access details of the last viewed company before filtering even if that company is still in the filtered list, potentially leading to additional steps taken.
+
+<div style="page-break-after: always;"></div>
 
 ### Edit Feature
 
@@ -360,7 +377,9 @@ When `Model#setCompany(Company company)` is called, the original `Company` objec
     * Pros: Command line is shorter which reduces users' error such as duplicates or invalid command. This improves user experience.
     * Cons: We must ensure that the implementation of each individual command are correct. This may also require more memory usage, a Company object is initialized for every modified attribute.
 
-### Duplicate detection
+<div style="page-break-after: always;"></div>
+
+### Duplicate Detection
 
 <img src="images/duplicate-detection/edit-command/DuplicateSequenceDiagram.png"/>
 
@@ -429,6 +448,7 @@ getDuplicateCompany(toAdd) method, which has already been shown in the sequence 
       interns from inadvertently applying multiple times to the same position at a company with the same role and
       application deadline.
 
+<div style="page-break-after: always;"></div>
 
 ### Remark Feature
 
@@ -455,6 +475,8 @@ The remark feature has a similar implementation as the [edit feature](#edit-feat
 - **Alternative 2:** Use only one `COMMAND_WORD` - remark
     - Pros: Easier to implement.
     - Cons: Remarks may be accidentally deleted by an empty input for the parameter. This can affect user experience negatively.
+
+<div style="page-break-after: always;"></div>
 
 ### Add Feature
 The `add` command allows users to add companies into LinkMeIn. 
@@ -489,6 +511,8 @@ The following activity diagram shows what happens when the user executes the `ad
 * **Alternative 2 (Current Choice):** A `Company` object also includes application status, recruiter's name, phone and email address. The priority parameter is kept optional.
     * Pros: Users can add in all the information at once, minimising the need to use other commands to do so afterward, like using `edit` command.
     * Cons: Longer `add` command for users. Users may also not have recruiter's information at hand when they are adding in the company into LinkMeIn.
+
+<div style="page-break-after: always;"></div>
 
 ### Sort Feature
 The `sort` command allows users to sort the list of companies by their application deadlines in either ascending or 
@@ -545,7 +569,10 @@ CS students often struggle to manage a multitude of internship applications and 
 
 ### User Stories
 
-Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
+**Priority:**
+- `* * *` - High (must have) 
+- `* *` - Medium (nice to have)
+- `*` - Low (unlikely to have)
 
 | Priority | As a …​                         | I want to …​                                                 | So that I can…​                                                                            |
 |----------|---------------------------------|--------------------------------------------------------------|--------------------------------------------------------------------------------------------|
@@ -610,6 +637,7 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
     * 1c2. User enters the information of a new company. <br>
       Use case resumes from Step 1.
 
+<div style="page-break-after: always;"></div>
 
 **Use Case: UC03 - Delete a Company**
 
@@ -649,6 +677,7 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 
+<div style="page-break-after: always;"></div>
 
 **Use Case: UC06 - Edit a Company**
 
@@ -685,6 +714,7 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 * 1b. LinkMeIn detects an invalid parameter input → handled similarly to 1b of UC02.
 
+<div style="page-break-after: always;"></div>
 
 **Use Case: UC09 - Sort Companies by Deadline**
 
@@ -730,6 +760,7 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
 
+<div style="page-break-after: always;"></div>
 
 **Use Case: UC13 - View Help**
 
@@ -740,8 +771,6 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 
 **Extensions** <br>
 * 1a. LinkMeIn detects an invalid command format error in the input →  handled similarly to 1a of UC01.
-
-<div style="page-break-after: always;"></div>
 
 ### Non-Functional Requirements
 
@@ -815,6 +844,8 @@ The following implementation will be adopted instead:
 - **unremark**: `Removed remark from company: COMPANY_NAME (ROLE, DEADLINE)`
 - **add**: `New company added: COMPANY_NAME (ROLE, DEADLINE)`
 
+<div style="page-break-after: always;"></div>
+
 ### Make Recruiter Name, Phone and Email Parameters Optional in Add Command
 **Feature Flaw in Current Implementation** <br>
 Currently, the recruiter’s information, namely recruiter’s name, phone number and email address, are compulsory parameters as inputs for Add Command. However, the user may not have the recruiter’s information at the point of applying to the company, which is common in most internship applications now. The user may only have the recruiter’s information at a later point in time. Hence, the user will not be able to add the company into LinkMeIn, without the recruiter's name, phone number and email address.
@@ -830,6 +861,8 @@ If the user did not add in the recruiter's name, phone number and email address 
 **Examples**<br>
 * `add c/Google r/Software Engineer s/pa d/11-11-2023`
 * `add c/TikTok r/Data Analyst s/pa d/10-12-2023 n/Ben Tan`
+
+<div style="page-break-after: always;"></div>
 
 ### Omit Alphanumeric Checks for Company Name, Recruiter Name and Role Parameters
 **Feature Flaw in Current Implementation**
@@ -883,6 +916,8 @@ Here are examples illustrating what will now be allowed and what will remain dis
 The new regex allows for a more diverse range of characters, accommodating special characters, Unicode letters, numbers, spaces, periods, parentheses, and hyphens.
 It still restricts inputs that start with or contain certain special characters not typically found in names or titles.
 
+<div style="page-break-after: always;"></div>
+
 ### Enhanced Flexibility in Phone Number Parameter Input
 
 **Feature Flaw in Current Implementation**
@@ -906,6 +941,8 @@ field. In addition, the character `+` will only be allowed at the start while, t
 - 922492304: will be accepted
 - 24234 + 234243: will **not** be accepted
 
+<div style="page-break-after: always;"></div>
+
 ### Enhance Find Feature to Search with Other Parameters
 **Potential Flaw in Current Implementation**<br>
 Currently, LinkMeIn only allows searching through the list of companies by the `COMPANY_NAME` parameter. However, 
@@ -925,6 +962,8 @@ Here are the new suggested formats :
 * `find n/John Doe`
 * `find pr/High`
 * `find r/Software Engineer`
+
+<div style="page-break-after: always;"></div>
 
 ### Enhance Find Feature to Allow for Search of Exact Company Names
 **Potential Flaw in Current Implementation**<br>
@@ -953,6 +992,7 @@ To enhance the deadline parameter input, we will add a check to determine if the
 New company added: COMPANY_NAME. 
 Note that you have entered a deadline past the current date. If you made a mistake in your input, please use the `edit` command to update the deadline. 
 ```
+<div style="page-break-after: always;"></div>
 
 ### Enhance Flexibility in Deadline Parameter Input
 **Potential Flaw in Current Implementation**<br>
@@ -967,6 +1007,8 @@ Also, we understand that some users may not wish to type leading zeros for days 
 * 1/1/2024 is in D/M/YYYY format
 * 2024-1-1 is in YYYY-M-D format
 * 12/12/2023 is in DD/MM/YYYY format
+
+<div style="page-break-after: always;"></div>
 
 ### Allow Multiple Indices Input for Delete Command
 
@@ -984,6 +1026,8 @@ The `DeleteCommandParser` will then split the string by commas and remove the co
 - `delete 1, 2`: deletes companies at index 1 and 2
 - `delete 1`: deletes company at index 1
 - `delete 4, 3, 7, 2`: deletes companies at index 4, 3, 7, 2
+
+<div style="page-break-after: always;"></div>
 
 ### Enhance Remark Feature
 **Potential Flaw in Current Implementation**
@@ -1042,6 +1086,8 @@ testers are expected to do more *exploratory* testing.
    Expected: No company is added. Error details shown in the command message.
 3. Try adding the same test case from Step 1. Check that an error message is displayed.
 
+<div style="page-break-after: always;"></div>
+
 ### Editing a Company
 Prerequisite: There is at least one company in the list.
 
@@ -1071,6 +1117,7 @@ Prerequisites: List all companies using the `list` command. Multiple companies i
 3. Other incorrect view commands to try: `view`, `view x`, `...` (where x is larger than the list size)<br>
    Expected: Similar to previous.
 
+<div style="page-break-after: always;"></div>
 
 ### Adding Remarks to a Company
 Prerequisite: There is at least one company in the list.
@@ -1095,6 +1142,8 @@ Prerequisite: There is at least one company in the list.
 2. Try finding for a company that does not exist in the list.
    Expected: No company is displayed in the company list panel.
 
+<div style="page-break-after: always;"></div>
+
 ### Sorting Companies by Deadline
 1. Test case: `sort` <br>
    Expected: All companies in the list are displayed in the company list panel, sorted by deadline in ascending order.
@@ -1115,6 +1164,7 @@ Prerequisite: There is at least one company in the list.
 1. Test case: `exit` <br>
    Expected: LinkMeIn closes.
 
+<div style="page-break-after: always;"></div>
 
 ### Saving Data
 1. Dealing with missing data file
