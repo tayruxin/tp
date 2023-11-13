@@ -617,7 +617,8 @@ An example of an error message is shown below.
 
 ### Duplicate detection
 
-_Got an error message while trying to add a company twice? LinkMeIn has got you covered!_
+_Seeking an internship but worried about double-applying? 
+Our duplicate detection swiftly ensures you never submit the same application twice!_
 
 How does LinkMeIn determine if a company is a duplicate? If you try to **add** a company with the same **company name**,
 **role**, and **deadline** as an existing application in LinkMeIn, you will see an error message in the command box information 
