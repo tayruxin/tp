@@ -345,12 +345,12 @@ The lifeline for `FilterCommandParser` should end at the destroy marker (X) but 
 ### Edit Feature
 
 #### Implementation
-The edit mechanism is facilitated by `EditCompanyDescriptor`, which is a nested class of `EditCommand` that is similar to the `Company` model, except that the value of fields can be null.
-The `EditCommandParser` parses the user input and stores the values of the fields to be edited in an `EditCompanyDescriptor` object while unedited fields are `null`.
-Additionally, `EditCommand` implements the `EditCommand#execute(Model model)`operation which edits all the fields indicated by the user input.
+The edit mechanism is facilitated by `EditCompanyDescriptor`, which is a nested class of `EditCommand` that is similar to the `Company` model, except that the value of parameters can be null.
+The `EditCommandParser` parses the user input and stores the values of the parameters to be edited in an `EditCompanyDescriptor` object while unedited parameters are `null`.
+Additionally, `EditCommand` implements the `EditCommand#execute(Model model)`operation which edits all the parameters indicated by the user input.
 This operation is exposed in the `Model` interface as:
 
-* `Model#setCompany(Company target, Company editedCompany)` - Updates a company in the list to a new company with edited fields.
+* `Model#setCompany(Company target, Company editedCompany)` - Updates a company in the list to a new company with edited parameters.
 * `Model#setCurrentViewedCompany(Company company)` - Sets the selected company to be viewed in the `CompanyDetailPanel`.
 
 The following sequence diagram will illustrate the process of performing the `edit` command.
@@ -388,11 +388,11 @@ The term _duplicate_ hereafter refers to companies with the same company name, r
 
 The _duplicate_ detection mechanism is facilitated by `Company#isSameCompany(Company otherCompany)`.
 This method checks if two `Company` entities are the same by checking if their `Name`, `Role` and
-`Deadline` fields are equal. This method is used by `AddCommand` and `EditCommand` to check if
+`Deadline` parameters are equal. This method is used by `AddCommand` and `EditCommand` to check if
 the company to be added or edited already exists in the company list.
 
 The above sequence diagram shows the events when a user attempts to **edit** the details of an existing company,
-namely the company name, role and deadline fields to match that of another company in the company list.
+namely the company name, role and deadline parameters to match that of another company in the company list.
 The purpose of the diagram is a **simplified** view of the message passing when a _duplicate_ company is detected.
 
 Therefore, the diagram omits the following
@@ -441,9 +441,9 @@ getDuplicateCompany(toAdd) method, which has already been shown in the sequence 
       current architecture design.
 
 **Aspect: Change the definition of a _duplicate_**
-- **Alternative:** Define _duplicates_ as equivalence of all fields other than just `Name`, `Role` and `Deadline`.
+- **Alternative:** Define _duplicates_ as equivalence of all parameters other than just `Name`, `Role` and `Deadline`.
     - Pros: Allows users to add companies with the same name, role and deadline but different contact details.
-    - Cons: This approach does not align with real-world scenarios where if the Name, Role, and Deadline fields
+    - Cons: This approach does not align with real-world scenarios where if the Name, Role, and Deadline parameters
       are identical, it likely indicates the same job application. The purpose of the duplicate detection is to prevent
       interns from inadvertently applying multiple times to the same position at a company with the same role and
       application deadline.
@@ -520,7 +520,7 @@ descending order.
 
 #### Implementation
 The `Deadline` class implements the `java.lang.Comparable` interface, which provides a natural ordering of deadlines. 
-The sort feature leverages the fact that the `Deadline` field in a `Company` object is comparable and uses 
+The sort feature leverages the fact that the `Deadline` parameter in a `Company` object is comparable and uses 
 the Java `Comparator` interface to sort companies based on their deadlines. 
 
 The sequence diagram below illustrates the execution of the SortCommand, when it is called with a `sortOrder` that can
@@ -839,7 +839,7 @@ The following implementation will be adopted instead:
 **Examples**
 
 - **view**: `Viewing company: COMPANY_NAME (ROLE, DEADLINE)`
-- **edit**: `COMPANY_NAME (ROLE, DEADLINE) company edited.`
+- **edit**: `COMPANY_NAME (ROLE, DEADLINE) company edited`
 - **remark**: `Added remark to company: COMPANY_NAME (ROLE, DEADLINE)`
 - **unremark**: `Removed remark from company: COMPANY_NAME (ROLE, DEADLINE)`
 - **add**: `New company added: COMPANY_NAME (ROLE, DEADLINE)`
@@ -851,7 +851,7 @@ The following implementation will be adopted instead:
 Currently, the recruiter’s information, namely recruiter’s name, phone number and email address, are compulsory parameters as inputs for Add Command. However, the user may not have the recruiter’s information at the point of applying to the company, which is common in most internship applications now. The user may only have the recruiter’s information at a later point in time. Hence, the user will not be able to add the company into LinkMeIn, without the recruiter's name, phone number and email address.
 
 **Proposed Enhancement** <br>
-Instead of having the recruiter's name, phone number and email address to be compulsory fields, they will be changed to optional parameters in the `add` Command. This will allow the user to add the company into LinkMeIn without the recruiter's information.
+Instead of having the recruiter's name, phone number and email address to be compulsory parameters, they will be changed to optional parameters in the `add` Command. This will allow the user to add the company into LinkMeIn without the recruiter's information.
 
 The updated `add` command format would be as follows:
 `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE [n/RECRUITER_NAME] [p/PHONE] [e/EMAIL] [pr/PRIORITY]`.
@@ -870,15 +870,16 @@ If the user did not add in the recruiter's name, phone number and email address 
 Currently, recruiter name, company name and role are checked for non-alphanumeric characters (defined as all characters other than alphabets and digits), and as a result, non-complying inputs are blocked.
 
 **Examples:**
-- `X Æ A-12` for recruiter name
-- `H20.ai` for company name
-- `Software Engineer (Backend)` for the role
+- `X Æ A-12` for recruiter name.
+- `H20.ai` for company name.
+- `Software Engineer (Backend)` for the role.
 
-The above inputs are all currently blocked due to the alphanumeric requirement. The input validation may be overly restrictive, restricting possible company name, recruiter name and role.
+The above inputs are all currently blocked due to the alphanumeric requirement.
+The input validation may be overly restrictive, restricting possible company names, recruiter names and roles inputs.
 
 **Proposed Enhancement**
 
-Instead of the current regex check located within the Name, Role and Recruiter Name classes, the new regex check:
+Instead of the current regex check located within the `Name`, `Role` and `RecruiterName` classes, the new regex check:
 - Allows periods (.) and parentheses ((, )) since these are common in company names and job titles.
 - Allows special characters like Æ and hyphens (-).
 - Allows any Unicode letter using \p{L}.
@@ -888,7 +889,7 @@ With the proposed change in the regular expression, the validation criteria for 
 
 **Examples**
 
-Here are examples illustrating what will now be allowed and what will remain disallowed:
+Here are some examples illustrating what will now be allowed and what will remain disallowed:
 
 **Allowed Inputs**
 1. **Company Names:**
@@ -924,13 +925,13 @@ It still restricts inputs that start with or contain certain special characters 
 
 Currently, the phone number parameter only accepts integers as valid user inputs. However, users may encounter scenarios,
 such as applying for overseas internships, where they want to include symbols like `()`, `+`,  `-` and `.` in the phone
-number field. The current restriction prevents users from indicating country codes, potentially causing confusion about
+number parameter. The current restriction prevents users from indicating country codes, potentially causing confusion about
 the origin of the phone number.
 
 **Proposed Enhancement**
 
 The regex checking for a valid phone number will be changed to allow for `()`, `+`, `-` and `.` in the phone number
-field. In addition, the character `+` will only be allowed at the start while, the other symbols have no positioning restrictions.
+parameter. In addition, the character `+` will only be allowed at the start while, the other symbols have no positioning restrictions.
 
 **Examples**
 
