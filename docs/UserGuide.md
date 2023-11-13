@@ -615,7 +615,7 @@ try the command again!
 An example of an error message is shown below.
 ![EditErrMsg.png](images/edit-command/EditErrMsg.png)
 
-### Duplicate detection
+### Duplicate Detection
 
 _Seeking an internship but worried about double-applying? 
 Our duplicate detection swiftly ensures you never submit the same application twice!_
