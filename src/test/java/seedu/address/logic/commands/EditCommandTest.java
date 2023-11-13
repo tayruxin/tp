@@ -103,6 +103,7 @@ public class EditCommandTest {
                 Messages.getCompanyName(editedCompany));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        showCompanyAtIndex(expectedModel, INDEX_FIRST_COMPANY);
         expectedModel.setCompany(model.getFilteredCompanyList().get(0), editedCompany);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -117,8 +118,8 @@ public class EditCommandTest {
 
         assertCommandFailure(editCommand,
                 model,
-                new CommandException.DuplicateCompanyException(
-                        Messages.getErrorMessageForDuplicateCompanyEditCommand(
+                new CommandException.DuplicateException(
+                        Messages.getDupErrMsgEdit(
                         firstCompany)).getMessage());
     }
 
@@ -136,8 +137,8 @@ public class EditCommandTest {
 
         assertCommandFailure(editCommand,
                 model,
-                new CommandException.DuplicateCompanyException(
-                        Messages.getErrorMessageForDuplicateCompanyEditCommand(
+                new CommandException.DuplicateException(
+                        Messages.getDupErrMsgEdit(
                         firstCompany)).getMessage());
     }
 
@@ -193,8 +194,8 @@ public class EditCommandTest {
 
         assertCommandFailure(editCommand,
                 model,
-                new CommandException.DuplicateCompanyException(
-                        Messages.getErrorMessageForDuplicateCompanyEditCommand(
+                new CommandException.DuplicateException(
+                        Messages.getDupErrMsgEdit(
                                 companyInList)).getMessage());
     }
 

@@ -9,12 +9,13 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_COMPANIES;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.logging.Logger;
 
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.commons.util.ToStringBuilder;
@@ -39,7 +40,8 @@ public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
-    public static final String MESSAGE_USAGE = "Parameters: INDEX (must be a positive integer) "
+    public static final String MESSAGE_USAGE = "Format: " + COMMAND_WORD + " "
+            + "INDEX "
             + "[" + PREFIX_COMPANY_NAME + "COMPANY_NAME] "
             + "[" + PREFIX_RECRUITER_NAME + "RECRUITER_NAME] "
             + "[" + PREFIX_ROLE + "ROLE] "
@@ -54,13 +56,13 @@ public class EditCommand extends Command {
 
     public static final String MESSAGE_EDIT_COMPANY_SUCCESS = "%1$s company edited.";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-
+    private static final Logger logger = LogsCenter.getLogger(EditCommand.class);
     private final Index index;
     private final EditCompanyDescriptor editCompanyDescriptor;
 
     /**
-     * @param index of the company in the filtered company list to edit
-     * @param editCompanyDescriptor details to edit the company with
+     * @param index of the company in the filtered company list to edit.
+     * @param editCompanyDescriptor details to edit the company with.
      */
     public EditCommand(Index index, EditCompanyDescriptor editCompanyDescriptor) {
         requireNonNull(index);
@@ -85,13 +87,12 @@ public class EditCommand extends Command {
         if (!companyToEdit.isSameCompany(editedCompany) && model.hasCompany(editedCompany)) {
             Company duplicateCompany = model.getDuplicateCompany(editedCompany);
 
-            throw new CommandException.DuplicateCompanyException(
-                    Messages.getErrorMessageForDuplicateCompanyEditCommand(
-                    duplicateCompany));
+            throw new CommandException.DuplicateException(
+                    Messages.getDupErrMsgEdit(duplicateCompany));
         }
 
+        logger.info("Executing edit command: " + editCompanyDescriptor);
         model.setCompany(companyToEdit, editedCompany);
-        model.updateFilteredCompanyList(PREDICATE_SHOW_ALL_COMPANIES);
         model.setCurrentViewedCompany(editedCompany);
         return new CommandResult(String.format(MESSAGE_EDIT_COMPANY_SUCCESS, Messages.getCompanyName(editedCompany)));
     }
@@ -160,7 +161,6 @@ public class EditCommand extends Command {
 
         /**
          * Copy constructor.
-         * A defensive copy of {@code tags} is used internally.
          */
         public EditCompanyDescriptor(EditCompanyDescriptor toCopy) {
             setName(toCopy.name);

@@ -10,6 +10,9 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_RECRUITER_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 
+import java.util.logging.Logger;
+
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -45,6 +48,8 @@ public class AddCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "New company added: %1$s";
 
+    private static final Logger logger = LogsCenter.getLogger(AddCommand.class);
+
     private final Company toAdd;
 
     /**
@@ -71,12 +76,13 @@ public class AddCommand extends Command {
 
             String allChangedFields = toAdd.listAllChangedFields(duplicateCompany);
 
-            throw new CommandException.DuplicateCompanyException(
+            throw new CommandException.DuplicateException(
                     Messages.getErrorMessageForDuplicateCompanyAddCommand(
                     duplicateCompany, indexOfDuplicateCompany, allChangedFields,
                             inFilteredList));
         }
 
+        logger.info("Executing add command: " + toAdd.toString());
         model.addCompany(toAdd);
         model.setCurrentViewedCompany(toAdd);
 

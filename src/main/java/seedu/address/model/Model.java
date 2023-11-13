@@ -1,11 +1,11 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.logic.SortOrder;
 import seedu.address.model.company.Company;
 
 /**
@@ -81,6 +81,13 @@ public interface Model {
     void setCompany(Company target, Company editedCompany);
 
     /**
+     * Sets all the companies in the address book.
+     *
+     * @param companies the list of companies to be set.
+     */
+    void setAllCompanies(List<Company> companies);
+
+    /**
      * Returns an unmodifiable view of the filtered company list.
      *
      * @return the filtered company list.
@@ -128,11 +135,6 @@ public interface Model {
      * Clears the company detail panel.
      */
     public void clearCompanyDetailPanel();
-
-    /**
-     * Sorts the companies in the address book by their deadlines.
-     */
-    void sortCompaniesByDeadline(SortOrder sortOrder);
 
     /**
      * Filters the companies in the address book by their application status.

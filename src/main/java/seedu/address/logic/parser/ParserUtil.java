@@ -204,7 +204,7 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String remark} into a {@code remark}.
+     * Parses a {@code String remark} into a {@code Remark}.
      * Leading and trailing whitespaces will be trimmed.
      *
      * @throws ParseException if the given {@code remark} is invalid.

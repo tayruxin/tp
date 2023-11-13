@@ -3,6 +3,9 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 
+import java.util.logging.Logger;
+
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -22,6 +25,7 @@ public class FilterCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "Filtered company list by application status: %1$s";
 
+    private static final Logger logger = LogsCenter.getLogger(FilterCommand.class);
     private final ApplicationStatus status;
     private final ApplicationStatusPredicate predicate;
 
@@ -39,6 +43,7 @@ public class FilterCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
+        logger.info("Executing filter command with status: " + status);
         model.filterCompaniesByStatus(predicate);
         return new CommandResult(String.format(MESSAGE_SUCCESS, status));
     }
