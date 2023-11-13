@@ -161,12 +161,12 @@ Now, let's move on to learn how to write command lines, and you are ready to try
 ## Command Format
 A command line has 4 components, **command word**, **index**, **prefix** and **parameter**.
 
-| Component    | Example    | Description                                                                                                                                               |
-|--------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command Word | `add`      | Indicates the feature to be executed                                                                                                                      |
-| Index        | `1`, `5`   | Indicates the position of the company in the list (e.g., 5th company in the list)                                                                         |
-| Parameter    | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, replaces the `UPPER_CASE` placeholders in the command format |
-| Prefix       | `c/`       | Indicates the type of parameter to be edited (e.g., company's name)                                                                                       |
+| Component    | Example  | Description                                                                                                                                               |
+|--------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command Word | `add`    | Indicates the feature to be executed                                                                                                                      |
+| Index        | `1`, `5` | Indicates the position of the company in the list (e.g., 5th company in the list)                                                                         |
+| Parameter    | `John`   | Represents the updated value or content. <br/> These values, which are provided by the user, replaces the `UPPER_CASE` placeholders in the command format |
+| Prefix       | `c/`     | Indicates the type of parameter to be edited (e.g., company's name)                                                                                       |
 
 You can find all the parameters used in LinkMeIn [here](#parameters-description).
 To learn more about the prefixes and command words used in LinkMeIn, you can refer to the [Command Summary Section](#command-summary).
