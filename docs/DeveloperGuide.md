@@ -732,9 +732,27 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 
 ### Glossary
 
--   **Company**: A company that is offering an internship position
--   **Internship application**: An application made by the user to a company offering an internship position
--   **Mainstream OS**: Windows, Linux, Unix, OS-X
+| Term                   | Definition                                                                                                                                                                                                                          |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Alphanumeric**       | Refers to a character set that includes both letters and numbers. It includes the 26 letters of the English alphabet (both uppercase and lowercase) and the numbers 0 through 9.                                                    |
+| **APPLICATION_STATUS** | Status of the application. It can be either pending application, pending interview, pending outcome, accepted or rejected.                                                                                                          |
+| **CLI**                | Command-Line Interface (CLI) is a text-based user interface where users interact with the application by typing commands.                                                                                                           |
+| **Command**            | A command is an instruction given by a user to LinkMeIn to perform a specific action. For example,`add` command is a command to add the company's application into LinkMeIn.                                                        |
+| **COMPANY_NAME**       | Name of the company that you are applying to. Should only contain alphanumeric characters <br/>and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                   |
+| **DEADLINE**           | Deadline of the application. Should be in DD-MM-YYYY format. Dates before the current date are allowed.                                                                                                                             |
+| **EMAIL**              | Email of the recruiter. Should be in the format of `local-part@domain` and should not be blank.                                                                                                                                     |
+| **GUI**                | Graphical User Interface (GUI) is a visual method to interact with software using icons, buttons, and windows. GUI provides a user-friendly way to interact with software using graphical elements rather than text-based commands. |
+| **Index**              | Refers to the index number shown in the displayed company list.                                                                                                                                                                     |
+| **JAR**                | JAR stands for Java Archive and is a package file format typically used to aggregate many Java class files and associated metadata and resources into one file for distribution.                                                    |
+| **JSON**               | JSON stands for JavaScript Object Notation. It is a lightweight format for data interchange, easy to read and write for humans, and easy to parse for machines. Often used in web applications and configuration files.             |
+| **Mainstream OS**      | Windows, Linux, Unix, OS-X.                                                                                                                                                                                                         |
+| **Parameter**          | Parameter is similar to a field in a form you have to fill up. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `COMPANY_NAME` and `EMAIL` are parameters in the command.                                               |
+| **PHONE_NUMBER**       | Phone number of the recruiter. Should only contain numbers, be at least 3 digits and at most 20 digits long. Should not be blank.                                                                                                   |
+| **Prefix**             | Prefix is a keyword that is used to identify the parameter. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/` and `e/` are prefixes.                                                                                |
+| **PRIORITY**           | Priority of the internship application for a company. Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`.                                                                                         |
+| **RECRUITER_NAME**     | Name of the recruiter. Should only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                                               |
+| **REMARK**             | Refers to additional comments for the application. Should not be blank.                                                                                                                                                             |
+| **ROLE**               | Role of the internship that you are applying. Should only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                        |
 
 ---
 
@@ -808,9 +826,40 @@ field. In addition, the character `+` will only be allowed at the start while, t
 - 922492304: will be accepted
 - 24234 + 234243: will **not** be accepted
 
-### Find Feature Enhancement 1
+### **5. Enhance Find Feature to Search with Other Parameters**
+**Potential Flaw in Current Implementation**<br>
+Currently, LinkMeIn only allows searching through the list of companies by the `COMPANY_NAME` parameter. However, 
+users might want to search through the list using other parameters, like `RECRUITER_NAME`, `PRIORITY` and `ROLE`.
 
-### Find Feature Enhancement 2
+**Proposed Enhancement**<br>
+We plan to expand the current find command’s capability to allow for search using other parameters. The users will 
+be able to specify the prefix that corresponds to the parameter they wish to use for the search, before the keyword(s). 
+The prefixes used will be consistent with the rest of the application, in regard to what parameter they represent.
+
+Here are the new suggested formats :
+* Find using `RECRUITER_NAME` : `find n/KEYWORD [KEYWORDS]...`
+* Find using `PRIORITY`: `find pr/KEYWORD [KEYWORDS]...`
+* Find using `Role`: `find r/KEYWORD [KEYWORDS]...`
+
+**Examples**<br>
+* `find n/John Doe`
+* `find pr/High`
+* `find r/Software Engineer`
+
+### **6. Enhance Find Feature to Allow for Search of Exact Company Names**
+**Potential Flaw in Current Implementation**<br>
+If users would like to find a specific company that has two or more words in their name such as `Microsoft 
+Corporation`, using the current find command will return companies that match either “Microsoft” or “Corporation”. 
+This can potentially pollute the results and defeat the purpose of the find feature.
+
+**Proposed Enhancement**<br>
+We plan to expand the find command's capability, to allow for exact keyword matching. This can be done by specifying 
+the keyword(s) within quotations.
+
+Suggested command format for exact find: `find “KEYWORD [KEYWORDS]...”`
+
+For example, users can now type: `find “Microsoft Corporation”`. This will return companies with names that match 
+`Microsoft Corporation` exactly, reducing the potential for polluted find results.
 
 ### Improve Error Message for Deadline Parameter
 **Potential Flaw in Current Implementation**<br>
