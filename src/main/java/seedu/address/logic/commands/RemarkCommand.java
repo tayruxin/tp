@@ -37,7 +37,7 @@ public class RemarkCommand extends Command {
     public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to Company: %1$s";
     public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from Company: %1$s";
 
-    public static final Logger logger = LogsCenter.getLogger(RemarkCommand.class);
+    private static final Logger logger = LogsCenter.getLogger(RemarkCommand.class);
     private final Index index;
     private final Remark remark;
 
