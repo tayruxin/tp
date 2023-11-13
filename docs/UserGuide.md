@@ -619,8 +619,7 @@ Suppose you attempt to add a company with the **exact same company and recruiter
 ![img.png](images/duplicate-detection/add-command/duplicate-exact-match.png)
 
 **Example 2:**
-If you attempt to add a company with the same company name and role, but different recruiter information, you will be notified of the duplicate company similar to example 1.
-However, you will be prompted to edit the field that is different from the existing company in LinkMeIn as LinkMeIn acknowledges that you may have accidentally used the add command instead of the edit command.  
+If you attempt to add a company with the **same company name, role and deadline**, but different recruiter information, you will be see an error message similar to that in Example 1. However, in this case, LinkMeIn will also prompt you to edit the parameter that differs from the duplicate company, recognizing that you may have accidentally used the `add` command instead of the `edit` command.
 
 ![img.png](images/duplicate-detection/add-command/duplicate-partial-match.png)
 
