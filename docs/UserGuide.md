@@ -32,12 +32,11 @@ committed to guide you at every step of your internship journey. Whether you're 
 an experienced one seeking advanced insights, you'll find valuable information tailored to your unique 
 needs and expertise.
 
-Before we begin, let us first introduce you to the annotations that you will be seeing
-throughout this user guide. 
+Before we begin, let us first introduce you to the annotations that you will encounter throughout this user guide. 
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
-* Provides you with additional insights or more efficient ways to use LinkMeIn.
+* Provides you with additional insights or more efficient ways to enhance your user experience with LinkMeIn.
 </div>
 
 <div markdown="block" class="alert alert-info">
@@ -75,8 +74,8 @@ more about LinkMeIn's features.
 Welcome back! We hope that you have been enjoying your internship tracking journey with LinkMeIn.
 
 1. If you need a refresher on how to use a feature, you can refer to the [Features Section](#current-features) to find
-out more about LinkMeIn's features. In the features section, there are **detailed explanations** of each feature and
-   **examples** to help you better understand how to use the feature.
+out more about LinkMeIn's features. In the Features Section, there are **detailed explanations** of each feature and
+   **examples** to help you better understand how to use them.
 2. To quickly refer to the command format of a feature, you can head over to the [Command Summary Section](#command-summary)
 where all the commands are listed out in a table format.
 
@@ -84,7 +83,7 @@ If you face any issues while using LinkMeIn, you can refer to the [FAQ Section](
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
-# Quick start
+# Quick Start
 In this section, you will learn how to set up LinkMeIn in your computer. 
 
 1. Make sure that you have **Java 11 or above** installed in your Computer. Click 
@@ -101,10 +100,10 @@ In this section, you will learn how to set up LinkMeIn in your computer.
 
 5. Open up your command terminal. If you are unsure of how to do so, you can check out [this FAQ](#2-how-do-i-open-up-my-terminal).
 
-6. Navigate to the folder where you have placed the jar file with the `cd` command. 
-   - For example if you have placed the jar file in the **Documents** folder, type `cd Documents` and press Enter.
+6. Navigate to the folder where you have placed the jar file by typing the `cd`, followed by the folder path.
+   - For example if you have placed the jar file in the **Documents** folder, type `cd ~/Documents` and press `Enter`.
    
-7. Enter the next command `java -jar LinkMeIn.jar` and press Enter. Your command terminal should look like this:
+7. Enter the next command `java -jar LinkMeIn.jar` and press `Enter`. Your command terminal should look like this after Steps 6 and 7:
     <div style="margin-top: 10px; margin-bottom: 10px">
         <img src="images/quick-start/launchLinkMeIn.png" alt="Launch LinkMeIn" width="650"/>
     </div>
@@ -129,28 +128,27 @@ The GUI consists of four main components:
 
 ![uiIntro.png](images/ui-intro/uiIntro.png)
 
-Here are what each components stand for:
+Here's what each component stand for:
 
 | Number | Component            | Description                                              |
 |--------|----------------------|----------------------------------------------------------|
 | 1      | Command Box          | Key in your commands here and LinkMeIn will execute them |
 | 2      | Message Box          | Displays success or error messages to you                |
 | 3      | Company List Panel   | Displays the list of companies that you have added       |
-| 4      | Company Detail Panel | Displays the details of the company that you are viewing |
+| 4      | Company Detail Panel | Displays the details of a company that you are viewing   |
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
 * To maximise your viewing experience, opt for full-screen mode in LinkMeIn!
 </div>
 
-Now that you've been introduced to the GUI, let's move on to learning how you can use CLI to interact with LinkMeIn. 
+Now that you've been introduced to LinkMeIn's GUI, let's proceed to learn how you can use the CLI to interact with LinkMeIn. 
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
 # Introducing LinkMeIn's CLI
 
-LinkMeIn operates through the Command Line Interface (CLI), a method of interacting with a computer program by **entering line of 
-text known as command-lines.** Say goodbye to the days of multitasking between typing and clicking, and say hello to the world of CLI!
+LinkMeIn operates through the Command Line Interface (CLI), where you interact with our app by simply **typing commands**. Say goodbye to the days of multitasking between typing and clicking, and say hello to the world of CLI!
 
 Don't let the name intimidate you! Continue reading on to discover how **E**ffortless, **E**asy and **E**fficient CLI is when using LinkMeIn.
 
@@ -166,10 +164,10 @@ A command line has 4 components, **command word**, **index**, **prefix** and **p
 
 | Component    | Example    | Description                                                                                                                                               |
 |--------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command word | `add`      | Indicates the feature to be executed                                                                                                                      |
+| Command Word | `add`      | Indicates the feature to be executed                                                                                                                      |
 | Index        | `1`, `5`   | Indicates the position of the company in the list (e.g., 5th company in the list)                                                                         |
 | Parameter    | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, replaces the `UPPER_CASE` placeholders in the command format |
-| Prefix       | `c/`       | Indicates the type of parameter to be edited (e.g., name)                                                                                                 |
+| Prefix       | `c/`       | Indicates the type of parameter to be edited (e.g., company's name)                                                                                       |
 
 _You can find all the parameters used in LinkMeIn [here](#parameters-description)._
 _To learn more about the prefixes and command words used in LinkMeIn, you can refer to the [Command Summary Section](#command-summary)._
@@ -186,7 +184,8 @@ Let's use the [`add` command](#adding-a-company--add) format as shown below to e
     <img src="images/cli-description/CommandFormat2.png" alt="CommandFormat2" width="650"/>
 </div>
 
-The `add` command is used to initiate the adding a company into LinkMeIn. Every command line should begin with a command word to specify the desired feature.
+The `add` command word is used to initiate the adding a company into LinkMeIn. <br>
+
 The prefix indicates the parameter type. For example, `c/John` adds "John" as the company name while `n/John` adds "John" as the recruiter's name.
 Simply replace the parameters with your specific application details, and you have effectively crafted an `add` command!
 
@@ -197,7 +196,7 @@ But wait! Notice the `[]` around `pr/PRIORITY`?
 | None    | Compulsory field | `C/COMPANY_NAME` | The company's name is required when adding a company  |
 | `[ ]`   | Optional field   | `[pr/PRIORITY]`  | Not a must to indicate priority when adding a company |
 
-Since `PRIORITY` parameter is optional, the following command lines are accepted.
+Since `PRIORITY` parameter is optional, the following command lines are accepted for the `add` command.
 
 **Example:**
 - `add c/GovTech r/Software Engineer s/PA n/John Doe d/12-12-2023 e/johnDoe@gmail.com p/98765432 pr/medium`
@@ -205,13 +204,11 @@ Since `PRIORITY` parameter is optional, the following command lines are accepted
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
-* Parameters can be in any order. e.g. if the command specifies c/COMPANY_NAME r/ROLE, r/ROLE c/COMPANY_NAME is also acceptable.
+* Parameters can be in any order. e.g. If the command specifies c/COMPANY_NAME r/ROLE, r/ROLE c/COMPANY_NAME is also acceptable.
 * Parameters are case-insensitive. e.g. c/COMPANY_NAME is the same as c/company_name.
 </div>
 
-Notice that the `add` command does not use `INDEX` in its command format. Each feature has a unique command format.
-You can find the command format for each feature in the [Features](#current-features) section
-or do a [quick tour](#introducing-linkmein-a-quick-tour) to get your hands on LinkMeIn.
+Notice that the `add` command does not use `INDEX` in its command format. Each feature has a unique command format, but every command line must begin with a command word to specify the desired feature. You can find the command format for each feature in the [Features](#current-features) section or take a [quick tour](#introducing-linkmein-a-quick-tour) to get hands-on experience with LinkMeIn.
 
 ---
 
@@ -229,61 +226,56 @@ using quite often. In this tour, you will be learning how and when to:
 -   [edit its details](#3-editing-company-details),
 -   [delete it](#4-deleting-a-company).
 
-Before we embark on this tour remember to download LinkMeIn and have your computer set up correctly. If you have not
+Before we embark on this tour, remember to download LinkMeIn and have your computer set up correctly. If you have not
 done so, do check out the [Quick Start Guide](#quick-start) for more information.
 Now, follow us along this tour and transform yourself into a master of your internship application!
 
-## 1. Adding your first company
+## 1. Adding a Company
 
-Adding a company is the first step to tracking your internship applications. Let us start off by adding your
-first company to LinkMeIn.
+Adding a company is the first step to tracking your internship applications. Let us start off by adding your first company to LinkMeIn.
 
-**Step 1:** Type the following `add c/Tesla r/Software Engineer s/PA n/John Tan d/10-10-2023 e/johntan@example.com
-p/987654321 pr/high` in the command box and press **Enter**.
+**Step 1:** Type the following `add c/Tesla r/Software Engineer s/PA n/John Doe d/01-12-2023 e/johndoe@example.com p/98765432 pr/high` in the Command Box and press `Enter`.
 
 - If you wish to learn more about what each parameter means and how to use the add command, you can do so [here](#adding-a-company--add).
 
-
-**Step 2:** You should see a new entry successfully added into LinkMeIn as shown below.
-
+**Step 2:** You should see DSTA being successfully added into LinkMeIn and displayed in the Company List Panel and Company Detail Panel.
 
 Congratulations! You have successfully added your first company to LinkMeIn. Go ahead and try adding a few more companies on your own!
 Here are some more examples that you can try: 
 - `add c/Oracle r/Data Analyst s/PA n/Marry Lim d/12-11-2023 e/marrylim@example.com p/98452321`
 - `add c/Samsung r/Software Engineer s/PA n/Bob Cheng d/04-03-2023 e/bobcheng@example.com p/88283345 pr/low`
 
-## 2. Viewing company details
+## 2. Viewing Company Details
 
 Now that you had added your first few companies into LinkMeIn, you may want to view the details of a specific company.
 
-**Step 1:** To view the details of DSTA, type `view 3` in the command box and press Enter.
+**Step 1:** To view the details of DSTA, type `view 3` in the command box and press `Enter`.
 
 ![ViewCommand.png](images/view-command/BeforeViewCommand.png)
 
-**Step 2:** You should see the details of DSTA displayed in the company detail panel.
+**Step 2:** You should see the details of DSTA displayed in the Company Detail Panel.
 
-If you wish to read up more on the view
+If you wish to read up more on the `view`
 command, you can do so [here](#view-full-company-information-view). Go ahead and try viewing the details of a few
 more companies on your own!
 
-## 3. Editing company details
+## 3. Editing Company Details
 
 After viewing the details of a company, you may realise that you have a typo in the role of a company, and you wish to
 edit the details of the company.
 
-**Step 1:** To edit the application status and role of DSTA, type `edit 6 s/PI r/Frontend Developer` in the command box
-and press Enter.
+**Step 1:** To edit the application status and role of DSTA, type `edit 3 n/Eve Lim` in the command box and press `Enter`.
 
-- If you wish to learn more about the edit command, you can do so [here](#edit-a-companys-information-edit).
+- If you wish to learn more about the `edit` command, you can do so [here](#edit-a-companys-information-edit).
 
 
 **Step 2:** You should see the details of DSTA updated.
 
 Go ahead and try editing the details of a few more companies on your own! 
 
-## 4. Deleting a company
+## 4. Deleting a Company
 
-After adding a few companies, you can delete the companies that you no longer need to track in LinkMeIn.
+Suppose you no longer wish to track the DSTA application from earlier, you can easily delete the company from LinkMeIn.
 
 **Step 1:** To delete DSTA, type `delete 3` in the command box and press Enter.
 
@@ -298,8 +290,8 @@ internship applications. To remove the sample data provided in LinkMeIn, simply 
 all existing entries. Find out more about the `clear` command [here](#clear-all-entries-clear).
 
 LinkMeIn offers more than just the features that you have learnt in this tour.
-If you wish to learn more about the other features of LinkMeIn, you can do so
-[here](#current-features). You can also visit the [FAQ](#faq) to view the frequently asked questions if you need more help!
+If you wish to learn more about the other features of LinkMeIn, head over to our 
+[Features Section](#current-features). You can also visit the [FAQ](#faq) to view the frequently asked questions if you need more help!
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -307,29 +299,35 @@ If you wish to learn more about the other features of LinkMeIn, you can do so
 
 # Current Features
 
-LinkMeIn's feature can be categorised into 3 broad categories:
+LinkMeIn's features can be categorised into 3 broad categories:
 
 -  [General Features](#general-features): This section equips you with essential tools to navigate LinkMeIn effectively.
 Here, you can access help, clear all entries, and gracefully exit LinkMeIn.
 - [Company Management Features](#company-management-features): Dive into section to **engage with individual company entries.** You can easily
 add, view, edit, delete companies, as well as add your own remarks to companies. 
 - [Company List Features](#company-list-features): This section allows you to **interact with the list of companies,** thereby unlocking LinkMeIn's full potential. 
-Explore option to find, list, filter and sort companies, managing all companies with ease. 
+Explore options to find, list, filter and sort companies, managing all companies with ease. 
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes:**<br>
+* Extraneous parameters for commands that do not take in parameters (such as help, list, exit and clear) will be ignored.
+e.g. if the command specifies help 123, it will be interpreted as help.
+* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
+</div>
 
 ## General Features
 In this section, you'll find essential tools that empower you to navigate LinkMeIn with ease. Learn how to access help, 
 clear all entries, and gracefully exit the application, ensuring a seamless user experience.
 
-### Clear all entries: `clear`
+### Clear All Companies: `clear`
 
-_You just completed an internship cycle and wish to start a new cycle, you can use the `clear` command to clear all the
-entries in LinkMeIn._
+_You've just completed an internship cycle and are preparing for the next one! Want to keep your list of companies clutter-free? Just use the `clear` command to clear all the existing companies in LinkMeIn at once._
 
 **Format:** `clear`
 
 **Example:**
 
-**Step 1:** Type `clear` in the command box and press Enter.
+**Step 1:** Type `clear` in the command box and press `Enter`.
 
 **Step 2:** You should see an empty list of companies. 
 
@@ -338,24 +336,26 @@ entries in LinkMeIn._
 
 <div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
-* Entries cannot be recovered after clearing.
+* Companies cannot be recovered after clearing! Please only use the `clear` command when you are very sure that you no longer wish to track the existing list of companies.
 </div>
 
 ### Exit LinkMeIn: `exit`
-_You are done tracking for the day and wish to exit LinkMeIn, you can use the `exit` command to exit LinkMeIn._
+_You are done tracking for the day and wish to exit LinkMeIn. Simply use the `exit` command to bid farewell to LinkMeIn._
 
 **Format:** `exit`
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* Entries will be saved automatically.
+* Don't have to worry about losing your data, it will be saved automatically! 
 </div>
 
 ### Help: `help`
 
-_You are unsure of how to use a feature, you can use the `help` command which displays a window with the url to our user guide._
+_You find yourself wrecking your brains just to think of that one command that you need to use. Just use the `help` command to access our User Guide, and you can easily get the help you need!_
 
 **Format:** `help`
+
+Simply copy the url provided and paste it into your web browser to access LinkMeIn's User Guide!
 
 ![img.png](images/help-command/helpcommand.png)
 
@@ -366,7 +366,7 @@ Dive into the intricacies of managing individual company entries. Uncover the st
 and personalize your entries by adding remarks. This section provides a detailed guide to enhancing your company management 
 capabilities.
 
-### Adding a company : `add`
+### Adding a Company : `add`
 
 _You scroll through your LinkedIn feed and see a company that you are interested in.
 You wish to start on the application later, but you are afraid that you will forget about it.
@@ -379,24 +379,24 @@ Add the company to LinkMeIn now to keep track of the application process using t
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* Order of input **does not** matter.
+* Parameters can be in any order.
 </div>
 
 **Example:**
 
 **Step 1:** Let's say you are interested to apply for the **Software Engineer** role from **Apple**. Through the application description, you obtained the following information:
-* **Deadline:** 12-12-2023
-* **Recruiter Name:** John Tan
-* **Email:** johntan@gmail.com
-* **Phone Number:** 98765432
+* **Deadline:** 10-10-2023
+* **Recruiter Name:** Francis Tan
+* **Email:** john@example.com
+* **Phone Number:** 987652423
 
 This application is of **medium** priority as you have other applications that you want to focus on first.
 
-**Step 2:** With the details above, simply type `add c/Apple r/Software Engineer s/PA n/John Tan d/12-12-2023 e/johntan@gmail.com p/98765432 pr/medium` into the command box and press Enter.
+**Step 2:** With the details above, simply type `add c/Apple r/Software Engineer s/PA n/Francis Tan d/10-10-2023 e/john@example.com p/987652423 pr/medium` into the Command Box and press `Enter`.
 
 ![img.png](images/add-command/BeforeAddCommand.png)
 
-**Step 3:** The detail panel will be updated to show the details of the newly added company's application, and the company will be added to the list of companies.
+**Step 3:** The Company Detail Panel will be updated to show the details of the newly added company's application, and the company will be added to the list of companies.
 
 ![img.png](images/add-command/AfterAddCommand.png)
 
@@ -404,22 +404,22 @@ This application is of **medium** priority as you have other applications that y
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
-* To quickly navigate to the start and end of your input, you can use 'Ctrl' (Windows User) / 'Command' (Mac User) with the 'Left' and 'Right' arrow keys respectively!
+* To quickly navigate to the start and end of your command line, you can use 'Ctrl' (Windows User) / 'Command' (Mac User) with the 'Left' and 'Right' arrow keys respectively!
 </div>
 
-**Possible Error:**
+**Possible Error:** <br>
 
-* If you miss out any of the compulsory parameters, you will see an error message in the command box informing you of the invalid command format.
+If you miss out any of the compulsory parameters, you will see an error message in the command box informing you of the invalid command format.
 Don't worry, just identify the missing parameter(s) and edit your input accordingly! An example of the error message is shown below.
 
 ![img.png](images/add-command/AddCommandError.png)
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
-### View full company information: `view`
+### Viewing Full Company's Information: `view`
 
 _You look at the list of companies, and you notice that it's been 3 weeks since the interview, but the company has not gotten back to you. 
-With the `view` command, you can easily view the full detail of a specific company, including the recruiter's contact details, and follow up with them!
+With the `view` command, you can easily view the full details of a specific company, including the recruiter's contact details, and follow up with them!_
 
 **Format:** `view INDEX`
 
@@ -427,7 +427,7 @@ With the `view` command, you can easily view the full detail of a specific compa
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* INDEX refers to the index number shown in the displayed company list.
+* You can only view the full details of a company at a time.
 </div>
 
 **Example:**
@@ -437,12 +437,13 @@ Simply type `view 3` to view DSTA's details.
 
 ![img.png](images/view-command/BeforeViewCommand.png)
 
-**Step 2:** The detail panel will be updated to show the details of DSTA.
+**Step 2:** The Company Detail Panel will be updated to show the details of DSTA.
 
 ![img.png](images/view-command/AfterViewCommand.png)
 
 **Possible Error:**
-If you enter an [**invalid index**](#5-what-is-an-invalid-index), you will see an error message in the command box.
+
+If you enter an [**invalid index**](#5-what-is-an-invalid-index), you will see an error message in the Command Box.
 Don’t worry, just edit your index accordingly and try the command again!
 An example of an error message is shown below.
 
@@ -450,7 +451,7 @@ An example of an error message is shown below.
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
-### Deleting a company : `delete`
+### Deleting a Company : `delete`
 
 _Whether you accidentally added a company or no longer want to track it, don't worry! LinkMeIn got you covered!
 You can use the delete command to delete the company from the list of companies that you have added._
@@ -461,7 +462,7 @@ You can use the delete command to delete the company from the list of companies 
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* INDEX refers to the index number shown in the displayed company list. You can only delete one company at a time. 
+* You can only delete one company at a time. 
 </div>
 
 **Example:**
@@ -471,7 +472,7 @@ Simply type `delete 3` to delete DSTA.
 
 ![img.png](images/delete-command/BeforeDeleteCommand.png)
 
-**Step 2:** DSTA will be removed from the list of companies. The detail panel will be cleared too.
+**Step 2:** DSTA will be removed from the list of companies. The Company Detail Panel will be cleared too.
 
 ![img.png](images/delete-command/AfterDeleteCommand.png)
 
@@ -486,24 +487,23 @@ An example of an error message is shown below.
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
-### Add remark to a company: `remark`
+### Adding Remarks to a Company: `remark`
 
-_After adding a company, if you wish to note down more information such as job description,
-use the `remark` command to input these additional details._
+_After adding a company, you wish to note down more information such as the job description, pre-requisites and mental notes for yourself! Just use the `remark` command to input these additional details._
 
 **Format:** `remark INDEX re/REMARK`
 
-> `INDEX`: Adds remark of the company at INDEX number shown in the displayed company list.  
-> `re/REMARK` : type prefix `re/` followed by the remark you want to add 
+> `INDEX`: Adds remarks to the company at the INDEX number shown in the displayed company list.  
+> `re/REMARK` : Type prefix `re/` followed by the remarks you want to add. 
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* Remark cannot be empty. Use the unremark command to delete instead.
+* Remarks cannot be empty. If you wish to remove existing remarks, use the  [`unremark` command](#deleting-remarks-of-a-company) instead.
 </div>
 
 <div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
-* When adding a remark, the existing remark of the company will be removed i.e adding of remark is not cumulative.
+* When adding remarks, the existing remarks of the company will be removed i.e. adding of remarks is not cumulative.
 </div>
 
 **Examples:** 
@@ -531,19 +531,17 @@ try the command again!
 An example of an error message is shown below.
 ![RemarkErrMsg.png](images/remark-command/RemarkErrMsg.png)
 
-### Delete the remark of a company: `unremark`
+### Deleting Remarks of a Company: `unremark`
 
-_If you input some remarks to the wrong company or the remark has become outdated,
-use the `unremark` command to delete it._
+_You have previously added some remarks to a company, but the remark has become outdated and you no longer need them anymore. Use the `unremark` command to quicly delete it._
 
 **Format:** `unremark INDEX`
 
-> `INDEX`: Deletes remark of the company at INDEX number shown in the displayed company list.
+> `INDEX`: Deletes remarks from the company at the INDEX number shown in the displayed company list.
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
-* To update the remark, you do NOT need to delete using unremark first.
-Directly use the remark command and it overwrites the old remark!
+* To add new remarks, you do **NOT** need to delete the existing remarks using `unremark` first. Directly use the remark command and it overwrites the old remark!
 </div>
 
 <div markdown="block" class="alert alert-info">
@@ -558,7 +556,7 @@ The same message will be displayed regardless of whether a remark exists for a c
 **Step 1.** If you wish to delete the remark of DSTA, type `unremark 3`
    ![UnremarkDemo1.png](images/remark-command/UnremarkDemo1.png)
 
-**Step 2.** The remark of 3rd company is removed as shown below.
+**Step 2.** The remark of the 3rd company is removed as shown below.
    ![UnremarkDemo2.png](images/remark-command/UnremarkDemo2.png)
 
 **Possible Error:**
@@ -569,14 +567,14 @@ try the command again!
 An example of an error message is shown below.
 ![UnremarkErrMsg.png](images/remark-command/UnremarkErrMsg.png)
 
-### Edit a company's information: `edit`
+### Editing a Company's Information: `edit`
 
 _You look at the details of the application, and realise you have made a typo or need to update the progress of application,
 use the `edit` command to input the accurate details._
 
 **Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY]`
 
->`INDEX`: Edits the company at INDEX number shown in the displayed company list.
+>`INDEX`: Edits the company at the INDEX number shown in the displayed company list.
 >
 >`c/COMPANY_NAME` etc. : type prefix `c/` followed by new company name to edit company name. 
 >
@@ -589,7 +587,7 @@ To edit the company's information, type `edit 3 s/PI r/Frontend Developer`
 
 ![EditDemo1.png](images/edit-command/EditDemo1.png)
 
-**Step 2.** The status and role of the 3nd company in the list is edited to be Pending Interview and Frontend Developer respectively.
+**Step 2.** The application status and role of the 3rd company in the list is edited to be Pending Interview and Frontend Developer respectively.
 
 ![EditDemo2.png](images/edit-command/EditDemo2.png)
 
@@ -599,7 +597,7 @@ To edit the company's information, type `edit 3 s/PI r/Frontend Developer`
 **More examples:**
 - `edit 3 d/11-09-2025 pr/LOW`
 
-  Edits dateline and priority of the 3rd company in the displayed list.
+  Edits deadline and priority of the 3rd company in the displayed list.
   
 - `edit 1 n/Amy Tan e/amytan@gmail.com`
 
@@ -646,7 +644,7 @@ an error message will be displayed in the command box, notifying you of the dupl
 Embark on a journey to unlock LinkMeIn's full potential through interactions with your list of companies. Discover 
 options to find, list, filter, and sort companies, offering you a comprehensive toolkit to manage and organize your entire company portfolio efficiently.
 
-### Find a company: `find`
+### Finding a Company: `find`
 
 _You've applied to many companies, and now you want to track a specific internship application for a particular
 company. Use the `find` command to quickly locate the company you want._
@@ -676,7 +674,7 @@ shown. And that is it! You have found the company you wanted.
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
-### Listing all contacts : `list`
+### Listing All Contacts : `list`
 
 _You've found the specific company you wanted using the find command earlier, and now you want to see all of your applications in one list again. You can do so easily with the `list` command!_
 
@@ -684,7 +682,7 @@ _You've found the specific company you wanted using the find command earlier, an
 
 **Example:**
 
-**Step 1:** You have used the `find` command to find the company _DSTA_ earlier. Now, you want to see all of your applications in one list again. Simply type `list` to view the full list of your applications again!
+**Step 1:** You have used the `find` command to find the company _DSTA_ earlier. Now, to view the full list of companies again, simply type `list` and press `Enter`!
 
 ![img.png](images/list-command/ListCommand.png)
 
@@ -695,7 +693,7 @@ _You've found the specific company you wanted using the find command earlier, an
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
-### Filter companies by application status: `filter`
+### Filtering Companies by Application Status: `filter`
 
 _Can't remember which applications you haven't submitted or want to prepare for the companies that have offered you an interview?
 Filter the list of companies by their application status using the `filter` command!_
@@ -708,11 +706,11 @@ Filter the list of companies by their application status using the `filter` comm
 
 **Step 1:** You want to prepare for the upcoming interviews you have received. 
 
-**Step 2:** Simply type `filter s/PI` to filter the list of companies to show only companies with status "Pending Interview" and press Enter.
+**Step 2:** Simply type `filter s/PI` to filter the list of companies to show only companies with status "Pending Interview" and press `Enter`.
 
 ![img.png](images/filter-command/FilterByPI.png)
 
-**Step 3:** You can then view all the companies that you have pending interviews for from the company list.
+**Step 3:** You can then view all the companies that you have pending interviews for from the Company List Panel.
 
 ![img.png](images/filter-command/AfterFilterCommand.png)
 
@@ -724,10 +722,9 @@ If you enter an invalid prefix for the filter command, you will see an error mes
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
-### Sort companies by their deadlines: `sort`
+### Sorting Companies by Deadlines: `sort`
 
 _Want to see which application deadlines are coming up soon or which ones are far off? Use the `sort` command to
-arrange your list of applications based on their deadlines._
 arrange your list of applications based on their deadlines._
 
 **Format:** `sort SORT_ORDER`
@@ -756,7 +753,7 @@ list looks chaotic. Just type `sort ascending` to sort the list of applications 
 
 ![img.png](images/sort-command/AfterSorting.png)
 
-**Possible Error**
+**Possible Error:**
 
 Suppose you misspelled the `SORT-ORDER` keyword, you will see an error message informing you of the invalid command,
 and suggest the correct keyword to use:
