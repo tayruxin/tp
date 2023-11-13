@@ -250,7 +250,7 @@ The `find` command allows users to search for companies using one or more keywor
 
 **How `NameContainsKeywordsPredicate` Works**
 
-Previously, `NameContainsKeywordsPredicate` was designed to match a company name against a whole keyword. However, the modified implementation allows it to test a company's name against substrings and return true if the company's name contains the substring .
+Previously, `NameContainsKeywordsPredicate` was designed to match a company name against a whole keyword. However, the modified implementation allows it to test a company's name against substrings and return true if the comapany's name contains the substring .
 
 When `find` is executed, it uses the `Model` interface's `updateFilteredCompanyList(Predicate<Company> predicate)` method, passing in the modified `NameContainsKeywordsPredicate` to filter the list of companies.
 
@@ -423,6 +423,7 @@ getDuplicateCompany(toAdd) method, which has already been shown in the sequence 
       interns from inadvertently applying multiple times to the same position at a company with the same role and
       application deadline.
 
+
 ### Remark Feature
 
 The `remark` command allows user to add and delete a remark from a company.
@@ -437,7 +438,7 @@ The following activity diagram will show how `RemarkCommand` can achieve the fun
 #### Design Considerations
 **Aspect: How adding/editing of Remark is implemented**
 - **Alternative 1 (Current Choice):** Use two `COMMAND_WORD`
-    - Pros: More specific commands allow for better error handling i.e. empty remark can be considered invalid input, thus more defensive programming
+    - Pros: More specific commands allow for better error handling i.e empty remark can be considered invalid input, thus more defensive programming
     - Cons: More prone to bugs if error handling not implemented correctly.
 - **Alternative 2:** Use only one `COMMAND_WORD`
     - Pros: Easier to implement.
