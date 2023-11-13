@@ -5,13 +5,13 @@ title: User Guide
 
 # Welcome to LinkMeIn!
 
-_Master Your Internship Journey: Every Deadline, Every Detail._
+_Your One-Stop Internship Application Tracker._
 
-It's that time of the year again! You're scrolling through LinkedIn to discover internship opportunities and tackling programming problems non-stop to prepare for your coding interviews, all in pursuit of securing a summer internship. To increase your chances, you've mass-applied to multiple companies, and now you're struggling to keep track of all your applications.
+It's that time of the year again! You're scrolling through LinkedIn to discover internship opportunities, in hopes of trying to secure one for summer. To increase your chances, you've mass-applied to multiple companies, and now you're struggling to keep track of all your applications
 
 Well, fret not! LinkMeIn is here to help you! LinkMeIn is a **desktop application** specifically designed for all of you, NUS School Of Computing's Computer Science students, to effectively manage and track your internship applications.
 
-Here is a **quick** overview of your internship journey with LinkMeIn:
+Here is a **quick** overview of how LinkMeIn transforms your internship application process:
 
 -   Dynamic Data Management: Easily **add**, **edit**, **find** and **filter** companies for targeted application tracking.
 -   Smart Organization: **Sort** applications by deadline and quickly pinpoint key opportunities.
@@ -19,13 +19,13 @@ Here is a **quick** overview of your internship journey with LinkMeIn:
 
 LinkMeIn is more than just an application — it's your **personalized** partner, offering a seamless experience that outclasses conventional tracking methods.
 
-Moreover, LinkMeIn combines the rapid **efficiency** of [Command Line Interface (CLI)](#introducing-linkmeins-cli) with the visual clarity of [Graphical User Interface (GUI)](#introducing-linkmeins-gui), providing a **tailored** experience just for you.
+Moreover, LinkMeIn combines the **efficiency** of the [Command Line Interface (CLI)](#introducing-linkmeins-cli) with the visual clarity of the [Graphical User Interface (GUI)](#introducing-linkmeins-gui), offering a **best-of-both-worlds** experience.
 
 # Table of Contents
 * TOC
 {:toc}
 
-# Navigating the User Guide
+# Usage of This Guide
 
 This user guide aims to empower you with the knowledge and skills needed to maximize the potential of LinkMeIn. We are
 committed to guide you at every step of your internship journey. Whether you're a new user looking to get started or 
@@ -50,11 +50,11 @@ Before we begin, let us first introduce you to the annotations that you will enc
 </div>
 
 Throughout this guide, you will also notice **various text styles**. Here's what each of them means:
-- _Represents possible scenarios that you can use a feature for (mainly in the feature sections)._
+- _Used to show possible scenarios that you can use a feature for (mainly in the feature sections)._
 - [Represents hyperlinks that you can click into, which will direct you to another section of this user guide or to 
-  a website.](#)
-- `Represents content that you can type into the command box.`
-- > Represents the acceptable parameters that you can key into a command.
+  a website.]()
+- `Used to highlight specific elements such as file names, commands, or any text that should be viewed as code.`
+- > Used to describe information about the parameters that you can key into a command.
 
 Now that you are familiar with the annotations and text styles, let us teach you how to navigate this user guide according 
 to your level of expertise. 
@@ -84,33 +84,34 @@ If you face any issues while using LinkMeIn, you can refer to the [FAQ Section](
 [&uarr; Back to Table of Contents](#table-of-contents)
 
 # Quick Start
-In this section, you will learn how to set up LinkMeIn in your computer. 
+In this section, you will learn how to set up LinkMeIn on your computer. 
 
-1. Make sure that you have **Java 11 or above** installed in your Computer. Click 
+1. Make sure that you have **Java 11 or above** installed on your Computer. Click 
 [here](#1-how-do-i-check-if-i-have-java-11-installed) if you are unsure of how to check if you have Java 11 installed.
 
-2. With Java 11 installed, you can now download our latest jar file from [here](https://github.com/AY2324S1-CS2103T-T17-2/tp/releases/tag/v1.2.0).
+2. With Java 11 installed, you can now download our latest jar file from [here](https://github.com/AY2324S1-CS2103T-T17-2/tp/releases/latest).
 
 3. Click on the `LinkMeIn.jar` file to download it.
     <div style="margin-top: 10px; margin-bottom: 10px">
         <img src="images/quick-start/githubRelease.png" alt="Github Release" width="650"/>
     </div>
 
-4. Move the downloaded jar file into a home folder of your choice, such as the **Desktop** or **Documents** folder for your LinkMeIn.
+4. Move the downloaded jar file into a home folder of your choice, such as the **Desktop** or **Documents** folder.
 
 5. Open up your command terminal. If you are unsure of how to do so, you can check out [this FAQ](#2-how-do-i-open-up-my-terminal).
 
 6. Navigate to the folder where you have placed the jar file by typing `cd`, followed by the folder path.
    - For example if you have placed the jar file in the **Documents** folder, type `cd ~/Documents` and press `Enter`.
    
-7. Enter the next command `java -jar LinkMeIn.jar` and press `Enter`. Your command terminal should look like this after Steps 6 and 7:
+7. Type the command `java -jar LinkMeIn.jar` and press `Enter`. Your command terminal should look like this after 
+   Steps 6 and 7:
     <div style="margin-top: 10px; margin-bottom: 10px">
         <img src="images/quick-start/launchLinkMeIn.png" alt="Launch LinkMeIn" width="650"/>
     </div>
 
     <div markdown="block" class="alert alert-danger">
     **:exclamation: Warning:**<br>
-    * Do not move or delete the `data` folder as it contains the data of your applications.
+    * Do not move or delete the `data` folder as it contains the data of your internship applications.
     </div>
 
 8. You should have successfully launched LinkMeIn with the following interface appearing on your screen.
@@ -118,7 +119,7 @@ In this section, you will learn how to set up LinkMeIn in your computer.
         <img src="images/quick-start/startupPage.png" alt="Start Up Page LinkMeIn" width="650"/>
     </div>
 
-9. Great job! You are now ready to learn about the [GUI](#introducing-linkmeins-gui) of LinkMeIn!
+9. Great job! You are now ready to learn about the **GUI** of LinkMeIn!
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
@@ -167,8 +168,8 @@ A command line has 4 components, **command word**, **index**, **prefix** and **p
 | Parameter    | `John Doe` | Represents the updated value or content. <br/> These values, which are provided by the user, replaces the `UPPER_CASE` placeholders in the command format |
 | Prefix       | `c/`       | Indicates the type of parameter to be edited (e.g., company's name)                                                                                       |
 
-_You can find all the parameters used in LinkMeIn [here](#parameters-description)._
-_To learn more about the prefixes and command words used in LinkMeIn, you can refer to the [Command Summary Section](#command-summary)._
+You can find all the parameters used in LinkMeIn [here](#parameters-description).
+To learn more about the prefixes and command words used in LinkMeIn, you can refer to the [Command Summary Section](#command-summary).
 
 Now, let's see how you can use these components to easily write a command!
 The following color code will assist you in highlighting each component for better understanding. 
@@ -182,12 +183,12 @@ Let's use the [`add` command](#adding-a-company--add) format as shown below to e
     <img src="images/cli-description/CommandFormat2.png" alt="CommandFormat2" width="750" />
 </div>
 
-The `add` command word is used to initiate the adding a company into LinkMeIn. <br>
+The `add` command word is used to initiate the adding of a company into LinkMeIn. <br>
 
 The prefix indicates the parameter type. For example, `c/John` adds "John" as the company name while `n/John` adds "John" as the recruiter's name.
 Simply replace the parameters with your specific application details, and you have effectively crafted an `add` command!
 
-But wait! Notice the `[]` around `pr/PRIORITY`? 
+But wait! Notice the `[]` around `pr/PRIORITY`? Here's what it means:
 
 | Symbol  | Description      | Example          | Interpretation                                        |
 |---------|------------------|------------------|-------------------------------------------------------|
@@ -196,17 +197,17 @@ But wait! Notice the `[]` around `pr/PRIORITY`?
 
 Since `PRIORITY` parameter is optional, the following command lines are accepted for the `add` command.
 
-**Example:**
+**Examples:**
 - `add c/GovTech r/Software Engineer s/PA n/John Doe d/12-12-2023 e/johnDoe@gmail.com p/98765432 pr/medium`
 - `add c/GovTech r/Software Engineer s/PA n/John Doe d/12-12-2023 e/johnDoe@gmail.com p/98765432`
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
-* Parameters can be in any order. e.g. If the command specifies c/COMPANY_NAME r/ROLE, r/ROLE c/COMPANY_NAME is also acceptable.
-* Parameters are case-insensitive. e.g. c/COMPANY_NAME is the same as c/company_name.
+* Parameters can be in any order. e.g. If the command specifies `c/COMPANY_NAME r/ROLE`, `r/ROLE c/COMPANY_NAME` is also acceptable.
+* Parameters and prefixes are case-insensitive. e.g. `c/COMPANY_NAME` is the same as `C/company_name`.
 </div>
 
-Notice that the `add` command does not use `INDEX` in its command format. Each feature has a unique command format, but every command line must begin with a command word to specify the desired feature. You can find the command format for each feature in the [Features](#current-features) section or take a [quick tour](#introducing-linkmein-a-quick-tour) to get hands-on experience with LinkMeIn.
+Notice that the `add` command does not use `INDEX` in its command format. Each feature has a unique command format, but every command line must begin with a command word to specify the desired feature. You can find the command format for each feature in the [Features](#current-features) section or take a **quick tour** to get hands-on experience with LinkMeIn, right below!.
 
 ---
 
@@ -226,7 +227,7 @@ using quite often. In this tour, you will be learning how and when to:
 
 Before we embark on this tour, remember to download LinkMeIn and have your computer set up correctly. If you have not
 done so, do check out the [Quick Start Guide](#quick-start) for more information.
-Now, follow us along this tour and transform yourself into a master of your internship application!
+Now, follow us along this tour and transform yourself into a master of tracking your internship applications!
 
 ## 1. Adding a Company
 
@@ -260,7 +261,7 @@ If you wish to learn more about the `add` command, you can do so [here](#adding-
 
 ## 2. Viewing Company Details
 
-Now that you had added your first few companies into LinkMeIn, you may want to view the details of a specific company.
+Now that you have added your first few companies into LinkMeIn, you may want to view the details of a specific company.
 
 **Step 1:** After scrolling through your list of companies, you wish to view the details of the company DSTA.
 Simply type `view 3` to view DSTA's details.
@@ -310,8 +311,8 @@ internship applications. To remove the sample data provided in LinkMeIn, simply 
 all existing entries. Find out more about the `clear` command [here](#clear-all-companies-clear).
 
 LinkMeIn offers more than just the features that you have learnt in this tour.
-If you wish to learn more about the other features of LinkMeIn, head over to our 
-[Features Section](#current-features). You can also visit the [FAQ](#faq) to view the frequently asked questions if you need more help!
+If you wish to learn more about the other features of LinkMeIn, head over to our **Features Section** right below! 
+You can also visit the [FAQ](#faq) to view the frequently asked questions if you need more help!
 
 [&uarr; Back to Table of Contents](#table-of-contents)
 
