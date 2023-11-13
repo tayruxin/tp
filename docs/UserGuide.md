@@ -625,7 +625,7 @@ If you attempt to add a company with the **same company name, role and deadline*
 
 **Example 3:**
 LinkMeIn's duplicate check does not stop with adding entries. If you attempt to **edit** an application, creating a 
-duplicate entry with the same company name, role, and deadline as an existing application in LinkMeIn, 
+duplicate entry with the **same company name, role, and deadline** as an existing application in LinkMeIn, 
 an error message will be displayed in the command box, notifying you of the duplicate company as seen below. 
 
 ![img.png](images/duplicate-detection/edit-command/duplicate-edit.png)
