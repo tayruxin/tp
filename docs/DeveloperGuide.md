@@ -1180,56 +1180,49 @@ Prerequisite: There is at least one company in the list.
 <div style="page-break-after: always;"></div>
 
 ## **Appendix D: Effort**
-### UI Enhancements
-The UI has been revamped to allow card-based viewing of recruiter details.
-The main panel has been split into the company detail panel and the company list panel.
-The main address book is found within the company list panel and a `view`command has been implemented to allow for additional details to show up when a particular company is selected.
+### Effort
+**UI Enhancements**
 
-### Enhancements to Existing AB3 Commands
-- Add command was adapted to accept company name, role, status, deadline, recruiter name, phone, email, priority[optional] fields.
-- Edit command is also adapted to edit all the fields mentioned above.
-- Find command was improved to include **Case-Insensitive**, **Order Independent** and **Substring Match** searches.
-- Duplicate checks are implemented, comparing company name, interview deadline and roles.
-- Appropriate input validation checks for more specific error handling
+With JavaFX, the UI has been revamped by importing different components such as `SplitPane` and `ListView`.
+Implementing these components requires us to learn more about JavaFX and experiment on our own.
+
+**Enhancements to Existing AB3 Features**
+
+While editing the commands to include new parameters may require less effort, we have put in substantial effort to enhance commands and issues inherited from AB3.
+This includes implementing a more optimised `find` command to search with greater flexibility and more extensive checks for more specific error messages which can guide users better.
+Duplicate check is one of the most commendable efforts for checks.
+
+**New Classes Implemented**
+
+Examples of new classes created:
+
+`Model` classes - Deadline, Priority, Status, Role etc.
+
+`Command` classes -  Filter, Remark, Sort, View
+
+Besides ensuring that new classes added follow the architecture, another important aspect is the code quality.
+We have added test cases for all new classes and practised defensive programming by adding assertion and logging statements.
 
 
-### Additional Commands Implemented
-- View command
-- Filter command
-- Remark command
-- Sort command
+### Challenges Faced:
+- **Coding within a team:** 
+Most of us were used to doing personal projects or pair projects, which is much easier to manage, in terms of workflow.
+In the short amount of time we had, we had to familiarise ourselves with the GitHub workflow to enhance our collaboration.
+Merge conflicts and issues arising from minor mistakes with pull requests required a huge amount of time to resolve.
 
-### Brief Implementation Details of New Commands and Features
-Filter command filters based on application status supplied as argument
-Find command does implements three matching types
-**Case-Insensitive Search**: Whether you type tiktok or TikTok, it will still match TikTok.
-**Order Independent**: You can search for tiktok google and it will find Google TikTok.
-**Substring Matching**: Typing tik will return companies like TikTok.
-Remark command allows you to add a remark using the re/ prefix to your specific application. This allows the field to remain optional, and is relevant to our target users (internship applicants in SOC) as you may want to make a remark to the application at a later stage of the application process.
-Sort is implemented using ascending to sort nearest deadlines first and descending to sort furthest deadlines first.
-The view command allows you to view the details of any company from the list of companies that you have added.
+- **Using JavaFX:**
+We were newly introduced to the JavaFX package in this course, which we had little experience with.
+Editing the UI aspect is also more complex than coding the frontend and backend systems, as changing the UI relies on visualisation, which requires much trial and error to perfect it.
+This makes the learning curve very steep for UI enhancements, which took us more time and effort to achieve.
 
-### Difficulty Level and Challenges Faced
-As compared to AB3, this project was much tougher and required more effort to build. The original AB3 is a one-layered implementation, where users can only interact with one list of items, adding and deleting them.
+- **Evolving from AB-3:**
+Refactoring AB-3 code was challenging, especially when this was done right at the start of the project.
+Significant time was taken to understand how the large codebase works.
+This proved even more challenging as we only learned software design patterns quite late into the semester.
+Hence, the code did not make much sense to us when we first started.
 
-In LinkMeIn, we adopt a two-layer approach, which increases the complexity of the project.
 
-The main panel was reformatted into two panels, the company detail panel and the . They can open up a specific application using the view INDEX command, which shows the details of the application. They can interact with the particular application, such as adding a remark, editing priority of the application etc.
+When evolving from AB-3 to LinkMeIn, we had a fair amount of enhancement and sufficient breadth in aspects of the software covered such as change in UI, adding new commands, and error handling. LinkMeIn is a small evolution from AB3. With these considerations, the difficulty level for the LinkMeIn project is moderate.
 
-This approach required us to consider the design of the program carefully, so as to ensure that we are able to successfully open the correct application, and ensure that after every command, the program is at the correct state each time.
-
-Here are some difficulties we faced during the implementation and how we overcame them:
-
-- **Displaying the details of the company on CompanyDetailPanel**
-
-At the outset, we encountered challenges attempting to call the UI directly without a LogicToUI interface.
-There is no way for the view command to call the UI directly to display the company that the user wishes to view.
-Thus, we explored the option of adding a company field to the address book to store the company that we wish to view and to pass it into the UI.
-However, we identified another drawback, it will not reflect changes after editing the company detail information without implementing the view function again.
-Eventually we decide to store the company that we wish to view in an ObservableList, which solves the challenges mentioned above.
-
-- **Distinguishing between the current state of the application list for the duplicate detection algorithm**
-
-Since there were two distinguished states of the list, a distinction had to be made between the filtered view state and the unfiltered view state.
-The `Index` referenced by all the commands is based on the current view state of the user.
-Since the error message thrown by the duplicate detection algorithm had a message identifying the fields changes and the index that should be keyed in to make an edit modification, getting the correct `Index` reference was crucial based on the state of the application view page. 
+### Achievements:
+We have made significant progress since the start of this module. We have familiarised ourselves with the GitHub workflow and have managed to produce a CLI application that follows proper code quality to achieve readability and maintainability. We are really proud of what we have achieved!
