@@ -25,7 +25,7 @@ Moreover, LinkMeIn combines the **efficiency** of the [Command Line Interface (C
 
 # Table of Contents
 * TOC
-  {:toc}
+{:toc}
 
 <div style="page-break-after: always;"></div><br/>
 
