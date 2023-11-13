@@ -474,7 +474,7 @@ With the `view` command, you can easily view the full details of a specific comp
 
 **Format:** `view INDEX`
 
->`INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. lesser than 2147483647).
+>`INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. less than or equal to 2147483647).
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
@@ -540,7 +540,7 @@ _After adding a company, you wish to note down more information such as the job 
 
 **Format:** `remark INDEX re/REMARK`
 
-> `INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. lesser than 2147483647). <br>
+> `INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. less than or equal to 2147483647). <br>
 >
 > Remarks cannot be empty.
 
@@ -594,7 +594,7 @@ _You have previously added some remarks to a company, but the remarks have becom
 
 **Format:** `unremark INDEX`
 
->`INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. lesser than 2147483647).
+>`INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. less than or equal to 2147483647).
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
@@ -639,7 +639,7 @@ _You look at the details of the application, and realise that you have made a ty
 
 **Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY]`
 
->`INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. lesser than 2147483647). <br>
+>`INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. less than or equal to 2147483647). <br>
 >
 > At least one of the optional parameters must be provided.
 
