@@ -84,7 +84,7 @@ Welcome back! We hope that you have been enjoying your internship tracking journ
 1. If you need a refresher on how to use a feature, you can refer to the [Features Section](#current-features) to find
 out more about LinkMeIn's features. In the Features Section, there are **detailed explanations** of each feature and
    **examples** to help you better understand how to use them.
-2. To quickly refer to the command format of a feature, you can head over to the [Command Summary Section](#command-summary-brbr)
+2. To quickly refer to the command format of a feature, you can head over to the [Command Summary Section](#command-summary)
 where all the commands are listed out in a table format.
 
 If you face any issues while using LinkMeIn, you can refer to the [FAQ Section](#faq) to see if your issue has been addressed before.
@@ -186,8 +186,8 @@ A command line has 4 components, **command word**, **index**, **prefix** and **p
 | Parameter    | `John`   | Represents the updated value or content. <br/> These values, which are provided by the user, replaces the `UPPER_CASE` placeholders in the command format<br/><br/> |
 | Prefix       | `c/`     | Indicates the type of parameter to be edited (e.g., company's name)                                                                                                 |
 
-You can find all the parameters used in LinkMeIn [here](#parameters-description-brbr).
-To learn more about the prefixes and command words used in LinkMeIn, you can refer to the [Command Summary Section](#command-summary-brbr).
+You can find all the parameters used in LinkMeIn [here](#parameters-description).
+To learn more about the prefixes and command words used in LinkMeIn, you can refer to the [Command Summary Section](#command-summary).
 
 Now, let's see how you can use these components to easily write a command!
 The following color code will assist you in highlighting each component for better understanding. 
@@ -435,7 +435,7 @@ Add the company to LinkMeIn now to keep track of the application process using t
 **Format**:
 `add c/COMPANY_NAME r/ROLE s/APPLICATION_STATUS d/DEADLINE n/RECRUITER_NAME e/EMAIL p/PHONE_NUMBER [pr/PRIORITY]`
 
-> All [**parameters**](#parameters-description-brbr) specified in the format are compulsory except for PRIORITY.
+> All [**parameters**](#parameters-description) specified in the format are compulsory except for PRIORITY.
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
