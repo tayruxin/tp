@@ -323,6 +323,8 @@ The following sequence diagram will illustrate the process of performing the `fi
 
 <img src="images/FilterSequenceDiagram.png"/>
 
+<div style="page-break-after: always;"></div>
+
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**
 The lifeline for `FilterCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
@@ -356,6 +358,8 @@ This operation is exposed in the `Model` interface as:
 The following sequence diagram will illustrate the process of performing the `edit` command, taking `edit 1 r/SWE` as an example.
 
 <img src="images/EditSequenceDiagram.png"/>
+
+<div style="page-break-after: always;"></div>
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**
