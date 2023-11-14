@@ -499,6 +499,8 @@ The following activity diagram shows what happens when the user executes the `ad
 
 <img src="images/AddActivityDiagram.png" alt="Add Activity Diagram"/>
 
+<div style="page-break-after: always;"></div>
+
 #### Design Considerations
 **Aspect: Parameters to be Added into Company**
 
@@ -525,6 +527,9 @@ be either `ASCENDING` or `DESCENDING`. For simplicity, the parsing of the comman
 has been excluded. 
 
 <img src="images/SortSequenceDiagram.png" alt="Sort Sequence Diagram"/>
+
+<div style="page-break-after: always;"></div>
+
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**
 The corresponding methods `createComparator`, `getUnmodifiableObservableList` and `sortCompanies` in the sequence diagram 
