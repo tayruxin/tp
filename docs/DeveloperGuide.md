@@ -1009,8 +1009,9 @@ Currently, the user can only delete one company at once. However, there will be 
 
 **Proposed Enhancement**
 
-Enable the user to input multiple indices when attempting to delete entries. Users can separate each index with a comma. If the user wishes to delete a range of indices, they can use a dash, to indicate the range. The format to delete a range of companies: `INDEX_START - INDEX_END`.
+Enable the user to input multiple indices when attempting to delete entries. Users can separate each index with a comma. If the user wishes to delete a range of indices, they can use a dash, to indicate the range. The format to delete a range of companies is `INDEX_START - INDEX_END`.
 The `DeleteCommandParser` will split the string by commas and remove the companies corresponding to the specified indices. There will also be checks to see if the user keyed in the same index more than once. If the same index is keyed in more than once, the parser will accept the input but treat it as if the user only keyed in that same index once.
+If the user keys in a range of indices, the parser will check if the start index is smaller than the end index. If the start index is larger than the end index, an error message will be returned to the user. Besides, if INDEX_END is larger than the size of the list, an error message will also be returned to the user. INDEX_START and INDEX_END must be positive integers.
 
 **Examples**
 
