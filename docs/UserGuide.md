@@ -394,7 +394,7 @@ _You've just completed an internship cycle and are preparing for the next one! W
 **Step 2:** You should see an empty list of companies immediately.
 
 ![img.png](images/clear-command/clear.png)
-
+<br/>
 <div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
 * Companies cannot be recovered after clearing! Please only use the `clear` command when you are very sure that you no longer wish to track the existing list of companies!
