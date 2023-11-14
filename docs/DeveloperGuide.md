@@ -323,6 +323,8 @@ The following sequence diagram will illustrate the process of performing the `fi
 
 <img src="images/FilterSequenceDiagram.png"/>
 
+<div style="page-break-after: always;"></div>
+
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**
 The lifeline for `FilterCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
@@ -356,6 +358,8 @@ This operation is exposed in the `Model` interface as:
 The following sequence diagram will illustrate the process of performing the `edit` command, taking `edit 1 r/SWE` as an example.
 
 <img src="images/EditSequenceDiagram.png"/>
+
+<div style="page-break-after: always;"></div>
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**
@@ -417,7 +421,7 @@ Upon ascertaining that the edited company is a duplicate,
 
 Below is an activity diagram showing the events when a user attempts to **add** a duplicate company to the company list.
 
-<img src="images/duplicate-detection/add-command/DuplicateActivityDiagram.png"/>
+<img src="images/duplicate-detection/add-command/DuplicateActivityDiagram.png" alt="Duplicate Activity Diagram"/>
 
 The purpose of the diagram is to show the difference in the message passing when a duplicate company is detected
 between the `AddCommand` and `EditCommand` classes. Therefore, the diagram omits the propagation of the
@@ -495,6 +499,8 @@ The following activity diagram shows what happens when the user executes the `ad
 
 <img src="images/AddActivityDiagram.png" alt="Add Activity Diagram"/>
 
+<div style="page-break-after: always;"></div>
+
 #### Design Considerations
 **Aspect: Parameters to be Added into Company**
 
@@ -521,6 +527,9 @@ be either `ASCENDING` or `DESCENDING`. For simplicity, the parsing of the comman
 has been excluded. 
 
 <img src="images/SortSequenceDiagram.png" alt="Sort Sequence Diagram"/>
+
+<div style="page-break-after: always;"></div>
+
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**
 The corresponding methods `createComparator`, `getUnmodifiableObservableList` and `sortCompanies` in the sequence diagram 
@@ -1011,7 +1020,7 @@ Currently, the user can only delete one company at once. However, there will be 
 
 Enable the user to input multiple indices when attempting to delete entries. Users can separate each index with a comma. If the user wishes to delete a range of indices, they can use a dash, to indicate the range. The format to delete a range of companies is `INDEX_START - INDEX_END`.
 The `DeleteCommandParser` will split the string by commas and remove the companies corresponding to the specified indices. There will also be checks to see if the user keyed in the same index more than once. If the same index is keyed in more than once, the parser will accept the input but treat it as if the user only keyed in that same index once.
-If the user keys in a range of indices, the parser will check if `INDEX_START` is smaller than `INDEX_END`. If `INDEX_START` is larger than `INDEX_END`, an error message will be displayed to the user. Besides, if `INDEX_END` is larger than the size of the list of companies, an error message will also be displayed to the user. `INDEX_START` and `INDEX_END` must be positive integers less than or equal to the maximum integer.
+If the user keys in a range of indices, the parser will check if `INDEX_START` is smaller than or equals to `INDEX_END`. If `INDEX_START` is larger than `INDEX_END`, an error message will be displayed to the user. Besides, if `INDEX_END` is larger than the size of the list of companies, an error message will also be displayed to the user. `INDEX_START` and `INDEX_END` must be positive integers less than or equal to the maximum integer.
 
 **Examples**
 
