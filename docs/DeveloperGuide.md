@@ -1197,23 +1197,18 @@ We have added test cases for all new classes and practised defensive programming
 
 ### Challenges Faced
 - **Coding within a team:** 
-Most of us were used to doing personal projects or pair projects, which is much easier to manage, in terms of workflow.
+Most of us were used to doing personal projects or pair projects, which are much easier to manage in terms of workflow.
 In the short amount of time we had, we had to familiarise ourselves with the GitHub workflow to enhance our collaboration.
-Merge conflicts and issues arising from minor mistakes with pull requests required a huge amount of time to resolve.
+Merge conflicts and issues arising from minor mistakes with pull requests required a significant amount of time to resolve.
 
 - **Using JavaFX:**
 We were newly introduced to the JavaFX package in this course, which we had little experience with.
-Editing the UI aspect is also more complex than coding the frontend and backend systems, as changing the UI relies on visualisation, which requires much trial and error to perfect it.
-This makes the learning curve very steep for UI enhancements, which took us more time and effort to achieve.
+Editing the UI aspect is also more complex than coding the frontend and backend systems, as changing the UI relies on visualisation, which requires much trial and error to perfect. This steep learning curve for UI enhancements took us more time and effort to overcome.
 
 - **Evolving from AB-3:**
-Refactoring AB-3 code was challenging, especially when this was done right at the start of the project.
-Significant time was taken to understand how the large codebase works.
-This proved even more challenging as we only learned software design patterns quite late into the semester.
-Hence, the code did not make much sense to us when we first started.
+Refactoring AB-3 code was challenging, especially at the start of the project. Significant time was spent understanding how the large codebase works. This proved even more challenging as we only learned software design patterns quite late into the semester. Hence, the code did not make much sense to us when we first started.
 
-
-When evolving from AB-3 to LinkMeIn, we had a fair amount of enhancement and sufficient breadth in aspects of the software covered such as change in UI, adding new commands, and error handling. LinkMeIn is a small evolution from AB3. With these considerations, the difficulty level for the LinkMeIn project is moderate.
+When evolving from AB-3 to LinkMeIn, we made a fair amount of enhancements, covering various aspects of the software, including changes in UI, addition of new commands, and error handling. LinkMeIn is a small evolution from AB3. With these considerations, the difficulty level for the LinkMeIn project is moderate.
 
 ### Achievements
-We have made significant progress since the start of this module. We have familiarised ourselves with the GitHub workflow and have managed to produce a CLI application that follows proper code quality to achieve readability and maintainability. We are really proud of what we have achieved!
+We have made significant progress since the start of this module. We have familiarised ourselves with the GitHub workflow and successfully developed a CLI application that follows proper code quality standards, achieving readability and maintainability. We are genuinely proud of what we have achieved!
