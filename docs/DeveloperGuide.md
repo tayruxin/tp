@@ -8,7 +8,6 @@ title: Developer Guide
 {:toc}
 
 ---
-<div style="page-break-after: always;"></div>
 
 ## **Acknowledgements**
 
@@ -795,7 +794,7 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 | **Alphanumeric**  | Refers to a character set that includes both letters and numbers. It includes the 26 letters of the English alphabet (both uppercase and lowercase) and the numbers 0 through 9.                                                    |
 | **CLI**           | Command-Line Interface (CLI) is a text-based user interface where users interact with the application by typing commands.                                                                                                           |
 | **Command**       | A command is an instruction given by a user to LinkMeIn to perform a specific action. For example,`add` command is a command to add the company's application into LinkMeIn.                                                        |
-| **Component**     | A part of the App that serves a particular function (e.g., Logic, Storage)                                                                                                                                                          |
+| **Component**     | A part of the application that serves a particular function (e.g., Logic, Storage).                                                                                                                                                 |
 | **GUI**           | Graphical User Interface (GUI) is a visual method to interact with software using icons, buttons, and windows. GUI provides a user-friendly way to interact with software using graphical elements rather than text-based commands. |
 | **Index**         | Refers to the index number shown in the displayed company list.                                                                                                                                                                     |
 | **JAR**           | JAR stands for Java Archive and is a package file format typically used to aggregate many Java class files and associated metadata and resources into one file for distribution.                                                    |
