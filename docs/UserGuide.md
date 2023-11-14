@@ -225,8 +225,8 @@ Since `PRIORITY` parameter is optional, the following command lines are accepted
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
-* Parameters can be in any order. e.g. If the command specifies `c/COMPANY_NAME r/ROLE`, `r/ROLE c/COMPANY_NAME` is also acceptable.
-* Parameters and prefixes are case-insensitive. e.g. `c/COMPANY_NAME` is the same as `C/company_name`.
+* Parameters can be in any order (e.g., if the command specifies `c/COMPANY_NAME r/ROLE`, `r/ROLE c/COMPANY_NAME` is also acceptable).
+* Parameters and prefixes are case-insensitive (e.g., `c/COMPANY_NAME` is the same as `C/company_name`).
 </div>
 
 Notice that the `add` command does not use `INDEX` in its command format. Each feature has a unique command format, but every command line must begin with a command word to specify the desired feature. You can find the command format for each feature in the [Features](#current-features) section or take a **quick tour** to get hands-on experience with LinkMeIn, right below!
@@ -676,7 +676,7 @@ If you attempt to **add** or **edit** an application, you might accidentally cre
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* LinkMeIn's duplicate check is case-insensitive. e.g. `tiktok` is the same as `TikTok`.
+* LinkMeIn's duplicate check is case-insensitive (e.g., `tiktok` is the same as `TikTok`).
 </div>
 
 **Example 1:**
@@ -762,7 +762,7 @@ _You've found the specific company you wanted using the find command earlier, an
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* Upon launching LinkMeIn, you will see your full list of companies. (i.e. `list` command is executed automatically).
+* Upon launching LinkMeIn, you will see your full list of companies (i.e., `list` command is executed automatically).
 </div>
 
 [&uarr; Back to Table of Contents](#table-of-contents)
@@ -821,7 +821,7 @@ arrange your list of applications based on their deadlines!_
 **:information_source: Notes:**<br>
 * Ascending order means that the nearest deadlines will be shown first.
 * Descending order means that the furthest deadlines will be shown first.
-* The case of `SORT_ORDER` does not matter (e.g. `ASCENDING` and `ascending` are treated the same).
+* The case of `SORT_ORDER` does not matter (e.g., `ASCENDING` and `ascending` are treated the same).
 </div>
 
 <div markdown="block" class="alert alert-success">
@@ -980,8 +980,8 @@ Make sure you have Java 11 installed on your machine as the product only runs on
 ### 5. What is an invalid index?
 
 An invalid index is a non-positive integer or an index greater than the number of companies you have.
-e.g -1, 0, a, \*, 1 0 (Only one index is allowed at a time). Positive index should not exceed the maximum allowed range
-of 2147483647.
+Examples: -1, 0, a, \*, 1 0 (Only one index is allowed at a time). Positive index should not exceed the maximum allowed 
+range of 2147483647.
 
 ### 6. Do I need an internet connection to use LinkMeIn?
 
