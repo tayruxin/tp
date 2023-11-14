@@ -8,7 +8,6 @@ title: Developer Guide
 {:toc}
 
 ---
-<div style="page-break-after: always;"></div>
 
 ## **Acknowledgements**
 
@@ -789,27 +788,26 @@ For all use cases below, the **System** is `LinkMeIn` and the **Actor** is the `
 
 ### Glossary
 
-| Term                   | Definition                                                                                                                                                                                                                          |
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Alphanumeric**       | Refers to a character set that includes both letters and numbers. It includes the 26 letters of the English alphabet (both uppercase and lowercase) and the numbers 0 through 9.                                                    |
-| **APPLICATION_STATUS** | Status of the application. It can be either pending application, pending interview, pending outcome, accepted or rejected.                                                                                                          |
-| **CLI**                | Command-Line Interface (CLI) is a text-based user interface where users interact with the application by typing commands.                                                                                                           |
-| **Command**            | A command is an instruction given by a user to LinkMeIn to perform a specific action. For example,`add` command is a command to add the company's application into LinkMeIn.                                                        |
-| **COMPANY_NAME**       | Name of the company that you are applying to. Should only contain alphanumeric characters <br/>and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                   |
-| **DEADLINE**           | Deadline of the application. Should be in DD-MM-YYYY format. Dates before the current date are allowed.                                                                                                                             |
-| **EMAIL**              | Email of the recruiter. Should be in the format of `local-part@domain` and should not be blank.                                                                                                                                     |
-| **GUI**                | Graphical User Interface (GUI) is a visual method to interact with software using icons, buttons, and windows. GUI provides a user-friendly way to interact with software using graphical elements rather than text-based commands. |
-| **Index**              | Refers to the index number shown in the displayed company list.                                                                                                                                                                     |
-| **JAR**                | JAR stands for Java Archive and is a package file format typically used to aggregate many Java class files and associated metadata and resources into one file for distribution.                                                    |
-| **JSON**               | JSON stands for JavaScript Object Notation. It is a lightweight format for data interchange, easy to read and write for humans, and easy to parse for machines. Often used in web applications and configuration files.             |
-| **Mainstream OS**      | Windows, Linux, Unix, OS-X.                                                                                                                                                                                                         |
-| **Parameter**          | Parameter is similar to a field in a form you have to fill up. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `COMPANY_NAME` and `EMAIL` are parameters in the command.                                               |
-| **PHONE_NUMBER**       | Phone number of the recruiter. Should only contain numbers, be at least 3 digits and at most 20 digits long. Should not be blank.                                                                                                   |
-| **Prefix**             | Prefix is a keyword that is used to identify the parameter. For example, in the command `edit 1 c/COMPANY_NAME e/EMAIL`, `c/` and `e/` are prefixes.                                                                                |
-| **PRIORITY**           | Priority of the internship application for a company. Case-insensitive and should be one of the following: `high`, `medium`, `low`, `none`.                                                                                         |
-| **RECRUITER_NAME**     | Name of the recruiter. Should only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                                               |
-| **REMARK**             | Refers to additional comments for the application. Should not be blank.                                                                                                                                                             |
-| **ROLE**               | Role of the internship that you are applying. Should only contain alphanumeric characters and spaces, and should not be blank. Maximum of 100 characters (excluding spaces).                                                        |
+| Term              | Definition                                                                                                                                                                                                                          |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Actor**         | Represents an external entity that interacts with the system being modeled. Actors can be individuals, external systems, or organizations.                                                                                          |
+| **Alphanumeric**  | Refers to a character set that includes both letters and numbers. It includes the 26 letters of the English alphabet (both uppercase and lowercase) and the numbers 0 through 9.                                                    |
+| **CLI**           | Command-Line Interface (CLI) is a text-based user interface where users interact with the application by typing commands.                                                                                                           |
+| **Command**       | A command is an instruction given by a user to LinkMeIn to perform a specific action. For example,`add` command is a command to add the company's application into LinkMeIn.                                                        |
+| **Component**     | A part of the application that serves a particular function (e.g., Logic, Storage).                                                                                                                                                 |
+| **GUI**           | Graphical User Interface (GUI) is a visual method to interact with software using icons, buttons, and windows. GUI provides a user-friendly way to interact with software using graphical elements rather than text-based commands. |
+| **Index**         | Refers to the index number shown in the displayed company list.                                                                                                                                                                     |
+| **JAR**           | JAR stands for Java Archive and is a package file format typically used to aggregate many Java class files and associated metadata and resources into one file for distribution.                                                    |
+| **JavaFX**        | The UI framework that is used in this project.                                                                                                                                                                                      |
+| **JSON**          | JSON stands for JavaScript Object Notation. It is a lightweight format for data interchange, easy to read and write for humans, and easy to parse for machines. Often used in web applications and configuration files.             |
+| **Mainstream OS** | Windows, Linux, Unix, OS-X.                                                                                                                                                                                                         |
+| **PlantUML**      | Diagramming tool used to make the diagrams in this guide.                                                                                                                                                                           |
+| **System**        | Refers to the LinkMeIn application.                                                                                                                                                                                                 |
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Note:**<br>
+The definitions for parameters and prefixes have been omitted as they have already been defined in the user guide.
+</div>
 
 ---
 <div style="page-break-after: always;"></div>
