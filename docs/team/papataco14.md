@@ -3,7 +3,7 @@ layout: page
 title: Ramu Rithik Vijay's Project Portfolio Page
 ---
 
-# Project: LinkMeIn
+#### Project: LinkMeIn
 
 LinkMeIn - Is a desktop address book application made for NUS Computer Science students to track their internship 
 applications. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, 
@@ -16,12 +16,11 @@ The features in LinkMeIn can be categorised into 3 main categories:
 3.  **Company list features:** Manage the list of companies added. Includes, list, find, sort and filter commands.
 
 Given below are my contributions to the project.
-
-### **Code contributed**:
+**Code contributed**:
 
 The code that I have contributed can be found in this [RepoSense link](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=papataco&breakdown=false&sort=groupTitle%20dsc&sortWithin=title&since=2023-09-22&timeframe=commit&mergegroup=&groupSelect=groupByRepos)
 
-### Enhancements implemented:
+#### Enhancements implemented:
 
 **1. Implemented the sort command.**
 
@@ -56,11 +55,13 @@ Implemented to enhance navigability and accessibility, this command allows users
 -   **Predicate Enhancement**: Modified `NameContainsKeywordsPredicate` for substring matching, boosting the command's functionality.
 -   **User-Centric Design**: Selected design alternatives aim for the optimal balance between flexibility and precision, prioritizing ease of use.
 
-**3. Modified the Deadline class** Previously, the deadline field in the Deadline class was a string. I have modified this to be a java LocalDate object for better date time management. I also modified the validation regex and error messages to distinguish between invalid date formats and invalid dates. For implementation of the sorting functionality, instead of having the basis of comparison between deadlines being defined in the sort method, I have modified the Deadline class to implement the comparable interface and defined the basis of comparison within the Deadline class itself. This allows for simpler code and better abstraction.
+**3. Modified the Deadline class** 
+Previously, the deadline field in the Deadline class was a string. I have modified this to be a java LocalDate object for better date time management. I also modified the validation regex and error messages to distinguish between invalid date formats and invalid dates. For implementation of the sorting functionality, instead of having the basis of comparison between deadlines being defined in the sort method, I have modified the Deadline class to implement the comparable interface and defined the basis of comparison within the Deadline class itself. This allows for simpler code and better abstraction.
 
-**4. Refactor person to company** Changed the person model to company model for better OOP at the start of the project.
+**4. Refactor person to company** 
+Changed the person model to company model for better OOP at the start of the project.
 
-### Contribution to the UG:
+#### Contribution to the UG:
 
 The following sections from the UG were contributed by me:
 
@@ -72,14 +73,14 @@ The following sections from the UG were contributed by me:
     -   How do I load data from another computer?
     -   How do I open up my terminal?
 
-### Contribution to the DG:
+#### Contribution to the DG:
 
 -   Updated the models to use Company instead of Person
 -   Added a sequence diagram for the find command implementation discussion
 -   Added uses cases for sorting by deadline
 -   Reordered the user stories table to be in order of priority
 
-### Contribution to team-based tasks:
+#### Contribution to team-based tasks:
 
 -   Created the developers team in our team organization and linked the team repo to it.
 -   Created additional labels for bug triaging for the project.
@@ -87,12 +88,12 @@ The following sections from the UG were contributed by me:
 -   Created a pull request template for the project.
 -   Maintained the GitHub issues page to remove duplicates and close issues that are no longer relevant.
 
-### Review/mentoring contributions:
+#### Review/mentoring contributions:
 
 -   PRs reviewed:
     -   [#107](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/107), [#92](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/92), [#140](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/140), [#167](https://github.com/AY2324S1-CS2103T-T17-2/tp/pull/167)
 
-### Contributions beyond the project team:
+#### Contributions beyond the project team:
 
 -   Bugs reported for the other team during PE-D: [link to issues](https://github.com/papataco14/ped/issues)
 -   Helped others on the forum with smoke testing on Windows [link to forum post](https://github.com/nus-cs2103-AY2324S1/forum/issues/218)
