@@ -1,3 +1,8 @@
+---
+layout: page
+title: Ramu Rithik Vijay's Project Portfolio Page
+---
+
 # Project: LinkMeIn
 
 LinkMeIn - Is a desktop address book application made for NUS Computer Science students to track their internship 
