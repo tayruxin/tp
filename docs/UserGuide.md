@@ -225,8 +225,8 @@ Since `PRIORITY` parameter is optional, the following command lines are accepted
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Notes:**<br>
-* Parameters can be in any order. e.g. If the command specifies `c/COMPANY_NAME r/ROLE`, `r/ROLE c/COMPANY_NAME` is also acceptable.
-* Parameters and prefixes are case-insensitive. e.g. `c/COMPANY_NAME` is the same as `C/company_name`.
+* Parameters can be in any order (e.g., if the command specifies `c/COMPANY_NAME r/ROLE`, `r/ROLE c/COMPANY_NAME` is also acceptable).
+* Parameters and prefixes are case-insensitive (e.g., `c/COMPANY_NAME` is the same as `C/company_name`).
 </div>
 
 Notice that the `add` command does not use `INDEX` in its command format. Each feature has a unique command format, but every command line must begin with a command word to specify the desired feature. You can find the command format for each feature in the [Features](#current-features) section or take a **quick tour** to get hands-on experience with LinkMeIn, right below!
@@ -394,7 +394,9 @@ _You've just completed an internship cycle and are preparing for the next one! W
 **Step 2:** You should see an empty list of companies immediately.
 
 ![img.png](images/clear-command/clear.png)
-<br/>
+
+<div style="page-break-after: always;"></div><br/>
+
 <div markdown="block" class="alert alert-danger">
 **:exclamation: Warning:**<br>
 * Companies cannot be recovered after clearing! Please only use the `clear` command when you are very sure that you no longer wish to track the existing list of companies!
@@ -474,7 +476,7 @@ With the `view` command, you can easily view the full details of a specific comp
 
 **Format:** `view INDEX`
 
->`INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. less than or equal to 2147483647).
+> `INDEX` must be a positive integer less than or equal to the maximum integer (i.e., 1, 2, 3, ..., 2147483647). It must also not be greater than the number of companies in the list.
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
@@ -506,7 +508,7 @@ You can use the `delete` command to delete any company from your list of compani
 
 **Format:`delete INDEX`**
 
-> INDEX must be a positive integer less than the maximum integer (i.e. 1, 2, 3, ..., 2147483647) and not be greater than the number of companies in the list.
+> `INDEX` must be a positive integer less than or equal to the maximum integer (i.e., 1, 2, 3, ..., 2147483647). It must also not be greater than the number of companies in the list.
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
@@ -540,7 +542,7 @@ _After adding a company, you wish to note down more information such as the job 
 
 **Format:** `remark INDEX re/REMARK`
 
-> `INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. less than or equal to 2147483647). <br>
+> `INDEX` must be a positive integer less than or equal to the maximum integer (i.e., 1, 2, 3, ..., 2147483647). It must also not be greater than the number of companies in the list. <br>
 >
 > Remarks cannot be empty.
 
@@ -594,7 +596,7 @@ _You have previously added some remarks to a company, but the remarks have becom
 
 **Format:** `unremark INDEX`
 
->`INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. less than or equal to 2147483647).
+> `INDEX` must be a positive integer less than or equal to the maximum integer (i.e., 1, 2, 3, ..., 2147483647). It must also not be greater than the number of companies in the list.
 
 <div markdown="block" class="alert alert-success">
 **:bulb: Useful Tip:**<br>
@@ -639,7 +641,7 @@ _You look at the details of the application, and realise that you have made a ty
 
 **Format:** `edit INDEX [c/COMPANY_NAME] [n/RECRUITER_NAME] [r/ROLE] [s/APPLICATION_STATUS] [d/DEADLINE] [e/EMAIL] [p/PHONE_NUMBER] [pr/PRIORITY]`
 
->`INDEX` must be a positive integer (i.e. 1, 2, 3, ...) and should not exceed the number of companies in the list. It should also be less than the maximum allowed integer (i.e. less than or equal to 2147483647). <br>
+> `INDEX` must be a positive integer less than or equal to the maximum integer (i.e., 1, 2, 3, ..., 2147483647). It must also not be greater than the number of companies in the list.
 >
 > At least one of the optional parameters must be provided.
 
@@ -674,7 +676,7 @@ If you attempt to **add** or **edit** an application, you might accidentally cre
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* LinkMeIn's duplicate check is case-insensitive. e.g. `tiktok` is the same as `TikTok`.
+* LinkMeIn's duplicate check is case-insensitive (e.g., `tiktok` is the same as `TikTok`).
 </div>
 
 **Example 1:**
@@ -760,7 +762,7 @@ _You've found the specific company you wanted using the find command earlier, an
 
 <div markdown="block" class="alert alert-info">
 **:information_source: Note:**<br>
-* Upon launching LinkMeIn, you will see your full list of companies. (i.e. `list` command is executed automatically).
+* Upon launching LinkMeIn, you will see your full list of companies (i.e., `list` command is executed automatically).
 </div>
 
 [&uarr; Back to Table of Contents](#table-of-contents)
@@ -819,7 +821,7 @@ arrange your list of applications based on their deadlines!_
 **:information_source: Notes:**<br>
 * Ascending order means that the nearest deadlines will be shown first.
 * Descending order means that the furthest deadlines will be shown first.
-* The case of `SORT_ORDER` does not matter (e.g. `ASCENDING` and `ascending` are treated the same).
+* The case of `SORT_ORDER` does not matter (e.g., `ASCENDING` and `ascending` are treated the same).
 </div>
 
 <div markdown="block" class="alert alert-success">
@@ -978,8 +980,8 @@ Make sure you have Java 11 installed on your machine as the product only runs on
 ### 5. What is an invalid index?
 
 An invalid index is a non-positive integer or an index greater than the number of companies you have.
-e.g -1, 0, a, \*, 1 0 (Only one index is allowed at a time). Positive index should not exceed the maximum allowed range
-of 2147483647.
+Examples: -1, 0, a, \*, 1 0 (Only one index is allowed at a time). Positive index should not exceed the maximum allowed 
+range of 2147483647.
 
 ### 6. Do I need an internet connection to use LinkMeIn?
 
