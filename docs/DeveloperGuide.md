@@ -421,7 +421,7 @@ Upon ascertaining that the edited company is a duplicate,
 
 Below is an activity diagram showing the events when a user attempts to **add** a duplicate company to the company list.
 
-<img src="images/duplicate-detection/add-command/DuplicateActivityDiagram.png" alt="Add Sequence Diagram"/>
+<img src="images/duplicate-detection/add-command/DuplicateActivityDiagram.png" alt="Duplicate Activity Diagram"/>
 
 The purpose of the diagram is to show the difference in the message passing when a duplicate company is detected
 between the `AddCommand` and `EditCommand` classes. Therefore, the diagram omits the propagation of the
